@@ -48,4 +48,4 @@ Right now the command reports the current contract and scaffold state.
 
 ---
 
-*Huemiliator is not your little colour buddy, a tasteful design utility, or an appeals process for weak hexes.*
+*Huemiliator is not a resource for colour theory, collaboration, or grey areas.*
