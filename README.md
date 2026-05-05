@@ -18,7 +18,8 @@ It is a colour one-up spinoff of **[Probaboracle](https://github.com/tryskian/pr
 
 Current state:
 
-- repo initialised
+- public repo live
+- protected `main` plus PR flow in place
 - docs spine in place
 - package scaffold in place
 - runtime not yet implemented

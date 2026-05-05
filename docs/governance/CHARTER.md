@@ -55,6 +55,8 @@ Project posture:
 - keep it small
 - keep it local-first
 - keep it aligned with Polinko's eval discipline
+- keep `main` protected
+- do tracked work on `codex/bigbrain/...` branches
 - root-first changes only
 - no patchwork runtime
 - no verbose docs
@@ -82,6 +84,7 @@ Default execution model:
 - one active kernel at a time
 - visible checkpoints
 - brief, kernel, merge
+- tracked changes land by squash PR into `main`
 - docs stay in sync with real state
 
 ## Documentation Ownership
