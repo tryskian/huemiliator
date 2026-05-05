@@ -4,18 +4,25 @@
 
 - repo: `huemiliator`
 - branch: `main`
-- status: scaffold initialised
+- status: public scaffold initialised
+- branch ruleset: active on default branch
 
 ## Active Kernel
 
-Initialise Huemiliator from the Scorey baseline without overbuilding it.
+Wrap the initial repo setup cleanly and leave the next runtime kernel legible.
 
 Done in this kernel:
 
 - git repo created
+- initial commit pushed
+- public GitHub repo created
+- default-branch ruleset applied
+- `codex/bigbrain/...` branch flow confirmed
 - package scaffold created
 - canonical docs spine created
 - toy contract recorded in tracked docs
+- README intro and badges aligned with the toy-family pattern
+- machine-specific local paths removed from tracked docs
 
 ## Current Contract
 

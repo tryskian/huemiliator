@@ -18,7 +18,9 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 3. Treat the tracked docs as current project state.
 4. Install or refresh the local environment:
    - `make install`
-5. State the active kernel before editing tracked files.
+5. If the kernel will change tracked files, work from a `codex/bigbrain/...`
+   branch rather than `main`.
+6. State the active kernel before editing tracked files.
 
 ## Everyday Commands
 
@@ -28,6 +30,7 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | show tracked docs | `find docs -maxdepth 3 -type f | sort` |
 | inspect recent history | `git log --stat --oneline --max-count=5` |
 | search the current docs surface | `rg -n "<term>" README.md docs src tests` |
+| create a work branch | `git switch -c codex/bigbrain/<kernel-slug>` |
 | install or refresh the runtime env | `make install` |
 | check the environment | `make doctor-env` |
 | show session status | `make session-status` |
@@ -42,6 +45,9 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 
 ## Current Posture
 
+- the repo is public
+- `main` is protected by the default-branch ruleset
+- tracked changes should land through `codex/bigbrain/...` branches and squash PRs
 - the repo is docs-first and scaffold-only
 - no runtime claims should outrun the actual tree
 - colour matching and one-up logic are not implemented yet

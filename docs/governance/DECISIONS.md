@@ -57,3 +57,28 @@ The current repo state is an honest scaffold:
 - docs spine created
 - package skeleton created
 - no implemented runtime yet
+
+### D-006: The repo is public during contract lock
+
+- date: `2026-05-05`
+- status: active
+
+Huemiliator is public before runtime implementation.
+
+The tracked docs should therefore stay honest about the current scaffold state
+and avoid machine-specific local details.
+
+### D-007: `main` is protected and work lands through `codex/bigbrain/...`
+
+- date: `2026-05-05`
+- status: active
+
+The default branch uses the toy-family ruleset shape:
+
+- PR required
+- squash is the only allowed merge method
+- no force pushes
+- no branch deletion
+
+Tracked work should happen on `codex/bigbrain/...` branches and land back in
+`main` through squash PRs.
