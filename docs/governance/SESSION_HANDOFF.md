@@ -2,7 +2,7 @@
 
 ## Current State
 
-- repo: `/Users/tryskian/Github/huemiliator`
+- repo: `huemiliator`
 - branch: `main`
 - status: scaffold initialised
 

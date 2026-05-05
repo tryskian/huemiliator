@@ -13,8 +13,8 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
    - `docs/runtime/ARCHITECTURE.md`
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
-2. Confirm the repo path:
-   - `/Users/tryskian/Github/huemiliator`
+2. Confirm the repo root:
+   - `huemiliator`
 3. Treat the tracked docs as current project state.
 4. Install or refresh the local environment:
    - `make install`
