@@ -1,0 +1,127 @@
+# Huemiliator Charter
+
+## Mission
+
+Huemiliator is a small, local colour toy using the **[Polinko research model](https://github.com/tryskian/polinko)**.
+
+It is a colour one-up spinoff of **[Probaboracle](https://github.com/tryskian/probaboracle)** built from the current **[Scorey](https://github.com/tryskian/scorey)** baseline.
+
+It explores constrained human-AI interaction through deterministic colour
+resolution, family-preserving one-up rules, and strict binary evaluation.
+
+The toy is rooted in the current Scorey baseline:
+
+- keep the runtime narrow
+- move rule ownership into the runtime
+- only leave unstable residue to generation
+
+## Durable Rules
+
+Runtime:
+
+- local-first
+- start from the Scorey house architecture
+- keep the active input surface narrow
+- use the native colour picker as the primary v1 input
+- treat the picker hex as the canonical input state
+- keep Pantone matching deterministic
+- keep family mapping and one-up selection runtime-owned
+- do not add patchwork layers around a weak root contract
+
+Prompt surface:
+
+- one colour picker
+- one visible hex readout
+- no freeform text lane in v1
+
+Responses:
+
+- short
+- dry
+- belittling without becoming sprawling
+- the final colour decision should be runtime-owned
+- if generation is used later, it should only own the unstable line residue
+
+Eval:
+
+- binary verdicts only
+- `pass`
+- `fail`
+- one eval focus at a time
+- prove matching and same-family one-up before broadening into tone
+
+Project posture:
+
+- keep it small
+- keep it local-first
+- keep it aligned with Polinko's eval discipline
+- root-first changes only
+- no patchwork runtime
+- no verbose docs
+
+## Working Model
+
+Human lead owns:
+
+- objective
+- scope boundaries
+- acceptance criteria
+- theory-level interpretation
+- go or no-go decisions
+
+Engineer owns:
+
+- implementation
+- validation
+- runtime hygiene
+- docs upkeep
+- execution recommendations
+
+Default execution model:
+
+- one active kernel at a time
+- visible checkpoints
+- brief, kernel, merge
+- docs stay in sync with real state
+
+## Documentation Ownership
+
+| Doc | Job |
+| --- | --- |
+| `README.md` | public framing and current entrypoint |
+| `docs/governance/DECISIONS.md` | durable engineering, runtime, and eval decisions |
+| `docs/governance/SESSION_HANDOFF.md` | current checkpoint and next kernel |
+| `docs/runtime/ARCHITECTURE.md` | stable system shape |
+| `docs/runtime/RUNBOOK.md` | operator procedure and validation |
+| `docs/research/README.md` | current research framing |
+| `docs/diagrams/PIPELINE.md` | canonical colour resolution and one-up flow |
+
+After runtime, product-shape, or research-method changes, sweep the tracked
+docs before calling the state settled.
+
+## Scope
+
+In scope:
+
+- local runtime
+- native colour picker input
+- deterministic Pantone matching
+- repo-local family taxonomy
+- deterministic same-family one-up rules
+- binary human judgment
+- tracked diagrams and docs
+
+Out of scope:
+
+- freeform text input in v1
+- general chat
+- design-tool positioning
+- arbitrary colour suggestion
+- deployment scaffolding
+
+## Security And Ops
+
+- no live credentials are required for the current scaffold
+- future runtime credentials should load from the repo `.env`
+- local execution is the trusted development boundary
+- local eval data should live under `.local/`
