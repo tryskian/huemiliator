@@ -9,7 +9,7 @@ building toward.
 flowchart LR
   A["native colour picker"]
   B["hex code"]
-  C["nearest pantone match"]
+  C["nearest swatch match from margaret2 reference"]
   D["family assignment"]
   E["same-family rank"]
   F["deterministic one-up"]

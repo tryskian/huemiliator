@@ -29,7 +29,7 @@ What exists now:
 What does not exist yet:
 
 - colour picker surface
-- Pantone dataset ingestion
+- swatch reference ingestion
 - family map
 - one-up resolver
 - eval storage
@@ -38,11 +38,14 @@ What does not exist yet:
 
 1. The user picks a colour through a native colour picker.
 2. The runtime receives a hex code.
-3. The runtime resolves the nearest Pantone entry from the fixed inventory.
-4. The runtime reads the family and rank from Huemiliator-owned metadata.
-5. The runtime selects the deterministic one-up in that same family.
-6. The runtime outputs the better colour.
-7. If a generated line is added later, it should sit after the colour decision,
+3. The runtime resolves the nearest swatch from the fixed
+   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+   reference.
+4. Pantone naming, if used, stays secondary to that reference match.
+5. The runtime reads the family and rank from Huemiliator-owned metadata.
+6. The runtime selects the deterministic one-up in that same family.
+7. The runtime outputs the better colour.
+8. If a generated line is added later, it should sit after the colour decision,
    not inside it.
 
 ## Contracts

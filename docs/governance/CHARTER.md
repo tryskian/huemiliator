@@ -26,7 +26,7 @@ Runtime:
 - keep the active input surface narrow
 - use the native colour picker as the primary v1 input
 - treat the picker hex as the canonical input state
-- keep Pantone matching deterministic
+- keep swatch matching deterministic against the locked `margaret2` reference
 - keep family mapping and one-up selection runtime-owned
 - do not add patchwork layers around a weak root contract
 
@@ -111,7 +111,7 @@ In scope:
 
 - local runtime
 - native colour picker input
-- deterministic Pantone matching
+- deterministic swatch matching from the locked reference source
 - repo-local family taxonomy
 - deterministic same-family one-up rules
 - binary human judgment
