@@ -95,3 +95,15 @@ The tracked public repo should keep:
 - the root `LICENSE` file
 - the README license section
 - SPDX-style package metadata aligned with the tracked license file
+
+### D-009: The README should not advertise a runtime that does not exist
+
+- date: `2026-05-05`
+- status: active
+- decision type: human-led
+
+The README should not carry a `Run It` section until Huemiliator has a real
+runtime surface to run.
+
+Before that point, the top-level docs should describe the current scaffold
+truthfully instead of implying product readiness.
