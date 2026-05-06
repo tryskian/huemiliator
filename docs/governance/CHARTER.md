@@ -55,6 +55,7 @@ Project posture:
 - keep it small
 - keep it local-first
 - keep it aligned with Polinko's eval discipline
+- keep the public repo surface honest during contract lock
 - keep `main` protected
 - do tracked work on `codex/bigbrain/...` branches
 - root-first changes only
@@ -124,6 +125,9 @@ Out of scope:
 
 ## Security And Ops
 
+- the tracked repo is public during contract lock
+- the Apache 2.0 license surface should stay aligned across `LICENSE`,
+  `README.md`, and package metadata
 - no live credentials are required for the current scaffold
 - future runtime credentials should load from the repo `.env`
 - local execution is the trusted development boundary
