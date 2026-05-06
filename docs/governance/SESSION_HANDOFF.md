@@ -4,7 +4,7 @@
 
 - repo: `huemiliator`
 - branch: `main`
-- status: public scaffold initialised
+- status: public scaffold initialised and licensed
 - branch ruleset: active on default branch
 
 ## Active Kernel
@@ -23,6 +23,8 @@ Done in this kernel:
 - toy contract recorded in tracked docs
 - README intro and badges aligned with the toy-family pattern
 - machine-specific local paths removed from tracked docs
+- Apache 2.0 license added and wired into package metadata
+- README closing line tightened to the current hue voice
 
 ## Current Contract
 
@@ -43,3 +45,10 @@ Done in this kernel:
 - define the first family taxonomy
 - define the first one-up ranking rule inside each family
 - decide whether the first runtime surface is CLI-first, web-first, or both
+
+## Stop State
+
+- `main` is clean and protected
+- public repo is live
+- license surface is in place
+- next work should start from a fresh `codex/bigbrain/...` branch

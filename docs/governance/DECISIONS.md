@@ -82,3 +82,16 @@ The default branch uses the toy-family ruleset shape:
 
 Tracked work should happen on `codex/bigbrain/...` branches and land back in
 `main` through squash PRs.
+
+### D-008: The repo is licensed under Apache 2.0
+
+- date: `2026-05-05`
+- status: active
+
+Huemiliator uses an explicit Apache 2.0 license surface.
+
+The tracked public repo should keep:
+
+- the root `LICENSE` file
+- the README license section
+- SPDX-style package metadata aligned with the tracked license file
