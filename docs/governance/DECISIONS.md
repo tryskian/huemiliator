@@ -175,6 +175,21 @@ into implementation authorship.
   - keep the tracked automation surface to:
     - CI on push and pull request
     - weekly Dependabot for pip and GitHub Actions
-    - scheduled stale cleanup for dependency PRs
+  - scheduled stale cleanup for dependency PRs
 - Why: Huemiliator does not need a repo-specific CI invention while the runtime
   contract is still being locked.
+
+## D-011: The official OpenAI Python SDK is part of the scaffold contract
+
+- Date: `2026-05-06`
+- Category: `runtime_engineering`
+- Tags: `openai_sdk`, `dependency_pin`, `scaffold_contract`
+- Provenance: `implementation decision`
+- Decision:
+  - pin the official `openai` Python SDK directly in `pyproject.toml`
+  - treat that pin as part of the scaffold contract for the future runtime
+  - do not let the SDK arrive later as an implicit or transitive dependency
+- Why: Huemiliator does not have a live runtime yet, but the repo already knows
+  the future one-up surface will use the official OpenAI Python SDK. Making
+  that dependency explicit now keeps the package scaffold honest without
+  pretending the runtime is already implemented.
