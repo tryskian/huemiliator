@@ -57,5 +57,7 @@ Current planned sequence:
 Huemiliator belongs to the same toy line, but its progression is different:
 
 - `probaboracle`: closed prompt surface to reasoned generation
-- `scorey`: closed prompt surface to deterministic routing plus reasoned fragments
-- `huemiliator`: open colour selection to deterministic resolution plus deterministic transform
+- `scorey`: closed prompt surface to deterministic routing plus reasoned
+  fragments
+- `huemiliator`: open colour selection to deterministic resolution plus
+  deterministic transform

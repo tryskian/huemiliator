@@ -6,6 +6,7 @@
 - branch: `main`
 - status: public scaffold initialised and licensed
 - branch ruleset: active on default branch
+- GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
@@ -24,6 +25,7 @@ Done in this kernel:
 - README intro and badges aligned with the toy-family pattern
 - machine-specific local paths removed from tracked docs
 - Apache 2.0 license added and wired into package metadata
+- GitHub workflow automation aligned with Scorey
 - README closing line tightened to the current hue voice
 
 ## Current Contract
@@ -36,8 +38,8 @@ Done in this kernel:
   - within-family rank
   - deterministic same-family one-up
 - current output target:
-  - better colour name
-  - short dry line later if needed
+  - replacement shade
+  - one short loss line
 
 ## Next Kernel
 
@@ -51,4 +53,5 @@ Done in this kernel:
 - `main` is clean and protected
 - public repo is live
 - license surface is in place
+- GitHub automation surface is in place
 - next work should start from a fresh `codex/bigbrain/...` branch

@@ -4,7 +4,9 @@
 
 Huemiliator is a small, local colour toy using the **[Polinko research model](https://github.com/tryskian/polinko)**.
 
-It is a colour one-up spinoff of **[Probaboracle](https://github.com/tryskian/probaboracle)** built from the current **[Scorey](https://github.com/tryskian/scorey)** baseline.
+It is a colour one-up spinoff of
+**[Probaboracle](https://github.com/tryskian/probaboracle)** built from the
+current **[Scorey](https://github.com/tryskian/scorey)** baseline.
 
 It explores constrained human-AI interaction through deterministic colour
 resolution, family-preserving one-up rules, and strict binary evaluation.
@@ -93,7 +95,7 @@ Default execution model:
 | Doc | Job |
 | --- | --- |
 | `README.md` | public framing and current entrypoint |
-| `docs/governance/DECISIONS.md` | durable engineering, runtime, and eval decisions |
+| `docs/governance/DECISIONS.md` | durable runtime and eval choices |
 | `docs/governance/SESSION_HANDOFF.md` | current checkpoint and next kernel |
 | `docs/runtime/ARCHITECTURE.md` | stable system shape |
 | `docs/runtime/RUNBOOK.md` | operator procedure and validation |
