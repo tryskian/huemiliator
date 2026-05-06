@@ -26,7 +26,7 @@ Current finding:
 - family assignment and same-family rank remain to be defined
 - no runtime evidence has been produced yet
 
-## Next Research Move
+## Current Clean Lane
 
 The first meaningful runtime kernel should prove:
 

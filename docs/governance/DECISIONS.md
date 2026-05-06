@@ -1,123 +1,177 @@
-# Decisions
+# Decisions Log
 
-This file stores durable runtime, docs, and eval decisions.
+This file is the durable archive of Huemiliator's engineering, runtime, and
+repo-surface decisions.
 
-## Active Decisions
+## How To Use This File
 
-### D-001: Scorey is the active baseline
+- Need the current durable rules:
+  - start with `docs/governance/CHARTER.md`
+- Need the current system shape:
+  - use `docs/runtime/ARCHITECTURE.md`
+- Need the current checkpoint:
+  - use `docs/governance/SESSION_HANDOFF.md`
+- Need the reasoning behind a repo choice:
+  - use this file
 
-- date: `2026-05-05`
-- status: active
+Keep entries short, but informative enough to show what changed and why.
 
-Huemiliator starts from the current Scorey house architecture rather than
-reconstructing from Probaboracle directly.
+## Taxonomy
 
-### D-002: Pantone is the canonical colour inventory
+- `runtime_engineering`
+- `eval_quality`
+- `collaboration_method`
+- `workflow_environment`
 
-- date: `2026-05-05`
-- status: active
+## Provenance Rule
 
-The Pantone repo surface is the canonical matching library for colour names and
-hex codes.
+Each decision should read as one of these:
 
-Huemiliator supplies the missing structure on top:
+- `human-led method decision`
+  - the theory, bridge logic, or eval meaning came from the human lead
+- `repo formalization`
+  - the repo later encoded an already-active method or contract
+- `implementation decision`
+  - the engineering layer chose mechanics after the method was already set
 
-- family assignment
-- within-family rank
-- deterministic one-up rule
+If a decision crosses layers, say so plainly instead of flattening the method
+into implementation authorship.
 
-### D-003: V1 input is picker-first
+## D-001: Start from the current Scorey baseline
 
-- date: `2026-05-05`
-- status: active
+- Date: `2026-05-05`
+- Category: `runtime_engineering`
+- Tags: `scorey_lineage`, `baseline`, `house_architecture`
+- Provenance: `human-led method decision`
+- Decision:
+  - start Huemiliator from the current Scorey house architecture
+  - do not reconstruct the toy outward from Probaboracle directly
+- Why: Huemiliator inherits the current narrow toy architecture from Scorey,
+  even though its input contract and runtime logic are different.
 
-The first runtime lane should use a native colour picker as the primary input.
+## D-002: Pantone is the canonical colour inventory
 
-The picker hex is the canonical user input state. Freeform text does not belong
-in v1.
+- Date: `2026-05-05`
+- Category: `runtime_engineering`
+- Tags: `pantone`, `inventory`, `deterministic_matching`
+- Provenance: `human-led method decision`
+- Decision:
+  - use the Pantone repo surface as the canonical matching library for colour
+    names and hex codes
+  - layer Huemiliator's own structure on top:
+    - family assignment
+    - within-family rank
+    - deterministic one-up rule
+- Why: The toy needs a grounded colour catalogue first, then a narrower runtime
+  rule set that turns that catalogue into one-up behaviour.
 
-### D-004: Runtime owns colour resolution
+## D-003: V1 input is picker-first
 
-- date: `2026-05-05`
-- status: active
+- Date: `2026-05-05`
+- Category: `runtime_engineering`
+- Tags: `picker_input`, `hex_state`, `constrained_input`
+- Provenance: `human-led method decision`
+- Decision:
+  - use a native colour picker as the primary v1 input
+  - treat the picker hex as the canonical user input state
+  - keep freeform text out of the v1 runtime lane
+- Why: Huemiliator is a constrained colour toy, not a chat surface or loose
+  design utility.
 
-Matching, family assignment, and one-up selection should be runtime-owned and
-PASS/FAIL-testable.
+## D-004: Runtime owns colour resolution
 
-If generation is used later, it should not own the final colour decision.
+- Date: `2026-05-05`
+- Category: `runtime_engineering`
+- Tags: `runtime_owned`, `family_mapping`, `one_up_rules`, `generation_boundary`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - keep matching, family assignment, and one-up selection runtime-owned
+  - make that layer PASS/FAIL-testable
+  - if generation is used later, keep it out of the final colour decision
+- Why: The stable colour decision path needs to stay deterministic and
+  evalable, with generation limited to any unstable residue around the final
+  line.
 
-### D-005: Repo initialisation is docs-first
+## D-005: Repo initialization is docs-first
 
-- date: `2026-05-05`
-- status: active
+- Date: `2026-05-05`
+- Category: `workflow_environment`
+- Tags: `docs_first`, `scaffold`, `honest_surface`
+- Provenance: `repo formalization`
+- Decision:
+  - keep the current repo state visibly scaffold-first:
+    - git repo initialized
+    - docs spine created
+    - package skeleton created
+    - no implemented runtime yet
+- Why: The repo should state the current truth clearly instead of pretending the
+  runtime already exists.
 
-The current repo state is an honest scaffold:
+## D-006: The repo stays public during contract lock
 
-- git repo initialised
-- docs spine created
-- package skeleton created
-- no implemented runtime yet
+- Date: `2026-05-05`
+- Category: `workflow_environment`
+- Tags: `public_repo`, `contract_lock`, `honest_docs`
+- Provenance: `human-led method decision`
+- Decision:
+  - keep Huemiliator public before runtime implementation
+  - keep the tracked docs honest about scaffold state
+  - avoid machine-specific local details in the public repo surface
+- Why: The public repo is part of the toy surface during contract lock, so the
+  docs need to be truthful and legible before the runtime lands.
 
-### D-006: The repo is public during contract lock
+## D-007: Protected main and Codex working branches
 
-- date: `2026-05-05`
-- status: active
+- Date: `2026-05-05`
+- Category: `workflow_environment`
+- Tags: `branch_protection`, `pr_flow`, `codex_branches`
+- Provenance: `repo formalization`
+- Decision:
+  - protect `main` with the toy-family ruleset shape:
+    - PR required
+    - squash is the only allowed merge method
+    - no force pushes
+    - no branch deletion
+  - do tracked work on `codex/bigbrain/...` branches and land it through PRs
+- Why: Huemiliator should inherit the same small but deliberate repo hygiene as
+  the sibling toys.
 
-Huemiliator is public before runtime implementation.
+## D-008: Apache 2.0 is part of the tracked public surface
 
-The tracked docs should therefore stay honest about the current scaffold state
-and avoid machine-specific local details.
+- Date: `2026-05-05`
+- Category: `workflow_environment`
+- Tags: `license`, `apache_2_0`, `public_surface`
+- Provenance: `repo formalization`
+- Decision:
+  - keep the Apache 2.0 license surface aligned across:
+    - the root `LICENSE` file
+    - the README license section
+    - SPDX-style package metadata
+- Why: The license is part of the public repo contract, not an afterthought.
 
-### D-007: `main` is protected and work lands through `codex/bigbrain/...`
+## D-009: README should not advertise a runtime that does not exist
 
-- date: `2026-05-05`
-- status: active
+- Date: `2026-05-05`
+- Category: `workflow_environment`
+- Tags: `readme`, `truthful_surface`, `runtime_readiness`
+- Provenance: `human-led method decision`
+- Decision:
+  - do not add a `Run It` section until Huemiliator has a real runtime surface
+  - keep the top-level docs truthful about current scaffold state
+- Why: The README should describe the current repo honestly instead of implying
+  product readiness that the toy has not earned yet.
 
-The default branch uses the toy-family ruleset shape:
+## D-010: Reuse the current Scorey workflow automation surface
 
-- PR required
-- squash is the only allowed merge method
-- no force pushes
-- no branch deletion
-
-Tracked work should happen on `codex/bigbrain/...` branches and land back in
-`main` through squash PRs.
-
-### D-008: The repo is licensed under Apache 2.0
-
-- date: `2026-05-05`
-- status: active
-
-Huemiliator uses an explicit Apache 2.0 license surface.
-
-The tracked public repo should keep:
-
-- the root `LICENSE` file
-- the README license section
-- SPDX-style package metadata aligned with the tracked license file
-
-### D-009: The README should not advertise a runtime that does not exist
-
-- date: `2026-05-05`
-- status: active
-- decision type: human-led
-
-The README should not carry a `Run It` section until Huemiliator has a real
-runtime surface to run.
-
-Before that point, the top-level docs should describe the current scaffold
-truthfully instead of implying product readiness.
-
-### D-010: Huemiliator uses the current Scorey workflow automation surface
-
-- date: `2026-05-05`
-- status: active
-
-Huemiliator should inherit the current Scorey GitHub automation shape rather
-than inventing a repo-specific CI lane during scaffold stage.
-
-The tracked automation surface is:
-
-- CI on push and pull request
-- weekly Dependabot for pip and GitHub Actions
-- scheduled stale cleanup for dependency PRs
+- Date: `2026-05-05`
+- Category: `workflow_environment`
+- Tags: `github_actions`, `dependabot`, `stale_prs`, `scorey_lineage`
+- Provenance: `implementation decision`
+- Decision:
+  - inherit the current Scorey GitHub automation shape during scaffold stage
+  - keep the tracked automation surface to:
+    - CI on push and pull request
+    - weekly Dependabot for pip and GitHub Actions
+    - scheduled stale cleanup for dependency PRs
+- Why: Huemiliator does not need a repo-specific CI invention while the runtime
+  contract is still being locked.

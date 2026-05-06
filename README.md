@@ -9,8 +9,9 @@ Huemiliator is a small, local colour toy using the **[Polinko research model](ht
 
 It is a colour one-up spinoff of
 **[Probaboracle](https://github.com/tryskian/probaboracle)** built from the
-current **[Scorey](https://github.com/tryskian/scorey)** baseline. It inherits
-the same narrow toy architecture, but its runtime contract is different:
+current **[Scorey](https://github.com/tryskian/scorey)** baseline. It keeps the
+same narrow toy-family shape, but turns it into deterministic colour one-upping
+instead of oracle or round play:
 
 - user picks a colour through a native colour picker
 - the runtime receives a hex code
