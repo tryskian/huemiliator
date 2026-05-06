@@ -49,21 +49,24 @@ into implementation authorship.
 - Why: Huemiliator inherits the current narrow toy architecture from Scorey,
   even though its input contract and runtime logic are different.
 
-## D-002: Pantone is the canonical colour inventory
+## D-002: The `margaret2` swatch reference is primary
 
 - Date: `2026-05-05`
 - Category: `runtime_engineering`
-- Tags: `pantone`, `inventory`, `deterministic_matching`
+- Tags: `swatch_reference`, `pantone_secondary`, `deterministic_matching`
 - Provenance: `human-led method decision`
 - Decision:
-  - use the Pantone repo surface as the canonical matching library for colour
-    names and hex codes
+  - use
+    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+    as the primary swatch reference for colour names and hex codes
+  - keep Pantone as a secondary naming layer, not the root truth source
   - layer Huemiliator's own structure on top:
     - family assignment
     - within-family rank
     - deterministic one-up rule
-- Why: The toy needs a grounded colour catalogue first, then a narrower runtime
-  rule set that turns that catalogue into one-up behaviour.
+- Why: The toy needs a specific, grounded swatch reference first, then a
+  narrower runtime rule set that turns that reference surface into one-up
+  behaviour.
 
 ## D-003: V1 input is picker-first
 

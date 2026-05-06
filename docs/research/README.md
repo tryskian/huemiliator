@@ -15,14 +15,17 @@ Current phase:
 
 Current question:
 
-Can a closed picker input support deterministic Pantone resolution and a stable
-same-family one-up rule?
+Can a closed picker input support deterministic swatch resolution from
+[`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+and a stable same-family one-up rule?
 
 Current finding:
 
 - the repo baseline is set
 - the input surface is locked to the native colour picker for v1
-- the canonical inventory source is locked to the Pantone repo surface
+- the canonical swatch reference is locked to
+  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+- Pantone is a secondary naming layer, not the primary source
 - family assignment and same-family rank remain to be defined
 - no runtime evidence has been produced yet
 
@@ -31,7 +34,7 @@ Current finding:
 The first meaningful runtime kernel should prove:
 
 - hex ingestion
-- nearest Pantone resolution
+- nearest swatch resolution from the locked reference source
 - explicit family assignment
 - deterministic one-up in the same family
 
@@ -46,7 +49,7 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. freeze the Pantone dataset into the repo
+1. freeze the `margaret2` swatch reference into the repo
 2. define the first family taxonomy
 3. define the same-family ranking rule
 4. implement the narrow runtime path

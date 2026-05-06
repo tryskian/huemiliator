@@ -32,7 +32,9 @@ Done in this kernel:
 
 - input: native colour picker
 - canonical user state: hex code
-- inventory: Pantone names plus hexes
+- inventory: swatch reference from
+  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+  with Pantone as a secondary naming layer
 - Huemiliator-owned structure:
   - family assignment
   - within-family rank
@@ -43,7 +45,7 @@ Done in this kernel:
 
 ## Next Kernel
 
-- choose the Pantone dataset ingestion format
+- choose the swatch-reference ingestion format
 - define the first family taxonomy
 - define the first one-up ranking rule inside each family
 - decide whether the first runtime surface is CLI-first, web-first, or both

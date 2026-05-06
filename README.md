@@ -15,7 +15,9 @@ instead of oracle or round play:
 
 - user picks a colour through a native colour picker
 - the runtime receives a hex code
-- the runtime resolves that hex to the nearest Pantone entry
+- the runtime resolves that hex against the swatch reference at
+  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+- Pantone stays a secondary naming layer on top of that reference surface
 - the runtime stays in the same family
 - the runtime picks a deterministic one-up colour
 - hue outputs the replacement shade and one short loss line
@@ -32,7 +34,8 @@ Current state:
 ## What This Repo Will Demonstrate
 
 - closed picker input instead of freeform prompt text
-- deterministic catalogue resolution against a fixed Pantone inventory
+- deterministic catalogue resolution against a fixed swatch reference, with
+  Pantone as a secondary layer
 - runtime-owned family mapping and one-up rules
 - binary PASS/FAIL evaluation of matching, routing, and output
 

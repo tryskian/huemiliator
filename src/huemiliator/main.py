@@ -8,7 +8,7 @@ STATUS_LINES: tuple[str, ...] = (
     "status: scaffold only",
     "runtime: not implemented yet",
     "input: native colour picker hex",
-    "resolution: nearest pantone match",
+    "resolution: nearest swatch match from locked reference",
     "transform: same-family deterministic one-up",
     "eval: binary pass/fail",
 )
