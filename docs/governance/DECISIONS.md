@@ -107,3 +107,17 @@ runtime surface to run.
 
 Before that point, the top-level docs should describe the current scaffold
 truthfully instead of implying product readiness.
+
+### D-010: Huemiliator uses the current Scorey workflow automation surface
+
+- date: `2026-05-05`
+- status: active
+
+Huemiliator should inherit the current Scorey GitHub automation shape rather
+than inventing a repo-specific CI lane during scaffold stage.
+
+The tracked automation surface is:
+
+- CI on push and pull request
+- weekly Dependabot for pip and GitHub Actions
+- scheduled stale cleanup for dependency PRs
