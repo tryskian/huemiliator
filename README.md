@@ -31,14 +31,11 @@ Current state:
 - runtime-owned family mapping and one-up rules
 - binary PASS/FAIL evaluation of matching, routing, and output
 
-## Run It
+## Current Surface
 
-```sh
-make install
-huemiliator
-```
-
-Right now the command reports the current contract and scaffold state.
+There is no runnable Huemiliator runtime yet. Right now this repo contains the
+locked contract, docs spine, and package scaffold for the first implementation
+kernel.
 
 ## Read Next
 
