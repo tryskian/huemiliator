@@ -14,7 +14,7 @@ It is a colour one-up spinoff of **[Probaboracle](https://github.com/tryskian/pr
 - the runtime resolves that hex to the nearest Pantone entry
 - the runtime stays in the same family
 - the runtime picks a deterministic one-up colour
-- hue outputs the better colour
+- hue outputs the replacement shade and one short loss line
 
 Current state:
 
