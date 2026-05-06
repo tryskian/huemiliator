@@ -46,6 +46,10 @@ Right now the command reports the current contract and scaffold state.
 - [docs/runtime/ARCHITECTURE.md](./docs/runtime/ARCHITECTURE.md)
 - [docs/research/README.md](./docs/research/README.md)
 
+## License
+
+Apache-2.0. See [LICENSE](./LICENSE).
+
 ---
 
 *Huemiliator is not a resource for colour theory, collaboration, or grey areas.*

@@ -7,6 +7,8 @@ name = "huemiliator"
 version = "0.1.0"
 description = "Deterministic colour one-up toy scaffold within the Probaboracle line."
 readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dependencies = [
   "python-dotenv==1.2.2",
