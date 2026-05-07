@@ -81,9 +81,9 @@ into implementation authorship.
   - use a native UI colour picker as the primary v1 input
   - treat the picker hex as the canonical user input state
   - keep freeform text out of the v1 runtime lane
-- Why: Huemiliator is a constrained colour toy, not a chat surface or loose
-  design utility. The picker choice itself came from the human lead before the
-  repo later formalized it as the live macOS runtime surface.
+- Why: Huemiliator is a constrained colour mini chatbot, not a loose design
+  utility. The picker choice itself came from the human lead before the repo
+  later formalized it as the live macOS runtime surface.
 
 ## D-004: Runtime owns colour resolution
 
