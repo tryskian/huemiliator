@@ -13,9 +13,11 @@ current **[Scorey](https://github.com/tryskian/scorey)** baseline. It keeps the
 same narrow toy-family shape, but turns it into deterministic colour one-upping
 instead of oracle or round play:
 
-- user picks a colour through a native colour picker
+- user picks a colour through a native UI colour picker
 - the runtime receives a hex code
-- the runtime resolves that hex against the swatch reference at
+- the runtime resolves that hex against the archived
+  [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+  source surfaced at
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
 - Pantone stays a secondary naming layer on top of that reference surface
 - the runtime stays in the same family
@@ -52,7 +54,8 @@ huemiliator pick
 huemiliator resolve <hex>
 ```
 
-`huemiliator pick` opens the native colour picker and prints the selected hex.
+`huemiliator pick` opens the native UI colour picker and prints the selected
+hex.
 
 `huemiliator resolve <hex>` resolves a hex value to the nearest swatch from the
 frozen local snapshot at `data/margaret2_swatches.json`, then prints the

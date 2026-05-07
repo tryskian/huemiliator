@@ -25,9 +25,10 @@ Runtime:
 - support the live runtime surface on macOS only
 - start from the Scorey house architecture
 - keep the active input surface narrow
-- use the native colour picker as the primary v1 input
+- use the native UI colour picker as the primary v1 input
 - treat the picker hex as the canonical input state
-- keep swatch matching deterministic against the locked `margaret2` reference
+- keep swatch matching deterministic against the locked archived
+  `margaret2/pantone-colors` source
 - keep nearest-swatch resolution on one fixed distance rule
 - keep tie-breaks deterministic
 - keep the first family taxonomy explicit and closed
@@ -116,7 +117,7 @@ docs before calling the state settled.
 In scope:
 
 - local runtime
-- native colour picker input
+- native UI colour picker input
 - deterministic swatch matching from the locked reference source
 - repo-local family taxonomy
 - deterministic same-family one-up rules
