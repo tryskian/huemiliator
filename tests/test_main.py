@@ -12,6 +12,7 @@ def test_render_status_includes_contract_lines() -> None:
     text = render_status()
     assert "pick a colour. hue's is better." in text
     assert "runtime: native colour picker -> canonical hex" in text
+    assert "swatch snapshot: frozen local margaret2 reference" in text
     assert "transform: not implemented yet" in text
 
 

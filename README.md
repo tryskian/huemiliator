@@ -30,6 +30,7 @@ Current state:
 - docs spine in place
 - package scaffold in place
 - macOS picker kernel in place
+- archived swatch snapshot frozen locally
 - swatch resolution and one-up logic not yet implemented
 
 ## What This Repo Will Demonstrate
@@ -49,6 +50,9 @@ huemiliator pick
 ```
 
 It opens the native colour picker and prints the selected hex.
+
+The archived swatch source is already frozen locally at
+`data/margaret2_swatches.json`.
 
 Swatch resolution, family mapping, and one-up selection are still pending.
 

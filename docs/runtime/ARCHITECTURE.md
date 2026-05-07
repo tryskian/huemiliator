@@ -3,7 +3,8 @@
 This is the fast map of Huemiliator's current shape.
 
 The repo is initialised, the docs spine exists, the package scaffold exists,
-and the first picker kernel is implemented.
+the first picker kernel is implemented, and the archived swatch source is
+frozen locally.
 
 ## System Map
 
@@ -12,9 +13,12 @@ and the first picker kernel is implemented.
 | `README.md` | public framing and current entrypoint |
 | `pyproject.toml` | package metadata and dependency pins |
 | `Makefile` | small operator command surface |
-| `src/huemiliator/config.py` | app constants and future dataset paths |
+| `data/margaret2_swatches.json` | frozen archived swatch snapshot |
+| `src/huemiliator/config.py` | app constants and swatch snapshot path |
 | `src/huemiliator/picker.py` | macOS native picker and hex parsing |
+| `src/huemiliator/swatches.py` | swatch parsing and snapshot loading |
 | `src/huemiliator/main.py` | CLI entrypoint and command routing |
+| `scripts/freeze_margaret2_swatches.py` | snapshot refresh script |
 | `tests/` | runtime and repo contract tests |
 | `docs/` | charter, decisions, runbook, research notes, and diagrams |
 
@@ -27,11 +31,11 @@ What exists now:
 - tracked docs
 - macOS native picker command
 - hex parsing from native picker output
+- frozen local swatch snapshot from the archived source page
 - minimal validation tooling
 
 What does not exist yet:
 
-- swatch reference ingestion
 - family map
 - one-up resolver
 - eval storage
@@ -55,6 +59,7 @@ What does not exist yet:
 - the active input surface should stay narrow
 - the live runtime surface is macOS-local
 - the colour catalogue should stay fixed and repo-local
+- the archived source should be frozen before runtime resolution uses it
 - colour resolution should stay deterministic
 - family mapping should stay explicit
 - one-up selection should stay deterministic
