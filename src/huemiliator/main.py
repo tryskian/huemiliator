@@ -9,6 +9,7 @@ from huemiliator.families import (
     build_family_rank_index,
     select_one_up,
 )
+from huemiliator.loss_lines import loss_line_for_family
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.resolution import ResolutionError, resolve_nearest_swatch
 from huemiliator.swatches import SwatchDatasetError, load_swatch_snapshot
@@ -24,6 +25,7 @@ STATUS_LINES: tuple[str, ...] = (
     "family routing: fixed neutral and hue thresholds",
     "same-family rank: fixed strength ladder",
     "transform: next same-family rank with top-rank clamp",
+    "line: fixed family loss bank",
     "eval: binary pass/fail",
 )
 
@@ -47,6 +49,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Resolve a hex value and emit the deterministic replacement swatch.",
     )
     replace_parser.add_argument("hex_value", help="Hex value to replace.")
+
+    one_up_parser = subparsers.add_parser(
+        "one-up",
+        help="Emit the deterministic replacement shade and short loss line.",
+    )
+    one_up_parser.add_argument("hex_value", help="Hex value to one-up.")
     return parser
 
 
@@ -101,6 +109,24 @@ def render_replacement(hex_value: str) -> str:
     return "\n".join(lines)
 
 
+def render_one_up(hex_value: str) -> str:
+    settings = load_settings()
+    dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
+    resolution = resolve_nearest_swatch(hex_value, dataset)
+    family_rank_index = build_family_rank_index(dataset)
+    ranked_swatch = family_rank_index[resolution.matched.source_order]
+    family_member_index = build_family_member_index(family_rank_index)
+    selection = select_one_up(ranked_swatch, family_member_index)
+    loss_line = loss_line_for_family(selection.replacement.family)
+    lines = [
+        f"input: {resolution.input_hex}",
+        f"replacement shade: {selection.replacement.swatch.name}",
+        f"replacement hex: {selection.replacement.swatch.hex}",
+        loss_line,
+    ]
+    return "\n".join(lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
@@ -122,6 +148,13 @@ def main(argv: list[str] | None = None) -> int:
         try:
             print(render_replacement(args.hex_value))
         except (ResolutionError, SwatchDatasetError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "one-up":
+        try:
+            print(render_one_up(args.hex_value))
+        except (ResolutionError, SwatchDatasetError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1
         return 0

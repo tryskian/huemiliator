@@ -11,7 +11,7 @@ def main() -> int:
     print(
         f".env.example: {'present' if (root / '.env.example').exists() else 'missing'}"
     )
-    print("runtime: picker + swatch resolution + family rank + replacement")
+    print("runtime: picker + swatch resolution + family rank + one-up")
     return 0
 
 
