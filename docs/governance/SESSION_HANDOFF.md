@@ -4,24 +4,24 @@
 
 - repo: `huemiliator`
 - branch: `main`
-- status: public repo with picker kernel, frozen swatch snapshot, and nearest
-  swatch resolution
+- status: public repo with picker kernel, frozen swatch snapshot, nearest
+  swatch resolution, and first family rank layer
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Resolve picker hex against the frozen swatch snapshot and leave family routing next.
+Classify resolved swatches into fixed families and leave one-up selection next.
 
 Done in this kernel:
 
-- ignored local `.vscode/` editor noise from the tracked repo surface
-- added the nearest-swatch resolver against the frozen local snapshot
-- fixed the resolution rule to `delta-e cie76`
-- preserved source order as the tie-break for equal-distance matches
-- exposed `huemiliator resolve <hex>` as the verification surface for this kernel
-- added runtime tests for normalization, distance, and tie-break behavior
-- synced tracked docs and diagram to the new resolution truth
+- added shared colour-metric helpers for deterministic runtime routing
+- fixed the first Huemiliator family taxonomy to a closed family set
+- added same-family rank across the frozen snapshot with one fixed strength ladder
+- exposed family and family rank through `huemiliator resolve <hex>`
+- updated `make doctor-env` to reflect the live runtime truth
+- added runtime tests for family routing and same-family rank
+- synced tracked docs and diagram to the new family-rank truth
 
 ## Current Contract
 
@@ -35,8 +35,8 @@ Done in this kernel:
 - swatch resolution: nearest frozen swatch match by `delta-e cie76` with
   source-order tie-break
 - Huemiliator-owned structure:
-  - family assignment
-  - within-family rank
+  - family assignment from fixed neutral and hue thresholds
+  - within-family rank from one fixed strength ladder
   - deterministic same-family one-up
 - current output target:
   - replacement shade
@@ -44,9 +44,9 @@ Done in this kernel:
 
 ## Next Kernel
 
-- define the first family taxonomy
-- define the first one-up ranking rule inside each family
-- connect nearest swatch results to family-preserving replacement shade selection
+- connect ranked swatches to family-preserving replacement shade selection
+- define the first deterministic one-up step inside each family
+- add PASS/FAIL evidence around replacement correctness
 
 ## Stop State
 
@@ -57,4 +57,5 @@ Done in this kernel:
 - first picker kernel is in place
 - archived swatch snapshot is in place
 - nearest swatch resolution is in place
+- first family taxonomy and rank are in place
 - next work should start from a fresh `codex/bigbrain/...` branch

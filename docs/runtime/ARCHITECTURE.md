@@ -4,7 +4,8 @@ This is the fast map of Huemiliator's current shape.
 
 The repo is initialised, the docs spine exists, the package scaffold exists,
 the picker kernel is implemented, the archived swatch source is frozen locally,
-and nearest-swatch resolution is live.
+nearest-swatch resolution is live, and the first family taxonomy and rank layer
+is live.
 
 ## System Map
 
@@ -15,6 +16,8 @@ and nearest-swatch resolution is live.
 | `Makefile` | small operator command surface |
 | `data/margaret2_swatches.json` | frozen archived swatch snapshot |
 | `src/huemiliator/config.py` | app constants and swatch snapshot path |
+| `src/huemiliator/colour_math.py` | shared colour metrics |
+| `src/huemiliator/families.py` | family taxonomy and same-family ranking |
 | `src/huemiliator/picker.py` | macOS native picker and hex parsing |
 | `src/huemiliator/resolution.py` | nearest-swatch resolver |
 | `src/huemiliator/swatches.py` | swatch parsing and snapshot loading |
@@ -36,11 +39,23 @@ What exists now:
 - nearest-swatch resolution against the frozen local snapshot
 - fixed `delta-e cie76` distance rule
 - source-order tie-break for duplicate-distance matches
+- first closed family taxonomy:
+  - `neutral`
+  - `brown`
+  - `red`
+  - `orange`
+  - `yellow`
+  - `green`
+  - `blue`
+  - `purple`
+  - `pink`
+- same-family rank from one fixed ladder:
+  - chromatic families sort by Lab chroma strength
+  - `neutral` sorts by distance from mid-lightness
 - minimal validation tooling
 
 What does not exist yet:
 
-- family map
 - one-up resolver
 - eval storage
 
@@ -52,10 +67,12 @@ What does not exist yet:
    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
    reference using `delta-e cie76`, with source order as the tie-break.
 4. Pantone naming, if used, stays secondary to that reference match.
-5. The runtime reads the family and rank from Huemiliator-owned metadata.
-6. The runtime selects the deterministic one-up in that same family.
-7. The runtime outputs the replacement shade.
-8. If a generated line is added later, it should sit after the colour decision,
+5. The runtime classifies the matched swatch into a closed Huemiliator-owned
+   family set with fixed neutral and hue thresholds.
+6. The runtime reads the same-family rank from one fixed family-strength ladder.
+7. The runtime selects the deterministic one-up in that same family.
+8. The runtime outputs the replacement shade.
+9. If a generated line is added later, it should sit after the colour decision,
    not inside it.
 
 ## Contracts
@@ -67,7 +84,8 @@ What does not exist yet:
 - colour resolution should stay deterministic
 - swatch distance should stay fixed to `delta-e cie76` until a later tracked change
 - tie-breaks should preserve the frozen source order
-- family mapping should stay explicit
+- family taxonomy should stay explicit and closed
+- same-family rank should stay on one fixed strength ladder
 - one-up selection should stay deterministic
 - eval verdicts should stay binary:
   - `pass`
