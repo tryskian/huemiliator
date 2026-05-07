@@ -35,7 +35,8 @@ Current state:
 - archived swatch snapshot frozen locally
 - nearest swatch resolution in place
 - family taxonomy and same-family rank in place
-- one-up logic not yet implemented
+- deterministic replacement shade selection in place
+- short loss line not yet implemented
 
 ## What This Repo Will Demonstrate
 
@@ -47,11 +48,12 @@ Current state:
 
 ## Current Surface
 
-On macOS, two runnable Huemiliator runtime paths now exist:
+On macOS, three runnable Huemiliator runtime paths now exist:
 
 ```sh
 huemiliator pick
 huemiliator resolve <hex>
+huemiliator replace <hex>
 ```
 
 `huemiliator pick` opens the native UI colour picker and prints the selected
@@ -61,7 +63,10 @@ hex.
 frozen local snapshot at `data/margaret2_swatches.json`, then prints the
 matched family and same-family rank.
 
-One-up selection is still pending.
+`huemiliator replace <hex>` resolves the nearest swatch and emits the
+deterministic same-family replacement shade.
+
+The short loss line is still pending.
 
 ## Read Next
 

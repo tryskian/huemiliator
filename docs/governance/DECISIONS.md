@@ -300,3 +300,19 @@ into implementation authorship.
   kernel can choose a replacement shade. Fixing both the family taxonomy and
   the family rank ladder now keeps the future transform lane deterministic and
   PASS/FAIL-testable.
+
+## D-017: The first one-up step is next-rank, same-family, and non-wrapping
+
+- Date: `2026-05-07`
+- Category: `runtime_engineering`
+- Tags: `one_up_selection`, `replacement_shade`, `top_rank_clamp`, `deterministic_transform`
+- Provenance: `implementation decision`
+- Decision:
+  - expose `huemiliator replace <hex>` as the first replacement-shade surface
+  - resolve the input to the nearest swatch, family, and family rank first
+  - choose the next higher rank inside the same family as the replacement step
+  - clamp at the top family rank instead of wrapping or improvising
+  - leave the short loss line out of this kernel
+- Why: Huemiliator needed a real deterministic replacement path before any
+  language layer. Using one fixed next-rank step keeps the transform easy to
+  test and preserves the same-family contract without adding arbitrary jumps.

@@ -17,7 +17,7 @@ def test_render_status_includes_contract_lines() -> None:
     assert "swatch snapshot: frozen local margaret2 reference" in text
     assert "swatch resolution: nearest snapshot match" in text
     assert "same-family rank: fixed strength ladder" in text
-    assert "transform: not implemented yet" in text
+    assert "transform: next same-family rank with top-rank clamp" in text
 
 
 def test_main_pick_prints_selected_hex() -> None:
@@ -69,6 +69,34 @@ def test_main_resolve_errors_cleanly() -> None:
     assert result == 1
     assert stdout.getvalue() == ""
     assert "invalid resolve input" in stderr.getvalue()
+
+
+def test_main_replace_prints_replacement() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_replacement",
+        return_value="replacement shade: Loud red\nreplacement hex: #d22345",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["replace", "#b79494"])
+
+    assert result == 0
+    assert "replacement shade: Loud red" in stdout.getvalue()
+
+
+def test_main_replace_errors_cleanly() -> None:
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    with patch(
+        "huemiliator.main.render_replacement",
+        side_effect=ResolutionError("invalid replace input"),
+    ):
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            result = main(["replace", "oops"])
+
+    assert result == 1
+    assert stdout.getvalue() == ""
+    assert "invalid replace input" in stderr.getvalue()
 
 
 def test_main_resolve_snapshot_errors_cleanly() -> None:

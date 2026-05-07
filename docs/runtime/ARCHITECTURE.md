@@ -5,7 +5,7 @@ This is the fast map of Huemiliator's current shape.
 The repo is initialised, the docs spine exists, the package scaffold exists,
 the picker kernel is implemented, the archived swatch source is frozen locally,
 nearest-swatch resolution is live, and the first family taxonomy and rank layer
-is live.
+is live, and the first replacement step is live.
 
 ## System Map
 
@@ -53,12 +53,15 @@ What exists now:
 - same-family rank from one fixed ladder:
   - chromatic families sort by Lab chroma strength
   - `neutral` sorts by distance from mid-lightness
+- deterministic replacement rule:
+  - move to the next higher rank inside the same family
+  - clamp at the family top rank
 - minimal validation tooling
 
 What does not exist yet:
 
-- one-up resolver
 - eval storage
+- short loss line
 
 ## Target Runtime Path
 
@@ -73,7 +76,7 @@ What does not exist yet:
 5. The runtime classifies the matched swatch into a closed Huemiliator-owned
    family set with fixed neutral and hue thresholds.
 6. The runtime reads the same-family rank from one fixed family-strength ladder.
-7. The runtime selects the deterministic one-up in that same family.
+7. The runtime selects the next same-family rank, clamped at the family top.
 8. The runtime outputs the replacement shade.
 9. If a generated line is added later, it should sit after the colour decision,
    not inside it.
@@ -89,7 +92,7 @@ What does not exist yet:
 - tie-breaks should preserve the frozen source order
 - family taxonomy should stay explicit and closed
 - same-family rank should stay on one fixed strength ladder
-- one-up selection should stay deterministic
+- one-up selection should stay deterministic and non-wrapping
 - eval verdicts should stay binary:
   - `pass`
   - `fail`
