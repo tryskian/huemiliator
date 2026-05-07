@@ -33,9 +33,10 @@ What exists now:
 - git repo
 - package scaffold
 - tracked docs
-- macOS native picker command
+- macOS native UI picker command
 - hex parsing from native picker output
-- frozen local swatch snapshot from the archived source page
+- frozen local swatch snapshot from the archived `margaret2/pantone-colors`
+  source surface
 - nearest-swatch resolution against the frozen local snapshot
 - fixed `delta-e cie76` distance rule
 - source-order tie-break for duplicate-distance matches
@@ -61,9 +62,11 @@ What does not exist yet:
 
 ## Target Runtime Path
 
-1. The user picks a colour through the native macOS colour picker.
+1. The user picks a colour through the native macOS UI colour picker.
 2. The runtime receives a hex code.
-3. The runtime resolves the nearest swatch from the fixed
+3. The runtime resolves the nearest swatch from the fixed archived
+   [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+   source surfaced at
    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
    reference using `delta-e cie76`, with source order as the tie-break.
 4. Pantone naming, if used, stays secondary to that reference match.

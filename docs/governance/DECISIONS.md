@@ -49,15 +49,17 @@ into implementation authorship.
 - Why: Huemiliator inherits the current narrow toy architecture from Scorey,
   even though its input contract and runtime logic are different.
 
-## D-002: The `margaret2` swatch reference is primary
+## D-002: The archived `margaret2/pantone-colors` source is primary
 
 - Date: `2026-05-05`
 - Category: `runtime_engineering`
 - Tags: `swatch_reference`, `pantone_secondary`, `deterministic_matching`
 - Provenance: `human-led method decision`
 - Decision:
-  - use
-    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+  - use the archived
+    [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+    repo, surfaced publicly at
+    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/),
     as the primary swatch reference for colour names and hex codes
   - keep Pantone as a secondary naming layer, not the root truth source
   - layer Huemiliator's own structure on top:
@@ -66,7 +68,8 @@ into implementation authorship.
     - deterministic one-up rule
 - Why: The toy needs a specific, grounded swatch reference first, then a
   narrower runtime rule set that turns that reference surface into one-up
-  behaviour.
+  behaviour. The source choice itself came from the human lead before the repo
+  later froze it locally.
 
 ## D-003: V1 input is picker-first
 
@@ -75,11 +78,12 @@ into implementation authorship.
 - Tags: `picker_input`, `hex_state`, `constrained_input`
 - Provenance: `human-led method decision`
 - Decision:
-  - use a native colour picker as the primary v1 input
+  - use a native UI colour picker as the primary v1 input
   - treat the picker hex as the canonical user input state
   - keep freeform text out of the v1 runtime lane
 - Why: Huemiliator is a constrained colour toy, not a chat surface or loose
-  design utility.
+  design utility. The picker choice itself came from the human lead before the
+  repo later formalized it as the live macOS runtime surface.
 
 ## D-004: Runtime owns colour resolution
 
@@ -199,7 +203,7 @@ into implementation authorship.
 - Date: `2026-05-06`
 - Category: `runtime_engineering`
 - Tags: `macos_local`, `native_picker`, `canonical_hex`, `first_kernel`
-- Provenance: `human-led method decision with implementation decision`
+- Provenance: `repo formalization`
 - Decision:
   - keep the first live runtime surface macOS-local
   - expose `huemiliator pick` as the first runnable command
@@ -207,8 +211,8 @@ into implementation authorship.
   - print the selected hex as the canonical user state
   - defer swatch resolution and one-up logic to later kernels
 - Why: The toy is a small local lab surface, not a cross-platform product. The
-  native picker is the cleanest root-first way to honor the picker-first input
-  contract without inventing extra UI or premature portability layers.
+  native picker is the cleanest root-first way to honor the earlier human-led
+  picker choice without inventing extra UI or premature portability layers.
 
 ## D-013: Enforce shell-safe PR body creation via file input
 
@@ -230,11 +234,13 @@ into implementation authorship.
 - Date: `2026-05-06`
 - Category: `runtime_engineering`
 - Tags: `swatch_snapshot`, `archived_source`, `repo_local_data`, `provenance`
-- Provenance: `human-led method decision with implementation decision`
+- Provenance: `repo formalization`
 - Decision:
   - freeze the archived
-    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
-    page into a tracked local dataset at `data/margaret2_swatches.json`
+    [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+    source, surfaced at
+    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/),
+    into a tracked local dataset at `data/margaret2_swatches.json`
   - preserve source order, source slug, name, and hex from the HTML rows
   - record source metadata in the snapshot itself:
     - source URL
@@ -242,7 +248,9 @@ into implementation authorship.
     - archived read-only upstream status
   - keep family and rank as Huemiliator-owned layers above the frozen snapshot
 - Why: The runtime should be honest about using the archived public source while
-  remaining deterministic and repo-local at execution time.
+  remaining deterministic and repo-local at execution time. The source choice
+  itself was already human-led; this kernel only formalized it into repo-local
+  data.
 
 ## D-015: Resolve nearest swatches with a fixed distance rule
 

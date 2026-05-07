@@ -21,9 +21,11 @@ same-family one-up rule?
 Current finding:
 
 - the repo baseline is set
-- the input surface is locked to the native colour picker for v1
+- the input surface is locked to the native UI colour picker for v1
 - the first live runtime kernel returns canonical hex from the native picker
-- the canonical swatch reference is locked to
+- the canonical swatch reference is locked to the archived
+  [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+  source surfaced at
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
 - the archived source is frozen locally at `data/margaret2_swatches.json`
 - nearest swatch resolution now runs against the frozen local snapshot

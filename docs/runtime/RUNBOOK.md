@@ -34,7 +34,7 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | install or refresh the runtime env | `make install` |
 | check the environment | `make doctor-env` |
 | show session status | `make session-status` |
-| open the native macOS picker | `huemiliator pick` |
+| open the native macOS UI picker | `huemiliator pick` |
 | resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
 | run tests | `make test` |
 | run lint checks | `make lint` |

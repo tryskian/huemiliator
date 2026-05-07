@@ -26,10 +26,13 @@ Done in this kernel:
 ## Current Contract
 
 - platform: macOS local only
-- input: native colour picker
+- input: native UI colour picker
 - canonical user state: hex code
 - inventory: swatch reference from
-  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+  the archived
+  [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+  source, surfaced at
+  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/),
   frozen locally at `data/margaret2_swatches.json`, with Pantone as a
   secondary naming layer
 - swatch resolution: nearest frozen swatch match by `delta-e cie76` with
