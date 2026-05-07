@@ -11,13 +11,12 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `swatch snapshot`
+- `nearest swatch resolution`
 
 Current question:
 
-Can the captured picker hex support deterministic swatch resolution from
-[`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
-and a stable same-family one-up rule?
+Can the resolved swatch support a stable Huemiliator-owned family taxonomy and
+same-family one-up rule?
 
 Current finding:
 
@@ -27,17 +26,19 @@ Current finding:
 - the canonical swatch reference is locked to
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
 - the archived source is frozen locally at `data/margaret2_swatches.json`
+- nearest swatch resolution now runs against the frozen local snapshot
+- the current distance rule is `delta-e cie76` with a source-order tie-break
 - Pantone is a secondary naming layer, not the primary source
 - family assignment and same-family rank remain to be defined
-- swatch resolution and one-up logic have not been implemented yet
+- one-up logic has not been implemented yet
 
 ## Next Clean Lane
 
 The next meaningful runtime kernel should prove:
 
-- nearest swatch resolution from the locked reference source
 - explicit family assignment
 - deterministic one-up in the same family
+- PASS/FAIL evidence around family routing and replacement correctness
 
 That first evidence lane should stay binary:
 
@@ -52,8 +53,8 @@ Current planned sequence:
 
 1. define the first family taxonomy
 2. define the same-family ranking rule
-3. connect picked hex to the nearest swatch resolution path
-4. add PASS/FAIL evaluation for matching and transform correctness
+3. connect nearest swatch results to the family-preserving replacement path
+4. add PASS/FAIL evaluation for routing and transform correctness
 
 ## Probaboracle And Scorey Context
 

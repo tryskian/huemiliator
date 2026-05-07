@@ -6,6 +6,8 @@ from unittest.mock import patch
 
 from huemiliator.main import main, render_status
 from huemiliator.picker import PickerError
+from huemiliator.resolution import ResolutionError
+from huemiliator.swatches import SwatchDatasetError
 
 
 def test_render_status_includes_contract_lines() -> None:
@@ -13,6 +15,7 @@ def test_render_status_includes_contract_lines() -> None:
     assert "pick a colour. hue's is better." in text
     assert "runtime: native colour picker -> canonical hex" in text
     assert "swatch snapshot: frozen local margaret2 reference" in text
+    assert "swatch resolution: nearest snapshot match" in text
     assert "transform: not implemented yet" in text
 
 
@@ -36,3 +39,46 @@ def test_main_pick_errors_cleanly() -> None:
     assert result == 1
     assert stdout.getvalue() == ""
     assert "picker failed" in stderr.getvalue()
+
+
+def test_main_resolve_prints_nearest_swatch() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_resolution",
+        return_value="input: #f3ece0\nnearest swatch: Egret",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["resolve", "#f3ece0"])
+
+    assert result == 0
+    assert "nearest swatch: Egret" in stdout.getvalue()
+
+
+def test_main_resolve_errors_cleanly() -> None:
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    with patch(
+        "huemiliator.main.render_resolution",
+        side_effect=ResolutionError("invalid resolve input"),
+    ):
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            result = main(["resolve", "oops"])
+
+    assert result == 1
+    assert stdout.getvalue() == ""
+    assert "invalid resolve input" in stderr.getvalue()
+
+
+def test_main_resolve_snapshot_errors_cleanly() -> None:
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    with patch(
+        "huemiliator.main.render_resolution",
+        side_effect=SwatchDatasetError("snapshot load failed"),
+    ):
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            result = main(["resolve", "#f3ece0"])
+
+    assert result == 1
+    assert stdout.getvalue() == ""
+    assert "snapshot load failed" in stderr.getvalue()

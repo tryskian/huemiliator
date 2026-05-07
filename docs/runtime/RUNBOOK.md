@@ -35,6 +35,7 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | check the environment | `make doctor-env` |
 | show session status | `make session-status` |
 | open the native macOS picker | `huemiliator pick` |
+| resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
 | run tests | `make test` |
 | run lint checks | `make lint` |
 | run format checks | `make format-check` |
@@ -49,11 +50,12 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - the repo is public
 - `main` is protected by the default-branch ruleset
 - tracked changes should land through `codex/bigbrain/...` branches and squash PRs
-- the repo is docs-first with a small live picker kernel
+- the repo is docs-first with a small live picker-plus-resolution kernel
 - the current live runtime surface is macOS-only
 - the archived swatch source is frozen into the repo
+- nearest-swatch resolution is live against the frozen local snapshot
 - no runtime claims should outrun the actual tree
-- swatch matching and one-up logic are not implemented yet
+- family routing and one-up logic are not implemented yet
 - use the docs to lock the contract before widening the code
 
 ## Snapshot Refresh
@@ -79,7 +81,7 @@ gh pr create --title "<title>" \
 
 ## Validation
 
-For docs, picker-kernel, snapshot, or scaffold changes:
+For docs, picker-kernel, snapshot, resolution, or scaffold changes:
 
 - read back the changed docs
 - keep claims aligned with the actual tree

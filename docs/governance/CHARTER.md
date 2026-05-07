@@ -28,6 +28,8 @@ Runtime:
 - use the native colour picker as the primary v1 input
 - treat the picker hex as the canonical input state
 - keep swatch matching deterministic against the locked `margaret2` reference
+- keep nearest-swatch resolution on one fixed distance rule
+- keep tie-breaks deterministic
 - keep family mapping and one-up selection runtime-owned
 - do not add patchwork layers around a weak root contract
 

@@ -4,22 +4,24 @@
 
 - repo: `huemiliator`
 - branch: `main`
-- status: public repo with picker kernel and frozen swatch snapshot
+- status: public repo with picker kernel, frozen swatch snapshot, and nearest
+  swatch resolution
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Freeze the archived swatch source cleanly and leave resolution next.
+Resolve picker hex against the frozen swatch snapshot and leave family routing next.
 
 Done in this kernel:
 
-- renamed the config surface to a truthful swatch snapshot path
-- added parser and loader support for the archived `margaret2` source
-- froze the archived swatch page into `data/margaret2_swatches.json`
-- preserved source order, slug, name, and hex in the local snapshot
-- added runtime tests against the real frozen reference
-- synced tracked docs and diagram to the new snapshot truth
+- ignored local `.vscode/` editor noise from the tracked repo surface
+- added the nearest-swatch resolver against the frozen local snapshot
+- fixed the resolution rule to `delta-e cie76`
+- preserved source order as the tie-break for equal-distance matches
+- exposed `huemiliator resolve <hex>` as the verification surface for this kernel
+- added runtime tests for normalization, distance, and tie-break behavior
+- synced tracked docs and diagram to the new resolution truth
 
 ## Current Contract
 
@@ -30,6 +32,8 @@ Done in this kernel:
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
   frozen locally at `data/margaret2_swatches.json`, with Pantone as a
   secondary naming layer
+- swatch resolution: nearest frozen swatch match by `delta-e cie76` with
+  source-order tie-break
 - Huemiliator-owned structure:
   - family assignment
   - within-family rank
@@ -42,7 +46,7 @@ Done in this kernel:
 
 - define the first family taxonomy
 - define the first one-up ranking rule inside each family
-- connect picked hex to nearest swatch resolution
+- connect nearest swatch results to family-preserving replacement shade selection
 
 ## Stop State
 
@@ -52,4 +56,5 @@ Done in this kernel:
 - GitHub automation surface is in place
 - first picker kernel is in place
 - archived swatch snapshot is in place
+- nearest swatch resolution is in place
 - next work should start from a fresh `codex/bigbrain/...` branch

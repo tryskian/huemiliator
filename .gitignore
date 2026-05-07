@@ -16,6 +16,7 @@ htmlcov/
 build/
 dist/
 .history/
+.vscode/
 *.code-workspace
 docs/peanut/**
 !docs/peanut/
