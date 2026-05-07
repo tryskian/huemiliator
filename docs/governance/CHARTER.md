@@ -22,6 +22,7 @@ The toy is rooted in the current Scorey baseline:
 Runtime:
 
 - local-first
+- support the live runtime surface on macOS only
 - start from the Scorey house architecture
 - keep the active input surface narrow
 - use the native colour picker as the primary v1 input
@@ -32,7 +33,7 @@ Runtime:
 
 Prompt surface:
 
-- one colour picker
+- one native macOS colour picker
 - one visible hex readout
 - no freeform text lane in v1
 
@@ -56,6 +57,7 @@ Project posture:
 
 - keep it small
 - keep it local-first
+- keep the live surface macOS-local
 - keep it aligned with Polinko's eval discipline
 - keep the public repo surface honest during contract lock
 - keep `main` protected
@@ -131,6 +133,7 @@ Out of scope:
 - the Apache 2.0 license surface should stay aligned across `LICENSE`,
   `README.md`, and package metadata
 - no live credentials are required for the current scaffold
+- the current live runtime slice does not require credentials
 - future runtime credentials should load from the repo `.env`
 - local execution is the trusted development boundary
 - local eval data should live under `.local/`

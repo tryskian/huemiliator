@@ -102,11 +102,11 @@ into implementation authorship.
 - Tags: `docs_first`, `scaffold`, `honest_surface`
 - Provenance: `repo formalization`
 - Decision:
-  - keep the current repo state visibly scaffold-first:
+  - start the repo as an honest docs-first scaffold:
     - git repo initialized
     - docs spine created
     - package skeleton created
-    - no implemented runtime yet
+    - no fake runtime surface before code exists
 - Why: The repo should state the current truth clearly instead of pretending the
   runtime already exists.
 
@@ -193,3 +193,19 @@ into implementation authorship.
   the future one-up surface will use the official OpenAI Python SDK. Making
   that dependency explicit now keeps the package scaffold honest without
   pretending the runtime is already implemented.
+
+## D-012: The first live runtime slice is a macOS native picker
+
+- Date: `2026-05-06`
+- Category: `runtime_engineering`
+- Tags: `macos_local`, `native_picker`, `canonical_hex`, `first_kernel`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - keep the first live runtime surface macOS-local
+  - expose `huemiliator pick` as the first runnable command
+  - invoke the native picker through `osascript`
+  - print the selected hex as the canonical user state
+  - defer swatch resolution and one-up logic to later kernels
+- Why: The toy is a small local lab surface, not a cross-platform product. The
+  native picker is the cleanest root-first way to honor the picker-first input
+  contract without inventing extra UI or premature portability layers.

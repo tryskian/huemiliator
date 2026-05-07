@@ -2,8 +2,8 @@
 
 This is the fast map of Huemiliator's current shape.
 
-The repo is initialised, the docs spine exists, and the package scaffold exists.
-The runtime is not yet implemented.
+The repo is initialised, the docs spine exists, the package scaffold exists,
+and the first picker kernel is implemented.
 
 ## System Map
 
@@ -13,8 +13,9 @@ The runtime is not yet implemented.
 | `pyproject.toml` | package metadata and dependency pins |
 | `Makefile` | small operator command surface |
 | `src/huemiliator/config.py` | app constants and future dataset paths |
-| `src/huemiliator/main.py` | current scaffold entrypoint |
-| `tests/` | scaffold contract tests |
+| `src/huemiliator/picker.py` | macOS native picker and hex parsing |
+| `src/huemiliator/main.py` | CLI entrypoint and command routing |
+| `tests/` | runtime and repo contract tests |
 | `docs/` | charter, decisions, runbook, research notes, and diagrams |
 
 ## Current State
@@ -24,11 +25,12 @@ What exists now:
 - git repo
 - package scaffold
 - tracked docs
+- macOS native picker command
+- hex parsing from native picker output
 - minimal validation tooling
 
 What does not exist yet:
 
-- colour picker surface
 - swatch reference ingestion
 - family map
 - one-up resolver
@@ -36,7 +38,7 @@ What does not exist yet:
 
 ## Target Runtime Path
 
-1. The user picks a colour through a native colour picker.
+1. The user picks a colour through the native macOS colour picker.
 2. The runtime receives a hex code.
 3. The runtime resolves the nearest swatch from the fixed
    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
@@ -44,13 +46,14 @@ What does not exist yet:
 4. Pantone naming, if used, stays secondary to that reference match.
 5. The runtime reads the family and rank from Huemiliator-owned metadata.
 6. The runtime selects the deterministic one-up in that same family.
-7. The runtime outputs the better colour.
+7. The runtime outputs the replacement shade.
 8. If a generated line is added later, it should sit after the colour decision,
    not inside it.
 
 ## Contracts
 
 - the active input surface should stay narrow
+- the live runtime surface is macOS-local
 - the colour catalogue should stay fixed and repo-local
 - colour resolution should stay deterministic
 - family mapping should stay explicit
