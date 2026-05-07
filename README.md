@@ -1,6 +1,6 @@
 # Huemiliator
 
-[![Research Phase](https://img.shields.io/badge/research_phase-contract%20lock-E15759)](./docs/research/README.md)
+[![Research Phase](https://img.shields.io/badge/research_phase-pre%20beta-E15759)](./docs/research/README.md)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
 
 ## pick a colour. hue's is better
@@ -31,7 +31,8 @@ Current state:
 - package scaffold in place
 - macOS picker kernel in place
 - archived swatch snapshot frozen locally
-- swatch resolution and one-up logic not yet implemented
+- nearest swatch resolution in place
+- family mapping and one-up logic not yet implemented
 
 ## What This Repo Will Demonstrate
 
@@ -43,18 +44,19 @@ Current state:
 
 ## Current Surface
 
-On macOS, one runnable Huemiliator runtime path now exists:
+On macOS, two runnable Huemiliator runtime paths now exist:
 
 ```sh
 huemiliator pick
+huemiliator resolve <hex>
 ```
 
-It opens the native colour picker and prints the selected hex.
+`huemiliator pick` opens the native colour picker and prints the selected hex.
 
-The archived swatch source is already frozen locally at
-`data/margaret2_swatches.json`.
+`huemiliator resolve <hex>` resolves a hex value to the nearest swatch from the
+frozen local snapshot at `data/margaret2_swatches.json`.
 
-Swatch resolution, family mapping, and one-up selection are still pending.
+Family mapping and one-up selection are still pending.
 
 ## Read Next
 

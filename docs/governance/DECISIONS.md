@@ -243,3 +243,21 @@ into implementation authorship.
   - keep family and rank as Huemiliator-owned layers above the frozen snapshot
 - Why: The runtime should be honest about using the archived public source while
   remaining deterministic and repo-local at execution time.
+
+## D-015: Resolve nearest swatches with a fixed distance rule
+
+- Date: `2026-05-06`
+- Category: `runtime_engineering`
+- Tags: `nearest_swatch`, `delta_e_cie76`, `source_order`, `deterministic_resolution`
+- Provenance: `implementation decision`
+- Decision:
+  - normalize runtime hex input to lowercase canonical `#rrggbb` before matching
+  - resolve the nearest swatch against `data/margaret2_swatches.json`
+  - use `delta-e cie76` as the fixed colour-distance rule
+  - break equal-distance ties by the preserved source order from the frozen snapshot
+  - expose `huemiliator resolve <hex>` as the narrow verification surface
+    for this kernel
+- Why: The runtime needs one explicit nearest-swatch rule before family routing
+  or one-up logic can be built on top. The frozen snapshot already preserves
+  source order, and the reference contains at least one duplicate hex, so the
+  tie-break must be fixed instead of improvised.

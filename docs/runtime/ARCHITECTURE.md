@@ -3,8 +3,8 @@
 This is the fast map of Huemiliator's current shape.
 
 The repo is initialised, the docs spine exists, the package scaffold exists,
-the first picker kernel is implemented, and the archived swatch source is
-frozen locally.
+the picker kernel is implemented, the archived swatch source is frozen locally,
+and nearest-swatch resolution is live.
 
 ## System Map
 
@@ -16,6 +16,7 @@ frozen locally.
 | `data/margaret2_swatches.json` | frozen archived swatch snapshot |
 | `src/huemiliator/config.py` | app constants and swatch snapshot path |
 | `src/huemiliator/picker.py` | macOS native picker and hex parsing |
+| `src/huemiliator/resolution.py` | nearest-swatch resolver |
 | `src/huemiliator/swatches.py` | swatch parsing and snapshot loading |
 | `src/huemiliator/main.py` | CLI entrypoint and command routing |
 | `scripts/freeze_margaret2_swatches.py` | snapshot refresh script |
@@ -32,6 +33,9 @@ What exists now:
 - macOS native picker command
 - hex parsing from native picker output
 - frozen local swatch snapshot from the archived source page
+- nearest-swatch resolution against the frozen local snapshot
+- fixed `delta-e cie76` distance rule
+- source-order tie-break for duplicate-distance matches
 - minimal validation tooling
 
 What does not exist yet:
@@ -46,7 +50,7 @@ What does not exist yet:
 2. The runtime receives a hex code.
 3. The runtime resolves the nearest swatch from the fixed
    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
-   reference.
+   reference using `delta-e cie76`, with source order as the tie-break.
 4. Pantone naming, if used, stays secondary to that reference match.
 5. The runtime reads the family and rank from Huemiliator-owned metadata.
 6. The runtime selects the deterministic one-up in that same family.
@@ -61,6 +65,8 @@ What does not exist yet:
 - the colour catalogue should stay fixed and repo-local
 - the archived source should be frozen before runtime resolution uses it
 - colour resolution should stay deterministic
+- swatch distance should stay fixed to `delta-e cie76` until a later tracked change
+- tie-breaks should preserve the frozen source order
 - family mapping should stay explicit
 - one-up selection should stay deterministic
 - eval verdicts should stay binary:
