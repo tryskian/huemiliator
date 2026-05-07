@@ -209,3 +209,18 @@ into implementation authorship.
 - Why: The toy is a small local lab surface, not a cross-platform product. The
   native picker is the cleanest root-first way to honor the picker-first input
   contract without inventing extra UI or premature portability layers.
+
+## D-013: Enforce shell-safe PR body creation via file input
+
+- Date: `2026-05-06`
+- Category: `workflow_environment`
+- Tags: `github`, `pr_workflow`, `shell_safety`, `quoting`
+- Provenance: `repo formalization`
+- Decision:
+  - use `gh pr create --body-file <path>` as the default path for multiline PR
+    descriptions
+  - avoid inline `--body "..."` strings when content includes Markdown
+    backticks or shell-sensitive characters
+  - allow quoted heredoc as fallback when a body file is not practical
+- Why: This keeps PR metadata deterministic and prevents shell substitution from
+  mangling code spans such as ``huemiliator pick``.
