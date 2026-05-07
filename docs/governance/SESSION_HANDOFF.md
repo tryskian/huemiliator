@@ -4,32 +4,25 @@
 
 - repo: `huemiliator`
 - branch: `main`
-- status: public scaffold initialised and licensed
+- status: public repo with first macOS picker kernel
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Wrap the initial repo setup cleanly and leave the next runtime kernel legible.
+Ship the first live runtime slice cleanly and leave swatch resolution next.
 
 Done in this kernel:
 
-- git repo created
-- initial commit pushed
-- public GitHub repo created
-- default-branch ruleset applied
-- `codex/bigbrain/...` branch flow confirmed
-- package scaffold created
-- canonical docs spine created
-- toy contract recorded in tracked docs
-- README intro and badges aligned with the toy-family pattern
-- machine-specific local paths removed from tracked docs
-- Apache 2.0 license added and wired into package metadata
-- GitHub workflow automation aligned with Scorey
-- README closing line tightened to the current hue voice
+- macOS-only runtime boundary made explicit
+- native picker command added at `huemiliator pick`
+- native picker output resolved to canonical hex
+- picker parsing and cancellation tests added
+- tracked docs and diagram synced to the new partial runtime truth
 
 ## Current Contract
 
+- platform: macOS local only
 - input: native colour picker
 - canonical user state: hex code
 - inventory: swatch reference from
@@ -48,7 +41,7 @@ Done in this kernel:
 - choose the swatch-reference ingestion format
 - define the first family taxonomy
 - define the first one-up ranking rule inside each family
-- decide whether the first runtime surface is CLI-first, web-first, or both
+- connect picked hex to nearest swatch resolution
 
 ## Stop State
 
@@ -56,4 +49,5 @@ Done in this kernel:
 - public repo is live
 - license surface is in place
 - GitHub automation surface is in place
+- first picker kernel is in place
 - next work should start from a fresh `codex/bigbrain/...` branch

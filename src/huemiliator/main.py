@@ -1,15 +1,18 @@
 from __future__ import annotations
 
 import argparse
+import sys
 
 from huemiliator.config import TAGLINE, load_settings
+from huemiliator.picker import PickerError, pick_hex
 
 STATUS_LINES: tuple[str, ...] = (
-    "status: scaffold only",
-    "runtime: not implemented yet",
+    "status: partial runtime",
+    "platform: macos local only",
+    "runtime: native colour picker -> canonical hex",
     "input: native colour picker hex",
-    "resolution: nearest swatch match from locked reference",
-    "transform: same-family deterministic one-up",
+    "swatch resolution: not implemented yet",
+    "transform: not implemented yet",
     "eval: binary pass/fail",
 )
 
@@ -19,9 +22,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=("status", "contract"),
+        choices=("status", "contract", "pick"),
         default="status",
-        help="Show the current scaffold state.",
+        help="Show the current runtime state or open the native picker.",
     )
     return parser
 
@@ -33,8 +36,16 @@ def render_status() -> str:
     return "\n".join(lines)
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
-    parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.command == "pick":
+        try:
+            print(pick_hex())
+        except PickerError as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+
     print(render_status())
     return 0

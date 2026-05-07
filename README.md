@@ -29,7 +29,8 @@ Current state:
 - GitHub automation in place
 - docs spine in place
 - package scaffold in place
-- runtime not yet implemented
+- macOS picker kernel in place
+- swatch resolution and one-up logic not yet implemented
 
 ## What This Repo Will Demonstrate
 
@@ -41,9 +42,15 @@ Current state:
 
 ## Current Surface
 
-There is no runnable Huemiliator runtime yet. Right now this repo contains the
-locked contract, docs spine, and package scaffold for the first implementation
-kernel.
+On macOS, one runnable Huemiliator runtime path now exists:
+
+```sh
+huemiliator pick
+```
+
+It opens the native colour picker and prints the selected hex.
+
+Swatch resolution, family mapping, and one-up selection are still pending.
 
 ## Read Next
 

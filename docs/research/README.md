@@ -2,7 +2,7 @@
 
 Huemiliator keeps the tracked research lane small on purpose.
 
-The repo is in contract-lock stage. No runtime evidence exists yet.
+The repo is still in pre-beta, but the first runtime slice now exists.
 
 Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 
@@ -11,11 +11,11 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `contract lock`
+- `picker kernel`
 
 Current question:
 
-Can a closed picker input support deterministic swatch resolution from
+Can the captured picker hex support deterministic swatch resolution from
 [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
 and a stable same-family one-up rule?
 
@@ -23,17 +23,17 @@ Current finding:
 
 - the repo baseline is set
 - the input surface is locked to the native colour picker for v1
+- the first live runtime kernel returns canonical hex from the native picker
 - the canonical swatch reference is locked to
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
 - Pantone is a secondary naming layer, not the primary source
 - family assignment and same-family rank remain to be defined
-- no runtime evidence has been produced yet
+- swatch resolution and one-up logic have not been implemented yet
 
-## Current Clean Lane
+## Next Clean Lane
 
-The first meaningful runtime kernel should prove:
+The next meaningful runtime kernel should prove:
 
-- hex ingestion
 - nearest swatch resolution from the locked reference source
 - explicit family assignment
 - deterministic one-up in the same family
@@ -52,7 +52,7 @@ Current planned sequence:
 1. freeze the `margaret2` swatch reference into the repo
 2. define the first family taxonomy
 3. define the same-family ranking rule
-4. implement the narrow runtime path
+4. connect picked hex to the nearest swatch resolution path
 5. add PASS/FAIL evaluation for matching and transform correctness
 
 ## Probaboracle And Scorey Context
