@@ -11,7 +11,7 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `picker kernel`
+- `swatch snapshot`
 
 Current question:
 
@@ -26,6 +26,7 @@ Current finding:
 - the first live runtime kernel returns canonical hex from the native picker
 - the canonical swatch reference is locked to
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+- the archived source is frozen locally at `data/margaret2_swatches.json`
 - Pantone is a secondary naming layer, not the primary source
 - family assignment and same-family rank remain to be defined
 - swatch resolution and one-up logic have not been implemented yet
@@ -49,11 +50,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. freeze the `margaret2` swatch reference into the repo
-2. define the first family taxonomy
-3. define the same-family ranking rule
-4. connect picked hex to the nearest swatch resolution path
-5. add PASS/FAIL evaluation for matching and transform correctness
+1. define the first family taxonomy
+2. define the same-family ranking rule
+3. connect picked hex to the nearest swatch resolution path
+4. add PASS/FAIL evaluation for matching and transform correctness
 
 ## Probaboracle And Scorey Context
 

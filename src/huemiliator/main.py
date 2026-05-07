@@ -11,6 +11,7 @@ STATUS_LINES: tuple[str, ...] = (
     "platform: macos local only",
     "runtime: native colour picker -> canonical hex",
     "input: native colour picker hex",
+    "swatch snapshot: frozen local margaret2 reference",
     "swatch resolution: not implemented yet",
     "transform: not implemented yet",
     "eval: binary pass/fail",

@@ -224,3 +224,22 @@ into implementation authorship.
   - allow quoted heredoc as fallback when a body file is not practical
 - Why: This keeps PR metadata deterministic and prevents shell substitution from
   mangling code spans such as ``huemiliator pick``.
+
+## D-014: Freeze the archived swatch reference into a local snapshot
+
+- Date: `2026-05-06`
+- Category: `runtime_engineering`
+- Tags: `swatch_snapshot`, `archived_source`, `repo_local_data`, `provenance`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - freeze the archived
+    [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
+    page into a tracked local dataset at `data/margaret2_swatches.json`
+  - preserve source order, source slug, name, and hex from the HTML rows
+  - record source metadata in the snapshot itself:
+    - source URL
+    - snapshot date
+    - archived read-only upstream status
+  - keep family and rank as Huemiliator-owned layers above the frozen snapshot
+- Why: The runtime should be honest about using the archived public source while
+  remaining deterministic and repo-local at execution time.

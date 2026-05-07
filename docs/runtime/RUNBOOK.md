@@ -31,7 +31,6 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | inspect recent history | `git log --stat --oneline --max-count=5` |
 | search the current docs surface | `rg -n "<term>" README.md docs src tests` |
 | create a work branch | `git switch -c codex/bigbrain/<kernel-slug>` |
-| open a PR via file | `gh pr create --title "<title>" --body-file <path>` |
 | install or refresh the runtime env | `make install` |
 | check the environment | `make doctor-env` |
 | show session status | `make session-status` |
@@ -52,9 +51,16 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - tracked changes should land through `codex/bigbrain/...` branches and squash PRs
 - the repo is docs-first with a small live picker kernel
 - the current live runtime surface is macOS-only
+- the archived swatch source is frozen into the repo
 - no runtime claims should outrun the actual tree
 - swatch matching and one-up logic are not implemented yet
 - use the docs to lock the contract before widening the code
+
+## Snapshot Refresh
+
+```sh
+PYTHONPATH=src .venv/bin/python scripts/freeze_margaret2_swatches.py
+```
 
 ## Pull Request Hygiene
 
@@ -64,9 +70,16 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - if a body file is awkward, use a quoted heredoc rather than raw inline shell
   interpolation
 
+Example:
+
+```sh
+gh pr create --title "<title>" \
+  --body-file <path>
+```
+
 ## Validation
 
-For docs, picker-kernel, or scaffold changes:
+For docs, picker-kernel, snapshot, or scaffold changes:
 
 - read back the changed docs
 - keep claims aligned with the actual tree

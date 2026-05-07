@@ -4,21 +4,22 @@
 
 - repo: `huemiliator`
 - branch: `main`
-- status: public repo with first macOS picker kernel
+- status: public repo with picker kernel and frozen swatch snapshot
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Ship the first live runtime slice cleanly and leave swatch resolution next.
+Freeze the archived swatch source cleanly and leave resolution next.
 
 Done in this kernel:
 
-- macOS-only runtime boundary made explicit
-- native picker command added at `huemiliator pick`
-- native picker output resolved to canonical hex
-- picker parsing and cancellation tests added
-- tracked docs and diagram synced to the new partial runtime truth
+- renamed the config surface to a truthful swatch snapshot path
+- added parser and loader support for the archived `margaret2` source
+- froze the archived swatch page into `data/margaret2_swatches.json`
+- preserved source order, slug, name, and hex in the local snapshot
+- added runtime tests against the real frozen reference
+- synced tracked docs and diagram to the new snapshot truth
 
 ## Current Contract
 
@@ -27,7 +28,8 @@ Done in this kernel:
 - canonical user state: hex code
 - inventory: swatch reference from
   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
-  with Pantone as a secondary naming layer
+  frozen locally at `data/margaret2_swatches.json`, with Pantone as a
+  secondary naming layer
 - Huemiliator-owned structure:
   - family assignment
   - within-family rank
@@ -38,7 +40,6 @@ Done in this kernel:
 
 ## Next Kernel
 
-- choose the swatch-reference ingestion format
 - define the first family taxonomy
 - define the first one-up ranking rule inside each family
 - connect picked hex to nearest swatch resolution
@@ -50,4 +51,5 @@ Done in this kernel:
 - license surface is in place
 - GitHub automation surface is in place
 - first picker kernel is in place
+- archived swatch snapshot is in place
 - next work should start from a fresh `codex/bigbrain/...` branch
