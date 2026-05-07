@@ -5,13 +5,14 @@
 
 ## pick a colour. hue's is better
 
-Huemiliator is a small, local colour toy using the **[Polinko research model](https://github.com/tryskian/polinko)**.
+Huemiliator is a small, local colour mini chatbot using the
+**[Polinko research model](https://github.com/tryskian/polinko)**.
 
 It is a colour one-up spinoff of
 **[Probaboracle](https://github.com/tryskian/probaboracle)** built from the
 current **[Scorey](https://github.com/tryskian/scorey)** baseline. It keeps the
-same narrow toy-family shape, but turns it into deterministic colour one-upping
-instead of oracle or round play:
+same narrow mini-chatbot family shape, but turns it into deterministic colour
+one-upping instead of oracle or round play:
 
 - user picks a colour through a native UI colour picker
 - the runtime receives a hex code
