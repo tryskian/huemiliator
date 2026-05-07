@@ -37,7 +37,7 @@ Current state:
 - nearest swatch resolution in place
 - family taxonomy and same-family rank in place
 - deterministic replacement shade selection in place
-- short loss line not yet implemented
+- deterministic short loss line in place
 
 ## What This Repo Will Demonstrate
 
@@ -49,12 +49,13 @@ Current state:
 
 ## Current Surface
 
-On macOS, three runnable Huemiliator runtime paths now exist:
+On macOS, four runnable Huemiliator runtime paths now exist:
 
 ```sh
 huemiliator pick
 huemiliator resolve <hex>
 huemiliator replace <hex>
+huemiliator one-up <hex>
 ```
 
 `huemiliator pick` opens the native UI colour picker and prints the selected
@@ -67,7 +68,8 @@ matched family and same-family rank.
 `huemiliator replace <hex>` resolves the nearest swatch and emits the
 deterministic same-family replacement shade.
 
-The short loss line is still pending.
+`huemiliator one-up <hex>` emits the replacement shade and one short
+deterministic loss line from a fixed family bank.
 
 ## Read Next
 

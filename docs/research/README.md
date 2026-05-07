@@ -11,7 +11,7 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `replacement shade selection`
+- `deterministic final reply shape`
 
 Current question:
 
@@ -44,14 +44,14 @@ Current finding:
 - the first same-family rank ladder is now fixed
 - the first deterministic replacement step is now fixed to next-rank,
   same-family, and top-rank clamp
-- the short loss line has not been implemented yet
+- the short loss line now comes from a fixed family-keyed bank
 
 ## Next Clean Lane
 
 The next meaningful runtime kernel should prove:
 
-- stable final output shape around the deterministic replacement shade
-- PASS/FAIL evidence around family routing and replacement correctness
+- PASS/FAIL evidence around routing and replacement correctness
+- a small local evidence surface for inspecting outputs
 
 That first evidence lane should stay binary:
 
@@ -64,8 +64,8 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. add the short loss line after the deterministic replacement shade
-2. add PASS/FAIL evaluation for routing and transform correctness
+1. add PASS/FAIL evaluation for routing and transform correctness
+2. add a small local evidence surface for storing and inspecting outputs
 
 ## Probaboracle And Scorey Context
 

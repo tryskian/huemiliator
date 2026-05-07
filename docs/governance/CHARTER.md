@@ -35,6 +35,7 @@ Runtime:
 - keep the first family taxonomy explicit and closed
 - keep same-family rank on one fixed strength ladder
 - keep the first one-up step to one non-wrapping same-family rank move
+- keep the first loss-line layer fixed-bank and downstream of the colour decision
 - keep family mapping and one-up selection runtime-owned
 - do not add patchwork layers around a weak root contract
 

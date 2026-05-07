@@ -18,6 +18,7 @@ def test_render_status_includes_contract_lines() -> None:
     assert "swatch resolution: nearest snapshot match" in text
     assert "same-family rank: fixed strength ladder" in text
     assert "transform: next same-family rank with top-rank clamp" in text
+    assert "line: fixed family loss bank" in text
 
 
 def test_main_pick_prints_selected_hex() -> None:
@@ -97,6 +98,38 @@ def test_main_replace_errors_cleanly() -> None:
     assert result == 1
     assert stdout.getvalue() == ""
     assert "invalid replace input" in stderr.getvalue()
+
+
+def test_main_one_up_prints_loss_line() -> None:
+    stdout = io.StringIO()
+    output = (
+        "replacement shade: High risk red\nthe idea was right. the nerve was missing."
+    )
+    with patch(
+        "huemiliator.main.render_one_up",
+        return_value=output,
+    ):
+        with redirect_stdout(stdout):
+            result = main(["one-up", "#d22345"])
+
+    assert result == 0
+    assert "replacement shade: High risk red" in stdout.getvalue()
+    assert "the nerve was missing." in stdout.getvalue()
+
+
+def test_main_one_up_errors_cleanly() -> None:
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    with patch(
+        "huemiliator.main.render_one_up",
+        side_effect=ValueError("unknown loss-line family"),
+    ):
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            result = main(["one-up", "oops"])
+
+    assert result == 1
+    assert stdout.getvalue() == ""
+    assert "unknown loss-line family" in stderr.getvalue()
 
 
 def test_main_resolve_snapshot_errors_cleanly() -> None:

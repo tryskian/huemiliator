@@ -316,3 +316,20 @@ into implementation authorship.
 - Why: Huemiliator needed a real deterministic replacement path before any
   language layer. Using one fixed next-rank step keeps the transform easy to
   test and preserves the same-family contract without adding arbitrary jumps.
+
+## D-018: The first loss-line layer is a fixed family bank
+
+- Date: `2026-05-07`
+- Category: `runtime_engineering`
+- Tags: `loss_line`, `fixed_bank`, `family_keyed`, `final_output_shape`
+- Provenance: `implementation decision`
+- Decision:
+  - expose `huemiliator one-up <hex>` as the first full reply surface
+  - keep `replace` as the lower-level deterministic replacement inspection lane
+  - emit one short fixed line from a family-keyed bank after the replacement
+    shade
+  - keep the line layer deterministic and model-free
+  - keep the line layer downstream of the colour decision
+- Why: Huemiliator needed a final reply surface without weakening the runtime
+  contract. A tiny fixed family bank preserves the short snark layer while
+  keeping the colour choice fully separable and PASS/FAIL-testable.

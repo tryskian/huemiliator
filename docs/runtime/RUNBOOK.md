@@ -37,6 +37,7 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | open the native macOS UI picker | `huemiliator pick` |
 | resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
 | emit the deterministic replacement shade | `huemiliator replace <hex>` |
+| emit the full deterministic one-up reply | `huemiliator one-up <hex>` |
 | run tests | `make test` |
 | run lint checks | `make lint` |
 | run format checks | `make format-check` |
@@ -57,8 +58,8 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - nearest-swatch resolution is live against the frozen local snapshot
 - family routing and same-family rank are live against fixed runtime rules
 - deterministic same-family replacement is live with a top-rank clamp
+- deterministic short loss lines are live from a fixed family bank
 - no runtime claims should outrun the actual tree
-- short loss line is not implemented yet
 - use the docs to lock the contract before widening the code
 
 ## Snapshot Refresh
