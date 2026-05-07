@@ -31,6 +31,7 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | inspect recent history | `git log --stat --oneline --max-count=5` |
 | search the current docs surface | `rg -n "<term>" README.md docs src tests` |
 | create a work branch | `git switch -c codex/bigbrain/<kernel-slug>` |
+| open a PR via file | `gh pr create --title "<title>" --body-file <path>` |
 | install or refresh the runtime env | `make install` |
 | check the environment | `make doctor-env` |
 | show session status | `make session-status` |
@@ -54,6 +55,14 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - no runtime claims should outrun the actual tree
 - swatch matching and one-up logic are not implemented yet
 - use the docs to lock the contract before widening the code
+
+## Pull Request Hygiene
+
+- default to `gh pr create --body-file <path>` for multiline PR descriptions
+- avoid inline `--body "..."` when the content includes Markdown backticks or
+  shell-sensitive characters
+- if a body file is awkward, use a quoted heredoc rather than raw inline shell
+  interpolation
 
 ## Validation
 
