@@ -32,7 +32,8 @@ Current state:
 - macOS picker kernel in place
 - archived swatch snapshot frozen locally
 - nearest swatch resolution in place
-- family mapping and one-up logic not yet implemented
+- family taxonomy and same-family rank in place
+- one-up logic not yet implemented
 
 ## What This Repo Will Demonstrate
 
@@ -54,9 +55,10 @@ huemiliator resolve <hex>
 `huemiliator pick` opens the native colour picker and prints the selected hex.
 
 `huemiliator resolve <hex>` resolves a hex value to the nearest swatch from the
-frozen local snapshot at `data/margaret2_swatches.json`.
+frozen local snapshot at `data/margaret2_swatches.json`, then prints the
+matched family and same-family rank.
 
-Family mapping and one-up selection are still pending.
+One-up selection is still pending.
 
 ## Read Next
 

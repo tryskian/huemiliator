@@ -11,7 +11,7 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `nearest swatch resolution`
+- `family taxonomy and same-family rank`
 
 Current question:
 
@@ -29,14 +29,23 @@ Current finding:
 - nearest swatch resolution now runs against the frozen local snapshot
 - the current distance rule is `delta-e cie76` with a source-order tie-break
 - Pantone is a secondary naming layer, not the primary source
-- family assignment and same-family rank remain to be defined
+- the first family taxonomy is now fixed to:
+  - `neutral`
+  - `brown`
+  - `red`
+  - `orange`
+  - `yellow`
+  - `green`
+  - `blue`
+  - `purple`
+  - `pink`
+- the first same-family rank ladder is now fixed
 - one-up logic has not been implemented yet
 
 ## Next Clean Lane
 
 The next meaningful runtime kernel should prove:
 
-- explicit family assignment
 - deterministic one-up in the same family
 - PASS/FAIL evidence around family routing and replacement correctness
 
@@ -51,10 +60,9 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. define the first family taxonomy
-2. define the same-family ranking rule
-3. connect nearest swatch results to the family-preserving replacement path
-4. add PASS/FAIL evaluation for routing and transform correctness
+1. connect nearest swatch results to the family-preserving replacement path
+2. define the first deterministic one-up step inside each family
+3. add PASS/FAIL evaluation for routing and transform correctness
 
 ## Probaboracle And Scorey Context
 

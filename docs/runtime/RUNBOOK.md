@@ -54,8 +54,9 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - the current live runtime surface is macOS-only
 - the archived swatch source is frozen into the repo
 - nearest-swatch resolution is live against the frozen local snapshot
+- family routing and same-family rank are live against fixed runtime rules
 - no runtime claims should outrun the actual tree
-- family routing and one-up logic are not implemented yet
+- one-up logic is not implemented yet
 - use the docs to lock the contract before widening the code
 
 ## Snapshot Refresh

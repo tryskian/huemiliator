@@ -16,6 +16,7 @@ def test_render_status_includes_contract_lines() -> None:
     assert "runtime: native colour picker -> canonical hex" in text
     assert "swatch snapshot: frozen local margaret2 reference" in text
     assert "swatch resolution: nearest snapshot match" in text
+    assert "same-family rank: fixed strength ladder" in text
     assert "transform: not implemented yet" in text
 
 
@@ -45,13 +46,14 @@ def test_main_resolve_prints_nearest_swatch() -> None:
     stdout = io.StringIO()
     with patch(
         "huemiliator.main.render_resolution",
-        return_value="input: #f3ece0\nnearest swatch: Egret",
+        return_value="input: #f3ece0\nnearest swatch: Egret\nfamily: neutral",
     ):
         with redirect_stdout(stdout):
             result = main(["resolve", "#f3ece0"])
 
     assert result == 0
     assert "nearest swatch: Egret" in stdout.getvalue()
+    assert "family: neutral" in stdout.getvalue()
 
 
 def test_main_resolve_errors_cleanly() -> None:

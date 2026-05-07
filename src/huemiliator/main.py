@@ -4,6 +4,7 @@ import argparse
 import sys
 
 from huemiliator.config import TAGLINE, load_settings
+from huemiliator.families import build_family_rank_index
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.resolution import ResolutionError, resolve_nearest_swatch
 from huemiliator.swatches import SwatchDatasetError, load_swatch_snapshot
@@ -16,7 +17,8 @@ STATUS_LINES: tuple[str, ...] = (
     "swatch snapshot: frozen local margaret2 reference",
     "swatch resolution: nearest snapshot match",
     "distance rule: delta-e cie76 with source-order tie-break",
-    "family routing: not implemented yet",
+    "family routing: fixed neutral and hue thresholds",
+    "same-family rank: fixed strength ladder",
     "transform: not implemented yet",
     "eval: binary pass/fail",
 )
@@ -49,10 +51,14 @@ def render_resolution(hex_value: str) -> str:
     settings = load_settings()
     dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
     resolution = resolve_nearest_swatch(hex_value, dataset)
+    family_rank_index = build_family_rank_index(dataset)
+    ranked_swatch = family_rank_index[resolution.matched.source_order]
     lines = [
         f"input: {resolution.input_hex}",
         f"nearest swatch: {resolution.matched.name}",
         f"swatch hex: {resolution.matched.hex}",
+        f"family: {ranked_swatch.family}",
+        f"family rank: {ranked_swatch.family_rank}/{ranked_swatch.family_size}",
         f"source order: {resolution.matched.source_order}",
         f"distance (delta-e-cie76): {resolution.distance:.4f}",
     ]

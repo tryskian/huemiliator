@@ -261,3 +261,34 @@ into implementation authorship.
   or one-up logic can be built on top. The frozen snapshot already preserves
   source order, and the reference contains at least one duplicate hex, so the
   tie-break must be fixed instead of improvised.
+
+## D-016: The first family taxonomy and rank ladder are fixed runtime rules
+
+- Date: `2026-05-06`
+- Category: `runtime_engineering`
+- Tags: `family_taxonomy`, `same_family_rank`, `neutral_family`, `deterministic_routing`
+- Provenance: `implementation decision`
+- Decision:
+  - classify every matched swatch into one closed Huemiliator family set:
+    - `neutral`
+    - `brown`
+    - `red`
+    - `orange`
+    - `yellow`
+    - `green`
+    - `blue`
+    - `purple`
+    - `pink`
+  - derive that family from fixed runtime thresholds:
+    - Lab chroma threshold for `neutral`
+    - hue thresholds for chromatic families
+    - a low-lightness warm lane for `brown`
+  - assign a same-family rank across the frozen snapshot:
+    - chromatic families rank by ascending Lab chroma strength
+    - `neutral` ranks by ascending distance from mid-lightness
+    - preserved source order breaks equal-strength ties
+  - expose the family and family rank through `huemiliator resolve <hex>`
+- Why: Huemiliator needs a closed, explicit family surface before the one-up
+  kernel can choose a replacement shade. Fixing both the family taxonomy and
+  the family rank ladder now keeps the future transform lane deterministic and
+  PASS/FAIL-testable.

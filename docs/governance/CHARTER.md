@@ -30,6 +30,8 @@ Runtime:
 - keep swatch matching deterministic against the locked `margaret2` reference
 - keep nearest-swatch resolution on one fixed distance rule
 - keep tie-breaks deterministic
+- keep the first family taxonomy explicit and closed
+- keep same-family rank on one fixed strength ladder
 - keep family mapping and one-up selection runtime-owned
 - do not add patchwork layers around a weak root contract
 
