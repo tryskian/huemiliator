@@ -11,7 +11,7 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `family taxonomy and same-family rank`
+- `replacement shade selection`
 
 Current question:
 
@@ -42,13 +42,15 @@ Current finding:
   - `purple`
   - `pink`
 - the first same-family rank ladder is now fixed
-- one-up logic has not been implemented yet
+- the first deterministic replacement step is now fixed to next-rank,
+  same-family, and top-rank clamp
+- the short loss line has not been implemented yet
 
 ## Next Clean Lane
 
 The next meaningful runtime kernel should prove:
 
-- deterministic one-up in the same family
+- stable final output shape around the deterministic replacement shade
 - PASS/FAIL evidence around family routing and replacement correctness
 
 That first evidence lane should stay binary:
@@ -62,9 +64,8 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. connect nearest swatch results to the family-preserving replacement path
-2. define the first deterministic one-up step inside each family
-3. add PASS/FAIL evaluation for routing and transform correctness
+1. add the short loss line after the deterministic replacement shade
+2. add PASS/FAIL evaluation for routing and transform correctness
 
 ## Probaboracle And Scorey Context
 

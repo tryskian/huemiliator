@@ -43,6 +43,12 @@ class RankedSwatch:
     family_size: int
 
 
+@dataclass(frozen=True)
+class OneUpSelection:
+    current: RankedSwatch
+    replacement: RankedSwatch
+
+
 def classify_family(value: str) -> FamilyAssignment:
     metrics = build_colour_metrics(value)
     family = _classify_metrics(metrics)
@@ -71,6 +77,29 @@ def build_family_rank_index(dataset: SwatchDataset) -> dict[int, RankedSwatch]:
                 family_size=family_size,
             )
     return ranked
+
+
+def build_family_member_index(
+    family_rank_index: dict[int, RankedSwatch],
+) -> dict[str, tuple[RankedSwatch, ...]]:
+    grouped: dict[str, list[RankedSwatch]] = {family: [] for family in FAMILY_NAMES}
+    for ranked_swatch in family_rank_index.values():
+        grouped[ranked_swatch.family].append(ranked_swatch)
+
+    return {
+        family: tuple(sorted(grouped[family], key=lambda item: item.family_rank))
+        for family in FAMILY_NAMES
+    }
+
+
+def select_one_up(
+    ranked_swatch: RankedSwatch,
+    family_member_index: dict[str, tuple[RankedSwatch, ...]],
+) -> OneUpSelection:
+    members = family_member_index[ranked_swatch.family]
+    replacement_rank = min(ranked_swatch.family_rank + 1, ranked_swatch.family_size)
+    replacement = members[replacement_rank - 1]
+    return OneUpSelection(current=ranked_swatch, replacement=replacement)
 
 
 def _classify_metrics(metrics: ColourMetrics) -> str:

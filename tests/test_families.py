@@ -1,6 +1,11 @@
 from __future__ import annotations
 
-from huemiliator.families import build_family_rank_index, classify_family
+from huemiliator.families import (
+    build_family_member_index,
+    build_family_rank_index,
+    classify_family,
+    select_one_up,
+)
 from huemiliator.swatches import SwatchDataset, SwatchEntry, SwatchSource
 
 
@@ -50,3 +55,32 @@ def test_build_family_rank_index_orders_neutral_strength_ascending() -> None:
     assert ranked[1].family_rank == 1
     assert ranked[2].family == "neutral"
     assert ranked[2].family_rank == 2
+
+
+def test_select_one_up_moves_to_next_rank_in_same_family() -> None:
+    dataset = _dataset(
+        SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),
+        SwatchEntry(source_order=2, slug="loud-red", name="Loud red", hex="#d22345"),
+    )
+
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    selection = select_one_up(ranked[1], members)
+
+    assert selection.current.swatch.name == "Muted red"
+    assert selection.replacement.swatch.name == "Loud red"
+    assert selection.replacement.family == "red"
+
+
+def test_select_one_up_clamps_at_top_rank() -> None:
+    dataset = _dataset(
+        SwatchEntry(source_order=1, slug="mid", name="Mid", hex="#808080"),
+        SwatchEntry(source_order=2, slug="light", name="Light", hex="#f3f3f3"),
+    )
+
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    selection = select_one_up(ranked[2], members)
+
+    assert selection.current.swatch.name == "Light"
+    assert selection.replacement.swatch.name == "Light"

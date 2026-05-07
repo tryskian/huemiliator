@@ -3,8 +3,8 @@
 This is the canonical target flow for Huemiliator.
 
 The picker kernel, the frozen swatch snapshot, nearest-swatch resolution,
-family assignment, and same-family rank are implemented. The rest of the flow
-is still the target path.
+family assignment, same-family rank, and deterministic replacement step are
+implemented. The rest of the flow is still the target path.
 
 ```mermaid
 flowchart LR
@@ -22,6 +22,6 @@ flowchart LR
 
   classDef implemented fill:#d8f3dc,stroke:#2d6a4f,color:#1b4332
   classDef pending fill:#f3f4f6,stroke:#9ca3af,color:#374151
-  class A,B,S,C,D,E implemented
-  class F,G pending
+  class A,B,S,C,D,E,F implemented
+  class G pending
 ```

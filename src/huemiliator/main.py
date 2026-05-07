@@ -4,7 +4,11 @@ import argparse
 import sys
 
 from huemiliator.config import TAGLINE, load_settings
-from huemiliator.families import build_family_rank_index
+from huemiliator.families import (
+    build_family_member_index,
+    build_family_rank_index,
+    select_one_up,
+)
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.resolution import ResolutionError, resolve_nearest_swatch
 from huemiliator.swatches import SwatchDatasetError, load_swatch_snapshot
@@ -19,7 +23,7 @@ STATUS_LINES: tuple[str, ...] = (
     "distance rule: delta-e cie76 with source-order tie-break",
     "family routing: fixed neutral and hue thresholds",
     "same-family rank: fixed strength ladder",
-    "transform: not implemented yet",
+    "transform: next same-family rank with top-rank clamp",
     "eval: binary pass/fail",
 )
 
@@ -37,6 +41,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Resolve a hex value to the nearest frozen swatch.",
     )
     resolve_parser.add_argument("hex_value", help="Hex value to resolve.")
+
+    replace_parser = subparsers.add_parser(
+        "replace",
+        help="Resolve a hex value and emit the deterministic replacement swatch.",
+    )
+    replace_parser.add_argument("hex_value", help="Hex value to replace.")
     return parser
 
 
@@ -65,6 +75,32 @@ def render_resolution(hex_value: str) -> str:
     return "\n".join(lines)
 
 
+def render_replacement(hex_value: str) -> str:
+    settings = load_settings()
+    dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
+    resolution = resolve_nearest_swatch(hex_value, dataset)
+    family_rank_index = build_family_rank_index(dataset)
+    ranked_swatch = family_rank_index[resolution.matched.source_order]
+    family_member_index = build_family_member_index(family_rank_index)
+    selection = select_one_up(ranked_swatch, family_member_index)
+    lines = [
+        f"input: {resolution.input_hex}",
+        f"nearest swatch: {selection.current.swatch.name}",
+        f"family: {selection.current.family}",
+        (
+            "current rank: "
+            f"{selection.current.family_rank}/{selection.current.family_size}"
+        ),
+        f"replacement shade: {selection.replacement.swatch.name}",
+        f"replacement hex: {selection.replacement.swatch.hex}",
+        (
+            "replacement rank: "
+            f"{selection.replacement.family_rank}/{selection.replacement.family_size}"
+        ),
+    ]
+    return "\n".join(lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
@@ -78,6 +114,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "resolve":
         try:
             print(render_resolution(args.hex_value))
+        except (ResolutionError, SwatchDatasetError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "replace":
+        try:
+            print(render_replacement(args.hex_value))
         except (ResolutionError, SwatchDatasetError) as exc:
             print(str(exc), file=sys.stderr)
             return 1
