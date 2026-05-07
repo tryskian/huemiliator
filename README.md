@@ -5,7 +5,7 @@
 
 ## pick a colour. hue's is better
 
-Huemiliator is a small, local colour toy using the **[Polinko research model](https://github.com/tryskian/polinko)**.
+Huemiliator is a small, local, agent-backed CLI mini chatbot using the **[Polinko research model](https://github.com/tryskian/polinko)**.
 
 It is a colour one-up spinoff of
 **[Probaboracle](https://github.com/tryskian/probaboracle)** built from the
