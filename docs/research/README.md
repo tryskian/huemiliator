@@ -52,11 +52,23 @@ Current finding:
 - the first family-boundary refinement is now live:
   - darker earthy warms promote into `brown` earlier
   - pale warm neutrals stay where they are
+- the first brown-rank refinement is now live:
+  - the yellow/gold/olive shoulder is demoted below the earthy brown core
+  - brown replacements no longer climb by raw chroma alone
 - `brown` is proving to be a good pressure lane because it is a contextual
   colour bucket rather than a clean spectral one:
   - it often behaves more like dark orange, muted orange, or olive-adjacent
     warm neutral than a single stable hue
   - that makes brown-family drift a useful research signal, not just a bug
+- the first judged brown run exposed a broad replacement drift cluster:
+  - loud `yellow`
+  - `gold`
+  - `olive`
+- the fresh post-fix brown rerun is already narrower at the early judged edge:
+  - at last check: `247` new rows, `8` pass, `2` fail, `237` pending
+  - the loud yellow/gold shoulder is no longer the main issue
+  - the remaining early failures are muted green-edge cases like
+    `Beech -> Covert green` and `Capers -> Dusky green`
 
 ## Next Clean Lane
 
@@ -69,7 +81,9 @@ Current clean lane:
 
 The next meaningful runtime kernel should prove:
 
-- whether the revised brown boundary now holds up under long-run judged rows
+- whether the revised brown boundary and brown rank now hold up under a fresh
+  long-run judged pass
+- whether the remaining muted green edge needs its own brown-rank correction
 - whether a tighter first gate should split family correctness from shade
   correctness
 
@@ -84,10 +98,11 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. continue judging the active `2` hour family-isolated brown run while the
-   queue is still filling
-2. inspect whether the revised brown boundary now holds up under judged rows
-3. decide whether the first human gate should judge family only or full
+1. continue judging the fresh brown rerun while the queue is still filling
+2. inspect whether the revised brown boundary and rank keep holding as the
+   judged sample grows
+3. decide whether the muted green edge needs its own brown-rank correction
+4. decide whether the first human gate should judge family only or full
    replacement correctness
 
 ## Probaboracle And Scorey Context

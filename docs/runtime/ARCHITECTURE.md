@@ -58,6 +58,7 @@ What exists now:
 - same-family rank from one fixed ladder:
   - chromatic families sort by Lab chroma strength
   - `neutral` sorts by distance from mid-lightness
+  - `brown` demotes the yellow/gold/olive shoulder below the earthy core
 - brown boundary refinement:
   - darker earthy warm tones can enter `brown` before the neutral gate
   - pale warm neutrals still stay in `neutral`
@@ -86,6 +87,7 @@ What exists now:
 5. The runtime classifies the matched swatch into a closed Huemiliator-owned
    family set with fixed neutral and hue thresholds.
 6. The runtime reads the same-family rank from one fixed family-strength ladder.
+   - for `brown`, the yellow/gold/olive shoulder sits below the earthy core
 7. The runtime selects the next same-family rank, clamped at the family top.
 8. The runtime outputs the replacement shade.
 9. The runtime appends one short fixed loss line from the matched family bank.

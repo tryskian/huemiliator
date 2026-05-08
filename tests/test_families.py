@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from huemiliator.colour_math import build_colour_metrics
 from huemiliator.families import (
+    BROWN_EARTHY_HUE_MAX,
     build_family_member_index,
     build_family_rank_index,
     classify_family,
@@ -38,6 +40,13 @@ def test_classify_family_keeps_pale_warm_neutrals_out_of_brown() -> None:
     assert classify_family("#c4b6a6").family == "neutral"
 
 
+def test_classify_family_demotes_bright_gold_shoulder_out_of_brown() -> None:
+    assert classify_family("#c19552").family == "orange"
+    assert classify_family("#d39c43").family == "orange"
+    assert classify_family("#b08e51").family == "orange"
+    assert classify_family("#cda323").family == "yellow"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),
@@ -65,6 +74,51 @@ def test_build_family_rank_index_orders_neutral_strength_ascending() -> None:
     assert ranked[1].family_rank == 1
     assert ranked[2].family == "neutral"
     assert ranked[2].family_rank == 2
+
+
+def test_build_family_rank_index_routes_bright_gold_shoulder_out_of_brown() -> None:
+    dataset = _dataset(
+        SwatchEntry(
+            source_order=1, slug="spectra-yellow", name="Spectra yellow", hex="#f7b718"
+        ),
+        SwatchEntry(source_order=2, slug="adobe", name="Adobe", hex="#a3623b"),
+        SwatchEntry(
+            source_order=3, slug="raw-sienna", name="Raw sienna", hex="#b9714f"
+        ),
+    )
+
+    ranked = build_family_rank_index(dataset)
+
+    assert ranked[1].family == "orange"
+    assert ranked[2].family == "brown"
+    assert ranked[2].family_rank == 2
+    assert ranked[3].family == "brown"
+    assert ranked[3].family_rank == 1
+
+
+def test_select_one_up_keeps_earthy_brown_over_yellow_shoulder() -> None:
+    dataset = _dataset(
+        SwatchEntry(
+            source_order=1, slug="spectra-yellow", name="Spectra yellow", hex="#f7b718"
+        ),
+        SwatchEntry(
+            source_order=2, slug="leather-brown", name="Leather brown", hex="#97572b"
+        ),
+        SwatchEntry(
+            source_order=3, slug="raw-sienna", name="Raw sienna", hex="#b9714f"
+        ),
+    )
+
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    selection = select_one_up(ranked[2], members)
+
+    assert selection.current.swatch.name == "Leather brown"
+    assert selection.replacement.swatch.name != "Spectra yellow"
+    assert (
+        build_colour_metrics(selection.replacement.swatch.hex).hue_degrees
+        < BROWN_EARTHY_HUE_MAX
+    )
 
 
 def test_select_one_up_moves_to_next_rank_in_same_family() -> None:

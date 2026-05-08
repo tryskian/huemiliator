@@ -460,3 +460,22 @@ into implementation authorship.
   only smoke checks. The real method is long-run accumulation plus live human
   judgment against the growing queue, so drift can be seen and tightened while
   the evidence is still arriving.
+
+## D-026: Brown rank should demote the yellow and gold shoulder
+
+- Date: `2026-05-08`
+- Category: `runtime_engineering`
+- Tags: `brown_rank`, `replacement_drift`, `gold_shoulder`, `olive_shoulder`
+- Provenance: `implementation decision`
+- Decision:
+  - keep the brown family on its own rank rule instead of the generic chroma
+    ladder
+  - demote the yellow, gold, and olive shoulder below the earthy brown core
+  - treat bright high-chroma warm shoulders as lower brown rank even when their
+    chroma is strong
+- Why: The first judged brown run showed a narrow but repeated failure cluster:
+  replacements such as `Spectra yellow`, `Antique gold`, `Spruce yellow`,
+  `Ecru olive`, `Tapenade`, `Tinsel`, and `Boa` were being treated as better
+  browns than the earthy core. A brown-specific rank rule is a smaller and
+  cleaner fix than widening family labels or adding special-case replacement
+  exceptions.

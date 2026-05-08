@@ -12,8 +12,8 @@
 
 ## Active Kernel
 
-Judge the live brown queue while it is still filling and use that signal to
-decide how the first human gate should stay scoped.
+Judge the fresh brown-family rerun against the revised brown rank and measure
+whether the old yellow/gold drift cluster has really collapsed.
 
 Done in this kernel:
 
@@ -41,6 +41,16 @@ Done in this kernel:
   `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
 - tightened the brown family boundary so darker earthy warms stop collapsing
   into `neutral` or staying `orange`
+- revised the brown rank so yellow/gold/olive shoulders sit below the earthy
+  brown core
+- started a fresh brown-family rerun against the revised brown rank
+- the early post-fix signal is stronger:
+  - at last check: `247` new brown rows
+  - `8` pass
+  - `2` fail
+  - `237` pending
+  - loud yellow/gold drift is no longer the main early failure shape
+  - the remaining early failures are muted green-edge cases
 - kept the evidence write path downstream of the deterministic colour decision
 - synced tracked docs and diagram to the evidence surface truth
 
@@ -61,6 +71,7 @@ Done in this kernel:
 - Huemiliator-owned structure:
   - family assignment from fixed neutral and hue thresholds
   - within-family rank from one fixed strength ladder
+  - brown rank demotes the yellow/gold/olive shoulder below the earthy core
   - deterministic same-family replacement by next rank with top-rank clamp
   - deterministic short loss line from a fixed family bank
 - local evidence lane:
@@ -75,8 +86,9 @@ Done in this kernel:
 
 ## Next Kernel
 
-- continue judging the active `brown` queue while it is still filling
+- continue judging the fresh `brown` rerun while it is still filling
 - keep the family filter in review so the queue stays on the active lane
+- decide whether the muted green edge needs its own brown-rank correction
 - decide whether the next gate should judge family correctness first or full
   replacement correctness
 
