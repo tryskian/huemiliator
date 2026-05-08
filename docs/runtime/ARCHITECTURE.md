@@ -62,8 +62,8 @@ What exists now:
 - brown boundary refinement:
   - darker earthy warm tones can enter `brown` before the neutral gate
   - pale warm neutrals still stay in `neutral`
-  - bright gold and ochre shoulder colours can fall through to `orange` or
-    `yellow` instead of staying in `brown`
+  - bright gold, warm orange-yellow, and muted olive shoulder colours can fall
+    through to non-brown families instead of staying in `brown`
 - deterministic replacement rule:
   - move to the next higher rank inside the same family
   - clamp at the family top rank
@@ -89,8 +89,8 @@ What exists now:
 5. The runtime classifies the matched swatch into a closed Huemiliator-owned
    family set with fixed neutral and hue thresholds.
    - for `brown`, darker earthy warms can enter before the neutral gate
-   - bright gold and ochre shoulder colours can fall through to `orange` or
-     `yellow`
+   - bright gold, warm orange-yellow, and muted olive shoulder colours can
+     fall through to non-brown families
 6. The runtime reads the same-family rank from one fixed family-strength ladder.
    - for `brown`, the yellow/gold/olive shoulder sits below the earthy core
 7. The runtime selects the next same-family rank, clamped at the family top.

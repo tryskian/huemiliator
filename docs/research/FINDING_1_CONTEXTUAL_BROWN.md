@@ -130,17 +130,24 @@ inside the brown lane.
 
 The completed post-classification rerun made the next boundary clearer.
 
-At the completed-run checkpoint:
+At the fully judged rerun checkpoint:
 
 - `2368` brown rows had been recorded in the rerun
-- `45` had been judged `pass`
-- `28` had been judged `fail`
-- `2295` remained unjudged in the local queue
+- the row queue was fully judged:
+  - `1394` `pass`
+  - `974` `fail`
+  - `0` pending
+- the closed deterministic signal under that queue was:
+  - `201` unique brown pairs
+  - `117` pair-level `pass`
+  - `84` pair-level `fail`
 
 The stronger signal held:
 
 - the earthy core now behaves much better than it did in the first run
-- the primary residual failure cluster is still the muted green and olive seam
+- the residual failure signal has two real family seams:
+  - muted green and olive seam
+  - orange, yellow, and gold shoulder
 
 Repeated failures still center on:
 
@@ -149,18 +156,50 @@ Repeated failures still center on:
 - `Black ink -> Grape leaf`
 - `Covert green -> Aloe`
 
-But the completed tail also showed a smaller remaining orange shoulder:
+The closed queue also showed a real warm shoulder:
 
+- `Apricot orange -> Yam`
+- `Burnt orange -> Gold flame`
+- `Jaffa orange -> Hawaiian sunset`
+- `Golden ochre -> Autumnal`
+- `Topaz -> Buckthorn brown`
 - `Orange popsicle -> Orange tiger`
 - `Persimmon orange -> Puffin's bill`
 - `Autumn glory -> Turmeric`
 
-So the completed rerun did two useful things at once:
+So the fully judged rerun did two useful things at once:
 
 - it confirmed that the brown-core fix was real, not luck
-- it showed that contextual brown still leaks at both edges:
+- it showed that contextual brown still leaks at both family edges:
   - muted green and olive on one side
   - orange and ochre on the other
+
+## What The Full Queue Changed
+
+Once the entire brown queue was judged, the next correction became clearer.
+
+The question was no longer "which seam seems louder in a partial queue."
+
+The closed signal showed that the next move had to be family-first:
+
+- `fail` is the evidence that the current lane is wrong
+- `evict` is the classifier correction that removes the wrong lane upstream
+
+That produced a conservative boundary change:
+
+- evict bright warm orange and yellow shoulders out of `brown`
+- evict the muted olive seam out of `brown`
+- keep the earthy brown core untouched
+
+On the closed `201` pair set, that cut evicted:
+
+- `55` unique fail pairs
+- `0` unique pass pairs
+
+That does not prove the correction is finished.
+
+It proves that the next runtime move is root-first and classifier-owned rather
+than another brown-rank patch.
 
 ## Why This Matters
 
@@ -207,7 +246,10 @@ around names like:
 
 But the completed tail also says the orange shoulder is not fully gone yet.
 
-So the next runtime correction has to choose between two real residual seams:
+So the next runtime test is not "find another clever exception."
 
-- muted green and khaki inside the contextual brown bucket
-- a smaller remaining orange shoulder beyond the bright-gold trim
+It is:
+
+- rerun `brown` under the new family-first cut
+- judge the fresh queue while it fills
+- see how much of each seam actually disappears

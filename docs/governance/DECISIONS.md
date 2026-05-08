@@ -497,3 +497,22 @@ into implementation authorship.
   shoulder still did not belong in the brown lane at all. Classification is a
   cleaner place to remove obvious gold cases than asking the brown rank rule to
   absorb them downstream.
+
+## D-028: Family correctness comes before another brown rank tweak
+
+- Date: `2026-05-08`
+- Category: `runtime_engineering`
+- Tags: `brown_classifier`, `family_correctness`, `orange_shoulder`, `olive_seam`
+- Provenance: `implementation decision`
+- Decision:
+  - apply the next brown correction at classification time instead of stacking
+    another brown-rank exception
+  - evict two shoulder shapes upstream before they enter the brown ladder:
+    - bright warm orange-yellow shoulder colours
+    - the muted olive seam that was still being treated as brown
+  - keep the earthy brown core untouched while making that cut
+- Why: Once the completed brown rerun was fully judged, the queue stopped
+  looking like one vague brown problem. The closed `201` pair signal showed two
+  repeat seams, and the conservative classifier cut removed `55` unique fail
+  pairs from the brown lane while evicting `0` unique pass pairs. That made
+  family-correctness cleanup the root-first move.
