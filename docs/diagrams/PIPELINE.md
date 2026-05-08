@@ -3,8 +3,8 @@
 This is the canonical target flow for Huemiliator.
 
 The picker kernel, the frozen swatch snapshot, nearest-swatch resolution,
-family assignment, same-family rank, deterministic replacement step, and fixed
-loss-line layer are implemented.
+family assignment, same-family rank, deterministic replacement step, fixed
+loss-line layer, and first local evidence surface are implemented.
 
 ```mermaid
 flowchart LR
@@ -16,11 +16,16 @@ flowchart LR
   E["same-family rank"]
   F["deterministic one-up"]
   G["replacement shade + short loss line"]
+  H["optional sqlite evidence row"]
+  I["local source-order sampler"]
+  J["human pass/fail judgment"]
+  K["follow-along notebook"]
 
   A --> B --> C --> D --> E --> F --> G
+  G --> H --> I --> J --> K
   S --> C
 
   classDef implemented fill:#d8f3dc,stroke:#2d6a4f,color:#1b4332
   classDef pending fill:#f3f4f6,stroke:#9ca3af,color:#374151
-  class A,B,S,C,D,E,F,G implemented
+  class A,B,S,C,D,E,F,G,H,I,J,K implemented
 ```

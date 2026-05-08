@@ -6,12 +6,16 @@ The repo is still in pre-beta, but the first runtime slice now exists.
 
 Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 
+## Tracked Findings
+
+- [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
+
 ## Current Phase
 
 Current phase:
 
 - `pre-beta`
-- `deterministic final reply shape`
+- `deterministic final reply plus local evidence, judgment, and long-run sampler`
 
 Current question:
 
@@ -45,13 +49,66 @@ Current finding:
 - the first deterministic replacement step is now fixed to next-rank,
   same-family, and top-rank clamp
 - the short loss line now comes from a fixed family-keyed bank
+- the first local SQLite evidence surface is now live
+- the first human PASS/FAIL judgment lane is now live
+- the first long-run local sampler is now live
+- the first follow-along notebook is now tracked
+- the first family-boundary refinement is now live:
+  - darker earthy warms promote into `brown` earlier
+  - pale warm neutrals stay where they are
+- the first brown-rank refinement is now live:
+  - the yellow/gold/olive shoulder is demoted below the earthy brown core
+  - brown replacements no longer climb by raw chroma alone
+- the bright gold shoulder reclassification is now live:
+  - loud gold and ochre cases can fall through to `orange` or `yellow`
+  - the brown lane no longer has to contain obvious bright-gold cases by rank
+    alone
+- `brown` is proving to be a good pressure lane because it is a contextual
+  colour bucket rather than a clean spectral one:
+  - it often behaves more like dark orange, muted orange, or olive-adjacent
+    warm neutral than a single stable hue
+  - that makes brown-family drift a useful research signal, not just a bug
+- the first judged brown run exposed a broad replacement drift cluster:
+  - loud `yellow`
+  - `gold`
+  - `olive`
+- the completed post-classification brown rerun is materially stronger than the
+  first pass:
+  - `2368` brown rows were recorded in the rerun
+  - `45` were judged `pass`
+  - `28` were judged `fail`
+  - `2295` remain unjudged in the local queue
+  - the earthy brown core now holds much better than it did in the first run
+  - the main residual failure shape is still the muted green and olive seam:
+    - `Beech -> Covert green`
+    - `Capers -> Dusky green`
+    - `Black ink -> Grape leaf`
+    - `Covert green -> Aloe`
+  - a smaller orange shoulder still leaks through at the tail:
+    - `Orange popsicle -> Orange tiger`
+    - `Persimmon orange -> Puffin's bill`
+    - `Autumn glory -> Turmeric`
+- the special brown finding now has its own tracked note:
+  - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
 
 ## Next Clean Lane
 
+Current clean lane:
+
+- judgment sweeps over the completed post-classification brown queue
+- `2` hour local source-order runs
+- `2` hour one-family runs when a boundary needs isolated pressure
+- live judgment while the queue is still filling for future long runs
+- small count-based runs only for smoke checks
+
 The next meaningful runtime kernel should prove:
 
-- PASS/FAIL evidence around routing and replacement correctness
-- a small local evidence surface for inspecting outputs
+- whether the muted green and olive seam needs its own brown-boundary or
+  brown-rank correction
+- whether the smaller residual orange shoulder needs a second classification
+  trim beyond the bright-gold fix
+- whether a tighter first gate should split family correctness from shade
+  correctness
 
 That first evidence lane should stay binary:
 
@@ -64,8 +121,11 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. add PASS/FAIL evaluation for routing and transform correctness
-2. add a small local evidence surface for storing and inspecting outputs
+1. keep judging the completed brown rerun in focused sweeps
+2. decide whether the next correction should target the muted green seam or the
+   smaller residual orange shoulder
+3. decide whether the first human gate should judge family only or full
+   replacement correctness
 
 ## Probaboracle And Scorey Context
 

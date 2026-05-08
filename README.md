@@ -38,6 +38,11 @@ Current state:
 - family taxonomy and same-family rank in place
 - deterministic replacement shade selection in place
 - deterministic short loss line in place
+- local SQLite eval DB in place
+- human PASS/FAIL judgment lane in place
+- long-run local eval sampler in place
+- follow-along notebook in place at
+  `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
 
 ## What This Repo Will Demonstrate
 
@@ -46,16 +51,22 @@ Current state:
   Pantone as a secondary layer
 - runtime-owned family mapping and one-up rules
 - binary PASS/FAIL evaluation of matching, routing, and output
+- a small local evidence surface for following the deterministic output path
 
 ## Current Surface
 
-On macOS, four runnable Huemiliator runtime paths now exist:
+On macOS, nine runnable Huemiliator runtime and evidence paths now exist:
 
 ```sh
 huemiliator pick
 huemiliator resolve <hex>
 huemiliator replace <hex>
 huemiliator one-up <hex>
+huemiliator eval-init
+huemiliator eval-log <hex>
+huemiliator eval-list --limit 10
+huemiliator eval-judge <id> <pass|fail> --note "<note>"
+huemiliator eval-sample-local --duration-seconds 7200
 ```
 
 `huemiliator pick` opens the native UI colour picker and prints the selected
@@ -70,6 +81,27 @@ deterministic same-family replacement shade.
 
 `huemiliator one-up <hex>` emits the replacement shade and one short
 deterministic loss line from a fixed family bank.
+
+`huemiliator eval-init` creates the local SQLite evidence DB at
+`.local/evals.sqlite`.
+
+`huemiliator eval-log <hex>` records the deterministic one-up output fields in
+that SQLite DB.
+
+`huemiliator eval-list --limit 10` prints the most recent logged outputs for
+quick inspection, with optional verdict and family filtering.
+
+`huemiliator eval-judge <id> <pass|fail> --note "<note>"` applies a human
+binary verdict to one logged output and prints the updated row.
+
+`huemiliator eval-sample-local --duration-seconds 7200` runs the local
+source-order sampler against the frozen snapshot. Add `--family brown` or
+another Huemiliator family name to isolate one family. The default pacing is
+one row every `3` seconds so the queue can be judged while it is still
+filling.
+
+The follow-along notebook lives at
+`output/jupyter-notebook/huemiliator-eval-surface.ipynb`.
 
 ## Read Next
 

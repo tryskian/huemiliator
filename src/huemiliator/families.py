@@ -18,9 +18,20 @@ FAMILY_NAMES: tuple[str, ...] = (
 )
 
 NEUTRAL_CHROMA_MAX = 14.0
-BROWN_HUE_MIN = 20.0
+BROWN_HUE_MIN = 15.0
 BROWN_HUE_MAX = 50.0
-BROWN_LIGHTNESS_MAX = 0.5
+BROWN_EARTHY_HUE_MAX = 37.0
+BROWN_BRIGHT_SHOULDER_HUE_MIN = 33.0
+BROWN_BRIGHT_SHOULDER_LIGHTNESS_MIN = 0.50
+BROWN_BRIGHT_SHOULDER_CHROMA_MIN = 38.0
+BROWN_EXTREME_CHROMA_HUE_MIN = 30.0
+BROWN_EXTREME_CHROMA_MIN = 70.0
+BROWN_LIGHTNESS_MAX = 0.56
+BROWN_DARK_LIGHTNESS_MAX = 0.40
+BROWN_CHROMA_MIN = 14.0
+BROWN_GOLD_SHOULDER_HUE_MIN = 36.0
+BROWN_GOLD_SHOULDER_LIGHTNESS_MIN = 0.44
+BROWN_GOLD_SHOULDER_CHROMA_MIN = 30.0
 RED_HUE_MAX = 15.0
 ORANGE_HUE_MAX = 45.0
 YELLOW_HUE_MAX = 70.0
@@ -103,12 +114,23 @@ def select_one_up(
 
 
 def _classify_metrics(metrics: ColourMetrics) -> str:
+    hue = metrics.hue_degrees
+    if BROWN_HUE_MIN <= hue < BROWN_HUE_MAX:
+        if (
+            hue >= BROWN_GOLD_SHOULDER_HUE_MIN
+            and metrics.lightness >= BROWN_GOLD_SHOULDER_LIGHTNESS_MIN
+            and metrics.lab_chroma >= BROWN_GOLD_SHOULDER_CHROMA_MIN
+        ):
+            pass
+        elif metrics.lightness < BROWN_DARK_LIGHTNESS_MAX:
+            return "brown"
+        elif (
+            metrics.lightness < BROWN_LIGHTNESS_MAX
+            and metrics.lab_chroma >= BROWN_CHROMA_MIN
+        ):
+            return "brown"
     if metrics.lab_chroma < NEUTRAL_CHROMA_MAX:
         return "neutral"
-
-    hue = metrics.hue_degrees
-    if BROWN_HUE_MIN <= hue < BROWN_HUE_MAX and metrics.lightness < BROWN_LIGHTNESS_MAX:
-        return "brown"
     if hue < RED_HUE_MAX or hue >= 345.0:
         return "red"
     if hue < ORANGE_HUE_MAX:
@@ -127,16 +149,51 @@ def _classify_metrics(metrics: ColourMetrics) -> str:
 def _family_rank_key(
     family: str,
     item: tuple[SwatchEntry, ColourMetrics],
-) -> tuple[float, float, int]:
+) -> tuple[float, float, float, int]:
     swatch, metrics = item
     if family == "neutral":
         return (
             abs(metrics.lab_lightness - 50.0),
             metrics.lab_lightness,
+            0.0,
             swatch.source_order,
         )
+    if family == "brown":
+        return _brown_rank_key(swatch, metrics)
     return (
         metrics.lab_chroma,
         abs(metrics.lab_lightness - 50.0),
+        0.0,
         swatch.source_order,
+    )
+
+
+def _brown_rank_key(
+    swatch: SwatchEntry,
+    metrics: ColourMetrics,
+) -> tuple[float, float, float, int]:
+    # Brown behaves more like a contextual bucket than a single hue. Keep the
+    # yellow/olive shoulder below the earthy core so one-up replacements stay
+    # in the brown lane instead of drifting into gold.
+    earthy_bucket = 0.0 if _is_brown_drift(metrics) else 1.0
+    return (
+        earthy_bucket,
+        metrics.lab_chroma,
+        abs(metrics.lab_lightness - 45.0),
+        swatch.source_order,
+    )
+
+
+def _is_brown_drift(metrics: ColourMetrics) -> bool:
+    if metrics.hue_degrees >= BROWN_EARTHY_HUE_MAX:
+        return True
+    if (
+        metrics.hue_degrees >= BROWN_BRIGHT_SHOULDER_HUE_MIN
+        and metrics.lightness >= BROWN_BRIGHT_SHOULDER_LIGHTNESS_MIN
+        and metrics.lab_chroma >= BROWN_BRIGHT_SHOULDER_CHROMA_MIN
+    ):
+        return True
+    return (
+        metrics.hue_degrees >= BROWN_EXTREME_CHROMA_HUE_MIN
+        and metrics.lab_chroma >= BROWN_EXTREME_CHROMA_MIN
     )
