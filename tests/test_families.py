@@ -47,6 +47,41 @@ def test_classify_family_demotes_bright_gold_shoulder_out_of_brown() -> None:
     assert classify_family("#cda323").family == "yellow"
 
 
+def test_classify_family_evicts_muted_green_and_olive_shoulder() -> None:
+    assert classify_family("#80765f").family == "green"
+    assert classify_family("#746c57").family == "green"
+    assert classify_family("#545144").family == "green"
+    assert classify_family("#44413c").family == "neutral"
+    assert classify_family("#9a803a").family == "green"
+    assert classify_family("#927b3c").family == "green"
+    assert classify_family("#857946").family == "green"
+    assert classify_family("#a39264").family == "green"
+
+
+def test_classify_family_evicts_bright_orange_shoulder() -> None:
+    assert classify_family("#ff7913").family == "orange"
+    assert classify_family("#f47327").family == "orange"
+    assert classify_family("#ff8812").family == "orange"
+    assert classify_family("#fe840e").family == "orange"
+
+
+def test_classify_family_evicts_gold_yellow_shoulder() -> None:
+    assert classify_family("#a98b2d").family == "yellow"
+    assert classify_family("#ae8e2c").family == "yellow"
+    assert classify_family("#aa8805").family == "yellow"
+    assert classify_family("#bc8d1f").family == "orange"
+    assert classify_family("#be8a4a").family == "orange"
+    assert classify_family("#ee9626").family == "orange"
+
+
+def test_classify_family_evicts_light_apricot_orange_shoulder() -> None:
+    assert classify_family("#d08344").family == "orange"
+    assert classify_family("#c77943").family == "orange"
+    assert classify_family("#cd7e4d").family == "orange"
+    assert classify_family("#dc793e").family == "orange"
+    assert classify_family("#c86b3c").family == "orange"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),

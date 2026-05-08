@@ -497,3 +497,25 @@ into implementation authorship.
   shoulder still did not belong in the brown lane at all. Classification is a
   cleaner place to remove obvious gold cases than asking the brown rank rule to
   absorb them downstream.
+
+## D-028: Brown should evict non-brown shoulders before ranking
+
+- Date: `2026-05-08`
+- Category: `runtime_engineering`
+- Tags: `brown_classification`, `family_correctness`, `olive_shoulder`,
+  `orange_shoulder`, `gold_shoulder`
+- Provenance: `implementation decision`
+- Decision:
+  - tighten brown classification before same-family ranking by routing these
+    non-brown shoulders out of `brown`:
+    - muted green and olive-leaning colours
+    - high-chroma gold and yellow-orange colours
+    - light apricot-orange colours
+  - keep darker earthy browns in the brown lane
+  - keep the correction at the family boundary instead of adding replacement
+    exceptions
+- Why: The fully judged closed brown rerun showed `201` unique brown pairs with
+  `117` pass and `84` fail. The dominant residual failures were family
+  correctness failures: muted green and olive misroutes plus an orange, yellow,
+  and gold shoulder. Fixing the classifier first keeps the one-up ladder from
+  ranking colours that should not be brown at all.

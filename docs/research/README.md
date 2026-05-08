@@ -63,6 +63,12 @@ Current finding:
   - loud gold and ochre cases can fall through to `orange` or `yellow`
   - the brown lane no longer has to contain obvious bright-gold cases by rank
     alone
+- the current brown-family correction is now classifier-first:
+  - muted green and olive shoulders can leave `brown` before ranking
+  - high-chroma gold and yellow-orange shoulders can leave `brown` before
+    ranking
+  - light apricot-orange shoulders can leave `brown` before ranking
+  - darker earthy browns still stay in `brown`
 - `brown` is proving to be a good pressure lane because it is a contextual
   colour bucket rather than a clean spectral one:
   - it often behaves more like dark orange, muted orange, or olive-adjacent
@@ -88,6 +94,17 @@ Current finding:
     - `Orange popsicle -> Orange tiger`
     - `Persimmon orange -> Puffin's bill`
     - `Autumn glory -> Turmeric`
+- the current correction uses that fully judged closed brown rerun as its
+  evidence base:
+  - `201` unique brown pairs
+  - `117` pass
+  - `84` fail
+  - the dominant residual seams were muted green and olive misroutes plus the
+    orange, yellow, and gold shoulder
+- fresh in-progress queues after the classifier cuts show the corrected
+  shoulders leaving `brown`; the current remaining pressure is smaller and
+  centers on a low-chroma neutral-gray edge rather than the earlier
+  green/gold/orange shoulders
 - the special brown finding now has its own tracked note:
   - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
 
@@ -95,20 +112,17 @@ Current finding:
 
 Current clean lane:
 
-- judgment sweeps over the completed post-classification brown queue
-- `2` hour local source-order runs
+- continue the current fresh brown-family queue after the classifier cuts
 - `2` hour one-family runs when a boundary needs isolated pressure
 - live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
 The next meaningful runtime kernel should prove:
 
-- whether the muted green and olive seam needs its own brown-boundary or
-  brown-rank correction
-- whether the smaller residual orange shoulder needs a second classification
-  trim beyond the bright-gold fix
-- whether a tighter first gate should split family correctness from shade
-  correctness
+- whether the low-chroma neutral-gray edge is a real brown-family failure or an
+  acceptable dark earthy edge
+- whether the current classifier cuts stay stable through a full fresh
+  brown-family run
 
 That first evidence lane should stay binary:
 
@@ -121,11 +135,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep judging the completed brown rerun in focused sweeps
-2. decide whether the next correction should target the muted green seam or the
-   smaller residual orange shoulder
-3. decide whether the first human gate should judge family only or full
-   replacement correctness
+1. finish judging the fresh post-correction brown queue
+2. decide whether the low-chroma neutral-gray edge needs a family-boundary trim
+3. only update the classifier again if the fresh run shows a repeated family
+   correctness seam
 
 ## Probaboracle And Scorey Context
 

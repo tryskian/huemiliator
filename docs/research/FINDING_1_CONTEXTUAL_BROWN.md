@@ -194,20 +194,29 @@ why the runtime had to change around it.
 
 ## What It Points To Next
 
-The next likely correction is not another broad gold fix.
+The next correction is now classifier-first.
 
-The remaining pressure is still strongest at the muted green and khaki edge
-around names like:
+The fully judged closed brown rerun became the evidence base for this
+correction:
 
-- `Covert green`
-- `Dusky green`
-- `Grape leaf`
-- `Gray green`
-- `Khaki`
+- `201` unique brown pairs
+- `117` pass
+- `84` fail
 
-But the completed tail also says the orange shoulder is not fully gone yet.
+The dominant residual seams were not replacement-rank problems by themselves.
+They were family-boundary problems:
 
-So the next runtime correction has to choose between two real residual seams:
+- muted green and olive colours entering `brown`
+- orange, yellow, and gold shoulder colours entering `brown`
 
-- muted green and khaki inside the contextual brown bucket
-- a smaller remaining orange shoulder beyond the bright-gold trim
+The current runtime therefore routes those shoulders out before brown ranking.
+Fresh in-progress queues show those shoulders leaving the brown lane; the
+remaining pressure is smaller and sits around low-chroma neutral-gray names
+such as `Pewter`, `Stone gray`, and `Canteen`.
+
+That means the next question is narrower:
+
+- whether that neutral-gray edge is a real family-correctness failure
+- whether it is acceptable inside dark earthy brown
+- whether the current classifier cuts hold through a full fresh brown-family
+  run

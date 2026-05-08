@@ -3,7 +3,7 @@
 ## Current State
 
 - repo: `huemiliator`
-- branch: `main`
+- branch: `codex/bigbrain/brown-family-correction-continue`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
   swatch resolution, family rank, replacement step, loss-line layer, and the
   first local evidence, judgment, and long-run sampler surface, plus the first
@@ -13,10 +13,35 @@
 
 ## Active Kernel
 
-Decide the next brown-edge correction from the completed contextual brown rerun.
+Continue the brown-family classifier correction from the completed contextual
+brown rerun.
 
 Done in this kernel:
 
+- used the fully judged closed brown rerun as the evidence base:
+  - `201` unique brown pairs
+  - `117` pass
+  - `84` fail
+  - dominant residual seams split between muted green and olive misroutes and
+    the orange, yellow, and gold shoulder
+- tightened brown classification so non-brown shoulders leave before ranking:
+  - muted green and olive-leaning colours
+  - high-chroma gold and yellow-orange colours
+  - light apricot-orange colours
+- preserved the darker earthy brown core in `brown`
+- started fresh brown-family queues after each coherent classifier cut and
+  judged while they filled
+- stopped intermediate queues when they exposed a material repeated shoulder,
+  then reset the local DB for a clean next queue
+- the current fresh queue shows the old green/gold/orange shoulders leaving
+  `brown`
+- the current residual pressure is the low-chroma neutral-gray edge around
+  `Pewter`, `Stone gray`, and `Canteen`
+- stopped the latest fresh queue at an early judged checkpoint:
+  - `55` brown rows recorded
+  - `51` pass
+  - `4` fail
+  - `0` pending
 - added a shared deterministic one-up state for CLI, storage, and notebook use
 - added the first local SQLite evidence lane at `.local/evals.sqlite`
 - exposed:
@@ -78,6 +103,8 @@ Done in this kernel:
   - brown rank demotes the yellow/gold/olive shoulder below the earthy core
   - bright gold and ochre shoulder colours can fall through to `orange` or
     `yellow` instead of staying in `brown`
+  - muted green, olive, light apricot-orange, and high-chroma gold/yellow-orange
+    shoulders can leave `brown` before ranking
   - deterministic same-family replacement by next rank with top-rank clamp
   - deterministic short loss line from a fixed family bank
 - local evidence lane:
@@ -92,16 +119,13 @@ Done in this kernel:
 
 ## Next Kernel
 
-- keep judging the completed brown queue in small focused sweeps
-- decide whether the next correction should target:
-  - the muted green and olive seam
-  - the smaller residual orange shoulder
-- decide whether the next gate should judge family correctness first or full
-  replacement correctness
+- finish the fresh post-correction brown queue
+- decide whether the low-chroma neutral-gray edge needs a family-boundary trim
+- rerun the full validation suite after any further docs or classifier edits
 
 ## Stop State
 
-- `main` is clean and protected
+- branch is `codex/bigbrain/brown-family-correction-continue`
 - public repo is live
 - license surface is in place
 - GitHub automation surface is in place
@@ -115,4 +139,4 @@ Done in this kernel:
 - first human PASS/FAIL judgment lane is in place
 - first long-run local sampler is in place
 - first follow-along notebook is in place
-- the first contextual brown evidence slice is ready to publish from this branch
+- the current classifier correction is in progress on this branch

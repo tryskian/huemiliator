@@ -64,6 +64,9 @@ What exists now:
   - pale warm neutrals still stay in `neutral`
   - bright gold and ochre shoulder colours can fall through to `orange` or
     `yellow` instead of staying in `brown`
+  - muted green and olive shoulders can leave `brown` before ranking
+  - light apricot-orange and high-chroma gold/yellow-orange shoulders can leave
+    `brown` before ranking
 - deterministic replacement rule:
   - move to the next higher rank inside the same family
   - clamp at the family top rank
@@ -91,6 +94,8 @@ What exists now:
    - for `brown`, darker earthy warms can enter before the neutral gate
    - bright gold and ochre shoulder colours can fall through to `orange` or
      `yellow`
+   - muted green, olive, light apricot-orange, and high-chroma gold/yellow-orange
+     shoulders can leave `brown` before ranking
 6. The runtime reads the same-family rank from one fixed family-strength ladder.
    - for `brown`, the yellow/gold/olive shoulder sits below the earthy core
 7. The runtime selects the next same-family rank, clamped at the family top.
