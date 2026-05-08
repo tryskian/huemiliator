@@ -96,9 +96,10 @@ binary verdict to one logged output and prints the updated row.
 
 `huemiliator eval-sample-local --duration-seconds 7200` runs the local
 source-order sampler against the frozen snapshot. Add `--family brown` or
-another Huemiliator family name to isolate one family. The default pacing is
-one row every `3` seconds so the queue can be judged while it is still
-filling.
+another Huemiliator family name to isolate one family, or use
+`--family warm` for the local warm cohort (`brown`, `red`, `orange`,
+`yellow`). The default pacing is one row every `3` seconds so the queue can be
+judged while it is still filling.
 
 The follow-along notebook lives at
 `output/jupyter-notebook/huemiliator-eval-surface.ipynb`.

@@ -13,7 +13,7 @@
 
 ## Active Kernel
 
-Run a fresh brown-family rerun against the new family-first classifier cut.
+Run one extended warm-cohort eval as the only active sampler.
 
 Done in this kernel:
 
@@ -34,7 +34,13 @@ Done in this kernel:
 - added `--family <name>` to isolate one family without changing the sampler
   method
 - added `eval-list --family <name>` so review can stay inside the active family
+- added `--family warm` as a local warm-cohort alias over:
+  - `brown`
+  - `red`
+  - `orange`
+  - `yellow`
 - locked the live-review method:
+  - keep exactly one live sampler active in the repo at a time
   - judge rows while the run is still active
   - do not wait for the queue to finish filling
 - added the first follow-along notebook at
@@ -92,6 +98,7 @@ Done in this kernel:
   - SQLite storage at `.local/evals.sqlite`
   - human PASS/FAIL verdicts on stored rows
   - long-run local sampler over the frozen snapshot
+  - local eval scope alias `warm` = `brown`, `red`, `orange`, `yellow`
   - one follow-along notebook at
     `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
 - current output target:
@@ -100,11 +107,12 @@ Done in this kernel:
 
 ## Next Kernel
 
-- run a fresh `2` hour brown-family rerun against the new classifier cut
-- judge only fresh rows while the queue is still filling
-- measure whether the muted olive seam and warm shoulder actually shrink
-- decide whether the next gate should judge family correctness first or full
-  replacement correctness after the rerun
+- the warm-cohort eval is live with `--family warm`
+- keep that warm run as the only active sampler while it is being judged
+- judge only fresh warm-scope rows while the queue is still filling
+- measure how the warm shoulders behave once brown is not isolated
+- decide whether the next correction belongs in warm-scope routing or inside a
+  narrower family lane
 
 ## Stop State
 
@@ -123,5 +131,5 @@ Done in this kernel:
 - first long-run local sampler is in place
 - first follow-along notebook is in place
 - the fully judged contextual brown evidence slice is in place
-- the next live check is a fresh brown rerun against the conservative
-  family-first cut
+- the next live check is the active warm-cohort run against the same
+  conservative family-first cut

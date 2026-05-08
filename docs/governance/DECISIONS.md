@@ -516,3 +516,57 @@ into implementation authorship.
   repeat seams, and the conservative classifier cut removed `55` unique fail
   pairs from the brown lane while evicting `0` unique pass pairs. That made
   family-correctness cleanup the root-first move.
+
+## D-029: Keep one active eval sampler per repo
+
+- Date: `2026-05-08`
+- Category: `eval_quality`
+- Tags: `single_run`, `queue_discipline`, `attribution`, `long_run`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - keep exactly one live eval sampler active in the repo at a time
+  - do not overlap family runs or general runs in the same checkout
+  - finish or stop the current run before starting the next long-run lane
+- Why: The data is the signal only when the queue stays attributable to one
+  active run. Overlapping samplers split judgment attention, muddy attribution,
+  and weaken the value of long-run evidence.
+
+## D-030: Warm is a local eval cohort alias
+
+- Date: `2026-05-08`
+- Category: `eval_quality`
+- Tags: `warm_scope`, `local_cohort`, `sampler_scope`, `review_lane`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - keep `--family <name>` as the one sampler and review flag
+  - allow `warm` as a local eval cohort alias on that flag
+  - define `warm` as:
+    - `brown`
+    - `red`
+    - `orange`
+    - `yellow`
+  - let `warm` work in both:
+    - `huemiliator eval-sample-local`
+    - `huemiliator eval-list`
+- Why: The next evidence lane needs one extended warm run, but `warm` is not a
+  runtime family. A local cohort alias keeps the eval surface narrow, reuses
+  the same sampler and review lane, and avoids inventing a second runner or
+  API-owned scope.
+
+## D-031: Fail is evidence and evict is the runtime correction
+
+- Date: `2026-05-08`
+- Category: `eval_quality`
+- Tags: `fail_vs_evict`, `boundary_fix`, `queue_discipline`, `routing_errors`
+- Provenance: `implementation decision`
+- Decision:
+  - treat `fail` as evidence that the current routing or replacement lane is
+    wrong
+  - treat `evict` as the upstream classifier or boundary correction made
+    because of that evidence
+  - do not leave known routing mistakes in the queue forever once they have
+    earned an eviction fix
+- Why: PASS/FAIL should expose where the current behavior is wrong, not become
+  a permanent holding pen for rows that no longer belong in the active lane. The
+  cleaner move is to let the queue prove the mistake, then move the fix into
+  runtime classification or scope.

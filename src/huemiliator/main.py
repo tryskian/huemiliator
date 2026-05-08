@@ -15,7 +15,7 @@ from huemiliator.eval_db import (
     record_one_up_state,
 )
 from huemiliator.eval_sampling import LOCAL_SAMPLE_PATTERNS, sample_local_eval_outputs
-from huemiliator.families import FAMILY_NAMES
+from huemiliator.eval_scope import EVAL_SCOPE_NAMES, describe_eval_scope
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.pipeline import build_one_up_state
 from huemiliator.resolution import ResolutionError
@@ -34,7 +34,7 @@ STATUS_LINES: tuple[str, ...] = (
     "transform: next same-family rank with top-rank clamp",
     "line: fixed family loss bank",
     "evidence: local sqlite eval db",
-    "sampler: long-run local source-order or family cycle",
+    "sampler: long-run local source-order or scoped cohort cycle",
     "eval: binary pass/fail",
 )
 
@@ -94,9 +94,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     eval_list_parser.add_argument(
         "--family",
-        choices=FAMILY_NAMES,
+        choices=EVAL_SCOPE_NAMES,
         default=None,
-        help="Filter rows by Huemiliator family.",
+        help="Filter rows by Huemiliator family or local cohort.",
     )
 
     eval_judge_parser = subparsers.add_parser(
@@ -130,9 +130,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     eval_sample_local_parser.add_argument(
         "--family",
-        choices=FAMILY_NAMES,
+        choices=EVAL_SCOPE_NAMES,
         default=None,
-        help="Restrict the sampler to one Huemiliator family.",
+        help="Restrict the sampler to one Huemiliator family or local cohort.",
     )
     eval_sample_local_parser.add_argument(
         "--start-source-order",
@@ -246,7 +246,7 @@ def render_eval_list(limit: int, verdict: str | None, family: str | None) -> str
     )
     prefix = "eval counts"
     if family is not None:
-        prefix += f" (family={family})"
+        prefix += f" ({describe_eval_scope(family)})"
     lines = [
         f"{prefix}: "
         f"total={summary['total']} pass={summary['pass']} "
@@ -264,7 +264,9 @@ def render_eval_list(limit: int, verdict: str | None, family: str | None) -> str
             if family is None:
                 lines.append(f"No {verdict} eval outputs.")
             else:
-                lines.append(f"No {verdict} eval outputs for family {family}.")
+                lines.append(
+                    f"No {verdict} eval outputs for {describe_eval_scope(family)}."
+                )
         return "\n".join(lines)
 
     lines.append("")
@@ -321,7 +323,7 @@ def render_eval_sample_local(
         f"elapsed_seconds={summary.elapsed_seconds:.2f}",
     ]
     if family is not None:
-        lines.insert(2, f"family={family}")
+        lines.insert(2, describe_eval_scope(family))
     if summary.first_output_id is not None and summary.last_output_id is not None:
         lines.append(
             f"output_ids={summary.first_output_id}-{summary.last_output_id} "

@@ -43,9 +43,11 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | list recent eval rows | `huemiliator eval-list --limit 10` |
 | list pending eval rows | `huemiliator eval-list --verdict pending` |
 | list one family only | `huemiliator eval-list --family brown` |
+| list the warm cohort | `huemiliator eval-list --family warm` |
 | judge one eval row | `huemiliator eval-judge <id> <pass\|fail>` |
 | run the long local sampler | `huemiliator eval-sample-local` |
 | run one family only | `huemiliator eval-sample-local --family brown` |
+| run the warm cohort | `huemiliator eval-sample-local --family warm` |
 | run tests | `make test` |
 | run lint checks | `make lint` |
 | run format checks | `make format-check` |
@@ -82,6 +84,8 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 - `huemiliator eval-list --limit 10` prints recent rows for quick inspection
 - `huemiliator eval-list --verdict pending` narrows the review queue
 - `huemiliator eval-list --family brown` narrows the review queue to one family
+- `huemiliator eval-list --family warm` narrows the review queue to the local
+  warm cohort: `brown`, `red`, `orange`, and `yellow`
 - `huemiliator eval-judge <id> <pass|fail> --note "<note>"` applies a human
   binary verdict to one row
 - `huemiliator eval-sample-local --duration-seconds 7200` starts the long-run
@@ -109,8 +113,17 @@ PYTHONPATH=src .venv/bin/python -m huemiliator eval-sample-local \
   --family brown
 ```
 
+Example warm-cohort run:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m huemiliator eval-sample-local \
+  --duration-seconds 7200 \
+  --family warm
+```
+
 Judgment method:
 
+- keep exactly one live sampler active in the repo at a time
 - start review while the long run is still active
 - do not wait for the run to finish before judging rows
 - keep the queue on the active lane with `--verdict pending`

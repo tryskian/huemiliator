@@ -107,6 +107,11 @@ Current finding:
 - the first family-first correction now says:
   - `fail` is evidence
   - `evict` is the classifier change made because of that evidence
+- long-run eval discipline now says:
+  - keep one active sampler in the repo at a time
+  - keep judgment on that one live queue until the run is closed
+- the eval surface now also has one local cohort alias:
+  - `warm` = `brown`, `red`, `orange`, `yellow`
 - the special brown finding now has its own tracked note:
   - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
 
@@ -114,9 +119,11 @@ Current finding:
 
 Current clean lane:
 
-- fresh brown-family rerun against the new family-first classifier correction
+- active warm-cohort run against the new family-first classifier correction
+- one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
+- `2` hour warm-cohort runs when the warm shoulder needs one wider lane
 - live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
@@ -124,8 +131,8 @@ The next meaningful runtime kernel should prove:
 
 - whether the new family-first classifier actually collapses the muted olive
   seam in live brown reruns
-- whether the warm orange-yellow shoulder is now mostly gone from the brown
-  lane
+- whether the warm orange-yellow shoulder is still loud when the lane widens to
+  the `warm` cohort
 - whether a tighter first gate should split family correctness from shade
   correctness
 
@@ -140,11 +147,12 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. run a fresh `2` hour brown-family rerun against the new classifier cut
-2. judge the fresh queue while it is still filling
-3. check whether the closed fail seams actually shrink under the new routing
-4. decide whether the next gate should judge family only or full replacement
-   correctness
+1. keep the active warm-cohort run as the only live sampler
+2. judge the fresh warm queue while it is still filling
+3. check whether the closed fail seams still dominate when brown is not
+   isolated
+4. decide whether the next correction belongs in warm-scope routing or back in
+   a narrower family lane
 
 ## Probaboracle And Scorey Context
 

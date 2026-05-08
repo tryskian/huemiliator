@@ -73,7 +73,8 @@ What exists now:
 - local SQLite evidence storage for deterministic outputs
 - human PASS/FAIL verdicts on stored outputs
 - long-run local source-order sampling over the frozen snapshot
-- optional one-family runs that preserve source order inside the filtered subset
+- optional one-family or local-cohort runs that preserve source order inside
+  the filtered subset
 - one follow-along notebook for local inspection
 
 ## Target Runtime Path
@@ -99,8 +100,12 @@ What exists now:
 10. The local evidence lane can optionally record the deterministic output in
     SQLite for follow-along inspection.
 11. The local sampler can append rows over time from the frozen snapshot in
-    source order.
+    source order, or from one family or local-cohort subset when a boundary
+    needs isolated pressure.
 12. The human review lane can mark stored rows as `pass` or `fail`.
+    - `fail` is evidence that the current lane is wrong
+    - `evict` is the upstream classifier or boundary correction that removes
+      that wrong lane from future runs
 13. If a generated line is ever added later, it should sit after the colour
     decision, not inside it.
 
@@ -121,6 +126,8 @@ What exists now:
   runtime loop
 - long-run local sampling should stay deterministic and source-ordered
 - the first verdict lane should stay human-owned and binary
+- known routing mistakes should graduate from repeated `fail` into eviction at
+  the runtime boundary
 - eval verdicts should stay binary:
   - `pass`
   - `fail`
