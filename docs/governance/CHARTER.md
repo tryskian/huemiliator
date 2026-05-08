@@ -60,6 +60,11 @@ Eval:
 - `fail`
 - one eval focus at a time
 - prove matching and same-family one-up before broadening into tone
+- treat small evals as smoke checks only
+- treat long-run consistency as the real evidence surface
+- keep local eval storage under `.local/`
+- keep the follow-along notebook under `output/jupyter-notebook/`
+- keep the first human judgment lane narrow and row-based
 
 Project posture:
 
@@ -124,6 +129,8 @@ In scope:
 - deterministic swatch matching from the locked reference source
 - repo-local family taxonomy
 - deterministic same-family one-up rules
+- small local SQLite evidence storage
+- a follow-along experiment notebook
 - binary human judgment
 - tracked diagrams and docs
 

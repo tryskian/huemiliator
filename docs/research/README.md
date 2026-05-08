@@ -11,7 +11,7 @@ Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 Current phase:
 
 - `pre-beta`
-- `deterministic final reply shape`
+- `deterministic final reply plus local evidence, judgment, and long-run sampler`
 
 Current question:
 
@@ -45,13 +45,33 @@ Current finding:
 - the first deterministic replacement step is now fixed to next-rank,
   same-family, and top-rank clamp
 - the short loss line now comes from a fixed family-keyed bank
+- the first local SQLite evidence surface is now live
+- the first human PASS/FAIL judgment lane is now live
+- the first long-run local sampler is now live
+- the first follow-along notebook is now tracked
+- the first family-boundary refinement is now live:
+  - darker earthy warms promote into `brown` earlier
+  - pale warm neutrals stay where they are
+- `brown` is proving to be a good pressure lane because it is a contextual
+  colour bucket rather than a clean spectral one:
+  - it often behaves more like dark orange, muted orange, or olive-adjacent
+    warm neutral than a single stable hue
+  - that makes brown-family drift a useful research signal, not just a bug
 
 ## Next Clean Lane
 
+Current clean lane:
+
+- `2` hour local source-order runs
+- `2` hour one-family runs when a boundary needs isolated pressure
+- ongoing judgment while the queue is still filling
+- small count-based runs only for smoke checks
+
 The next meaningful runtime kernel should prove:
 
-- PASS/FAIL evidence around routing and replacement correctness
-- a small local evidence surface for inspecting outputs
+- whether the revised brown boundary now holds up under long-run judged rows
+- whether a tighter first gate should split family correctness from shade
+  correctness
 
 That first evidence lane should stay binary:
 
@@ -64,8 +84,11 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. add PASS/FAIL evaluation for routing and transform correctness
-2. add a small local evidence surface for storing and inspecting outputs
+1. continue judging the active `2` hour family-isolated brown run while the
+   queue is still filling
+2. inspect whether the revised brown boundary now holds up under judged rows
+3. decide whether the first human gate should judge family only or full
+   replacement correctness
 
 ## Probaboracle And Scorey Context
 

@@ -18,9 +18,11 @@ FAMILY_NAMES: tuple[str, ...] = (
 )
 
 NEUTRAL_CHROMA_MAX = 14.0
-BROWN_HUE_MIN = 20.0
+BROWN_HUE_MIN = 15.0
 BROWN_HUE_MAX = 50.0
-BROWN_LIGHTNESS_MAX = 0.5
+BROWN_LIGHTNESS_MAX = 0.56
+BROWN_DARK_LIGHTNESS_MAX = 0.40
+BROWN_CHROMA_MIN = 14.0
 RED_HUE_MAX = 15.0
 ORANGE_HUE_MAX = 45.0
 YELLOW_HUE_MAX = 70.0
@@ -103,12 +105,17 @@ def select_one_up(
 
 
 def _classify_metrics(metrics: ColourMetrics) -> str:
+    hue = metrics.hue_degrees
+    if BROWN_HUE_MIN <= hue < BROWN_HUE_MAX:
+        if metrics.lightness < BROWN_DARK_LIGHTNESS_MAX:
+            return "brown"
+        if (
+            metrics.lightness < BROWN_LIGHTNESS_MAX
+            and metrics.lab_chroma >= BROWN_CHROMA_MIN
+        ):
+            return "brown"
     if metrics.lab_chroma < NEUTRAL_CHROMA_MAX:
         return "neutral"
-
-    hue = metrics.hue_degrees
-    if BROWN_HUE_MIN <= hue < BROWN_HUE_MAX and metrics.lightness < BROWN_LIGHTNESS_MAX:
-        return "brown"
     if hue < RED_HUE_MAX or hue >= 345.0:
         return "red"
     if hue < ORANGE_HUE_MAX:

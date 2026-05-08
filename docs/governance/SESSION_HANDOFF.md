@@ -3,26 +3,46 @@
 ## Current State
 
 - repo: `huemiliator`
-- branch: `main`
+- branch: `codex/bigbrain/sqlite-evidence-notebook`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
-  swatch resolution, first family rank layer, first replacement step, and
-  first loss-line layer
+  swatch resolution, family rank, replacement step, loss-line layer, and the
+  first local evidence, judgment, and long-run sampler surface
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Attach a deterministic short loss line after the replacement shade and leave
-the local evidence surface next.
+Judge the live brown queue while it is still filling and use that signal to
+decide how the first human gate should stay scoped.
 
 Done in this kernel:
 
-- added a dedicated `huemiliator one-up <hex>` final reply surface
-- kept `replace` as the lower-level replacement inspection lane
-- added a short fixed loss-line bank keyed by family
-- kept the line layer downstream of the deterministic colour decision
-- added runtime tests for one-up command behavior and loss-line lookup
-- synced tracked docs and diagram to the new final reply truth
+- added a shared deterministic one-up state for CLI, storage, and notebook use
+- added the first local SQLite evidence lane at `.local/evals.sqlite`
+- exposed:
+  - `huemiliator eval-init`
+  - `huemiliator eval-log <hex>`
+  - `huemiliator eval-list --limit <n>`
+- added the first human judgment lane:
+  - `huemiliator eval-list --verdict <state>`
+  - `huemiliator eval-judge <id> <pass|fail> --note "<note>"`
+- added the first long-run local sampler:
+  - `huemiliator eval-sample-local --count <n>`
+  - `huemiliator eval-sample-local --duration-seconds <seconds>`
+  - source-order cycle over the frozen snapshot
+  - default `3` second interval for judgeable pacing
+- added `--family <name>` to isolate one family without changing the sampler
+  method
+- added `eval-list --family <name>` so review can stay inside the active family
+- locked the live-review method:
+  - judge rows while the run is still active
+  - do not wait for the queue to finish filling
+- added the first follow-along notebook at
+  `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
+- tightened the brown family boundary so darker earthy warms stop collapsing
+  into `neutral` or staying `orange`
+- kept the evidence write path downstream of the deterministic colour decision
+- synced tracked docs and diagram to the evidence surface truth
 
 ## Current Contract
 
@@ -43,15 +63,22 @@ Done in this kernel:
   - within-family rank from one fixed strength ladder
   - deterministic same-family replacement by next rank with top-rank clamp
   - deterministic short loss line from a fixed family bank
+- local evidence lane:
+  - SQLite storage at `.local/evals.sqlite`
+  - human PASS/FAIL verdicts on stored rows
+  - long-run local sampler over the frozen snapshot
+  - one follow-along notebook at
+    `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
 - current output target:
   - replacement shade
   - one short loss line
 
 ## Next Kernel
 
-- add PASS/FAIL evidence around replacement correctness
-- set up the small local evidence surface
-- keep any future language layer downstream of the colour decision
+- continue judging the active `brown` queue while it is still filling
+- keep the family filter in review so the queue stays on the active lane
+- decide whether the next gate should judge family correctness first or full
+  replacement correctness
 
 ## Stop State
 
@@ -65,4 +92,9 @@ Done in this kernel:
 - first family taxonomy and rank are in place
 - first deterministic replacement step is in place
 - first deterministic loss-line layer is in place
-- next work should start from a fresh `codex/bigbrain/...` branch
+- first local SQLite evidence surface is in place
+- first human PASS/FAIL judgment lane is in place
+- first long-run local sampler is in place
+- first follow-along notebook is in place
+- next work can stay on the current branch until the evidence slice feels
+  ready to publish

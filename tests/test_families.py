@@ -28,6 +28,16 @@ def test_classify_family_routes_neutral_brown_and_blue() -> None:
     assert classify_family("#2f5da8").family == "blue"
 
 
+def test_classify_family_promotes_dark_earthy_warms_to_brown() -> None:
+    assert classify_family("#5b5149").family == "brown"
+    assert classify_family("#6c5043").family == "brown"
+    assert classify_family("#ab856f").family == "brown"
+
+
+def test_classify_family_keeps_pale_warm_neutrals_out_of_brown() -> None:
+    assert classify_family("#c4b6a6").family == "neutral"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),

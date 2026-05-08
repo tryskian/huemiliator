@@ -19,6 +19,8 @@ def test_render_status_includes_contract_lines() -> None:
     assert "same-family rank: fixed strength ladder" in text
     assert "transform: next same-family rank with top-rank clamp" in text
     assert "line: fixed family loss bank" in text
+    assert "evidence: local sqlite eval db" in text
+    assert "sampler: long-run local source-order or family cycle" in text
 
 
 def test_main_pick_prints_selected_hex() -> None:
@@ -130,6 +132,84 @@ def test_main_one_up_errors_cleanly() -> None:
     assert result == 1
     assert stdout.getvalue() == ""
     assert "unknown loss-line family" in stderr.getvalue()
+
+
+def test_main_eval_init_prints_db_path() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_init",
+        return_value="Initialised /tmp/evals.sqlite",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-init"])
+
+    assert result == 0
+    assert "Initialised /tmp/evals.sqlite" in stdout.getvalue()
+
+
+def test_main_eval_log_prints_logged_output() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_log",
+        return_value="logged output: 7\nreplacement shade: Loud Red",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-log", "#d22345"])
+
+    assert result == 0
+    assert "logged output: 7" in stdout.getvalue()
+
+
+def test_main_eval_list_prints_recent_rows() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_list",
+        return_value="eval counts: total=1 pass=0 fail=0 pending=1\n\nid: 1",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-list", "--limit", "5"])
+
+    assert result == 0
+    assert "id: 1" in stdout.getvalue()
+
+
+def test_main_eval_list_accepts_family_filter() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_list",
+        return_value="eval counts (family=brown): total=1 pass=0 fail=0 pending=1",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-list", "--family", "brown"])
+
+    assert result == 0
+    assert "family=brown" in stdout.getvalue()
+
+
+def test_main_eval_judge_prints_updated_row() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_judge",
+        return_value="judged output 1: pass\n\nid: 1",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-judge", "1", "pass", "--note", "looks right"])
+
+    assert result == 0
+    assert "judged output 1: pass" in stdout.getvalue()
+
+
+def test_main_eval_sample_local_prints_summary() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_sample_local",
+        return_value="local eval sample complete: count=3",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-sample-local", "--count", "3"])
+
+    assert result == 0
+    assert "local eval sample complete: count=3" in stdout.getvalue()
 
 
 def test_main_resolve_snapshot_errors_cleanly() -> None:

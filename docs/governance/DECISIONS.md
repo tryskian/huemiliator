@@ -333,3 +333,130 @@ into implementation authorship.
 - Why: Huemiliator needed a final reply surface without weakening the runtime
   contract. A tiny fixed family bank preserves the short snark layer while
   keeping the colour choice fully separable and PASS/FAIL-testable.
+
+## D-019: The first local evidence lane is SQLite plus one experiment notebook
+
+- Date: `2026-05-07`
+- Category: `eval_quality`
+- Tags: `sqlite`, `local_evidence`, `notebook`, `follow_along`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - keep the first local evidence surface in a repo-local SQLite file at
+    `.local/evals.sqlite`
+  - expose a narrow operator surface for that lane:
+    - `huemiliator eval-init`
+    - `huemiliator eval-log <hex>`
+    - `huemiliator eval-list --limit <n>`
+  - record the deterministic output state after the colour decision:
+    - input hex
+    - nearest swatch
+    - family and rank
+    - replacement shade and rank
+    - loss line
+  - keep the first follow-along notebook at
+    `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
+- Why: Huemiliator now has enough deterministic runtime surface to inspect real
+  outputs. A tiny SQLite lane plus one notebook keeps that evidence local,
+  legible, and downstream of the colour decision without bloating the toy into
+  a larger eval system.
+
+## D-020: The first PASS/FAIL lane is human judgment on stored rows
+
+- Date: `2026-05-07`
+- Category: `eval_quality`
+- Tags: `pass_fail`, `human_judgment`, `sqlite`, `pending_review`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - keep the first PASS/FAIL surface human-owned
+  - apply verdicts directly to stored eval rows:
+    - `pass`
+    - `fail`
+  - expose that lane through:
+    - `huemiliator eval-list --verdict <state>`
+    - `huemiliator eval-judge <id> <pass|fail> --note "<note>"`
+  - keep verdict notes short and row-local
+- Why: Huemiliator already has deterministic output storage, so the smallest
+  honest next step is human review on those rows. That gives the repo a real
+  binary eval lane without jumping early into a larger judging system.
+
+## D-021: Brown should catch dark earthy warms before the neutral gate
+
+- Date: `2026-05-07`
+- Category: `runtime_engineering`
+- Tags: `brown_boundary`, `earthy_warms`, `neutral_shoulder`, `family_routing`
+- Provenance: `implementation decision`
+- Decision:
+  - tighten the brown lane before the neutral chroma gate
+  - widen brown slightly toward darker earthy warms by:
+    - lowering the brown hue floor
+    - allowing a darker warm override before the neutral check
+    - allowing slightly lighter warm browns when their chroma is already strong
+  - keep pale creams, parchment shades, and warm low-chroma neutrals out of
+    brown
+- Why: The evidence lane showed that the weak spot was not the whole
+  beige-parchment shoulder. It was darker earthy warms collapsing into
+  `neutral` or staying `orange` even when the colour read more like brown.
+  Tightening that boundary is a smaller and cleaner correction than trying to
+  reclassify all warm neutrals.
+
+## D-022: Long-run local evals sample the frozen snapshot in source order
+
+- Date: `2026-05-07`
+- Category: `eval_quality`
+- Tags: `long_run`, `local_sampler`, `source_order`, `consistency`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - expose `huemiliator eval-sample-local` as the long-run local sampler
+  - cycle deterministically through the frozen swatch snapshot in source order
+  - default the sampler to human-judgable pacing with a `3` second interval
+  - use small runs as smoke checks only
+  - treat long-run consistency as the real evidence surface
+- Why: Hue does not need clever spot samples. The signal comes from sustained,
+  consistent accumulation of deterministic rows that can be judged while the
+  queue is still growing.
+
+## D-023: Long runs can isolate one family without changing the sampler method
+
+- Date: `2026-05-07`
+- Category: `eval_quality`
+- Tags: `family_runs`, `brown_lane`, `sampler_scope`, `source_order`
+- Provenance: `implementation decision`
+- Decision:
+  - keep `huemiliator eval-sample-local` as the one long-run entrypoint
+  - allow `--family <name>` to restrict the run to one Huemiliator family
+  - preserve source order inside that family subset instead of inventing a new
+    family-specific sampling method
+- Why: Once the eval runner existed, the next useful move was to isolate
+  pressure on one family without creating a parallel runner design. The family
+  filter keeps the method stable while focusing the evidence lane.
+
+## D-024: The review lane can filter to one family too
+
+- Date: `2026-05-07`
+- Category: `eval_quality`
+- Tags: `family_filter`, `review_lane`, `brown_lane`, `pending_queue`
+- Provenance: `implementation decision`
+- Decision:
+  - allow `huemiliator eval-list --family <name>` in the human review lane
+  - apply the family filter to both the row list and the printed summary counts
+  - keep the family filter composable with `--verdict`
+- Why: Once family-specific runs became a real method surface, the review lane
+  also needed a matching filter so the queue could be judged without mixing in
+  unrelated families.
+
+## D-025: Human judgment starts while the long run is still filling
+
+- Date: `2026-05-07`
+- Category: `eval_quality`
+- Tags: `live_review`, `long_run`, `judgment_method`, `queue_discipline`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - start human PASS/FAIL review while the long-run sampler is still active
+  - do not wait for the run to finish before judging rows
+  - keep review on the active lane:
+    - use `--verdict pending` for the open queue
+    - add `--family <name>` when the run is family-isolated
+- Why: In Huemiliator, the data itself is the signal. Small spot samples are
+  only smoke checks. The real method is long-run accumulation plus live human
+  judgment against the growing queue, so drift can be seen and tightened while
+  the evidence is still arriving.
