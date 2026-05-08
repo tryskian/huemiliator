@@ -44,7 +44,23 @@ def test_classify_family_demotes_bright_gold_shoulder_out_of_brown() -> None:
     assert classify_family("#c19552").family == "orange"
     assert classify_family("#d39c43").family == "orange"
     assert classify_family("#b08e51").family == "orange"
+    assert classify_family("#be8a4a").family == "orange"
     assert classify_family("#cda323").family == "yellow"
+
+
+def test_classify_family_demotes_muted_olive_shoulder_out_of_brown() -> None:
+    assert classify_family("#5b4f3b").family == "neutral"
+    assert classify_family("#80765f").family == "neutral"
+    assert classify_family("#746c57").family == "neutral"
+    assert classify_family("#545144").family == "neutral"
+    assert classify_family("#a39264").family == "neutral"
+
+
+def test_classify_family_demotes_loud_orange_shoulder_out_of_brown() -> None:
+    assert classify_family("#ff7913").family == "orange"
+    assert classify_family("#f96714").family == "orange"
+    assert classify_family("#f47327").family == "orange"
+    assert classify_family("#ff8812").family == "orange"
 
 
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:

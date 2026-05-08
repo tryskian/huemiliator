@@ -63,6 +63,12 @@ Current finding:
   - loud gold and ochre cases can fall through to `orange` or `yellow`
   - the brown lane no longer has to contain obvious bright-gold cases by rank
     alone
+- the residual brown-family correction is now live:
+  - muted olive and khaki shoulders are excluded before the dark earthy brown
+    shortcut
+  - loud orange, yellow, and gold shoulders are excluded before brown ranking
+  - the active brown source subset drops from `202` swatches to `125` swatches
+    in the local snapshot
 - `brown` is proving to be a good pressure lane because it is a contextual
   colour bucket rather than a clean spectral one:
   - it often behaves more like dark orange, muted orange, or olive-adjacent
@@ -103,10 +109,10 @@ Current clean lane:
 
 The next meaningful runtime kernel should prove:
 
-- whether the muted green and olive seam needs its own brown-boundary or
-  brown-rank correction
-- whether the smaller residual orange shoulder needs a second classification
-  trim beyond the bright-gold fix
+- whether the stricter brown boundary preserved the earthy brown core across a
+  fresh two-hour judged run
+- whether the remaining named gold/ochre cases inside `brown` are acceptable
+  contextual browns or still need a narrower trim
 - whether a tighter first gate should split family correctness from shade
   correctness
 

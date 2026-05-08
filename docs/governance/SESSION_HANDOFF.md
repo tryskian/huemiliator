@@ -7,7 +7,8 @@
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
   swatch resolution, family rank, replacement step, loss-line layer, and the
   first local evidence, judgment, and long-run sampler surface, plus the first
-  completed contextual brown evidence slice
+  completed contextual brown evidence slice and the residual brown shoulder
+  classifier correction
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
@@ -46,6 +47,15 @@ Done in this kernel:
 - reclassified the bright gold shoulder so obvious loud gold and ochre cases
   can fall through to `orange` or `yellow`
 - completed the fresh post-classification brown-family rerun
+- tightened the brown classifier again from the fully judged closed brown rerun:
+  - evidence base: `201` unique brown pairs, `117` pass, `84` fail
+  - muted olive and khaki shoulders now leave `brown`
+  - loud orange, yellow, and gold shoulders now leave `brown`
+  - the local snapshot's active brown subset is now `125` swatches
+- ran a no-interval full-current-brown smoke sample:
+  - `125` rows recorded
+  - no replacement crossed out of the runtime `brown` family
+  - this was not the required two-hour judged run
 - the completed rerun kept the brown core stronger than the first pass:
   - `2368` brown rows were recorded
   - `45` were judged `pass`
@@ -94,10 +104,10 @@ Done in this kernel:
 
 - keep judging the completed brown queue in small focused sweeps
 - decide whether the next correction should target:
-  - the muted green and olive seam
-  - the smaller residual orange shoulder
-- decide whether the next gate should judge family correctness first or full
-  replacement correctness
+  - any remaining named gold or ochre cases inside `brown`
+  - replacement quality after the family boundary holds
+- run the requested fresh two-hour `brown` family eval and judge it while it
+  fills before claiming the correction as settled
 
 ## Stop State
 
@@ -116,3 +126,5 @@ Done in this kernel:
 - first long-run local sampler is in place
 - first follow-along notebook is in place
 - the first contextual brown evidence slice is ready to publish from this branch
+- the residual brown shoulder classifier correction is implemented but still
+  needs the requested two-hour judged run before merge confidence

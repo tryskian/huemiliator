@@ -211,3 +211,27 @@ So the next runtime correction has to choose between two real residual seams:
 
 - muted green and khaki inside the contextual brown bucket
 - a smaller remaining orange shoulder beyond the bright-gold trim
+
+## Follow-On Classifier Correction
+
+The next correction chose the family-boundary path first.
+
+Using the fully judged closed brown rerun as the evidence base:
+
+- `201` unique brown pairs were judged
+- `117` passed
+- `84` failed
+- the dominant residual failures split between:
+  - muted green and olive misroutes
+  - a smaller orange, yellow, and gold shoulder
+
+The runtime now excludes those shoulders before brown ranking:
+
+- muted olive and khaki cases leave `brown` before the dark earthy shortcut
+- loud orange, yellow, and gold cases leave `brown` before replacement ranking
+- the active brown subset in the frozen snapshot drops from `202` swatches to
+  `125` swatches
+
+This is still a classifier correction, not a completed finding by itself. It
+needs a fresh two-hour judged brown run before the new boundary can be treated
+as settled evidence.

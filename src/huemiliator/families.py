@@ -32,6 +32,10 @@ BROWN_CHROMA_MIN = 14.0
 BROWN_GOLD_SHOULDER_HUE_MIN = 36.0
 BROWN_GOLD_SHOULDER_LIGHTNESS_MIN = 0.44
 BROWN_GOLD_SHOULDER_CHROMA_MIN = 30.0
+BROWN_MUTED_OLIVE_SHOULDER_HUE_MIN = 37.0
+BROWN_MUTED_OLIVE_SHOULDER_CHROMA_MAX = 30.0
+BROWN_LOUD_ORANGE_SHOULDER_HUE_MAX = 33.0
+BROWN_LOUD_ORANGE_SHOULDER_CHROMA_MIN = 53.0
 RED_HUE_MAX = 15.0
 ORANGE_HUE_MAX = 45.0
 YELLOW_HUE_MAX = 70.0
@@ -116,16 +120,36 @@ def select_one_up(
 def _classify_metrics(metrics: ColourMetrics) -> str:
     hue = metrics.hue_degrees
     if BROWN_HUE_MIN <= hue < BROWN_HUE_MAX:
+        brown_excluded = False
         if (
+            hue >= BROWN_MUTED_OLIVE_SHOULDER_HUE_MIN
+            and metrics.lab_chroma < BROWN_MUTED_OLIVE_SHOULDER_CHROMA_MAX
+        ):
+            return "neutral"
+        if hue >= BROWN_MUTED_OLIVE_SHOULDER_HUE_MIN:
+            brown_excluded = True
+        elif (
+            hue < BROWN_LOUD_ORANGE_SHOULDER_HUE_MAX
+            and metrics.lab_chroma >= BROWN_LOUD_ORANGE_SHOULDER_CHROMA_MIN
+        ):
+            brown_excluded = True
+        elif (
+            hue >= BROWN_BRIGHT_SHOULDER_HUE_MIN
+            and metrics.lightness >= BROWN_BRIGHT_SHOULDER_LIGHTNESS_MIN
+            and metrics.lab_chroma >= BROWN_BRIGHT_SHOULDER_CHROMA_MIN
+        ):
+            brown_excluded = True
+        elif (
             hue >= BROWN_GOLD_SHOULDER_HUE_MIN
             and metrics.lightness >= BROWN_GOLD_SHOULDER_LIGHTNESS_MIN
             and metrics.lab_chroma >= BROWN_GOLD_SHOULDER_CHROMA_MIN
         ):
-            pass
-        elif metrics.lightness < BROWN_DARK_LIGHTNESS_MAX:
+            brown_excluded = True
+        if not brown_excluded and metrics.lightness < BROWN_DARK_LIGHTNESS_MAX:
             return "brown"
-        elif (
-            metrics.lightness < BROWN_LIGHTNESS_MAX
+        if (
+            not brown_excluded
+            and metrics.lightness < BROWN_LIGHTNESS_MAX
             and metrics.lab_chroma >= BROWN_CHROMA_MIN
         ):
             return "brown"

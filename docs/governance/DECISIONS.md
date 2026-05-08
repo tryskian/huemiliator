@@ -497,3 +497,21 @@ into implementation authorship.
   shoulder still did not belong in the brown lane at all. Classification is a
   cleaner place to remove obvious gold cases than asking the brown rank rule to
   absorb them downstream.
+
+## D-028: Brown classification should evict residual olive and orange shoulders
+
+- Date: `2026-05-08`
+- Category: `runtime_engineering`
+- Tags: `brown_classification`, `olive_shoulder`, `orange_shoulder`, `family_routing`
+- Provenance: `implementation decision`
+- Decision:
+  - route the muted olive and khaki shoulder out of `brown` before the dark
+    earthy shortcut can admit it
+  - route high-chroma, light orange/gold/yellow shoulders out of `brown`
+  - preserve the lower-hue earthy brown core as the active brown family
+- Why: The fully judged closed brown rerun had `201` unique brown pairs with
+  `117` pass and `84` fail. The dominant residual failures were not broad brown
+  failures; they clustered around muted green and olive misroutes plus a
+  smaller orange, yellow, and gold shoulder. Those are family-boundary
+  mistakes, so the correction belongs in classification before replacement
+  ranking.
