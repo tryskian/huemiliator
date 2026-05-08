@@ -84,3 +84,19 @@ def test_sample_local_eval_outputs_filters_to_one_family(tmp_path: Path) -> None
 
     assert len(rows) == 2
     assert all(row["family"] == "brown" for row in rows)
+
+
+def test_sample_local_eval_outputs_filters_to_warm_scope(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    dataset = _dataset(
+        SwatchEntry(source_order=1, slug="egret", name="Egret", hex="#f3ece0"),
+        SwatchEntry(source_order=2, slug="woodsmoke", name="Woodsmoke", hex="#947764"),
+        SwatchEntry(source_order=3, slug="loud-red", name="Loud Red", hex="#d22345"),
+        SwatchEntry(source_order=4, slug="ocean", name="Ocean", hex="#2f5da8"),
+    )
+
+    sample_local_eval_outputs(count=3, family="warm", dataset=dataset, db_path=db_path)
+    rows = list_outputs(db_path, limit=10)
+
+    assert len(rows) == 3
+    assert {row["family"] for row in rows} <= {"brown", "red", "orange", "yellow"}

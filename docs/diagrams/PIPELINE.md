@@ -17,7 +17,7 @@ flowchart LR
   F["deterministic one-up"]
   G["replacement shade + short loss line"]
   H["optional sqlite evidence row"]
-  I["local source-order sampler"]
+  I["local source-order or scoped cohort sampler"]
   J["human pass/fail judgment"]
   K["follow-along notebook"]
 

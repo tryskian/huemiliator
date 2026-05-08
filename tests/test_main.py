@@ -20,7 +20,7 @@ def test_render_status_includes_contract_lines() -> None:
     assert "transform: next same-family rank with top-rank clamp" in text
     assert "line: fixed family loss bank" in text
     assert "evidence: local sqlite eval db" in text
-    assert "sampler: long-run local source-order or family cycle" in text
+    assert "sampler: long-run local source-order or scoped cohort cycle" in text
 
 
 def test_main_pick_prints_selected_hex() -> None:
@@ -184,6 +184,19 @@ def test_main_eval_list_accepts_family_filter() -> None:
 
     assert result == 0
     assert "family=brown" in stdout.getvalue()
+
+
+def test_main_eval_list_accepts_warm_scope() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_list",
+        return_value="eval counts (scope=warm): total=4 pass=0 fail=0 pending=4",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-list", "--family", "warm"])
+
+    assert result == 0
+    assert "scope=warm" in stdout.getvalue()
 
 
 def test_main_eval_judge_prints_updated_row() -> None:

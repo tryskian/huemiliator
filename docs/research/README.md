@@ -75,19 +75,43 @@ Current finding:
 - the completed post-classification brown rerun is materially stronger than the
   first pass:
   - `2368` brown rows were recorded in the rerun
-  - `45` were judged `pass`
-  - `28` were judged `fail`
-  - `2295` remain unjudged in the local queue
+  - the queue is now fully judged:
+    - `1394` row-level `pass`
+    - `974` row-level `fail`
+    - `0` pending
+  - the closed deterministic signal is:
+    - `201` unique brown pairs
+    - `117` pair-level `pass`
+    - `84` pair-level `fail`
   - the earthy brown core now holds much better than it did in the first run
-  - the main residual failure shape is still the muted green and olive seam:
+  - the closed residual failure signal has two real family seams:
+    - muted green and olive seam
+    - orange, yellow, and gold shoulder
+  - repeated muted green and olive failures include:
     - `Beech -> Covert green`
     - `Capers -> Dusky green`
     - `Black ink -> Grape leaf`
     - `Covert green -> Aloe`
-  - a smaller orange shoulder still leaks through at the tail:
-    - `Orange popsicle -> Orange tiger`
-    - `Persimmon orange -> Puffin's bill`
-    - `Autumn glory -> Turmeric`
+  - repeated warm-shoulder failures include:
+    - `Apricot orange -> Yam`
+    - `Burnt orange -> Gold flame`
+    - `Jaffa orange -> Hawaiian sunset`
+    - `Golden ochre -> Autumnal`
+    - `Topaz -> Buckthorn brown`
+    - `Cadmium yellow -> Orange pepper`
+  - the next conservative family-first correction is now live on the current
+    branch:
+    - it evicts `55` unique fail pairs from the brown lane
+    - it evicts `0` unique pass pairs from the brown lane
+    - it targets warm orange-yellow shoulder colours and the muted olive seam
+- the first family-first correction now says:
+  - `fail` is evidence
+  - `evict` is the classifier change made because of that evidence
+- long-run eval discipline now says:
+  - keep one active sampler in the repo at a time
+  - keep judgment on that one live queue until the run is closed
+- the eval surface now also has one local cohort alias:
+  - `warm` = `brown`, `red`, `orange`, `yellow`
 - the special brown finding now has its own tracked note:
   - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
 
@@ -95,18 +119,20 @@ Current finding:
 
 Current clean lane:
 
-- judgment sweeps over the completed post-classification brown queue
+- completed warm-cohort run against the new family-first classifier correction
+- one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
+- `2` hour warm-cohort runs when the warm shoulder needs one wider lane
 - live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
 The next meaningful runtime kernel should prove:
 
-- whether the muted green and olive seam needs its own brown-boundary or
-  brown-rank correction
-- whether the smaller residual orange shoulder needs a second classification
-  trim beyond the bright-gold fix
+- whether the new family-first classifier actually collapses the muted olive
+  seam in live brown reruns
+- whether the warm orange-yellow shoulder is still loud when the lane widens to
+  the `warm` cohort
 - whether a tighter first gate should split family correctness from shade
   correctness
 
@@ -121,11 +147,11 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep judging the completed brown rerun in focused sweeps
-2. decide whether the next correction should target the muted green seam or the
-   smaller residual orange shoulder
-3. decide whether the first human gate should judge family only or full
-   replacement correctness
+1. judge the completed fresh warm slice at `id > 5831`
+2. check whether the closed fail seams still dominate when brown is not
+   isolated
+3. decide whether the next correction belongs in warm-scope routing or back in
+   a narrower family lane
 
 ## Probaboracle And Scorey Context
 

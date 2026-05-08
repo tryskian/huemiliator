@@ -24,6 +24,10 @@ BROWN_EARTHY_HUE_MAX = 37.0
 BROWN_BRIGHT_SHOULDER_HUE_MIN = 33.0
 BROWN_BRIGHT_SHOULDER_LIGHTNESS_MIN = 0.50
 BROWN_BRIGHT_SHOULDER_CHROMA_MIN = 38.0
+BROWN_WARM_SHOULDER_HUE_MIN = 18.0
+BROWN_WARM_SHOULDER_HUE_MAX = 36.0
+BROWN_WARM_SHOULDER_LIGHTNESS_MIN = 0.48
+BROWN_WARM_SHOULDER_CHROMA_MIN = 50.0
 BROWN_EXTREME_CHROMA_HUE_MIN = 30.0
 BROWN_EXTREME_CHROMA_MIN = 70.0
 BROWN_LIGHTNESS_MAX = 0.56
@@ -32,6 +36,9 @@ BROWN_CHROMA_MIN = 14.0
 BROWN_GOLD_SHOULDER_HUE_MIN = 36.0
 BROWN_GOLD_SHOULDER_LIGHTNESS_MIN = 0.44
 BROWN_GOLD_SHOULDER_CHROMA_MIN = 30.0
+BROWN_OLIVE_SHOULDER_HUE_MIN = 38.0
+BROWN_OLIVE_SHOULDER_LIGHTNESS_MIN = 0.28
+BROWN_OLIVE_SHOULDER_CHROMA_MIN = 8.0
 RED_HUE_MAX = 15.0
 ORANGE_HUE_MAX = 45.0
 YELLOW_HUE_MAX = 70.0
@@ -116,11 +123,7 @@ def select_one_up(
 def _classify_metrics(metrics: ColourMetrics) -> str:
     hue = metrics.hue_degrees
     if BROWN_HUE_MIN <= hue < BROWN_HUE_MAX:
-        if (
-            hue >= BROWN_GOLD_SHOULDER_HUE_MIN
-            and metrics.lightness >= BROWN_GOLD_SHOULDER_LIGHTNESS_MIN
-            and metrics.lab_chroma >= BROWN_GOLD_SHOULDER_CHROMA_MIN
-        ):
+        if _is_brown_family_shoulder(metrics):
             pass
         elif metrics.lightness < BROWN_DARK_LIGHTNESS_MAX:
             return "brown"
@@ -196,4 +199,36 @@ def _is_brown_drift(metrics: ColourMetrics) -> bool:
     return (
         metrics.hue_degrees >= BROWN_EXTREME_CHROMA_HUE_MIN
         and metrics.lab_chroma >= BROWN_EXTREME_CHROMA_MIN
+    )
+
+
+def _is_brown_family_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        _is_brown_gold_shoulder(metrics)
+        or _is_brown_warm_shoulder(metrics)
+        or _is_brown_olive_shoulder(metrics)
+    )
+
+
+def _is_brown_gold_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.hue_degrees >= BROWN_GOLD_SHOULDER_HUE_MIN
+        and metrics.lightness >= BROWN_GOLD_SHOULDER_LIGHTNESS_MIN
+        and metrics.lab_chroma >= BROWN_GOLD_SHOULDER_CHROMA_MIN
+    )
+
+
+def _is_brown_warm_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        BROWN_WARM_SHOULDER_HUE_MIN <= metrics.hue_degrees < BROWN_WARM_SHOULDER_HUE_MAX
+        and metrics.lightness >= BROWN_WARM_SHOULDER_LIGHTNESS_MIN
+        and metrics.lab_chroma >= BROWN_WARM_SHOULDER_CHROMA_MIN
+    )
+
+
+def _is_brown_olive_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.hue_degrees >= BROWN_OLIVE_SHOULDER_HUE_MIN
+        and metrics.lightness >= BROWN_OLIVE_SHOULDER_LIGHTNESS_MIN
+        and metrics.lab_chroma >= BROWN_OLIVE_SHOULDER_CHROMA_MIN
     )

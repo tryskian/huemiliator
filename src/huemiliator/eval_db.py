@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from huemiliator.config import EVAL_DB_PATH
-from huemiliator.families import FAMILY_NAMES
+from huemiliator.eval_scope import resolve_eval_scope_families
 from huemiliator.pipeline import OneUpState
 
 VERDICTS: tuple[str, ...] = ("pass", "fail")
@@ -111,8 +111,7 @@ def list_outputs(
         raise ValueError("Limit must be at least 1.")
     if verdict is not None and verdict not in LIST_VERDICTS:
         raise ValueError(f"Unsupported verdict '{verdict}'.")
-    if family is not None and family not in FAMILY_NAMES:
-        raise ValueError(f"Unsupported family '{family}'.")
+    selected_families = resolve_eval_scope_families(family)
 
     with closing(connect(db_path)) as conn, conn:
         conn.executescript(SCHEMA)
@@ -123,9 +122,13 @@ def list_outputs(
             params.append(verdict)
         elif verdict == "pending":
             where_clauses.append("current_verdict IS NULL")
-        if family is not None:
-            where_clauses.append("family = ?")
-            params.append(family)
+        if selected_families is not None:
+            if len(selected_families) == 1:
+                where_clauses.append("family = ?")
+            else:
+                placeholders = ", ".join("?" for _ in selected_families)
+                where_clauses.append(f"family IN ({placeholders})")
+            params.extend(selected_families)
 
         where_sql = ""
         if where_clauses:
@@ -221,16 +224,19 @@ def judge_output(
 
 
 def counts(db_path: Path | None, *, family: str | None = None) -> dict[str, int]:
-    if family is not None and family not in FAMILY_NAMES:
-        raise ValueError(f"Unsupported family '{family}'.")
+    selected_families = resolve_eval_scope_families(family)
 
     with closing(connect(db_path)) as conn, conn:
         conn.executescript(SCHEMA)
         params: tuple[object, ...] = ()
         where_sql = ""
-        if family is not None:
-            where_sql = "WHERE family = ?"
-            params = (family,)
+        if selected_families is not None:
+            if len(selected_families) == 1:
+                where_sql = "WHERE family = ?"
+            else:
+                placeholders = ", ".join("?" for _ in selected_families)
+                where_sql = f"WHERE family IN ({placeholders})"
+            params = tuple(selected_families)
         totals = conn.execute(
             f"""
             SELECT

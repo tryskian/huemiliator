@@ -163,3 +163,94 @@ def test_counts_can_filter_to_one_family(tmp_path: Path) -> None:
     summary = counts(db_path, family="brown")
 
     assert summary == {"total": 1, "pass": 1, "fail": 0, "pending": 0}
+
+
+def test_list_outputs_can_filter_to_warm_scope(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    neutral_state = _state()
+    brown_state = OneUpState(
+        resolution=neutral_state.resolution,
+        current=RankedSwatch(
+            swatch=neutral_state.current.swatch,
+            family="brown",
+            family_rank=neutral_state.current.family_rank,
+            family_size=neutral_state.current.family_size,
+        ),
+        replacement=RankedSwatch(
+            swatch=neutral_state.replacement.swatch,
+            family="brown",
+            family_rank=neutral_state.replacement.family_rank,
+            family_size=neutral_state.replacement.family_size,
+        ),
+        loss_line=neutral_state.loss_line,
+    )
+    red_state = OneUpState(
+        resolution=neutral_state.resolution,
+        current=RankedSwatch(
+            swatch=neutral_state.current.swatch,
+            family="red",
+            family_rank=neutral_state.current.family_rank,
+            family_size=neutral_state.current.family_size,
+        ),
+        replacement=RankedSwatch(
+            swatch=neutral_state.replacement.swatch,
+            family="red",
+            family_rank=neutral_state.replacement.family_rank,
+            family_size=neutral_state.replacement.family_size,
+        ),
+        loss_line=neutral_state.loss_line,
+    )
+    record_one_up_state(db_path, neutral_state)
+    record_one_up_state(db_path, brown_state)
+    record_one_up_state(db_path, red_state)
+
+    rows = list_outputs(db_path, limit=10, family="warm")
+
+    assert len(rows) == 2
+    assert {row["family"] for row in rows} == {"brown", "red"}
+
+
+def test_counts_can_filter_to_warm_scope(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    neutral_state = _state()
+    brown_state = OneUpState(
+        resolution=neutral_state.resolution,
+        current=RankedSwatch(
+            swatch=neutral_state.current.swatch,
+            family="brown",
+            family_rank=neutral_state.current.family_rank,
+            family_size=neutral_state.current.family_size,
+        ),
+        replacement=RankedSwatch(
+            swatch=neutral_state.replacement.swatch,
+            family="brown",
+            family_rank=neutral_state.replacement.family_rank,
+            family_size=neutral_state.replacement.family_size,
+        ),
+        loss_line=neutral_state.loss_line,
+    )
+    red_state = OneUpState(
+        resolution=neutral_state.resolution,
+        current=RankedSwatch(
+            swatch=neutral_state.current.swatch,
+            family="red",
+            family_rank=neutral_state.current.family_rank,
+            family_size=neutral_state.current.family_size,
+        ),
+        replacement=RankedSwatch(
+            swatch=neutral_state.replacement.swatch,
+            family="red",
+            family_rank=neutral_state.replacement.family_rank,
+            family_size=neutral_state.replacement.family_size,
+        ),
+        loss_line=neutral_state.loss_line,
+    )
+    record_one_up_state(db_path, neutral_state)
+    record_one_up_state(db_path, brown_state)
+    record_one_up_state(db_path, red_state)
+    judge_output(db_path, 2, "pass", "")
+    judge_output(db_path, 3, "fail", "")
+
+    summary = counts(db_path, family="warm")
+
+    assert summary == {"total": 2, "pass": 1, "fail": 1, "pending": 0}

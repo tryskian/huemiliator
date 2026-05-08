@@ -58,6 +58,9 @@ Eval:
 - binary verdicts only
 - `pass`
 - `fail`
+- treat `fail` as evidence about the current lane
+- treat `evict` as the runtime correction that removes a bad lane upstream
+- do not keep re-judging known routing mistakes once they have earned eviction
 - one eval focus at a time
 - prove matching and same-family one-up before broadening into tone
 - treat small evals as smoke checks only

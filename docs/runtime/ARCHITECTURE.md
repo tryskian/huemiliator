@@ -62,8 +62,8 @@ What exists now:
 - brown boundary refinement:
   - darker earthy warm tones can enter `brown` before the neutral gate
   - pale warm neutrals still stay in `neutral`
-  - bright gold and ochre shoulder colours can fall through to `orange` or
-    `yellow` instead of staying in `brown`
+  - bright gold, warm orange-yellow, and muted olive shoulder colours can fall
+    through to non-brown families instead of staying in `brown`
 - deterministic replacement rule:
   - move to the next higher rank inside the same family
   - clamp at the family top rank
@@ -73,7 +73,8 @@ What exists now:
 - local SQLite evidence storage for deterministic outputs
 - human PASS/FAIL verdicts on stored outputs
 - long-run local source-order sampling over the frozen snapshot
-- optional one-family runs that preserve source order inside the filtered subset
+- optional one-family or local-cohort runs that preserve source order inside
+  the filtered subset
 - one follow-along notebook for local inspection
 
 ## Target Runtime Path
@@ -89,8 +90,8 @@ What exists now:
 5. The runtime classifies the matched swatch into a closed Huemiliator-owned
    family set with fixed neutral and hue thresholds.
    - for `brown`, darker earthy warms can enter before the neutral gate
-   - bright gold and ochre shoulder colours can fall through to `orange` or
-     `yellow`
+   - bright gold, warm orange-yellow, and muted olive shoulder colours can
+     fall through to non-brown families
 6. The runtime reads the same-family rank from one fixed family-strength ladder.
    - for `brown`, the yellow/gold/olive shoulder sits below the earthy core
 7. The runtime selects the next same-family rank, clamped at the family top.
@@ -99,8 +100,12 @@ What exists now:
 10. The local evidence lane can optionally record the deterministic output in
     SQLite for follow-along inspection.
 11. The local sampler can append rows over time from the frozen snapshot in
-    source order.
+    source order, or from one family or local-cohort subset when a boundary
+    needs isolated pressure.
 12. The human review lane can mark stored rows as `pass` or `fail`.
+    - `fail` is evidence that the current lane is wrong
+    - `evict` is the upstream classifier or boundary correction that removes
+      that wrong lane from future runs
 13. If a generated line is ever added later, it should sit after the colour
     decision, not inside it.
 
@@ -121,6 +126,8 @@ What exists now:
   runtime loop
 - long-run local sampling should stay deterministic and source-ordered
 - the first verdict lane should stay human-owned and binary
+- known routing mistakes should graduate from repeated `fail` into eviction at
+  the runtime boundary
 - eval verdicts should stay binary:
   - `pass`
   - `fail`

@@ -47,6 +47,28 @@ def test_classify_family_demotes_bright_gold_shoulder_out_of_brown() -> None:
     assert classify_family("#cda323").family == "yellow"
 
 
+def test_classify_family_demotes_warm_orange_yellow_shoulder_out_of_brown() -> None:
+    assert classify_family("#c86b3c").family == "orange"
+    assert classify_family("#d08344").family == "orange"
+    assert classify_family("#ff8812").family == "orange"
+    assert classify_family("#ee9626").family == "orange"
+
+
+def test_classify_family_demotes_olive_seam_out_of_brown() -> None:
+    assert classify_family("#80765f").family == "orange"
+    assert classify_family("#746c57").family == "neutral"
+    assert classify_family("#817a60").family == "yellow"
+    assert classify_family("#927b3c").family == "orange"
+    assert classify_family("#a39264").family == "orange"
+
+
+def test_classify_family_keeps_earthy_brown_core_inside_brown() -> None:
+    assert classify_family("#9a7352").family == "brown"
+    assert classify_family("#6e4f3a").family == "brown"
+    assert classify_family("#704822").family == "brown"
+    assert classify_family("#97572b").family == "brown"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),
