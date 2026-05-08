@@ -479,3 +479,21 @@ into implementation authorship.
   browns than the earthy core. A brown-specific rank rule is a smaller and
   cleaner fix than widening family labels or adding special-case replacement
   exceptions.
+
+## D-027: Bright gold shoulder should exit brown at classification time
+
+- Date: `2026-05-08`
+- Category: `runtime_engineering`
+- Tags: `brown_classification`, `gold_shoulder`, `family_routing`, `orange_boundary`
+- Provenance: `implementation decision`
+- Decision:
+  - route the bright gold and ochre shoulder out of `brown` during family
+    classification
+  - let those colours fall through to `orange` or `yellow` instead of relying
+    on brown ranking to contain them
+  - keep the brown ladder focused on the earthy core plus the narrower muted
+    olive seam that still needs pressure
+- Why: After `D-026`, the early brown rerun improved, but the louder gold
+  shoulder still did not belong in the brown lane at all. Classification is a
+  cleaner place to remove obvious gold cases than asking the brown rank rule to
+  absorb them downstream.

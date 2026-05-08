@@ -3,17 +3,17 @@
 ## Current State
 
 - repo: `huemiliator`
-- branch: `codex/bigbrain/sqlite-evidence-notebook`
+- branch: `main`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
   swatch resolution, family rank, replacement step, loss-line layer, and the
-  first local evidence, judgment, and long-run sampler surface
+  first local evidence, judgment, and long-run sampler surface, plus the first
+  completed contextual brown evidence slice
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Judge the fresh brown-family rerun against the revised brown rank and measure
-whether the old yellow/gold drift cluster has really collapsed.
+Decide the next brown-edge correction from the completed contextual brown rerun.
 
 Done in this kernel:
 
@@ -43,14 +43,18 @@ Done in this kernel:
   into `neutral` or staying `orange`
 - revised the brown rank so yellow/gold/olive shoulders sit below the earthy
   brown core
-- started a fresh brown-family rerun against the revised brown rank
-- the early post-fix signal is stronger:
-  - at last check: `247` new brown rows
-  - `8` pass
-  - `2` fail
-  - `237` pending
-  - loud yellow/gold drift is no longer the main early failure shape
-  - the remaining early failures are muted green-edge cases
+- reclassified the bright gold shoulder so obvious loud gold and ochre cases
+  can fall through to `orange` or `yellow`
+- completed the fresh post-classification brown-family rerun
+- the completed rerun kept the brown core stronger than the first pass:
+  - `2368` brown rows were recorded
+  - `45` were judged `pass`
+  - `28` were judged `fail`
+  - `2295` remain unjudged in the local queue
+  - the primary residual failure shape is the muted green and olive seam
+  - a smaller orange shoulder still leaks through at the tail
+- added a tracked special finding note:
+  - `docs/research/FINDING_1_CONTEXTUAL_BROWN.md`
 - kept the evidence write path downstream of the deterministic colour decision
 - synced tracked docs and diagram to the evidence surface truth
 
@@ -72,6 +76,8 @@ Done in this kernel:
   - family assignment from fixed neutral and hue thresholds
   - within-family rank from one fixed strength ladder
   - brown rank demotes the yellow/gold/olive shoulder below the earthy core
+  - bright gold and ochre shoulder colours can fall through to `orange` or
+    `yellow` instead of staying in `brown`
   - deterministic same-family replacement by next rank with top-rank clamp
   - deterministic short loss line from a fixed family bank
 - local evidence lane:
@@ -86,9 +92,10 @@ Done in this kernel:
 
 ## Next Kernel
 
-- continue judging the fresh `brown` rerun while it is still filling
-- keep the family filter in review so the queue stays on the active lane
-- decide whether the muted green edge needs its own brown-rank correction
+- keep judging the completed brown queue in small focused sweeps
+- decide whether the next correction should target:
+  - the muted green and olive seam
+  - the smaller residual orange shoulder
 - decide whether the next gate should judge family correctness first or full
   replacement correctness
 
@@ -108,5 +115,4 @@ Done in this kernel:
 - first human PASS/FAIL judgment lane is in place
 - first long-run local sampler is in place
 - first follow-along notebook is in place
-- next work can stay on the current branch until the evidence slice feels
-  ready to publish
+- the first contextual brown evidence slice is ready to publish from this branch

@@ -6,6 +6,10 @@ The repo is still in pre-beta, but the first runtime slice now exists.
 
 Raw notes and private scratch material stay in the local `docs/peanut/` lane.
 
+## Tracked Findings
+
+- [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
+
 ## Current Phase
 
 Current phase:
@@ -55,6 +59,10 @@ Current finding:
 - the first brown-rank refinement is now live:
   - the yellow/gold/olive shoulder is demoted below the earthy brown core
   - brown replacements no longer climb by raw chroma alone
+- the bright gold shoulder reclassification is now live:
+  - loud gold and ochre cases can fall through to `orange` or `yellow`
+  - the brown lane no longer has to contain obvious bright-gold cases by rank
+    alone
 - `brown` is proving to be a good pressure lane because it is a contextual
   colour bucket rather than a clean spectral one:
   - it often behaves more like dark orange, muted orange, or olive-adjacent
@@ -64,26 +72,41 @@ Current finding:
   - loud `yellow`
   - `gold`
   - `olive`
-- the fresh post-fix brown rerun is already narrower at the early judged edge:
-  - at last check: `247` new rows, `8` pass, `2` fail, `237` pending
-  - the loud yellow/gold shoulder is no longer the main issue
-  - the remaining early failures are muted green-edge cases like
-    `Beech -> Covert green` and `Capers -> Dusky green`
+- the completed post-classification brown rerun is materially stronger than the
+  first pass:
+  - `2368` brown rows were recorded in the rerun
+  - `45` were judged `pass`
+  - `28` were judged `fail`
+  - `2295` remain unjudged in the local queue
+  - the earthy brown core now holds much better than it did in the first run
+  - the main residual failure shape is still the muted green and olive seam:
+    - `Beech -> Covert green`
+    - `Capers -> Dusky green`
+    - `Black ink -> Grape leaf`
+    - `Covert green -> Aloe`
+  - a smaller orange shoulder still leaks through at the tail:
+    - `Orange popsicle -> Orange tiger`
+    - `Persimmon orange -> Puffin's bill`
+    - `Autumn glory -> Turmeric`
+- the special brown finding now has its own tracked note:
+  - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
 
 ## Next Clean Lane
 
 Current clean lane:
 
+- judgment sweeps over the completed post-classification brown queue
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
-- ongoing judgment while the queue is still filling
+- live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
 The next meaningful runtime kernel should prove:
 
-- whether the revised brown boundary and brown rank now hold up under a fresh
-  long-run judged pass
-- whether the remaining muted green edge needs its own brown-rank correction
+- whether the muted green and olive seam needs its own brown-boundary or
+  brown-rank correction
+- whether the smaller residual orange shoulder needs a second classification
+  trim beyond the bright-gold fix
 - whether a tighter first gate should split family correctness from shade
   correctness
 
@@ -98,11 +121,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. continue judging the fresh brown rerun while the queue is still filling
-2. inspect whether the revised brown boundary and rank keep holding as the
-   judged sample grows
-3. decide whether the muted green edge needs its own brown-rank correction
-4. decide whether the first human gate should judge family only or full
+1. keep judging the completed brown rerun in focused sweeps
+2. decide whether the next correction should target the muted green seam or the
+   smaller residual orange shoulder
+3. decide whether the first human gate should judge family only or full
    replacement correctness
 
 ## Probaboracle And Scorey Context
