@@ -119,7 +119,7 @@ Current finding:
 
 Current clean lane:
 
-- active warm-cohort run against the new family-first classifier correction
+- completed warm-cohort run against the new family-first classifier correction
 - one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
@@ -147,11 +147,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep the active warm-cohort run as the only live sampler
-2. judge the fresh warm queue while it is still filling
-3. check whether the closed fail seams still dominate when brown is not
+1. judge the completed fresh warm slice at `id > 5831`
+2. check whether the closed fail seams still dominate when brown is not
    isolated
-4. decide whether the next correction belongs in warm-scope routing or back in
+3. decide whether the next correction belongs in warm-scope routing or back in
    a narrower family lane
 
 ## Probaboracle And Scorey Context

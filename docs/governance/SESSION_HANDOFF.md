@@ -13,7 +13,7 @@
 
 ## Active Kernel
 
-Run one extended warm-cohort eval as the only active sampler.
+Close the completed warm-cohort run and package the branch.
 
 Done in this kernel:
 
@@ -107,12 +107,12 @@ Done in this kernel:
 
 ## Next Kernel
 
-- the warm-cohort eval is live with `--family warm`
-- keep that warm run as the only active sampler while it is being judged
-- judge only fresh warm-scope rows while the queue is still filling
-- measure how the warm shoulders behave once brown is not isolated
-- decide whether the next correction belongs in warm-scope routing or inside a
-  narrower family lane
+- the `2` hour warm-cohort run is complete
+- the fresh warm slice is `2374` rows at `id > 5831`
+- all fresh warm rows are still pending local judgment
+- judge that fresh warm slice before changing the runtime again
+- use the closed warm signal to decide whether the next correction belongs in
+  warm-scope routing or back inside a narrower family lane
 
 ## Stop State
 
@@ -131,5 +131,5 @@ Done in this kernel:
 - first long-run local sampler is in place
 - first follow-along notebook is in place
 - the fully judged contextual brown evidence slice is in place
-- the next live check is the active warm-cohort run against the same
+- the next live check is the completed warm-cohort slice against the same
   conservative family-first cut
