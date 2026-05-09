@@ -3,7 +3,7 @@
 ## Current State
 
 - repo: `huemiliator`
-- branch: `codex/bigbrain/brown-family-correction`
+- branch: `codex/bigbrain/warm-slice-judgment`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
   swatch resolution, family rank, replacement step, loss-line layer, and the
   first local evidence, judgment, and long-run sampler surface, plus the first
@@ -13,7 +13,8 @@
 
 ## Active Kernel
 
-Close the completed warm-cohort run and package the branch.
+Close the completed warm-cohort slice and read the signal before changing the
+runtime again.
 
 Done in this kernel:
 
@@ -109,10 +110,24 @@ Done in this kernel:
 
 - the `2` hour warm-cohort run is complete
 - the fresh warm slice is `2374` rows at `id > 5831`
-- all fresh warm rows are still pending local judgment
-- judge that fresh warm slice before changing the runtime again
-- use the closed warm signal to decide whether the next correction belongs in
-  warm-scope routing or back inside a narrower family lane
+- the warm slice is now fully judged:
+  - `1824` pass
+  - `550` fail
+  - `0` pending
+- row-level family totals:
+  - `brown`: `332` pass / `69` fail
+  - `orange`: `513` pass / `337` fail
+  - `red`: `676` pass / `100` fail
+  - `yellow`: `303` pass / `44` fail
+- pair-level family totals:
+  - `brown`: `117` pass / `29` fail
+  - `orange`: `181` pass / `120` fail
+  - `red`: `264` pass / `44` fail
+  - `yellow`: `127` pass / `20` fail
+- the loudest residual warm failure lane is now `orange`
+- the next correction should be chosen from the closed warm signal, not from a
+  fresh run
+- the next real eval run should be `orange` by itself, not `warm` again
 
 ## Stop State
 
@@ -131,5 +146,7 @@ Done in this kernel:
 - first long-run local sampler is in place
 - first follow-along notebook is in place
 - the fully judged contextual brown evidence slice is in place
-- the next live check is the completed warm-cohort slice against the same
+- the next live check is the closed warm-cohort signal against the same
   conservative family-first cut
+- the next live run should be an `orange`-only eval after the orange
+  correction lands

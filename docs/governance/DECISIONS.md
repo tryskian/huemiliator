@@ -570,3 +570,36 @@ into implementation authorship.
   a permanent holding pen for rows that no longer belong in the active lane. The
   cleaner move is to let the queue prove the mistake, then move the fix into
   runtime classification or scope.
+
+## D-032: Land eval branches only after the queue is cleared
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `closeout`, `pending_queue`, `landing_rule`, `queue_discipline`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - keep live judgment active while a run is still filling
+  - do not land the branch with open eval pendings from that run
+  - before merge or end-of-day packaging, clear the active run to:
+    - `0` pending
+    - closed PASS/FAIL signal
+- Why: A live run benefits from overlap between accumulation and judgment, but a
+  landed branch should not freeze the evidence surface in a half-judged state.
+  Clearing the pending queue before landing keeps each run attributable,
+  interpretable, and genuinely closed.
+
+## D-033: Real eval runs are family-by-family
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `family_runs`, `warm_audit`, `single_lane`, `closeout`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - run real eval lanes one family at a time
+  - use cross-family scopes like `warm` only as audit surfaces
+  - choose the next family run from the closed signal of the prior run instead
+    of widening by default
+- Why: Huemiliator learns most cleanly from one attributable colour lane at a
+  time. The `warm` cohort was useful as a cross-family audit, but the durable
+  method is still hue-by-hue evaluation with one closed family signal before
+  moving to the next.

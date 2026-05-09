@@ -110,6 +110,7 @@ Current finding:
 - long-run eval discipline now says:
   - keep one active sampler in the repo at a time
   - keep judgment on that one live queue until the run is closed
+  - land the branch only after that queue reaches `0` pending
 - the eval surface now also has one local cohort alias:
   - `warm` = `brown`, `red`, `orange`, `yellow`
 - the special brown finding now has its own tracked note:
@@ -120,19 +121,25 @@ Current finding:
 Current clean lane:
 
 - completed warm-cohort run against the new family-first classifier correction
+- closed warm slice at `2374` rows:
+  - `1824` pass
+  - `550` fail
+  - `0` pending
+- brown rows inside the warm slice are fully judged at `332` pass and `69`
+  fail
 - one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
-- `2` hour warm-cohort runs when the warm shoulder needs one wider lane
+- `2` hour warm-cohort runs only as audit surfaces
 - live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
 The next meaningful runtime kernel should prove:
 
-- whether the new family-first classifier actually collapses the muted olive
-  seam in live brown reruns
-- whether the warm orange-yellow shoulder is still loud when the lane widens to
-  the `warm` cohort
+- whether the warm orange shoulder should be tightened before the next
+  `orange`-only run
+- whether the new family-first classifier already did enough for `brown`,
+  `red`, and `yellow`
 - whether a tighter first gate should split family correctness from shade
   correctness
 
@@ -147,11 +154,9 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. judge the completed fresh warm slice at `id > 5831`
-2. check whether the closed fail seams still dominate when brown is not
-   isolated
-3. decide whether the next correction belongs in warm-scope routing or back in
-   a narrower family lane
+1. read the closed warm signal by family and pair totals
+2. apply the next correction in `orange`
+3. run `orange` by itself
 
 ## Probaboracle And Scorey Context
 

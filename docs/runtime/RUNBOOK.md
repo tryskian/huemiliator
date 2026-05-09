@@ -124,10 +124,13 @@ PYTHONPATH=src .venv/bin/python -m huemiliator eval-sample-local \
 Judgment method:
 
 - keep exactly one live sampler active in the repo at a time
+- default to one-family eval runs
+- use `warm` only when a closed family result needs a wider audit surface
 - start review while the long run is still active
 - do not wait for the run to finish before judging rows
 - keep the queue on the active lane with `--verdict pending`
 - add `--family <name>` when the live run is family-isolated
+- before merge or end-of-day packaging, clear the active run to `0` pending
 
 ## Snapshot Refresh
 
