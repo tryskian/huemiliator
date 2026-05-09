@@ -64,6 +64,12 @@ What exists now:
   - pale warm neutrals still stay in `neutral`
   - bright gold, warm orange-yellow, and muted olive shoulder colours can fall
     through to non-brown families instead of staying in `brown`
+- orange boundary refinement:
+  - pale low-chroma warm shoulder colours can fall back into `neutral`
+  - low-chroma taupe shoulder colours can also fall back into `neutral`
+  - soft beige and cream shoulder colours can also fall back into `neutral`
+  - darker muted olive shoulder colours can fall into `yellow`
+  - stronger orange core shades stay in `orange`
 - deterministic replacement rule:
   - move to the next higher rank inside the same family
   - clamp at the family top rank
@@ -92,6 +98,13 @@ What exists now:
    - for `brown`, darker earthy warms can enter before the neutral gate
    - bright gold, warm orange-yellow, and muted olive shoulder colours can
      fall through to non-brown families
+   - for `orange`, pale low-chroma warm shoulders can fall back into
+     `neutral`
+   - for `orange`, low-chroma taupe shoulders can also fall back into
+     `neutral`
+   - for `orange`, soft beige and cream shoulders can also fall back into
+     `neutral`
+   - for `orange`, darker muted olive shoulders can fall into `yellow`
 6. The runtime reads the same-family rank from one fixed family-strength ladder.
    - for `brown`, the yellow/gold/olive shoulder sits below the earthy core
 7. The runtime selects the next same-family rank, clamped at the family top.
@@ -119,6 +132,8 @@ What exists now:
 - swatch distance should stay fixed to `delta-e cie76` until a later tracked change
 - tie-breaks should preserve the frozen source order
 - family taxonomy should stay explicit and closed
+- family-first shoulder evictions should happen before family reruns when the
+  judged signal earns them
 - same-family rank should stay on one fixed strength ladder
 - one-up selection should stay deterministic and non-wrapping
 - loss lines should stay fixed-bank and downstream of the colour decision

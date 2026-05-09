@@ -62,6 +62,8 @@ Eval:
 - treat `evict` as the runtime correction that removes a bad lane upstream
 - do not keep re-judging known routing mistakes once they have earned eviction
 - one eval focus at a time
+- evaluate one family at a time as the default research lane
+- use cross-family scopes like `warm` only as audit surfaces
 - prove matching and same-family one-up before broadening into tone
 - treat small evals as smoke checks only
 - treat long-run consistency as the real evidence surface

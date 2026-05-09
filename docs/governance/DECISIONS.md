@@ -570,3 +570,77 @@ into implementation authorship.
   a permanent holding pen for rows that no longer belong in the active lane. The
   cleaner move is to let the queue prove the mistake, then move the fix into
   runtime classification or scope.
+
+## D-032: Land eval branches only after the queue is cleared
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `closeout`, `pending_queue`, `landing_rule`, `queue_discipline`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - keep live judgment active while a run is still filling
+  - do not land the branch with open eval pendings from that run
+  - before merge or end-of-day packaging, clear the active run to:
+    - `0` pending
+    - closed PASS/FAIL signal
+- Why: A live run benefits from overlap between accumulation and judgment, but a
+  landed branch should not freeze the evidence surface in a half-judged state.
+  Clearing the pending queue before landing keeps each run attributable,
+  interpretable, and genuinely closed.
+
+## D-033: Real eval runs are family-by-family
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `family_runs`, `warm_audit`, `single_lane`, `closeout`
+- Provenance: `human-led method decision with repo formalization`
+- Decision:
+  - run real eval lanes one family at a time
+  - use cross-family scopes like `warm` only as audit surfaces
+  - choose the next family run from the closed signal of the prior run instead
+    of widening by default
+- Why: Huemiliator learns most cleanly from one attributable colour lane at a
+  time. The `warm` cohort was useful as a cross-family audit, but the durable
+  method is still hue-by-hue evaluation with one closed family signal before
+  moving to the next.
+
+## D-034: Orange shoulder seams should leave the orange lane before rerun
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `orange_family`, `family_first`, `warm_neutral_shoulder`, `olive_shoulder`
+- Provenance: `implementation decision`
+- Decision:
+  - keep the next `orange` correction family-first instead of rank-first
+  - demote pale low-chroma warm shoulder colours out of `orange` and back into
+    `neutral`
+  - demote the darker muted olive shoulder out of `orange` and into `yellow`
+  - keep the stronger orange core in-lane
+  - treat the closed warm audit as the proof surface for that cut:
+    - `68` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+- Why: The closed warm audit showed that orange was not failing as one noisy
+  family. It was failing through two attributable shoulders: a pale warm
+  neutral seam and a darker muted olive seam. A conservative family-first cut
+  removes those known bad shoulders before the next orange-only rerun without
+  sacrificing already-judged orange core pairs.
+
+## D-035: Low-chroma beige and taupe shoulders should also leave orange
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `orange_family`, `beige_seam`, `taupe_seam`, `family_first`
+- Provenance: `implementation decision`
+- Decision:
+  - keep the second orange correction family-first instead of rank-first
+  - demote the darker taupe shoulder out of `orange` and into `neutral`
+  - demote the soft beige and cream shoulder out of `orange` and into
+    `neutral`
+  - keep the judged orange core in-lane
+  - treat the closed orange rerun as the proof surface for that cut:
+    - `19` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+- Why: The first orange rerun no longer failed through a broad warm shoulder.
+  It narrowed into a beige, latte, and cream seam with a smaller muted olive
+  carry-through. A second conservative shoulder cut removes the low-chroma
+  beige and taupe lane without sacrificing any judged orange-core pairs.

@@ -107,9 +107,84 @@ Current finding:
 - the first family-first correction now says:
   - `fail` is evidence
   - `evict` is the classifier change made because of that evidence
+- the orange family-first correction is now live:
+  - pale low-chroma warm shoulder shades fall back into `neutral`
+  - darker muted olive shoulder shades fall into `yellow`
+  - the closed warm audit shows:
+    - `68` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+- the orange-only rerun is now complete and fully judged at `id > 8205`:
+  - `2374` rows
+  - `1826` pass
+  - `548` fail
+  - `0` pending
+  - `181` pair-level `pass`
+  - `52` pair-level `fail`
+  - `0` mixed pairs
+  - the conservative orange family-first cut validated exactly against the
+    closed warm audit:
+    - all `181` previously judged orange pass pairs stayed in-lane
+    - unique orange fail pairs dropped from `120` to `52`
+    - the observed `68` pair reduction matches the pre-rerun eviction estimate
+  - the remaining orange failure signal is no longer a broad shoulder:
+    - main seam: low-chroma beige, latte, and cream shoulder
+    - smaller seam: muted olive carry-through
+  - repeated beige and cream failures include:
+    - `Natural -> Roebuck`
+    - `Cafe au lait -> Appleblossom`
+    - `Bellini -> Beige`
+    - `Tan -> Latte`
+    - `Almond cream -> Double cream`
+  - repeated olive failures include:
+    - `Rattan -> Ecru olive`
+    - `Ecru olive -> Bronze mist`
+    - `Amberglow -> Tawny olive`
+    - `Tawny olive -> Ceylon yellow`
+- the second orange family-first correction is now live:
+  - low-chroma taupe shoulder shades fall back into `neutral`
+  - soft beige and cream shoulder shades fall back into `neutral`
+  - the closed orange rerun shows:
+    - `19` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+  - the repeated beige and taupe failures targeted by this cut include:
+    - `Natural -> Roebuck`
+    - `Cafe au lait -> Appleblossom`
+    - `Cornstalk -> Incense`
+    - `Bellini -> Beige`
+    - `Tan -> Latte`
+    - `Soybean -> Curds & whey`
+- the second orange-only rerun is now complete and fully judged at `id > 10579`:
+  - `2372` rows
+  - `2033` pass
+  - `339` fail
+  - `0` pending
+  - `184` pair-level `pass`
+  - `30` pair-level `fail`
+  - `0` mixed pairs
+  - the second cut improved the closed orange signal again:
+    - pair-level fail count dropped from `52` to `30`
+    - pair-level pass count rose from `181` to `184`
+  - the residual orange failure signal is still attributable, not broad:
+    - soft beige and peach ladder
+    - ochre and olive carry-through
+  - repeated soft beige and peach failures include:
+    - `Autumn blonde -> Winter wheat`
+    - `Winter wheat -> Mellow buff`
+    - `Mellow buff -> Pink sand`
+    - `Pink sand -> Chamomile`
+    - `Tender peach -> Curds & whey`
+    - `Almond cream -> Double cream`
+  - repeated ochre and olive failures include:
+    - `Doe -> Golden fleece`
+    - `Buff -> Fenugreek`
+    - `Desert dust -> Sandstorm`
+    - `Ecru olive -> Bronze mist`
+    - `Amberglow -> Tawny olive`
+    - `Tawny olive -> Ceylon yellow`
 - long-run eval discipline now says:
   - keep one active sampler in the repo at a time
   - keep judgment on that one live queue until the run is closed
+  - land the branch only after that queue reaches `0` pending
 - the eval surface now also has one local cohort alias:
   - `warm` = `brown`, `red`, `orange`, `yellow`
 - the special brown finding now has its own tracked note:
@@ -120,21 +195,27 @@ Current finding:
 Current clean lane:
 
 - completed warm-cohort run against the new family-first classifier correction
+- closed warm slice at `2374` rows:
+  - `1824` pass
+  - `550` fail
+  - `0` pending
+- brown rows inside the warm slice are fully judged at `332` pass and `69`
+  fail
 - one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
-- `2` hour warm-cohort runs when the warm shoulder needs one wider lane
+- `2` hour warm-cohort runs only as audit surfaces
 - live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
-The next meaningful runtime kernel should prove:
+The next meaningful runtime lane should prove:
 
-- whether the new family-first classifier actually collapses the muted olive
-  seam in live brown reruns
-- whether the warm orange-yellow shoulder is still loud when the lane widens to
-  the `warm` cohort
-- whether a tighter first gate should split family correctness from shade
-  correctness
+- whether the closed red rerun is stable enough to correct directly instead of
+  rerunning red again immediately
+- whether the dominant red seam is best understood as dusty pink routing,
+  brown-wine routing, or both
+- whether `yellow` should stay queued behind `red` or leapfrog it if red now
+  needs a deeper correction pass
 
 That first evidence lane should stay binary:
 
@@ -147,11 +228,37 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. judge the completed fresh warm slice at `id > 5831`
-2. check whether the closed fail seams still dominate when brown is not
-   isolated
-3. decide whether the next correction belongs in warm-scope routing or back in
-   a narrower family lane
+1. read the closed red signal by pair clusters
+2. decide whether `red` needs a family correction now
+3. if yes, rerun `red` by itself again
+4. if not, move to `yellow` and clear that queue to `0` pending
+
+The closed red rerun is now in hand:
+
+- `2374` rows
+- `2049` pass
+- `325` fail
+- `0` pending
+- `264` pair-level `pass`
+- `44` pair-level `fail`
+- `0` mixed pairs
+- the pair totals reproduced the warm-audit red signal exactly, so the red lane
+  looks stable rather than noisy
+- the residual red failure shape is attributable:
+  - dusty pink and cosmetic rose ladder
+  - brown, cocoa, and wine seam
+- repeated dusty pink failures include:
+  - `Cloud pink -> Rocky road`
+  - `Evening sand -> Silver pink`
+  - `Rose cloud -> Clove`
+  - `Silver pink -> Rose quartz`
+  - `Pearl blush -> Peachy keen`
+- repeated brown and wine failures include:
+  - `Bitter chocolate -> Marron`
+  - `Brown stone -> Pink dogwood`
+  - `English rose -> Chocolate fondant`
+  - `Root beer -> Mink`
+  - `Veiled rose -> Vineyard wine`
 
 ## Probaboracle And Scorey Context
 
