@@ -55,11 +55,11 @@ def test_classify_family_demotes_warm_orange_yellow_shoulder_out_of_brown() -> N
 
 
 def test_classify_family_demotes_olive_seam_out_of_brown() -> None:
-    assert classify_family("#80765f").family == "orange"
+    assert classify_family("#80765f").family == "yellow"
     assert classify_family("#746c57").family == "neutral"
     assert classify_family("#817a60").family == "yellow"
     assert classify_family("#927b3c").family == "orange"
-    assert classify_family("#a39264").family == "orange"
+    assert classify_family("#a39264").family == "yellow"
 
 
 def test_classify_family_keeps_earthy_brown_core_inside_brown() -> None:
@@ -67,6 +67,30 @@ def test_classify_family_keeps_earthy_brown_core_inside_brown() -> None:
     assert classify_family("#6e4f3a").family == "brown"
     assert classify_family("#704822").family == "brown"
     assert classify_family("#97572b").family == "brown"
+
+
+def test_classify_family_demotes_pale_low_chroma_orange_shoulder_to_neutral() -> None:
+    assert classify_family("#f3e6c9").family == "neutral"
+    assert classify_family("#f0debd").family == "neutral"
+    assert classify_family("#f1ceb3").family == "neutral"
+    assert classify_family("#d7b8ab").family == "neutral"
+    assert classify_family("#ecddbe").family == "neutral"
+
+
+def test_classify_family_demotes_muted_olive_orange_shoulder_to_yellow() -> None:
+    assert classify_family("#80765f").family == "yellow"
+    assert classify_family("#c4ab86").family == "yellow"
+    assert classify_family("#be9e6f").family == "yellow"
+    assert classify_family("#998456").family == "yellow"
+    assert classify_family("#a39264").family == "yellow"
+
+
+def test_classify_family_keeps_stronger_orange_core_inside_orange() -> None:
+    assert classify_family("#fed1bd").family == "orange"
+    assert classify_family("#f8d5b8").family == "orange"
+    assert classify_family("#e6bd8f").family == "orange"
+    assert classify_family("#b19664").family == "orange"
+    assert classify_family("#d2b04c").family == "orange"
 
 
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:

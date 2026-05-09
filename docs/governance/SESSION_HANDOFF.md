@@ -13,8 +13,8 @@
 
 ## Active Kernel
 
-Close the completed warm-cohort slice and read the signal before changing the
-runtime again.
+Read the closed orange-only rerun and isolate the residual failure seam before
+touching the runtime again.
 
 Done in this kernel:
 
@@ -68,6 +68,12 @@ Done in this kernel:
   - evicts `55` unique fail pairs from the brown lane
   - evicts `0` unique pass pairs from the brown lane
   - targets warm orange-yellow shoulder colours and the muted olive seam
+- added a conservative orange family-first classifier cut on this branch:
+  - demotes pale low-chroma warm shoulder colours out of `orange` and into
+    `neutral`
+  - demotes the darker muted olive shoulder out of `orange` and into `yellow`
+  - evicts `68` unique orange fail pairs from the closed warm slice
+  - evicts `0` unique orange pass pairs from the closed warm slice
 - added a tracked special finding note:
   - `docs/research/FINDING_1_CONTEXTUAL_BROWN.md`
 - kept the evidence write path downstream of the deterministic colour decision
@@ -93,6 +99,10 @@ Done in this kernel:
   - brown rank demotes the yellow/gold/olive shoulder below the earthy core
   - bright gold, warm orange-yellow, and muted olive shoulder colours can fall
     through to non-brown families instead of staying in `brown`
+  - pale low-chroma warm shoulder colours can fall back out of `orange` and
+    into `neutral`
+  - darker muted olive shoulder colours can fall out of `orange` and into
+    `yellow`
   - deterministic same-family replacement by next rank with top-rank clamp
   - deterministic short loss line from a fixed family bank
 - local evidence lane:
@@ -125,9 +135,38 @@ Done in this kernel:
   - `red`: `264` pass / `44` fail
   - `yellow`: `127` pass / `20` fail
 - the loudest residual warm failure lane is now `orange`
-- the next correction should be chosen from the closed warm signal, not from a
-  fresh run
-- the next real eval run should be `orange` by itself, not `warm` again
+- the orange family-first correction is now live:
+  - `68` unique orange fail pairs evicted
+  - `0` unique orange pass pairs evicted
+- the orange-only rerun is now complete
+- the fresh orange slice is `2374` rows at `id > 8205`
+- the orange slice is now fully judged:
+  - `1826` pass
+  - `548` fail
+  - `0` pending
+- pair-level orange totals are now:
+  - `181` pass
+  - `52` fail
+  - `0` mixed
+- the conservative orange family-first cut validated cleanly against the closed
+  warm audit:
+  - all `181` previously judged orange pass pairs stayed in-lane
+  - unique orange fail pairs dropped from `120` to `52`
+  - the full `68` pair reduction matches the pre-rerun eviction estimate
+- the residual orange failure signal is now much narrower:
+  - main seam: low-chroma beige, latte, and cream shoulder
+  - smaller seam: muted olive carry-through
+  - repeated beige and cream failures include:
+    - `Natural -> Roebuck`
+    - `Cafe au lait -> Appleblossom`
+    - `Bellini -> Beige`
+    - `Tan -> Latte`
+    - `Almond cream -> Double cream`
+  - repeated olive failures include:
+    - `Rattan -> Ecru olive`
+    - `Ecru olive -> Bronze mist`
+    - `Amberglow -> Tawny olive`
+    - `Tawny olive -> Ceylon yellow`
 
 ## Stop State
 
@@ -146,7 +185,6 @@ Done in this kernel:
 - first long-run local sampler is in place
 - first follow-along notebook is in place
 - the fully judged contextual brown evidence slice is in place
-- the next live check is the closed warm-cohort signal against the same
-  conservative family-first cut
-- the next live run should be an `orange`-only eval after the orange
-  correction lands
+- the closed warm audit is in place
+- the orange family-first correction is in place
+- the orange-only rerun is closed from `id > 8205`

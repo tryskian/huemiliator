@@ -603,3 +603,24 @@ into implementation authorship.
   time. The `warm` cohort was useful as a cross-family audit, but the durable
   method is still hue-by-hue evaluation with one closed family signal before
   moving to the next.
+
+## D-034: Orange shoulder seams should leave the orange lane before rerun
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `orange_family`, `family_first`, `warm_neutral_shoulder`, `olive_shoulder`
+- Provenance: `implementation decision`
+- Decision:
+  - keep the next `orange` correction family-first instead of rank-first
+  - demote pale low-chroma warm shoulder colours out of `orange` and back into
+    `neutral`
+  - demote the darker muted olive shoulder out of `orange` and into `yellow`
+  - keep the stronger orange core in-lane
+  - treat the closed warm audit as the proof surface for that cut:
+    - `68` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+- Why: The closed warm audit showed that orange was not failing as one noisy
+  family. It was failing through two attributable shoulders: a pale warm
+  neutral seam and a darker muted olive seam. A conservative family-first cut
+  removes those known bad shoulders before the next orange-only rerun without
+  sacrificing already-judged orange core pairs.

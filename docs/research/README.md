@@ -107,6 +107,39 @@ Current finding:
 - the first family-first correction now says:
   - `fail` is evidence
   - `evict` is the classifier change made because of that evidence
+- the orange family-first correction is now live:
+  - pale low-chroma warm shoulder shades fall back into `neutral`
+  - darker muted olive shoulder shades fall into `yellow`
+  - the closed warm audit shows:
+    - `68` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+- the orange-only rerun is now complete and fully judged at `id > 8205`:
+  - `2374` rows
+  - `1826` pass
+  - `548` fail
+  - `0` pending
+  - `181` pair-level `pass`
+  - `52` pair-level `fail`
+  - `0` mixed pairs
+  - the conservative orange family-first cut validated exactly against the
+    closed warm audit:
+    - all `181` previously judged orange pass pairs stayed in-lane
+    - unique orange fail pairs dropped from `120` to `52`
+    - the observed `68` pair reduction matches the pre-rerun eviction estimate
+  - the remaining orange failure signal is no longer a broad shoulder:
+    - main seam: low-chroma beige, latte, and cream shoulder
+    - smaller seam: muted olive carry-through
+  - repeated beige and cream failures include:
+    - `Natural -> Roebuck`
+    - `Cafe au lait -> Appleblossom`
+    - `Bellini -> Beige`
+    - `Tan -> Latte`
+    - `Almond cream -> Double cream`
+  - repeated olive failures include:
+    - `Rattan -> Ecru olive`
+    - `Ecru olive -> Bronze mist`
+    - `Amberglow -> Tawny olive`
+    - `Tawny olive -> Ceylon yellow`
 - long-run eval discipline now says:
   - keep one active sampler in the repo at a time
   - keep judgment on that one live queue until the run is closed
@@ -134,14 +167,14 @@ Current clean lane:
 - live judgment while the queue is still filling for future long runs
 - small count-based runs only for smoke checks
 
-The next meaningful runtime kernel should prove:
+The next meaningful runtime lane should prove:
 
-- whether the warm orange shoulder should be tightened before the next
-  `orange`-only run
-- whether the new family-first classifier already did enough for `brown`,
-  `red`, and `yellow`
-- whether a tighter first gate should split family correctness from shade
-  correctness
+- whether the remaining orange beige and cream seam still deserves another
+  orange-specific correction
+- whether the smaller muted olive carry-through is really still orange work or
+  should move to a different family lane
+- whether the next eval should stay in `orange` or move to the next individual
+  family after the orange result is read cleanly
 
 That first evidence lane should stay binary:
 
@@ -154,9 +187,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. read the closed warm signal by family and pair totals
-2. apply the next correction in `orange`
-3. run `orange` by itself
+1. read the closed orange signal by pair clusters
+2. decide whether the next correction still belongs in `orange`
+3. run the next individual family by itself
+4. clear that queue to `0` pending before landing
 
 ## Probaboracle And Scorey Context
 
