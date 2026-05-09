@@ -13,8 +13,7 @@
 
 ## Active Kernel
 
-Read the closed orange-only rerun and isolate the residual failure seam before
-touching the runtime again.
+Run `red` by itself and judge the fresh queue while it fills.
 
 Done in this kernel:
 
@@ -134,7 +133,7 @@ Done in this kernel:
   - `orange`: `181` pass / `120` fail
   - `red`: `264` pass / `44` fail
   - `yellow`: `127` pass / `20` fail
-- the loudest residual warm failure lane is now `orange`
+- the loudest residual warm failure lane was `orange`
 - the orange family-first correction is now live:
   - `68` unique orange fail pairs evicted
   - `0` unique orange pass pairs evicted
@@ -167,6 +166,46 @@ Done in this kernel:
     - `Ecru olive -> Bronze mist`
     - `Amberglow -> Tawny olive`
     - `Tawny olive -> Ceylon yellow`
+- the second orange family-first correction is now live:
+  - low-chroma taupe shoulder colours fall back into `neutral`
+  - soft beige and cream shoulder colours fall back into `neutral`
+  - it evicts `19` unique orange fail pairs from the closed orange rerun
+  - it evicts `0` unique orange pass pairs from the closed orange rerun
+- the second orange-only rerun is now complete
+- the fresh orange slice is `2372` rows at `id > 10579`
+- the orange slice is now fully judged:
+  - `2033` pass
+  - `339` fail
+  - `0` pending
+- pair-level orange totals are now:
+  - `184` pass
+  - `30` fail
+  - `0` mixed
+- the second cut improved the closed orange signal again:
+  - pair-level fail count dropped from `52` to `30`
+  - pair-level pass count rose from `181` to `184`
+- the residual orange failure signal is still attributable:
+  - soft beige and peach ladder
+  - ochre and olive carry-through
+  - repeated soft beige and peach failures include:
+    - `Autumn blonde -> Winter wheat`
+    - `Winter wheat -> Mellow buff`
+    - `Mellow buff -> Pink sand`
+    - `Pink sand -> Chamomile`
+    - `Tender peach -> Curds & whey`
+  - repeated ochre and olive failures include:
+    - `Doe -> Golden fleece`
+    - `Buff -> Fenugreek`
+    - `Desert dust -> Sandstorm`
+    - `Ecru olive -> Bronze mist`
+    - `Amberglow -> Tawny olive`
+- orange is now materially tighter than the other untouched warm families
+- the next family-by-family sampler should move to `red`:
+  - warm-audit row totals: `676` pass / `100` fail
+  - warm-audit pair totals: `264` pass / `44` fail
+- the `red`-only rerun is now active:
+  - fresh ids start at `id > 12951`
+  - the active queue should clear to `0` pending before this branch lands
 
 ## Stop State
 
@@ -187,4 +226,5 @@ Done in this kernel:
 - the fully judged contextual brown evidence slice is in place
 - the closed warm audit is in place
 - the orange family-first correction is in place
-- the orange-only rerun is closed from `id > 8205`
+- the second orange-only rerun is closed from `id > 10579`
+- the red-only rerun is active from `id > 12951`

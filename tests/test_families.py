@@ -77,6 +77,20 @@ def test_classify_family_demotes_pale_low_chroma_orange_shoulder_to_neutral() ->
     assert classify_family("#ecddbe").family == "neutral"
 
 
+def test_classify_family_demotes_taupe_orange_shoulder_to_neutral() -> None:
+    assert classify_family("#aa907d").family == "neutral"
+    assert classify_family("#ae8774").family == "neutral"
+    assert classify_family("#b69574").family == "neutral"
+    assert classify_family("#ba8671").family == "neutral"
+
+
+def test_classify_family_demotes_soft_beige_orange_shoulder_to_neutral() -> None:
+    assert classify_family("#ccb390").family == "neutral"
+    assert classify_family("#d5ba98").family == "neutral"
+    assert classify_family("#d1be9b").family == "neutral"
+    assert classify_family("#d2c29d").family == "neutral"
+
+
 def test_classify_family_demotes_muted_olive_orange_shoulder_to_yellow() -> None:
     assert classify_family("#80765f").family == "yellow"
     assert classify_family("#c4ab86").family == "yellow"

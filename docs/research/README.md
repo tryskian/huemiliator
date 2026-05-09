@@ -140,6 +140,47 @@ Current finding:
     - `Ecru olive -> Bronze mist`
     - `Amberglow -> Tawny olive`
     - `Tawny olive -> Ceylon yellow`
+- the second orange family-first correction is now live:
+  - low-chroma taupe shoulder shades fall back into `neutral`
+  - soft beige and cream shoulder shades fall back into `neutral`
+  - the closed orange rerun shows:
+    - `19` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+  - the repeated beige and taupe failures targeted by this cut include:
+    - `Natural -> Roebuck`
+    - `Cafe au lait -> Appleblossom`
+    - `Cornstalk -> Incense`
+    - `Bellini -> Beige`
+    - `Tan -> Latte`
+    - `Soybean -> Curds & whey`
+- the second orange-only rerun is now complete and fully judged at `id > 10579`:
+  - `2372` rows
+  - `2033` pass
+  - `339` fail
+  - `0` pending
+  - `184` pair-level `pass`
+  - `30` pair-level `fail`
+  - `0` mixed pairs
+  - the second cut improved the closed orange signal again:
+    - pair-level fail count dropped from `52` to `30`
+    - pair-level pass count rose from `181` to `184`
+  - the residual orange failure signal is still attributable, not broad:
+    - soft beige and peach ladder
+    - ochre and olive carry-through
+  - repeated soft beige and peach failures include:
+    - `Autumn blonde -> Winter wheat`
+    - `Winter wheat -> Mellow buff`
+    - `Mellow buff -> Pink sand`
+    - `Pink sand -> Chamomile`
+    - `Tender peach -> Curds & whey`
+    - `Almond cream -> Double cream`
+  - repeated ochre and olive failures include:
+    - `Doe -> Golden fleece`
+    - `Buff -> Fenugreek`
+    - `Desert dust -> Sandstorm`
+    - `Ecru olive -> Bronze mist`
+    - `Amberglow -> Tawny olive`
+    - `Tawny olive -> Ceylon yellow`
 - long-run eval discipline now says:
   - keep one active sampler in the repo at a time
   - keep judgment on that one live queue until the run is closed
@@ -169,12 +210,12 @@ Current clean lane:
 
 The next meaningful runtime lane should prove:
 
-- whether the remaining orange beige and cream seam still deserves another
-  orange-specific correction
-- whether the smaller muted olive carry-through is really still orange work or
-  should move to a different family lane
-- whether the next eval should stay in `orange` or move to the next individual
-  family after the orange result is read cleanly
+- whether `red` has one dominant seam or several smaller ones once it is
+  isolated from the warm audit
+- whether the next correction after orange belongs in `red` family routing or
+  in `red` rank
+- whether `yellow` should stay queued behind `red` or leapfrog it once the
+  closed red signal is in
 
 That first evidence lane should stay binary:
 
@@ -187,10 +228,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. read the closed orange signal by pair clusters
-2. decide whether the next correction still belongs in `orange`
-3. run the next individual family by itself
-4. clear that queue to `0` pending before landing
+1. run `red` by itself from the new DB edge
+2. clear the red queue to `0` pending
+3. read the closed red signal by pair clusters
+4. decide whether the next family stays on `red` or moves to `yellow`
 
 ## Probaboracle And Scorey Context
 

@@ -66,6 +66,8 @@ What exists now:
     through to non-brown families instead of staying in `brown`
 - orange boundary refinement:
   - pale low-chroma warm shoulder colours can fall back into `neutral`
+  - low-chroma taupe shoulder colours can also fall back into `neutral`
+  - soft beige and cream shoulder colours can also fall back into `neutral`
   - darker muted olive shoulder colours can fall into `yellow`
   - stronger orange core shades stay in `orange`
 - deterministic replacement rule:
@@ -97,6 +99,10 @@ What exists now:
    - bright gold, warm orange-yellow, and muted olive shoulder colours can
      fall through to non-brown families
    - for `orange`, pale low-chroma warm shoulders can fall back into
+     `neutral`
+   - for `orange`, low-chroma taupe shoulders can also fall back into
+     `neutral`
+   - for `orange`, soft beige and cream shoulders can also fall back into
      `neutral`
    - for `orange`, darker muted olive shoulders can fall into `yellow`
 6. The runtime reads the same-family rank from one fixed family-strength ladder.

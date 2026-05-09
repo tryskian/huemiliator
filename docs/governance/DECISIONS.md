@@ -624,3 +624,23 @@ into implementation authorship.
   neutral seam and a darker muted olive seam. A conservative family-first cut
   removes those known bad shoulders before the next orange-only rerun without
   sacrificing already-judged orange core pairs.
+
+## D-035: Low-chroma beige and taupe shoulders should also leave orange
+
+- Date: `2026-05-09`
+- Category: `eval_quality`
+- Tags: `orange_family`, `beige_seam`, `taupe_seam`, `family_first`
+- Provenance: `implementation decision`
+- Decision:
+  - keep the second orange correction family-first instead of rank-first
+  - demote the darker taupe shoulder out of `orange` and into `neutral`
+  - demote the soft beige and cream shoulder out of `orange` and into
+    `neutral`
+  - keep the judged orange core in-lane
+  - treat the closed orange rerun as the proof surface for that cut:
+    - `19` unique orange fail pairs evicted
+    - `0` unique orange pass pairs evicted
+- Why: The first orange rerun no longer failed through a broad warm shoulder.
+  It narrowed into a beige, latte, and cream seam with a smaller muted olive
+  carry-through. A second conservative shoulder cut removes the low-chroma
+  beige and taupe lane without sacrificing any judged orange-core pairs.

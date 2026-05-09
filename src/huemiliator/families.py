@@ -43,6 +43,12 @@ RED_HUE_MAX = 15.0
 ORANGE_HUE_MAX = 45.0
 ORANGE_WARM_NEUTRAL_LIGHTNESS_MIN = 0.60
 ORANGE_WARM_NEUTRAL_CHROMA_MAX = 20.0
+ORANGE_TAUPE_SHOULDER_HUE_MAX = 34.0
+ORANGE_TAUPE_SHOULDER_LIGHTNESS_MAX = 0.66
+ORANGE_TAUPE_SHOULDER_CHROMA_MAX = 26.0
+ORANGE_SOFT_BEIGE_SHOULDER_HUE_MIN = 32.0
+ORANGE_SOFT_BEIGE_SHOULDER_LIGHTNESS_MIN = 0.67
+ORANGE_SOFT_BEIGE_SHOULDER_CHROMA_MAX = 23.0
 ORANGE_OLIVE_SHOULDER_HUE_MIN = 35.5
 ORANGE_OLIVE_SHOULDER_LIGHTNESS_MAX = 0.65
 ORANGE_OLIVE_SHOULDER_CHROMA_MAX = 30.0
@@ -143,6 +149,10 @@ def _classify_metrics(metrics: ColourMetrics) -> str:
         return "red"
     if hue < ORANGE_HUE_MAX:
         if _is_orange_warm_neutral_shoulder(metrics):
+            return "neutral"
+        if _is_orange_taupe_shoulder(metrics):
+            return "neutral"
+        if _is_orange_soft_beige_shoulder(metrics):
             return "neutral"
         if _is_orange_olive_shoulder(metrics):
             return "yellow"
@@ -247,6 +257,22 @@ def _is_orange_warm_neutral_shoulder(metrics: ColourMetrics) -> bool:
     return (
         metrics.lightness >= ORANGE_WARM_NEUTRAL_LIGHTNESS_MIN
         and metrics.lab_chroma <= ORANGE_WARM_NEUTRAL_CHROMA_MAX
+    )
+
+
+def _is_orange_taupe_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.hue_degrees < ORANGE_TAUPE_SHOULDER_HUE_MAX
+        and metrics.lightness <= ORANGE_TAUPE_SHOULDER_LIGHTNESS_MAX
+        and metrics.lab_chroma <= ORANGE_TAUPE_SHOULDER_CHROMA_MAX
+    )
+
+
+def _is_orange_soft_beige_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.hue_degrees >= ORANGE_SOFT_BEIGE_SHOULDER_HUE_MIN
+        and metrics.lightness >= ORANGE_SOFT_BEIGE_SHOULDER_LIGHTNESS_MIN
+        and metrics.lab_chroma <= ORANGE_SOFT_BEIGE_SHOULDER_CHROMA_MAX
     )
 
 
