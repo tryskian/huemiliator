@@ -13,7 +13,8 @@
 
 ## Active Kernel
 
-Run `red` by itself and judge the fresh queue while it fills.
+Read the closed red-only rerun and decide whether `red` deserves a family
+correction or whether the next sampler should move to `yellow`.
 
 Done in this kernel:
 
@@ -200,12 +201,38 @@ Done in this kernel:
     - `Ecru olive -> Bronze mist`
     - `Amberglow -> Tawny olive`
 - orange is now materially tighter than the other untouched warm families
-- the next family-by-family sampler should move to `red`:
+- the next family-by-family sampler moved to `red`:
   - warm-audit row totals: `676` pass / `100` fail
   - warm-audit pair totals: `264` pass / `44` fail
-- the `red`-only rerun is now active:
-  - fresh ids start at `id > 12951`
-  - the active queue should clear to `0` pending before this branch lands
+- the `red`-only rerun is now complete
+- the fresh red slice is `2374` rows at `id > 12951`
+- the red slice is now fully judged:
+  - `2049` pass
+  - `325` fail
+  - `0` pending
+- pair-level red totals are now:
+  - `264` pass
+  - `44` fail
+  - `0` mixed
+- the closed red rerun reproduced the warm-audit red pair totals exactly:
+  - `264` pass pairs
+  - `44` fail pairs
+  - no pair drift across the rerun
+- the residual red failure signal is durable, not noisy:
+  - dusty pink and cosmetic rose ladder
+  - brown, cocoa, and wine seam
+  - repeated dusty pink failures include:
+    - `Cloud pink -> Rocky road`
+    - `Evening sand -> Silver pink`
+    - `Rose cloud -> Clove`
+    - `Silver pink -> Rose quartz`
+    - `Pearl blush -> Peachy keen`
+  - repeated brown and wine failures include:
+    - `Bitter chocolate -> Marron`
+    - `Brown stone -> Pink dogwood`
+    - `English rose -> Chocolate fondant`
+    - `Root beer -> Mink`
+    - `Veiled rose -> Vineyard wine`
 
 ## Stop State
 
@@ -227,4 +254,4 @@ Done in this kernel:
 - the closed warm audit is in place
 - the orange family-first correction is in place
 - the second orange-only rerun is closed from `id > 10579`
-- the red-only rerun is active from `id > 12951`
+- the red-only rerun is closed from `id > 12951`

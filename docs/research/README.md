@@ -210,12 +210,12 @@ Current clean lane:
 
 The next meaningful runtime lane should prove:
 
-- whether `red` has one dominant seam or several smaller ones once it is
-  isolated from the warm audit
-- whether the next correction after orange belongs in `red` family routing or
-  in `red` rank
-- whether `yellow` should stay queued behind `red` or leapfrog it once the
-  closed red signal is in
+- whether the closed red rerun is stable enough to correct directly instead of
+  rerunning red again immediately
+- whether the dominant red seam is best understood as dusty pink routing,
+  brown-wine routing, or both
+- whether `yellow` should stay queued behind `red` or leapfrog it if red now
+  needs a deeper correction pass
 
 That first evidence lane should stay binary:
 
@@ -228,10 +228,37 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. run `red` by itself from the new DB edge
-2. clear the red queue to `0` pending
-3. read the closed red signal by pair clusters
-4. decide whether the next family stays on `red` or moves to `yellow`
+1. read the closed red signal by pair clusters
+2. decide whether `red` needs a family correction now
+3. if yes, rerun `red` by itself again
+4. if not, move to `yellow` and clear that queue to `0` pending
+
+The closed red rerun is now in hand:
+
+- `2374` rows
+- `2049` pass
+- `325` fail
+- `0` pending
+- `264` pair-level `pass`
+- `44` pair-level `fail`
+- `0` mixed pairs
+- the pair totals reproduced the warm-audit red signal exactly, so the red lane
+  looks stable rather than noisy
+- the residual red failure shape is attributable:
+  - dusty pink and cosmetic rose ladder
+  - brown, cocoa, and wine seam
+- repeated dusty pink failures include:
+  - `Cloud pink -> Rocky road`
+  - `Evening sand -> Silver pink`
+  - `Rose cloud -> Clove`
+  - `Silver pink -> Rose quartz`
+  - `Pearl blush -> Peachy keen`
+- repeated brown and wine failures include:
+  - `Bitter chocolate -> Marron`
+  - `Brown stone -> Pink dogwood`
+  - `English rose -> Chocolate fondant`
+  - `Root beer -> Mink`
+  - `Veiled rose -> Vineyard wine`
 
 ## Probaboracle And Scorey Context
 
