@@ -411,7 +411,7 @@ into implementation authorship.
   - default the sampler to human-judgable pacing with a `3` second interval
   - use small runs as smoke checks only
   - treat long-run consistency as the real evidence surface
-- Why: Hue does not need clever spot samples. The signal comes from sustained,
+- Why: Huey does not need clever spot samples. The signal comes from sustained,
   consistent accumulation of deterministic rows that can be judged while the
   queue is still growing.
 

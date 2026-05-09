@@ -3,7 +3,7 @@
 [![Research Phase](https://img.shields.io/badge/research_phase-pre%20beta-E15759)](./docs/research/README.md)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
 
-## pick a colour. hue's is better
+## pick a colour. huey's is better
 
 Huemiliator is a small, local, agent-backed CLI mini chatbot using the
 **[Polinko research model](https://github.com/tryskian/polinko)**.
@@ -23,7 +23,7 @@ one-upping instead of oracle or round play:
 - Pantone stays a secondary naming layer on top of that reference surface
 - the runtime stays in the same family
 - the runtime picks a deterministic one-up colour
-- hue outputs the replacement shade and one short loss line
+- Huey outputs the replacement shade and one short loss line
 
 Current state:
 
