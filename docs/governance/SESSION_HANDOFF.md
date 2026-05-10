@@ -3,7 +3,7 @@
 ## Current State
 
 - repo: `huemiliator`
-- branch: `codex/bigbrain/start-end-reference`
+- branch: `main`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
   swatch resolution, family rank, replacement step, loss-line layer, and the
   first local evidence, judgment, and long-run sampler surface, plus the first
@@ -14,8 +14,8 @@
 
 ## Active Kernel
 
-Cut the first red family correction from the closed red-only rerun, then rerun
-`red` by itself before moving to `yellow`.
+Pause runtime expansion and shift to visibility-first work while the current toy
+line speaks for itself in public form.
 
 Done in this kernel:
 
@@ -226,8 +226,10 @@ Done in this kernel:
   - `44` fail pairs
   - no pair drift across the rerun
 - the closed red rerun has now been read by pair cluster
-- `red` is stable enough for a direct family correction
+- `red` is stable enough for a direct family correction when runtime work
+  resumes
 - `yellow` stays queued behind `red`
+- runtime work is intentionally paused behind a visibility-first phase
 - the residual red failure signal is durable, not noisy:
   - dusty pink and cosmetic rose ladder
   - brown, cocoa, and wine seam
@@ -258,6 +260,10 @@ Done in this kernel:
 - first deterministic loss-line layer is in place
 - first local SQLite evidence surface is in place
 - first human PASS/FAIL judgment lane is in place
+- the next runtime family lane is known:
+  - first `red` correction
+  - then `yellow`
+- visibility can take priority now without losing the runtime thread
 - first long-run local sampler is in place
 - first follow-along notebook is in place
 - the fully judged contextual brown evidence slice is in place
