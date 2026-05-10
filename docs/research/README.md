@@ -194,6 +194,7 @@ Current finding:
 
 Current clean lane:
 
+- visibility-first pause before more runtime widening
 - one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
@@ -210,6 +211,9 @@ The next meaningful runtime lane should prove:
 - whether the red fail cluster is mostly solved in one cut or still needs a
   second pass
 - whether `yellow` still stays queued behind `red` after that rerun closes
+
+Until that runtime lane resumes, the current toy surface is allowed to stand
+unfinished and visible.
 
 That first evidence lane should stay binary:
 
