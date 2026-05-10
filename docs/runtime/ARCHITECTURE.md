@@ -157,5 +157,6 @@ What exists now:
 | `docs/governance/SESSION_HANDOFF.md` | current checkpoint and next kernel |
 | `docs/runtime/ARCHITECTURE.md` | stable system map |
 | `docs/runtime/RUNBOOK.md` | operator procedure and validation |
+| `docs/runtime/START_END_REFERENCE.md` | compact day-open/day-close sheet |
 | `docs/research/README.md` | current research framing |
 | `docs/diagrams/PIPELINE.md` | canonical target flow |

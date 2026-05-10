@@ -3,18 +3,19 @@
 ## Current State
 
 - repo: `huemiliator`
-- branch: `codex/bigbrain/warm-slice-judgment`
+- branch: `codex/bigbrain/start-end-reference`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
   swatch resolution, family rank, replacement step, loss-line layer, and the
   first local evidence, judgment, and long-run sampler surface, plus the first
-  completed contextual brown evidence slice
+  completed contextual brown evidence slice, plus explicit `make start` /
+  `make end` operator rituals
 - branch ruleset: active on default branch
 - GitHub automation: aligned with Scorey
 
 ## Active Kernel
 
-Read the closed red-only rerun and decide whether `red` deserves a family
-correction or whether the next sampler should move to `yellow`.
+Cut the first red family correction from the closed red-only rerun, then rerun
+`red` by itself before moving to `yellow`.
 
 Done in this kernel:
 
@@ -78,6 +79,12 @@ Done in this kernel:
   - `docs/research/FINDING_1_CONTEXTUAL_BROWN.md`
 - kept the evidence write path downstream of the deterministic colour decision
 - synced tracked docs and diagram to the evidence surface truth
+- added the compact day-open/day-close operator surface:
+  - `docs/runtime/START_END_REFERENCE.md`
+  - `make start`
+  - `make rituals`
+  - `make end`
+  - `make end-stop`
 
 ## Current Contract
 
@@ -218,6 +225,9 @@ Done in this kernel:
   - `264` pass pairs
   - `44` fail pairs
   - no pair drift across the rerun
+- the closed red rerun has now been read by pair cluster
+- `red` is stable enough for a direct family correction
+- `yellow` stays queued behind `red`
 - the residual red failure signal is durable, not noisy:
   - dusty pink and cosmetic rose ladder
   - brown, cocoa, and wine seam
