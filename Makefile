@@ -3,7 +3,7 @@ VENV ?= .venv
 BIN := $(VENV)/bin
 PY := $(shell if [ -x "$(BIN)/python" ]; then echo "$(BIN)/python"; else echo "$(PYTHON)"; fi)
 
-.PHONY: install env doctor-env test lint format-check format typecheck check package-check app session-status
+.PHONY: install env doctor-env test lint format-check format typecheck check package-check app session-status start rituals end end-stop
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -46,6 +46,42 @@ package-check:
 
 app:
 	PYTHONPATH=src $(PY) -m huemiliator
+
+start:
+	@set -eu; \
+	echo "== Huemiliator Start =="; \
+	echo "docs to read:"; \
+	for path in \
+		README.md \
+		docs/governance/CHARTER.md \
+		docs/governance/DECISIONS.md \
+		docs/runtime/RUNBOOK.md \
+		docs/runtime/ARCHITECTURE.md \
+		docs/governance/SESSION_HANDOFF.md; do \
+		echo "- $$path"; \
+	done; \
+	if [ -f "docs/peanut/governance/SESSION_HANDOFF.md" ]; then \
+		echo "- docs/peanut/governance/SESSION_HANDOFF.md"; \
+	fi; \
+	echo "repo: $$(pwd)"; \
+	echo "branch: $$(git branch --show-current)"; \
+	git status --short --branch; \
+	$(MAKE) --no-print-directory doctor-env; \
+	$(MAKE) --no-print-directory session-status
+
+rituals:
+	@cat docs/runtime/START_END_REFERENCE.md
+
+end:
+	@set -eu; \
+	$(MAKE) --no-print-directory doctor-env; \
+	$(MAKE) --no-print-directory check; \
+	$(MAKE) --no-print-directory package-check; \
+	$(MAKE) --no-print-directory end-stop
+
+end-stop:
+	@set -eu; \
+	$(MAKE) --no-print-directory session-status || true
 
 session-status:
 	@set -eu; \

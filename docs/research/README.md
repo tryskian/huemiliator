@@ -194,28 +194,22 @@ Current finding:
 
 Current clean lane:
 
-- completed warm-cohort run against the new family-first classifier correction
-- closed warm slice at `2374` rows:
-  - `1824` pass
-  - `550` fail
-  - `0` pending
-- brown rows inside the warm slice are fully judged at `332` pass and `69`
-  fail
 - one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
 - `2` hour warm-cohort runs only as audit surfaces
 - live judgment while the queue is still filling for future long runs
-- small count-based runs only for smoke checks
+- land only after the active queue returns to `0` pending
+- the closed red rerun is stable enough for a direct family correction
+- `yellow` stays queued behind `red`
 
 The next meaningful runtime lane should prove:
 
-- whether the closed red rerun is stable enough to correct directly instead of
-  rerunning red again immediately
-- whether the dominant red seam is best understood as dusty pink routing,
-  brown-wine routing, or both
-- whether `yellow` should stay queued behind `red` or leapfrog it if red now
-  needs a deeper correction pass
+- whether a first red family correction can reduce the dusty pink and
+  brown-wine seams without losing known-good red pairs
+- whether the red fail cluster is mostly solved in one cut or still needs a
+  second pass
+- whether `yellow` still stays queued behind `red` after that rerun closes
 
 That first evidence lane should stay binary:
 
@@ -228,10 +222,10 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. read the closed red signal by pair clusters
-2. decide whether `red` needs a family correction now
-3. if yes, rerun `red` by itself again
-4. if not, move to `yellow` and clear that queue to `0` pending
+1. cut the first red family correction from the closed rerun
+2. rerun `red` by itself for `2` hours
+3. clear that queue to `0` pending
+4. then decide whether `yellow` stays next
 
 The closed red rerun is now in hand:
 

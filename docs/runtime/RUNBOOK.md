@@ -6,10 +6,15 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 
 ## Start A Session
 
+Fast path:
+
+- `make start`
+
 1. Read the tracked instruction surface:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
+   - `docs/runtime/START_END_REFERENCE.md`
    - `docs/runtime/ARCHITECTURE.md`
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
@@ -33,6 +38,10 @@ Use `docs/runtime/ARCHITECTURE.md` for system shape.
 | create a work branch | `git switch -c codex/bigbrain/<kernel-slug>` |
 | install or refresh the runtime env | `make install` |
 | check the environment | `make doctor-env` |
+| run the day-open operator routine | `make start` |
+| show the compact day-open/day-close sheet | `make rituals` |
+| run the day-close validation routine | `make end` |
+| run the final closeout status step only | `make end-stop` |
 | show session status | `make session-status` |
 | open the native macOS UI picker | `huemiliator pick` |
 | resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
