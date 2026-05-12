@@ -157,3 +157,10 @@ Out of scope:
 - future runtime credentials should load from the repo `.env`
 - local execution is the trusted development boundary
 - local eval data should live under `.local/`
+- default branch changes land through PRs with required checks:
+  - `markdownlint`
+  - `test`
+  - `dependency-review`
+  - `python-security`
+- Dependabot and GitHub secret scanning are part of the tracked repo baseline
+  even while the repo stays scaffold-light.

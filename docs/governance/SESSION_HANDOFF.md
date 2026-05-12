@@ -5,12 +5,13 @@
 - repo: `huemiliator`
 - branch: `main`
 - status: public repo with picker kernel, frozen swatch snapshot, nearest
-  swatch resolution, family rank, replacement step, loss-line layer, and the
-  first local evidence, judgment, and long-run sampler surface, plus the first
-  completed contextual brown evidence slice, plus explicit `make start` /
-  `make end` operator rituals
+swatch resolution, family rank, replacement step, loss-line layer, and the
+first local evidence, judgment, and long-run sampler surface, plus the first
+completed contextual brown evidence slice, plus explicit `make start` /
+`make end` operator rituals
 - branch ruleset: active on default branch
-- GitHub automation: aligned with Scorey
+- GitHub automation: CI, dependency review, Python audit, and weekly
+  Dependabot updates aligned to the current toy-family baseline
 
 ## Active Kernel
 
@@ -34,7 +35,7 @@ Done in this kernel:
   - source-order cycle over the frozen snapshot
   - default `3` second interval for judgeable pacing
 - added `--family <name>` to isolate one family without changing the sampler
-  method
+method
 - added `eval-list --family <name>` so review can stay inside the active family
 - added `--family warm` as a local warm-cohort alias over:
   - `brown`
@@ -46,13 +47,13 @@ Done in this kernel:
   - judge rows while the run is still active
   - do not wait for the queue to finish filling
 - added the first follow-along notebook at
-  `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
+`output/jupyter-notebook/huemiliator-eval-surface.ipynb`
 - tightened the brown family boundary so darker earthy warms stop collapsing
-  into `neutral` or staying `orange`
+into `neutral` or staying `orange`
 - revised the brown rank so yellow/gold/olive shoulders sit below the earthy
-  brown core
+brown core
 - reclassified the bright gold shoulder so obvious loud gold and ochre cases
-  can fall through to `orange` or `yellow`
+can fall through to `orange` or `yellow`
 - completed the fresh post-classification brown-family rerun
 - the closed rerun now has full judgment coverage:
   - `2368` brown rows
@@ -71,7 +72,7 @@ Done in this kernel:
   - targets warm orange-yellow shoulder colours and the muted olive seam
 - added a conservative orange family-first classifier cut on this branch:
   - demotes pale low-chroma warm shoulder colours out of `orange` and into
-    `neutral`
+  `neutral`
   - demotes the darker muted olive shoulder out of `orange` and into `yellow`
   - evicts `68` unique orange fail pairs from the closed warm slice
   - evicts `0` unique orange pass pairs from the closed warm slice
@@ -84,7 +85,6 @@ Done in this kernel:
   - `make start`
   - `make rituals`
   - `make end`
-  - `make end-stop`
 
 ## Current Contract
 
@@ -92,24 +92,24 @@ Done in this kernel:
 - input: native UI colour picker
 - canonical user state: hex code
 - inventory: swatch reference from
-  the archived
-  [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
-  source, surfaced at
-  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/),
-  frozen locally at `data/margaret2_swatches.json`, with Pantone as a
-  secondary naming layer
+the archived
+`[margaret2/pantone-colors](https://github.com/margaret2/pantone-colors)`
+source, surfaced at
+`[margaret2.github.io/pantone-colors](https://margaret2.github.io/pantone-colors/)`,
+frozen locally at `data/margaret2_swatches.json`, with Pantone as a
+secondary naming layer
 - swatch resolution: nearest frozen swatch match by `delta-e cie76` with
-  source-order tie-break
+source-order tie-break
 - Huemiliator-owned structure:
   - family assignment from fixed neutral and hue thresholds
   - within-family rank from one fixed strength ladder
   - brown rank demotes the yellow/gold/olive shoulder below the earthy core
   - bright gold, warm orange-yellow, and muted olive shoulder colours can fall
-    through to non-brown families instead of staying in `brown`
+  through to non-brown families instead of staying in `brown`
   - pale low-chroma warm shoulder colours can fall back out of `orange` and
-    into `neutral`
+  into `neutral`
   - darker muted olive shoulder colours can fall out of `orange` and into
-    `yellow`
+  `yellow`
   - deterministic same-family replacement by next rank with top-rank clamp
   - deterministic short loss line from a fixed family bank
 - local evidence lane:
@@ -118,7 +118,7 @@ Done in this kernel:
   - long-run local sampler over the frozen snapshot
   - local eval scope alias `warm` = `brown`, `red`, `orange`, `yellow`
   - one follow-along notebook at
-    `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
+  `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
 - current output target:
   - replacement shade
   - one short loss line
@@ -156,7 +156,7 @@ Done in this kernel:
   - `52` fail
   - `0` mixed
 - the conservative orange family-first cut validated cleanly against the closed
-  warm audit:
+warm audit:
   - all `181` previously judged orange pass pairs stayed in-lane
   - unique orange fail pairs dropped from `120` to `52`
   - the full `68` pair reduction matches the pre-rerun eviction estimate
@@ -227,7 +227,7 @@ Done in this kernel:
   - no pair drift across the rerun
 - the closed red rerun has now been read by pair cluster
 - `red` is stable enough for a direct family correction when runtime work
-  resumes
+resumes
 - `yellow` stays queued behind `red`
 - runtime work is intentionally paused behind a visibility-first phase
 - the residual red failure signal is durable, not noisy:

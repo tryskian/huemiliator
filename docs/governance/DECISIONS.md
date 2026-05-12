@@ -644,3 +644,25 @@ into implementation authorship.
   It narrowed into a beige, latte, and cream seam with a smaller muted olive
   carry-through. A second conservative shoulder cut removes the low-chroma
   beige and taupe lane without sacrificing any judged orange-core pairs.
+
+## D-036: Dependency review and Python audit are part of the scaffold baseline
+
+- Date: `2026-05-12`
+- Category: `workflow_environment`
+- Tags: `github_actions`, `dependabot`, `dependency_review`, `security_gates`
+- Provenance: `implementation decision`
+- Decision:
+  - keep the default-branch required checks to:
+    - `markdownlint`
+    - `test`
+    - `dependency-review`
+    - `python-security`
+  - keep Dependabot version updates active for:
+    - `github-actions`
+    - `pip`
+  - retire the earlier dependency-PR stale cleanup shape in favor of direct
+    review and audit gates
+- Why: Huemiliator is still scaffold-light, but its repo-security posture
+  should match the current toy-family baseline: explicit review of dependency
+  diffs plus a first-class Python audit, without reviving the stale-queue
+  automation that the sibling repos already dropped.
