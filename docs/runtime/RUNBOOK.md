@@ -41,7 +41,6 @@ Fast path:
 | run the day-open operator routine | `make start` |
 | show the compact day-open/day-close sheet | `make rituals` |
 | run the day-close validation routine | `make end` |
-| run the final closeout status step only | `make end-stop` |
 | show session status | `make session-status` |
 | open the native macOS UI picker | `huemiliator pick` |
 | resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
