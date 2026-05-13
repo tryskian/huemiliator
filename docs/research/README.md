@@ -189,12 +189,22 @@ Current finding:
   - `warm` = `brown`, `red`, `orange`, `yellow`
 - the special brown finding now has its own tracked note:
   - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
+- one unfinished off-main red experiment is preserved but not landed:
+  - a first `red` family-first correction was drafted in a parked local lane
+  - a fresh rerun against that parked correction closed its sampler at
+    `id > 15325` with:
+    - `2372` rows
+    - `702` pass
+    - `378` fail
+    - `1292` pending
+  - because that queue never closed to `0` pending and the correction never
+    merged, treat it as parked evidence rather than live runtime truth
 
 ## Next Clean Lane
 
 Current clean lane:
 
-- visibility-first pause before more runtime widening
+- clean `main` stop state before more runtime widening
 - one active eval sampler at a time
 - `2` hour local source-order runs
 - `2` hour one-family runs when a boundary needs isolated pressure
@@ -206,14 +216,15 @@ Current clean lane:
 
 The next meaningful runtime lane should prove:
 
-- whether a first red family correction can reduce the dusty pink and
-  brown-wine seams without losing known-good red pairs
-- whether the red fail cluster is mostly solved in one cut or still needs a
-  second pass
-- whether `yellow` still stays queued behind `red` after that rerun closes
+- whether the parked first `red` family correction is worth resuming from its
+  unfinished queue
+- whether that parked fresh rerun keeps the same residual shape once the queue
+  closes to `0` pending
+- whether `yellow` still stays queued behind `red` after that parked lane is
+  either resumed or discarded
 
-Until that runtime lane resumes, the current toy surface is allowed to stand
-unfinished and visible.
+Until that runtime lane resumes cleanly, keep the public repo truthful to the
+last landed state and treat the parked red work as local-only evidence.
 
 That first evidence lane should stay binary:
 
@@ -226,9 +237,9 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. cut the first red family correction from the closed rerun
-2. rerun `red` by itself for `2` hours
-3. clear that queue to `0` pending
+1. decide whether to resume or discard the parked first `red` correction lane
+2. if resumed, clear that fresh red queue to `0` pending
+3. only then decide whether `red` needs a second family-first pass
 4. then decide whether `yellow` stays next
 
 The closed red rerun is now in hand:

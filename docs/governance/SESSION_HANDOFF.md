@@ -15,8 +15,8 @@ completed contextual brown evidence slice, plus explicit `make start` /
 
 ## Active Kernel
 
-Pause runtime expansion and shift to visibility-first work while the current toy
-line speaks for itself in public form.
+Pause runtime expansion again and end from a truthful clean-main stop state
+after parking the unfinished `red` correction lane off-branch.
 
 Done in this kernel:
 
@@ -85,6 +85,18 @@ can fall through to `orange` or `yellow`
   - `make start`
   - `make rituals`
   - `make end`
+- resumed runtime work long enough to draft the first `red` family-first
+  correction in a local branch
+- ran a fresh `red`-only rerun against that parked correction at `id > 15325`
+- stopped before packaging the lane because the repo/operator quality was too
+  unstable to trust a clean runtime closeout on-branch
+- preserved the unfinished red lane in three local places:
+  - parked worktree branch:
+    `codex/bigbrain/red-family-correction-automation`
+  - local patch backup:
+    `.local/parked/2026-05-12-red-family-correction.patch`
+  - local stash:
+    `stash@{0}` with the duplicate checkout copy
 
 ## Current Contract
 
@@ -229,7 +241,6 @@ warm audit:
 - `red` is stable enough for a direct family correction when runtime work
 resumes
 - `yellow` stays queued behind `red`
-- runtime work is intentionally paused behind a visibility-first phase
 - the residual red failure signal is durable, not noisy:
   - dusty pink and cosmetic rose ladder
   - brown, cocoa, and wine seam
@@ -245,6 +256,15 @@ resumes
     - `English rose -> Chocolate fondant`
     - `Root beer -> Mink`
     - `Veiled rose -> Vineyard wine`
+- one unfinished off-main red experiment is preserved but not landed:
+  - the first `red` family-first correction was drafted in a parked worktree
+  - the fresh rerun against that parked correction stopped with:
+    - `2372` rows at `id > 15325`
+    - `702` pass
+    - `378` fail
+    - `1292` pending
+  - because that lane never closed to `0` pending and never merged, do not
+    treat it as live runtime truth on `main`
 
 ## Stop State
 
@@ -271,3 +291,8 @@ resumes
 - the orange family-first correction is in place
 - the second orange-only rerun is closed from `id > 10579`
 - the red-only rerun is closed from `id > 12951`
+- `main` is intentionally back to a clean landed state with no active sampler
+- the unfinished first red-correction lane is parked locally instead of merged
+- the next runtime family lane is still known:
+  - resume or discard the parked `red` correction lane
+  - then `yellow`
