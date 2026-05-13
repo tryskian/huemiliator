@@ -711,3 +711,32 @@ into implementation authorship.
   tracked hook surface that turns those commands into consistent local hygiene.
   Adding repo-native hooks brings the repo up to the current family baseline
   without changing the runtime contract.
+
+## D-039: Put the startup reading cue in the final `STOP` block
+
+- Date: `2026-05-13`
+- Category: `workflow_environment`
+- Tags: `operator_surface`, `startup`, `session_ops`, `repo_hygiene`
+- Provenance: `human-led operator decision with implementation decision`
+- Decision:
+  - treat this startup-ritual refinement as human-led:
+    - the human lead set the operator expectation
+    - Codex executed, formalized, and validated the repo-facing update
+  - keep `make start` in two explicit phases:
+    - machine context and startup safety checks first
+    - docs read, startup read, and kernel declaration in the final `STOP`
+      block
+  - keep the canonical docs list inside the final `STOP` block instead of
+    front-loading it before the machine checks
+  - when the start routine changes, sync all three surfaces in the same kernel:
+    - `scripts/start_of_day_routine.sh`
+    - `docs/runtime/START_END_REFERENCE.md`
+    - `docs/runtime/RUNBOOK.md`
+- Validation:
+  - `make start`
+  - `bash -n scripts/start_of_day_routine.sh`
+  - `git diff --check`
+- Why: The docs cue belongs to the final operator stop sign, not the top of the
+  command. The repo should finish machine orientation first, then stop and
+  require the reading and one-kernel declaration before any branch, search, or
+  edit work begins.
