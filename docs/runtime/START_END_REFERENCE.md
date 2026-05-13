@@ -14,24 +14,29 @@ make start
 Sequence:
 
 1. Print the canonical docs to read:
-  - `README.md`
-  - `docs/governance/CHARTER.md`
-  - `docs/governance/DECISIONS.md`
-  - `docs/runtime/RUNBOOK.md`
-  - `docs/runtime/ARCHITECTURE.md`
-  - `docs/governance/SESSION_HANDOFF.md`
-  - local `docs/peanut/governance/SESSION_HANDOFF.md` if present
+   - `README.md`
+   - `docs/governance/CHARTER.md`
+   - `docs/governance/DECISIONS.md`
+   - `docs/runtime/RUNBOOK.md`
+   - `docs/runtime/ARCHITECTURE.md`
+   - `docs/governance/SESSION_HANDOFF.md`
+   - local `docs/peanut/governance/SESSION_HANDOFF.md` if present
 2. Print workspace context:
-  - repo root
-  - active branch
-  - `git status --short --branch`
+   - repo root
+   - active branch
+   - `git status --short --branch`
 3. Run the startup safety path:
-  - `make doctor-env`
-  - `make session-status`
+   - `make doctor-env`
+   - `make session-status`
+4. Stop before repo action:
+   - give the startup read
+   - name exactly one active kernel
+   - do not branch, search, or edit until that is stated
 
 Source of truth:
 
 - [Makefile](../../Makefile)
+- [scripts/start_of_day_routine.sh](../../scripts/start_of_day_routine.sh)
 
 ## End
 

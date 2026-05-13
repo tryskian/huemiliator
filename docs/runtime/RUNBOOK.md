@@ -20,12 +20,15 @@ Fast path:
    - `docs/governance/SESSION_HANDOFF.md`
 2. Confirm the repo root:
    - `huemiliator`
-3. Treat the tracked docs as current project state.
-4. Install or refresh the local environment:
+3. Run the startup safety path:
+   - `make doctor-env`
+   - `make session-status`
+4. Treat the tracked docs as current project state.
+5. Install or refresh the local environment:
    - `make install`
-5. If the kernel will change tracked files, work from a `codex/bigbrain/...`
-   branch rather than `main`.
 6. State the active kernel before editing tracked files.
+7. If the kernel will change tracked files, work from a `codex/bigbrain/...`
+   branch rather than `main`.
 
 ## Everyday Commands
 
