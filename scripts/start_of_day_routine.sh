@@ -5,17 +5,6 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 echo "[start] starting morning routine in: $ROOT_DIR"
-echo "[start] read these docs:"
-echo "  - README.md"
-echo "  - docs/governance/CHARTER.md"
-echo "  - docs/governance/DECISIONS.md"
-echo "  - docs/runtime/RUNBOOK.md"
-echo "  - docs/runtime/ARCHITECTURE.md"
-echo "  - docs/governance/SESSION_HANDOFF.md"
-if [ -f "docs/peanut/governance/SESSION_HANDOFF.md" ]; then
-  echo "  - docs/peanut/governance/SESSION_HANDOFF.md"
-fi
-
 echo "[start] 1/4 workspace context"
 printf 'repo root: %s\n' "$ROOT_DIR"
 printf 'branch: %s\n' "$(git branch --show-current)"
@@ -29,6 +18,16 @@ make --no-print-directory session-status
 
 echo "[start] 4/4 STOP"
 echo "[start] before any repo action:"
+echo "[start] read these docs:"
+echo "  - README.md"
+echo "  - docs/governance/CHARTER.md"
+echo "  - docs/governance/DECISIONS.md"
+echo "  - docs/runtime/RUNBOOK.md"
+echo "  - docs/runtime/ARCHITECTURE.md"
+echo "  - docs/governance/SESSION_HANDOFF.md"
+if [ -f "docs/peanut/governance/SESSION_HANDOFF.md" ]; then
+  echo "  - docs/peanut/governance/SESSION_HANDOFF.md"
+fi
 echo "  1. give the startup read"
 echo "  2. name exactly one active kernel"
 echo "  3. do not branch, search, or edit until that is stated"
