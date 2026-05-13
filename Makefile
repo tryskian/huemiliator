@@ -48,26 +48,7 @@ app:
 	PYTHONPATH=src $(PY) -m huemiliator
 
 start:
-	@set -eu; \
-	echo "== Huemiliator Start =="; \
-	echo "docs to read:"; \
-	for path in \
-		README.md \
-		docs/governance/CHARTER.md \
-		docs/governance/DECISIONS.md \
-		docs/runtime/RUNBOOK.md \
-		docs/runtime/ARCHITECTURE.md \
-		docs/governance/SESSION_HANDOFF.md; do \
-		echo "- $$path"; \
-	done; \
-	if [ -f "docs/peanut/governance/SESSION_HANDOFF.md" ]; then \
-		echo "- docs/peanut/governance/SESSION_HANDOFF.md"; \
-	fi; \
-	echo "repo: $$(pwd)"; \
-	echo "branch: $$(git branch --show-current)"; \
-	git status --short --branch; \
-	$(MAKE) --no-print-directory doctor-env; \
-	$(MAKE) --no-print-directory session-status
+	bash ./scripts/start_of_day_routine.sh
 
 rituals:
 	@cat docs/runtime/START_END_REFERENCE.md
