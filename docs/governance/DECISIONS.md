@@ -666,3 +666,48 @@ into implementation authorship.
   should match the current toy-family baseline: explicit review of dependency
   diffs plus a first-class Python audit, without reviving the stale-queue
   automation that the sibling repos already dropped.
+
+## D-037: Keep the tracked eval notebook aligned to the canonical repo env
+
+- Date: `2026-05-13`
+- Category: `workflow_environment`
+- Tags: `notebook`, `python_env`, `local_evidence`, `repo_hygiene`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - treat this notebook/env refresh as human-led:
+    - the human lead set the direction for the canonical env shape
+    - Codex executed, formalized, and validated the repo-facing update
+  - keep the tracked eval notebook metadata aligned to the canonical local repo
+    environment
+  - when local workspace/editor settings exist, they should resolve through the
+    repo `.venv`
+  - keep the notebook itself legible as a follow-along local evidence surface,
+    not a separate runtime contract
+- Why: Huemiliator already had the right runtime shape and repo-local `.venv`
+  convention. The remaining drift was surface-level: notebook metadata and
+  local editor wiring could lag behind the actual repo env and make the
+  evidence lane feel less trustworthy than it really was.
+
+## D-038: Track repo-native pre-commit hooks as baseline hygiene
+
+- Date: `2026-05-13`
+- Category: `workflow_environment`
+- Tags: `pre_commit`, `pre_push`, `tooling`, `repo_hygiene`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - treat this hook-surface addition as human-led:
+    - the human lead set the direction for the standards pass
+    - Codex executed, formalized, and validated the repo-facing update
+  - add tracked `pre-commit` and `pre-push` hooks as part of the local repo
+    baseline
+  - keep hooks routed through native repo commands instead of ad hoc env pins:
+    - `make format-check`
+    - `make lint`
+    - `make typecheck`
+    - `make test`
+  - keep `pre-commit` focused on fast hygiene and `pre-push` focused on the
+    slower correctness gates
+- Why: Huemiliator already had the underlying `make` targets, but not the
+  tracked hook surface that turns those commands into consistent local hygiene.
+  Adding repo-native hooks brings the repo up to the current family baseline
+  without changing the runtime contract.
