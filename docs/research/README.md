@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-05-12
+Last updated: 2026-05-13
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -55,6 +55,9 @@ Current finding:
 - the first human PASS/FAIL judgment lane is now live
 - the first long-run local sampler is now live
 - the first follow-along notebook is now tracked
+- the first tracked local hook baseline is now live:
+  - repo-native `pre-commit` and `pre-push`
+  - native repo commands for format, lint, typecheck, and test hygiene
 - the first family-boundary refinement is now live:
   - darker earthy warms promote into `brown` earlier
   - pale warm neutrals stay where they are

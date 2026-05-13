@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-05-12
+Last updated: 2026-05-13
 
 ## Current State
 
@@ -14,6 +14,8 @@ completed contextual brown evidence slice, plus explicit `make start` /
 - branch ruleset: active on default branch
 - GitHub automation: CI, dependency review, Python audit, and weekly
   Dependabot updates aligned to the current toy-family baseline
+- local hook hygiene: tracked `pre-commit` and `pre-push` baselines now live
+  through native repo commands
 
 ## Active Kernel
 
