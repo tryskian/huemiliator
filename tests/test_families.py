@@ -107,6 +107,30 @@ def test_classify_family_keeps_stronger_orange_core_inside_orange() -> None:
     assert classify_family("#d2b04c").family == "orange"
 
 
+def test_classify_family_demotes_dusty_red_pink_shoulder_to_pink() -> None:
+    assert classify_family("#f5d1c8").family == "pink"
+    assert classify_family("#ddb6ab").family == "pink"
+    assert classify_family("#dbb0a2").family == "pink"
+    assert classify_family("#dcb1af").family == "pink"
+    assert classify_family("#f4cec5").family == "pink"
+
+
+def test_classify_family_demotes_dark_red_brown_wine_seam_to_brown() -> None:
+    assert classify_family("#503130").family == "brown"
+    assert classify_family("#593c39").family == "brown"
+    assert classify_family("#5d3c43").family == "brown"
+    assert classify_family("#56352d").family == "brown"
+    assert classify_family("#58363d").family == "brown"
+
+
+def test_classify_family_keeps_stronger_red_core_inside_red() -> None:
+    assert classify_family("#a73340").family == "red"
+    assert classify_family("#603535").family == "red"
+    assert classify_family("#884332").family == "red"
+    assert classify_family("#b93a32").family == "red"
+    assert classify_family("#7b3539").family == "red"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),

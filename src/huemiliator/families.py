@@ -40,6 +40,10 @@ BROWN_OLIVE_SHOULDER_HUE_MIN = 38.0
 BROWN_OLIVE_SHOULDER_LIGHTNESS_MIN = 0.28
 BROWN_OLIVE_SHOULDER_CHROMA_MIN = 8.0
 RED_HUE_MAX = 15.0
+RED_PINK_SHOULDER_LIGHTNESS_MIN = 0.74
+RED_PINK_SHOULDER_CHROMA_MAX = 19.5
+RED_BROWN_SHOULDER_LIGHTNESS_MAX = 0.45
+RED_BROWN_SHOULDER_CHROMA_MAX = 19.0
 ORANGE_HUE_MAX = 45.0
 ORANGE_WARM_NEUTRAL_LIGHTNESS_MIN = 0.60
 ORANGE_WARM_NEUTRAL_CHROMA_MAX = 20.0
@@ -146,6 +150,10 @@ def _classify_metrics(metrics: ColourMetrics) -> str:
     if metrics.lab_chroma < NEUTRAL_CHROMA_MAX:
         return "neutral"
     if hue < RED_HUE_MAX or hue >= 345.0:
+        if _is_red_pink_shoulder(metrics):
+            return "pink"
+        if _is_red_brown_shoulder(metrics):
+            return "brown"
         return "red"
     if hue < ORANGE_HUE_MAX:
         if _is_orange_warm_neutral_shoulder(metrics):
@@ -257,6 +265,20 @@ def _is_orange_warm_neutral_shoulder(metrics: ColourMetrics) -> bool:
     return (
         metrics.lightness >= ORANGE_WARM_NEUTRAL_LIGHTNESS_MIN
         and metrics.lab_chroma <= ORANGE_WARM_NEUTRAL_CHROMA_MAX
+    )
+
+
+def _is_red_pink_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.lightness >= RED_PINK_SHOULDER_LIGHTNESS_MIN
+        and metrics.lab_chroma <= RED_PINK_SHOULDER_CHROMA_MAX
+    )
+
+
+def _is_red_brown_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.lightness <= RED_BROWN_SHOULDER_LIGHTNESS_MAX
+        and metrics.lab_chroma <= RED_BROWN_SHOULDER_CHROMA_MAX
     )
 
 
