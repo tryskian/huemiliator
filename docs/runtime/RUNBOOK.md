@@ -64,6 +64,9 @@ Fast path:
 | run format checks | `make format-check` |
 | format the Python surface | `make format` |
 | run static typing | `make typecheck` |
+| install git hooks | `make precommit-install` |
+| run pre-commit hooks on all files | `make precommit-run` |
+| run pre-push hooks on all files | `make prepush-run` |
 | run the current baseline checks | `make check` |
 | build the package | `make package-check` |
 | show the current runtime status | `make app` |

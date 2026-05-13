@@ -687,3 +687,27 @@ into implementation authorship.
   convention. The remaining drift was surface-level: notebook metadata and
   local editor wiring could lag behind the actual repo env and make the
   evidence lane feel less trustworthy than it really was.
+
+## D-038: Track repo-native pre-commit hooks as baseline hygiene
+
+- Date: `2026-05-13`
+- Category: `workflow_environment`
+- Tags: `pre_commit`, `pre_push`, `tooling`, `repo_hygiene`
+- Provenance: `human-led method decision with implementation decision`
+- Decision:
+  - treat this hook-surface addition as human-led:
+    - the human lead set the direction for the standards pass
+    - Codex executed, formalized, and validated the repo-facing update
+  - add tracked `pre-commit` and `pre-push` hooks as part of the local repo
+    baseline
+  - keep hooks routed through native repo commands instead of ad hoc env pins:
+    - `make format-check`
+    - `make lint`
+    - `make typecheck`
+    - `make test`
+  - keep `pre-commit` focused on fast hygiene and `pre-push` focused on the
+    slower correctness gates
+- Why: Huemiliator already had the underlying `make` targets, but not the
+  tracked hook surface that turns those commands into consistent local hygiene.
+  Adding repo-native hooks brings the repo up to the current family baseline
+  without changing the runtime contract.

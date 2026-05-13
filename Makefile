@@ -3,7 +3,7 @@ VENV ?= .venv
 BIN := $(VENV)/bin
 PY := $(shell if [ -x "$(BIN)/python" ]; then echo "$(BIN)/python"; else echo "$(PYTHON)"; fi)
 
-.PHONY: install env doctor-env test lint format-check format typecheck check package-check app session-status start rituals end end-preflight end-docs-check end-git-check
+.PHONY: install env doctor-env test lint format-check format typecheck precommit-install precommit-run prepush-run check package-check app session-status start rituals end end-preflight end-docs-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -32,6 +32,15 @@ format:
 
 typecheck:
 	PYTHONPATH=src $(PY) -m mypy scripts src tests
+
+precommit-install:
+	$(PY) -m pre_commit install --install-hooks --hook-type pre-commit --hook-type pre-push
+
+precommit-run:
+	$(PY) -m pre_commit run --all-files
+
+prepush-run:
+	$(PY) -m pre_commit run --all-files --hook-stage pre-push
 
 check:
 	$(MAKE) --no-print-directory format-check
