@@ -1,5 +1,7 @@
 # Session Handoff
 
+Last updated: 2026-05-12
+
 ## Current State
 
 - repo: `huemiliator`
@@ -90,13 +92,15 @@ can fall through to `orange` or `yellow`
 - ran a fresh `red`-only rerun against that parked correction at `id > 15325`
 - stopped before packaging the lane because the repo/operator quality was too
   unstable to trust a clean runtime closeout on-branch
-- preserved the unfinished red lane in three local places:
-  - parked worktree branch:
-    `codex/bigbrain/red-family-correction-automation`
-  - local patch backup:
+- archived the unfinished red lane into local recovery artifacts:
+  - local patch backup from the original checkout:
     `.local/parked/2026-05-12-red-family-correction.patch`
+  - local patch backup from the retired worktree lane:
+    `.local/parked/2026-05-12-red-family-correction-automation.patch`
   - local stash:
     `stash@{0}` with the duplicate checkout copy
+- captured the exact parked red-lane stop state in this tracked handoff so the
+  repo no longer depends on a dirty worktree as an implicit source of truth
 
 ## Current Contract
 
@@ -263,6 +267,9 @@ resumes
     - `702` pass
     - `378` fail
     - `1292` pending
+    - `78` fully judged pair-level `pass`
+    - `42` fully judged pair-level `fail`
+    - `151` pair-level still unjudged
   - because that lane never closed to `0` pending and never merged, do not
     treat it as live runtime truth on `main`
 
@@ -292,7 +299,29 @@ resumes
 - the second orange-only rerun is closed from `id > 10579`
 - the red-only rerun is closed from `id > 12951`
 - `main` is intentionally back to a clean landed state with no active sampler
+- there is currently no active Huemiliator automation
+- the only remaining local automations are unrelated paused lanes in sibling
+  repos
 - the unfinished first red-correction lane is parked locally instead of merged
+- the archived red lane currently survives only as local recovery artifacts:
+  - `.local/parked/2026-05-12-red-family-correction.patch`
+  - `.local/parked/2026-05-12-red-family-correction-automation.patch`
+  - `stash@{0}`
+  - changed files:
+    - `docs/governance/DECISIONS.md`
+    - `docs/governance/SESSION_HANDOFF.md`
+    - `docs/research/README.md`
+    - `docs/runtime/ARCHITECTURE.md`
+    - `src/huemiliator/families.py`
+    - `tests/test_families.py`
+- the current operator/docs kernel is also in progress on a separate branch:
+  - branch:
+    `codex/bigbrain/exact-parked-red-state`
+  - current validation state:
+    - `make check`: pass
+    - `make end-preflight`: pass
+    - `make end`: fail until the branch is merged and rerun from clean synced
+      `main`
 - the next runtime family lane is still known:
   - resume or discard the parked `red` correction lane
   - then `yellow`

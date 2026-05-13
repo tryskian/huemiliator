@@ -3,7 +3,7 @@ VENV ?= .venv
 BIN := $(VENV)/bin
 PY := $(shell if [ -x "$(BIN)/python" ]; then echo "$(BIN)/python"; else echo "$(PYTHON)"; fi)
 
-.PHONY: install env doctor-env test lint format-check format typecheck check package-check app session-status start rituals end
+.PHONY: install env doctor-env test lint format-check format typecheck check package-check app session-status start rituals end end-preflight end-docs-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -74,10 +74,16 @@ rituals:
 
 end:
 	@set -eu; \
-	$(MAKE) --no-print-directory doctor-env; \
-	$(MAKE) --no-print-directory check; \
-	$(MAKE) --no-print-directory package-check; \
-	$(MAKE) --no-print-directory session-status || true
+	./scripts/end_of_day_routine.sh
+
+end-preflight:
+	end_SKIP_GIT_CHECK=1 ./scripts/end_of_day_routine.sh
+
+end-docs-check:
+	$(PY) ./scripts/check_end_docs.py
+
+end-git-check:
+	bash ./scripts/check_end_git_clean.sh
 
 session-status:
 	@set -eu; \

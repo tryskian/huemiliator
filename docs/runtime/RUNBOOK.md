@@ -70,6 +70,12 @@ Fast path:
 - the repo is public
 - `main` is protected by the default-branch ruleset
 - tracked changes should land through `codex/bigbrain/...` branches and squash PRs
+- `make end` is a strict stop-state gate and should fail unless:
+  - the required stop-state docs were updated today
+  - validation passes
+  - the repo ends on clean synced `main`
+- `make end-preflight` is the lighter check when the branch is not ready to
+  land yet
 - the repo is docs-first with a small live picker-plus-resolution kernel
 - the current live runtime surface is macOS-only
 - the archived swatch source is frozen into the repo

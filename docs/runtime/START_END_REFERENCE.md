@@ -44,11 +44,26 @@ make end
 Sequence:
 
 1. Run the closeout validation path:
+  - `make end-docs-check`
   - `make doctor-env`
   - `make check`
-  - `make package-check`
-2. Print the final repo state:
   - `make session-status`
+2. Enforce the final git state:
+  - `make end-git-check`
+
+Preflight:
+
+- `make end-preflight`
+- runs the docs and validation path without requiring a clean synced `main`
+
+Expected result:
+
+- `make end` should exit successfully only when:
+  - the required stop-state docs were updated today
+  - the validation path passes
+  - the repo ends on clean synced `main`
+- `make session-status` is only a snapshot line inside the routine
+- the actual stop-state failure comes from `make end-git-check`
 
 Source of truth:
 
