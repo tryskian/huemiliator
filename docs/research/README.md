@@ -1,5 +1,7 @@
 # Research
 
+Last updated: 2026-05-12
+
 Huemiliator keeps the tracked research lane small on purpose.
 
 The repo is still in pre-beta, but the first runtime slice now exists.
@@ -190,15 +192,31 @@ Current finding:
 - the special brown finding now has its own tracked note:
   - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
 - one unfinished off-main red experiment is preserved but not landed:
-  - a first `red` family-first correction was drafted in a parked local lane
+  - a first `red` family-first correction was drafted in a now-retired local
+    lane
   - a fresh rerun against that parked correction closed its sampler at
     `id > 15325` with:
     - `2372` rows
     - `702` pass
     - `378` fail
     - `1292` pending
+    - `78` fully judged pair-level `pass`
+    - `42` fully judged pair-level `fail`
+    - `151` pair-level still unjudged
   - because that queue never closed to `0` pending and the correction never
     merged, treat it as parked evidence rather than live runtime truth
+  - the archived local lane changed exactly:
+    - `docs/governance/DECISIONS.md`
+    - `docs/governance/SESSION_HANDOFF.md`
+    - `docs/research/README.md`
+    - `docs/runtime/ARCHITECTURE.md`
+    - `src/huemiliator/families.py`
+    - `tests/test_families.py`
+  - the archived local recovery artifacts are:
+    - `.local/parked/2026-05-12-red-family-correction.patch`
+    - `.local/parked/2026-05-12-red-family-correction-automation.patch`
+    - `stash@{0}`
+  - there is no live red sampler now and no active Huemiliator automation
 
 ## Next Clean Lane
 
