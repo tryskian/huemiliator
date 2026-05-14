@@ -21,7 +21,19 @@ Keep entries short, but informative enough to show what changed and why.
 - `runtime_engineering`
 - `eval_quality`
 - `collaboration_method`
+- `evidence_governance`
 - `workflow_environment`
+
+## Entry Style
+
+- Keep entries short and operational:
+  - `Date`: ISO date for when the decision landed.
+  - `Category`: exactly one taxonomy value.
+  - `Tags`: 3-5 concise lowercase snake_case labels.
+  - `Provenance`: authorship or source-of-truth layer.
+  - `Decision`: the key change.
+  - `Validation`: included when the kernel has a real validation surface.
+  - `Why`: the primary rationale.
 
 ## Provenance Rule
 
@@ -44,10 +56,6 @@ into implementation authorship.
 - Tags: `scorey_lineage`, `baseline`, `house_architecture`
 - Provenance: `human-led method decision`
 - Decision:
-  - treat this baseline choice as human-led:
-    - the human lead set Scorey as the starting house architecture for
-      Huemiliator
-    - Codex formalized that lineage into tracked repo truth
   - start Huemiliator from the current Scorey house architecture
   - do not reconstruct the toy outward from Probaboracle directly
 - Why: Huemiliator inherits the current narrow toy architecture from Scorey,
@@ -60,10 +68,6 @@ into implementation authorship.
 - Tags: `swatch_reference`, `pantone_secondary`, `deterministic_matching`
 - Provenance: `human-led method decision`
 - Decision:
-  - treat this source choice as human-led:
-    - the human lead chose the archived swatch reference before the repo froze
-      it locally
-    - Codex formalized that source choice into the runtime-facing contract
   - use the archived
     [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
     repo, surfaced publicly at
@@ -86,9 +90,6 @@ into implementation authorship.
 - Tags: `picker_input`, `hex_state`, `constrained_input`
 - Provenance: `human-led method decision`
 - Decision:
-  - treat this input contract as human-led:
-    - the human lead chose picker-first input as the v1 interaction shape
-    - Codex translated that choice into tracked runtime expectations
   - use a native UI colour picker as the primary v1 input
   - treat the picker hex as the canonical user input state
   - keep freeform text out of the v1 runtime lane
@@ -103,9 +104,6 @@ into implementation authorship.
 - Tags: `runtime_owned`, `family_mapping`, `one_up_rules`, `generation_boundary`
 - Provenance: `human-led method decision with implementation decision`
 - Decision:
-  - treat this runtime-ownership rule as human-led:
-    - the human lead set the deterministic boundary around colour decisions
-    - Codex implemented and formalized that boundary in the repo surface
   - keep matching, family assignment, and one-up selection runtime-owned
   - make that layer PASS/FAIL-testable
   - if generation is used later, keep it out of the final colour decision
@@ -135,9 +133,6 @@ into implementation authorship.
 - Tags: `public_repo`, `contract_lock`, `honest_docs`
 - Provenance: `human-led method decision`
 - Decision:
-  - treat this public-surface choice as human-led:
-    - the human lead chose to keep Huemiliator public during contract lock
-    - Codex translated that choice into truthful tracked docs
   - keep Huemiliator public before runtime implementation
   - keep the tracked docs honest about scaffold state
   - avoid machine-specific local details in the public repo surface
@@ -180,9 +175,6 @@ into implementation authorship.
 - Tags: `readme`, `truthful_surface`, `runtime_readiness`
 - Provenance: `human-led method decision`
 - Decision:
-  - treat this README-truth rule as human-led:
-    - the human lead rejected pretending the runtime existed before it did
-    - Codex formalized that boundary in the tracked public docs
   - do not add a `Run It` section until Huemiliator has a real runtime surface
   - keep the top-level docs truthful about current scaffold state
 - Why: The README should describe the current repo honestly instead of implying
@@ -361,10 +353,6 @@ into implementation authorship.
 - Tags: `sqlite`, `local_evidence`, `notebook`, `follow_along`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this first local-evidence lane as human-led:
-    - the human lead chose SQLite plus one notebook as the initial evidence
-      surface
-    - Codex formalized that lane into repo-local operator structure
   - keep the first local evidence surface in a repo-local SQLite file at
     `.local/evals.sqlite`
   - expose a narrow operator surface for that lane:
@@ -391,9 +379,6 @@ into implementation authorship.
 - Tags: `pass_fail`, `human_judgment`, `sqlite`, `pending_review`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this first PASS/FAIL lane as human-led:
-    - the human lead chose direct human judgment as the first eval gate
-    - Codex formalized that gate into the stored-row review surface
   - keep the first PASS/FAIL surface human-owned
   - apply verdicts directly to stored eval rows:
     - `pass`
@@ -433,10 +418,6 @@ into implementation authorship.
 - Tags: `long_run`, `local_sampler`, `source_order`, `consistency`
 - Provenance: `human-led method decision with implementation decision`
 - Decision:
-  - treat this long-run sampler shape as human-led:
-    - the human lead chose sustained local accumulation over clever spot
-      sampling
-    - Codex implemented and formalized that sampler method
   - expose `huemiliator eval-sample-local` as the long-run local sampler
   - cycle deterministically through the frozen swatch snapshot in source order
   - default the sampler to human-judgable pacing with a `3` second interval
@@ -482,9 +463,6 @@ into implementation authorship.
 - Tags: `live_review`, `long_run`, `judgment_method`, `queue_discipline`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this live-review timing rule as human-led:
-    - the human lead chose to judge while the queue is still filling
-    - Codex formalized that timing into the repo-local review method
   - start human PASS/FAIL review while the long-run sampler is still active
   - do not wait for the run to finish before judging rows
   - keep review on the active lane:
@@ -558,9 +536,6 @@ into implementation authorship.
 - Tags: `single_run`, `queue_discipline`, `attribution`, `long_run`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this single-sampler rule as human-led:
-    - the human lead chose attribution clarity over overlapping eval activity
-    - Codex formalized that constraint into the repo method surface
   - keep exactly one live eval sampler active in the repo at a time
   - do not overlap family runs or general runs in the same checkout
   - finish or stop the current run before starting the next long-run lane
@@ -575,10 +550,6 @@ into implementation authorship.
 - Tags: `warm_scope`, `local_cohort`, `sampler_scope`, `review_lane`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this warm-cohort alias as human-led:
-    - the human lead chose `warm` as a local eval convenience, not a runtime
-      family
-    - Codex formalized that alias into the sampler and review surface
   - keep `--family <name>` as the one sampler and review flag
   - allow `warm` as a local eval cohort alias on that flag
   - define `warm` as:
@@ -619,10 +590,6 @@ into implementation authorship.
 - Tags: `closeout`, `pending_queue`, `landing_rule`, `queue_discipline`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this closeout rule as human-led:
-    - the human lead required landed eval branches to reflect fully judged
-      active queues
-    - Codex formalized that requirement into the repo landing rule
   - keep live judgment active while a run is still filling
   - do not land the branch with open eval pendings from that run
   - before merge or end-of-day packaging, clear the active run to:
@@ -640,10 +607,6 @@ into implementation authorship.
 - Tags: `family_runs`, `warm_audit`, `single_lane`, `closeout`
 - Provenance: `human-led method decision with repo formalization`
 - Decision:
-  - treat this family-by-family run method as human-led:
-    - the human lead chose one attributable hue lane at a time as the durable
-      eval shape
-    - Codex formalized that method into tracked repo truth
   - run real eval lanes one family at a time
   - use cross-family scopes like `warm` only as audit surfaces
   - choose the next family run from the closed signal of the prior run instead
@@ -723,9 +686,6 @@ into implementation authorship.
 - Tags: `notebook`, `python_env`, `local_evidence`, `repo_hygiene`
 - Provenance: `human-led method decision with implementation decision`
 - Decision:
-  - treat this notebook/env refresh as human-led:
-    - the human lead set the direction for the canonical env shape
-    - Codex executed, formalized, and validated the repo-facing update
   - keep the tracked eval notebook metadata aligned to the canonical local repo
     environment
   - when local workspace/editor settings exist, they should resolve through the
@@ -744,9 +704,6 @@ into implementation authorship.
 - Tags: `pre_commit`, `pre_push`, `tooling`, `repo_hygiene`
 - Provenance: `human-led method decision with implementation decision`
 - Decision:
-  - treat this hook-surface addition as human-led:
-    - the human lead set the direction for the standards pass
-    - Codex executed, formalized, and validated the repo-facing update
   - add tracked `pre-commit` and `pre-push` hooks as part of the local repo
     baseline
   - keep hooks routed through native repo commands instead of ad hoc env pins:
@@ -768,9 +725,6 @@ into implementation authorship.
 - Tags: `operator_surface`, `startup`, `session_ops`, `repo_hygiene`
 - Provenance: `human-led operator decision with implementation decision`
 - Decision:
-  - treat this startup-ritual refinement as human-led:
-    - the human lead set the operator expectation
-    - Codex executed, formalized, and validated the repo-facing update
   - keep `make start` in two explicit phases:
     - machine context and startup safety checks first
     - docs read, startup read, and kernel declaration in the final `STOP`
@@ -797,10 +751,6 @@ into implementation authorship.
 - Tags: `red_family`, `pending_archive`, `queue_discipline`, `human_judgment`
 - Provenance: `human-led cleanup decision`, later `repo formalization`
 - Decision:
-  - treat this archive-and-fix move as human-led:
-    - the human lead decided the fail pattern was clear enough to stop
-      grinding the old queue
-    - Codex executed, formalized, and validated the repo-facing update
   - when a fresh family queue shows a durable repeat fail pattern, stop treating
     the remaining pending rows as the active lane
   - archive the still-pending residue as local pre-fix evidence
@@ -821,11 +771,6 @@ into implementation authorship.
 - Tags: `red_family`, `boundary_fix`, `pink_peach_shoulder`, `brown_wine_seam`
 - Provenance: `human-led narrow-fix decision`, later `implementation decision`
 - Decision:
-  - treat this second red correction as human-led:
-    - the human lead decided the archived fail pattern had earned an
-      instruction change
-    - Codex translated that decision into classifier thresholds, tests, and
-      repo-truth docs
   - broaden the red family classifier so obvious pink-peach shoulder colours
     leave `red` for `pink`
   - broaden the red family classifier so low-chroma brown and wine seam colours
@@ -847,10 +792,6 @@ into implementation authorship.
 - Tags: `governance_surface`, `decision_log`, `family_standard`, `format_lock`
 - Provenance: `human-led governance decision`, later `repo formalization`
 - Decision:
-  - treat this governance-format lock as human-led:
-    - the human lead set `polinko` as the exact house standard for tracked
-      governance structure
-    - Codex aligned the local repo surface and will keep it pinned there
   - keep `docs/governance/DECISIONS.md` in Huemiliator aligned to the Polinko
     format and structure instead of inventing local variants
   - when adding or editing Huemiliator decisions, preserve the same ordered
@@ -863,8 +804,8 @@ into implementation authorship.
     - `Decision`
     - `Validation` when the kernel has a real validation surface
     - `Why`
-  - keep the explicit human-led note inside the `Decision` block when the
-    decision is human-led
+  - use `Provenance` for authorship rather than adding separate human-led
+    pre-notes inside the `Decision` block
   - treat `polinko` as the family reference surface for governance format
     questions unless the house standard is explicitly changed
 - Validation:
@@ -882,11 +823,6 @@ into implementation authorship.
 - Tags: `eval_db`, `red_family`, `quarantine`, `proof_surface`, `local_evidence`
 - Provenance: `human-led cleanup decision`, later `repo formalization`
 - Decision:
-  - treat this eval quarantine move as human-led:
-    - the human lead decided the old mixed eval history should stop sharing the
-      live DB with the active red proof surface
-    - Codex froze the superseded rows locally, cleared them from the active DB,
-      and synced the tracked truth surface
   - once a newer rerun is fully judged and becomes the active proof surface,
     freeze the superseded eval rows locally as restorable evidence
   - keep both a tabular export and a SQL restore path for that quarantine
@@ -905,11 +841,6 @@ into implementation authorship.
 - Tags: `red_family`, `boundary_fix`, `muted_red_core`, `warm_clay_shoulder`
 - Provenance: `human-led narrow-fix decision`, later `implementation decision`
 - Decision:
-  - treat this third red correction as human-led:
-    - the human lead decided the closed second corrected rerun had earned one
-      more narrow family-first cut
-    - Codex translated that decision into classifier thresholds, tests,
-      quarantine cleanup, and repo-truth docs
   - keep the coherent muted-red local pass cluster in `red`
   - broaden the red-family shoulder demotion so more muted pink-peach and
     low-chroma brown extension colours leave `red`
