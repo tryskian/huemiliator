@@ -107,9 +107,92 @@ def test_classify_family_keeps_stronger_orange_core_inside_orange() -> None:
     assert classify_family("#d2b04c").family == "orange"
 
 
+def test_classify_family_demotes_dusty_red_pink_shoulder_to_pink() -> None:
+    assert classify_family("#f5d1c8").family == "pink"
+    assert classify_family("#ddb6ab").family == "pink"
+    assert classify_family("#dbb0a2").family == "pink"
+    assert classify_family("#dcb1af").family == "pink"
+    assert classify_family("#f4cec5").family == "pink"
+
+
+def test_classify_family_demotes_pink_peach_red_shoulder_to_pink() -> None:
+    assert classify_family("#efa6aa").family == "pink"
+    assert classify_family("#eea0a6").family == "pink"
+    assert classify_family("#f2b2ae").family == "pink"
+    assert classify_family("#f4a6a3").family == "pink"
+    assert classify_family("#f8a39d").family == "pink"
+
+
+def test_classify_family_demotes_midlight_peach_red_shoulder_to_pink() -> None:
+    assert classify_family("#ea6676").family == "pink"
+    assert classify_family("#ee5c6c").family == "pink"
+    assert classify_family("#dc7178").family == "pink"
+    assert classify_family("#e4445e").family == "pink"
+    assert classify_family("#dc3855").family == "pink"
+
+
+def test_classify_family_demotes_moderate_red_peach_shoulder_to_pink() -> None:
+    assert classify_family("#e8a798").family == "pink"
+    assert classify_family("#d29380").family == "pink"
+    assert classify_family("#e29a86").family == "pink"
+    assert classify_family("#bd7b74").family == "pink"
+    assert classify_family("#dd9289").family == "pink"
+
+
+def test_classify_family_demotes_low_chroma_rose_shoulder_to_pink() -> None:
+    assert classify_family("#d19c97").family == "pink"
+    assert classify_family("#a4777e").family == "pink"
+    assert classify_family("#ecb2b3").family == "pink"
+    assert classify_family("#fdc3c6").family == "pink"
+
+
+def test_classify_family_demotes_dark_red_brown_wine_seam_to_brown() -> None:
+    assert classify_family("#503130").family == "brown"
+    assert classify_family("#593c39").family == "brown"
+    assert classify_family("#5d3c43").family == "brown"
+    assert classify_family("#56352d").family == "brown"
+    assert classify_family("#58363d").family == "brown"
+
+
+def test_classify_family_demotes_low_chroma_red_brown_shoulder_to_brown() -> None:
+    assert classify_family("#844b4d").family == "brown"
+    assert classify_family("#884344").family == "brown"
+    assert classify_family("#7e3940").family == "brown"
+    assert classify_family("#77333b").family == "brown"
+    assert classify_family("#702f3b").family == "brown"
+    assert classify_family("#5c2c35").family == "brown"
+
+
+def test_classify_family_demotes_expanded_red_brown_shoulder_to_brown() -> None:
+    assert classify_family("#8f5f50").family == "brown"
+    assert classify_family("#98594b").family == "brown"
+    assert classify_family("#9a6051").family == "brown"
+    assert classify_family("#714a41").family == "brown"
+    assert classify_family("#6e403c").family == "brown"
+    assert classify_family("#6b4139").family == "brown"
+    assert classify_family("#683b39").family == "brown"
+    assert classify_family("#6a3331").family == "brown"
+
+
+def test_classify_family_keeps_stronger_red_core_inside_red() -> None:
+    assert classify_family("#a73340").family == "red"
+    assert classify_family("#884332").family == "red"
+    assert classify_family("#b93a32").family == "red"
+    assert classify_family("#7b3539").family == "red"
+    assert classify_family("#973443").family == "red"
+
+
+def test_classify_family_keeps_soft_red_boundary_lane_inside_red() -> None:
+    assert classify_family("#70393f").family == "red"
+    assert classify_family("#c08a80").family == "red"
+    assert classify_family("#ffc4bc").family == "red"
+    assert classify_family("#d9a6a1").family == "red"
+    assert classify_family("#ed9ca8").family == "red"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
-        SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),
+        SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#d9a6a1"),
         SwatchEntry(source_order=2, slug="loud-red", name="Loud red", hex="#d22345"),
     )
 
@@ -183,7 +266,7 @@ def test_select_one_up_keeps_earthy_brown_over_yellow_shoulder() -> None:
 
 def test_select_one_up_moves_to_next_rank_in_same_family() -> None:
     dataset = _dataset(
-        SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#b79494"),
+        SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#d9a6a1"),
         SwatchEntry(source_order=2, slug="loud-red", name="Loud red", hex="#d22345"),
     )
 

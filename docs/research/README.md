@@ -194,58 +194,82 @@ Current finding:
   - `warm` = `brown`, `red`, `orange`, `yellow`
 - the special brown finding now has its own tracked note:
   - [Finding 1: Contextual Brown](./FINDING_1_CONTEXTUAL_BROWN.md)
-- one unfinished off-main red experiment is preserved but not landed:
-  - a first `red` family-first correction was drafted in a now-retired local
-    lane
-  - a fresh rerun against that parked correction closed its sampler at
-    `id > 15325` with:
-    - `2372` rows
-    - `702` pass
-    - `378` fail
-    - `1292` pending
-    - `78` fully judged pair-level `pass`
-    - `42` fully judged pair-level `fail`
-    - `151` pair-level still unjudged
-  - because that queue never closed to `0` pending and the correction never
-    merged, treat it as parked evidence rather than live runtime truth
-  - the archived local lane changed exactly:
-    - `docs/governance/DECISIONS.md`
-    - `docs/governance/SESSION_HANDOFF.md`
-    - `docs/research/README.md`
-    - `docs/runtime/ARCHITECTURE.md`
-    - `src/huemiliator/families.py`
-    - `tests/test_families.py`
-  - the archived local recovery artifacts are:
-    - `.local/parked/2026-05-12-red-family-correction.patch`
-    - `.local/parked/2026-05-12-red-family-correction-automation.patch`
-    - `stash@{0}`
-  - there is no live red sampler now and no active Huemiliator automation
+- the old off-main first red correction is no longer the active question by
+  itself:
+  - its fresh rerun at `id > 15325` was recovered onto
+    `codex/bigbrain/red-family-recovery`
+  - the recovery branch judged far enough into that queue to expose a durable
+    repeat fail pattern:
+    - peach and pink shoulder drift
+    - low-chroma brown and wine seam
+  - once that pattern was clearly repetitive, the branch stopped treating the
+    old pending rows as the active lane:
+    - `2372` total rows in the recovered slice
+    - `843` pass
+    - `477` fail
+    - `1052` rows archived locally as pre-fix pending evidence
+    - `0` pending rows left in the active DB after archive
+  - the archived pre-fix pending residue is now frozen locally at:
+    - `.local/parked/2026-05-13-red-pre-second-correction-pending.tsv`
+    - `.local/parked/2026-05-13-red-pre-second-correction-pending.sql`
+    - `.local/parked/2026-05-13-red-pre-second-correction-summary.md`
+  - that archived evidence then drove the second red correction now drafted on
+    the recovery branch:
+    - broader pink-peach demotion from `red` to `pink`
+    - broader low-chroma brown and wine demotion from `red` to `brown`
+    - stable soft-red lane and darker core kept in `red`
 
 ## Next Clean Lane
 
 Current clean lane:
 
-- clean `main` stop state before more runtime widening
+- keep the current `red` proof surface on `main` until the next narrow
+  correction is explicit
 - one active eval sampler at a time
-- `2` hour local source-order runs
-- `2` hour one-family runs when a boundary needs isolated pressure
-- `2` hour warm-cohort runs only as audit surfaces
-- live judgment while the queue is still filling for future long runs
-- land only after the active queue returns to `0` pending
-- the closed red rerun is stable enough for a direct family correction
-- `yellow` stays queued behind `red`
+- use the fully judged third corrected `red` rerun as the active proof surface
+- keep older eval lanes quarantined locally instead of leaving them in the live
+  DB
+- the live DB now holds only the closed third corrected rerun at `id > 18423`
+- keep the next correction local until it has its own fresh rerun
+- `yellow` still stays queued behind `red`
 
 The next meaningful runtime lane should prove:
 
-- whether the parked first `red` family correction is worth resuming from its
-  unfinished queue
-- whether that parked fresh rerun keeps the same residual shape once the queue
-  closes to `0` pending
-- whether `yellow` still stays queued behind `red` after that parked lane is
-  either resumed or discarded
+- whether a narrow warm-clay and peach shoulder escape out of `red` removes the
+  remaining repeat failures
+- whether the coherent muted-red local pass cluster stays intact in `red`
+- whether `yellow` still stays queued behind `red` once that next corrected
+  rerun is closed
 
-Until that runtime lane resumes cleanly, keep the public repo truthful to the
-last landed state and treat the parked red work as local-only evidence.
+Current closed proof surface:
+
+- third corrected `red` rerun at `id > 18423`
+  - `1268` total rows
+  - `1162` pass
+  - `106` fail
+  - `0` pending
+  - `129` pair-level `pass`
+  - `13` pair-level `fail`
+- older eval rows are now quarantined locally:
+  - cutoff: `id <= 18423`
+  - `17371` rows frozen locally
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-quarantine.tsv`
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-quarantine.sql`
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-summary.md`
+- dominant remaining fail pairs:
+  - `Desert rose -> Burnt brick`
+  - `Garnet rose -> Desert rose`
+  - `Slate rose -> Crabapple`
+  - `Auburn -> Tawny orange`
+  - `Terra cotta -> Burnt henna`
+  - `Oxblood red -> Withered rose`
+  - `Peony -> Marsala`
+  - `Burlwood -> Mellow rose`
+  - `Renaissance rose -> Impatiens pink`
+
+Until the next rerun closes cleanly, keep the public repo truthful to this
+landed state and treat the next correction lane plus its quarantined and
+archived red evidence as local-only work.
 
 That first evidence lane should stay binary:
 
@@ -258,37 +282,13 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. decide whether to resume or discard the parked first `red` correction lane
-2. if resumed, clear that fresh red queue to `0` pending
-3. only then decide whether `red` needs a second family-first pass
-4. then decide whether `yellow` stays next
-
-The closed red rerun is now in hand:
-
-- `2374` rows
-- `2049` pass
-- `325` fail
-- `0` pending
-- `264` pair-level `pass`
-- `44` pair-level `fail`
-- `0` mixed pairs
-- the pair totals reproduced the warm-audit red signal exactly, so the red lane
-  looks stable rather than noisy
-- the residual red failure shape is attributable:
-  - dusty pink and cosmetic rose ladder
-  - brown, cocoa, and wine seam
-- repeated dusty pink failures include:
-  - `Cloud pink -> Rocky road`
-  - `Evening sand -> Silver pink`
-  - `Rose cloud -> Clove`
-  - `Silver pink -> Rose quartz`
-  - `Pearl blush -> Peachy keen`
-- repeated brown and wine failures include:
-  - `Bitter chocolate -> Marron`
-  - `Brown stone -> Pink dogwood`
-  - `English rose -> Chocolate fondant`
-  - `Root beer -> Mink`
-  - `Veiled rose -> Vineyard wine`
+1. treat the fully judged third corrected rerun at `id > 18423` as the only
+   active proof surface
+2. keep the coherent muted-red local pass cluster in `red`
+3. cut a narrow warm-clay and peach-shoulder escape out of `red`
+4. rerun `red` again from a fresh boundary on the recovery branch
+5. only then decide whether `red` is closed or still needs another pass
+6. then decide whether `yellow` stays next
 
 ## Probaboracle And Scorey Context
 
