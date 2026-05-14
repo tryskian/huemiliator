@@ -2,8 +2,11 @@ PYTHON ?= python3
 VENV ?= .venv
 BIN := $(VENV)/bin
 PY := $(shell if [ -x "$(BIN)/python" ]; then echo "$(BIN)/python"; else echo "$(PYTHON)"; fi)
+CAFFEINATE_PID_FILE ?= /tmp/huemiliator-caffeinate.pid
+CAFFEINATE_LOG ?= /tmp/huemiliator-caffeinate.log
+CAFFEINATE_CMD ?= /usr/bin/caffeinate -d -i -m
 
-.PHONY: install env doctor-env test lint format-check format typecheck precommit-install precommit-run prepush-run check package-check app session-status start rituals end end-preflight end-docs-check end-git-check
+.PHONY: install env doctor-env test lint format-check format typecheck precommit-install precommit-run prepush-run check package-check app session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -55,6 +58,75 @@ package-check:
 
 app:
 	PYTHONPATH=src $(PY) -m huemiliator
+
+caffeinate:
+	@set -eu; \
+	if [ "$$(uname -s)" != "Darwin" ]; then \
+		echo "caffeinate is macOS-only; skipping."; \
+		exit 0; \
+	fi; \
+	if [ -f "$(CAFFEINATE_PID_FILE)" ]; then \
+		PID=$$(cat "$(CAFFEINATE_PID_FILE)" 2>/dev/null || true); \
+		if [ -n "$$PID" ] && kill -0 "$$PID" 2>/dev/null; then \
+			echo "caffeinate already running (PID $$PID)."; \
+			exit 0; \
+		fi; \
+		rm -f "$(CAFFEINATE_PID_FILE)"; \
+	fi; \
+	nohup $(CAFFEINATE_CMD) >"$(CAFFEINATE_LOG)" 2>&1 & \
+	PID=$$!; \
+	echo "$$PID" >"$(CAFFEINATE_PID_FILE)"; \
+	sleep 0.1; \
+	if kill -0 "$$PID" 2>/dev/null; then \
+		echo "caffeinate started (PID $$PID)."; \
+	else \
+		rm -f "$(CAFFEINATE_PID_FILE)"; \
+		echo "Failed to start caffeinate."; \
+		exit 1; \
+	fi
+
+decaffeinate:
+	@set -eu; \
+	if [ "$$(uname -s)" != "Darwin" ]; then \
+		echo "caffeinate is macOS-only; skipping."; \
+		exit 0; \
+	fi; \
+	if [ ! -f "$(CAFFEINATE_PID_FILE)" ]; then \
+		echo "No managed caffeinate PID file found."; \
+		exit 0; \
+	fi; \
+	PID=$$(cat "$(CAFFEINATE_PID_FILE)" 2>/dev/null || true); \
+	if [ -n "$$PID" ] && kill -0 "$$PID" 2>/dev/null; then \
+		kill "$$PID"; \
+		sleep 0.1; \
+		echo "caffeinate stopped (PID $$PID)."; \
+	else \
+		echo "Stale PID file found; cleaning up."; \
+	fi; \
+	rm -f "$(CAFFEINATE_PID_FILE)"
+
+caffeinate-status:
+	@set -eu; \
+	if [ "$$(uname -s)" != "Darwin" ]; then \
+		echo "caffeinate status is only available on macOS."; \
+		exit 0; \
+	fi; \
+	if [ -f "$(CAFFEINATE_PID_FILE)" ]; then \
+		PID=$$(cat "$(CAFFEINATE_PID_FILE)" 2>/dev/null || true); \
+		if [ -n "$$PID" ] && kill -0 "$$PID" 2>/dev/null; then \
+			echo "Managed caffeinate: RUNNING (PID $$PID)."; \
+		else \
+			echo "Managed caffeinate: STALE PID file."; \
+		fi; \
+	else \
+		echo "Managed caffeinate: OFF."; \
+		EXISTING_PID=$$(pgrep -f "^/usr/bin/caffeinate -d -i -m( |$$)" | head -n 1 || true); \
+		if [ -n "$$EXISTING_PID" ]; then \
+			echo "Unmanaged caffeinate detected (PID $$EXISTING_PID); not owned by this repo."; \
+		fi; \
+	fi
+
+decaffeinate-status: caffeinate-status
 
 start:
 	bash ./scripts/start_of_day_routine.sh

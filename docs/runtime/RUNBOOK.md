@@ -45,6 +45,11 @@ Fast path:
 | run the day-open operator routine | `make start` |
 | show the compact day-open/day-close sheet | `make rituals` |
 | run the day-close validation routine | `make end` |
+| run day-close before merge | `make end-preflight` |
+| verify clean synced main | `make end-git-check` |
+| start managed caffeinate | `make caffeinate` |
+| stop managed caffeinate | `make decaffeinate` |
+| check managed caffeinate | `make caffeinate-status` |
 | show session status | `make session-status` |
 | open the native macOS UI picker | `huemiliator pick` |
 | resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
