@@ -23,6 +23,8 @@ Fast path:
    - `huemiliator`
 3. Run the startup safety path:
    - `make doctor-env`
+   - `make caffeinate`
+   - `make caffeinate-status`
    - `make session-status`
 4. Treat the tracked docs as current project state.
 5. Install or refresh the local environment:
@@ -50,6 +52,7 @@ Fast path:
 | start managed caffeinate | `make caffeinate` |
 | stop managed caffeinate | `make decaffeinate` |
 | check managed caffeinate | `make caffeinate-status` |
+| alias wake-lock status for closeout language | `make decaffeinate-status` |
 | show session status | `make session-status` |
 | open the native macOS UI picker | `huemiliator pick` |
 | resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
