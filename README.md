@@ -104,6 +104,17 @@ judged while it is still filling.
 The follow-along notebook lives at
 `output/jupyter-notebook/huemiliator-eval-surface.ipynb`.
 
+Core operator commands:
+
+```sh
+make start
+make end-preflight
+make end-git-check
+make caffeinate-status
+make decaffeinate
+make check
+```
+
 ## Read Next
 
 - [docs/governance/CHARTER.md](./docs/governance/CHARTER.md)

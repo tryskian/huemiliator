@@ -8,6 +8,22 @@ nearest-swatch resolution is live, and the first family taxonomy and rank layer
 is live, the first replacement step is live, and the first loss-line layer is
 live.
 
+## Operator Surface
+
+- Startup ritual: `make start`
+- Day-close routine: `make end`
+- Branch-local closeout validation: `make end-preflight`
+- Clean-main closeout gate: `make end-git-check`
+- Managed wake lock:
+  - `make caffeinate`
+  - `make caffeinate-status`
+  - `make decaffeinate-status`
+  - `make decaffeinate`
+- Stop-state docs gate: `make end-docs-check`
+- Baseline validation: `make check`
+- Environment sanity: `make doctor-env`
+- Compact operator sheet: `make rituals`
+
 ## System Map
 
 | Surface | Role |

@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-05-13
+Last updated: 2026-05-14
 
 ## Current State
 
@@ -13,6 +13,18 @@ Last updated: 2026-05-13
   Dependabot updates aligned to the current toy-family baseline
 - local hook hygiene: tracked `pre-commit` and `pre-push` baselines now live
   through native repo commands
+- operator surface: aligned with the toy-family start/end contract:
+  - `make start`
+  - `make end`
+  - `make end-preflight`
+  - `make end-git-check`
+  - `make caffeinate`
+  - `make caffeinate-status`
+  - `make decaffeinate-status`
+  - `make decaffeinate`
+  - `make rituals`
+- wake-lock ownership: unmanaged `caffeinate` processes are reported but not
+  adopted or stopped
 - active sampler: none
 - active Huemiliator automation: none
 - active live DB proof surface is now only the fully judged third red rerun at
@@ -261,14 +273,6 @@ resumes
     - `docs/runtime/ARCHITECTURE.md`
     - `src/huemiliator/families.py`
     - `tests/test_families.py`
-- the current operator/docs kernel is also in progress on a separate branch:
-  - branch:
-    `codex/bigbrain/exact-parked-red-state`
-  - current validation state:
-    - `make check`: pass
-    - `make end-preflight`: pass
-    - `make end`: fail until the branch is merged and rerun from clean synced
-      `main`
 - the next runtime family lane is still known:
   - resume or discard the parked `red` correction lane
   - then `yellow`

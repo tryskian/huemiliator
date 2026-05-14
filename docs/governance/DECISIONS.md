@@ -924,3 +924,41 @@ into implementation authorship.
   narrow repeat seam: warm clay, peach, and low-chroma brown intruders inside
   an otherwise coherent red ladder. The right move was another family-first
   cut, not a rank rewrite.
+
+## D-045: Align the full start/end operator surface with the repo family
+
+- Date: `2026-05-14`
+- Category: `workflow_environment`
+- Tags: `operator_surface`, `start_end`, `wake_lock`, `repo_family`
+- Provenance: `human-led operator decision with implementation decision`
+- Decision:
+  - align Huemiliator with the shared repo-family operator target contract:
+    - `make start`
+    - `make end`
+    - `make end-preflight`
+    - `make end-git-check`
+    - `make caffeinate`
+    - `make caffeinate-status`
+    - `make decaffeinate-status`
+    - `make decaffeinate`
+    - `make doctor-env`
+    - `make session-status`
+    - `make rituals`
+  - keep Huemiliator's stop-state docs gate inside the repo-specific end path:
+    - `make end-docs-check`
+  - keep `make end` as the strict clean-main closeout command
+  - keep `make end-preflight` for branch-local validation before clean-main
+    enforcement
+  - make wake-lock ownership PID-scoped:
+    - repo-managed PIDs may be stopped by the repo
+    - unmanaged `caffeinate` processes are reported but not adopted or stopped
+- Validation:
+  - shared target matrix check
+  - `bash -n scripts/start_of_day_routine.sh scripts/end_of_day_routine.sh`
+  - `make doctor-env`
+  - `markdownlint-cli2 README.md 'docs/**/*.md'`
+  - `make check`
+  - `make end-git-check` on synced `main`
+- Why: Huemiliator needed the same boring operator shape as Polinko,
+  Probaboracle, and Scorey while preserving its stricter docs closeout gate and
+  local colour-eval proof surface.
