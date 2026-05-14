@@ -19,6 +19,8 @@ Sequence:
    - `git status --short --branch`
 2. Run the startup safety path:
    - `make doctor-env`
+   - `make caffeinate`
+   - `make caffeinate-status`
    - `make session-status`
 3. Stop before repo action:
    - print the canonical docs to read:
@@ -38,6 +40,11 @@ Source of truth:
 - [Makefile](../../Makefile)
 - [scripts/start_of_day_routine.sh](../../scripts/start_of_day_routine.sh)
 
+Wake-lock rule:
+
+- `make caffeinate` records only this repo's managed PID
+- unmanaged `caffeinate` processes are reported but never adopted or stopped
+
 ## End
 
 Command:
@@ -52,6 +59,7 @@ Sequence:
   - `make end-docs-check`
   - `make doctor-env`
   - `make check`
+  - `make decaffeinate`
   - `make session-status`
 2. Enforce the final git state:
   - `make end-git-check`
