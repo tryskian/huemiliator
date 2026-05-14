@@ -2,6 +2,22 @@
 
 Last updated: 2026-05-14
 
+## Start Here
+
+- Run `make start` before repo work.
+- Read:
+  - `README.md`
+  - `docs/governance/CHARTER.md`
+  - `docs/governance/DECISIONS.md`
+  - `docs/runtime/RUNBOOK.md`
+  - `docs/runtime/ARCHITECTURE.md`
+  - `docs/governance/SESSION_HANDOFF.md`
+- Confirm:
+  - repo root is `/Users/tryskian/Github/huemiliator`
+  - active branch
+  - whether the thread is on clean `main` or a feature branch
+- Name exactly one active kernel before branching, searching, or editing.
+
 ## Current State
 
 - repo: `huemiliator`
@@ -22,6 +38,8 @@ Last updated: 2026-05-14
   - `make caffeinate-status`
   - `make decaffeinate-status`
   - `make decaffeinate`
+  - `make doctor-env`
+  - `make session-status`
   - `make rituals`
 - wake-lock ownership: unmanaged `caffeinate` processes are reported but not
   adopted or stopped
@@ -95,13 +113,12 @@ Next in this branch:
 - platform: macOS local only
 - input: native UI colour picker
 - canonical user state: hex code
-- inventory: swatch reference from
-the archived
-`[margaret2/pantone-colors](https://github.com/margaret2/pantone-colors)`
-source, surfaced at
-`[margaret2.github.io/pantone-colors](https://margaret2.github.io/pantone-colors/)`,
-frozen locally at `data/margaret2_swatches.json`, with Pantone as a
-secondary naming layer
+- inventory: swatch reference from the archived
+  [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
+  source, surfaced at
+  [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/),
+  frozen locally at `data/margaret2_swatches.json`, with Pantone as a
+  secondary naming layer
 - swatch resolution: nearest frozen swatch match by `delta-e cie76` with
 source-order tie-break
 - Huemiliator-owned structure:
@@ -126,6 +143,18 @@ source-order tie-break
 - current output target:
   - replacement shade
   - one short loss line
+
+## Research Snapshot
+
+- Huemiliator is still pre-beta.
+- The current live proof surface is the fully judged third `red` rerun at
+  `id > 18423`.
+- Older eval rows are quarantined locally and should not be mixed back into
+  the live truth surface.
+- The current next runtime question is still the narrow `red` correction from
+  the closed third-rerun proof surface.
+- Do not start a new sampler until the next correction is explicit.
+- `yellow` stays queued behind the next `red` correction.
 
 ## Next Kernel
 
@@ -231,6 +260,30 @@ resumes
     - `151` pair-level still unjudged
   - because that lane never closed to `0` pending and never merged, do not
     treat it as live runtime truth on `main`
+
+## Guardrails
+
+- Keep one active kernel at a time.
+- Do not treat old mixed eval history as the live proof surface.
+- Do not start another rerun until the next correction is explicit.
+- Keep `.local/` artifacts local unless explicitly promoted.
+- Preserve parked recovery artifacts until the next `red` decision says whether
+  to resume or discard them.
+- Land tracked changes through PRs and finish on clean synced `main`.
+
+## Close A Session
+
+- Use `make end-preflight` for branch-local validation before clean-main
+  enforcement.
+- Merge through the protected-branch PR path.
+- Switch back to `main` and pull with `--ff-only`.
+- Run `make end` on `main`.
+- Treat `make end` failure as a real closeout blocker unless the failure is
+  explicitly diagnosed and fixed.
+
+## Copy/Paste Refresh Prompt
+
+`Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/RUNBOOK.md, docs/runtime/ARCHITECTURE.md, and docs/governance/SESSION_HANDOFF.md. In 5 bullets: current state, risks, and next kernel. Confirm the repo path is /Users/tryskian/Github/huemiliator, confirm the active git branch, and say whether the thread is on clean main or a feature branch. Then execute the Next Kernel with minimal drift and full validation.`
 
 ## Stop State
 
