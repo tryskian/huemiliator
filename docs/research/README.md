@@ -223,26 +223,53 @@ Current finding:
 
 Current clean lane:
 
-- keep the recovered red lane isolated on its branch until the second
-  correction has its own fresh rerun
+- keep the current `red` proof surface on `main` until the next narrow
+  correction is explicit
 - one active eval sampler at a time
-- use the archived pre-fix queue only as local evidence, not as the active
-  runtime lane
-- the new corrected `red` rerun is now active from `id > 17613`
-- land only after the active rerun closes cleanly
+- use the fully judged third corrected `red` rerun as the active proof surface
+- keep older eval lanes quarantined locally instead of leaving them in the live
+  DB
+- the live DB now holds only the closed third corrected rerun at `id > 18423`
+- keep the next correction local until it has its own fresh rerun
 - `yellow` still stays queued behind `red`
 
 The next meaningful runtime lane should prove:
 
-- whether the second red correction actually removes the archived shoulder seam
-  from the live queue
-- whether the remaining red-core rows stay intact after that cut
-- whether `yellow` still stays queued behind `red` once this corrected rerun is
-  closed
+- whether a narrow warm-clay and peach shoulder escape out of `red` removes the
+  remaining repeat failures
+- whether the coherent muted-red local pass cluster stays intact in `red`
+- whether `yellow` still stays queued behind `red` once that next corrected
+  rerun is closed
 
-Until that rerun closes cleanly, keep the public repo truthful to the last
-landed state and treat the recovery branch plus its archived pre-fix evidence
-as local-only work.
+Current closed proof surface:
+
+- third corrected `red` rerun at `id > 18423`
+  - `1268` total rows
+  - `1162` pass
+  - `106` fail
+  - `0` pending
+  - `129` pair-level `pass`
+  - `13` pair-level `fail`
+- older eval rows are now quarantined locally:
+  - cutoff: `id <= 18423`
+  - `17371` rows frozen locally
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-quarantine.tsv`
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-quarantine.sql`
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-summary.md`
+- dominant remaining fail pairs:
+  - `Desert rose -> Burnt brick`
+  - `Garnet rose -> Desert rose`
+  - `Slate rose -> Crabapple`
+  - `Auburn -> Tawny orange`
+  - `Terra cotta -> Burnt henna`
+  - `Oxblood red -> Withered rose`
+  - `Peony -> Marsala`
+  - `Burlwood -> Mellow rose`
+  - `Renaissance rose -> Impatiens pink`
+
+Until the next rerun closes cleanly, keep the public repo truthful to this
+landed state and treat the next correction lane plus its quarantined and
+archived red evidence as local-only work.
 
 That first evidence lane should stay binary:
 
@@ -255,38 +282,13 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. archive the old pre-fix red pending queue once the fail pattern is clear
-2. cut the second red correction into runtime instructions
-3. rerun `red` from a fresh boundary on the recovery branch
-4. only then decide whether `red` is closed or still needs another pass
-5. then decide whether `yellow` stays next
-
-The closed red rerun is now in hand:
-
-- `2374` rows
-- `2049` pass
-- `325` fail
-- `0` pending
-- `264` pair-level `pass`
-- `44` pair-level `fail`
-- `0` mixed pairs
-- the pair totals reproduced the warm-audit red signal exactly, so the red lane
-  looks stable rather than noisy
-- the residual red failure shape is attributable:
-  - dusty pink and cosmetic rose ladder
-  - brown, cocoa, and wine seam
-- repeated dusty pink failures include:
-  - `Cloud pink -> Rocky road`
-  - `Evening sand -> Silver pink`
-  - `Rose cloud -> Clove`
-  - `Silver pink -> Rose quartz`
-  - `Pearl blush -> Peachy keen`
-- repeated brown and wine failures include:
-  - `Bitter chocolate -> Marron`
-  - `Brown stone -> Pink dogwood`
-  - `English rose -> Chocolate fondant`
-  - `Root beer -> Mink`
-  - `Veiled rose -> Vineyard wine`
+1. treat the fully judged third corrected rerun at `id > 18423` as the only
+   active proof surface
+2. keep the coherent muted-red local pass cluster in `red`
+3. cut a narrow warm-clay and peach-shoulder escape out of `red`
+4. rerun `red` again from a fresh boundary on the recovery branch
+5. only then decide whether `red` is closed or still needs another pass
+6. then decide whether `yellow` stays next
 
 ## Probaboracle And Scorey Context
 

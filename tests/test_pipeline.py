@@ -19,11 +19,11 @@ def _dataset(*swatches: SwatchEntry) -> SwatchDataset:
 
 def test_build_one_up_state_returns_replacement_and_loss_line() -> None:
     dataset = _dataset(
-        SwatchEntry(source_order=1, slug="soft-red", name="Soft Red", hex="#c17a7a"),
+        SwatchEntry(source_order=1, slug="soft-red", name="Soft Red", hex="#d9a6a1"),
         SwatchEntry(source_order=2, slug="loud-red", name="Loud Red", hex="#d22345"),
     )
 
-    state = build_one_up_state("#c17a7a", dataset)
+    state = build_one_up_state("#d9a6a1", dataset)
 
     assert state.current.swatch.name == "Soft Red"
     assert state.replacement.swatch.name == "Loud Red"

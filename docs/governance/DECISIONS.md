@@ -874,3 +874,53 @@ into implementation authorship.
   to misread across repos. One exact house format keeps the decision surface
   legible, comparable, and easier for any later instance to extend without
   veering into local style inventions.
+
+## D-043: Quarantine superseded eval rows once a newer proof surface is closed
+
+- Date: `2026-05-13`
+- Category: `evidence_governance`
+- Tags: `eval_db`, `red_family`, `quarantine`, `proof_surface`, `local_evidence`
+- Provenance: `human-led cleanup decision`, later `repo formalization`
+- Decision:
+  - treat this eval quarantine move as human-led:
+    - the human lead decided the old mixed eval history should stop sharing the
+      live DB with the active red proof surface
+    - Codex froze the superseded rows locally, cleared them from the active DB,
+      and synced the tracked truth surface
+  - once a newer rerun is fully judged and becomes the active proof surface,
+    freeze the superseded eval rows locally as restorable evidence
+  - keep both a tabular export and a SQL restore path for that quarantine
+  - clear those superseded rows out of `eval_outputs`
+  - keep the live DB limited to the current active proof surface instead of a
+    mixed pile of historical lanes
+- Why: Old judged and pending rows are useful as evidence, but they should not
+  keep pretending to be the live runtime lane once a newer rerun has already
+  earned that role. Quarantine preserves recovery without muddying the active
+  DB.
+
+## D-044: Red third correction should keep the muted-red core and cut the next shoulder seam
+
+- Date: `2026-05-13`
+- Category: `eval_quality`
+- Tags: `red_family`, `boundary_fix`, `muted_red_core`, `warm_clay_shoulder`
+- Provenance: `human-led narrow-fix decision`, later `implementation decision`
+- Decision:
+  - treat this third red correction as human-led:
+    - the human lead decided the closed second corrected rerun had earned one
+      more narrow family-first cut
+    - Codex translated that decision into classifier thresholds, tests,
+      quarantine cleanup, and repo-truth docs
+  - keep the coherent muted-red local pass cluster in `red`
+  - broaden the red-family shoulder demotion so more muted pink-peach and
+    low-chroma brown extension colours leave `red`
+  - treat the fully judged third corrected rerun at `id > 18423` as the new
+    active proof surface
+  - quarantine every older eval row out of the live DB so the proof surface is
+    no longer mixed with stale runs
+- Validation:
+  - `make check`
+  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_families.py tests/test_pipeline.py`
+- Why: The second corrected rerun was much tighter, but it still left a
+  narrow repeat seam: warm clay, peach, and low-chroma brown intruders inside
+  an otherwise coherent red ladder. The right move was another family-first
+  cut, not a rank rewrite.

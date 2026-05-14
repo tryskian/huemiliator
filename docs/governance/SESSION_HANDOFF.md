@@ -5,37 +5,45 @@ Last updated: 2026-05-13
 ## Current State
 
 - repo: `huemiliator`
-- branch: `codex/bigbrain/red-family-recovery`
-- status: local runtime recovery branch with a validated second `red`
-  family-instruction correction; not merged
+- branch: `main`
+- status: clean stop state with the third `red` family-instruction correction
+  landed and the live eval DB narrowed to the current proof surface
 - branch ruleset: active on default branch
 - GitHub automation: CI, dependency review, Python audit, and weekly
   Dependabot updates aligned to the current toy-family baseline
 - local hook hygiene: tracked `pre-commit` and `pre-push` baselines now live
   through native repo commands
-- active sampler: fresh `red` rerun live on this branch at `id > 17613`
+- active sampler: none
 - active Huemiliator automation: none
-- current red checkpoint at `id > 15325` is now closed on-branch as archived
-  pre-fix evidence:
-  - `1320` judged rows left in the live DB
-  - `843` pass
-  - `477` fail
+- active live DB proof surface is now only the fully judged third red rerun at
+  `id > 18423`:
+  - `1268` rows
+  - `1162` pass
+  - `106` fail
   - `0` pending
-  - `1052` still-pending rows archived locally before the second correction
-- local archive artifacts for that archived pending residue:
+  - `129` pair-level `pass`
+  - `13` pair-level `fail`
+- superseded eval rows are quarantined locally instead of staying in the live
+  DB:
+  - cutoff: `id <= 18423`
+  - `17371` rows frozen locally
+- local archive artifacts for the old-eval quarantine:
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-quarantine.tsv`
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-quarantine.sql`
+  - `.local/parked/2026-05-13-old-evals-pre-third-rerun-summary.md`
+- local archive artifacts for the archived pre-second-correction pending
+  residue:
   - `.local/parked/2026-05-13-red-pre-second-correction-pending.tsv`
   - `.local/parked/2026-05-13-red-pre-second-correction-pending.sql`
   - `.local/parked/2026-05-13-red-pre-second-correction-summary.md`
 
 ## Active Kernel
 
-Use the archived pre-second-correction red fail pattern to drive the next fresh
-`red` rerun, not to keep grinding the old queue.
+Use the fully judged third red rerun as the next proof surface, not the old
+mixed eval history and not a fresh rerun yet.
 
 Done in this kernel:
 
-- recovered the first red correction code onto
-  `codex/bigbrain/red-family-recovery`
 - kept judging the old fresh red queue until the fail shape was clearly
   repetitive instead of noisy
 - confirmed that the same duplicate block kept resolving to:
@@ -51,13 +59,24 @@ Done in this kernel:
 - validated the correction:
   - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_families.py`
   - `make check`
-- started a fresh `red` rerun against that corrected branch:
-  - new active boundary: `id > 17613`
+- finished judging the second corrected rerun and confirmed that it still left
+  a durable residual seam
+- cut a third narrow `red` correction into runtime instructions:
+  - stronger muted pink-peach shoulder demotion out of `red`
+  - stronger low-chroma brown extension out of `red`
+  - stable red-core and coherent muted-red local steps kept in `red`
+- validated that third correction:
+  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_families.py`
+  - `make check`
+- fully judged the fresh third corrected rerun at `id > 18423`
+- quarantined every older eval row out of `eval_outputs` so the live DB now
+  holds only the closed third-rerun proof surface
 
 Next in this branch:
 
-- judge that new queue from its clean boundary
-- then decide whether `red` is actually closed or still needs another cut
+- use the closed third-rerun fail cluster to decide the next narrow `red`
+  instruction cut
+- do not start another rerun until that next correction is explicit
 
 ## Current Contract
 
@@ -98,60 +117,31 @@ source-order tie-break
 
 ## Next Kernel
 
-- the `2` hour warm-cohort run is complete
-- the fresh warm slice is `2374` rows at `id > 5831`
-- the warm slice is now fully judged:
-  - `1824` pass
-  - `550` fail
+- the third corrected red rerun is now fully judged at `id > 18423`
+- current proof totals:
+  - `1268` total rows
+  - `1162` pass
+  - `106` fail
   - `0` pending
-- row-level family totals:
-  - `brown`: `332` pass / `69` fail
-  - `orange`: `513` pass / `337` fail
-  - `red`: `676` pass / `100` fail
-  - `yellow`: `303` pass / `44` fail
-- pair-level family totals:
-  - `brown`: `117` pass / `29` fail
-  - `orange`: `181` pass / `120` fail
-  - `red`: `264` pass / `44` fail
-  - `yellow`: `127` pass / `20` fail
-- the loudest residual warm failure lane was `orange`
-- the orange family-first correction is now live:
-  - `68` unique orange fail pairs evicted
-  - `0` unique orange pass pairs evicted
-- the orange-only rerun is now complete
-- the fresh orange slice is `2374` rows at `id > 8205`
-- the orange slice is now fully judged:
-  - `1826` pass
-  - `548` fail
-  - `0` pending
-- pair-level orange totals are now:
-  - `181` pass
-  - `52` fail
-  - `0` mixed
-- the conservative orange family-first cut validated cleanly against the closed
-warm audit:
-  - all `181` previously judged orange pass pairs stayed in-lane
-  - unique orange fail pairs dropped from `120` to `52`
-  - the full `68` pair reduction matches the pre-rerun eviction estimate
-- the residual orange failure signal is now much narrower:
-  - main seam: low-chroma beige, latte, and cream shoulder
-  - smaller seam: muted olive carry-through
-  - repeated beige and cream failures include:
-    - `Natural -> Roebuck`
-    - `Cafe au lait -> Appleblossom`
-    - `Bellini -> Beige`
-    - `Tan -> Latte`
-    - `Almond cream -> Double cream`
-  - repeated olive failures include:
-    - `Rattan -> Ecru olive`
-    - `Ecru olive -> Bronze mist`
-    - `Amberglow -> Tawny olive`
-    - `Tawny olive -> Ceylon yellow`
-- the second orange family-first correction is now live:
-  - low-chroma taupe shoulder colours fall back into `neutral`
-  - soft beige and cream shoulder colours fall back into `neutral`
-  - it evicts `19` unique orange fail pairs from the closed orange rerun
-  - it evicts `0` unique orange pass pairs from the closed orange rerun
+  - `129` pair-level `pass`
+  - `13` pair-level `fail`
+- the loudest remaining red fail shapes are now:
+  - peach shoulder still in `red`
+  - brown or brown-orange shoulder still in `red`
+  - dark or muted red clusters that still jump into pale rose/pink steps
+- repeated fail pairs include:
+  - `Desert rose -> Burnt brick`
+  - `Garnet rose -> Desert rose`
+  - `Slate rose -> Crabapple`
+  - `Auburn -> Tawny orange`
+  - `Terra cotta -> Burnt henna`
+  - `Oxblood red -> Withered rose`
+  - `Peony -> Marsala`
+  - `Burlwood -> Mellow rose`
+  - `Renaissance rose -> Impatiens pink`
+- the next live kernel is not `yellow`
+- the next live kernel is the next narrow `red` correction derived from this
+  closed third-rerun proof surface
 - the second orange-only rerun is now complete
 - the fresh orange slice is `2372` rows at `id > 10579`
 - the orange slice is now fully judged:

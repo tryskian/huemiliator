@@ -42,10 +42,19 @@ BROWN_OLIVE_SHOULDER_CHROMA_MIN = 8.0
 RED_HUE_MAX = 15.0
 RED_PINK_SHOULDER_LIGHTNESS_MIN = 0.74
 RED_PINK_SHOULDER_CHROMA_MAX = 19.5
+RED_HIGH_LIGHTNESS_LOW_CHROMA_PINK_LIGHTNESS_MIN = 0.80
+RED_HIGH_LIGHTNESS_LOW_CHROMA_PINK_CHROMA_MAX = 23.0
 RED_SOFT_PINK_PEACH_HUE_MIN = 6.5
 RED_SOFT_PINK_PEACH_LIGHTNESS_MIN = 0.69
 RED_SOFT_PINK_PEACH_LIGHTNESS_MAX = 0.80
 RED_SOFT_PINK_PEACH_CHROMA_MAX = 24.0
+RED_MODERATE_PINK_PEACH_LIGHTNESS_MIN = 0.58
+RED_MODERATE_PINK_PEACH_LIGHTNESS_MAX = 0.76
+RED_MODERATE_PINK_PEACH_CHROMA_MIN = 24.0
+RED_MODERATE_PINK_PEACH_CHROMA_MAX = 33.5
+RED_LOW_CHROMA_ROSE_LIGHTNESS_MIN = 0.55
+RED_LOW_CHROMA_ROSE_LIGHTNESS_MAX = 0.72
+RED_LOW_CHROMA_ROSE_CHROMA_MAX = 22.0
 RED_LIGHT_PINK_SHOULDER_LIGHTNESS_MIN = 0.78
 RED_LIGHT_PINK_SHOULDER_CHROMA_MIN = 25.0
 RED_SATURATED_PINK_SHOULDER_LIGHTNESS_MIN = 0.68
@@ -56,9 +65,13 @@ RED_HOT_PINK_SHOULDER_LIGHTNESS_MIN = 0.54
 RED_HOT_PINK_SHOULDER_CHROMA_MIN = 66.0
 RED_BROWN_SHOULDER_LIGHTNESS_MAX = 0.45
 RED_BROWN_SHOULDER_CHROMA_MAX = 19.0
+RED_EXPANDED_BROWN_SHOULDER_LIGHTNESS_MAX = 0.47
+RED_EXPANDED_BROWN_SHOULDER_CHROMA_MAX = 31.5
 RED_SOFT_BROWN_SHOULDER_LIGHTNESS_MIN = 0.35
 RED_SOFT_BROWN_SHOULDER_LIGHTNESS_MAX = 0.41
 RED_SOFT_BROWN_SHOULDER_CHROMA_MAX = 33.0
+RED_DARK_BROWN_EXTENSION_LIGHTNESS_MAX = 0.35
+RED_DARK_BROWN_EXTENSION_CHROMA_MAX = 28.0
 RED_WINE_SHOULDER_LIGHTNESS_MAX = 0.34
 RED_WINE_SHOULDER_CHROMA_MIN = 30.0
 RED_WINE_SHOULDER_CHROMA_MAX = 33.0
@@ -172,7 +185,13 @@ def _classify_metrics(metrics: ColourMetrics) -> str:
     if hue < RED_HUE_MAX or hue >= 345.0:
         if _is_red_pink_shoulder(metrics):
             return "pink"
+        if _is_red_high_lightness_low_chroma_pink_shoulder(metrics):
+            return "pink"
         if _is_red_soft_pink_peach_shoulder(metrics):
+            return "pink"
+        if _is_red_moderate_pink_peach_shoulder(metrics):
+            return "pink"
+        if _is_red_low_chroma_rose_shoulder(metrics):
             return "pink"
         if _is_red_saturated_pink_shoulder(metrics):
             return "pink"
@@ -299,6 +318,13 @@ def _is_red_pink_shoulder(metrics: ColourMetrics) -> bool:
     )
 
 
+def _is_red_high_lightness_low_chroma_pink_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        metrics.lightness >= RED_HIGH_LIGHTNESS_LOW_CHROMA_PINK_LIGHTNESS_MIN
+        and metrics.lab_chroma <= RED_HIGH_LIGHTNESS_LOW_CHROMA_PINK_CHROMA_MAX
+    )
+
+
 def _is_red_soft_pink_peach_shoulder(metrics: ColourMetrics) -> bool:
     return (
         metrics.hue_degrees >= RED_SOFT_PINK_PEACH_HUE_MIN
@@ -306,6 +332,26 @@ def _is_red_soft_pink_peach_shoulder(metrics: ColourMetrics) -> bool:
         <= metrics.lightness
         <= RED_SOFT_PINK_PEACH_LIGHTNESS_MAX
         and metrics.lab_chroma <= RED_SOFT_PINK_PEACH_CHROMA_MAX
+    )
+
+
+def _is_red_moderate_pink_peach_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        RED_MODERATE_PINK_PEACH_LIGHTNESS_MIN
+        <= metrics.lightness
+        <= RED_MODERATE_PINK_PEACH_LIGHTNESS_MAX
+        and RED_MODERATE_PINK_PEACH_CHROMA_MIN
+        <= metrics.lab_chroma
+        <= RED_MODERATE_PINK_PEACH_CHROMA_MAX
+    )
+
+
+def _is_red_low_chroma_rose_shoulder(metrics: ColourMetrics) -> bool:
+    return (
+        RED_LOW_CHROMA_ROSE_LIGHTNESS_MIN
+        <= metrics.lightness
+        <= RED_LOW_CHROMA_ROSE_LIGHTNESS_MAX
+        and metrics.lab_chroma <= RED_LOW_CHROMA_ROSE_CHROMA_MAX
     )
 
 
@@ -338,10 +384,22 @@ def _is_red_brown_shoulder(metrics: ColourMetrics) -> bool:
     ):
         return True
     if (
+        metrics.hue_degrees < RED_HUE_MAX
+        and metrics.lightness <= RED_EXPANDED_BROWN_SHOULDER_LIGHTNESS_MAX
+        and metrics.lab_chroma <= RED_EXPANDED_BROWN_SHOULDER_CHROMA_MAX
+    ):
+        return True
+    if (
         RED_SOFT_BROWN_SHOULDER_LIGHTNESS_MIN
         <= metrics.lightness
         <= RED_SOFT_BROWN_SHOULDER_LIGHTNESS_MAX
         and metrics.lab_chroma <= RED_SOFT_BROWN_SHOULDER_CHROMA_MAX
+    ):
+        return True
+    if (
+        metrics.hue_degrees < RED_HUE_MAX
+        and metrics.lightness <= RED_DARK_BROWN_EXTENSION_LIGHTNESS_MAX
+        and metrics.lab_chroma <= RED_DARK_BROWN_EXTENSION_CHROMA_MAX
     ):
         return True
     if (
