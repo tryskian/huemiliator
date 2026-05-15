@@ -6,7 +6,7 @@ CAFFEINATE_PID_FILE ?= /tmp/huemiliator-caffeinate.pid
 CAFFEINATE_LOG ?= /tmp/huemiliator-caffeinate.log
 CAFFEINATE_CMD ?= /usr/bin/caffeinate -d -i -m
 
-.PHONY: install env doctor-env test lint format-check format typecheck precommit-install precommit-run prepush-run check package-check app session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-git-check
+.PHONY: install env doctor-env path-leak-check path-leak-audit-local test lint format-check format typecheck precommit-install precommit-run prepush-run check package-check app session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -20,6 +20,12 @@ env:
 
 doctor-env:
 	$(PY) ./scripts/doctor_env.py
+
+path-leak-check:
+	$(PY) ./scripts/path_leak_check.py --scope tracked
+
+path-leak-audit-local:
+	$(PY) ./scripts/path_leak_check.py --scope local
 
 test:
 	PYTHONPATH=src $(PY) -m pytest
