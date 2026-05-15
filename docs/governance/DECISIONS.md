@@ -932,3 +932,31 @@ into implementation authorship.
   handoff docs still carried a machine-local repo path. The stricter family
   standard is a short mechanical bootstrap plus one reusable rehydrate contract
   backed by fail-closed path hygiene.
+
+## D-047: Keep tracked research notes compact, dated, and family-consistent
+
+- Date: `2026-05-15`
+- Category: `evidence_governance`
+- Tags: `research_surface`, `finding_notes`, `family_standard`, `provenance`
+- Provenance: `human-led documentation decision`, later `repo formalization`
+- Decision:
+  - keep tracked research notes aligned to the repo-family convention instead
+    of inventing repo-local variants
+  - use numbered tracked filenames for research notes:
+    - `FINDING_<n>_<NAME>.md`
+  - put the note date inside the doc itself
+  - use the original posted date as the note date, not the later cleanup date
+  - keep tracked research notes concise and visual-forward:
+    - short answer
+    - signal snapshot table
+    - one simple mermaid diagram when the shape benefits from it
+    - small tables for representative examples instead of long prose blocks
+  - keep the research index compact and map-like
+  - do not append a new active research note onto an unrelated older finding
+- Validation:
+  - `markdownlint-cli2 docs/research/README.md docs/research/FINDING_1_CONTEXTUAL_BROWN.md docs/research/FINDING_2_RED_SHOULDER_DRIFT.md`
+  - `git diff --check -- docs/research/README.md docs/research/FINDING_1_CONTEXTUAL_BROWN.md docs/research/FINDING_2_RED_SHOULDER_DRIFT.md`
+- Why: The research surface should stay legible at a glance and consistent with
+  the rest of the toy family. Once notes get long, undated, or structurally
+  inconsistent, they stop helping the next instance and start becoming another
+  cleanup problem.
