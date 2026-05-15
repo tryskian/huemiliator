@@ -11,7 +11,7 @@ Fast path:
 - `make start`
 
 1. Read the tracked instruction surface:
-   - from the final `STOP` block in `make start`
+   - from the final rehydrate prompt in `make start`
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
@@ -20,7 +20,7 @@ Fast path:
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
 2. Confirm the repo root:
-   - `huemiliator`
+   - `/abs/path/to/huemiliator`
 3. Run the startup safety path:
    - `make doctor-env`
    - `make caffeinate`
@@ -29,8 +29,12 @@ Fast path:
 4. Treat the tracked docs as current project state.
 5. Install or refresh the local environment:
    - `make install`
-6. State the active kernel before editing tracked files.
-7. If the kernel will change tracked files, work from a `codex/bigbrain/...`
+6. Apply the no-guessing controls:
+   - prefer repo-scoped edits
+   - do not modify user shell profile files or global VS Code settings without explicit approval in-chat
+7. Run one active kernel at a time.
+8. Then execute the `Next Kernel` from `SESSION_HANDOFF` with full validation.
+9. If the kernel will change tracked files, work from a `codex/bigbrain/...`
    branch rather than `main`.
 
 ## Everyday Commands
