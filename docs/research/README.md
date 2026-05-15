@@ -1,5 +1,6 @@
 # Research
 
+Last updated: 2026-05-15
 Huemiliator keeps the tracked research lane small on purpose.
 
 Tracked research notes should answer three things quickly:

@@ -894,7 +894,46 @@ into implementation authorship.
   Probaboracle, and Scorey while preserving its stricter docs closeout gate and
   local colour-eval proof surface.
 
-## D-046: Keep tracked research notes compact, dated, and family-consistent
+## D-046: Add path leak guards and replace the old startup STOP block with one canonical rehydrate prompt
+
+- Date: `2026-05-15`
+- Category: `workflow_environment`
+- Tags: `operator_surface`, `rehydrate_prompt`, `path_hygiene`, `repo_hygiene`
+- Provenance: `human-led operator decision with implementation decision`
+- Decision:
+  - add repo-native path leak checks:
+    - tracked scope for CI and tracked repo truth
+    - local scope for repo-owned private lanes such as `.history`, `.local`, and `docs/peanut`
+  - fail the markdown/docs CI lane if tracked path leaks are present
+  - add path leak checks to `make end` and `make end-preflight`
+  - keep `make start` mechanical:
+    - workspace context
+    - `make doctor-env`
+    - `make caffeinate`
+    - `make caffeinate-status`
+    - `make session-status`
+  - replace the old final `STOP` block with one canonical rehydrate prompt
+  - the rehydrate prompt must tell the agent to:
+    - read `README.md`, `CHARTER`, `DECISIONS`, `RUNBOOK`, `ARCHITECTURE`, `SESSION_HANDOFF`, and local peanut handoff if present
+    - return 5 bullets covering current state, risks, and next kernel
+    - confirm repo path, host vs devcontainer mode, active branch, and whether the thread is on clean `main` or a feature branch
+    - apply the no-guessing controls
+    - run one active kernel at a time
+    - execute the `Next Kernel` from `SESSION_HANDOFF` with full validation
+- Validation:
+  - `bash -n scripts/start_of_day_routine.sh scripts/end_of_day_routine.sh`
+  - `python ./scripts/path_leak_check.py --scope tracked`
+  - `python ./scripts/path_leak_check.py --scope local`
+  - `python -m unittest tests.test_path_leak_check`
+  - `make start`
+  - `make end-preflight`
+- Why: Huemiliator had already caught up to the shared operator surface, but
+  its startup guidance still lived as the older scripted STOP text and tracked
+  handoff docs still carried a machine-local repo path. The stricter family
+  standard is a short mechanical bootstrap plus one reusable rehydrate contract
+  backed by fail-closed path hygiene.
+
+## D-047: Keep tracked research notes compact, dated, and family-consistent
 
 - Date: `2026-05-15`
 - Category: `evidence_governance`

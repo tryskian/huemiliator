@@ -13,7 +13,7 @@ Last updated: 2026-05-15
   - `docs/runtime/ARCHITECTURE.md`
   - `docs/governance/SESSION_HANDOFF.md`
 - Confirm:
-  - repo root is `/Users/tryskian/Github/huemiliator`
+  - repo root is `/abs/path/to/huemiliator`
   - active branch
   - whether the thread is on clean `main` or a feature branch
 - Name exactly one active kernel before branching, searching, or editing.
@@ -209,7 +209,7 @@ source-order tie-break
 
 ## Copy/Paste Refresh Prompt
 
-`Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/RUNBOOK.md, docs/runtime/ARCHITECTURE.md, and docs/governance/SESSION_HANDOFF.md. In 5 bullets: current state, risks, and next kernel. Confirm the repo path is /Users/tryskian/Github/huemiliator, confirm the active git branch, and say whether the thread is on clean main or a feature branch. Then execute the Next Kernel with minimal drift and full validation.`
+`Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/RUNBOOK.md, docs/runtime/ARCHITECTURE.md, docs/governance/SESSION_HANDOFF.md, and local docs/peanut/governance/SESSION_HANDOFF.md if present. In 5 bullets: current state, risks, and next kernel. Before starting implementation, confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, confirm host vs devcontainer mode, confirm active git branch, and say whether the thread is on clean main or a feature branch. Apply no-guessing controls: prefer repo-scoped edits and do not modify user shell profile file or global VS Code settings unless explicitly approved in-chat. Run in one active kernel at a time. Then execute the Next Kernel from SESSION_HANDOFF with minimal behavior drift and full validation.`
 
 ## Stop State
 
