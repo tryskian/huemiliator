@@ -1,11 +1,18 @@
 # Finding 1: Contextual Brown
 
-## Core Claim
+Date: `2026-05-08`
 
-Brown does not behave like a clean spectral category in Huemiliator's
-deterministic family-plus-rank system.
+## What This Finding Asked
 
-In practice, `brown` behaves more like a contextual bucket that overlaps with:
+Can `brown` survive a deterministic family-plus-rank system as a stable colour
+category?
+
+## Short Answer
+
+Not by default.
+
+`Brown` behaves less like a clean spectral category and more like a contextual
+bucket overlapping with:
 
 - dark orange
 - muted orange
@@ -13,243 +20,73 @@ In practice, `brown` behaves more like a contextual bucket that overlaps with:
 - olive
 - warm neutral
 
-That matters because Huemiliator is not allowed to hide behind taste or
-inference. It has to:
+That makes brown-family drift a real research signal, not just a bug.
 
-- classify deterministically
-- rank deterministically
-- replace deterministically
+## Signal Snapshot
 
-So if `brown` is only stable when a human quietly supplies context, the toy
-has to surface that break directly in the runtime and eval lanes.
+| Surface | Result |
+| --- | --- |
+| first judged brown run | broad `yellow / gold / olive` drift |
+| closed rerun rows | `2368` |
+| closed rerun verdicts | `1394 pass / 974 fail / 0 pending` |
+| pair signal | `117 pass / 84 fail` |
+| dominant residual seams | muted green / olive and warm orange / ochre |
 
-## What Exposed It
+## Shape Of The Problem
 
-The first brown-family long run made the problem visible.
+```mermaid
+flowchart LR
+  C["earthy brown core"]
+  O["orange / ochre shoulder"]
+  G["muted green / olive seam"]
 
-The broad early failure cluster was not random noise. It repeated in one
-direction:
+  O --> C
+  G --> C
+```
 
-- replacements drifting toward `yellow`
-- replacements drifting toward `gold`
-- replacements drifting toward `olive`
+The useful read from the closed rerun was:
 
-Examples from that first judged lane included:
+- the earthy core got materially stronger
+- the loud gold shoulder was no longer the whole story
+- the remaining pressure lived on two family edges
 
-- `Puffin's bill -> Spectra yellow`
-- `Hazel -> Antique gold`
-- `Leather brown -> Spruce yellow`
-- `Amber brown -> Ecru olive`
-- `Ginger bread -> Tapenade`
-- `Bombay brown -> Tinsel`
-- `Carob brown -> Boa`
+## Representative Failures
 
-So the failure was not simply "brown is hard." The useful signal was narrower:
-the deterministic ladder was treating loud yellow/gold/olive shoulders as
-better browns than the earthy core.
+| Seam | Repeated examples |
+| --- | --- |
+| muted green / olive | `Beech -> Covert green`, `Capers -> Dusky green`, `Black ink -> Grape leaf`, `Covert green -> Aloe` |
+| orange / ochre shoulder | `Apricot orange -> Yam`, `Burnt orange -> Gold flame`, `Jaffa orange -> Hawaiian sunset`, `Golden ochre -> Autumnal`, `Topaz -> Buckthorn brown` |
 
-## What Changed In The Runtime
+## What Changed In Runtime
 
-Two different corrections followed from that evidence.
+| Correction | Effect |
+| --- | --- |
+| boundary refinement | darker earthy warms entered `brown` earlier |
+| brown-rank refinement | yellow / gold / olive shoulder was demoted below the earthy core |
+| bright gold shoulder reclassification | loud gold shoulder colours could fall through to `orange` or `yellow` |
 
-### 1. Brown boundary refinement
+The next family-first cut then evicted:
 
-The first correction was routing-level:
+- `55` unique brown fail pairs
+- `0` unique brown pass pairs
 
-- darker earthy warm tones could enter `brown` earlier
-- pale warm neutrals still stayed out of `brown`
+## Why It Matters
 
-That fixed the first obvious routing mistake, where some earthy warms were
-collapsing into `neutral` or staying `orange`.
+This finding changed what Huemiliator is testing.
 
-### 2. Brown rank refinement
+The toy is not only asking whether deterministic swatch matching works. It is
+also asking whether human colour categories survive deterministic routing
+without hidden context.
 
-The second correction was ranking-level:
+`Brown` was the first place where the answer was clearly:
 
-- the yellow/gold/olive shoulder was demoted below the earthy brown core
-- brown replacements stopped climbing by raw chroma alone
+- not cleanly
+- not without category-specific handling
 
-That narrowed the first big failure cluster, but it also exposed a second
-question: some bright gold shoulder colours probably should not be in `brown`
-at all.
+## What It Points To
 
-### 3. Bright gold shoulder reclassification
+The useful brown lesson is methodological:
 
-The next correction moved part of that shoulder out of `brown` at
-classification time.
-
-That shifted colours like these away from the brown lane:
-
-- `Amber gold`
-- `Mineral yellow`
-- `Mustard gold`
-- `Narcissus`
-- `Golden spice`
-- `Ceylon yellow`
-
-After that change, the remaining problem was no longer the loud gold shoulder.
-
-## What The Data Says Now
-
-The post-fix rerun is materially stronger than the first brown pass.
-
-At an early judged checkpoint from the fresh rerun:
-
-- `680` new brown rows had been recorded after the restart
-- `12` had been judged `pass`
-- `6` had been judged `fail`
-- `662` remained pending at that check
-
-The judged passes are now much more in-lane:
-
-- `Major brown -> Chocolate brown`
-- `Bungee cord -> Tarmac`
-- `Lead gray -> Pinecone`
-- `Dull gold -> Tortoise shell`
-- `Antique bronze -> Camel`
-- `Indian tan -> Thrush`
-
-The early residual failures were much narrower than the first run:
-
-- `Black ink -> Grape leaf`
-- `Beech -> Covert green`
-- `Capers -> Dusky green`
-- `Covert green -> Aloe`
-- `Military olive -> Gray green`
-- `Nutria -> Khaki`
-
-So the main failure shape changed quickly once the loud gold shoulder was
-trimmed back.
-
-The earlier broad `yellow/gold/olive` shoulder problem was reduced.
-
-The remaining early problem was a more specific muted green and khaki edge
-inside the brown lane.
-
-## What The Completed Rerun Added
-
-The completed post-classification rerun made the next boundary clearer.
-
-At the fully judged rerun checkpoint:
-
-- `2368` brown rows had been recorded in the rerun
-- the row queue was fully judged:
-  - `1394` `pass`
-  - `974` `fail`
-  - `0` pending
-- the closed deterministic signal under that queue was:
-  - `201` unique brown pairs
-  - `117` pair-level `pass`
-  - `84` pair-level `fail`
-
-The stronger signal held:
-
-- the earthy core now behaves much better than it did in the first run
-- the residual failure signal has two real family seams:
-  - muted green and olive seam
-  - orange, yellow, and gold shoulder
-
-Repeated failures still center on:
-
-- `Beech -> Covert green`
-- `Capers -> Dusky green`
-- `Black ink -> Grape leaf`
-- `Covert green -> Aloe`
-
-The closed queue also showed a real warm shoulder:
-
-- `Apricot orange -> Yam`
-- `Burnt orange -> Gold flame`
-- `Jaffa orange -> Hawaiian sunset`
-- `Golden ochre -> Autumnal`
-- `Topaz -> Buckthorn brown`
-- `Orange popsicle -> Orange tiger`
-- `Persimmon orange -> Puffin's bill`
-- `Autumn glory -> Turmeric`
-
-So the fully judged rerun did two useful things at once:
-
-- it confirmed that the brown-core fix was real, not luck
-- it showed that contextual brown still leaks at both family edges:
-  - muted green and olive on one side
-  - orange and ochre on the other
-
-## What The Full Queue Changed
-
-Once the entire brown queue was judged, the next correction became clearer.
-
-The question was no longer "which seam seems louder in a partial queue."
-
-The closed signal showed that the next move had to be family-first:
-
-- `fail` is the evidence that the current lane is wrong
-- `evict` is the classifier correction that removes the wrong lane upstream
-
-That produced a conservative boundary change:
-
-- evict bright warm orange and yellow shoulders out of `brown`
-- evict the muted olive seam out of `brown`
-- keep the earthy brown core untouched
-
-On the closed `201` pair set, that cut evicted:
-
-- `55` unique fail pairs
-- `0` unique pass pairs
-
-That does not prove the correction is finished.
-
-It proves that the next runtime move is root-first and classifier-owned rather
-than another brown-rank patch.
-
-## Why This Matters
-
-This finding changes what Huemiliator is testing.
-
-The toy is not only testing whether a fixed colour catalog can support
-deterministic matching. It is also testing whether human colour categories can
-survive deterministic routing without hidden human context.
-
-`Brown` is the first place where the answer is visibly "not by default."
-
-That makes this a theory-level finding, not just one failure cluster:
-
-- some colour categories are context-dependent enough to break clean ladder
-  logic
-- deterministic eval does not smooth that over; it exposes it
-- Huemiliator therefore needs category-specific handling where the category
-  itself is unstable
-
-## What This Finding Is Not
-
-This note is not:
-
-- a release note
-- a package-version note
-- a branch log
-- a beta page by itself
-
-It is a special research finding that explains why the brown lane matters and
-why the runtime had to change around it.
-
-## What It Points To Next
-
-The next likely correction is not another broad gold fix.
-
-The remaining pressure is still strongest at the muted green and khaki edge
-around names like:
-
-- `Covert green`
-- `Dusky green`
-- `Grape leaf`
-- `Gray green`
-- `Khaki`
-
-But the completed tail also says the orange shoulder is not fully gone yet.
-
-So the next runtime test is not "find another clever exception."
-
-It is:
-
-- rerun `brown` under the new family-first cut
-- judge the fresh queue while it fills
-- see how much of each seam actually disappears
+- treat repeated family drift as evidence
+- fix the family edge before patching rank again
+- let closed reruns decide whether the category is stable enough to keep
