@@ -1,186 +1,122 @@
 # Architecture
 
-This is the fast map of Huemiliator's current shape.
+## Repo Map
 
-The repo is initialised, the docs spine exists, the package scaffold exists,
-the picker kernel is implemented, the archived swatch source is frozen locally,
-nearest-swatch resolution is live, and the first family taxonomy and rank layer
-is live, the first replacement step is live, and the first loss-line layer is
-live.
+- `src/huemiliator/`
+  - runtime package, picker flow, swatch resolution, family mapping, rank
+    ladder, one-up selection, output composition, and CLI entrypoints
+- `data/margaret2_swatches.json`
+  - frozen local swatch reference
+- `.local/evals.sqlite`
+  - live eval evidence store
+- `docs/governance/`
+  - durable rules, decisions, and active carryover
+- `docs/runtime/`
+  - operator procedure, system shape, and command card
+- `docs/research/`
+  - tracked research notes and current proof-surface reads
+- `docs/diagrams/PIPELINE.md`
+  - canonical picker-to-eval flow
+- `output/jupyter-notebook/`
+  - follow-along notebook surface
+- `tests/`
+  - runtime and repo contract checks
 
-## Operator Surface
+## Runtime Flow
 
-- Startup ritual: `make start`
-- Day-close routine: `make end`
-- Branch-local closeout validation: `make end-preflight`
-- Clean-main closeout gate: `make end-git-check`
-- Managed wake lock:
-  - `make caffeinate`
-  - `make caffeinate-status`
-  - `make decaffeinate-status`
-  - `make decaffeinate`
-- Stop-state docs gate: `make end-docs-check`
-- Baseline validation: `make check`
-- Environment sanity: `make doctor-env`
-- Compact operator sheet: `make rituals`
+```mermaid
+flowchart LR
+  A["native macOS colour picker"]
+  B["hex code"]
+  C["nearest swatch match"]
+  D["family assignment"]
+  E["same-family rank"]
+  F["deterministic one-up"]
+  G["replacement shade"]
+  H["short loss line"]
 
-## System Map
+  A --> B --> C --> D --> E --> F --> G --> H
+```
 
-| Surface | Role |
-| --- | --- |
-| `README.md` | public framing and current entrypoint |
-| `pyproject.toml` | package metadata and dependency pins |
-| `Makefile` | small operator command surface |
-| `data/margaret2_swatches.json` | frozen archived swatch snapshot |
-| `src/huemiliator/config.py` | app constants and swatch snapshot path |
-| `src/huemiliator/colour_math.py` | shared colour metrics |
-| `src/huemiliator/eval_db.py` | local SQLite evidence storage helpers |
-| `src/huemiliator/eval_sampling.py` | long-run local sampler helpers |
-| `src/huemiliator/families.py` | family taxonomy and same-family ranking |
-| `src/huemiliator/picker.py` | macOS native picker and hex parsing |
-| `src/huemiliator/pipeline.py` | shared deterministic one-up state |
-| `src/huemiliator/resolution.py` | nearest-swatch resolver |
-| `src/huemiliator/swatches.py` | swatch parsing and snapshot loading |
-| `src/huemiliator/main.py` | CLI entrypoint and command routing |
-| `scripts/freeze_margaret2_swatches.py` | snapshot refresh script |
-| `output/jupyter-notebook/` | follow-along experiment notebook |
-| `tests/` | runtime and repo contract tests |
-| `docs/` | charter, decisions, runbook, research notes, and diagrams |
+The stable runtime path is:
 
-## Current State
+1. the user picks a colour through the native macOS picker
+2. the runtime captures one hex code as the canonical user state
+3. the runtime resolves the nearest swatch from the frozen local snapshot
+4. the runtime assigns a closed family
+5. the runtime reads the same-family rank
+6. the runtime selects the next same-family replacement, clamped at the top
+7. the runtime appends one short fixed loss line downstream of the colour
+   decision
 
-What exists now:
+## System Shape
 
-- git repo
-- package scaffold
-- tracked docs
-- macOS native UI picker command
-- hex parsing from native picker output
-- frozen local swatch snapshot from the archived `margaret2/pantone-colors`
-  source surface
-- nearest-swatch resolution against the frozen local snapshot
-- fixed `delta-e cie76` distance rule
-- source-order tie-break for duplicate-distance matches
-- first closed family taxonomy:
-  - `neutral`
-  - `brown`
-  - `red`
-  - `orange`
-  - `yellow`
-  - `green`
-  - `blue`
-  - `purple`
-  - `pink`
-- same-family rank from one fixed ladder:
-  - chromatic families sort by Lab chroma strength
-  - `neutral` sorts by distance from mid-lightness
-  - `brown` demotes the yellow/gold/olive shoulder below the earthy core
-- brown boundary refinement:
-  - darker earthy warm tones can enter `brown` before the neutral gate
-  - pale warm neutrals still stay in `neutral`
-  - bright gold, warm orange-yellow, and muted olive shoulder colours can fall
-    through to non-brown families instead of staying in `brown`
-- orange boundary refinement:
-  - pale low-chroma warm shoulder colours can fall back into `neutral`
-  - low-chroma taupe shoulder colours can also fall back into `neutral`
-  - soft beige and cream shoulder colours can also fall back into `neutral`
-  - darker muted olive shoulder colours can fall into `yellow`
-  - stronger orange core shades stay in `orange`
-- red boundary refinement:
-  - dusty pink, pink-peach, and low-chroma rose shoulders can fall into `pink`
-  - darker low-chroma brown and wine shoulders can fall into `brown`
-  - coherent muted-red local steps and the stronger red core stay in `red`
-- deterministic replacement rule:
-  - move to the next higher rank inside the same family
-  - clamp at the family top rank
-- deterministic loss-line rule:
-  - emit one fixed short line from a family-keyed bank
-  - keep the line layer downstream of the replacement shade
-- local SQLite evidence storage for deterministic outputs
-- human PASS/FAIL verdicts on stored outputs
-- long-run local source-order sampling over the frozen snapshot
-- optional one-family or local-cohort runs that preserve source order inside
-  the filtered subset
-- one follow-along notebook for local inspection
+- input stays picker-first and local
+- colour resolution stays deterministic
+- family assignment stays explicit and closed
+- same-family rank stays on one fixed ladder
+- one-up selection stays deterministic and non-wrapping
+- the loss line stays downstream of the stable colour decision
+- the runtime owns the final colour output
 
-## Target Runtime Path
+## Data Surfaces
 
-1. The user picks a colour through the native macOS UI colour picker.
-2. The runtime receives a hex code.
-3. The runtime resolves the nearest swatch from the fixed archived
-   [`margaret2/pantone-colors`](https://github.com/margaret2/pantone-colors)
-   source surfaced at
-   [`margaret2.github.io/pantone-colors`](https://margaret2.github.io/pantone-colors/)
-   reference using `delta-e cie76`, with source order as the tie-break.
-4. Pantone naming, if used, stays secondary to that reference match.
-5. The runtime classifies the matched swatch into a closed Huemiliator-owned
-   family set with fixed neutral and hue thresholds.
-   - for `brown`, darker earthy warms can enter before the neutral gate
-   - bright gold, warm orange-yellow, and muted olive shoulder colours can
-     fall through to non-brown families
-   - for `red`, dusty pink, pink-peach, and low-chroma rose shoulders can fall
-     into `pink`
-   - for `red`, darker low-chroma brown and wine shoulders can fall into
-     `brown`
-   - for `orange`, pale low-chroma warm shoulders can fall back into
-     `neutral`
-   - for `orange`, low-chroma taupe shoulders can also fall back into
-     `neutral`
-   - for `orange`, soft beige and cream shoulders can also fall back into
-     `neutral`
-   - for `orange`, darker muted olive shoulders can fall into `yellow`
-6. The runtime reads the same-family rank from one fixed family-strength ladder.
-   - for `brown`, the yellow/gold/olive shoulder sits below the earthy core
-7. The runtime selects the next same-family rank, clamped at the family top.
-8. The runtime outputs the replacement shade.
-9. The runtime appends one short fixed loss line from the matched family bank.
-10. The local evidence lane can optionally record the deterministic output in
-    SQLite for follow-along inspection.
-11. The local sampler can append rows over time from the frozen snapshot in
-    source order, or from one family or local-cohort subset when a boundary
-    needs isolated pressure.
-12. The human review lane can mark stored rows as `pass` or `fail`.
-    - `fail` is evidence that the current lane is wrong
-    - `evict` is the upstream classifier or boundary correction that removes
-      that wrong lane from future runs
-13. If a generated line is ever added later, it should sit after the colour
-    decision, not inside it.
+- frozen swatch reference:
+  - `data/margaret2_swatches.json`
+- live eval evidence:
+  - `.local/evals.sqlite`
+- local quarantine artifacts for superseded runs:
+  - `.local/parked/`
+- tracked research notes:
+  - current proof surface
+  - durable notes
+  - next narrow correction
 
-## Contracts
+## Eval Flow
 
-- the active input surface should stay narrow
-- the live runtime surface is macOS-local
-- the colour catalogue should stay fixed and repo-local
-- the archived source should be frozen before runtime resolution uses it
-- colour resolution should stay deterministic
-- swatch distance should stay fixed to `delta-e cie76` until a later tracked change
-- tie-breaks should preserve the frozen source order
-- family taxonomy should stay explicit and closed
-- family-first shoulder evictions should happen before family reruns when the
-  judged signal earns them
-- same-family rank should stay on one fixed strength ladder
-- one-up selection should stay deterministic and non-wrapping
-- loss lines should stay fixed-bank and downstream of the colour decision
-- local evidence storage should stay SQLite, local, and optional to the
-  runtime loop
-- long-run local sampling should stay deterministic and source-ordered
-- the first verdict lane should stay human-owned and binary
-- known routing mistakes should graduate from repeated `fail` into eviction at
-  the runtime boundary
-- eval verdicts should stay binary:
-  - `pass`
-  - `fail`
+```mermaid
+flowchart LR
+  A["deterministic output"]
+  B["local eval row"]
+  C["human pass / fail"]
+  D["retain active lane confidence"]
+  E["evict upstream family or boundary error"]
 
-## Docs Ownership
+  A --> B --> C
+  C -->|"pass"| D
+  C -->|"fail"| E
+```
 
-| Doc | Job |
-| --- | --- |
-| `README.md` | public framing and entrypoint |
-| `docs/governance/CHARTER.md` | durable rules and working model |
-| `docs/governance/DECISIONS.md` | durable runtime and eval decisions |
-| `docs/governance/SESSION_HANDOFF.md` | current checkpoint and next kernel |
-| `docs/runtime/ARCHITECTURE.md` | stable system map |
-| `docs/runtime/RUNBOOK.md` | operator procedure and validation |
-| `docs/runtime/START_END_REFERENCE.md` | compact day-open/day-close sheet |
-| `docs/research/README.md` | current research framing |
-| `docs/diagrams/PIPELINE.md` | canonical target flow |
+The active method is:
+
+- one family lane at a time
+- one active sampler at a time
+- long-run consistency as the main evidence surface
+- `warm` as an audit cohort only
+- closed proof surfaces stay active until the next correction is explicit
+
+## Placement Rules
+
+- durable rules belong in `CHARTER`
+- current active carryover belongs in `SESSION_HANDOFF`
+- operator procedure belongs in `RUNBOOK`
+- compact commands belong in `START_END_REFERENCE`
+- durable rationale belongs in `DECISIONS`
+- current proof-surface reads belong in tracked research notes
+- local scratch and field material belong in `docs/peanut`
+
+## Governance Flow
+
+```mermaid
+flowchart LR
+  A["closed proof surface"]
+  B["tracked research note or next cut"]
+  C["runtime correction"]
+  D["fresh rerun"]
+  E["new proof surface"]
+
+  A --> B --> C --> D --> E
+```
+
+Tracked truth moves through closed proof surfaces and narrow runtime
+corrections, not through mixed historical queues or branch-local notes.
