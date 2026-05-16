@@ -4,27 +4,27 @@ Last updated: 2026-05-16
 
 ## Start Here
 
-1. Read:
+1. Run:
+   - `make start`
+2. Read:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
    - `docs/runtime/ARCHITECTURE.md`
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
-2. Confirm execution context:
+3. Confirm execution context:
    - repo root or dedicated worktree
    - active branch from `git branch --show-current`
-3. Return the startup breakdown:
+   - host or devcontainer mode
+   - clean `main` or feature branch
+4. Return the startup breakdown:
    - current state
    - risks
    - next kernel
    - repo or worktree context
    - active branch
-4. Run session preflight:
-   - `make doctor-env`
-   - `make caffeinate`
-   - `make caffeinate-status`
-   - `make session-status`
+5. Start one active kernel.
 
 ## Current Snapshot
 
@@ -48,28 +48,33 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
-- align Huemiliator to the updated docs standard
-- keep the operator contract small and truthful
-- keep the active proof surface visible without turning docs into warehouses
-- preserve repo-specific colour and proof-surface truth where it still governs
+- choose the next narrow proof-surface kernel from the live `pre-beta` colour
+  evidence
+- keep the startup and closeout contract small, truthful, and aligned with the
+  actual operator flow
 
 ## Next Slice
 
-1. Replace tracked `SESSION_HANDOFF.md`.
-2. Replace tracked `ARCHITECTURE.md`.
-3. Replace tracked `RUNBOOK.md`.
-4. Replace tracked `CHARTER.md`.
-5. Replace tracked `README.md`.
-6. Tighten the tracked research surface.
-7. Validate after each replace.
+1. Inspect:
+   - `docs/research/README.md`
+   - `docs/research/brown-context-dependence.md`
+   - `docs/research/red-to-orange-edge-drift.md`
+2. Inspect the live repo snapshot:
+   - `make session-status`
+   - current local proof-surface artefacts under `.local/`
+3. Confirm the next narrow `red` correction against the live proof surface.
+4. Cut one bounded correction kernel only after the proof surface still earns
+   that same `red` edge escape.
 
 ## Research Snapshot
 
 - phase: `pre-beta`
 - active proof surface: closed third corrected `red` rerun at `id > 18423`
-- current totals: `1268 total / 1162 pass / 106 fail / 0 pending`
 - current question: what is the next narrow `red` correction?
 - next family lane: `red` first, `yellow` queued behind it
+- tracked research notes:
+  - `brown-context-dependence`
+  - `red-to-orange-edge-drift`
 - live DB rule: keep only the current proof surface in `eval_outputs`
 
 ## Guardrails
@@ -100,4 +105,4 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Copy/Paste Refresh Prompt
 
-`Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md, and docs/governance/SESSION_HANDOFF.md. In 5 bullets: current state, risks, and next kernel. Before starting implementation, confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, confirm host vs devcontainer mode, confirm active git branch, and say whether the thread is on clean main or a feature branch. Apply no-guessing controls: prefer repo-scoped edits and preserve user shell profile files and global VS Code settings unless explicitly approved in-chat. Run in one active kernel at a time. Then execute the Next Slice from SESSION_HANDOFF with minimal behavior drift and full validation.`
+`Run make start. Then read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md, and docs/governance/SESSION_HANDOFF.md. In 5 bullets: current state, risks, next kernel, repo or worktree context, and active branch. Confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, host vs devcontainer mode, active git branch, and clean main or feature branch. Apply no-guessing controls: prefer repo-scoped edits and preserve user shell profile files and global VS Code settings unless explicitly approved in-chat. Run one active kernel at a time. Then execute the Next Slice from SESSION_HANDOFF with minimal behavior drift and full validation.`

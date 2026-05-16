@@ -38,31 +38,40 @@ Use this doc for operator procedure.
 3. Keep wrapper targets mechanical.
 4. Use `make session-status` as the live repo and runtime snapshot.
 5. Use `make end` as the strict clean-main closeout routine.
+6. `make start` opens the session; startup completes after the rehydrate
+   response names one active kernel.
 
 ## Morning Startup Ritual
 
-1. Read in this order:
+1. Run:
+   - `make start`
+2. Treat `make start` as the mechanical bootstrap:
+   - workspace context
+   - `make doctor-env`
+   - `make caffeinate`
+   - `make caffeinate-status`
+   - `make session-status`
+   - startup gate prompt
+3. Read in this order:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
    - `docs/runtime/ARCHITECTURE.md`
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
-2. Confirm execution context:
+4. Confirm execution context:
    - canonical repo root or dedicated worktree
    - active branch from `git branch --show-current`
-3. Return the startup breakdown before implementation:
+   - host or devcontainer mode
+   - clean `main` or feature branch
+5. Return the startup breakdown before implementation:
    - current state
    - risks
    - next kernel
    - repo or worktree context
    - active branch
-4. Run session preflight:
-   - `make doctor-env`
-   - `make caffeinate`
-   - `make caffeinate-status`
-   - `make session-status`
-5. Install or refresh the environment when needed:
+6. Start one active kernel from the tracked handoff.
+7. Install or refresh the environment when needed:
    - `make install`
 
 ## Environment Doctor

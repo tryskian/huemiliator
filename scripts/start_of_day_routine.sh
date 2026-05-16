@@ -22,17 +22,32 @@ make --no-print-directory caffeinate-status
 echo "[start] 5/6 session-status"
 make --no-print-directory session-status
 
-echo "[start] 6/6 REHYDRATE PROMPT"
+echo "[start] 6/6 STARTUP GATE"
 cat <<'EOF'
-Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/RUNBOOK.md, docs/runtime/ARCHITECTURE.md, docs/governance/SESSION_HANDOFF.md, and local docs/peanut/governance/SESSION_HANDOFF.md if present.
+make start completed the mechanical bootstrap.
 
-In 5 bullets: current state, risks, and next kernel.
+Startup completes after the next rehydrate update does all of this:
 
-Before starting implementation, confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, confirm host vs devcontainer mode, confirm active git branch, and say whether the thread is on clean main or a feature branch.
+1. Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/RUNBOOK.md, docs/runtime/ARCHITECTURE.md, docs/governance/SESSION_HANDOFF.md, and local docs/peanut/governance/SESSION_HANDOFF.md if present.
 
-Apply no-guessing controls: prefer repo-scoped edits and do not modify user shell profile file or global VS Code settings unless explicitly approved in-chat.
+2. Return 5 bullets:
+   - current state
+   - risks
+   - next kernel
+   - repo or worktree context
+   - active branch
 
-Run in one active kernel at a time.
+3. Confirm environment/workspace context:
+   - canonical repo path is /abs/path/to/huemiliator
+   - host vs devcontainer mode
+   - active git branch
+   - clean main or feature branch
 
-Then execute the Next Kernel from SESSION_HANDOFF with minimal behavior drift and full validation.
+4. Apply no-guessing controls:
+   - prefer repo-scoped edits
+   - preserve user shell profile files and global VS Code settings unless explicitly approved in-chat
+
+5. Run one active kernel at a time.
+
+6. Then execute the Next Kernel from SESSION_HANDOFF with minimal behavior drift and full validation.
 EOF
