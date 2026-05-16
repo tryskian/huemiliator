@@ -22,15 +22,19 @@ Sequence:
    - `make caffeinate`
    - `make caffeinate-status`
    - `make session-status`
-3. Stop before repo action:
-   - print the canonical rehydrate prompt
-   - the prompt tells the agent to:
-     - read `README.md`, `CHARTER`, `DECISIONS`, `RUNBOOK`, `ARCHITECTURE`, `SESSION_HANDOFF`, and local peanut handoff if present
-     - return 5 bullets covering current state, risks, and next kernel
-     - confirm repo path, host vs devcontainer mode, active branch, and whether the thread is on clean `main` or a feature branch
-     - apply the no-guessing controls
-     - run one active kernel at a time
-     - execute the `Next Kernel` from `SESSION_HANDOFF` with full validation
+3. Print the startup gate:
+   - `make start` completed the mechanical bootstrap
+4. Complete rehydrate before repo action:
+   - read `README.md`, `CHARTER`, `DECISIONS`, `RUNBOOK`,
+     `ARCHITECTURE`, `SESSION_HANDOFF`, and local peanut handoff if
+     present
+   - return 5 bullets covering current state, risks, next kernel, repo or
+     worktree context, and active branch
+   - confirm repo path, host vs devcontainer mode, active branch, and whether
+     the thread is on clean `main` or a feature branch
+   - apply the no-guessing controls
+   - run one active kernel at a time
+   - execute the `Next Kernel` from `SESSION_HANDOFF` with full validation
 
 Source of truth:
 
@@ -41,6 +45,12 @@ Wake-lock rule:
 
 - `make caffeinate` records only this repo's managed PID
 - unmanaged `caffeinate` processes are reported but never adopted or stopped
+
+Startup completion rule:
+
+- `make start` only finishes the mechanical bootstrap
+- startup completes when the next repo update proves the docs read and names
+  one active kernel
 
 ## End
 
