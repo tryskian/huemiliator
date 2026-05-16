@@ -40,14 +40,14 @@ def test_classify_family_keeps_pale_warm_neutrals_out_of_brown() -> None:
     assert classify_family("#c4b6a6").family == "neutral"
 
 
-def test_classify_family_demotes_bright_gold_shoulder_out_of_brown() -> None:
+def test_classify_family_demotes_bright_gold_edge_out_of_brown() -> None:
     assert classify_family("#c19552").family == "orange"
     assert classify_family("#d39c43").family == "orange"
     assert classify_family("#b08e51").family == "orange"
     assert classify_family("#cda323").family == "yellow"
 
 
-def test_classify_family_demotes_warm_orange_yellow_shoulder_out_of_brown() -> None:
+def test_classify_family_demotes_warm_orange_yellow_edge_out_of_brown() -> None:
     assert classify_family("#c86b3c").family == "orange"
     assert classify_family("#d08344").family == "orange"
     assert classify_family("#ff8812").family == "orange"
@@ -69,7 +69,7 @@ def test_classify_family_keeps_earthy_brown_core_inside_brown() -> None:
     assert classify_family("#97572b").family == "brown"
 
 
-def test_classify_family_demotes_pale_low_chroma_orange_shoulder_to_neutral() -> None:
+def test_classify_family_demotes_pale_low_chroma_orange_edge_to_neutral() -> None:
     assert classify_family("#f3e6c9").family == "neutral"
     assert classify_family("#f0debd").family == "neutral"
     assert classify_family("#f1ceb3").family == "neutral"
@@ -77,21 +77,21 @@ def test_classify_family_demotes_pale_low_chroma_orange_shoulder_to_neutral() ->
     assert classify_family("#ecddbe").family == "neutral"
 
 
-def test_classify_family_demotes_taupe_orange_shoulder_to_neutral() -> None:
+def test_classify_family_demotes_taupe_orange_edge_to_neutral() -> None:
     assert classify_family("#aa907d").family == "neutral"
     assert classify_family("#ae8774").family == "neutral"
     assert classify_family("#b69574").family == "neutral"
     assert classify_family("#ba8671").family == "neutral"
 
 
-def test_classify_family_demotes_soft_beige_orange_shoulder_to_neutral() -> None:
+def test_classify_family_demotes_soft_beige_orange_edge_to_neutral() -> None:
     assert classify_family("#ccb390").family == "neutral"
     assert classify_family("#d5ba98").family == "neutral"
     assert classify_family("#d1be9b").family == "neutral"
     assert classify_family("#d2c29d").family == "neutral"
 
 
-def test_classify_family_demotes_muted_olive_orange_shoulder_to_yellow() -> None:
+def test_classify_family_demotes_muted_olive_orange_edge_to_yellow() -> None:
     assert classify_family("#80765f").family == "yellow"
     assert classify_family("#c4ab86").family == "yellow"
     assert classify_family("#be9e6f").family == "yellow"
@@ -107,7 +107,7 @@ def test_classify_family_keeps_stronger_orange_core_inside_orange() -> None:
     assert classify_family("#d2b04c").family == "orange"
 
 
-def test_classify_family_demotes_dusty_red_pink_shoulder_to_pink() -> None:
+def test_classify_family_demotes_dusty_red_pink_edge_to_pink() -> None:
     assert classify_family("#f5d1c8").family == "pink"
     assert classify_family("#ddb6ab").family == "pink"
     assert classify_family("#dbb0a2").family == "pink"
@@ -115,7 +115,7 @@ def test_classify_family_demotes_dusty_red_pink_shoulder_to_pink() -> None:
     assert classify_family("#f4cec5").family == "pink"
 
 
-def test_classify_family_demotes_pink_peach_red_shoulder_to_pink() -> None:
+def test_classify_family_demotes_pink_peach_red_edge_to_pink() -> None:
     assert classify_family("#efa6aa").family == "pink"
     assert classify_family("#eea0a6").family == "pink"
     assert classify_family("#f2b2ae").family == "pink"
@@ -123,7 +123,7 @@ def test_classify_family_demotes_pink_peach_red_shoulder_to_pink() -> None:
     assert classify_family("#f8a39d").family == "pink"
 
 
-def test_classify_family_demotes_midlight_peach_red_shoulder_to_pink() -> None:
+def test_classify_family_demotes_midlight_peach_red_edge_to_pink() -> None:
     assert classify_family("#ea6676").family == "pink"
     assert classify_family("#ee5c6c").family == "pink"
     assert classify_family("#dc7178").family == "pink"
@@ -131,7 +131,7 @@ def test_classify_family_demotes_midlight_peach_red_shoulder_to_pink() -> None:
     assert classify_family("#dc3855").family == "pink"
 
 
-def test_classify_family_demotes_moderate_red_peach_shoulder_to_pink() -> None:
+def test_classify_family_demotes_moderate_red_peach_edge_to_pink() -> None:
     assert classify_family("#e8a798").family == "pink"
     assert classify_family("#d29380").family == "pink"
     assert classify_family("#e29a86").family == "pink"
@@ -139,7 +139,7 @@ def test_classify_family_demotes_moderate_red_peach_shoulder_to_pink() -> None:
     assert classify_family("#dd9289").family == "pink"
 
 
-def test_classify_family_demotes_low_chroma_rose_shoulder_to_pink() -> None:
+def test_classify_family_demotes_low_chroma_rose_edge_to_pink() -> None:
     assert classify_family("#d19c97").family == "pink"
     assert classify_family("#a4777e").family == "pink"
     assert classify_family("#ecb2b3").family == "pink"
@@ -154,7 +154,7 @@ def test_classify_family_demotes_dark_red_brown_wine_seam_to_brown() -> None:
     assert classify_family("#58363d").family == "brown"
 
 
-def test_classify_family_demotes_low_chroma_red_brown_shoulder_to_brown() -> None:
+def test_classify_family_demotes_low_chroma_red_brown_edge_to_brown() -> None:
     assert classify_family("#844b4d").family == "brown"
     assert classify_family("#884344").family == "brown"
     assert classify_family("#7e3940").family == "brown"
@@ -163,7 +163,7 @@ def test_classify_family_demotes_low_chroma_red_brown_shoulder_to_brown() -> Non
     assert classify_family("#5c2c35").family == "brown"
 
 
-def test_classify_family_demotes_expanded_red_brown_shoulder_to_brown() -> None:
+def test_classify_family_demotes_expanded_red_brown_edge_to_brown() -> None:
     assert classify_family("#8f5f50").family == "brown"
     assert classify_family("#98594b").family == "brown"
     assert classify_family("#9a6051").family == "brown"
@@ -219,7 +219,7 @@ def test_build_family_rank_index_orders_neutral_strength_ascending() -> None:
     assert ranked[2].family_rank == 2
 
 
-def test_build_family_rank_index_routes_bright_gold_shoulder_out_of_brown() -> None:
+def test_build_family_rank_index_routes_bright_gold_edge_out_of_brown() -> None:
     dataset = _dataset(
         SwatchEntry(
             source_order=1, slug="spectra-yellow", name="Spectra yellow", hex="#f7b718"
@@ -239,7 +239,7 @@ def test_build_family_rank_index_routes_bright_gold_shoulder_out_of_brown() -> N
     assert ranked[3].family_rank == 1
 
 
-def test_select_one_up_keeps_earthy_brown_over_yellow_shoulder() -> None:
+def test_select_one_up_keeps_earthy_brown_over_yellow_edge() -> None:
     dataset = _dataset(
         SwatchEntry(
             source_order=1, slug="spectra-yellow", name="Spectra yellow", hex="#f7b718"

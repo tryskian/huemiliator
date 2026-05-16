@@ -1,205 +1,174 @@
 # Runbook
 
-This is the operator guide for local setup, procedure, and validation.
+## When to Read This
 
-Use `docs/runtime/ARCHITECTURE.md` for system shape.
+Use this doc for operator procedure.
 
-## Start A Session
+- `README.md`
+  - public framing and quick entrypoint
+- `docs/governance/CHARTER.md`
+  - durable rules and role split
+- `docs/runtime/ARCHITECTURE.md`
+  - stable system shape
+- `docs/governance/SESSION_HANDOFF.md`
+  - active slice and carryover
+- `docs/governance/DECISIONS.md`
+  - durable rationale for repo choices
+- `docs/runtime/START_END_REFERENCE.md`
+  - compact command card
 
-Fast path:
+## Branch, Worktree, and Scope Policy
 
-- `make start`
+1. Canonical repo root is:
+   - `/abs/path/to/huemiliator`
+2. Default workflow is one feature branch per change set:
+   - `git switch -c codex/bigbrain/<task-name>`
+3. Start tracked edits from a feature branch.
+4. Use a dedicated worktree for parallel implementation tracks.
+5. Keep one logical task per branch.
+6. Keep one active kernel at a time.
+7. Secondary worktrees for live eval work should use:
+   - local `.venv`
+   - canonical repo `.local`
 
-1. Read the tracked instruction surface:
-   - from the final rehydrate prompt in `make start`
+## Command Surface Rule
+
+1. Keep one atomic command per operator action.
+2. Keep operator thinking in procedure.
+3. Keep wrapper targets mechanical.
+4. Use `make session-status` as the live repo and runtime snapshot.
+5. Use `make end` as the strict clean-main closeout routine.
+
+## Morning Startup Ritual
+
+1. Read in this order:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
-   - `docs/runtime/START_END_REFERENCE.md`
    - `docs/runtime/ARCHITECTURE.md`
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
-2. Confirm the repo root:
-   - `/abs/path/to/huemiliator`
-3. Run the startup safety path:
+2. Confirm execution context:
+   - canonical repo root or dedicated worktree
+   - active branch from `git branch --show-current`
+3. Return the startup breakdown before implementation:
+   - current state
+   - risks
+   - next kernel
+   - repo or worktree context
+   - active branch
+4. Run session preflight:
    - `make doctor-env`
    - `make caffeinate`
    - `make caffeinate-status`
    - `make session-status`
-4. Treat the tracked docs as current project state.
-5. Install or refresh the local environment:
+5. Install or refresh the environment when needed:
    - `make install`
-6. Apply the no-guessing controls:
-   - prefer repo-scoped edits
-   - do not modify user shell profile files or global VS Code settings without explicit approval in-chat
-7. Run one active kernel at a time.
-8. Then execute the `Next Kernel` from `SESSION_HANDOFF` with full validation.
-9. If the kernel will change tracked files, work from a `codex/bigbrain/...`
-   branch rather than `main`.
 
-## Everyday Commands
+## Environment Doctor
 
-| Task | Command |
-| --- | --- |
-| show the repo file tree | `find . -maxdepth 3 -type f \| sort` |
-| show tracked docs | `find docs -maxdepth 3 -type f \| sort` |
-| inspect recent history | `git log --stat --oneline --max-count=5` |
-| search the current docs surface | `rg -n "<term>" README.md docs src tests` |
-| create a work branch | `git switch -c codex/bigbrain/<kernel-slug>` |
-| install or refresh the runtime env | `make install` |
-| check the environment | `make doctor-env` |
-| run the day-open operator routine | `make start` |
-| show the compact day-open/day-close sheet | `make rituals` |
-| run the day-close validation routine | `make end` |
-| run day-close before merge | `make end-preflight` |
-| verify clean synced main | `make end-git-check` |
-| start managed caffeinate | `make caffeinate` |
-| stop managed caffeinate | `make decaffeinate` |
-| check managed caffeinate | `make caffeinate-status` |
-| alias wake-lock status for closeout language | `make decaffeinate-status` |
-| show session status | `make session-status` |
-| open the native macOS UI picker | `huemiliator pick` |
-| resolve a hex to the nearest frozen swatch | `huemiliator resolve <hex>` |
-| emit the deterministic replacement shade | `huemiliator replace <hex>` |
-| emit the full deterministic one-up reply | `huemiliator one-up <hex>` |
-| initialise the local eval DB | `huemiliator eval-init` |
-| log one deterministic output | `huemiliator eval-log <hex>` |
-| list recent eval rows | `huemiliator eval-list --limit 10` |
-| list pending eval rows | `huemiliator eval-list --verdict pending` |
-| list one family only | `huemiliator eval-list --family brown` |
-| list the warm cohort | `huemiliator eval-list --family warm` |
-| judge one eval row | `huemiliator eval-judge <id> <pass\|fail>` |
-| run the long local sampler | `huemiliator eval-sample-local` |
-| run one family only | `huemiliator eval-sample-local --family brown` |
-| run the warm cohort | `huemiliator eval-sample-local --family warm` |
-| run tests | `make test` |
-| run lint checks | `make lint` |
-| run format checks | `make format-check` |
-| format the Python surface | `make format` |
-| run static typing | `make typecheck` |
-| install git hooks | `make precommit-install` |
-| run pre-commit hooks on all files | `make precommit-run` |
-| run pre-push hooks on all files | `make prepush-run` |
-| run the current baseline checks | `make check` |
-| build the package | `make package-check` |
-| show the current runtime status | `make app` |
+1. Run:
+   - `make doctor-env`
+2. It checks:
+   - Python path
+   - venv
+   - package imports
+   - repo runtime files
+   - live credential visibility when credentials are in play
+3. Resolve actionable issues before runtime or eval work.
 
-## Current Posture
+## Inspect-First Rule
 
-- the repo is public
-- `main` is protected by the default-branch ruleset
-- tracked changes should land through `codex/bigbrain/...` branches and squash PRs
-- `make end` is a strict stop-state gate and should fail unless:
-  - the required stop-state docs were updated today
-  - validation passes
-  - the repo ends on clean synced `main`
-- `make end-preflight` is the lighter check when the branch is not ready to
-  land yet
-- the repo is docs-first with a small live picker-plus-resolution kernel
-- the current live runtime surface is macOS-only
-- the archived swatch source is frozen into the repo
-- nearest-swatch resolution is live against the frozen local snapshot
-- family routing and same-family rank are live against fixed runtime rules
-- deterministic same-family replacement is live with a top-rank clamp
-- deterministic short loss lines are live from a fixed family bank
-- local SQLite evidence storage is live under `.local/`
-- human PASS/FAIL judgment is live against stored rows
-- long-run local source-order sampling is live against the frozen snapshot
-- one follow-along experiment notebook is tracked under `output/jupyter-notebook/`
-- no runtime claims should outrun the actual tree
-- use the docs to lock the contract before widening the code
+1. Inspect named files, logs, reports, screenshots, and notes before
+   interpretation.
+2. Use source evidence as the basis for interpretation.
+3. State inspection status plainly.
 
-## Evidence Surface
+## Command Ownership
 
-- `huemiliator eval-init` creates the local DB at `.local/evals.sqlite`
-- `huemiliator eval-log <hex>` records the deterministic output state after the
-  colour decision
-- `huemiliator eval-list --limit 10` prints recent rows for quick inspection
-- `huemiliator eval-list --verdict pending` narrows the review queue
-- `huemiliator eval-list --family brown` narrows the review queue to one family
-- `huemiliator eval-list --family warm` narrows the review queue to the local
-  warm cohort: `brown`, `red`, `orange`, and `yellow`
-- `huemiliator eval-judge <id> <pass|fail> --note "<note>"` applies a human
-  binary verdict to one row
-- `huemiliator eval-sample-local --duration-seconds 7200` starts the long-run
-  local sampler
-- add `--family <name>` to isolate one family while preserving source order in
-  that subset
-- the follow-along notebook lives at
-  `output/jupyter-notebook/huemiliator-eval-surface.ipynb`
+1. Human lead owns:
+   - objective
+   - scope
+   - acceptance criteria
+   - meaning-level trade-offs
+   - go or no-go decisions
+2. Engineer owns:
+   - implementation
+   - validation
+   - command execution
+   - Git and PR flow
+   - proactive hygiene
+3. Default mode is execution-first:
+   - do the work directly when asked
 
-Recommended long run:
+## Protected Main PR Flow
 
-```sh
-PYTHONPATH=src .venv/bin/python -m huemiliator eval-sample-local \
-  --duration-seconds 7200
-```
+1. Work on a feature branch.
+2. Commit locally.
+3. Push the branch.
+4. Open a PR to `main`.
+5. Wait for required checks.
+6. Merge through the protected-main flow.
+7. Sync local `main`:
+   - `git switch main`
+   - `git pull --ff-only`
+8. Final local repo state is clean and synced with `origin/main`.
 
-Default pacing is one row every `3` seconds so the queue can be judged while
-it is still filling.
+## End Of Day
 
-Example family run:
+1. Finish branch-local validation before merge:
+   - `make end-docs-check`
+   - `make doctor-env`
+   - `make path-leak-check`
+   - `make path-leak-audit-local`
+   - `make check`
+2. Package the branch when the kernel is ready.
+3. Merge through the protected-main flow.
+4. After merge, switch back to `main` and pull fast-forward only.
+5. Run closeout checks:
+   - `make decaffeinate`
+   - `make session-status`
+   - `make end-git-check`
+6. Update tracked handoff and research truth before stopping.
+7. End state is:
+   - merged
+   - clean local `main`
+   - synced with `origin/main`
 
-```sh
-PYTHONPATH=src .venv/bin/python -m huemiliator eval-sample-local \
-  --duration-seconds 7200 \
-  --family brown
-```
+## Local-Only Docs Policy
 
-Example warm-cohort run:
+1. `docs/peanut/` is the local and private lane.
+2. Use it for:
+   - interface sketches
+   - rough notes
+   - private scratch material
+3. Tracked docs remain canonical project truth.
 
-```sh
-PYTHONPATH=src .venv/bin/python -m huemiliator eval-sample-local \
-  --duration-seconds 7200 \
-  --family warm
-```
+## Atomic Commands
 
-Judgment method:
-
-- keep exactly one live sampler active in the repo at a time
-- default to one-family eval runs
-- use `warm` only when a closed family result needs a wider audit surface
-- start review while the long run is still active
-- do not wait for the run to finish before judging rows
-- keep the queue on the active lane with `--verdict pending`
-- add `--family <name>` when the live run is family-isolated
-- before merge or end-of-day packaging, clear the active run to `0` pending
-
-## Snapshot Refresh
-
-```sh
-PYTHONPATH=src .venv/bin/python scripts/freeze_margaret2_swatches.py
-```
-
-## Pull Request Hygiene
-
-- default to `gh pr create --body-file <path>` for multiline PR descriptions
-- avoid inline `--body "..."` when the content includes Markdown backticks or
-  shell-sensitive characters
-- if a body file is awkward, use a quoted heredoc rather than raw inline shell
-  interpolation
-
-Example:
-
-```sh
-gh pr create --title "<title>" \
-  --body-file <path>
-```
-
-## Validation
-
-For docs, picker-kernel, snapshot, resolution, or scaffold changes:
-
-- read back the changed docs
-- keep claims aligned with the actual tree
-- run `make doctor-env`
-- run `make check`
-
-For later runtime-contract changes:
-
-- sweep `README.md`
-- sweep `docs/runtime/ARCHITECTURE.md`
-- sweep `docs/research/README.md`
-- sweep `docs/diagrams/PIPELINE.md`
-- sweep `docs/governance/SESSION_HANDOFF.md`
-- record durable choices in `docs/governance/DECISIONS.md`
+- `make install`
+  - install or refresh the local environment
+- `make doctor-env`
+  - environment health check
+- `make session-status`
+  - live repo and runtime snapshot
+- `make caffeinate`
+  - start repo-managed wake lock
+- `make caffeinate-status`
+  - report repo-managed wake-lock status
+- `make decaffeinate`
+  - stop repo-managed wake lock
+- `make decaffeinate-status`
+  - report closeout wake-lock status
+- `make path-leak-check`
+  - tracked repo path leak check
+- `make path-leak-audit-local`
+  - local/private lane path audit
+- `make end-docs-check`
+  - current-truth docs freshness gate
+- `make check`
+  - repo validation suite
+- `make end-preflight`
+  - branch-local closeout validation
+- `make end-git-check`
+  - clean-main closeout check
