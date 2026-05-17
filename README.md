@@ -1,6 +1,6 @@
 # Huemiliator
 
-[![Research Phase](https://img.shields.io/badge/research_phase-pre%20beta-E15759)](./docs/research/README.md)
+[![Research Stage](https://img.shields.io/badge/research_stage-pre--Beta%201.0%20fail--pressure%20pulse-E15759)](./docs/research/README.md)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
 
 ## pick a colour. huey's is better
@@ -9,8 +9,10 @@ Huemiliator is a small, local, agent-backed CLI mini chatbot using the
 **[Polinko research model](https://github.com/tryskian/polinko)**.
 
 It is a colour one-up spinoff of
-**[Probaboracle](https://github.com/tryskian/probaboracle)** built from the
-current **[Scorey](https://github.com/tryskian/scorey)** baseline.
+**[Probaboracle](https://github.com/tryskian/probaboracle)**. The surface stays
+tiny: one native macOS colour picker in, one deterministic same-family shade
+out. Instead of oracle drift or rigged rounds, Huemiliator turns that narrow
+shape into a colour seam instrument.
 
 The surface stays narrow:
 
