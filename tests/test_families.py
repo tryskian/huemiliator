@@ -190,6 +190,66 @@ def test_classify_family_keeps_soft_red_boundary_lane_inside_red() -> None:
     assert classify_family("#ed9ca8").family == "red"
 
 
+def test_build_family_rank_index_routes_named_red_orange_edge_swatches_out_of_red() -> (
+    None
+):
+    dataset = _dataset(
+        SwatchEntry(
+            source_order=1, slug="terra-cotta", name="Terra cotta", hex="#d38377"
+        ),
+        SwatchEntry(
+            source_order=2, slug="burnt-henna", name="Burnt henna", hex="#7e392f"
+        ),
+        SwatchEntry(
+            source_order=3, slug="dusty-cedar", name="Dusty cedar", hex="#ad5d5d"
+        ),
+        SwatchEntry(source_order=4, slug="auburn", name="Auburn", hex="#a15843"),
+        SwatchEntry(
+            source_order=5, slug="tawny-orange", name="Tawny orange", hex="#d37f6f"
+        ),
+        SwatchEntry(
+            source_order=6, slug="bruschetta", name="Bruschetta", hex="#a75949"
+        ),
+    )
+
+    ranked = build_family_rank_index(dataset)
+
+    assert ranked[1].family == "red"
+    assert ranked[2].family == "orange"
+    assert ranked[3].family == "red"
+    assert ranked[4].family == "red"
+    assert ranked[5].family == "orange"
+    assert ranked[6].family == "red"
+
+
+def test_select_one_up_skips_named_red_orange_edge_swatches() -> None:
+    dataset = _dataset(
+        SwatchEntry(
+            source_order=1, slug="garnet-rose", name="Garnet rose", hex="#ac4b55"
+        ),
+        SwatchEntry(
+            source_order=2, slug="desert-rose", name="Desert rose", hex="#cf6977"
+        ),
+        SwatchEntry(
+            source_order=3, slug="burnt-brick", name="Burnt brick", hex="#a14d3a"
+        ),
+        SwatchEntry(
+            source_order=4, slug="tandori-spice", name="Tandori spice", hex="#9f4440"
+        ),
+    )
+
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    selection = select_one_up(ranked[1], members)
+
+    assert ranked[1].family == "red"
+    assert ranked[2].family == "orange"
+    assert ranked[3].family == "orange"
+    assert ranked[4].family == "red"
+    assert selection.current.swatch.name == "Garnet rose"
+    assert selection.replacement.swatch.name == "Tandori spice"
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#d9a6a1"),

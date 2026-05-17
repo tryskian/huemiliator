@@ -93,6 +93,17 @@ YELLOW_HUE_MAX = 70.0
 GREEN_HUE_MAX = 170.0
 BLUE_HUE_MAX = 255.0
 PURPLE_HUE_MAX = 320.0
+RED_TO_ORANGE_EDGE_SWATCH_NAMES = frozenset(
+    {
+        "Burnt henna",
+        "Tawny orange",
+        "Crabapple",
+        "Desert rose",
+        "Burnt brick",
+        "Dusted clay",
+        "Ginger",
+    }
+)
 
 
 @dataclass(frozen=True)
@@ -121,12 +132,19 @@ def classify_family(value: str) -> FamilyAssignment:
     return FamilyAssignment(family=family, metrics=metrics)
 
 
+def _classify_swatch(swatch: SwatchEntry) -> FamilyAssignment:
+    assignment = classify_family(swatch.hex)
+    if assignment.family == "red" and swatch.name in RED_TO_ORANGE_EDGE_SWATCH_NAMES:
+        return FamilyAssignment(family="orange", metrics=assignment.metrics)
+    return assignment
+
+
 def build_family_rank_index(dataset: SwatchDataset) -> dict[int, RankedSwatch]:
     grouped: dict[str, list[tuple[SwatchEntry, ColourMetrics]]] = {
         family: [] for family in FAMILY_NAMES
     }
     for swatch in dataset.swatches:
-        assignment = classify_family(swatch.hex)
+        assignment = _classify_swatch(swatch)
         grouped[assignment.family].append((swatch, assignment.metrics))
 
     ranked: dict[int, RankedSwatch] = {}

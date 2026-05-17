@@ -23,18 +23,32 @@ That narrow surface is the point. Huemiliator is not trying to be a general
 colour utility. It studies whether deterministic colour matching, family
 routing, and one-up logic can stay legible under tight runtime rules.
 
-Current tracked research phase:
+Current staged research lane:
 
-- `pre-beta`
-- next narrow `red` correction
+- `pre-Beta 1.0`
+- `fail-pressure pulse`
+
+Current closed comparison surface:
+
+- closed third corrected `red` rerun
+- row-level family proof surface
+
+In this repo, a new beta gets pinned when the method change alters what the
+evidence means, not just when wording or procedure gets tidier. Pre-beta
+staging notes can hold the next method boundary before the first real evidence
+run starts.
+
+`Beta 1.0` does not begin until the first real fail-pressure pulse run starts.
 
 ## What This Repo Demonstrates
 
 - picker-first input instead of freeform text
 - deterministic swatch matching against a frozen local reference
 - runtime-owned family assignment, same-family rank, and one-up selection
-- binary family-by-family evaluation with explicit upstream correction
-- a small local evidence surface for following the deterministic output path
+- the current row-level family proof surface as a closed comparison baseline
+- the staged fail-pressure pulse boundary for the next non-OCR eval unit
+- a small local evidence surface for following deterministic output and pulse
+  evidence
 
 ## Run It
 

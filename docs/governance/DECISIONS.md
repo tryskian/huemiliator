@@ -94,24 +94,27 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Why: This keeps any expressive residue downstream of the stable replacement
   contract.
 
-## D-007: Eval outcomes stay binary with explicit eviction
+## D-007: Eval verdicts stay binary
 
 - Date: `2026-05-15`
 - Category: `eval_quality`
-- Tags: `binary_gate`, `pass_fail`, `evict`
-- Decision: Eval outcomes remain `pass` or `fail`, and `evict` remains the
-  explicit upstream correction path once a bad lane is proven.
-- Why: This keeps row judgment separate from the runtime correction that
-  removes a bad lane from future runs.
+- Tags: `binary_gate`, `pass_fail`, `verdict_unit`
+- Decision: Tracked eval verdicts remain `PASS` or `FAIL`. When the active
+  method uses bounded pulses, the pulse carries that binary verdict and rows
+  remain evidence inside it.
+- Why: This keeps failure pressure real and keeps evidence interpretation
+  separate from later implementation work.
 
-## D-008: Family-by-family long runs are the primary eval method
+## D-008: One active family lane at a time stays the main eval frame
 
 - Date: `2026-05-15`
 - Category: `eval_quality`
-- Tags: `family_runs`, `long_run`, `single_lane`
-- Decision: Real eval pressure stays family-by-family, with long-run
-  consistency as the primary evidence surface.
-- Why: Huemiliator learns cleanly from one attributable colour lane at a time.
+- Tags: `family_lane`, `pulse_method`, `single_lane`
+- Decision: Active eval pressure stays on one family lane at a time. New method
+  boundaries, whether row-level or pulse-level, stay attributable to one active
+  lane at a time too.
+- Why: Huemiliator learns cleanly when lane attribution stays narrow and each
+  comparison surface stays small enough to inspect.
 
 ## D-009: `warm` stays an audit cohort rather than a runtime family
 
@@ -200,7 +203,8 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Decision: Tracked research notes stay dated, compact, and visual-forward,
   with one active proof-surface read and only the durable note or next cut.
   Research-note names stay descriptive and topic-first, with lowercase
-  kebab-case filenames and no numbered note scaffolding or generic prefixes.
+  snake_case filenames plus a `YYYY-MM-DD` suffix and no numbered note
+  scaffolding or generic prefixes.
 - Why: The research surface should explain the signal quickly without turning
   into another warehouse.
 
@@ -212,3 +216,75 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Decision: Tracked docs, scripts, and operator surfaces stay free of
   hardcoded local machine paths and editor residue.
 - Why: This keeps the public repo surface portable and clean.
+
+## D-019: Scoped eval sampling follows effective runtime routing and true source order
+
+- Date: `2026-05-16`
+- Category: `eval_quality`
+- Tags: `sampler_truth`, `family_routing`, `source_order`
+- Decision: Family-scoped and cohort-scoped eval sampling must use the same
+  effective family routing as the active runtime ladder, including frozen
+  swatch-edge overrides, and `start_source_order` means the real snapshot
+  source-order position rather than a filtered-list offset.
+- Why: A scoped proof surface stops being interpretable if the sampler drifts
+  from the runtime it claims to test or if source-order targeting changes
+  meaning after filtering.
+
+## D-020: Advertised CLI commands must dispatch truthfully
+
+- Date: `2026-05-16`
+- Category: `workflow_environment`
+- Tags: `cli_surface`, `truthful_commands`, `operator_surface`
+- Decision: Every documented or parsed CLI subcommand must either have real
+  dispatch behavior or be removed from the surfaced command list.
+- Why: Fake affordances on the operator surface waste audit time and weaken the
+  repo's small-command contract.
+
+## D-021: Bulk local sampling reuses one prepared runtime view and one write session
+
+- Date: `2026-05-16`
+- Category: `runtime_engineering`
+- Tags: `sampler_performance`, `rank_cache`, `sqlite_session`
+- Decision: Long-run local sampling should reuse one prepared family and rank
+  view of the frozen snapshot plus one DB write session for the run instead of
+  rebuilding indexes and reopening SQLite on every row.
+- Why: The sampler is an evidence tool, so avoidable per-row rebuild churn
+  should not sit in the hot path.
+
+## D-022: Audit passes begin from a human-led go decision
+
+- Date: `2026-05-16`
+- Category: `collaboration_method`
+- Tags: `human_lead`, `audit_trigger`, `scope_control`
+- Decision: Repo audits and review passes begin when the human lead explicitly
+  calls for an audit, and the engineer then owns the inspection, findings,
+  implementation follow-through, and durable documentation updates inside that
+  approved scope.
+- Why: This keeps audit work aligned with human-owned scope and treats audit
+  outputs as part of the documentation process rather than orphaned branch
+  residue.
+
+## D-023: Findings are documented during the work, not reconstructed later
+
+- Date: `2026-05-16`
+- Category: `collaboration_method`
+- Tags: `recordkeeping`, `findings_capture`, `contemporaneous_notes`
+- Decision: During active kernels, the engineer records notes, findings, and
+  truth-surface changes as they are discovered rather than deferring
+  documentation until closeout.
+- Why: Delayed reconstruction creates cleanup work, weakens handoffs, and makes
+  repo truth harder to trust.
+
+## D-024: Stage fail-pressure pulse as pre-Beta 1.0
+
+- Date: `2026-05-16`
+- Category: `eval_quality`
+- Tags: `pre_beta`, `pulse_measurement`, `staging_boundary`
+- Decision: Treat fail-pressure pulse as a staged pre-`Beta 1.0` method lane
+  until the first real pulse run starts. The closed third corrected `red`
+  rerun stays the row-level comparison baseline.
+- Why: This is a real method transition, but it is not active evidence yet.
+  Keeping pulse judgment in pre-beta form preserves the comparison boundary:
+  the corrected `red` rerun remains the finished row-level baseline, while
+  `Beta 1.0` begins only when pulse evidence exists on the live surface instead
+  of only in the staging note.
