@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-05-16
+Last updated: 2026-05-17
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -29,8 +29,8 @@ Current closed comparison surface:
 
 Current staging question:
 
-Should Huemiliator move bounded non-OCR family judgment from the row to the
-pulse, so seam density matters more than single-row replay?
+Can the first bounded `red` pulse keep the same warm-clay / peach seam legible
+once the verdict moves from the row to the pulse?
 
 ## Current Research State
 
@@ -39,9 +39,9 @@ pulse, so seam density matters more than single-row replay?
 | stage | `pre-Beta 1.0` |
 | active proof surface | closed third corrected `red` rerun at `id > 18423` |
 | current totals | `1268 total / 1162 pass / 106 fail / 0 pending` |
-| current question | repair sampler truth before the first real `red` Beta 1.0 pulse |
+| current question | launch the first real `red` Beta 1.0 pulse from the repaired sampler surface |
 | staged pulse note | `pre_beta_1_fail_pressure_pulse_2026-05-16` |
-| promotion gate | repair sampler truth before the first real `red` Beta 1.0 pulse |
+| promotion gate | first bounded `red` Beta 1.0 pulse from the repaired sampler surface |
 | next family lane | `red` first, `yellow` queued behind it |
 | current audit note | `red_orange_edge_drift_audit_2026-05-16` |
 | live DB rule | keep only the current proof surface in `eval_outputs` |
@@ -53,7 +53,7 @@ pulse, so seam density matters more than single-row replay?
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./pre_beta_1_fail_pressure_pulse_2026-05-16.md) | staging note | the next Huemiliator method boundary is staged, but `Beta 1.0` does not begin until the first real pulse run starts |
 | [Brown Context Dependence](./brown_context_dependence_2026-05-08.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./red_orange_edge_drift_2026-05-15.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
-| [Red Orange Edge Drift Audit](./red_orange_edge_drift_audit_2026-05-16.md) | audit note | the first real `red` Beta 1.0 pulse stays blocked until sampler-truth and source-order repair land |
+| [Red Orange Edge Drift Audit](./red_orange_edge_drift_audit_2026-05-16.md) | audit note | the audit blockers were repaired on-branch and the first real `red` Beta 1.0 pulse is now the next gate |
 
 ## How To Read This Folder
 
@@ -84,8 +84,8 @@ flowchart LR
   `orange`
 - the closed third corrected `red` rerun stays the active row-level comparison
   baseline
-- the first real `red` Beta 1.0 pulse should wait until scoped sampling truth
-  matches the current runtime ladder again
+- scoped sampling truth now matches the current runtime ladder again
+- the first real `red` Beta 1.0 pulse is now the next live gate
 - the smaller remaining dark-to-pale jumps should wait behind that family cut
 
 ## Plans
@@ -95,11 +95,10 @@ Plans are useful, but they are not evidence.
 Current planned sequence:
 
 1. keep the closed third corrected `red` rerun as the active proof surface
-2. repair sampler truth and source-order targeting before the first real pulse
-   run
-3. cut the next narrow `red` correction
-4. only then launch the first bounded `red` Beta 1.0 pulse
-5. only then decide whether the remaining dark-to-pale jumps are still family
+2. launch the first bounded `red` Beta 1.0 pulse from the repaired sampler
+   surface
+3. judge whether the warm-clay / peach seam still holds under pulse pressure
+4. only then decide whether the remaining dark-to-pale jumps are still family
    issues or a later rank kernel
 
 These betas and staged notes are research architectures. They are not app

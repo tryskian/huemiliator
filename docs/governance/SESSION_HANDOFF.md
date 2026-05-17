@@ -51,8 +51,8 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
-- stage the next bounded proof-surface kernel cleanly without promoting
-  `Beta 1.0` early
+- launch the first bounded `red` `Beta 1.0` pulse from the repaired sampler
+  surface without widening the lane
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -67,17 +67,17 @@ stay quarantined locally instead of mixing back into the live DB.
 2. Inspect the live repo snapshot:
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
-3. Repair sampler truth and source-order targeting before the first real pulse
-   run.
-4. Only then launch the first bounded `red` Beta 1.0 pulse against the
-   warm-clay / peach edge claim.
+3. Launch the first bounded `red` Beta 1.0 pulse against the warm-clay /
+   peach edge claim from the repaired sampler surface.
+4. Judge the bounded pulse before deciding whether the next `red` move is
+   still a family cut or a later rank kernel.
 
 ## Research Snapshot
 
 - staged research lane: `pre-Beta 1.0`
 - active proof surface: closed third corrected `red` rerun at `id > 18423`
-- current staging question: repair sampler truth before the first real `red`
-  Beta 1.0 pulse
+- current staging question: does the first bounded `red` pulse keep the same
+  warm-clay / peach seam legible now that sampler truth is repaired
 - staged pulse note: `pre_beta_1_fail_pressure_pulse_2026-05-16`
 - next family lane: `red` first, `yellow` queued behind it
 - tracked research notes:

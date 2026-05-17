@@ -8,7 +8,7 @@ from pathlib import Path
 from huemiliator.config import EVAL_DB_PATH, SWATCH_SNAPSHOT_PATH
 from huemiliator.eval_db import record_one_up_state
 from huemiliator.eval_scope import resolve_eval_scope_families
-from huemiliator.families import classify_family
+from huemiliator.families import classify_swatch
 from huemiliator.pipeline import build_one_up_state
 from huemiliator.swatches import SwatchDataset, SwatchEntry, load_swatch_snapshot
 
@@ -39,6 +39,24 @@ def _sample_swatches_for_pattern(
     )
 
 
+def _rotate_to_start_source_order(
+    swatches: tuple[SwatchEntry, ...],
+    start_source_order: int,
+) -> tuple[SwatchEntry, ...]:
+    highest_source_order = max(swatch.source_order for swatch in swatches)
+    if start_source_order > highest_source_order:
+        raise ValueError(
+            "Start source order exceeds the highest snapshot source order "
+            f"({highest_source_order})."
+        )
+
+    for index, swatch in enumerate(swatches):
+        if swatch.source_order >= start_source_order:
+            return swatches[index:] + swatches[:index]
+
+    return swatches
+
+
 def sample_local_eval_outputs(
     *,
     count: int | None = None,
@@ -66,25 +84,26 @@ def sample_local_eval_outputs(
 
     snapshot = _default_dataset() if dataset is None else dataset
     sample_swatches = _sample_swatches_for_pattern(snapshot, pattern)
+    if not sample_swatches:
+        raise ValueError("Sample pattern produced no swatches.")
+    sample_swatches = _rotate_to_start_source_order(
+        sample_swatches,
+        start_source_order,
+    )
     if selected_families is not None:
         sample_swatches = tuple(
             swatch
             for swatch in sample_swatches
-            if classify_family(swatch.hex).family in selected_families
+            if classify_swatch(swatch).family in selected_families
         )
     if not sample_swatches:
         raise ValueError("Sample pattern produced no swatches.")
-    if start_source_order > len(sample_swatches):
-        raise ValueError(
-            f"Start source order exceeds the snapshot size ({len(sample_swatches)})."
-        )
 
     resolved_db_path = EVAL_DB_PATH if db_path is None else db_path
     start = time_fn()
     deadline = None if duration_seconds is None else start + duration_seconds
     output_ids: list[int] = []
     index = 0
-    start_index = start_source_order - 1
 
     while True:
         if count is not None and index >= count:
@@ -92,7 +111,7 @@ def sample_local_eval_outputs(
         if deadline is not None and time_fn() >= deadline:
             break
 
-        swatch = sample_swatches[(start_index + index) % len(sample_swatches)]
+        swatch = sample_swatches[index % len(sample_swatches)]
         state = build_one_up_state(swatch.hex, snapshot)
         output_id = record_one_up_state(resolved_db_path, state)
         output_ids.append(output_id)

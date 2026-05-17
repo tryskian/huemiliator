@@ -55,3 +55,17 @@ repaired before fresh `red` rows are logged.
 3. repair the dead `contract` command while the surfaced truth gaps are open
 4. only then launch the first bounded `red` Beta 1.0 pulse
 5. only then judge whether the smaller dark-to-pale jumps are still real signal
+
+## Branch Repair Update
+
+Date: `2026-05-17`
+
+- scoped `red` sampling now follows the same effective runtime routing as the
+  live ladder, so named warm-clay edge swatches no longer leak into `red`
+  scoped rows
+- `start_source_order` now applies before scope filtering and points at the
+  real snapshot source-order surface again
+- the surfaced `contract` command now dispatches truthfully instead of falling
+  through to `status`
+- validation is green on the repair branch: `make check`
+- the first bounded `red` Beta 1.0 pulse is now the next live gate

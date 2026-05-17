@@ -132,7 +132,7 @@ def classify_family(value: str) -> FamilyAssignment:
     return FamilyAssignment(family=family, metrics=metrics)
 
 
-def _classify_swatch(swatch: SwatchEntry) -> FamilyAssignment:
+def classify_swatch(swatch: SwatchEntry) -> FamilyAssignment:
     assignment = classify_family(swatch.hex)
     if assignment.family == "red" and swatch.name in RED_TO_ORANGE_EDGE_SWATCH_NAMES:
         return FamilyAssignment(family="orange", metrics=assignment.metrics)
@@ -144,7 +144,7 @@ def build_family_rank_index(dataset: SwatchDataset) -> dict[int, RankedSwatch]:
         family: [] for family in FAMILY_NAMES
     }
     for swatch in dataset.swatches:
-        assignment = _classify_swatch(swatch)
+        assignment = classify_swatch(swatch)
         grouped[assignment.family].append((swatch, assignment.metrics))
 
     ranked: dict[int, RankedSwatch] = {}

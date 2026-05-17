@@ -100,3 +100,52 @@ def test_sample_local_eval_outputs_filters_to_warm_scope(tmp_path: Path) -> None
 
     assert len(rows) == 3
     assert {row["family"] for row in rows} <= {"brown", "red", "orange", "yellow"}
+
+
+def test_sample_local_eval_outputs_uses_effective_runtime_family_routing(
+    tmp_path: Path,
+) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    dataset = _dataset(
+        SwatchEntry(
+            source_order=1, slug="garnet-rose", name="Garnet rose", hex="#ac4b55"
+        ),
+        SwatchEntry(
+            source_order=2, slug="desert-rose", name="Desert rose", hex="#cf6977"
+        ),
+        SwatchEntry(
+            source_order=3, slug="tandori-spice", name="Tandori spice", hex="#9f4440"
+        ),
+    )
+
+    sample_local_eval_outputs(count=2, family="red", dataset=dataset, db_path=db_path)
+    rows = list_outputs(db_path, limit=10)
+
+    assert len(rows) == 2
+    assert all(row["family"] == "red" for row in rows)
+    assert [row["nearest_swatch_name"] for row in reversed(rows)] == [
+        "Garnet rose",
+        "Tandori spice",
+    ]
+
+
+def test_sample_local_eval_outputs_applies_start_source_order_before_scope_filter(
+    tmp_path: Path,
+) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    dataset = _dataset(
+        SwatchEntry(source_order=10, slug="egret", name="Egret", hex="#f3ece0"),
+        SwatchEntry(source_order=20, slug="woodsmoke", name="Woodsmoke", hex="#947764"),
+        SwatchEntry(source_order=30, slug="loud-red", name="Loud red", hex="#d22345"),
+    )
+
+    sample_local_eval_outputs(
+        count=2,
+        family="warm",
+        start_source_order=20,
+        dataset=dataset,
+        db_path=db_path,
+    )
+    rows = list_outputs(db_path, limit=10)
+
+    assert [row["nearest_source_order"] for row in reversed(rows)] == [20, 30]
