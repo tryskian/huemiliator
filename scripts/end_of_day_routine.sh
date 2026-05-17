@@ -32,7 +32,7 @@ echo "[end] 7/$TOTAL_STEPS session snapshot"
 make --no-print-directory session-status || true
 
 if [ "${end_SKIP_GIT_CHECK:-}" = "1" ]; then
-	echo "[end] git closeout skipped (preflight only)"
+	echo "[end] git closeout skipped (preflight only; day is not closed)"
 else
 	echo "[end] 8/$TOTAL_STEPS git closeout"
 	bash ./scripts/check_end_git_clean.sh

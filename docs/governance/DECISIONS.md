@@ -191,7 +191,9 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Tags: `startup`, `closeout`, `atomic_commands`
 - Decision: Startup stays a short mechanical bootstrap plus rehydrate
   contract, and closeout stays a strict docs, validation, wake-lock, and
-  clean-main sequence.
+  clean-main sequence. `make end` is the day-close command. `make
+  end-preflight` is only an explicit preflight path and never a substitute for
+  full closeout.
 - Why: This keeps the discipline in the operator procedure while the command
   surface stays small and honest.
 

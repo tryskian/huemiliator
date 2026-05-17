@@ -125,21 +125,17 @@ Use this doc for operator procedure.
 
 ## End Of Day
 
-1. Finish branch-local validation before merge:
-   - `make end-docs-check`
-   - `make doctor-env`
-   - `make path-leak-check`
-   - `make path-leak-audit-local`
-   - `make check`
-2. Package the branch when the kernel is ready.
-3. Merge through the protected-main flow.
-4. After merge, switch back to `main` and pull fast-forward only.
-5. Run closeout checks:
-   - `make decaffeinate`
-   - `make session-status`
-   - `make end-git-check`
-6. Update tracked handoff and research truth before stopping.
-7. End state is:
+1. When the goal is to close out the day, run:
+   - `make end`
+2. If `make end` fails on a feature branch, finish the merge path:
+   - package the branch when the kernel is ready
+   - merge through the protected-main flow
+   - switch back to `main`
+   - pull fast-forward only
+   - rerun `make end`
+3. Use `make end-preflight` only when an explicit branch-local preflight was
+   requested.
+4. End state is:
    - merged
    - clean local `main`
    - synced with `origin/main`
@@ -178,6 +174,6 @@ Use this doc for operator procedure.
 - `make check`
   - repo validation suite
 - `make end-preflight`
-  - branch-local closeout validation
+  - explicit branch-local preflight only; does not close the day
 - `make end-git-check`
   - clean-main closeout check

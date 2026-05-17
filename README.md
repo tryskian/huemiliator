@@ -75,12 +75,19 @@ Core operator commands:
 
 ```sh
 make start
-make end-preflight
-make end-git-check
+make end
 make caffeinate-status
 make decaffeinate
 make check
 ```
+
+Closeout rule:
+
+- when the goal is to end the day, run `make end`
+- `make end-preflight` is only for an explicitly requested branch-local
+  preflight and does not close the loop
+- `make end-git-check` is the final gate inside `make end`, not the normal
+  operator entrypoint
 
 ## Read Next
 
