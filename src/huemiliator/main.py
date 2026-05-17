@@ -150,6 +150,10 @@ def render_status() -> str:
     return "\n".join(lines)
 
 
+def render_contract() -> str:
+    return "\n".join(STATUS_LINES)
+
+
 def render_resolution(hex_value: str) -> str:
     settings = load_settings()
     dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
@@ -335,6 +339,9 @@ def render_eval_sample_local(
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.command == "contract":
+        print(render_contract())
+        return 0
     if args.command == "pick":
         try:
             print(pick_hex())

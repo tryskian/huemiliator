@@ -4,7 +4,7 @@ import io
 from contextlib import redirect_stderr, redirect_stdout
 from unittest.mock import patch
 
-from huemiliator.main import main, render_status
+from huemiliator.main import main, render_contract, render_status
 from huemiliator.picker import PickerError
 from huemiliator.resolution import ResolutionError
 from huemiliator.swatches import SwatchDatasetError
@@ -21,6 +21,27 @@ def test_render_status_includes_contract_lines() -> None:
     assert "line: fixed family loss bank" in text
     assert "evidence: local sqlite eval db" in text
     assert "sampler: long-run local source-order or scoped cohort cycle" in text
+
+
+def test_render_contract_exposes_runtime_contract_without_banner() -> None:
+    text = render_contract()
+
+    assert "status: partial runtime" in text
+    assert "runtime: native colour picker -> canonical hex" in text
+    assert "pick a colour. hue's is better." not in text
+
+
+def test_main_contract_prints_runtime_contract() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_contract",
+        return_value="status: partial runtime",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["contract"])
+
+    assert result == 0
+    assert stdout.getvalue().strip() == "status: partial runtime"
 
 
 def test_main_pick_prints_selected_hex() -> None:
