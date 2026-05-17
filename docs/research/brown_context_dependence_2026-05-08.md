@@ -57,7 +57,7 @@ The useful read from the closed rerun was:
 | brown-rank refinement | yellow / gold / olive edge was demoted below the earthy core |
 | bright gold edge reclassification | loud gold edge colours could fall through to `orange` or `yellow` |
 
-The next family-first cut then evicted:
+The next family-first cut then cleared:
 
 - `55` unique brown fail pairs
 - `0` unique brown pass pairs

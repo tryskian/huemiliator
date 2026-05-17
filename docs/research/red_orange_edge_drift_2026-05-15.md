@@ -61,6 +61,7 @@ Recommendation:
 
 1. keep the coherent muted-red local pass cluster in `red`
 2. add a tight warm-clay / peach edge escape from `red` to `orange`
-3. rerun `red`
-4. only then decide whether the smaller dark-to-pale jumps belong to a later
+3. repair scoped sampler truth before the first real `red` Beta 1.0 pulse
+4. only then launch the first bounded `red` Beta 1.0 pulse
+5. only then decide whether the smaller dark-to-pale jumps belong to a later
    rank kernel

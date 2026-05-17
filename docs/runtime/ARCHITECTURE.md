@@ -77,21 +77,27 @@ The stable runtime path is:
 ```mermaid
 flowchart LR
   A["deterministic output"]
-  B["local eval row"]
-  C["human pass / fail"]
-  D["retain active lane confidence"]
-  E["evict upstream family or boundary error"]
+  B["local evidence row"]
+  C["bounded pulse read"]
+  D["pulse PASS / FAIL"]
+  E["retained confidence or next correction"]
 
   A --> B --> C
-  C -->|"pass"| D
-  C -->|"fail"| E
+  C --> D
+  D --> E
 ```
 
 The active method is:
 
-- one family lane at a time
+- Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
+  The closed third corrected `red` rerun is still the active row-level
+  comparison surface. Fail-pressure pulse is the staged next method boundary,
+  not the active judged surface yet.
+- one active family lane at a time
 - one active sampler at a time
-- long-run consistency as the main evidence surface
+- row-level family rerun evidence as the current active proof surface
+- bounded fail-pressure pulse as the staged next judgment unit
+- rows stay visible as evidence inside the pulse
 - `warm` as an audit cohort only
 - closed proof surfaces stay active until the next correction is explicit
 

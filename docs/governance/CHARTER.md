@@ -25,10 +25,13 @@ fail-first evaluation.
 - Replacement stays same-family, next-rank, and non-wrapping.
 - The loss line stays fixed-bank and downstream of the colour decision.
 - Eval semantics stay binary:
-  - `pass`
-  - `fail`
-  - `evict` as the upstream correction path
-- Family-by-family long runs stay the primary evidence method.
+  - `PASS`
+  - `FAIL`
+- Fail-pressure pulse is the staged pre-`Beta 1.0` candidate for the next
+  non-OCR eval boundary:
+  - the pulse would carry the verdict
+  - the rows would stay evidence inside the pulse
+- Active eval pressure stays on one family lane at a time.
 - `warm` stays an audit cohort rather than a runtime family.
 - The live DB keeps only the current proof surface.
 - Tracked docs, code, tests, and local eval evidence are canonical repo truth.
@@ -82,7 +85,8 @@ fail-first evaluation.
 - deterministic swatch matching against the frozen local snapshot
 - runtime-owned family assignment and same-family rank
 - deterministic same-family replacement and short loss-line output
-- binary family-by-family eval stack with explicit `evict`
+- the current row-level family proof surface plus a staged fail-pressure pulse
+  boundary for the next non-OCR method change
 - tracked research notes and diagrams aligned with the active proof surface
 - smaller, single-purpose docs aligned with live repo behaviour
 
