@@ -5,30 +5,40 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 echo "[start] starting morning routine in: $ROOT_DIR"
-echo "[start] 1/6 workspace context"
+echo "[start] 1/7 workspace context"
 printf 'repo root: %s\n' "$ROOT_DIR"
 printf 'branch: %s\n' "$(git branch --show-current)"
 git status --short --branch
 
-echo "[start] 2/6 doctor-env"
+echo "[start] 2/7 doctor-env"
 make --no-print-directory doctor-env
 
-echo "[start] 3/6 caffeinate"
+echo "[start] 3/7 caffeinate"
 make --no-print-directory caffeinate
 
-echo "[start] 4/6 caffeinate-status"
+echo "[start] 4/7 caffeinate-status"
 make --no-print-directory caffeinate-status
 
-echo "[start] 5/6 session-status"
+echo "[start] 5/7 startup-docs-read"
+make --no-print-directory startup-docs-read
+
+echo "[start] 6/7 session-status"
 make --no-print-directory session-status
 
-echo "[start] 6/6 STARTUP GATE"
+echo "[start] 7/7 STARTUP GATE"
 cat <<'EOF'
-make start completed the mechanical bootstrap.
+make start completed the mechanical bootstrap and inspected the tracked startup docs.
 
 Startup completes after the next rehydrate update does all of this:
 
-1. Read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/RUNBOOK.md, docs/runtime/ARCHITECTURE.md, docs/governance/SESSION_HANDOFF.md, and local docs/peanut/governance/SESSION_HANDOFF.md if present.
+1. Use the inspected startup-doc surface:
+   - README.md
+   - docs/governance/CHARTER.md
+   - docs/governance/DECISIONS.md
+   - docs/runtime/RUNBOOK.md
+   - docs/runtime/ARCHITECTURE.md
+   - docs/governance/SESSION_HANDOFF.md
+   - local docs/peanut/governance/SESSION_HANDOFF.md if present
 
 2. Return 5 bullets:
    - current state

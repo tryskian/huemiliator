@@ -78,6 +78,7 @@ Core operator commands:
 ```sh
 make start
 make end
+make startup-docs-read
 make caffeinate-status
 make decaffeinate
 make check
@@ -88,6 +89,11 @@ Closeout rule:
 - when the goal is to end the day, run `make end`
 - `make end-preflight` is only for an explicitly requested branch-local
   preflight and does not close the loop
+- `make end` only closes when:
+  - current-truth docs are fresh
+  - local validation passes
+  - eval `pending` is `0`
+  - the repo is back on clean synced `main`
 - `make end-git-check` is the final gate inside `make end`, not the normal
   operator entrypoint
 

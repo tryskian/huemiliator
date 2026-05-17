@@ -6,7 +6,7 @@ CAFFEINATE_PID_FILE ?= /tmp/huemiliator-caffeinate.pid
 CAFFEINATE_LOG ?= /tmp/huemiliator-caffeinate.log
 CAFFEINATE_CMD ?= /usr/bin/caffeinate -d -i -m
 
-.PHONY: install env doctor-env path-leak-check path-leak-audit-local test lint format-check format typecheck precommit-install precommit-run prepush-run check package-check app session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-git-check
+.PHONY: install env doctor-env path-leak-check path-leak-audit-local test lint lint-docs format-check format typecheck precommit-install precommit-run prepush-run check package-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -32,6 +32,15 @@ test:
 
 lint:
 	$(PY) -m ruff check scripts src tests
+
+lint-docs:
+	@set -eu; \
+	files="$$(git ls-files '*.md')"; \
+	if [ -z "$$files" ]; then \
+		echo "No tracked markdown files to lint."; \
+		exit 0; \
+	fi; \
+	npx --yes markdownlint-cli2 $$files
 
 format-check:
 	$(PY) -m ruff format --check scripts src tests
@@ -61,6 +70,12 @@ check:
 
 package-check:
 	PYTHONPATH=src $(PY) -m build
+
+security-checks:
+	$(PY) -m pip_audit
+
+startup-docs-read:
+	$(PY) ./scripts/read_startup_docs.py
 
 app:
 	PYTHONPATH=src $(PY) -m huemiliator
@@ -145,10 +160,13 @@ end:
 	./scripts/end_of_day_routine.sh
 
 end-preflight:
-	end_SKIP_GIT_CHECK=1 ./scripts/end_of_day_routine.sh
+	END_SKIP_GIT_CHECK=1 END_SKIP_STOP=1 ./scripts/end_of_day_routine.sh
 
 end-docs-check:
 	$(PY) ./scripts/check_end_docs.py
+
+end-pending-check:
+	PYTHONPATH=src $(PY) ./scripts/eval_status.py --require-zero-pending
 
 end-git-check:
 	bash ./scripts/check_end_git_clean.sh
@@ -170,4 +188,8 @@ session-status:
 	fi; \
 	if [ -f "docs/governance/SESSION_HANDOFF.md" ]; then \
 		echo "handoff: docs/governance/SESSION_HANDOFF.md"; \
-	fi
+	fi; \
+	if [ -f "docs/peanut/governance/SESSION_HANDOFF.md" ]; then \
+		echo "local handoff: docs/peanut/governance/SESSION_HANDOFF.md"; \
+	fi; \
+	PYTHONPATH=src $(PY) ./scripts/eval_status.py

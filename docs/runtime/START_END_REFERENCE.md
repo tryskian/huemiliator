@@ -21,13 +21,20 @@ Sequence:
    - `make doctor-env`
    - `make caffeinate`
    - `make caffeinate-status`
+   - `make startup-docs-read`
    - `make session-status`
-3. Print the startup gate:
-   - `make start` completed the mechanical bootstrap
-4. Complete rehydrate before repo action:
-   - read `README.md`, `CHARTER`, `DECISIONS`, `RUNBOOK`,
-     `ARCHITECTURE`, `SESSION_HANDOFF`, and local peanut handoff if
-     present
+3. Inspect the tracked startup docs in-band:
+   - `README.md`
+   - `docs/governance/CHARTER.md`
+   - `docs/governance/DECISIONS.md`
+   - `docs/runtime/RUNBOOK.md`
+   - `docs/runtime/ARCHITECTURE.md`
+   - `docs/governance/SESSION_HANDOFF.md`
+   - local peanut handoff if present
+4. Print the startup gate:
+   - `make start` completed the mechanical bootstrap and startup-doc read
+5. Complete rehydrate before repo action:
+   - use the inspected startup-doc surface
    - return 5 bullets covering current state, risks, next kernel, repo or
      worktree context, and active branch
    - confirm repo path, host vs devcontainer mode, active branch, and whether
@@ -49,8 +56,8 @@ Wake-lock rule:
 Startup completion rule:
 
 - `make start` only finishes the mechanical bootstrap
-- startup completes when the next repo update proves the docs read and names
-  one active kernel
+- startup completes when the next repo update proves the inspected doc surface
+  was used and names one active kernel
 
 ## End
 
@@ -67,7 +74,11 @@ Sequence:
   - `make doctor-env`
   - tracked path leak check
   - local path leak audit
+  - `make lint-docs`
   - `make check`
+  - `make package-check`
+  - `make security-checks`
+  - `make end-pending-check`
   - `make decaffeinate`
   - `make session-status`
 2. Enforce the final git state:
@@ -77,6 +88,7 @@ Preflight:
 
 - `make end-preflight`
 - runs the docs and validation path without requiring a clean synced `main`
+- does not stop background tasks
 - use it only when an explicit branch-local preflight was requested
 - it does not close the day and it does not replace `make end`
 
@@ -86,6 +98,7 @@ Expected result:
 - `make end` should exit successfully only when:
   - the required stop-state docs were updated today
   - the validation path passes
+  - eval `pending` is `0`
   - the repo ends on clean synced `main`
 - `make session-status` is only a snapshot line inside the routine
 - the actual stop-state failure comes from `make end-git-check`
