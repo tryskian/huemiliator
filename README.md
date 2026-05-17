@@ -1,4 +1,4 @@
-# Huemiliator.
+# Huemiliator
 
 [![Research Stage](https://img.shields.io/badge/research_stage-pre--Beta%201.0%20fail--pressure%20pulse-E15759)](./docs/research/README.md)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
