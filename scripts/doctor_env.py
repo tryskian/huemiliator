@@ -3,15 +3,19 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from huemiliator.config import EVAL_DB_PATH
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from huemiliator.config import EVAL_DB_PATH  # noqa: E402
 
 
 def main() -> int:
-    root = Path(__file__).resolve().parents[1]
-    print(f"repo: {root}")
+    print(f"repo: {ROOT}")
     print(f"python: {sys.version.split()[0]}")
     print(
-        f".env.example: {'present' if (root / '.env.example').exists() else 'missing'}"
+        f".env.example: {'present' if (ROOT / '.env.example').exists() else 'missing'}"
     )
     print("runtime: picker + swatch resolution + family rank + one-up + eval + sampler")
     print(f"eval db path: {EVAL_DB_PATH}")
