@@ -290,3 +290,15 @@ history, and branch-local cleanup facts in the handoff or branch history.
   the corrected `red` rerun remains the finished row-level baseline, while
   `Beta 1.0` begins only when pulse evidence exists on the live surface instead
   of only in the staging note.
+
+## D-025: Closeout only finishes when pending eval rows are at zero
+
+- Date: `2026-05-17`
+- Category: `workflow_environment`
+- Tags: `closeout_gate`, `pending_zero`, `ci_parity`
+- Decision: `make end` only finishes when current-truth docs are fresh, the
+  local closeout path covers docs lint, package build, and dependency security,
+  live eval `pending` is `0`, and the repo returns to clean synced `main`.
+- Why: Open pending rows mean the active proof surface is still unresolved, so
+  day-close should not pass while judgment is incomplete or while local
+  closeout is weaker than the enforced repo gate.

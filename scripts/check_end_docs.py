@@ -6,10 +6,8 @@ import re
 import sys
 from pathlib import Path
 
-REQUIRED_DOCS = (
-    Path("docs/governance/SESSION_HANDOFF.md"),
-    Path("docs/research/README.md"),
-)
+REQUIRED_DOCS = (Path("docs/governance/SESSION_HANDOFF.md"),)
+OPTIONAL_LOCAL_DOCS = (Path("docs/peanut/governance/SESSION_HANDOFF.md"),)
 
 
 def parse_args() -> argparse.Namespace:
@@ -53,13 +51,24 @@ def main() -> int:
                 f"{path}: Last updated is {actual or 'missing'}, expected {args.date}"
             )
 
+    for path in OPTIONAL_LOCAL_DOCS:
+        if not path.exists():
+            continue
+        checked_docs.append(path)
+        actual = find_last_updated(path)
+        if actual != args.date:
+            failures.append(
+                f"{path}: Last updated is {actual or 'missing'}, expected {args.date}"
+            )
+
     if failures:
         print("end-docs-check: FAIL", file=sys.stderr)
         for failure in failures:
             print(f"- {failure}", file=sys.stderr)
         print(
-            "Update docs/governance/SESSION_HANDOFF.md and docs/research/README.md "
-            "before rerunning ./scripts/end_of_day_routine.sh.",
+            "Update current-truth docs before end: docs/governance/SESSION_HANDOFF.md "
+            "and local docs/peanut/governance/SESSION_HANDOFF.md if present. "
+            "Then rerun make end.",
             file=sys.stderr,
         )
         return 1

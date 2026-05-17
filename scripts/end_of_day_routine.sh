@@ -3,39 +3,48 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
-TOTAL_STEPS=8
 
-if [ "${end_SKIP_GIT_CHECK:-}" = "1" ]; then
-	TOTAL_STEPS=7
+TOTAL_STEPS=12
+if [ "${END_SKIP_STOP:-}" = "1" ]; then
+	TOTAL_STEPS=$((TOTAL_STEPS - 1))
+fi
+if [ "${END_SKIP_GIT_CHECK:-}" = "1" ]; then
+	TOTAL_STEPS=$((TOTAL_STEPS - 1))
 fi
 
+STEP=1
+
+run_step() {
+	local label="$1"
+	shift
+	echo "[end] ${STEP}/${TOTAL_STEPS} ${label}"
+	"$@"
+	STEP=$((STEP + 1))
+}
+
 echo "[end] starting end-of-day routine in: $ROOT_DIR"
-echo "[end] 1/$TOTAL_STEPS end-docs-check"
-make --no-print-directory end-docs-check
+run_step "end-docs-check" make --no-print-directory end-docs-check
+run_step "doctor-env" make --no-print-directory doctor-env
+run_step "tracked path leak check" make --no-print-directory path-leak-check
+run_step "local path leak audit" make --no-print-directory path-leak-audit-local
+run_step "lint-docs" make --no-print-directory lint-docs
+run_step "check" make --no-print-directory check
+run_step "package-check" make --no-print-directory package-check
+run_step "security-checks" make --no-print-directory security-checks
+run_step "pending eval gate" make --no-print-directory end-pending-check
 
-echo "[end] 2/$TOTAL_STEPS doctor-env"
-make --no-print-directory doctor-env
+if [ "${END_SKIP_STOP:-}" = "1" ]; then
+	echo "[end] stop background tasks skipped (preflight only; day is not closed)"
+else
+	run_step "stop background tasks" make --no-print-directory decaffeinate
+fi
 
-echo "[end] 3/$TOTAL_STEPS tracked path leak check"
-make --no-print-directory path-leak-check
+run_step "session snapshot" make --no-print-directory session-status
 
-echo "[end] 4/$TOTAL_STEPS local path leak audit"
-make --no-print-directory path-leak-audit-local
-
-echo "[end] 5/$TOTAL_STEPS check"
-make --no-print-directory check
-
-echo "[end] 6/$TOTAL_STEPS stop background tasks"
-make --no-print-directory decaffeinate || true
-
-echo "[end] 7/$TOTAL_STEPS session snapshot"
-make --no-print-directory session-status || true
-
-if [ "${end_SKIP_GIT_CHECK:-}" = "1" ]; then
+if [ "${END_SKIP_GIT_CHECK:-}" = "1" ]; then
 	echo "[end] git closeout skipped (preflight only; day is not closed)"
 else
-	echo "[end] 8/$TOTAL_STEPS git closeout"
-	bash ./scripts/check_end_git_clean.sh
+	run_step "git closeout" bash ./scripts/check_end_git_clean.sh
 fi
 
 echo "[end] done"

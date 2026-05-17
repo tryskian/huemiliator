@@ -96,4 +96,5 @@ fail-first evaluation.
 - Local terminal execution is the trusted development boundary.
 - `.local/evals.sqlite` is the live eval evidence store.
 - `make doctor-env` is the environment confirmation entrypoint.
+- `make end` is only complete when live eval `pending` is `0`.
 - Default branch changes land through protected-main PR flow.

@@ -1,12 +1,12 @@
 # Session Handoff
 
-Last updated: 2026-05-16
+Last updated: 2026-05-17
 
 ## Start Here
 
 1. Run:
    - `make start`
-2. Read:
+2. Ground on the startup-docs read across:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
@@ -124,4 +124,4 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Copy/Paste Refresh Prompt
 
-`Run make start. Then read README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md, and docs/governance/SESSION_HANDOFF.md. In 5 bullets: current state, risks, next kernel, repo or worktree context, and active branch. Confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, host vs devcontainer mode, active git branch, and clean main or feature branch. Apply no-guessing controls: prefer repo-scoped edits and preserve user shell profile files and global VS Code settings unless explicitly approved in-chat. Run one active kernel at a time. Then execute the Next Slice from SESSION_HANDOFF with minimal behavior drift and full validation.`
+`Run make start. Use the startup-docs read across README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md, docs/governance/SESSION_HANDOFF.md, and local docs/peanut/governance/SESSION_HANDOFF.md if present. In 5 bullets: current state, risks, next kernel, repo or worktree context, and active branch. Confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, host vs devcontainer mode, active git branch, and clean main or feature branch. Apply no-guessing controls: prefer repo-scoped edits and preserve user shell profile files and global VS Code settings unless explicitly approved in-chat. Run one active kernel at a time. Then execute the Next Slice from SESSION_HANDOFF with minimal behavior drift and full validation.`

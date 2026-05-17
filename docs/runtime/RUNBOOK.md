@@ -38,27 +38,30 @@ Use this doc for operator procedure.
 3. Keep wrapper targets mechanical.
 4. Use `make session-status` as the live repo and runtime snapshot.
 5. Use `make end` as the strict clean-main closeout routine.
-6. `make start` opens the session; startup completes after the rehydrate
-   response names one active kernel.
+6. `make start` opens the session by reading the tracked startup docs and
+   printing the startup gate; startup completes after the rehydrate response
+   names one active kernel.
 
 ## Morning Startup Ritual
 
 1. Run:
    - `make start`
-2. Treat `make start` as the mechanical bootstrap:
+2. Treat `make start` as the mechanical bootstrap plus tracked startup-doc read:
    - workspace context
    - `make doctor-env`
    - `make caffeinate`
    - `make caffeinate-status`
+   - `make startup-docs-read`
    - `make session-status`
    - startup gate prompt
-3. Read in this order:
+3. Use the startup-doc read across:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
    - `docs/runtime/ARCHITECTURE.md`
    - `docs/runtime/RUNBOOK.md`
    - `docs/governance/SESSION_HANDOFF.md`
+   - local `docs/peanut/governance/SESSION_HANDOFF.md` if present
 4. Confirm execution context:
    - canonical repo root or dedicated worktree
    - active branch from `git branch --show-current`
@@ -133,9 +136,15 @@ Use this doc for operator procedure.
    - switch back to `main`
    - pull fast-forward only
    - rerun `make end`
-3. Use `make end-preflight` only when an explicit branch-local preflight was
+3. `make end` only passes when:
+   - current-truth docs are fresh
+   - tracked and local path leak checks pass
+   - docs lint, code checks, package build, and dependency security pass
+   - live eval `pending` is `0`
+   - the repo ends on clean synced `main`
+4. Use `make end-preflight` only when an explicit branch-local preflight was
    requested.
-4. End state is:
+5. End state is:
    - merged
    - clean local `main`
    - synced with `origin/main`
@@ -156,7 +165,9 @@ Use this doc for operator procedure.
 - `make doctor-env`
   - environment health check
 - `make session-status`
-  - live repo and runtime snapshot
+  - live repo, runtime, and eval snapshot
+- `make startup-docs-read`
+  - tracked startup-doc inspection
 - `make caffeinate`
   - start repo-managed wake lock
 - `make caffeinate-status`
@@ -171,9 +182,17 @@ Use this doc for operator procedure.
   - local/private lane path audit
 - `make end-docs-check`
   - current-truth docs freshness gate
+- `make end-pending-check`
+  - fail closeout if eval `pending` is not `0`
+- `make lint-docs`
+  - tracked markdown validation
 - `make check`
   - repo validation suite
+- `make package-check`
+  - package build validation
+- `make security-checks`
+  - dependency security audit
 - `make end-preflight`
-  - explicit branch-local preflight only; does not close the day
+  - explicit branch-local validation only; does not stop background tasks or close the day
 - `make end-git-check`
   - clean-main closeout check
