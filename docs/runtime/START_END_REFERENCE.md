@@ -77,9 +77,12 @@ Preflight:
 
 - `make end-preflight`
 - runs the docs and validation path without requiring a clean synced `main`
+- use it only when an explicit branch-local preflight was requested
+- it does not close the day and it does not replace `make end`
 
 Expected result:
 
+- when the operator says `close out the day`, the command is `make end`
 - `make end` should exit successfully only when:
   - the required stop-state docs were updated today
   - the validation path passes

@@ -117,15 +117,10 @@ stay quarantined locally instead of mixing back into the live DB.
 ## Close A Session
 
 1. Run:
-   - `make end-docs-check`
-   - `make doctor-env`
-   - `make path-leak-check`
-   - `make path-leak-audit-local`
-   - `make check`
-   - `make decaffeinate`
-   - `make session-status`
-2. Finish on clean synced `main`:
-   - `make end-git-check`
+   - `make end`
+2. Treat `make end-preflight` as preflight only:
+   - use it only when an explicit branch-local preflight was requested
+   - do not treat it as a day-close substitute
 
 ## Copy/Paste Refresh Prompt
 
