@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-05-18
+Last updated: 2026-05-21
 
 ## Start Here
 
@@ -104,8 +104,7 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Pinned Later
 
-- when this repo is not in an active work kernel, standardize the
-  procedure-first execution contract across the repo family
+- keep the procedure-first execution contract aligned across the repo family
 - carry the same truth order across repos:
   - docs
   - live code

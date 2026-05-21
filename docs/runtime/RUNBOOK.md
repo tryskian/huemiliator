@@ -139,7 +139,8 @@ Use this doc for operator procedure.
 3. `make end` only passes when:
    - current-truth docs are fresh
    - tracked and local path leak checks pass
-   - docs lint, code checks, package build, and dependency security pass
+   - docs lint, code checks, package build, editable package import, and
+     dependency security pass
    - live eval `pending` is `0`
    - the repo ends on clean synced `main`
 4. Use `make end-preflight` only when an explicit branch-local preflight was
@@ -190,6 +191,8 @@ Use this doc for operator procedure.
   - repo validation suite
 - `make package-check`
   - package build validation
+- `make package-install-check`
+  - editable package import smoke
 - `make security-checks`
   - dependency security audit
 - `make end-preflight`
