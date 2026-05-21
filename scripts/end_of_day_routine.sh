@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-TOTAL_STEPS=12
+TOTAL_STEPS=13
 if [ "${END_SKIP_STOP:-}" = "1" ]; then
 	TOTAL_STEPS=$((TOTAL_STEPS - 1))
 fi
@@ -30,6 +30,7 @@ run_step "local path leak audit" make --no-print-directory path-leak-audit-local
 run_step "lint-docs" make --no-print-directory lint-docs
 run_step "check" make --no-print-directory check
 run_step "package-check" make --no-print-directory package-check
+run_step "package-install-check" make --no-print-directory package-install-check
 run_step "security-checks" make --no-print-directory security-checks
 run_step "pending eval gate" make --no-print-directory end-pending-check
 

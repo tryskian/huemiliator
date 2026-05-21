@@ -77,6 +77,7 @@ Sequence:
   - `make lint-docs`
   - `make check`
   - `make package-check`
+  - `make package-install-check`
   - `make security-checks`
   - `make end-pending-check`
   - `make decaffeinate`

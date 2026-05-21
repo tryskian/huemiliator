@@ -302,3 +302,25 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Why: Open pending rows mean the active proof surface is still unresolved, so
   day-close should not pass while judgment is incomplete or while local
   closeout is weaker than the enforced repo gate.
+
+## D-026: Local tooling targets include editable package install smoke
+
+- Date: `2026-05-21`
+- Category: `workflow_environment`
+- Tags: `tooling_baseline`, `closeout`, `package_install`, `operator_surface`
+- Provenance: `human-led tooling hygiene decision with implementation decision`
+- Decision: Keep Huemiliator's existing docs lint, package build, security,
+  and pending-eval gates, and add `make package-install-check` as a first-class
+  editable package import smoke. The end routine must call that target between
+  package build and dependency security checks. Dependency security keeps using
+  the repo-local venv through `make security-checks`.
+- Validation:
+  - `make check`
+  - `make lint-docs`
+  - `make package-check`
+  - `make package-install-check`
+  - `make security-checks`
+  - `make end-preflight`
+- Why: Huemiliator was already close to the desired repo-family tooling
+  baseline. The missing piece was proving that the package can be installed and
+  imported through the same explicit operator surface as the other toys.

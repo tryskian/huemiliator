@@ -5,8 +5,9 @@ PY := $(shell if [ -x "$(BIN)/python" ]; then echo "$(BIN)/python"; else echo "$
 CAFFEINATE_PID_FILE ?= /tmp/huemiliator-caffeinate.pid
 CAFFEINATE_LOG ?= /tmp/huemiliator-caffeinate.log
 CAFFEINATE_CMD ?= /usr/bin/caffeinate -d -i -m
+PIP_AUDIT_ARGS ?=
 
-.PHONY: install env doctor-env path-leak-check path-leak-audit-local test lint lint-docs format-check format typecheck precommit-install precommit-run prepush-run check package-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
+.PHONY: install env doctor-env path-leak-check path-leak-audit-local test lint lint-docs format-check format typecheck precommit-install precommit-run prepush-run check package-check package-install-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -71,8 +72,12 @@ check:
 package-check:
 	PYTHONPATH=src $(PY) -m build
 
+package-install-check:
+	$(PY) -m pip install --no-deps -e .
+	$(PY) -c "import importlib; importlib.import_module('huemiliator'); importlib.import_module('huemiliator.main')"
+
 security-checks:
-	$(PY) -m pip_audit
+	$(PY) -m pip_audit $(PIP_AUDIT_ARGS)
 
 startup-docs-read:
 	$(PY) ./scripts/read_startup_docs.py
