@@ -4,7 +4,7 @@ Date: `2026-05-21`
 
 ## What This Beta Says
 
-The first nineteen bounded pulses now read like this:
+The first twenty bounded pulses now read like this:
 
 - two `red` passes
 - one `yellow` core pass
@@ -24,6 +24,7 @@ The first nineteen bounded pulses now read like this:
 - one deeper `orange` continuation pass that narrows that drift
 - one deeper orange-gold continuation pass that holds a cream, straw, and olive edge
 - one fourth `orange` continuation that opens the first real yellow-gold fail surface
+- one corrected `orange` rerun that closes cleanly
 
 Fail-pressure pulse is no longer a staged boundary. It is the active
 `Beta 1.0` method surface for non-OCR Huemiliator eval work.
@@ -35,19 +36,19 @@ Fail-pressure pulse is no longer a staged boundary. It is the active
 | stage | `Beta 1.0` |
 | active family lane | `orange` |
 | pulse pattern | `source-order` |
-| pulse source-order start | `478` |
+| pulse source-order start | `506` |
 | pulse size | `15` |
-| active proof surface | `19962..19976` |
-| pulse verdict | `FAIL` |
-| anchors | `7` |
-| counted seams | `8` |
+| active proof surface | `19992..20006` |
+| pulse verdict | `PASS` |
+| anchors | `15` |
+| counted seams | `0` |
 | excluded noise | `0` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 
 ## Quarantine Boundary
 
 The current `Beta 1.0` active surface was reached through one baseline archive
-plus eighteen clean pulse rollovers:
+plus nineteen clean pulse rollovers:
 
 - row-level comparison baseline:
   - `closed third corrected red rerun`
@@ -125,38 +126,39 @@ plus eighteen clean pulse rollovers:
   - `beta 1 0 pulse 18 orange tranche 003`
   - `15` archived rows
   - `.local/parked/eval-surface-20260522T025048Z-beta-1-0-pulse-18-orange-tranche-003.jsonl`
+- nineteenth `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 19 orange tranche 004`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260522T030326Z-beta-1-0-pulse-19-orange-tranche-004.jsonl`
 
 That keeps the live DB truthful to one current proof surface at a time.
 
 ## Current Counted Seams
 
-The active orange continuation is now a real fail surface. The visible problem
-is the yellow-gold boundary itself.
-
-Counted seam rows:
-
-- `Aspen gold -> Banana`
-- `Pale banana -> Honey mustard`
-- `Lemon drop -> Honey`
-- `Honey -> Banana cream`
-- `Tawny olive -> Ceylon yellow`
-- `Ceylon yellow -> Golden glow`
-- `Antelope -> Sunlight`
-- `Nugget gold -> Daffodil`
+The corrected orange rerun closes cleanly, so there are no counted seams in
+the active proof surface.
 
 ## Current Anchors
 
-The orange-gold core still survives locally inside the fail surface.
+The corrected orange lane now holds cleanly across the full active pulse.
 
 Representative anchors:
 
-- `Freesia -> Golden poppy`
-- `Misted yellow -> Pumpkin`
-- `Sauterne -> Coral gold`
-- `Arrowwood -> Jaffa orange`
-- `Fall leaf -> Golden haze`
-- `Mustard gold -> Sunburst`
-- `Harvest gold -> Cadmium orange`
+- `Tinsel -> Buckskin`
+- `Bright gold -> Cantaloupe`
+- `Honey gold -> Buff yellow`
+- `Amber gold -> Coral reef`
+- `Mineral yellow -> Bamboo`
+- `Narcissus -> Golden nugget`
+- `Snapdragon -> Golden spice`
+- `Yolk yellow -> Amber`
+- `Golden rod -> Sun orange`
+- `Old gold -> Citrus`
+- `Spectra yellow -> Carrot curl`
+- `Golden haze -> Rattan`
+- `Sahara sun -> Peach quartz`
+- `New wheat -> Pale gold`
+- `Cornsilk -> Flax`
 
 ## Beta Note
 
@@ -279,6 +281,14 @@ The nineteenth pulse closes that question and fails:
 - banana / honey / daffodil drift is taking over enough of the slice that `orange` no longer passes honestly here
 - `orange` now needs a narrow orange-to-yellow correction rather than another blind continuation
 
+The twentieth pulse shows that the correction is enough:
+
+- the rerun comes back at `15 anchors / 0 counted seams`
+- the banana / honey / daffodil drift is gone from the active orange slice
+- the next orange continuation also stays inside an orange-gold lane
+- `orange` is now stable enough to park
+- `brown` becomes the next active family lane
+
 ## Comparison Read
 
 Compared against the closed row-level rerun and the earlier `red` pulses:
@@ -321,8 +331,10 @@ Compared against the closed row-level rerun and the earlier `red` pulses:
   - `15 total / 11 pass / 4 fail / 0 pending`
 - eighteenth bounded pulse:
   - `15 total / 10 pass / 5 fail / 0 pending`
-- current bounded pulse:
+- nineteenth bounded pulse:
   - `15 total / 7 pass / 8 fail / 0 pending`
+- current bounded pulse:
+  - `15 total / 15 pass / 0 fail / 0 pending`
 
 The row-level rerun stays important as the closed comparison baseline, but the
 live verdict unit is now the bounded pulse and the active proof surface is the
@@ -357,7 +369,7 @@ The first three `blue` pulses answer three more:
 
 The open question moves forward:
 
-- does `orange` now need a narrow yellow-gold boundary correction
+- how does the first bounded `brown` pulse open from source order `104`
 
 Later `red` work is optional follow-up, not the next required gate.
 
@@ -365,10 +377,9 @@ Later `red` work is optional follow-up, not the next required gate.
 
 The clean follow-through question is:
 
-1. keep `19962..19976` as the current active proof surface
+1. keep `19992..20006` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
-   `blue`, `purple`, and `pink` proof stacks as the comparison stack
-3. treat the fourth `orange` continuation as the first real orange fail surface
-   with a yellow-gold boundary problem
-4. cut a narrow orange-to-yellow correction against the banana / honey /
-   daffodil cluster
+   `blue`, `purple`, `pink`, and `orange` proof stacks as the comparison stack
+3. treat `orange` as parked behind one fail surface, one corrected clean rerun,
+   and one clean continuation
+4. run the first bounded `brown` pulse from source order `104`

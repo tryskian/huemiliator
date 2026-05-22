@@ -104,6 +104,20 @@ RED_TO_ORANGE_EDGE_SWATCH_NAMES = frozenset(
         "Ginger",
     }
 )
+ORANGE_TO_YELLOW_EDGE_SWATCH_NAMES = frozenset(
+    {
+        "Banana",
+        "Honey mustard",
+        "Honey",
+        "Banana cream",
+        "Ceylon yellow",
+        "Golden glow",
+        "Sunlight",
+        "Daffodil",
+        "Straw",
+        "Golden yellow",
+    }
+)
 YELLOW_TO_GREEN_EDGE_SWATCH_NAMES = frozenset(
     {
         "Green sheen",
@@ -200,6 +214,11 @@ def classify_swatch(swatch: SwatchEntry) -> FamilyAssignment:
     assignment = classify_family(swatch.hex)
     if assignment.family == "red" and swatch.name in RED_TO_ORANGE_EDGE_SWATCH_NAMES:
         return FamilyAssignment(family="orange", metrics=assignment.metrics)
+    if (
+        assignment.family == "orange"
+        and swatch.name in ORANGE_TO_YELLOW_EDGE_SWATCH_NAMES
+    ):
+        return FamilyAssignment(family="yellow", metrics=assignment.metrics)
     if (
         assignment.family == "yellow"
         and swatch.name in YELLOW_TO_GREEN_EDGE_SWATCH_NAMES

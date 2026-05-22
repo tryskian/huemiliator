@@ -24,7 +24,7 @@ Current live research lane:
 
 Current active proof surface:
 
-- fourth bounded `orange` continuation at `19962..19976`
+- fifth bounded `orange` continuation at `19992..20006`
 - pulse-level proof surface
 
 Current closed comparison surface:
@@ -34,20 +34,20 @@ Current closed comparison surface:
 
 Current beta question:
 
-Does `orange` now need a narrow yellow-gold boundary correction?
+How does the first bounded `brown` pulse open from source order `104`?
 
 ## Current Research State
 
 | Item | Current state |
 | --- | --- |
 | stage | `Beta 1.0` |
-| active proof surface | fourth bounded `orange` continuation at `19962..19976` |
-| current totals | `15 total / 7 pass / 8 fail / 0 pending` |
-| current question | does `orange` now need a narrow yellow-gold boundary correction |
+| active proof surface | fifth bounded `orange` continuation at `19992..20006` |
+| current totals | `15 total / 15 pass / 0 fail / 0 pending` |
+| current question | how does the first bounded `brown` pulse open from source order `104` |
 | active beta note | `beta_1_0_fail_pressure_pulse_2026-05-21` |
 | closed staging note | `pre_beta_1_fail_pressure_pulse_2026-05-16` |
-| active family lane | `orange` |
-| stable prior lanes | `red`, `yellow`, `green`, `blue`, `purple`, `pink` |
+| active family lane | `brown` |
+| stable prior lanes | `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange` |
 | current audit note | `red_orange_edge_drift_audit_2026-05-16` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 | live DB rule | keep only the current proof surface in `eval_outputs` |
@@ -56,7 +56,7 @@ Does `orange` now need a narrow yellow-gold boundary correction?
 
 | Surface | Type | What it says now |
 | --- | --- | --- |
-| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, the first `orange` pulse opens at `9 anchors / 6 counted seams / 0 excluded`, the second narrows that drift to `11 anchors / 4 counted seams / 0 excluded`, the third holds at `10 anchors / 5 counted seams / 0 excluded`, and the fourth opens the first real orange fail surface at `7 anchors / 8 counted seams / 0 excluded` |
+| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, and `orange` now parks after one fail surface, one corrected clean rerun, and one clean continuation |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./pre_beta_1_fail_pressure_pulse_2026-05-16.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
 | [Brown Context Dependence](./brown_context_dependence_2026-05-08.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./red_orange_edge_drift_2026-05-15.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
@@ -105,13 +105,16 @@ flowchart LR
 - the second bounded `orange` continuation passes at `11 anchors / 4 counted seams`
 - the third bounded `orange` continuation passes at `10 anchors / 5 counted seams`
 - the fourth bounded `orange` continuation fails at `7 anchors / 8 counted seams`
+- the fifth bounded `orange` continuation passes cleanly at `15 anchors / 0 counted seams`
 - `red` is now stable enough to stop being the blocking family lane
 - `yellow` is now stable enough to park beside `red`
 - `green` is now stable enough to park beside `red` and `yellow`
 - `blue` is now stable enough to park beside `red`, `yellow`, and `green`
 - `purple` is now stable enough to park beside `red`, `yellow`, `green`, and `blue`
 - `pink` is now stable enough to park beside `red`, `yellow`, `green`, `blue`, and `purple`
-- `orange` is now the next active family lane
+- `orange` is now stable enough to park beside `red`, `yellow`, `green`,
+  `blue`, `purple`, and `pink`
+- `brown` is now the next active family lane
 - the explicit yellow-to-green correction restores a local yellow pass
 - the final residual chartreuse cut is now explicit in runtime code
 - the explicit blue drift correction restores a much cleaner local blue pass
@@ -131,8 +134,9 @@ flowchart LR
   toward a cream, straw, and olive edge
 - the fourth bounded `orange` continuation opens the first real yellow-gold
   fail surface inside `orange`
-- the current live question is whether `orange` now needs a narrow
-  orange-to-yellow boundary correction
+- the corrected fifth bounded `orange` continuation closes cleanly at `15 / 0`
+- the current live question is how the first bounded `brown` pulse opens from
+  source order `104`
 - the closed third corrected `red` rerun stays as the closed row-level
   comparison baseline
 - scoped sampling truth now matches the current runtime ladder again
@@ -145,14 +149,13 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep `19962..19976` as the current active proof surface
+1. keep `19992..20006` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
-   `blue`, `purple`, and `pink` proof stacks as the current Beta 1.0
+   `blue`, `purple`, `pink`, and `orange` proof stacks as the current Beta 1.0
    comparison stack
-3. treat the fourth `orange` continuation as the first real orange fail surface
-   with a yellow-gold boundary problem
-4. cut a narrow orange-to-yellow correction against the banana / honey /
-   daffodil cluster
+3. treat `orange` as parked behind one real fail surface, one corrected clean
+   rerun, and one clean continuation
+4. run the first bounded `brown` pulse from source order `104`
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.

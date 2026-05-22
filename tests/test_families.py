@@ -5,6 +5,7 @@ from huemiliator.config import SWATCH_SNAPSHOT_PATH
 from huemiliator.families import (
     BLUE_TO_GREEN_EDGE_SWATCH_NAMES,
     BROWN_EARTHY_HUE_MAX,
+    ORANGE_TO_YELLOW_EDGE_SWATCH_NAMES,
     YELLOW_TO_GREEN_EDGE_SWATCH_NAMES,
     build_family_member_index,
     build_family_rank_index,
@@ -258,6 +259,48 @@ def test_select_one_up_skips_named_red_orange_edge_swatches() -> None:
     assert selection.replacement.swatch.name == "Tandori spice"
 
 
+def test_orange_yellow_edge_swatches_route_out_of_orange() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    assert by_name["Banana"].family == "yellow"
+    assert by_name["Honey"].family == "yellow"
+    assert by_name["Ceylon yellow"].family == "yellow"
+    assert by_name["Sunlight"].family == "yellow"
+    assert by_name["Daffodil"].family == "yellow"
+    assert by_name["Pumpkin"].family == "orange"
+    assert by_name["Coral gold"].family == "orange"
+    assert by_name["Jaffa orange"].family == "orange"
+    assert by_name["Sunburst"].family == "orange"
+    assert by_name["Cadmium orange"].family == "orange"
+
+
+def test_select_one_up_skips_named_orange_yellow_edge_swatches_in_snapshot() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    expected_replacements = {
+        "Aspen gold": "Bird of paradise",
+        "Pale banana": "Copper",
+        "Lemon drop": "Snapdragon",
+        "Tawny olive": "Orange ochre",
+        "Antelope": "Cocoon",
+        "Nugget gold": "Celosia orange",
+    }
+
+    for current_name, expected_name in expected_replacements.items():
+        selection = select_one_up(by_name[current_name], members)
+        assert selection.current.family == "orange"
+        assert selection.replacement.family == "orange"
+        assert selection.replacement.swatch.name == expected_name
+        assert (
+            selection.replacement.swatch.name not in ORANGE_TO_YELLOW_EDGE_SWATCH_NAMES
+        )
+
+
 def test_yellow_green_edge_swatches_route_out_of_yellow() -> None:
     dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
     ranked = build_family_rank_index(dataset)
@@ -287,8 +330,8 @@ def test_select_one_up_skips_named_yellow_green_edge_swatches_in_snapshot() -> N
         "Vibrant yellow": "Evening primrose",
         "Mellow yellow": "Sweet pea",
         "Popcorn": "Yellow iris",
-        "Sunshine": "Oil yellow",
-        "Lemon curry": "Maize",
+        "Sunshine": "Honey",
+        "Lemon curry": "Golden yellow",
         "Curry": "Young wheat",
         "Marigold": "Sulphur",
     }
