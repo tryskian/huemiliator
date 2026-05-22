@@ -90,13 +90,14 @@ flowchart LR
 The active method is:
 
 - Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The closed third corrected `red` rerun is still the active row-level
-  comparison surface. Fail-pressure pulse is the staged next method boundary,
-  not the active judged surface yet.
+  The third bounded `brown` continuation at `20037..20051` is the active
+  judged proof surface. The full parked red, yellow, green, blue, purple,
+  pink, orange, and brown proof stacks stay as the current Beta 1.0
+  comparison stack, and the closed third corrected `red` rerun stays as the
+  closed row-level comparison baseline.
 - one active family lane at a time
 - one active sampler at a time
-- row-level family rerun evidence as the current active proof surface
-- bounded fail-pressure pulse as the staged next judgment unit
+- bounded fail-pressure pulse as the current live judgment unit
 - rows stay visible as evidence inside the pulse
 - `warm` as an audit cohort only
 - closed proof surfaces stay active until the next correction is explicit

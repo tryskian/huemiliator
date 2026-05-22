@@ -199,3 +199,16 @@ Use this doc for operator procedure.
   - explicit branch-local validation only; does not stop background tasks or close the day
 - `make end-git-check`
   - clean-main closeout check
+
+## Pulse Eval Commands
+
+- `huemiliator eval-pulse-start --count 15 --family red --quarantine-label "<label>"`
+  - archive any current live proof surface into local `.local/parked/`
+    artefacts, then seed the bounded pulse
+- `huemiliator eval-pulse-label <output_id> anchor`
+  - label one pulse row as `anchor`, `counted_seam`, or `excluded_noise`
+- `huemiliator eval-pulse-label <output_id> excluded_noise --reason operator_artifact`
+  - record the narrow exclusion reason when a row should stay visible but not
+    counted
+- `huemiliator eval-pulse-report <start_id> <end_id>`
+  - summarize raw rows, counted total, exclusions by reason, and pulse verdict

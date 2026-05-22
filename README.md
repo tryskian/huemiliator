@@ -1,11 +1,7 @@
 # Huemiliator
 
-[![Research Stage](https://img.shields.io/badge/research_stage-pre--Beta%201.0%20fail--pressure%20pulse-E15759)](./docs/research/README.md)
+[![Research Stage](https://img.shields.io/badge/research_stage-Beta%201.0%20fail--pressure%20pulse-E15759)](./docs/research/README.md)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
-![Maintenance](https://img.shields.io/badge/maintenance-in%20progress-F28E2B)
-
-> **Maintenance in progress.** Documentation and research surfaces are being
-> standardised before this repo is shared as a stable reference.
 
 ## pick a colour. huey's is better
 
@@ -29,10 +25,15 @@ That narrow surface is the point. Huemiliator is not trying to be a general
 colour utility. It studies whether deterministic colour matching, family
 routing, and one-up logic can stay legible under tight runtime rules.
 
-Current staged research lane:
+Current live research lane:
 
-- `pre-Beta 1.0`
+- `Beta 1.0`
 - `fail-pressure pulse`
+
+Current active proof surface:
+
+- third bounded `brown` continuation at `20037..20051`
+- pulse-level proof surface
 
 Current closed comparison surface:
 
@@ -44,15 +45,16 @@ evidence means, not just when wording or procedure gets tidier. Pre-beta
 staging notes can hold the next method boundary before the first real evidence
 run starts.
 
-`Beta 1.0` does not begin until the first real fail-pressure pulse run starts.
+`Beta 1.0` here names the live research-method boundary, not an app release
+version.
 
 ## What This Repo Demonstrates
 
 - picker-first input instead of freeform text
 - deterministic swatch matching against a frozen local reference
 - runtime-owned family assignment, same-family rank, and one-up selection
-- the current row-level family proof surface as a closed comparison baseline
-- the staged fail-pressure pulse boundary for the next non-OCR eval unit
+- the current pulse proof surface plus the closed row-level comparison baseline
+- the active fail-pressure pulse boundary for the current non-OCR eval unit
 - a small local evidence surface for following deterministic output and pulse
   evidence
 

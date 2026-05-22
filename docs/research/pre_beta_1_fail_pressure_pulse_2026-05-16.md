@@ -2,6 +2,12 @@
 
 Date: `2026-05-16`
 
+Historical note:
+
+- this staging note was activated on `2026-05-21`
+- the first live pulse result is tracked in:
+  - `beta_1_0_fail_pressure_pulse_2026-05-21`
+
 ## What This Pre-Beta Asks
 
 Should Huemiliator treat a bounded family run as the real binary unit once
@@ -35,7 +41,7 @@ The proposed pulse shape for Huemiliator is:
 - first staged target family:
   - `red`
 - first staged seam:
-  - `warm-clay / peach shoulder`
+  - `warm-clay / peach drift`
 - start small:
   - around `15` rows
 - row evidence is judged first as:
@@ -98,7 +104,7 @@ Reporting shape:
 flowchart TD
   A["Scoped red run<br/>repaired sampler truth"]
   B["Bounded pulse<br/>about 15 rows"]
-  C["Active seam<br/>warm-clay / peach shoulder"]
+  C["Active seam<br/>warm-clay / peach drift"]
   D{"Review each row"}
   E["Anchor"]
   F["Counted seam"]
@@ -134,7 +140,7 @@ flowchart TD
 Reading note:
 
 - the active lane stays `red`
-- the active seam stays the warm-clay / peach shoulder
+- the active seam stays the warm-clay / peach drift
 - raw rows are everything inside the bounded pulse
 - only `anchor` and `counted seam` rows enter the verdict math
 - excluded rows stay visible by reason, but do not alter the counted total
@@ -146,8 +152,9 @@ Reading note:
 | --- | --- |
 | staged lane | `pre-Beta 1.0` |
 | active proof surface | closed third corrected `red` rerun at `id > 18423` |
-| next live gate | first bounded `red` Beta 1.0 pulse from the repaired sampler surface |
+| activation result | first bounded `red` Beta 1.0 pulse launched and judged on `2026-05-21` |
 | current evidence store | `.local/evals.sqlite` still holds row evidence |
+| pulse operator surface | start / label / report with local proof-surface quarantine |
 | first Beta 1.0 target | `red` |
 
 ## What This Would Change
@@ -191,19 +198,20 @@ ask a stricter question:
 - the picker runtime stays local and deterministic
 - the frozen `margaret2` snapshot stays the primary colour reference
 - runtime still owns swatch matching, family assignment, rank, and one-up
-- the active technical seam is still the warm-clay / peach shoulder inside
+- the active technical seam is still the warm-clay / peach drift inside
   `red`
 
 ## What It Still Needs
 
 Before this becomes `Beta 1.0`, Huemiliator still needs:
 
-- one operator surface for pulse labeling and reporting
 - a tight evidence taxonomy for:
   - `anchor`
   - `counted seam`
   - `excluded noise`
-- one first bounded `red` pulse launched from the repaired sampler surface
+- one first bounded `red` pulse launched from the repaired operator surface
+- one clean local quarantine of the closed row-level proof surface before that
+  pulse starts
 - explicit research reporting that compares pulse verdicts back to the closed
   row-level `red` baseline
 
@@ -217,6 +225,23 @@ Date: `2026-05-17`
   snapshot source-order surface again
 - the surfaced `contract` command now dispatches a real runtime-contract view
 - validation is green on the repair branch: `make check`
+
+Date: `2026-05-21`
+
+- bounded pulse start now archives the current live proof surface into local
+  `.local/parked/` artefacts before seeding a fresh pulse
+- pulse rows now have explicit operator labels:
+  - `anchor`
+  - `counted_seam`
+  - `excluded_noise`
+- pulse reporting now exposes:
+  - raw rows
+  - counted total
+  - excluded rows by reason
+  - pulse verdict
+- validation is green on the pulse operator branch: `make check`
+- the first real bounded `red` pulse is now live in:
+  - `beta_1_0_fail_pressure_pulse_2026-05-21`
 
 ## What Would Promote It
 
