@@ -233,6 +233,72 @@ def test_main_eval_judge_prints_updated_row() -> None:
     assert "judged output 1: pass" in stdout.getvalue()
 
 
+def test_main_eval_pulse_start_prints_summary() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_pulse_start",
+        return_value="bounded pulse start: count=15\noutput_ids=1-15",
+    ):
+        with redirect_stdout(stdout):
+            result = main(
+                [
+                    "eval-pulse-start",
+                    "--count",
+                    "15",
+                    "--family",
+                    "red",
+                    "--start-source-order",
+                    "20",
+                    "--quarantine-label",
+                    "closed red rerun",
+                ]
+            )
+
+    assert result == 0
+    assert "bounded pulse start: count=15" in stdout.getvalue()
+
+
+def test_main_eval_pulse_start_errors_cleanly() -> None:
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_pulse_start",
+        side_effect=ValueError("Live eval surface is not empty."),
+    ):
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            result = main(["eval-pulse-start", "--count", "15"])
+
+    assert result == 1
+    assert stdout.getvalue() == ""
+    assert "Live eval surface is not empty." in stderr.getvalue()
+
+
+def test_main_eval_pulse_label_prints_updated_row() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_pulse_label",
+        return_value="pulse labeled output 2: anchor\n\nid: 2",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-pulse-label", "2", "anchor"])
+
+    assert result == 0
+    assert "pulse labeled output 2: anchor" in stdout.getvalue()
+
+
+def test_main_eval_pulse_report_prints_summary() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_pulse_report",
+        return_value="pulse ids: 20-34\npulse verdict: pass",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["eval-pulse-report", "20", "34"])
+
+    assert result == 0
+    assert "pulse verdict: pass" in stdout.getvalue()
+
+
 def test_main_eval_sample_local_prints_summary() -> None:
     stdout = io.StringIO()
     with patch(

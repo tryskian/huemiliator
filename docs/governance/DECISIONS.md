@@ -318,6 +318,20 @@ history, and branch-local cleanup facts in the handoff or branch history.
   - `make check`
   - `make lint-docs`
   - `make package-check`
+
+## D-027: Activate fail-pressure pulse as live Beta 1.0 when the first real pulse exists
+
+- Date: `2026-05-21`
+- Category: `eval_quality`
+- Tags: `beta_activation`, `pulse_evidence`, `proof_surface`
+- Decision: Once the first real bounded pulse is launched, quarantined, and
+  judged on the live surface, fail-pressure pulse becomes Huemiliator's active
+  `Beta 1.0` method boundary. The bounded pulse carries the live verdict, while
+  the closed third corrected `red` rerun stays as the row-level comparison
+  baseline.
+- Why: A staged pulse note is only a contract. The method becomes live when the
+  repo has actual pulse evidence on the current proof surface. That keeps the
+  activation boundary concrete instead of rhetorical.
   - `make package-install-check`
   - `make security-checks`
   - `make end-preflight`

@@ -1,14 +1,22 @@
 from __future__ import annotations
 
 from huemiliator.colour_math import build_colour_metrics
+from huemiliator.config import SWATCH_SNAPSHOT_PATH
 from huemiliator.families import (
+    BLUE_TO_GREEN_EDGE_SWATCH_NAMES,
     BROWN_EARTHY_HUE_MAX,
+    YELLOW_TO_GREEN_EDGE_SWATCH_NAMES,
     build_family_member_index,
     build_family_rank_index,
     classify_family,
     select_one_up,
 )
-from huemiliator.swatches import SwatchDataset, SwatchEntry, SwatchSource
+from huemiliator.swatches import (
+    SwatchDataset,
+    SwatchEntry,
+    SwatchSource,
+    load_swatch_snapshot,
+)
 
 
 def _dataset(*swatches: SwatchEntry) -> SwatchDataset:
@@ -248,6 +256,94 @@ def test_select_one_up_skips_named_red_orange_edge_swatches() -> None:
     assert ranked[4].family == "red"
     assert selection.current.swatch.name == "Garnet rose"
     assert selection.replacement.swatch.name == "Tandori spice"
+
+
+def test_yellow_green_edge_swatches_route_out_of_yellow() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    assert by_name["Green sheen"].family == "green"
+    assert by_name["Lime punch"].family == "green"
+    assert by_name["Golden olive"].family == "green"
+    assert by_name["Woodbine"].family == "green"
+    assert by_name["Citron"].family == "green"
+    assert by_name["Golden lime"].family == "green"
+    assert by_name["Daiquiri green"].family == "green"
+    assert by_name["Shadow green"].family == "green"
+    assert by_name["Dandelion"].family == "yellow"
+    assert by_name["Cyber yellow"].family == "yellow"
+    assert by_name["Marigold"].family == "yellow"
+
+
+def test_select_one_up_skips_named_yellow_green_edge_swatches_in_snapshot() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    expected_replacements = {
+        "Dandelion": "Lemon",
+        "Vibrant yellow": "Evening primrose",
+        "Mellow yellow": "Sweet pea",
+        "Popcorn": "Yellow iris",
+        "Sunshine": "Oil yellow",
+        "Lemon curry": "Maize",
+        "Curry": "Young wheat",
+        "Marigold": "Sulphur",
+    }
+
+    for current_name, expected_name in expected_replacements.items():
+        selection = select_one_up(by_name[current_name], members)
+        assert selection.current.family == "yellow"
+        assert selection.replacement.family == "yellow"
+        assert selection.replacement.swatch.name == expected_name
+        assert (
+            selection.replacement.swatch.name not in YELLOW_TO_GREEN_EDGE_SWATCH_NAMES
+        )
+
+
+def test_blue_green_edge_swatches_route_out_of_blue() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    assert by_name["Caneel bay"].family == "green"
+    assert by_name["Pool green"].family == "green"
+    assert by_name["Aqua green"].family == "green"
+    assert by_name["Tropical green"].family == "green"
+    assert by_name["Lapis"].family == "green"
+    assert by_name["Cockatoo"].family == "green"
+    assert by_name["Arcadia"].family == "green"
+    assert by_name["Cosmic sky"].family == "blue"
+    assert by_name["Deep periwinkle"].family == "blue"
+    assert by_name["Royal blue"].family == "blue"
+
+
+def test_select_one_up_skips_named_blue_green_edge_swatches_in_snapshot() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    expected_replacements = {
+        "Aster purple": "Bright cobalt",
+        "Purple opulence": "Palace blue",
+        "Liberty": "Deep blue",
+        "Deep wisteria": "Blue bonnet",
+        "Jacaranda": "Galaxy blue",
+        "Dusted peri": "Little boy blue",
+        "Violet storm": "Methyl blue",
+        "Twilight purple": "Aquarelle",
+        "Spectrum blue": "Nautical blue",
+    }
+
+    for current_name, expected_name in expected_replacements.items():
+        selection = select_one_up(by_name[current_name], members)
+        assert selection.current.family == "blue"
+        assert selection.replacement.family == "blue"
+        assert selection.replacement.swatch.name == expected_name
+        assert selection.replacement.swatch.name not in BLUE_TO_GREEN_EDGE_SWATCH_NAMES
 
 
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:

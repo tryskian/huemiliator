@@ -104,6 +104,70 @@ RED_TO_ORANGE_EDGE_SWATCH_NAMES = frozenset(
         "Ginger",
     }
 )
+YELLOW_TO_GREEN_EDGE_SWATCH_NAMES = frozenset(
+    {
+        "Green sheen",
+        "Golden palm",
+        "Cress green",
+        "Willow",
+        "Oasis",
+        "Golden olive",
+        "Woodbine",
+        "Dark citron",
+        "Daiquiri green",
+        "Wild lime",
+        "Linden green",
+        "Bright chartreuse",
+        "Tender shoots",
+        "Lime punch",
+        "Sulphur spring",
+        "Citronelle",
+        "Sunny lime",
+        "Limeade",
+        "Lime sherbet",
+        "Apple green",
+        "Warm olive",
+        "Antique moss",
+        "Citron",
+        "Charlock",
+        "Golden lime",
+        "Mellow green",
+        "Shadow green",
+        "Celery green",
+        "Green banana",
+        "Winter pear",
+        "Sylvan green",
+        "Green essence",
+        "Ethereal green",
+        "Garden glade",
+        "Pale green",
+        "Pale lime yellow",
+        "Green oasis",
+        "Leek green",
+        "Weeping willow",
+        "Palm",
+        "Moss",
+        "Green moss",
+        "Spinach green",
+        "Luminary green",
+        "Split pea",
+    }
+)
+BLUE_TO_GREEN_EDGE_SWATCH_NAMES = frozenset(
+    {
+        "Caneel bay",
+        "Pool green",
+        "Aqua green",
+        "Lake blue",
+        "Hydro",
+        "Porcelain green",
+        "Tropical green",
+        "Lapis",
+        "Cockatoo",
+        "Island paradise",
+        "Arcadia",
+    }
+)
 
 
 @dataclass(frozen=True)
@@ -136,6 +200,13 @@ def classify_swatch(swatch: SwatchEntry) -> FamilyAssignment:
     assignment = classify_family(swatch.hex)
     if assignment.family == "red" and swatch.name in RED_TO_ORANGE_EDGE_SWATCH_NAMES:
         return FamilyAssignment(family="orange", metrics=assignment.metrics)
+    if (
+        assignment.family == "yellow"
+        and swatch.name in YELLOW_TO_GREEN_EDGE_SWATCH_NAMES
+    ):
+        return FamilyAssignment(family="green", metrics=assignment.metrics)
+    if assignment.family == "blue" and swatch.name in BLUE_TO_GREEN_EDGE_SWATCH_NAMES:
+        return FamilyAssignment(family="green", metrics=assignment.metrics)
     return assignment
 
 

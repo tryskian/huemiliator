@@ -68,4 +68,31 @@ Date: `2026-05-17`
 - the surfaced `contract` command now dispatches truthfully instead of falling
   through to `status`
 - validation is green on the repair branch: `make check`
-- the first bounded `red` Beta 1.0 pulse is now the next live gate
+
+## Beta 1.0 Launch Update
+
+Date: `2026-05-21`
+
+- the first bounded `red` Beta 1.0 pulse launched at `19692..19706`
+- the closed third corrected `red` rerun was quarantined locally before the
+  new pulse was seeded
+- the first pulse passed at:
+  - `11 anchors`
+  - `4 counted seams`
+  - `0 excluded`
+- the warm-clay / peach shoulder is still visible, but it no longer outweighs
+  the lane around it in the first bounded pulse
+
+## Deeper Cluster Update
+
+Date: `2026-05-21`
+
+- the next bounded `red` pulse targeted the older repeated fail cluster at
+  source-order `850`
+- the active proof surface is now `19707..19721`
+- that deeper cluster also passed at:
+  - `10 anchors`
+  - `5 counted seams`
+  - `0 excluded`
+- the older repeated fail cluster is still a real shoulder, but it no longer
+  dominates the lane under bounded pulse pressure

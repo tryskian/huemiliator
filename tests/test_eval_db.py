@@ -3,12 +3,16 @@ from __future__ import annotations
 from pathlib import Path
 
 from huemiliator.eval_db import (
+    PULSE_EXCLUSION_REASONS,
     counts,
     get_output,
     init_db,
     judge_output,
+    label_pulse_row,
     list_outputs,
+    quarantine_live_surface,
     record_one_up_state,
+    summarize_pulse_range,
 )
 from huemiliator.families import RankedSwatch
 from huemiliator.pipeline import OneUpState
@@ -254,3 +258,86 @@ def test_counts_can_filter_to_warm_scope(tmp_path: Path) -> None:
     summary = counts(db_path, family="warm")
 
     assert summary == {"total": 2, "pass": 1, "fail": 1, "pending": 0}
+
+
+def test_label_pulse_row_updates_label_and_reason(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    output_id = record_one_up_state(db_path, _state())
+
+    label_pulse_row(db_path, output_id, "excluded_noise", "off_target_failure")
+    row = get_output(db_path, output_id)
+
+    assert row["pulse_label"] == "excluded_noise"
+    assert row["pulse_reason"] == "off_target_failure"
+
+
+def test_label_pulse_row_rejects_reason_for_anchor(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    output_id = record_one_up_state(db_path, _state())
+
+    try:
+        label_pulse_row(db_path, output_id, "anchor", "operator_artifact")
+    except ValueError as exc:
+        assert "Only excluded_noise rows may set a pulse reason." in str(exc)
+    else:
+        raise AssertionError("Expected ValueError for anchor reason.")
+
+
+def test_summarize_pulse_range_counts_labels_and_verdict(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    first_id = record_one_up_state(db_path, _state())
+    second_id = record_one_up_state(db_path, _state())
+    third_id = record_one_up_state(db_path, _state())
+
+    label_pulse_row(db_path, first_id, "anchor")
+    label_pulse_row(db_path, second_id, "counted_seam")
+    label_pulse_row(db_path, third_id, "excluded_noise", "operator_artifact")
+    summary = summarize_pulse_range(db_path, first_id, third_id)
+
+    assert summary.raw_rows == 3
+    assert summary.anchors == 1
+    assert summary.counted_seams == 1
+    assert summary.excluded_noise == 1
+    assert summary.excluded_by_reason == {
+        reason: 1 if reason == "operator_artifact" else 0
+        for reason in PULSE_EXCLUSION_REASONS
+    }
+    assert summary.unlabeled_rows == 0
+    assert summary.counted_total == 2
+    assert summary.verdict == "fail"
+
+
+def test_summarize_pulse_range_reports_incomplete_until_all_rows_labeled(
+    tmp_path: Path,
+) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    first_id = record_one_up_state(db_path, _state())
+    second_id = record_one_up_state(db_path, _state())
+
+    label_pulse_row(db_path, first_id, "anchor")
+    summary = summarize_pulse_range(db_path, first_id, second_id)
+
+    assert summary.unlabeled_rows == 1
+    assert summary.verdict is None
+
+
+def test_quarantine_live_surface_exports_rows_and_clears_live_db(
+    tmp_path: Path,
+) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    parked_dir = tmp_path / "parked"
+    record_one_up_state(db_path, _state())
+    record_one_up_state(db_path, _state())
+
+    result = quarantine_live_surface(
+        db_path,
+        parked_dir=parked_dir,
+        label="closed third corrected red rerun",
+    )
+
+    assert result.total_rows == 2
+    assert result.first_output_id == 1
+    assert result.last_output_id == 2
+    assert result.archive_path.exists()
+    assert result.meta_path.exists()
+    assert counts(db_path) == {"total": 0, "pass": 0, "fail": 0, "pending": 0}
