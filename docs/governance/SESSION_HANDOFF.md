@@ -41,7 +41,8 @@ The core tracked shape is:
   deterministic one-up selection
 - the loss line stays downstream of the colour decision
 - route and family correctness stay binary
-- the first bounded `brown` pulse at `20007..20021` is the active proof surface
+- the third bounded `brown` continuation at `20037..20051` is the active proof
+  surface
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the active live verdict unit
@@ -52,9 +53,9 @@ stay quarantined locally instead of mixing back into the live DB.
 ## Active Kernel
 
 - carry the two passing `Beta 1.0` red pulses plus the parked `yellow`,
-  `green`, `blue`, `purple`, `pink`, and `orange` proof stacks as comparison
-  context, then run the second bounded `brown` continuation from source order
-  `224`
+  `green`, `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as
+  comparison context, then run the first bounded `neutral` pulse from source
+  order `1`
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -62,15 +63,14 @@ stay quarantined locally instead of mixing back into the live DB.
 
 1. Inspect:
    - `docs/research/README.md`
+   - `docs/research/beta_1_0_fail_pressure_pulse_2026-05-21.md`
    - `docs/research/pre_beta_1_fail_pressure_pulse_2026-05-16.md`
    - `docs/research/brown_context_dependence_2026-05-08.md`
-   - `docs/research/red_orange_edge_drift_2026-05-15.md`
-   - `docs/research/red_orange_edge_drift_audit_2026-05-16.md`
 2. Inspect the live repo snapshot:
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
 3. Read the current active pulse proof surface:
-   - ids `20007..20021`
+   - ids `20037..20051`
    - `15 anchors / 0 counted seams / 0 excluded`
    - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
@@ -114,14 +114,14 @@ stay quarantined locally instead of mixing back into the live DB.
   - `7 anchors / 8 counted seams / 0 excluded`
   - ids `19977..19991`
   - `15 anchors / 0 counted seams / 0 excluded`
-5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, and `orange` as
-   currently stable, then run the second bounded `brown` continuation from
-   source order `224`.
+5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`, and
+   `brown` as currently stable, then run the first bounded `neutral` pulse
+   from source order `1`.
 
 ## Research Snapshot
 
 - active research lane: `Beta 1.0`
-- active proof surface: first bounded `brown` pulse at `20007..20021`
+- active proof surface: third bounded `brown` continuation at `20037..20051`
 - active pulse result: `15 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
@@ -164,12 +164,16 @@ stay quarantined locally instead of mixing back into the live DB.
   - `19977..19991` -> `15 anchors / 0 counted seams / 0 excluded`
 - opening brown pass:
   - `20007..20021` -> `15 anchors / 0 counted seams / 0 excluded`
-- active beta question: how does the second bounded `brown` continuation open
-  from source order `224`
+- deeper brown continuation:
+  - `20022..20036` -> `15 anchors / 0 counted seams / 0 excluded`
+- parked brown close:
+  - `20037..20051` -> `15 anchors / 0 counted seams / 0 excluded`
+- active beta question: how does the first bounded `neutral` pulse open from
+  source order `1`
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `pre_beta_1_fail_pressure_pulse_2026-05-16`
 - active beta note: `beta_1_0_fail_pressure_pulse_2026-05-21`
-- active family lane: `brown`
+- active family lane: `neutral`
 - tracked research notes:
   - `beta_1_0_fail_pressure_pulse_2026-05-21`
   - `pre_beta_1_fail_pressure_pulse_2026-05-16`

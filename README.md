@@ -32,7 +32,7 @@ Current live research lane:
 
 Current active proof surface:
 
-- first bounded `brown` pulse at `20007..20021`
+- third bounded `brown` continuation at `20037..20051`
 - pulse-level proof surface
 
 Current closed comparison surface:

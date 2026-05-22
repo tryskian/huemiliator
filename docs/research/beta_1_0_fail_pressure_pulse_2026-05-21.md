@@ -4,7 +4,7 @@ Date: `2026-05-21`
 
 ## What This Beta Says
 
-The first twenty-one bounded pulses now read like this:
+The first twenty-three bounded pulses now read like this:
 
 - two `red` passes
 - one `yellow` core pass
@@ -26,6 +26,8 @@ The first twenty-one bounded pulses now read like this:
 - one fourth `orange` continuation that opens the first real yellow-gold fail surface
 - one corrected `orange` rerun that closes cleanly
 - one opening `brown` pass that stays clean through a dark earthy core
+- one deeper `brown` continuation pass that stays equally clean through a warmer earthy tranche
+- one third `brown` continuation pass that stays clean enough to park the lane
 
 Fail-pressure pulse is no longer a staged boundary. It is the active
 `Beta 1.0` method surface for non-OCR Huemiliator eval work.
@@ -35,11 +37,11 @@ Fail-pressure pulse is no longer a staged boundary. It is the active
 | Surface | Result |
 | --- | --- |
 | stage | `Beta 1.0` |
-| active family lane | `brown` |
+| active family lane | `neutral` |
 | pulse pattern | `source-order` |
-| pulse source-order start | `104` |
+| pulse source-order start | `256` |
 | pulse size | `15` |
-| active proof surface | `20007..20021` |
+| active proof surface | `20037..20051` |
 | pulse verdict | `PASS` |
 | anchors | `15` |
 | counted seams | `0` |
@@ -49,7 +51,7 @@ Fail-pressure pulse is no longer a staged boundary. It is the active
 ## Quarantine Boundary
 
 The current `Beta 1.0` active surface was reached through one baseline archive
-plus twenty clean pulse rollovers:
+plus twenty-two clean pulse rollovers:
 
 - row-level comparison baseline:
   - `closed third corrected red rerun`
@@ -135,33 +137,43 @@ plus twenty clean pulse rollovers:
   - `beta 1 0 pulse 20 orange tranche 005`
   - `15` archived rows
   - `.local/parked/eval-surface-20260522T031155Z-beta-1-0-pulse-21-brown-tranche-001.jsonl`
+- twenty-first `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 21 brown tranche 001`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260522T031702Z-beta-1-0-pulse-22-brown-tranche-002.jsonl`
+- twenty-second `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 22 brown tranche 002`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260522T031938Z-beta-1-0-pulse-23-brown-tranche-003.jsonl`
 
 That keeps the live DB truthful to one current proof surface at a time.
 
 ## Current Counted Seams
 
-The opening brown pulse closes cleanly, so there are no counted seams in the
+The parked brown close is also clean, so there are no counted seams in the
 active proof surface.
 
 ## Current Anchors
 
-The brown lane opens cleanly across the full active pulse.
+The brown lane stays clean across the parked close pulse.
 
 Representative anchors:
 
-- `Lead gray -> Rocky road`
-- `Bungee cord -> Tarmac`
-- `Pewter -> Black olive`
-- `Major brown -> Chocolate brown`
-- `Chocolate chip -> Stone gray`
-- `Canteen -> Slate black`
-- `Beech -> Sassafras`
-- `Tarmac -> Morel`
-- `Black olive -> Turkish coffee`
-- `Beluga -> Black ink`
-- `Black ink -> Beech`
-- `Peat -> Beluga`
-- `Turkish coffee -> Delicioso`
+- `Friar brown -> Tawny brown`
+- `Mustang -> Marron`
+- `Pinecone -> Brownie`
+- `Potting soil -> Chocolate lab`
+- `Ermine -> Mink`
+- `Otter -> Raw umber`
+- `Kangaroo -> Brunette`
+- `Sepia -> Chocolate fondant`
+- `Coffee liqueur -> Tiramisu`
+- `Desert palm -> Acorn`
+- `Teak -> Brown stone`
+- `Shitake -> Cub`
+- `Cub -> Carafe`
+- `Carafe -> Dark earth`
+- `Dark earth -> Teak`
 
 ## Beta Note
 
@@ -299,6 +311,21 @@ The twenty-first pulse opens brown cleanly:
 - the dark earthy core holds without needing a correction lane
 - `brown` stays active and needs a deeper continuation read before any park call
 
+The twenty-second pulse keeps brown clean:
+
+- the deeper continuation also comes back at `15 anchors / 0 counted seams`
+- warmer gold-inflected browns still stay inside the family lane
+- no olive or ochre drift appears yet in the deeper brown slice
+- `brown` stays active, but only needs one more continuation read before a park call
+
+The twenty-third pulse parks brown honestly:
+
+- the third bounded brown continuation also comes back at `15 anchors / 0 counted seams`
+- the darker earthy core stays entirely inside the family lane
+- the old olive and ochre drift never reappears across the three bounded brown slices
+- `brown` is now stable enough to park
+- `neutral` becomes the next active family lane
+
 ## Comparison Read
 
 Compared against the closed row-level rerun and the earlier `red` pulses:
@@ -345,6 +372,10 @@ Compared against the closed row-level rerun and the earlier `red` pulses:
   - `15 total / 7 pass / 8 fail / 0 pending`
 - twentieth bounded pulse:
   - `15 total / 15 pass / 0 fail / 0 pending`
+- twenty-first bounded pulse:
+  - `15 total / 15 pass / 0 fail / 0 pending`
+- twenty-second bounded pulse:
+  - `15 total / 15 pass / 0 fail / 0 pending`
 - current bounded pulse:
   - `15 total / 15 pass / 0 fail / 0 pending`
 
@@ -383,9 +414,17 @@ The first `brown` pulse answers one more:
 
 - can the opening brown tranche hold as an earthy core without immediately collapsing into olive or ochre drift
 
+The second `brown` pulse answers one more:
+
+- can the deeper brown continuation stay clean once warmer gold-inflected browns enter the slice
+
+The third `brown` pulse answers one more:
+
+- can another deeper brown continuation stay clean enough to park the lane despite the old context-dependence read
+
 The open question moves forward:
 
-- how does the second bounded `brown` continuation open from source order `224`
+- how does the first bounded `neutral` pulse open from source order `1`
 
 Later `red` work is optional follow-up, not the next required gate.
 
@@ -393,9 +432,10 @@ Later `red` work is optional follow-up, not the next required gate.
 
 The clean follow-through question is:
 
-1. keep `20007..20021` as the current active proof surface
+1. keep `20037..20051` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
-   `blue`, `purple`, `pink`, and `orange` proof stacks as the comparison stack
+   `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as the
+   comparison stack
 3. treat `orange` as parked behind one fail surface, one corrected clean rerun,
    and one clean continuation
-4. run the second bounded `brown` continuation from source order `224`
+4. run the first bounded `neutral` pulse from source order `1`
