@@ -4,7 +4,7 @@ Date: `2026-05-21`
 
 ## What This Beta Says
 
-The first eighteen bounded pulses now read like this:
+The first nineteen bounded pulses now read like this:
 
 - two `red` passes
 - one `yellow` core pass
@@ -13,16 +13,17 @@ The first eighteen bounded pulses now read like this:
 - one final targeted `yellow` pass clean enough to park the lane
 - one opening `green` pass
 - one deeper `green` continuation pass
-- one opening `blue` pass with a visible shoulder
-- one deeper `blue` continuation pass with the same visible shoulder
-- one corrected `blue` rerun that tightens the shoulder to a single residual seam
+- one opening `blue` pass with a visible drift
+- one deeper `blue` continuation pass with the same visible drift
+- one corrected `blue` rerun that tightens the drift to a single residual seam
 - one opening `purple` pass that stays clean across the first tranche
 - one deeper `purple` continuation pass that stays equally clean
-- one opening `pink` pass with a visible warm-orange and wine shoulder
+- one opening `pink` pass with a visible warm-orange and wine drift
 - one deeper `pink` continuation pass that closes the lane cleanly
-- one opening `orange` pass with a visible pale straw, buff, and blush shoulder
-- one deeper `orange` continuation pass that narrows that shoulder
+- one opening `orange` pass with a visible pale straw, buff, and blush drift
+- one deeper `orange` continuation pass that narrows that drift
 - one deeper orange-gold continuation pass that holds a cream, straw, and olive edge
+- one fourth `orange` continuation that opens the first real yellow-gold fail surface
 
 Fail-pressure pulse is no longer a staged boundary. It is the active
 `Beta 1.0` method surface for non-OCR Huemiliator eval work.
@@ -34,19 +35,19 @@ Fail-pressure pulse is no longer a staged boundary. It is the active
 | stage | `Beta 1.0` |
 | active family lane | `orange` |
 | pulse pattern | `source-order` |
-| pulse source-order start | `383` |
+| pulse source-order start | `478` |
 | pulse size | `15` |
-| active proof surface | `19947..19961` |
-| pulse verdict | `PASS` |
-| anchors | `10` |
-| counted seams | `5` |
+| active proof surface | `19962..19976` |
+| pulse verdict | `FAIL` |
+| anchors | `7` |
+| counted seams | `8` |
 | excluded noise | `0` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 
 ## Quarantine Boundary
 
 The current `Beta 1.0` active surface was reached through one baseline archive
-plus seventeen clean pulse rollovers:
+plus eighteen clean pulse rollovers:
 
 - row-level comparison baseline:
   - `closed third corrected red rerun`
@@ -120,38 +121,42 @@ plus seventeen clean pulse rollovers:
   - `beta 1 0 pulse 17 orange tranche 002`
   - `15` archived rows
   - `.local/parked/eval-surface-20260522T024557Z-beta-1-0-pulse-17-orange-tranche-002.jsonl`
+- eighteenth `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 18 orange tranche 003`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260522T025048Z-beta-1-0-pulse-18-orange-tranche-003.jsonl`
 
 That keeps the live DB truthful to one current proof surface at a time.
 
 ## Current Counted Seams
 
-The active orange continuation still carries a visible shoulder, but it now
-reads more as cream, straw, and olive than as the lighter blush opening.
+The active orange continuation is now a real fail surface. The visible problem
+is the yellow-gold boundary itself.
 
 Counted seam rows:
 
-- `Double cream -> Creampuff`
-- `Sunlight -> Straw`
-- `Straw -> Cocoon`
-- `Rattan -> Ecru olive`
-- `Reed yellow -> Apricot gelato`
+- `Aspen gold -> Banana`
+- `Pale banana -> Honey mustard`
+- `Lemon drop -> Honey`
+- `Honey -> Banana cream`
+- `Tawny olive -> Ceylon yellow`
+- `Ceylon yellow -> Golden glow`
+- `Antelope -> Sunlight`
+- `Nugget gold -> Daffodil`
 
 ## Current Anchors
 
-The orange-gold core still survives around that deeper shoulder.
+The orange-gold core still survives locally inside the fail surface.
 
 Representative anchors:
 
-- `Copper -> Oak buff`
-- `Jojoba -> Coral sands`
-- `Parsnip -> Almost apricot`
-- `Raffia -> Burnt henna`
-- `Bamboo -> Warm apricot`
-- `Cocoon -> Pastry shell`
-- `Southern moss -> Butterum`
-- `Olivenite -> Amber gold`
-- `Antique gold -> Peach`
-- `Mimosa -> Burnt orange`
+- `Freesia -> Golden poppy`
+- `Misted yellow -> Pumpkin`
+- `Sauterne -> Coral gold`
+- `Arrowwood -> Jaffa orange`
+- `Fall leaf -> Golden haze`
+- `Mustard gold -> Sunburst`
+- `Harvest gold -> Cadmium orange`
 
 ## Beta Note
 
@@ -160,7 +165,7 @@ row-level eval shape.
 
 - clean passes are stacking across multiple family lanes instead of collapsing
   back into the same repeated seam
-- when a seam is real, it is showing up quickly as one narrow shoulder instead
+- when a seam is real, it is showing up quickly as one narrow drift instead
   of hiding inside a large mixed batch
 - once a correction lands, the next bounded pulse is able to move forward
   instead of dragging the same proof surface back through another long loop
@@ -170,7 +175,7 @@ row-level eval shape.
 ## What It Means
 
 The first four pulses still matter together. They established the red baseline,
-showed a yellow core pass, and then exposed the targeted yellow shoulder as a
+showed a yellow core pass, and then exposed the targeted yellow drift as a
 real fail surface.
 
 The fifth pulse matters because it proves the explicit correction changed the
@@ -206,13 +211,13 @@ The eighth pulse keeps that read intact:
 The ninth pulse opens blue honestly:
 
 - the tranche passes under pressure at `10 anchors / 5 counted seams`
-- the visible shoulder is purple and aqua, not a full lane collapse
+- the visible drift is purple and aqua, not a full lane collapse
 - `blue` stays active and needs a deeper continuation read before any park call
 
 The tenth pulse keeps that read consistent:
 
 - the deeper continuation also passes at `10 anchors / 5 counted seams`
-- the same purple-and-aqua shoulder repeats rather than widening into a full collapse
+- the same purple-and-aqua drift repeats rather than widening into a full collapse
 - `blue` still does not park honestly without an explicit correction
 
 The eleventh pulse makes that correction visible in runtime evidence:
@@ -225,7 +230,7 @@ The eleventh pulse makes that correction visible in runtime evidence:
 The twelfth pulse opens purple cleanly:
 
 - the opening tranche comes back at `15 anchors / 0 counted seams`
-- no same-family shoulder appears in the earliest purple slice
+- no same-family drift appears in the earliest purple slice
 - `purple` stays active, but it now opens from a clean pass rather than a repair lane
 
 The thirteenth pulse keeps that read intact:
@@ -237,35 +242,42 @@ The thirteenth pulse keeps that read intact:
 The fourteenth pulse opens pink honestly:
 
 - the tranche passes under pressure at `9 anchors / 6 counted seams`
-- the visible shoulder is warm-orange and wine, not a full lane collapse
+- the visible drift is warm-orange and wine, not a full lane collapse
 - `pink` stays active and needs a deeper continuation read before any park call
 
 The fifteenth pulse closes that lane cleanly:
 
 - the deeper continuation comes back at `15 anchors / 0 counted seams`
-- the opening warm-orange and wine shoulder does not repeat deeper in the lane
+- the opening warm-orange and wine drift does not repeat deeper in the lane
 - `pink` is now stable enough to park
 - `orange` becomes the next active family lane
 
 The sixteenth pulse opens orange honestly:
 
 - the tranche passes under pressure at `9 anchors / 6 counted seams`
-- the visible shoulder is pale straw, buff, and blush, not a full lane collapse
+- the visible drift is pale straw, buff, and blush, not a full lane collapse
 - `orange` stays active and needs a deeper continuation read before any park call
 
 The seventeenth pulse keeps that read but narrows it:
 
 - the deeper continuation comes back at `11 anchors / 4 counted seams`
-- the same shoulder stays visible, but less of the slice collapses into it
+- the same drift stays visible, but less of the slice collapses into it
 - the orange core is holding better as the lane moves deeper
 - `orange` still stays active and needs one more continuation read before any park call
 
 The eighteenth pulse keeps orange active but changes the pressure shape:
 
 - the deeper continuation comes back at `10 anchors / 5 counted seams`
-- the visible shoulder now reads as cream, straw, and olive rather than the earlier pale blush opening
+- the visible drift now reads as cream, straw, and olive rather than the earlier pale blush opening
 - the orange-gold core still holds, but the next slice is now close to a true orange-to-yellow test
 - `orange` still stays active and needs a fourth continuation read before any park call
+
+The nineteenth pulse closes that question and fails:
+
+- the tranche comes back at `7 anchors / 8 counted seams`
+- the visible problem is now the yellow-gold boundary itself rather than just a subordinate drift
+- banana / honey / daffodil drift is taking over enough of the slice that `orange` no longer passes honestly here
+- `orange` now needs a narrow orange-to-yellow correction rather than another blind continuation
 
 ## Comparison Read
 
@@ -307,8 +319,10 @@ Compared against the closed row-level rerun and the earlier `red` pulses:
   - `15 total / 9 pass / 6 fail / 0 pending`
 - seventeenth bounded pulse:
   - `15 total / 11 pass / 4 fail / 0 pending`
-- current bounded pulse:
+- eighteenth bounded pulse:
   - `15 total / 10 pass / 5 fail / 0 pending`
+- current bounded pulse:
+  - `15 total / 7 pass / 8 fail / 0 pending`
 
 The row-level rerun stays important as the closed comparison baseline, but the
 live verdict unit is now the bounded pulse and the active proof surface is the
@@ -318,33 +332,32 @@ most recent judged tranche.
 
 The two `red` pulses answer two pressure questions:
 
-- can the early `red` shoulder survive a bounded pass/fail pulse
+- can the early `red` drift survive a bounded pass/fail pulse
 - can the deeper old repeat cluster survive a bounded pass/fail pulse
 
 The four `yellow` pulses now answer four more:
 
 - can a bright-core `yellow` tranche survive a bounded pulse before the
-  green-olive shoulder takes over
-- does that green-olive shoulder dominate once `yellow` is targeted directly
+  green-olive drift takes over
+- does that green-olive drift dominate once `yellow` is targeted directly
 - does the explicit yellow-to-green cut restore a passing targeted rerun
-- does the final chartreuse cut clean the remaining shoulder enough to park
+- does the final chartreuse cut clean the remaining drift enough to park
 
 The two `green` pulses answer two more:
 
-- does the opening green shoulder hold cleanly once `yellow` is parked
+- does the opening green drift hold cleanly once `yellow` is parked
 - does the deeper green continuation stay clean enough to park the lane
 
 The first three `blue` pulses answer three more:
 
 - does the earliest blue opening survive a bounded pulse without collapsing into
-  the purple and aqua shoulder
-- does the deeper blue continuation repeat that same shoulder rather than widening into a lane collapse
-- does the explicit blue shoulder correction recover a stable local pass without damaging the blue core
+  the purple and aqua drift
+- does the deeper blue continuation repeat that same drift rather than widening into a lane collapse
+- does the explicit blue drift correction recover a stable local pass without damaging the blue core
 
 The open question moves forward:
 
-- does the fourth bounded `orange` continuation keep the visible cream, straw,
-  and olive shoulder subordinate, or does the orange-to-yellow boundary open up
+- does `orange` now need a narrow yellow-gold boundary correction
 
 Later `red` work is optional follow-up, not the next required gate.
 
@@ -352,9 +365,10 @@ Later `red` work is optional follow-up, not the next required gate.
 
 The clean follow-through question is:
 
-1. keep `19947..19961` as the current active proof surface
+1. keep `19962..19976` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
    `blue`, `purple`, and `pink` proof stacks as the comparison stack
-3. treat the third `orange` continuation as a stable follow-through pass with a
-   cream, straw, and olive edge
-4. run the fourth bounded `orange` continuation from source order `478`
+3. treat the fourth `orange` continuation as the first real orange fail surface
+   with a yellow-gold boundary problem
+4. cut a narrow orange-to-yellow correction against the banana / honey /
+   daffodil cluster

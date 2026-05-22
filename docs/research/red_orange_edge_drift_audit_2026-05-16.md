@@ -28,12 +28,12 @@ repaired before fresh `red` rows are logged.
 ## Confirmed Signal
 
 - the live proof surface still matches the tracked red read
-- the dominant repeated fail seam is still the warm-clay / peach shoulder
+- the dominant repeated fail seam is still the warm-clay / peach drift
 - the coherent muted-red local cluster still looks healthy enough to keep in
   `red`
 - the next red family cut is still the same narrow target
 
-## Repeated Fail Shoulder
+## Repeated Fail Drift
 
 | Seam | Repeated examples |
 | --- | --- |
@@ -80,7 +80,7 @@ Date: `2026-05-21`
   - `11 anchors`
   - `4 counted seams`
   - `0 excluded`
-- the warm-clay / peach shoulder is still visible, but it no longer outweighs
+- the warm-clay / peach drift is still visible, but it no longer outweighs
   the lane around it in the first bounded pulse
 
 ## Deeper Cluster Update
@@ -94,5 +94,5 @@ Date: `2026-05-21`
   - `10 anchors`
   - `5 counted seams`
   - `0 excluded`
-- the older repeated fail cluster is still a real shoulder, but it no longer
+- the older repeated fail cluster is still a real drift, but it no longer
   dominates the lane under bounded pulse pressure

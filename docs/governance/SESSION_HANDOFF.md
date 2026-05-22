@@ -41,7 +41,7 @@ The core tracked shape is:
   deterministic one-up selection
 - the loss line stays downstream of the colour decision
 - route and family correctness stay binary
-- the third bounded `orange` continuation at `19947..19961` is the active proof
+- the fourth bounded `orange` continuation at `19962..19976` is the active proof
   surface
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
@@ -54,7 +54,7 @@ stay quarantined locally instead of mixing back into the live DB.
 
 - carry the two passing `Beta 1.0` red pulses plus the parked `yellow`,
   `green`, `blue`, `purple`, and `pink` proof stacks as comparison context,
-  then run the fourth bounded `orange` continuation from source order `478`
+  then cut a narrow orange-to-yellow correction against the active fail surface
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -70,9 +70,9 @@ stay quarantined locally instead of mixing back into the live DB.
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
 3. Read the current active pulse proof surface:
-   - ids `19947..19961`
-   - `10 anchors / 5 counted seams / 0 excluded`
-   - verdict `PASS`
+   - ids `19962..19976`
+   - `7 anchors / 8 counted seams / 0 excluded`
+   - verdict `FAIL`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
    - `11 anchors / 4 counted seams / 0 excluded`
@@ -108,16 +108,18 @@ stay quarantined locally instead of mixing back into the live DB.
   - `9 anchors / 6 counted seams / 0 excluded`
   - ids `19932..19946`
   - `11 anchors / 4 counted seams / 0 excluded`
+  - ids `19947..19961`
+  - `10 anchors / 5 counted seams / 0 excluded`
 5. Treat `red`, `yellow`, `green`, `blue`, `purple`, and `pink` as currently
-   stable, treat the third `orange` continuation as a stable follow-through
-   pass with a visible cream, straw, and olive edge, and run the fourth
-   bounded `orange` continuation from source order `478`.
+   stable, treat the fourth `orange` continuation as the first real orange fail
+   surface, and cut a narrow orange-to-yellow correction against the banana /
+   honey / daffodil cluster.
 
 ## Research Snapshot
 
 - active research lane: `Beta 1.0`
-- active proof surface: third bounded `orange` continuation at `19947..19961`
-- active pulse result: `10 anchors / 5 counted seams / 0 excluded`
+- active proof surface: fourth bounded `orange` continuation at `19962..19976`
+- active pulse result: `7 anchors / 8 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -153,9 +155,10 @@ stay quarantined locally instead of mixing back into the live DB.
   - `19932..19946` -> `11 anchors / 4 counted seams / 0 excluded`
 - deeper orange gold-edge continuation:
   - `19947..19961` -> `10 anchors / 5 counted seams / 0 excluded`
-- current beta question: does the fourth bounded `orange` continuation keep the
-  visible cream, straw, and olive shoulder subordinate, or does the
-  orange-to-yellow boundary open up
+- orange fail surface:
+  - `19962..19976` -> `7 anchors / 8 counted seams / 0 excluded`
+- current beta question: does `orange` now need a narrow yellow-gold boundary
+  correction
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `pre_beta_1_fail_pressure_pulse_2026-05-16`
 - active beta note: `beta_1_0_fail_pressure_pulse_2026-05-21`

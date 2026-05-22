@@ -41,7 +41,7 @@ The proposed pulse shape for Huemiliator is:
 - first staged target family:
   - `red`
 - first staged seam:
-  - `warm-clay / peach shoulder`
+  - `warm-clay / peach drift`
 - start small:
   - around `15` rows
 - row evidence is judged first as:
@@ -104,7 +104,7 @@ Reporting shape:
 flowchart TD
   A["Scoped red run<br/>repaired sampler truth"]
   B["Bounded pulse<br/>about 15 rows"]
-  C["Active seam<br/>warm-clay / peach shoulder"]
+  C["Active seam<br/>warm-clay / peach drift"]
   D{"Review each row"}
   E["Anchor"]
   F["Counted seam"]
@@ -140,7 +140,7 @@ flowchart TD
 Reading note:
 
 - the active lane stays `red`
-- the active seam stays the warm-clay / peach shoulder
+- the active seam stays the warm-clay / peach drift
 - raw rows are everything inside the bounded pulse
 - only `anchor` and `counted seam` rows enter the verdict math
 - excluded rows stay visible by reason, but do not alter the counted total
@@ -198,7 +198,7 @@ ask a stricter question:
 - the picker runtime stays local and deterministic
 - the frozen `margaret2` snapshot stays the primary colour reference
 - runtime still owns swatch matching, family assignment, rank, and one-up
-- the active technical seam is still the warm-clay / peach shoulder inside
+- the active technical seam is still the warm-clay / peach drift inside
   `red`
 
 ## What It Still Needs
