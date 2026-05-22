@@ -4,7 +4,7 @@ Date: `2026-05-21`
 
 ## What This Beta Says
 
-The first sixteen bounded pulses now read like this:
+The first seventeen bounded pulses now read like this:
 
 - two `red` passes
 - one `yellow` core pass
@@ -21,6 +21,7 @@ The first sixteen bounded pulses now read like this:
 - one opening `pink` pass with a visible warm-orange and wine shoulder
 - one deeper `pink` continuation pass that closes the lane cleanly
 - one opening `orange` pass with a visible pale straw, buff, and blush shoulder
+- one deeper `orange` continuation pass that narrows that shoulder
 
 Fail-pressure pulse is no longer a staged boundary. It is the active
 `Beta 1.0` method surface for non-OCR Huemiliator eval work.
@@ -32,19 +33,19 @@ Fail-pressure pulse is no longer a staged boundary. It is the active
 | stage | `Beta 1.0` |
 | active family lane | `orange` |
 | pulse pattern | `source-order` |
-| pulse source-order start | `28` |
+| pulse source-order start | `316` |
 | pulse size | `15` |
-| active proof surface | `19917..19931` |
+| active proof surface | `19932..19946` |
 | pulse verdict | `PASS` |
-| anchors | `9` |
-| counted seams | `6` |
+| anchors | `11` |
+| counted seams | `4` |
 | excluded noise | `0` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 
 ## Quarantine Boundary
 
 The current `Beta 1.0` active surface was reached through one baseline archive
-plus fifteen clean pulse rollovers:
+plus sixteen clean pulse rollovers:
 
 - row-level comparison baseline:
   - `closed third corrected red rerun`
@@ -110,38 +111,42 @@ plus fifteen clean pulse rollovers:
   - `beta 1 0 pulse 15 pink tranche 002`
   - `15` archived rows
   - `.local/parked/eval-surface-20260522T022930Z-beta-1-0-pulse-15-pink-tranche-002.jsonl`
+- sixteenth `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 16 orange tranche 001`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260522T023943Z-beta-1-0-pulse-16-orange-tranche-001.jsonl`
 
 That keeps the live DB truthful to one current proof surface at a time.
 
 ## Current Counted Seams
 
-The active orange opening carries a visible pale straw, buff, and blush
-shoulder, but it still holds as a passing tranche.
+The active orange continuation still carries the same visible pale straw,
+buff, and blush shoulder, but it is narrower than the opening tranche.
 
 Counted seam rows:
 
-- `Winter wheat -> Mellow buff`
-- `Chamomile -> Cornhusk`
-- `Cornhusk -> Reed yellow`
-- `Apricot gelato -> Parsnip`
-- `Autumn blonde -> Winter wheat`
-- `Mellow buff -> Pink sand`
+- `Tender peach -> Curds & whey`
+- `Bellini -> Autumn blonde`
+- `Almost apricot -> Anise flower`
+- `Pink sand -> Chamomile`
 
 ## Current Anchors
 
-The orange core still survives around that opening shoulder.
+The deeper orange core survives more cleanly around that shoulder.
 
 Representative anchors:
 
-- `Italian straw -> Sand`
-- `Sheepskin -> Lark`
-- `Sand -> Dusty coral`
-- `Doe -> Golden fleece`
-- `Incense -> Travertine`
-- `Lark -> Peach parfait`
-- `Appleblossom -> Pale peach`
-- `Toast -> Peach nougat`
-- `Toasted nut -> Sahara sun`
+- `Pale peach -> Tender peach`
+- `Amberlight -> Bellini`
+- `Peach nougat -> Doe`
+- `Peach bloom -> Prairie sunset`
+- `Dusty coral -> Almond cream`
+- `Sandstorm -> Desert mist`
+- `Butterum -> Jojoba`
+- `Sandstone -> Apricot ice`
+- `Pheasant -> Apricot cream`
+- `Pale gold -> Peach nectar`
+- `Rich gold -> Raffia`
 
 ## Beta Note
 
@@ -243,6 +248,13 @@ The sixteenth pulse opens orange honestly:
 - the visible shoulder is pale straw, buff, and blush, not a full lane collapse
 - `orange` stays active and needs a deeper continuation read before any park call
 
+The seventeenth pulse keeps that read but narrows it:
+
+- the deeper continuation comes back at `11 anchors / 4 counted seams`
+- the same shoulder stays visible, but less of the slice collapses into it
+- the orange core is holding better as the lane moves deeper
+- `orange` still stays active and needs one more continuation read before any park call
+
 ## Comparison Read
 
 Compared against the closed row-level rerun and the earlier `red` pulses:
@@ -279,8 +291,10 @@ Compared against the closed row-level rerun and the earlier `red` pulses:
   - `15 total / 9 pass / 6 fail / 0 pending`
 - fifteenth bounded pulse:
   - `15 total / 15 pass / 0 fail / 0 pending`
-- current bounded pulse:
+- sixteenth bounded pulse:
   - `15 total / 9 pass / 6 fail / 0 pending`
+- current bounded pulse:
+  - `15 total / 11 pass / 4 fail / 0 pending`
 
 The row-level rerun stays important as the closed comparison baseline, but the
 live verdict unit is now the bounded pulse and the active proof surface is the
@@ -315,8 +329,8 @@ The first three `blue` pulses answer three more:
 
 The open question moves forward:
 
-- does the second bounded `orange` continuation stay subordinate to the
-  visible pale straw, buff, and blush shoulder
+- does the third bounded `orange` continuation keep narrowing the visible pale
+  straw, buff, and blush shoulder
 
 Later `red` work is optional follow-up, not the next required gate.
 
@@ -324,9 +338,9 @@ Later `red` work is optional follow-up, not the next required gate.
 
 The clean follow-through question is:
 
-1. keep `19917..19931` as the current active proof surface
+1. keep `19932..19946` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
    `blue`, `purple`, and `pink` proof stacks as the comparison stack
-3. treat the first `orange` pulse as an opening pass surface with a visible
-   pale straw, buff, and blush shoulder
-4. run the second bounded `orange` continuation from source order `316`
+3. treat the second `orange` continuation as a narrower follow-through pass
+   against the same visible shoulder
+4. run the third bounded `orange` continuation from source order `383`
