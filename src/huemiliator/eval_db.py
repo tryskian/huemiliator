@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sqlite3
 from contextlib import closing
@@ -79,6 +80,10 @@ def utc_now() -> str:
 
 def default_eval_db_path() -> Path:
     return EVAL_DB_PATH
+
+
+def _render_meta_source_db_path(db_path: Path, parked_dir: Path) -> str:
+    return os.path.relpath(db_path.resolve(), parked_dir.parent.parent.resolve())
 
 
 def connect(db_path: Path | None = None) -> sqlite3.Connection:
@@ -405,6 +410,7 @@ def quarantine_live_surface(
     parked_dir: Path,
     label: str,
 ) -> QuarantineResult:
+    resolved = default_eval_db_path() if db_path is None else db_path
     slug = re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
     if not slug:
         raise ValueError("Quarantine label must contain at least one letter or digit.")
@@ -455,8 +461,7 @@ def quarantine_live_surface(
                 (
                     f"label: {label}",
                     f"exported_at_utc: {timestamp.isoformat()}",
-                    "source_db: "
-                    f"{default_eval_db_path() if db_path is None else db_path}",
+                    f"source_db: {_render_meta_source_db_path(resolved, parked_dir)}",
                     f"total_rows: {len(rows)}",
                     f"first_output_id: {rows[0]['id']}",
                     f"last_output_id: {rows[-1]['id']}",
