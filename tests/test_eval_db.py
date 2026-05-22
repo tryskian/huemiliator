@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from huemiliator.eval_db import (
@@ -340,4 +341,11 @@ def test_quarantine_live_surface_exports_rows_and_clears_live_db(
     assert result.last_output_id == 2
     assert result.archive_path.exists()
     assert result.meta_path.exists()
+    expected_source_db = os.path.relpath(
+        db_path.resolve(),
+        parked_dir.parent.parent.resolve(),
+    )
+    meta_text = result.meta_path.read_text()
+    assert f"source_db: {expected_source_db}" in meta_text
+    assert str(db_path) not in meta_text
     assert counts(db_path) == {"total": 0, "pass": 0, "fail": 0, "pending": 0}
