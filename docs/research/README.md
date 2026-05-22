@@ -46,8 +46,8 @@ How does the first bounded `neutral` pulse open from source order `1`?
 | current question | how does the first bounded `neutral` pulse open from source order `1` |
 | active beta note | `beta_1_0_fail_pressure_pulse_2026-05-21` |
 | closed staging note | `pre_beta_1_fail_pressure_pulse_2026-05-16` |
-| active family lane | `brown` |
-| stable prior lanes | `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange` |
+| active family lane | `neutral` |
+| stable prior lanes | `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`, `brown` |
 | current audit note | `red_orange_edge_drift_audit_2026-05-16` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 | live DB rule | keep only the current proof surface in `eval_outputs` |
