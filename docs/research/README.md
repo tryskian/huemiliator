@@ -24,7 +24,7 @@ Current live research lane:
 
 Current active proof surface:
 
-- fifth bounded `orange` continuation at `19992..20006`
+- first bounded `brown` pulse at `20007..20021`
 - pulse-level proof surface
 
 Current closed comparison surface:
@@ -34,16 +34,16 @@ Current closed comparison surface:
 
 Current beta question:
 
-How does the first bounded `brown` pulse open from source order `104`?
+How does the second bounded `brown` continuation open from source order `224`?
 
 ## Current Research State
 
 | Item | Current state |
 | --- | --- |
 | stage | `Beta 1.0` |
-| active proof surface | fifth bounded `orange` continuation at `19992..20006` |
+| active proof surface | first bounded `brown` pulse at `20007..20021` |
 | current totals | `15 total / 15 pass / 0 fail / 0 pending` |
-| current question | how does the first bounded `brown` pulse open from source order `104` |
+| current question | how does the second bounded `brown` continuation open from source order `224` |
 | active beta note | `beta_1_0_fail_pressure_pulse_2026-05-21` |
 | closed staging note | `pre_beta_1_fail_pressure_pulse_2026-05-16` |
 | active family lane | `brown` |
@@ -56,7 +56,7 @@ How does the first bounded `brown` pulse open from source order `104`?
 
 | Surface | Type | What it says now |
 | --- | --- | --- |
-| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, and `orange` now parks after one fail surface, one corrected clean rerun, and one clean continuation |
+| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, and `brown` now opens cleanly on its first bounded pulse |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./pre_beta_1_fail_pressure_pulse_2026-05-16.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
 | [Brown Context Dependence](./brown_context_dependence_2026-05-08.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./red_orange_edge_drift_2026-05-15.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
@@ -106,6 +106,7 @@ flowchart LR
 - the third bounded `orange` continuation passes at `10 anchors / 5 counted seams`
 - the fourth bounded `orange` continuation fails at `7 anchors / 8 counted seams`
 - the fifth bounded `orange` continuation passes cleanly at `15 anchors / 0 counted seams`
+- the first bounded `brown` pulse passes cleanly at `15 anchors / 0 counted seams`
 - `red` is now stable enough to stop being the blocking family lane
 - `yellow` is now stable enough to park beside `red`
 - `green` is now stable enough to park beside `red` and `yellow`
@@ -114,7 +115,7 @@ flowchart LR
 - `pink` is now stable enough to park beside `red`, `yellow`, `green`, `blue`, and `purple`
 - `orange` is now stable enough to park beside `red`, `yellow`, `green`,
   `blue`, `purple`, and `pink`
-- `brown` is now the next active family lane
+- `brown` is now the active family lane
 - the explicit yellow-to-green correction restores a local yellow pass
 - the final residual chartreuse cut is now explicit in runtime code
 - the explicit blue drift correction restores a much cleaner local blue pass
@@ -135,8 +136,9 @@ flowchart LR
 - the fourth bounded `orange` continuation opens the first real yellow-gold
   fail surface inside `orange`
 - the corrected fifth bounded `orange` continuation closes cleanly at `15 / 0`
-- the current live question is how the first bounded `brown` pulse opens from
-  source order `104`
+- the first bounded `brown` pulse opens cleanly through a dark earthy core
+- the current live question is how the second bounded `brown` continuation
+  opens from source order `224`
 - the closed third corrected `red` rerun stays as the closed row-level
   comparison baseline
 - scoped sampling truth now matches the current runtime ladder again
@@ -149,13 +151,13 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep `19992..20006` as the current active proof surface
+1. keep `20007..20021` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
    `blue`, `purple`, `pink`, and `orange` proof stacks as the current Beta 1.0
    comparison stack
 3. treat `orange` as parked behind one real fail surface, one corrected clean
    rerun, and one clean continuation
-4. run the first bounded `brown` pulse from source order `104`
+4. run the second bounded `brown` continuation from source order `224`
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.

@@ -90,10 +90,11 @@ flowchart LR
 The active method is:
 
 - Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The fifth bounded `orange` continuation at `19992..20006` is the active
-  judged proof surface. The full parked red, yellow, green, blue, purple, and
-  pink, and orange proof stacks stay as the current Beta 1.0 comparison stack, and the closed third
-  corrected `red` rerun stays as the closed row-level comparison baseline.
+  The first bounded `brown` pulse at `20007..20021` is the active judged proof
+  surface. The full parked red, yellow, green, blue, purple, pink, and orange
+  proof stacks stay as the current Beta 1.0 comparison stack, and the closed
+  third corrected `red` rerun stays as the closed row-level comparison
+  baseline.
 - one active family lane at a time
 - one active sampler at a time
 - bounded fail-pressure pulse as the current live judgment unit
