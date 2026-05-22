@@ -24,7 +24,7 @@ Current live research lane:
 
 Current active proof surface:
 
-- second bounded `orange` continuation at `19932..19946`
+- third bounded `orange` continuation at `19947..19961`
 - pulse-level proof surface
 
 Current closed comparison surface:
@@ -34,17 +34,17 @@ Current closed comparison surface:
 
 Current beta question:
 
-Does the third bounded `orange` continuation keep narrowing the visible pale
-straw, buff, and blush shoulder?
+Does the fourth bounded `orange` continuation keep the visible cream, straw,
+and olive shoulder subordinate, or does the orange-to-yellow boundary open up?
 
 ## Current Research State
 
 | Item | Current state |
 | --- | --- |
 | stage | `Beta 1.0` |
-| active proof surface | second bounded `orange` continuation at `19932..19946` |
-| current totals | `15 total / 11 pass / 4 fail / 0 pending` |
-| current question | does the third bounded `orange` continuation keep narrowing the visible pale straw, buff, and blush shoulder |
+| active proof surface | third bounded `orange` continuation at `19947..19961` |
+| current totals | `15 total / 10 pass / 5 fail / 0 pending` |
+| current question | does the fourth bounded `orange` continuation keep the visible cream, straw, and olive shoulder subordinate, or does the orange-to-yellow boundary open up |
 | active beta note | `beta_1_0_fail_pressure_pulse_2026-05-21` |
 | closed staging note | `pre_beta_1_fail_pressure_pulse_2026-05-16` |
 | active family lane | `orange` |
@@ -57,7 +57,7 @@ straw, buff, and blush shoulder?
 
 | Surface | Type | What it says now |
 | --- | --- | --- |
-| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, the first `orange` pulse opens at `9 anchors / 6 counted seams / 0 excluded`, and the second narrows that shoulder to `11 anchors / 4 counted seams / 0 excluded` |
+| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, the first `orange` pulse opens at `9 anchors / 6 counted seams / 0 excluded`, the second narrows that shoulder to `11 anchors / 4 counted seams / 0 excluded`, and the third holds at `10 anchors / 5 counted seams / 0 excluded` |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./pre_beta_1_fail_pressure_pulse_2026-05-16.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
 | [Brown Context Dependence](./brown_context_dependence_2026-05-08.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./red_orange_edge_drift_2026-05-15.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
@@ -104,6 +104,7 @@ flowchart LR
 - the second bounded `pink` continuation passes cleanly at `15 anchors / 0 counted seams`
 - the first bounded `orange` pulse passes at `9 anchors / 6 counted seams`
 - the second bounded `orange` continuation passes at `11 anchors / 4 counted seams`
+- the third bounded `orange` continuation passes at `10 anchors / 5 counted seams`
 - `red` is now stable enough to stop being the blocking family lane
 - `yellow` is now stable enough to park beside `red`
 - `green` is now stable enough to park beside `red` and `yellow`
@@ -126,8 +127,11 @@ flowchart LR
   blush shoulder instead of a clean `15 / 0` pass
 - the second bounded `orange` continuation keeps that shoulder visible but
   narrower than the opening tranche
-- the current live question is whether the third bounded `orange`
-  continuation keeps narrowing that shoulder
+- the third bounded `orange` continuation keeps the shoulder visible and shifts
+  it toward a cream, straw, and olive edge
+- the current live question is whether the fourth bounded `orange`
+  continuation keeps that shoulder subordinate or opens a clearer
+  orange-to-yellow boundary problem
 - the closed third corrected `red` rerun stays as the closed row-level
   comparison baseline
 - scoped sampling truth now matches the current runtime ladder again
@@ -140,13 +144,13 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep `19932..19946` as the current active proof surface
+1. keep `19947..19961` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
    `blue`, `purple`, and `pink` proof stacks as the current Beta 1.0
    comparison stack
-3. treat the second `orange` continuation as a narrower follow-through pass
-   against the same visible shoulder
-4. run the third bounded `orange` continuation from source order `383`
+3. treat the third `orange` continuation as a stable follow-through pass with a
+   cream, straw, and olive edge
+4. run the fourth bounded `orange` continuation from source order `478`
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.
