@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-05-21
+Last updated: 2026-05-22
 
 ## Start Here
 
@@ -41,7 +41,7 @@ The core tracked shape is:
   deterministic one-up selection
 - the loss line stays downstream of the colour decision
 - route and family correctness stay binary
-- the third bounded `brown` continuation at `20037..20051` is the active proof
+- the third bounded `neutral` continuation at `20082..20096` is the active proof
   surface
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
@@ -54,8 +54,10 @@ stay quarantined locally instead of mixing back into the live DB.
 
 - carry the two passing `Beta 1.0` red pulses plus the parked `yellow`,
   `green`, `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as
-  comparison context, then run the first bounded `neutral` pulse from source
-  order `1`
+  comparison context, then inspect the failed third bounded `neutral`
+  continuation from source order `33`
+- decide whether `neutral` now needs an explicit narrow correction before a
+  fourth blind continuation from source order `48`
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -70,9 +72,9 @@ stay quarantined locally instead of mixing back into the live DB.
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
 3. Read the current active pulse proof surface:
-   - ids `20037..20051`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - verdict `PASS`
+   - ids `20082..20096`
+   - `4 anchors / 11 counted seams / 0 excluded`
+   - verdict `FAIL`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
    - `11 anchors / 4 counted seams / 0 excluded`
@@ -114,15 +116,26 @@ stay quarantined locally instead of mixing back into the live DB.
   - `7 anchors / 8 counted seams / 0 excluded`
   - ids `19977..19991`
   - `15 anchors / 0 counted seams / 0 excluded`
+  - ids `20007..20021`
+  - `15 anchors / 0 counted seams / 0 excluded`
+  - ids `20022..20036`
+  - `15 anchors / 0 counted seams / 0 excluded`
+  - ids `20037..20051`
+  - `15 anchors / 0 counted seams / 0 excluded`
+  - ids `20052..20066`
+  - `11 anchors / 4 counted seams / 0 excluded`
+  - ids `20067..20081`
+  - `9 anchors / 6 counted seams / 0 excluded`
 5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`, and
-   `brown` as currently stable, then run the first bounded `neutral` pulse
-   from source order `1`.
+   `brown` as currently stable, then decide whether `neutral` now needs an
+   explicit narrow correction before a fourth blind continuation from source
+   order `48`.
 
 ## Research Snapshot
 
 - active research lane: `Beta 1.0`
-- active proof surface: third bounded `brown` continuation at `20037..20051`
-- active pulse result: `15 anchors / 0 counted seams / 0 excluded`
+- active proof surface: third bounded `neutral` continuation at `20082..20096`
+- active pulse result: `4 anchors / 11 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -168,8 +181,14 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20022..20036` -> `15 anchors / 0 counted seams / 0 excluded`
 - parked brown close:
   - `20037..20051` -> `15 anchors / 0 counted seams / 0 excluded`
-- active beta question: how does the first bounded `neutral` pulse open from
-  source order `1`
+- opening neutral pass:
+  - `20052..20066` -> `11 anchors / 4 counted seams / 0 excluded`
+- deeper neutral continuation:
+  - `20067..20081` -> `9 anchors / 6 counted seams / 0 excluded`
+- third neutral continuation fail surface:
+  - `20082..20096` -> `4 anchors / 11 counted seams / 0 excluded`
+- active beta question: what is the next narrow `neutral` correction after the
+  third bounded continuation fail surface
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `pre_beta_1_fail_pressure_pulse_2026-05-16`
 - active beta note: `beta_1_0_fail_pressure_pulse_2026-05-21`

@@ -4,7 +4,7 @@ Date: `2026-05-21`
 
 ## What This Beta Says
 
-The first twenty-three bounded pulses now read like this:
+The first twenty-six bounded pulses now read like this:
 
 - two `red` passes
 - one `yellow` core pass
@@ -28,6 +28,9 @@ The first twenty-three bounded pulses now read like this:
 - one opening `brown` pass that stays clean through a dark earthy core
 - one deeper `brown` continuation pass that stays equally clean through a warmer earthy tranche
 - one third `brown` continuation pass that stays clean enough to park the lane
+- one opening `neutral` pass with visible green, peach, and blush drift
+- one deeper `neutral` continuation pass that widens into aqua, pink, blue, and one dark outlier
+- one third `neutral` continuation that turns the lane into a real fail surface with lilac, mint, blue, pearl, and peach drift
 
 Fail-pressure pulse is no longer a staged boundary. It is the active
 `Beta 1.0` method surface for non-OCR Huemiliator eval work.
@@ -39,19 +42,19 @@ Fail-pressure pulse is no longer a staged boundary. It is the active
 | stage | `Beta 1.0` |
 | active family lane | `neutral` |
 | pulse pattern | `source-order` |
-| pulse source-order start | `256` |
+| pulse source-order start | `33` |
 | pulse size | `15` |
-| active proof surface | `20037..20051` |
-| pulse verdict | `PASS` |
-| anchors | `15` |
-| counted seams | `0` |
+| active proof surface | `20082..20096` |
+| pulse verdict | `FAIL` |
+| anchors | `4` |
+| counted seams | `11` |
 | excluded noise | `0` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 
 ## Quarantine Boundary
 
-The current `Beta 1.0` active surface was reached through one baseline archive
-plus twenty-two clean pulse rollovers:
+The current `Beta 1.0` active surface was reached through the baseline archive
+plus the full bounded pulse rollover stack:
 
 - row-level comparison baseline:
   - `closed third corrected red rerun`
@@ -145,35 +148,48 @@ plus twenty-two clean pulse rollovers:
   - `beta 1 0 pulse 22 brown tranche 002`
   - `15` archived rows
   - `.local/parked/eval-surface-20260522T031938Z-beta-1-0-pulse-23-brown-tranche-003.jsonl`
+- twenty-third `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 23 brown tranche 003`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260523T003512Z-beta-1-0-pulse-24-neutral-tranche-001.jsonl`
+- twenty-fourth `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 24 neutral tranche 001`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260523T004035Z-beta-1-0-pulse-25-neutral-tranche-002.jsonl`
+- twenty-fifth `Beta 1.0` pulse rollover:
+  - `beta 1 0 pulse 25 neutral tranche 002`
+  - `15` archived rows
+  - `.local/parked/eval-surface-20260523T004642Z-beta-1-0-pulse-26-neutral-tranche-003.jsonl`
 
 That keeps the live DB truthful to one current proof surface at a time.
 
 ## Current Counted Seams
 
-The parked brown close is also clean, so there are no counted seams in the
-active proof surface.
+The third neutral continuation has eleven counted seams and now reads like a
+real fail surface:
+
+- `Tapioca -> Lilac ash`
+- `Creme brulee -> Lilac snow`
+- `Parchment -> Novelle peach`
+- `Sheer pink -> Bit of blue`
+- `Dew -> Water lily`
+- `Powder puff -> Whisper green`
+- `Pearled ivory -> Pearl`
+- `Ecru -> Mystic blue`
+- `Navajo -> Moonlight jade`
+- `Petal pink -> Shrinking violet`
+- `Bridal blush -> Hint of mint`
 
 ## Current Anchors
 
-The brown lane stays clean across the parked close pulse.
+Only a small neutral anchor pocket remains in the active pulse:
 
 Representative anchors:
 
-- `Friar brown -> Tawny brown`
-- `Mustang -> Marron`
-- `Pinecone -> Brownie`
-- `Potting soil -> Chocolate lab`
-- `Ermine -> Mink`
-- `Otter -> Raw umber`
-- `Kangaroo -> Brunette`
-- `Sepia -> Chocolate fondant`
-- `Coffee liqueur -> Tiramisu`
-- `Desert palm -> Acorn`
-- `Teak -> Brown stone`
-- `Shitake -> Cub`
-- `Cub -> Carafe`
-- `Carafe -> Dark earth`
-- `Dark earth -> Teak`
+- `White smoke -> Navajo`
+- `Almost mauve -> Rutabaga`
+- `Delicacy -> Afterglow`
+- `Cream pink -> Sea salt`
 
 ## Beta Note
 
@@ -326,6 +342,27 @@ The twenty-third pulse parks brown honestly:
 - `brown` is now stable enough to park
 - `neutral` becomes the next active family lane
 
+The twenty-fourth pulse opens neutral honestly:
+
+- the tranche passes under pressure at `11 anchors / 4 counted seams`
+- the visible drift is green, peach, and blush rather than a full lane collapse
+- the neutral core still holds more of the slice than the named edge drift does
+- `neutral` stays active and needs a deeper continuation read before any park call
+
+The twenty-fifth pulse keeps neutral active and widens the drift:
+
+- the deeper continuation comes back at `9 anchors / 6 counted seams`
+- the visible drift now includes aqua, pink, blue, and one dark outlier
+- the neutral core still holds more of the slice than the drift, but the lane is getting less stable as it moves deeper
+- `neutral` stays active and needs a third continuation read before any park call
+
+The twenty-sixth pulse fails neutral honestly:
+
+- the tranche comes back at `4 anchors / 11 counted seams`
+- lilac, mint, blue, pearl, and peach drift now outweigh the remaining neutral core
+- only a small sandy and cream anchor pocket survives inside the slice
+- `neutral` now needs a narrow correction rather than a fourth blind continuation
+
 ## Comparison Read
 
 Compared against the closed row-level rerun and the earlier `red` pulses:
@@ -376,8 +413,14 @@ Compared against the closed row-level rerun and the earlier `red` pulses:
   - `15 total / 15 pass / 0 fail / 0 pending`
 - twenty-second bounded pulse:
   - `15 total / 15 pass / 0 fail / 0 pending`
-- current bounded pulse:
+- twenty-third bounded pulse:
   - `15 total / 15 pass / 0 fail / 0 pending`
+- twenty-fourth bounded pulse:
+  - `15 total / 11 pass / 4 fail / 0 pending`
+- twenty-fifth bounded pulse:
+  - `15 total / 9 pass / 6 fail / 0 pending`
+- current bounded pulse:
+  - `15 total / 4 pass / 11 fail / 0 pending`
 
 The row-level rerun stays important as the closed comparison baseline, but the
 live verdict unit is now the bounded pulse and the active proof surface is the
@@ -422,9 +465,21 @@ The third `brown` pulse answers one more:
 
 - can another deeper brown continuation stay clean enough to park the lane despite the old context-dependence read
 
+The first `neutral` pulse answers one more:
+
+- can the earliest neutral slice hold more anchors than the green, peach, and blush edge drift
+
+The second `neutral` pulse answers one more:
+
+- does the deeper continuation widen that drift enough to force a correction instead of another read
+
+The third `neutral` pulse answers one more:
+
+- does the next deeper continuation turn that widening drift into a real fail surface rather than another borderline pass
+
 The open question moves forward:
 
-- how does the first bounded `neutral` pulse open from source order `1`
+- what is the next narrow `neutral` correction after the third bounded continuation fail surface
 
 Later `red` work is optional follow-up, not the next required gate.
 
@@ -432,10 +487,11 @@ Later `red` work is optional follow-up, not the next required gate.
 
 The clean follow-through question is:
 
-1. keep `20037..20051` as the current active proof surface
+1. keep `20082..20096` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
    `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as the
    comparison stack
-3. treat `orange` as parked behind one fail surface, one corrected clean rerun,
-   and one clean continuation
-4. run the first bounded `neutral` pulse from source order `1`
+3. treat `brown` as parked behind three clean bounded pulses despite the old
+   context-dependence read
+4. cut the next narrow `neutral` correction before another bounded
+   continuation from source order `48`

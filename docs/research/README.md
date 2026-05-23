@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-05-21
+Last updated: 2026-05-22
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -24,7 +24,7 @@ Current live research lane:
 
 Current active proof surface:
 
-- third bounded `brown` continuation at `20037..20051`
+- third bounded `neutral` continuation at `20082..20096`
 - pulse-level proof surface
 
 Current closed comparison surface:
@@ -34,16 +34,17 @@ Current closed comparison surface:
 
 Current beta question:
 
-How does the first bounded `neutral` pulse open from source order `1`?
+What is the next narrow `neutral` correction after the third bounded
+continuation fail surface?
 
 ## Current Research State
 
 | Item | Current state |
 | --- | --- |
 | stage | `Beta 1.0` |
-| active proof surface | third bounded `brown` continuation at `20037..20051` |
-| current totals | `15 total / 15 pass / 0 fail / 0 pending` |
-| current question | how does the first bounded `neutral` pulse open from source order `1` |
+| active proof surface | third bounded `neutral` continuation at `20082..20096` |
+| current totals | `15 total / 4 pass / 11 fail / 0 pending` |
+| current question | what is the next narrow `neutral` correction after the third bounded continuation fail surface |
 | active beta note | `beta_1_0_fail_pressure_pulse_2026-05-21` |
 | closed staging note | `pre_beta_1_fail_pressure_pulse_2026-05-16` |
 | active family lane | `neutral` |
@@ -56,7 +57,7 @@ How does the first bounded `neutral` pulse open from source order `1`?
 
 | Surface | Type | What it says now |
 | --- | --- | --- |
-| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, and `brown` now parks on three clean bounded pulses |
+| [Beta 1.0 Fail-Pressure Pulse](./beta_1_0_fail_pressure_pulse_2026-05-21.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, and `neutral` now breaks into lilac, mint, blue, pearl, and peach drift on its third continuation |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./pre_beta_1_fail_pressure_pulse_2026-05-16.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
 | [Brown Context Dependence](./brown_context_dependence_2026-05-08.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./red_orange_edge_drift_2026-05-15.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
@@ -109,6 +110,9 @@ flowchart LR
 - the first bounded `brown` pulse passes cleanly at `15 anchors / 0 counted seams`
 - the second bounded `brown` continuation also passes cleanly at `15 anchors / 0 counted seams`
 - the third bounded `brown` continuation also passes cleanly at `15 anchors / 0 counted seams`
+- the first bounded `neutral` pulse passes at `11 anchors / 4 counted seams`
+- the second bounded `neutral` continuation passes at `9 anchors / 6 counted seams`
+- the third bounded `neutral` continuation fails at `4 anchors / 11 counted seams`
 - `red` is now stable enough to stop being the blocking family lane
 - `yellow` is now stable enough to park beside `red`
 - `green` is now stable enough to park beside `red` and `yellow`
@@ -144,8 +148,14 @@ flowchart LR
 - the second bounded `brown` continuation also stays clean through a warmer
   earthy tranche
 - the third bounded `brown` continuation also stays clean enough to park the lane
-- the current live question is how the first bounded `neutral` pulse opens
-  from source order `1`
+- the first bounded `neutral` pulse opens with visible green, peach, and blush drift
+- the second bounded `neutral` continuation widens that drift into aqua, pink,
+  blue, and one dark outlier
+- the third bounded `neutral` continuation turns that drift into a real fail
+  surface with lilac, mint, blue, pearl, and peach pressure outweighing the
+  remaining neutral anchors
+- the current live question is what the next narrow `neutral` correction is
+  after that fail surface
 - the closed third corrected `red` rerun stays as the closed row-level
   comparison baseline
 - scoped sampling truth now matches the current runtime ladder again
@@ -158,13 +168,14 @@ Plans are useful, but they are not evidence.
 
 Current planned sequence:
 
-1. keep `20037..20051` as the current active proof surface
+1. keep `20082..20096` as the current active proof surface
 2. carry the two passing `red` pulses plus the parked `yellow`, `green`,
    `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as the current
    Beta 1.0 comparison stack
-3. treat `orange` as parked behind one real fail surface, one corrected clean
-   rerun, and one clean continuation
-4. run the first bounded `neutral` pulse from source order `1`
+3. treat `brown` as parked behind three clean bounded pulses despite the old
+   context-dependence read
+4. cut the next narrow `neutral` correction before another bounded
+   continuation from source order `48`
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.

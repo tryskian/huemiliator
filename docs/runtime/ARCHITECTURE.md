@@ -90,7 +90,7 @@ flowchart LR
 The active method is:
 
 - Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The third bounded `brown` continuation at `20037..20051` is the active
+  The third bounded `neutral` continuation at `20082..20096` is the active
   judged proof surface. The full parked red, yellow, green, blue, purple,
   pink, orange, and brown proof stacks stay as the current Beta 1.0
   comparison stack, and the closed third corrected `red` rerun stays as the
