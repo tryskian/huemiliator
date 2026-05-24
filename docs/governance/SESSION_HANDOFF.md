@@ -56,8 +56,10 @@ stay quarantined locally instead of mixing back into the live DB.
   `green`, `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as
   comparison context, then inspect the failed third bounded `neutral`
   continuation from source order `33`
-- decide whether `neutral` now needs an explicit narrow correction before a
-  fourth blind continuation from source order `48`
+- treat the nine cool-edge seams inside `20082..20096` as the next staged
+  method read and split them into three smaller eval pulses of three rows each
+- keep the two warm seams as secondary residue while the cool-edge split is
+  judged first
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -67,6 +69,7 @@ stay quarantined locally instead of mixing back into the live DB.
    - `docs/research/README.md`
    - `docs/research/beta_1_0_fail_pressure_pulse_2026-05-21.md`
    - `docs/research/pre_beta_1_fail_pressure_pulse_2026-05-16.md`
+   - `docs/research/neutral_three_pulse_split_2026-05-24.md`
    - `docs/research/brown_context_dependence_2026-05-08.md`
 2. Inspect the live repo snapshot:
    - `make session-status`
@@ -90,46 +93,51 @@ stay quarantined locally instead of mixing back into the live DB.
    - `15 anchors / 0 counted seams / 0 excluded`
    - ids `19782..19796`
    - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `19797..19811`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `19812..19826`
-  - `10 anchors / 5 counted seams / 0 excluded`
-  - ids `19827..19841`
-  - `10 anchors / 5 counted seams / 0 excluded`
-  - ids `19842..19856`
-  - `14 anchors / 1 counted seam / 0 excluded`
-  - ids `19857..19871`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `19872..19886`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `19887..19901`
-  - `9 anchors / 6 counted seams / 0 excluded`
-  - ids `19902..19916`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `19917..19931`
-  - `9 anchors / 6 counted seams / 0 excluded`
-  - ids `19932..19946`
-  - `11 anchors / 4 counted seams / 0 excluded`
-  - ids `19947..19961`
-  - `10 anchors / 5 counted seams / 0 excluded`
-  - ids `19962..19976`
-  - `7 anchors / 8 counted seams / 0 excluded`
-  - ids `19977..19991`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `20007..20021`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `20022..20036`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `20037..20051`
-  - `15 anchors / 0 counted seams / 0 excluded`
-  - ids `20052..20066`
-  - `11 anchors / 4 counted seams / 0 excluded`
-  - ids `20067..20081`
-  - `9 anchors / 6 counted seams / 0 excluded`
+   - ids `19797..19811`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `19812..19826`
+   - `10 anchors / 5 counted seams / 0 excluded`
+   - ids `19827..19841`
+   - `10 anchors / 5 counted seams / 0 excluded`
+   - ids `19842..19856`
+   - `14 anchors / 1 counted seam / 0 excluded`
+   - ids `19857..19871`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `19872..19886`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `19887..19901`
+   - `9 anchors / 6 counted seams / 0 excluded`
+   - ids `19902..19916`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `19917..19931`
+   - `9 anchors / 6 counted seams / 0 excluded`
+   - ids `19932..19946`
+   - `11 anchors / 4 counted seams / 0 excluded`
+   - ids `19947..19961`
+   - `10 anchors / 5 counted seams / 0 excluded`
+   - ids `19962..19976`
+   - `7 anchors / 8 counted seams / 0 excluded`
+   - ids `19977..19991`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `20007..20021`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `20022..20036`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `20037..20051`
+   - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `20052..20066`
+   - `11 anchors / 4 counted seams / 0 excluded`
+   - ids `20067..20081`
+   - `9 anchors / 6 counted seams / 0 excluded`
 5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`, and
-   `brown` as currently stable, then decide whether `neutral` now needs an
-   explicit narrow correction before a fourth blind continuation from source
-   order `48`.
+   `brown` as currently stable, then stage the next `neutral` read as:
+   - lilac / mauve pulse: `20082`, `20083`, `20094`
+   - blue / jade pulse: `20085`, `20090`, `20091`
+   - mint / green pulse: `20086`, `20087`, `20095`
+
+6. Keep the two warm seams as secondary residue:
+   - `20084` `Parchment -> Novelle peach`
+   - `20088` `Pearled ivory -> Pearl`
 
 ## Research Snapshot
 
@@ -191,11 +199,13 @@ stay quarantined locally instead of mixing back into the live DB.
   third bounded continuation fail surface
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `pre_beta_1_fail_pressure_pulse_2026-05-16`
+- staged neutral method note: `neutral_three_pulse_split_2026-05-24`
 - active beta note: `beta_1_0_fail_pressure_pulse_2026-05-21`
 - active family lane: `neutral`
 - tracked research notes:
   - `beta_1_0_fail_pressure_pulse_2026-05-21`
   - `pre_beta_1_fail_pressure_pulse_2026-05-16`
+  - `neutral_three_pulse_split_2026-05-24`
   - `brown_context_dependence_2026-05-08`
   - `red_orange_edge_drift_2026-05-15`
   - `red_orange_edge_drift_audit_2026-05-16`
@@ -236,4 +246,23 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Copy/Paste Refresh Prompt
 
-`Run make start. Use the startup-docs read across README.md, docs/governance/CHARTER.md, docs/governance/DECISIONS.md, docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md, docs/governance/SESSION_HANDOFF.md, and local docs/peanut/governance/SESSION_HANDOFF.md if present. In 5 bullets: current state, risks, next kernel, repo or worktree context, and active branch. Confirm environment/workspace context: canonical repo path is /abs/path/to/huemiliator, host vs devcontainer mode, active git branch, and clean main or feature branch. Apply no-guessing controls: prefer repo-scoped edits and preserve user shell profile files and global VS Code settings unless explicitly approved in-chat. Run one active kernel at a time. Then execute the Next Slice from SESSION_HANDOFF with minimal behavior drift and full validation.`
+```text
+Run make start. Use the startup-docs read across README.md,
+docs/governance/CHARTER.md, docs/governance/DECISIONS.md,
+docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md,
+docs/governance/SESSION_HANDOFF.md, and local
+docs/peanut/governance/SESSION_HANDOFF.md if present.
+
+In 5 bullets: current state, risks, next kernel, repo or worktree context, and
+active branch.
+
+Confirm environment/workspace context: canonical repo path is
+/abs/path/to/huemiliator, host vs devcontainer mode, active git branch, and
+clean main or feature branch.
+
+Apply no-guessing controls: prefer repo-scoped edits and preserve user shell
+profile files and global VS Code settings unless explicitly approved in-chat.
+
+Run one active kernel at a time. Then execute the Next Slice from
+SESSION_HANDOFF with minimal behavior drift and full validation.
+```
