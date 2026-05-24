@@ -65,7 +65,7 @@ The stable runtime path is:
   - `data/margaret2_swatches.json`
 - live eval evidence:
   - `.local/evals.sqlite`
-- local quarantine artifacts for superseded runs:
+- local quarantine artefacts for superseded runs:
   - `.local/parked/`
 - tracked research notes:
   - current proof surface
@@ -97,7 +97,7 @@ The active method is:
   closed row-level comparison baseline.
 - one active family lane at a time
 - one active sampler at a time
-- bounded fail-pressure pulse as the current live judgment unit
+- bounded fail-pressure pulse as the current live judgement unit
 - rows stay visible as evidence inside the pulse
 - `warm` as an audit cohort only
 - closed proof surfaces stay active until the next correction is explicit

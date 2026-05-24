@@ -20,7 +20,7 @@ the question worth staging explicitly.
 
 The closed third corrected `red` rerun proved that row-level family correction
 can narrow a real seam without widening the runtime contract. This pre-beta
-note asks whether the next method step should move the binary judgment up one
+note asks whether the next method step should move the binary judgement up one
 level:
 
 - the pulse becomes the binary unit
@@ -160,13 +160,13 @@ Reading note:
 ## What This Would Change
 
 If this graduates into `Beta 1.0`, Huemiliator would change the unit of
-judgment for bounded family runs:
+judgement for bounded family runs:
 
 - current closed comparison surface:
   - row-level `PASS / FAIL`
   - family-lane rerun proof surface
 - `Beta 1.0` candidate:
-  - row-level evidence labeling inside the pulse
+  - row-level evidence labelling inside the pulse
   - pulse-level `PASS / FAIL`
 
 That would make family-level shape harder to fake:
@@ -185,9 +185,9 @@ family:
 - `106` fail
 - `0` pending
 
-That is exactly the kind of result that invites pulse judgment.
+That is exactly the kind of result that invites pulse judgement.
 
-The row-level method already proved that the seam is real. Pulse judgment would
+The row-level method already proved that the seam is real. Pulse judgement would
 ask a stricter question:
 
 - does the bounded `red` family actually pass under fail pressure

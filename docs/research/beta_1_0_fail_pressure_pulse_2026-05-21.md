@@ -212,7 +212,7 @@ showed a yellow core pass, and then exposed the targeted yellow drift as a
 real fail surface.
 
 The fifth pulse matters because it proves the explicit correction changed the
-runtime behavior:
+runtime behaviour:
 
 - anchors are back above counted seams
 - the earlier green-olive collapse no longer dominates the rerun

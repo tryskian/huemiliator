@@ -211,4 +211,4 @@ Use this doc for operator procedure.
   - record the narrow exclusion reason when a row should stay visible but not
     counted
 - `huemiliator eval-pulse-report <start_id> <end_id>`
-  - summarize raw rows, counted total, exclusions by reason, and pulse verdict
+  - summarise raw rows, counted total, exclusions by reason, and pulse verdict
