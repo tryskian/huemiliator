@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-05-22
+Last updated: 2026-05-24
 
 ## Start Here
 
@@ -223,7 +223,7 @@ stay quarantined locally instead of mixing back into the live DB.
   - live code
   - live DB
   - then change
-- keep command and operator surfaces truthful; do not invent behavior the repo
+- keep command and operator surfaces truthful; do not invent behaviour the repo
   does not actually implement
 
 ## Close A Session

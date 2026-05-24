@@ -134,7 +134,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Decision: Keep one active sampler per repo and close the active queue before
   landing tracked work from that lane.
 - Why: A lane only stays interpretable when its rows belong to one active run
-  and the judgment surface actually closes.
+  and the judgement surface actually closes.
 
 ## D-011: Superseded eval rows move to local quarantine
 
@@ -142,7 +142,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Category: `evidence_governance`
 - Tags: `quarantine`, `proof_surface`, `local_evidence`
 - Decision: Once a newer rerun becomes the active proof surface, older eval
-  rows move into local quarantine artifacts and leave the live DB.
+  rows move into local quarantine artefacts and leave the live DB.
 - Why: This preserves recovery while keeping the active evidence surface clean.
 
 ## D-012: The live DB keeps only the current proof surface
@@ -238,7 +238,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Category: `workflow_environment`
 - Tags: `cli_surface`, `truthful_commands`, `operator_surface`
 - Decision: Every documented or parsed CLI subcommand must either have real
-  dispatch behavior or be removed from the surfaced command list.
+  dispatch behaviour or be removed from the surfaced command list.
 - Why: Fake affordances on the operator surface waste audit time and weaken the
   repo's small-command contract.
 
@@ -286,7 +286,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
   until the first real pulse run starts. The closed third corrected `red`
   rerun stays the row-level comparison baseline.
 - Why: This is a real method transition, but it is not active evidence yet.
-  Keeping pulse judgment in pre-beta form preserves the comparison boundary:
+  Keeping pulse judgement in pre-beta form preserves the comparison boundary:
   the corrected `red` rerun remains the finished row-level baseline, while
   `Beta 1.0` begins only when pulse evidence exists on the live surface instead
   of only in the staging note.
@@ -300,7 +300,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
   local closeout path covers docs lint, package build, and dependency security,
   live eval `pending` is `0`, and the repo returns to clean synced `main`.
 - Why: Open pending rows mean the active proof surface is still unresolved, so
-  day-close should not pass while judgment is incomplete or while local
+  day-close should not pass while judgement is incomplete or while local
   closeout is weaker than the enforced repo gate.
 
 ## D-026: Local tooling targets include editable package install smoke
