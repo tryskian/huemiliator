@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 774 534" role="img" aria-labelledby="title desc">
+  <title id="title">Huemiliator family range palette</title>
+  <desc id="desc">Nine colour-chip cards showing sampled range chips for neutral, brown, red, orange, yellow, green, blue, purple, and pink.</desc>
+  <rect width="774" height="534" fill="#f6f5f2"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(24 24)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#697a7e"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#9890a2"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#c1a68d"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#36362d"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#dfd1bb"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#f4f5f0" stroke="#d8d4cc"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">neutral</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">670 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(272 24)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#3b3a36"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#5a5348"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#583432"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#8a6f48"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#a46f44"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#f45520"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">brown</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">201 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(520 24)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#946c74"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#a2574b"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#ac4b55"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#be454f"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#bc322c"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#eb3c27"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">red</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">133 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(24 192)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#af9a7e"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#b19664"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#fae199"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#f99471"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#ffa64f"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#fe7e03"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">orange</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">211 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(272 192)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#80765f"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#91946e"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#676232"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#f0e79d"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#d4ae40"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#fee715"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">yellow</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">129 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(520 192)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#d3dec4"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#8ec5b6"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#b7b17a"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#58c8b6"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#008658"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#d5d717"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">green</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">251 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(24 360)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#577284"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#70a4b0"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#98ddde"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#30658e"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#5d81bb"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#3850a0"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">blue</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">343 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(272 360)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#634f62"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#807396"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#482d54"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#9479af"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#a767a2"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#993c7c"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">purple</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">128 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+
+    <g transform="translate(520 360)">
+      <rect width="230" height="150" rx="8" fill="#ffffff" stroke="#d8d4cc"/>
+      <rect x="16" y="16" width="28" height="28" rx="3" fill="#f7d1d1"/>
+      <rect x="51" y="16" width="28" height="28" rx="3" fill="#603749"/>
+      <rect x="86" y="16" width="28" height="28" rx="3" fill="#d28fb0"/>
+      <rect x="121" y="16" width="28" height="28" rx="3" fill="#fa9a85"/>
+      <rect x="156" y="16" width="28" height="28" rx="3" fill="#eb6081"/>
+      <rect x="191" y="16" width="28" height="28" rx="3" fill="#f05627"/>
+      <text x="16" y="86" fill="#211f1b" font-size="24" font-weight="700">pink</text>
+      <text x="16" y="113" fill="#6b6258" font-size="13">244 swatches</text>
+      <text x="16" y="133" fill="#9c948b" font-size="11">sampled classifier range</text>
+    </g>
+  </g>
+</svg>
