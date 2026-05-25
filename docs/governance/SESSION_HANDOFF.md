@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-05-24
+Last updated: 2026-05-25
 
 ## Start Here
 
@@ -67,10 +67,11 @@ stay quarantined locally instead of mixing back into the live DB.
 
 1. Inspect:
    - `docs/research/README.md`
-   - `docs/research/beta_1_0_fail_pressure_pulse_2026-05-21.md`
-   - `docs/research/pre_beta_1_fail_pressure_pulse_2026-05-16.md`
-   - `docs/research/neutral_three_pulse_split_2026-05-24.md`
-   - `docs/research/brown_context_dependence_2026-05-08.md`
+   - `docs/research/000_LEGEND.md`
+   - `docs/research/010_PB10.md`
+   - `docs/research/020_B10.md`
+   - `docs/research/120_BROWN.md`
+   - `docs/research/410_N3.md`
 2. Inspect the live repo snapshot:
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
@@ -195,20 +196,26 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20067..20081` -> `9 anchors / 6 counted seams / 0 excluded`
 - third neutral continuation fail surface:
   - `20082..20096` -> `4 anchors / 11 counted seams / 0 excluded`
+- research visuals:
+  - `docs/research/family-range-palette.svg`
+  - `docs/research/eval-pulse-stack.svg`
+  - regenerate pulse charts with `npm run charts:research`
+  - derive chart lane labels from row data; archive labels stay annotations
 - active beta question: what is the next narrow `neutral` correction after the
   third bounded continuation fail surface
 - pulse operator surface: start, label, report, and local quarantine are live
-- staged pulse note: `pre_beta_1_fail_pressure_pulse_2026-05-16`
-- staged neutral method note: `neutral_three_pulse_split_2026-05-24`
-- active beta note: `beta_1_0_fail_pressure_pulse_2026-05-21`
+- staged pulse note: `010_PB10`
+- staged neutral method note: `410_N3`
+- active beta note: `020_B10`
 - active family lane: `neutral`
 - tracked research notes:
-  - `beta_1_0_fail_pressure_pulse_2026-05-21`
-  - `pre_beta_1_fail_pressure_pulse_2026-05-16`
-  - `neutral_three_pulse_split_2026-05-24`
-  - `brown_context_dependence_2026-05-08`
-  - `red_orange_edge_drift_2026-05-15`
-  - `red_orange_edge_drift_audit_2026-05-16`
+  - `000_LEGEND`
+  - `010_PB10`
+  - `020_B10`
+  - `120_BROWN`
+  - `210_RED_ORANGE`
+  - `310_RED_ORANGE_AUDIT`
+  - `410_N3`
 - live DB rule: keep only the current proof surface in `eval_outputs`
 
 ## Guardrails
@@ -222,8 +229,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - keep `.local/` and `docs/peanut/` local unless explicitly promoted
 - capture notes, findings, and truth-surface changes as they emerge
 - keep tracked docs truthful to the current repo surface
-- keep tracked research-note names descriptive, topic-first, and aligned with
-  the current claim
+- keep tracked research-note names aligned with the `NNN_CODE` contract
 
 ## Pinned Later
 

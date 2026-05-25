@@ -1,38 +1,52 @@
 # Decisions Log
 
+This page holds durable repo decisions only.
+
+Use `docs/governance/CHARTER.md` for durable rules and collaboration model.
+Use `docs/governance/SESSION_HANDOFF.md` for the active kernel and carryover.
+Use `docs/runtime/ARCHITECTURE.md` for the stable system shape.
+
 ## Taxonomy
 
-- `Category` values:
-  - `runtime_engineering`
-  - `eval_quality`
-  - `collaboration_method`
-  - `evidence_governance`
-  - `workflow_environment`
-- `Tags`:
-  - lowercase snake_case labels for quick filtering
+Category values:
 
-## Entry Criteria
+- `runtime_engineering`
+- `eval_quality`
+- `evidence_governance`
+- `workflow_environment`
 
-Add an entry only when the change is durable and still governs the repo.
+Tags:
+
+- lowercase snake_case labels for quick filtering
+
+## Entry Rule
+
+Add an entry only when the decision still governs the repo.
 
 Good fits:
 
-- repo workflow rules
 - runtime contract changes
-- eval contract changes
+- eval method boundaries
 - evidence handling rules
-- documentation governance rules
+- workflow or closeout rules
+- durable document-role changes
 
-Keep current-session carryover, wrapper wording churn, stale classifier
-history, and branch-local cleanup facts in the handoff or branch history.
+Keep branch-local cleanup, temporary wrapper churn, wording tweaks, and
+current-session facts out of this file.
 
-## Entry Style
+## Provenance Rule
 
-- keep entries short and operational
-- one durable decision per entry
-- use one category
-- use 3 to 5 tags
-- keep `Decision` and `Why` tight
+Each decision should read as one of these:
+
+- `human-led method decision`
+  - the theory, bridge logic, or eval meaning came from the human lead
+- `repo formalization`
+  - the repo later encoded an already-active method or contract
+- `implementation decision`
+  - the engineering layer chose mechanics after the method was already set
+
+If a decision crosses layers, say so plainly instead of flattening the method
+into implementation authorship.
 
 ## D-001: Local picker runtime remains canonical
 
@@ -256,7 +270,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
 ## D-022: Audit passes begin from a human-led go decision
 
 - Date: `2026-05-16`
-- Category: `collaboration_method`
+- Category: `workflow_environment`
 - Tags: `human_lead`, `audit_trigger`, `scope_control`
 - Decision: Repo audits and review passes begin when the human lead explicitly
   calls for an audit, and the engineer then owns the inspection, findings,
@@ -269,7 +283,7 @@ history, and branch-local cleanup facts in the handoff or branch history.
 ## D-023: Findings are documented during the work, not reconstructed later
 
 - Date: `2026-05-16`
-- Category: `collaboration_method`
+- Category: `evidence_governance`
 - Tags: `recordkeeping`, `findings_capture`, `contemporaneous_notes`
 - Decision: During active kernels, the engineer records notes, findings, and
   truth-surface changes as they are discovered rather than deferring
@@ -318,6 +332,12 @@ history, and branch-local cleanup facts in the handoff or branch history.
   - `make check`
   - `make lint-docs`
   - `make package-check`
+  - `make package-install-check`
+  - `make security-checks`
+  - `make end-preflight`
+- Why: Huemiliator was already close to the desired repo-family tooling
+  baseline. The missing piece was proving that the package can be installed and
+  imported through the same explicit operator surface as the other toys.
 
 ## D-027: Activate fail-pressure pulse as live Beta 1.0 when the first real pulse exists
 
@@ -332,9 +352,18 @@ history, and branch-local cleanup facts in the handoff or branch history.
 - Why: A staged pulse note is only a contract. The method becomes live when the
   repo has actual pulse evidence on the current proof surface. That keeps the
   activation boundary concrete instead of rhetorical.
-  - `make package-install-check`
-  - `make security-checks`
-  - `make end-preflight`
-- Why: Huemiliator was already close to the desired repo-family tooling
-  baseline. The missing piece was proving that the package can be installed and
-  imported through the same explicit operator surface as the other toys.
+
+## D-028: Research charts use data-first Observable Plot outputs
+
+- Date: `2026-05-25`
+- Category: `evidence_governance`
+- Tags: `research_visuals`, `observable_plot`, `chart_contract`, `data_truth`
+- Provenance: `human-led method decision with implementation decision`
+- Decision: Huemiliator research charts use Observable Plot on top of D3, with
+  chart types chosen by Huey's data first and cross-toy alignment used only
+  when it fits naturally. The private working contract lives in
+  `docs/peanut/research/chart_types.md`; public chart surfaces should promote
+  generated SVG assets together with the minimal tracked docs link.
+- Why: Research visuals should make evidence easier to inspect without turning
+  chart choice into ad hoc decoration. Deriving charts from frozen snapshots,
+  live rows, or parked JSONL keeps public claims tied to the underlying data.
