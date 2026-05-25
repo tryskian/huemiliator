@@ -1,0 +1,26 @@
+{
+  "name": "huemiliator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deterministic colour one-up mini chatbot in the Polinko research line.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "charts:research": "node scripts/render_research_charts.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tryskian/huemiliator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tryskian/huemiliator/issues"
+  },
+  "homepage": "https://github.com/tryskian/huemiliator#readme",
+  "dependencies": {
+    "d3": "7.9.0"
+  },
+  "devDependencies": {
+    "@observablehq/plot": "0.6.17",
+    "jsdom": "29.1.1"
+  }
+}

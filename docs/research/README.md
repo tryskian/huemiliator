@@ -85,20 +85,22 @@ flowchart LR
 
 ## Current Signal
 
-Each bar is one 15-row pulse. `A` = anchor, `S` = counted seam, `X` =
-excluded noise.
+![Huemiliator Beta 1.0 eval pulse stacked bars](./eval-pulse-stack.svg)
 
-| Lane | Stacked bar chart | Current read |
-| --- | --- | --- |
-| `red` | `AAAAAAAAAAASSSS` `AAAAAAAAAASSSSS` | parked; the coherent muted-red local cluster stays in `red` |
-| `yellow` | `AAAAAAAAASSSSSS` `AAAAASSSSSSSSSS` `AAAAAAAAAASSSSS` `AAAAAAAAAAAAAAA` | failed once, corrected, and parked; the yellow-to-green correction and chartreuse cut are explicit |
-| `green` | `AAAAAAAAAAAAAAA` `AAAAAAAAAAAAAAA` | parked behind two clean pulses |
-| `blue` | `AAAAAAAAAASSSSS` `AAAAAAAAAASSSSS` `AAAAAAAAAAAAAAS` | parked after the blue-drift correction; one aqua seam remains |
-| `purple` | `AAAAAAAAAAAAAAA` `AAAAAAAAAAAAAAA` | parked behind two clean pulses |
-| `pink` | `AAAAAAAAASSSSSS` `AAAAAAAAAAAAAAA` | warm-orange and wine drift opened, then the lane closed cleanly |
-| `orange` | `AAAAAAAAASSSSSS` `AAAAAAAAAAASSSS` `AAAAAAAAAASSSSS` `AAAAAAASSSSSSSS` `AAAAAAAAAAAAAAA` | pale straw, buff, blush, cream, straw, olive, and yellow-gold drift were exposed, then corrected |
-| `brown` | `AAAAAAAAAAAAAAA` `AAAAAAAAAAAAAAA` `AAAAAAAAAAAAAAA` | parked behind three clean pulses despite the older context-dependence read |
-| `neutral` | `AAAAAAAAAAASSSS` `AAAAAAAAASSSSSS` `AAAASSSSSSSSSSS` | active fail surface; lilac, mint, blue, pearl, and peach pressure outweigh the remaining neutral anchors |
+Each horizontal bar is one 15-row pulse. Lane labels use row-family truth from
+the eval rows; archive labels stay annotations.
+
+| Lane | Current read |
+| --- | --- |
+| `red` | parked; the coherent muted-red local cluster stays in `red` |
+| `yellow` | failed once, corrected, and parked; the yellow-to-green correction and chartreuse cut are explicit |
+| `green` | parked behind two clean pulses |
+| `blue` | parked after the blue-drift correction; one aqua seam remains |
+| `purple` | parked behind two clean pulses |
+| `pink` | warm-orange and wine drift opened, then the lane closed cleanly |
+| `orange` | pale straw, buff, blush, cream, straw, olive, and yellow-gold drift were exposed, then corrected |
+| `brown` | parked behind three clean pulses despite the older context-dependence read |
+| `neutral` | active fail surface; lilac, mint, blue, pearl, and peach pressure outweigh the remaining neutral anchors |
 
 | Method / runtime signal | Read |
 | --- | --- |

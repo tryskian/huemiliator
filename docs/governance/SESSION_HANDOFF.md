@@ -196,6 +196,11 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20067..20081` -> `9 anchors / 6 counted seams / 0 excluded`
 - third neutral continuation fail surface:
   - `20082..20096` -> `4 anchors / 11 counted seams / 0 excluded`
+- research visuals:
+  - `docs/research/family-range-palette.svg`
+  - `docs/research/eval-pulse-stack.svg`
+  - regenerate pulse charts with `npm run charts:research`
+  - derive chart lane labels from row data; archive labels stay annotations
 - active beta question: what is the next narrow `neutral` correction after the
   third bounded continuation fail surface
 - pulse operator surface: start, label, report, and local quarantine are live
