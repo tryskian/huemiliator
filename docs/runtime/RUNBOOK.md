@@ -205,6 +205,9 @@ Use this doc for operator procedure.
 - `huemiliator eval-pulse-start --count 15 --family red --quarantine-label "<label>"`
   - archive any current live proof surface into local `.local/parked/`
     artefacts, then seed the bounded pulse
+- `huemiliator eval-pulse-start --input-hex "#dccdbc" --input-hex "#dbccb5" --input-hex "#f2e2e0" --quarantine-label "<label>"`
+  - seed a bounded pulse from exact input hexes when the research surface
+    stages a thematic group instead of contiguous source-order rows
 - `huemiliator eval-pulse-label <output_id> anchor`
   - label one pulse row as `anchor`, `counted_seam`, or `excluded_noise`
 - `huemiliator eval-pulse-label <output_id> excluded_noise --reason operator_artifact`

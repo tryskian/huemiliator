@@ -389,6 +389,31 @@ def test_select_one_up_skips_named_blue_green_edge_swatches_in_snapshot() -> Non
         assert selection.replacement.swatch.name not in BLUE_TO_GREEN_EDGE_SWATCH_NAMES
 
 
+def test_select_one_up_keeps_neutral_cool_edge_split_inside_undertone() -> None:
+    dataset = load_swatch_snapshot(SWATCH_SNAPSHOT_PATH)
+    ranked = build_family_rank_index(dataset)
+    members = build_family_member_index(ranked)
+    by_name = {swatch.name: ranked[swatch.source_order] for swatch in dataset.swatches}
+
+    expected_replacements = {
+        "Tapioca": "Gray sand",
+        "Creme brulee": "Tapioca",
+        "Petal pink": "Delicacy",
+        "Sheer pink": "Sheer pink",
+        "Ecru": "Eggnog",
+        "Navajo": "Alabaster gleam",
+        "Dew": "Powder puff",
+        "Powder puff": "Cream pink",
+        "Bridal blush": "Bridal blush",
+    }
+
+    for current_name, expected_name in expected_replacements.items():
+        selection = select_one_up(by_name[current_name], members)
+        assert selection.current.family == "neutral"
+        assert selection.replacement.family == "neutral"
+        assert selection.replacement.swatch.name == expected_name
+
+
 def test_build_family_rank_index_orders_chromatic_strength_ascending() -> None:
     dataset = _dataset(
         SwatchEntry(source_order=1, slug="muted-red", name="Muted red", hex="#d9a6a1"),

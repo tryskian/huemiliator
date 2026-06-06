@@ -19,7 +19,11 @@ from huemiliator.eval_db import (
     record_one_up_state,
     summarize_pulse_range,
 )
-from huemiliator.eval_sampling import LOCAL_SAMPLE_PATTERNS, sample_local_eval_outputs
+from huemiliator.eval_sampling import (
+    LOCAL_SAMPLE_PATTERNS,
+    sample_input_hex_eval_outputs,
+    sample_local_eval_outputs,
+)
 from huemiliator.eval_scope import EVAL_SCOPE_NAMES, describe_eval_scope
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.pipeline import build_one_up_state
@@ -35,8 +39,8 @@ STATUS_LINES: tuple[str, ...] = (
     "swatch resolution: nearest snapshot match",
     "distance rule: delta-e cie76 with source-order tie-break",
     "family routing: fixed neutral and hue thresholds",
-    "same-family rank: fixed strength ladder",
-    "transform: next same-family rank with top-rank clamp",
+    "same-family rank: fixed strength ladder with neutral undertone buckets",
+    "transform: next same-family rank with neutral undertone/top-rank clamp",
     "line: fixed family loss bank",
     "evidence: local sqlite eval db",
     "sampler: long-run local source-order or scoped cohort cycle",
@@ -119,8 +123,17 @@ def build_parser() -> argparse.ArgumentParser:
     eval_pulse_start_parser.add_argument(
         "--count",
         type=int,
-        required=True,
+        default=None,
         help="Number of rows to seed into the bounded pulse.",
+    )
+    eval_pulse_start_parser.add_argument(
+        "--input-hex",
+        action="append",
+        default=None,
+        help=(
+            "Seed this exact input hex into the bounded pulse. Repeat for "
+            "the target pulse rows."
+        ),
     )
     eval_pulse_start_parser.add_argument(
         "--interval-seconds",
@@ -375,7 +388,8 @@ def render_eval_judge(output_id: int, verdict: str, note: str) -> str:
 
 def render_eval_pulse_start(
     *,
-    count: int,
+    count: int | None,
+    input_hexes: tuple[str, ...] = (),
     interval_seconds: float,
     pattern: str,
     family: str,
@@ -383,14 +397,35 @@ def render_eval_pulse_start(
     quarantine_label: str | None,
 ) -> str:
     settings = load_settings()
+    explicit_input_hexes = tuple(input_hexes)
+    if count is None and not explicit_input_hexes:
+        raise ValueError("Provide --count or at least one --input-hex.")
+    if count is not None and explicit_input_hexes:
+        raise ValueError("Choose either --count or --input-hex, not both.")
+    if explicit_input_hexes and (
+        pattern != "source-order" or family != "red" or start_source_order != 1
+    ):
+        raise ValueError(
+            "Explicit input-hex pulses cannot use --pattern, --family, "
+            "or --start-source-order."
+        )
+
     live_summary = counts(settings.eval_db_path)
-    lines = [
-        f"bounded pulse start: count={count}",
-        describe_eval_scope(family),
-        f"pattern={pattern}",
-        f"start_source_order={start_source_order}",
-        f"interval_seconds={interval_seconds:g}",
-    ]
+    if explicit_input_hexes:
+        lines = [
+            f"bounded pulse start: input_hexes={len(explicit_input_hexes)}",
+            "mode=explicit-input-hex",
+            f"interval_seconds={interval_seconds:g}",
+        ]
+    else:
+        assert count is not None
+        lines = [
+            f"bounded pulse start: count={count}",
+            describe_eval_scope(family),
+            f"pattern={pattern}",
+            f"start_source_order={start_source_order}",
+            f"interval_seconds={interval_seconds:g}",
+        ]
 
     if live_summary["total"] != 0:
         if quarantine_label is None:
@@ -411,13 +446,19 @@ def render_eval_pulse_start(
         )
         lines.append(f"archive={archived.archive_path}")
 
-    summary = sample_local_eval_outputs(
-        count=count,
-        interval_seconds=interval_seconds,
-        pattern=pattern,
-        family=family,
-        start_source_order=start_source_order,
-    )
+    if explicit_input_hexes:
+        summary = sample_input_hex_eval_outputs(
+            input_hexes=explicit_input_hexes,
+            interval_seconds=interval_seconds,
+        )
+    else:
+        summary = sample_local_eval_outputs(
+            count=count,
+            interval_seconds=interval_seconds,
+            pattern=pattern,
+            family=family,
+            start_source_order=start_source_order,
+        )
     lines.append(f"recorded={summary.recorded}")
     lines.append(f"elapsed_seconds={summary.elapsed_seconds:.2f}")
     if summary.first_output_id is not None and summary.last_output_id is not None:
@@ -575,6 +616,7 @@ def main(argv: list[str] | None = None) -> int:
             print(
                 render_eval_pulse_start(
                     count=args.count,
+                    input_hexes=tuple(args.input_hex or ()),
                     interval_seconds=args.interval_seconds,
                     pattern=args.pattern,
                     family=args.family,
@@ -582,7 +624,7 @@ def main(argv: list[str] | None = None) -> int:
                     quarantine_label=args.quarantine_label,
                 )
             )
-        except ValueError as exc:
+        except (ValueError, ResolutionError, SwatchDatasetError) as exc:
             print(str(exc), file=sys.stderr)
             return 1
         return 0

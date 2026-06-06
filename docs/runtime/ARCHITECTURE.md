@@ -45,7 +45,8 @@ The stable runtime path is:
 3. the runtime resolves the nearest swatch from the frozen local snapshot
 4. the runtime assigns a closed family
 5. the runtime reads the same-family rank
-6. the runtime selects the next same-family replacement, clamped at the top
+6. the runtime selects the next same-family replacement, with `neutral`
+   constrained to its undertone bucket and clamped at the bucket top
 7. the runtime appends one short fixed loss line downstream of the colour
    decision
 
@@ -55,7 +56,8 @@ The stable runtime path is:
 - colour resolution stays deterministic
 - family assignment stays explicit and closed
 - same-family rank stays on one fixed ladder
-- one-up selection stays deterministic and non-wrapping
+- one-up selection stays deterministic and non-wrapping, with `neutral`
+  constrained to coarse undertone buckets
 - the loss line stays downstream of the stable colour decision
 - the runtime owns the final colour output
 
@@ -90,11 +92,12 @@ flowchart LR
 The active method is:
 
 - Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The third bounded `neutral` continuation at `20082..20096` is the active
-  judged proof surface. The full parked red, yellow, green, blue, purple,
-  pink, orange, and brown proof stacks stay as the current Beta 1.0
-  comparison stack, and the closed third corrected `red` rerun stays as the
-  closed row-level comparison baseline.
+  The third smaller `neutral` split pulse at `20103..20105` is the active
+  judged proof surface, with the corrected split stack at `20097..20105`
+  carried as the current neutral correction. The full parked red, yellow,
+  green, blue, purple, pink, orange, and brown proof stacks stay as the
+  current Beta 1.0 comparison stack, and the closed third corrected `red`
+  rerun stays as the closed row-level comparison baseline.
 - one active family lane at a time
 - one active sampler at a time
 - bounded fail-pressure pulse as the current live judgement unit

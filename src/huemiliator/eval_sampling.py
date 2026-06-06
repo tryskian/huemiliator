@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -135,5 +135,41 @@ def sample_local_eval_outputs(
         recorded=index,
         first_output_id=output_ids[0] if output_ids else None,
         last_output_id=output_ids[-1] if output_ids else None,
+        elapsed_seconds=elapsed_seconds,
+    )
+
+
+def sample_input_hex_eval_outputs(
+    *,
+    input_hexes: Sequence[str],
+    interval_seconds: float = 0.0,
+    dataset: SwatchDataset | None = None,
+    db_path: Path | None = None,
+    time_fn: Callable[[], float] = time.monotonic,
+    sleep_fn: Callable[[float], None] = time.sleep,
+) -> EvalSampleSummary:
+    if not input_hexes:
+        raise ValueError("Provide at least one input hex.")
+    if interval_seconds < 0:
+        raise ValueError("Interval must be at least 0.")
+
+    snapshot = _default_dataset() if dataset is None else dataset
+    resolved_db_path = EVAL_DB_PATH if db_path is None else db_path
+    start = time_fn()
+    output_ids: list[int] = []
+
+    for index, input_hex in enumerate(input_hexes):
+        state = build_one_up_state(input_hex, snapshot)
+        output_id = record_one_up_state(resolved_db_path, state)
+        output_ids.append(output_id)
+
+        if interval_seconds > 0 and index < len(input_hexes) - 1:
+            sleep_fn(interval_seconds)
+
+    elapsed_seconds = time_fn() - start
+    return EvalSampleSummary(
+        recorded=len(output_ids),
+        first_output_id=output_ids[0],
+        last_output_id=output_ids[-1],
         elapsed_seconds=elapsed_seconds,
     )

@@ -18,7 +18,7 @@
 | `BROWN` | `120_BROWN.md` | brown context-dependence lane | `lane` | `snapshot` |
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
-| `N3` | `410_N3.md` | staged neutral three-pulse method claim | `hypothesis` | `staged` |
+| `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `active` |
 
 ## Ordering
 

@@ -3,7 +3,10 @@ from __future__ import annotations
 from pathlib import Path
 
 from huemiliator.eval_db import counts, list_outputs
-from huemiliator.eval_sampling import sample_local_eval_outputs
+from huemiliator.eval_sampling import (
+    sample_input_hex_eval_outputs,
+    sample_local_eval_outputs,
+)
 from huemiliator.swatches import SwatchDataset, SwatchEntry, SwatchSource
 
 
@@ -36,6 +39,41 @@ def test_sample_local_eval_outputs_records_count_based_rows(tmp_path: Path) -> N
     assert len(rows) == 3
     assert rows[0]["input_hex"] == "#f3ece0"
     assert rows[1]["input_hex"] == "#947764"
+
+
+def test_sample_input_hex_eval_outputs_records_explicit_rows(
+    tmp_path: Path,
+) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    dataset = _dataset(
+        SwatchEntry(source_order=1, slug="egret", name="Egret", hex="#f3ece0"),
+        SwatchEntry(source_order=2, slug="woodsmoke", name="Woodsmoke", hex="#947764"),
+    )
+
+    summary = sample_input_hex_eval_outputs(
+        input_hexes=("947764", "#f3ece0"),
+        dataset=dataset,
+        db_path=db_path,
+    )
+    rows = list(reversed(list_outputs(db_path, limit=10)))
+
+    assert summary.recorded == 2
+    assert summary.first_output_id == 1
+    assert summary.last_output_id == 2
+    assert [row["input_hex"] for row in rows] == ["#947764", "#f3ece0"]
+
+
+def test_sample_input_hex_eval_outputs_rejects_empty_input() -> None:
+    dataset = _dataset(
+        SwatchEntry(source_order=1, slug="egret", name="Egret", hex="#f3ece0"),
+    )
+
+    try:
+        sample_input_hex_eval_outputs(input_hexes=(), dataset=dataset)
+    except ValueError as exc:
+        assert "Provide at least one input hex." in str(exc)
+    else:
+        raise AssertionError("Expected ValueError for missing input hexes.")
 
 
 def test_sample_local_eval_outputs_rejects_missing_stop_condition() -> None:
