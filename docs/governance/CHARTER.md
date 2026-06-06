@@ -22,7 +22,8 @@ fail-first evaluation.
   - family assignment
   - same-family rank
   - one-up selection
-- Replacement stays same-family, next-rank, and non-wrapping.
+- Replacement stays same-family, next-rank, and non-wrapping; `neutral`
+  selection is constrained to its undertone bucket.
 - The loss line stays fixed-bank and downstream of the colour decision.
 - Eval semantics stay binary:
   - `PASS`

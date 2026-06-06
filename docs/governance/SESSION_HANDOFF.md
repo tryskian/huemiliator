@@ -38,11 +38,13 @@ The core tracked shape is:
 - the active input surface is the native macOS colour picker
 - the canonical user state is one hex code
 - the runtime owns swatch matching, family assignment, same-family rank, and
-  deterministic one-up selection
+  deterministic one-up selection with neutral undertone-bucket selection
 - the loss line stays downstream of the colour decision
 - route and family correctness stay binary
-- the third bounded `neutral` continuation at `20082..20096` is the active proof
+- the third smaller `neutral` split pulse at `20103..20105` is the active proof
   surface
+- the corrected split stack at `20097..20105` cleared the nine cool-edge seams
+  from the failed `20082..20096` source surface
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the active live verdict unit
@@ -54,12 +56,12 @@ stay quarantined locally instead of mixing back into the live DB.
 
 - carry the two passing `Beta 1.0` red pulses plus the parked `yellow`,
   `green`, `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as
-  comparison context, then inspect the failed third bounded `neutral`
-  continuation from source order `33`
-- treat the nine cool-edge seams inside `20082..20096` as the next staged
-  method read and split them into three smaller eval pulses of three rows each
-- keep the two warm seams as secondary residue while the cool-edge split is
-  judged first
+  comparison context
+- treat `20097..20105` as the completed corrected `neutral` split stack:
+  `3 / 0`, `3 / 0`, and `3 / 0`
+- decide whether a broader `neutral` continuation from source order `48` is
+  useful after the split correction
+- keep the two old warm seams as secondary residue outside the cool-edge split
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -76,9 +78,9 @@ stay quarantined locally instead of mixing back into the live DB.
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
 3. Read the current active pulse proof surface:
-   - ids `20082..20096`
-   - `4 anchors / 11 counted seams / 0 excluded`
-   - verdict `FAIL`
+   - ids `20103..20105`
+   - `3 anchors / 0 counted seams / 0 excluded`
+   - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
    - `11 anchors / 4 counted seams / 0 excluded`
@@ -130,11 +132,17 @@ stay quarantined locally instead of mixing back into the live DB.
    - `11 anchors / 4 counted seams / 0 excluded`
    - ids `20067..20081`
    - `9 anchors / 6 counted seams / 0 excluded`
+   - ids `20082..20096`
+   - `4 anchors / 11 counted seams / 0 excluded`
+   - ids `20097..20099`
+   - `3 anchors / 0 counted seams / 0 excluded`
+   - ids `20100..20102`
+   - `3 anchors / 0 counted seams / 0 excluded`
 5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`, and
-   `brown` as currently stable, then stage the next `neutral` read as:
-   - lilac / mauve pulse: `20082`, `20083`, `20094`
-   - blue / jade pulse: `20085`, `20090`, `20091`
-   - mint / green pulse: `20086`, `20087`, `20095`
+   `brown` as stable, then carry the corrected `neutral` split as:
+   - lilac / mauve pulse: `20097..20099`
+   - blue / jade pulse: `20100..20102`
+   - mint / green pulse: `20103..20105`
 
 6. Keep the two warm seams as secondary residue:
    - `20084` `Parchment -> Novelle peach`
@@ -143,8 +151,8 @@ stay quarantined locally instead of mixing back into the live DB.
 ## Research Snapshot
 
 - active research lane: `Beta 1.0`
-- active proof surface: third bounded `neutral` continuation at `20082..20096`
-- active pulse result: `4 anchors / 11 counted seams / 0 excluded`
+- active proof surface: third smaller `neutral` split pulse at `20103..20105`
+- active pulse result: `3 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -196,16 +204,20 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20067..20081` -> `9 anchors / 6 counted seams / 0 excluded`
 - third neutral continuation fail surface:
   - `20082..20096` -> `4 anchors / 11 counted seams / 0 excluded`
+- corrected neutral split:
+  - `20097..20099` -> `3 anchors / 0 counted seams / 0 excluded`
+  - `20100..20102` -> `3 anchors / 0 counted seams / 0 excluded`
+  - `20103..20105` -> `3 anchors / 0 counted seams / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/eval-pulse-stack.svg`
   - regenerate pulse charts with `npm run charts:research`
   - derive chart lane labels from row data; archive labels stay annotations
-- active beta question: what is the next narrow `neutral` correction after the
-  third bounded continuation fail surface
+- active beta question: whether a broader `neutral` continuation from source
+  order `48` is useful after the corrected split
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
-- staged neutral method note: `410_N3`
+- corrected neutral method note: `410_N3`
 - active beta note: `020_B10`
 - active family lane: `neutral`
 - tracked research notes:

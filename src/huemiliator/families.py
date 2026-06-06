@@ -18,6 +18,9 @@ FAMILY_NAMES: tuple[str, ...] = (
 )
 
 NEUTRAL_CHROMA_MAX = 14.0
+NEUTRAL_ACHROMATIC_CHROMA_MAX = 3.0
+NEUTRAL_RED_WRAP_HUE_MIN = 345.0
+NEUTRAL_UNDERTONE_BIN_DEGREES = 10.0
 BROWN_HUE_MIN = 15.0
 BROWN_HUE_MAX = 50.0
 BROWN_EARTHY_HUE_MAX = 37.0
@@ -271,6 +274,10 @@ def select_one_up(
     family_member_index: dict[str, tuple[RankedSwatch, ...]],
 ) -> OneUpSelection:
     members = family_member_index[ranked_swatch.family]
+    if ranked_swatch.family == "neutral":
+        replacement = _select_neutral_one_up(ranked_swatch, members)
+        return OneUpSelection(current=ranked_swatch, replacement=replacement)
+
     replacement_rank = min(ranked_swatch.family_rank + 1, ranked_swatch.family_size)
     replacement = members[replacement_rank - 1]
     return OneUpSelection(current=ranked_swatch, replacement=replacement)
@@ -347,6 +354,31 @@ def _family_rank_key(
         0.0,
         swatch.source_order,
     )
+
+
+def _select_neutral_one_up(
+    ranked_swatch: RankedSwatch,
+    members: tuple[RankedSwatch, ...],
+) -> RankedSwatch:
+    current_bucket = _neutral_undertone_bucket(ranked_swatch.swatch)
+    bucket_members = tuple(
+        member
+        for member in members
+        if _neutral_undertone_bucket(member.swatch) == current_bucket
+    )
+    current_index = bucket_members.index(ranked_swatch)
+    replacement_index = min(current_index + 1, len(bucket_members) - 1)
+    return bucket_members[replacement_index]
+
+
+def _neutral_undertone_bucket(swatch: SwatchEntry) -> tuple[int, int]:
+    metrics = build_colour_metrics(swatch.hex)
+    if metrics.lab_chroma <= NEUTRAL_ACHROMATIC_CHROMA_MAX:
+        return (0, 0)
+    hue = metrics.hue_degrees
+    if hue >= NEUTRAL_RED_WRAP_HUE_MIN:
+        hue = 0.0
+    return (1, int(hue // NEUTRAL_UNDERTONE_BIN_DEGREES))
 
 
 def _brown_rank_key(

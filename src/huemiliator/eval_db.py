@@ -325,6 +325,18 @@ def label_pulse_row(
         if row is None:
             raise ValueError(f"Output id {output_id} does not exist.")
 
+        verdict = {"anchor": "pass", "counted_seam": "fail"}.get(label)
+        if verdict is not None:
+            conn.execute(
+                """
+                UPDATE eval_outputs
+                SET pulse_label = ?, pulse_reason = ?, current_verdict = ?
+                WHERE id = ?
+                """,
+                (label, reason, verdict, output_id),
+            )
+            return
+
         conn.execute(
             """
             UPDATE eval_outputs

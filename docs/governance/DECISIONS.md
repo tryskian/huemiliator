@@ -94,7 +94,8 @@ into implementation authorship.
 - Category: `runtime_engineering`
 - Tags: `same_family`, `next_rank`, `non_wrapping`
 - Decision: The replacement rule remains one same-family step upward by rank,
-  clamped at the family top.
+  clamped at the family top. For `neutral`, D-030 constrains that step to the
+  current undertone bucket.
 - Why: This keeps the one-up move simple, legible, and comparable across
   families.
 
@@ -367,3 +368,35 @@ into implementation authorship.
 - Why: Research visuals should make evidence easier to inspect without turning
   chart choice into ad hoc decoration. Deriving charts from frozen snapshots,
   live rows, or parked JSONL keeps public claims tied to the underlying data.
+
+## D-029: Explicit-input pulses preserve thematic eval groups
+
+- Date: `2026-06-06`
+- Category: `eval_quality`
+- Tags: `pulse_sampling`, `targeted_inputs`, `operator_truth`
+- Provenance: `human-led method decision with implementation decision`
+- Decision: Bounded pulse start supports two mutually exclusive seeding modes:
+  contiguous source-order sampling through `--count`, and exact ordered inputs
+  through repeated `--input-hex` arguments. Explicit-input pulses do not accept
+  `--pattern`, `--family`, or `--start-source-order` because those controls
+  only describe source-order sampling.
+- Why: The staged `neutral` three-pulse split groups cool-edge seams
+  thematically rather than by contiguous snapshot source-order. The operator
+  must preserve that method boundary directly instead of making `--count 3`
+  stand in for a different sample shape.
+
+## D-030: Neutral one-up selection stays inside undertone buckets
+
+- Date: `2026-06-06`
+- Category: `runtime_engineering`
+- Tags: `neutral_lane`, `undertone_bucket`, `rank_ladder`
+- Provenance: `human-led method decision with implementation decision`
+- Decision: `neutral` swatches still belong to the closed `neutral` family,
+  but one-up selection advances only within the current coarse undertone
+  bucket and clamps at that bucket top. Other families keep the normal
+  same-family next-rank rule.
+- Why: The failed third `neutral` continuation showed pale warm neutral inputs
+  stepping into lilac, blue, jade, mint, and violet replacements because the
+  neutral ladder was ordered only by lightness strength. Undertone-constrained
+  selection keeps the correction narrow: it fixes the cool-edge drift without
+  reclassifying the current inputs out of `neutral`.

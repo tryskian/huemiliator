@@ -272,6 +272,18 @@ def test_label_pulse_row_updates_label_and_reason(tmp_path: Path) -> None:
     assert row["pulse_reason"] == "off_target_failure"
 
 
+def test_label_pulse_row_syncs_counted_labels_to_row_verdicts(tmp_path: Path) -> None:
+    db_path = tmp_path / "evals.sqlite"
+    anchor_id = record_one_up_state(db_path, _state())
+    seam_id = record_one_up_state(db_path, _state())
+
+    label_pulse_row(db_path, anchor_id, "anchor")
+    label_pulse_row(db_path, seam_id, "counted_seam")
+
+    assert get_output(db_path, anchor_id)["current_verdict"] == "pass"
+    assert get_output(db_path, seam_id)["current_verdict"] == "fail"
+
+
 def test_label_pulse_row_rejects_reason_for_anchor(tmp_path: Path) -> None:
     db_path = tmp_path / "evals.sqlite"
     output_id = record_one_up_state(db_path, _state())

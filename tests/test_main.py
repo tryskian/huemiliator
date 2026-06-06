@@ -16,8 +16,12 @@ def test_render_status_includes_contract_lines() -> None:
     assert "runtime: native colour picker -> canonical hex" in text
     assert "swatch snapshot: frozen local margaret2 reference" in text
     assert "swatch resolution: nearest snapshot match" in text
-    assert "same-family rank: fixed strength ladder" in text
-    assert "transform: next same-family rank with top-rank clamp" in text
+    assert (
+        "same-family rank: fixed strength ladder with neutral undertone buckets" in text
+    )
+    assert (
+        "transform: next same-family rank with neutral undertone/top-rank clamp" in text
+    )
     assert "line: fixed family loss bank" in text
     assert "evidence: local sqlite eval db" in text
     assert "sampler: long-run local source-order or scoped cohort cycle" in text
@@ -238,7 +242,7 @@ def test_main_eval_pulse_start_prints_summary() -> None:
     with patch(
         "huemiliator.main.render_eval_pulse_start",
         return_value="bounded pulse start: count=15\noutput_ids=1-15",
-    ):
+    ) as render:
         with redirect_stdout(stdout):
             result = main(
                 [
@@ -255,7 +259,40 @@ def test_main_eval_pulse_start_prints_summary() -> None:
             )
 
     assert result == 0
+    assert render.call_args.kwargs["count"] == 15
+    assert render.call_args.kwargs["input_hexes"] == ()
     assert "bounded pulse start: count=15" in stdout.getvalue()
+
+
+def test_main_eval_pulse_start_accepts_input_hexes() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_eval_pulse_start",
+        return_value="bounded pulse start: input_hexes=3\noutput_ids=1-3",
+    ) as render:
+        with redirect_stdout(stdout):
+            result = main(
+                [
+                    "eval-pulse-start",
+                    "--input-hex",
+                    "#dccdbc",
+                    "--input-hex",
+                    "#dbccb5",
+                    "--input-hex",
+                    "#f2e2e0",
+                    "--quarantine-label",
+                    "neutral pulse split source",
+                ]
+            )
+
+    assert result == 0
+    assert render.call_args.kwargs["count"] is None
+    assert render.call_args.kwargs["input_hexes"] == (
+        "#dccdbc",
+        "#dbccb5",
+        "#f2e2e0",
+    )
+    assert "bounded pulse start: input_hexes=3" in stdout.getvalue()
 
 
 def test_main_eval_pulse_start_errors_cleanly() -> None:
