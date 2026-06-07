@@ -41,10 +41,11 @@ The core tracked shape is:
   deterministic one-up selection with neutral undertone-bucket selection
 - the loss line stays downstream of the colour decision
 - route and family correctness stay binary
-- the third smaller `neutral` split pulse at `20103..20105` is the active proof
-  surface
+- the broader corrected `neutral` continuation at `20106..20120` is the active
+  proof surface
 - the corrected split stack at `20097..20105` cleared the nine cool-edge seams
   from the failed `20082..20096` source surface
+- the broader continuation from source order `48` passed at `14 / 1`
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the active live verdict unit
@@ -55,13 +56,14 @@ stay quarantined locally instead of mixing back into the live DB.
 ## Active Kernel
 
 - carry the two passing `Beta 1.0` red pulses plus the parked `yellow`,
-  `green`, `blue`, `purple`, `pink`, `orange`, and `brown` proof stacks as
-  comparison context
+  `green`, `blue`, `purple`, `pink`, `orange`, `brown`, and `neutral` proof
+  stacks as comparison context
 - treat `20097..20105` as the completed corrected `neutral` split stack:
   `3 / 0`, `3 / 0`, and `3 / 0`
-- decide whether a broader `neutral` continuation from source order `48` is
-  useful after the split correction
-- keep the two old warm seams as secondary residue outside the cool-edge split
+- treat `20106..20120` as the broader corrected `neutral` continuation:
+  `14 / 1`
+- choose the next method or scope before launching another pulse
+- keep the warm seams as secondary residue outside the cool-edge split
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
 
@@ -74,12 +76,13 @@ stay quarantined locally instead of mixing back into the live DB.
    - `docs/research/020_B10.md`
    - `docs/research/120_BROWN.md`
    - `docs/research/410_N3.md`
+   - `docs/research/420_RESIDUE.md`
 2. Inspect the live repo snapshot:
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
 3. Read the current active pulse proof surface:
-   - ids `20103..20105`
-   - `3 anchors / 0 counted seams / 0 excluded`
+   - ids `20106..20120`
+   - `14 anchors / 1 counted seam / 0 excluded`
    - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
@@ -122,6 +125,8 @@ stay quarantined locally instead of mixing back into the live DB.
    - `7 anchors / 8 counted seams / 0 excluded`
    - ids `19977..19991`
    - `15 anchors / 0 counted seams / 0 excluded`
+   - ids `19992..20006`
+   - `15 anchors / 0 counted seams / 0 excluded`
    - ids `20007..20021`
    - `15 anchors / 0 counted seams / 0 excluded`
    - ids `20022..20036`
@@ -138,21 +143,28 @@ stay quarantined locally instead of mixing back into the live DB.
    - `3 anchors / 0 counted seams / 0 excluded`
    - ids `20100..20102`
    - `3 anchors / 0 counted seams / 0 excluded`
-5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`, and
-   `brown` as stable, then carry the corrected `neutral` split as:
+   - ids `20103..20105`
+   - `3 anchors / 0 counted seams / 0 excluded`
+   - ids `20106..20120`
+   - `14 anchors / 1 counted seam / 0 excluded`
+5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`,
+   `brown`, and `neutral` as stable. Carry the corrected `neutral` evidence as:
    - lilac / mauve pulse: `20097..20099`
    - blue / jade pulse: `20100..20102`
    - mint / green pulse: `20103..20105`
+   - broader source-order continuation: `20106..20120`
 
-6. Keep the two warm seams as secondary residue:
+6. Keep the warm seams as secondary residue:
    - `20084` `Parchment -> Novelle peach`
    - `20088` `Pearled ivory -> Pearl`
+   - `20107` `Pastel parchment -> Creme de peche`
 
 ## Research Snapshot
 
 - active research lane: `Beta 1.0`
-- active proof surface: third smaller `neutral` split pulse at `20103..20105`
-- active pulse result: `3 anchors / 0 counted seams / 0 excluded`
+- active proof surface: broader corrected `neutral` continuation at
+  `20106..20120`
+- active pulse result: `14 anchors / 1 counted seam / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -192,6 +204,8 @@ stay quarantined locally instead of mixing back into the live DB.
   - `19962..19976` -> `7 anchors / 8 counted seams / 0 excluded`
 - parked orange close:
   - `19977..19991` -> `15 anchors / 0 counted seams / 0 excluded`
+- final orange row-order close:
+  - `19992..20006` -> `15 anchors / 0 counted seams / 0 excluded`
 - opening brown pass:
   - `20007..20021` -> `15 anchors / 0 counted seams / 0 excluded`
 - deeper brown continuation:
@@ -208,18 +222,21 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20097..20099` -> `3 anchors / 0 counted seams / 0 excluded`
   - `20100..20102` -> `3 anchors / 0 counted seams / 0 excluded`
   - `20103..20105` -> `3 anchors / 0 counted seams / 0 excluded`
+- broader corrected neutral continuation:
+  - `20106..20120` -> `14 anchors / 1 counted seam / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/eval-pulse-stack.svg`
-  - regenerate pulse charts with `npm run charts:research`
+  - `docs/research/eval-residue-family-bars.svg`
+  - regenerate research charts with `npm run charts:research`
   - derive chart lane labels from row data; archive labels stay annotations
-- active beta question: whether a broader `neutral` continuation from source
-  order `48` is useful after the corrected split
+- active beta question: choose the next method or scope after all runtime
+  family lanes have parked reads
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
 - active beta note: `020_B10`
-- active family lane: `neutral`
+- active family lane: none selected after `neutral` park
 - tracked research notes:
   - `000_LEGEND`
   - `010_PB10`
@@ -228,6 +245,7 @@ stay quarantined locally instead of mixing back into the live DB.
   - `210_RED_ORANGE`
   - `310_RED_ORANGE_AUDIT`
   - `410_N3`
+  - `420_RESIDUE`
 - live DB rule: keep only the current proof surface in `eval_outputs`
 
 ## Guardrails

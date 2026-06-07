@@ -364,7 +364,9 @@ into implementation authorship.
   chart types chosen by Huey's data first and cross-toy alignment used only
   when it fits naturally. The private working contract lives in
   `docs/peanut/research/chart_types.md`; public chart surfaces should promote
-  generated SVG assets together with the minimal tracked docs link.
+  generated SVG assets together with the minimal tracked docs link. For eval
+  pulse charts, row-order pulse labels and lane labels derive from row data;
+  archive labels stay annotations when local quarantine names drift.
 - Why: Research visuals should make evidence easier to inspect without turning
   chart choice into ad hoc decoration. Deriving charts from frozen snapshots,
   live rows, or parked JSONL keeps public claims tied to the underlying data.
