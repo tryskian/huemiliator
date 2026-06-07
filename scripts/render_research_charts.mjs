@@ -9,11 +9,17 @@ import {JSDOM} from "jsdom";
 const repoRoot = process.cwd();
 const parkedDir = path.join(repoRoot, ".local", "parked");
 const evalDb = path.join(repoRoot, ".local", "evals.sqlite");
-const outputPath = path.join(
+const pulseStackOutputPath = path.join(
   repoRoot,
   "docs",
   "research",
   "eval-pulse-stack.svg",
+);
+const residueBarsOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "eval-residue-family-bars.svg",
 );
 
 const segmentOrder = ["anchor", "counted_seam", "excluded_noise"];
@@ -63,22 +69,16 @@ function countSegments(rows) {
   return counts;
 }
 
-function pulseNumberFromLabel(label) {
-  const match = label.match(/\bpulse\s+(\d+)\b/);
-  return match ? Number.parseInt(match[1], 10) : null;
-}
-
 function pulseFromRows({rows, source, label, sequence}) {
   const family = majorityFamily(rows);
   const counts = countSegments(rows);
   const firstId = d3.min(rows, (row) => row.id);
   const lastId = d3.max(rows, (row) => row.id);
-  const pulseNumber = pulseNumberFromLabel(label) ?? sequence;
 
   return {
-    sequence: pulseNumber,
+    sequence,
     family,
-    label: `P${String(pulseNumber).padStart(2, "0")} ${family}${
+    label: `P${String(sequence).padStart(2, "0")} ${family}${
       source === "live" ? " live" : ""
     }`,
     archiveLabel: label,
@@ -86,6 +86,7 @@ function pulseFromRows({rows, source, label, sequence}) {
     firstId,
     lastId,
     counts,
+    rows,
   };
 }
 
@@ -99,12 +100,15 @@ function readParkedPulses() {
     .filter((file) => /^eval-surface-.*\.jsonl$/.test(file))
     .sort()
     .map((file) => path.join(parkedDir, file))
-    .map((filePath, index) => {
+    .map((filePath) => {
       const rows = readJsonl(filePath);
       const label = readMetaLabel(filePath);
-      return {rows, label, source: "parked", sequence: index + 1};
+      const firstId = d3.min(rows, (row) => row.id);
+      return {rows, label, source: "parked", firstId};
     })
     .filter(({rows}) => rows.some((row) => row.pulse_label))
+    .sort((left, right) => d3.ascending(left.firstId, right.firstId))
+    .map((pulse, index) => ({...pulse, sequence: index + 1}))
     .map(pulseFromRows)
     .sort((left, right) => d3.ascending(left.sequence, right.sequence));
 }
@@ -163,7 +167,7 @@ function toSegments(pulses) {
         x0,
         x1: x0 + count,
         count,
-        title: `${pulse.label}\n${segmentLabels.get(segment)}: ${count}\nrows ${pulse.firstId}..${pulse.lastId}`,
+        title: `${pulse.label}\n${segmentLabels.get(segment)}: ${count}\nrows ${pulse.firstId}..${pulse.lastId}\narchive: ${pulse.archiveLabel}`,
       };
       x0 += count;
       return item;
@@ -250,8 +254,97 @@ function renderEvalPulseStack() {
   svg.prepend(title);
   svg.append(buildLegend(window.document));
 
-  fs.writeFileSync(outputPath, `${svg.outerHTML}\n`);
-  console.log(`wrote ${path.relative(repoRoot, outputPath)}`);
+  fs.writeFileSync(pulseStackOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, pulseStackOutputPath)}`);
+}
+
+function renderResidueFamilyBars() {
+  const pulses = buildPulseData();
+  const rows = pulses.flatMap((pulse) =>
+    pulse.rows
+      .filter((row) => row.pulse_label === "counted_seam")
+      .map((row) => ({
+        family: row.family,
+        pulse: pulse.label,
+        rowId: row.id,
+        pair: `${row.nearest_swatch_name} -> ${row.replacement_shade_name}`,
+      })),
+  );
+  const familyCounts = d3
+    .rollups(
+      rows,
+      (items) => items.length,
+      (row) => row.family,
+    )
+    .map(([family, count]) => ({family, count}))
+    .sort((left, right) => d3.descending(left.count, right.count));
+
+  const {window} = new JSDOM("<!DOCTYPE html>");
+  const yDomain = familyCounts.map((item) => item.family);
+  const maxCount = d3.max(familyCounts, (item) => item.count) ?? 0;
+
+  const svg = Plot.plot({
+    document: window.document,
+    className: "huey-residue-family-bars",
+    width: 760,
+    height: 108 + yDomain.length * 34,
+    marginTop: 52,
+    marginRight: 72,
+    marginBottom: 44,
+    marginLeft: 98,
+    style: {
+      background: "#f6f5f2",
+      color: "#26231f",
+      fontFamily: "Inter, Arial, sans-serif",
+      fontSize: 12,
+    },
+    x: {
+      domain: [0, Math.max(5, maxCount)],
+      label: "counted seam rows",
+      grid: true,
+    },
+    y: {
+      domain: yDomain,
+      label: null,
+    },
+    marks: [
+      Plot.ruleX([0]),
+      Plot.barX(familyCounts, {
+        x: "count",
+        y: "family",
+        fill: "#c34f4d",
+        rx: 3,
+        title: (item) => `${item.family}\ncounted seams: ${item.count}`,
+      }),
+      Plot.text(familyCounts, {
+        x: "count",
+        y: "family",
+        text: "count",
+        dx: 10,
+        fill: "#26231f",
+        fontWeight: 700,
+      }),
+    ],
+  });
+
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-labelledby", "title desc");
+
+  const title = window.document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "title");
+  title.textContent = "Huemiliator counted seams by family";
+
+  const desc = window.document.createElementNS("http://www.w3.org/2000/svg", "desc");
+  desc.setAttribute("id", "desc");
+  desc.textContent =
+    "Horizontal bars showing counted seam rows by Huemiliator family across row-order Beta 1.0 pulses.";
+
+  svg.prepend(desc);
+  svg.prepend(title);
+
+  fs.writeFileSync(residueBarsOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, residueBarsOutputPath)}`);
 }
 
 function buildLegend(document) {
@@ -287,3 +380,4 @@ function buildLegend(document) {
 }
 
 renderEvalPulseStack();
+renderResidueFamilyBars();

@@ -92,12 +92,12 @@ flowchart LR
 The active method is:
 
 - Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The third smaller `neutral` split pulse at `20103..20105` is the active
-  judged proof surface, with the corrected split stack at `20097..20105`
-  carried as the current neutral correction. The full parked red, yellow,
-  green, blue, purple, pink, orange, and brown proof stacks stay as the
-  current Beta 1.0 comparison stack, and the closed third corrected `red`
-  rerun stays as the closed row-level comparison baseline.
+  The broader corrected `neutral` continuation at `20106..20120` is the
+  active judged proof surface, with the corrected split stack at
+  `20097..20105` carried as the current neutral correction. The full parked
+  red, yellow, green, blue, purple, pink, orange, brown, and neutral proof
+  stacks stay as the current Beta 1.0 comparison stack, and the closed third
+  corrected `red` rerun stays as the closed row-level comparison baseline.
 - one active family lane at a time
 - one active sampler at a time
 - bounded fail-pressure pulse as the current live judgement unit
