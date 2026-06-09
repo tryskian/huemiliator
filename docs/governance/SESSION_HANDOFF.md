@@ -44,14 +44,19 @@ The core tracked shape is:
   deterministic one-up selection with neutral undertone-bucket selection
 - the loss line stays downstream of the colour decision
 - route and family correctness stay binary
-- the broader corrected `neutral` continuation at `20106..20120` is the active
+- the broader corrected `neutral` continuation at `20106..20120` is the carried
+  prior proof surface
+- the warm-edge `orange` yellow-gold audit pulse at `20121..20128` is the active
   proof surface
 - the corrected split stack at `20097..20105` cleared the nine cool-edge seams
   from the failed `20082..20096` source surface
-- the broader continuation from source order `48` passed at `14 / 1`
+- the broader `neutral` continuation from source order `48` passed at `14 / 1`
+  and is now quarantined locally
+- the first warm-edge audit pulse passed at `8 / 0`
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the active live verdict unit
+- the current kernel is warm-edge residue audit; the next group is not selected
 
 Canonical live work stays on the repo `.local` surface. Superseded eval rows
 stay quarantined locally instead of mixing back into the live DB.
@@ -66,6 +71,9 @@ stay quarantined locally instead of mixing back into the live DB.
 - treat `20106..20120` as the broader corrected `neutral` continuation:
   `14 / 1`
 - choose the next method or scope before launching another pulse
+- keep `20121..20128` as the first warm-edge audit pass
+- use `430_WARM_EDGE_AUDIT` to choose the next warm-edge group before launching
+  another pulse
 - keep the warm seams as secondary residue outside the cool-edge split
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
@@ -80,12 +88,15 @@ stay quarantined locally instead of mixing back into the live DB.
    - `docs/research/120_BROWN.md`
    - `docs/research/410_N3.md`
    - `docs/research/420_RESIDUE.md`
+   - `docs/research/430_WARM_EDGE_AUDIT.md`
 2. Inspect the live repo snapshot:
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
 3. Read the current active pulse proof surface:
-   - ids `20106..20120`
+   - carried prior ids `20106..20120`
    - `14 anchors / 1 counted seam / 0 excluded`
+   - ids `20121..20128`
+   - `8 anchors / 0 counted seams / 0 excluded`
    - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
@@ -150,6 +161,8 @@ stay quarantined locally instead of mixing back into the live DB.
    - `3 anchors / 0 counted seams / 0 excluded`
    - ids `20106..20120`
    - `14 anchors / 1 counted seam / 0 excluded`
+   - ids `20121..20128`
+   - `8 anchors / 0 counted seams / 0 excluded`
 5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`,
    `brown`, and `neutral` as stable. Carry the corrected `neutral` evidence as:
    - lilac / mauve pulse: `20097..20099`
@@ -161,13 +174,22 @@ stay quarantined locally instead of mixing back into the live DB.
    - `20084` `Parchment -> Novelle peach`
    - `20088` `Pearled ivory -> Pearl`
    - `20107` `Pastel parchment -> Creme de peche`
+7. Use `430_WARM_EDGE_AUDIT` for the active warm-edge audit:
+   - first candidate passed: `orange` yellow-gold boundary at `20121..20128`
+   - next primary candidate: `yellow` green / olive shoulder
+   - warm-neutral rows require explicit inputs because `--family warm` does not
+     include `neutral`
+   - no new pulse starts until one group and seed mode are chosen
 
 ## Research Snapshot
 
 - active research lane: `Beta 1.0`
-- active proof surface: broader corrected `neutral` continuation at
+- carried prior proof surface: broader corrected `neutral` continuation at
   `20106..20120`
-- active pulse result: `14 anchors / 1 counted seam / 0 excluded`
+- active proof surface: warm-edge `orange` yellow-gold audit pulse at
+  `20121..20128`
+- carried prior pulse result: `14 anchors / 1 counted seam / 0 excluded`
+- active pulse result: `8 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -227,19 +249,26 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20103..20105` -> `3 anchors / 0 counted seams / 0 excluded`
 - broader corrected neutral continuation:
   - `20106..20120` -> `14 anchors / 1 counted seam / 0 excluded`
+- first warm-edge audit pulse:
+  - `20121..20128` -> `8 anchors / 0 counted seams / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/eval-pulse-stack.svg`
   - `docs/research/eval-residue-family-bars.svg`
   - regenerate research charts with `npm run charts:research`
   - derive chart lane labels from row data; archive labels stay annotations
-- active beta question: choose the next method or scope after all runtime
-  family lanes have parked reads
+- active beta question before the warm-edge audit: choose the next method or
+  scope after all runtime family lanes have parked reads
+- active beta question: choose the next warm-edge residue group after the first
+  audit pass
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
 - active beta note: `020_B10`
-- active family lane: none selected after `neutral` park
+- active warm-edge note: `430_WARM_EDGE_AUDIT`
+- active family lane before the warm-edge audit: none selected after
+  `neutral` park
+- active family lane: none; current pulse is an explicit warm-edge audit group
 - tracked research notes:
   - `000_LEGEND`
   - `010_PB10`
@@ -249,6 +278,7 @@ stay quarantined locally instead of mixing back into the live DB.
   - `310_RED_ORANGE_AUDIT`
   - `410_N3`
   - `420_RESIDUE`
+  - `430_WARM_EDGE_AUDIT`
 - live DB rule: keep only the current proof surface in `eval_outputs`
 
 ## Guardrails

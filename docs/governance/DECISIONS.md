@@ -402,3 +402,18 @@ into implementation authorship.
   neutral ladder was ordered only by lightness strength. Undertone-constrained
   selection keeps the correction narrow: it fixes the cool-edge drift without
   reclassifying the current inputs out of `neutral`.
+
+## D-031: Config stays structural and runtime contract text lives in agent
+
+- Date: `2026-06-09`
+- Category: `runtime_engineering`
+- Tags: `config_boundary`, `agent_contract`, `positive_instructions`
+- Provenance: `human-led repo-family alignment decision with implementation decision`
+- Decision: `src/huemiliator/config.py` stays structural: roots, local paths,
+  dotenv loading, and typed settings. Runtime-facing contract text belongs in
+  `src/huemiliator/agent.py`, and that text states positive target behaviour.
+- Validation:
+  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_agent.py tests/test_config.py tests/test_main.py`
+- Why: This keeps Huey aligned with the Polinko / Probaboracle split where
+  configuration is environment shape and the runtime voice or contract is owned
+  by the agent layer.

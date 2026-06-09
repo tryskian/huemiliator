@@ -137,11 +137,12 @@ function buildPulseData() {
   const pulses = [...parkedPulses];
 
   if (liveRows.length) {
+    const liveFamily = majorityFamily(liveRows);
     pulses.push(
       pulseFromRows({
         rows: liveRows,
         source: "live",
-        label: `active neutral proof surface ${d3.min(
+        label: `active ${liveFamily} proof surface ${d3.min(
           liveRows,
           (row) => row.id,
         )}..${d3.max(liveRows, (row) => row.id)}`,

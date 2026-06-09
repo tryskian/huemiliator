@@ -11,6 +11,8 @@ next eval scope be?
 
 Triaged.
 
+Promoted into [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md).
+
 Do not launch another family-lane continuation by default. The row-order pulse
 stack now says the useful next move is a residue-scope choice.
 
@@ -52,6 +54,9 @@ The next useful scope is not one more blind family lane. It is one of these:
 ## Recommendation
 
 Use the warm-edge residue audit if the next task is still eval research.
+
+The warm-edge residue audit is now active, and the first `orange` yellow-gold
+boundary pulse passed at `20121..20128`.
 
 Otherwise, stop at the chart-only closeout: `Beta 1.0` has a complete
 family-lane sweep with row-order chart truth, a parked `neutral` lane, and no

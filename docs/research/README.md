@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-06-06
+Last updated: 2026-06-09
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -24,25 +24,32 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | Signal | Current read |
 | --- | --- |
 | live research lane | `Beta 1.0` fail-pressure pulse |
-| active proof surface | broader corrected `neutral` continuation at `20106..20120` |
+| carried prior proof surface | broader corrected `neutral` continuation at `20106..20120` |
+| active proof surface | warm-edge `orange` yellow-gold audit pulse at `20121..20128` |
 | verdict unit | pulse-level proof surface |
 | comparison surface | closed third corrected `red` rerun at `id > 18423` |
-| beta question | choose the next method or scope now that all runtime family lanes are parked |
+| beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
+| beta question | choose the next warm-edge group after the first audit pass |
 
 ## Current Research State
 
 | Item | Current state |
 | --- | --- |
 | stage | `Beta 1.0` |
-| active proof surface | `neutral` continuation pulse at `20106..20120` |
-| current totals | `15 total / 14 pass / 1 fail / 0 pending` |
-| current question | next method or scope after the family-lane sweep |
+| carried prior proof surface | `neutral` continuation pulse at `20106..20120` |
+| active proof surface | warm-edge `orange` yellow-gold audit pulse at `20121..20128` |
+| carried prior totals | `15 total / 14 pass / 1 fail / 0 pending` |
+| current totals | `8 total / 8 pass / 0 fail / 0 pending` |
+| prior question | next method or scope after the family-lane sweep |
+| current question | next warm-edge residue group |
 | active beta note | `020_B10` |
 | closed staging note | `010_PB10` |
 | corrected method note | `410_N3` |
-| active family lane | none selected after `neutral` park |
+| active family lane before warm-edge audit | none selected after `neutral` park |
+| active family lane | none; current pulse is an explicit warm-edge audit group |
 | stable prior lanes | `red` through `neutral` |
-| current audit note | `310_RED_ORANGE_AUDIT` |
+| prior audit note | `310_RED_ORANGE_AUDIT` |
+| current audit note | `430_WARM_EDGE_AUDIT` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 | live DB rule | keep only the current proof surface in `eval_outputs` |
 
@@ -63,7 +70,8 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 | [Red Orange Edge Drift](./210_RED_ORANGE.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | audit note | the audit blockers are repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
 | [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
-| [Post-Sweep Residue Map](./420_RESIDUE.md) | triaged backlog note | counted-seam residue across the row-order `Beta 1.0` pulse stack points to warm-edge audit or chart-only closeout |
+| [Post-Sweep Residue Map](./420_RESIDUE.md) | promoted backlog note | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted the warm-edge audit scope |
+| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | active hypothesis | records the first `orange` yellow-gold pass and names the next warm-edge candidates |
 
 ## How To Read This Folder
 
@@ -109,7 +117,8 @@ the eval rows; archive labels stay annotations.
 | comparison baseline | closed third corrected `red` rerun stays the row-level comparison baseline |
 | scoped sampling | current sampling truth matches the runtime ladder again |
 | operator surface | pulse start, label, report, and local quarantine are live |
-| next boundary | choose the next method or scope; no further neutral rerun is required without new evidence |
+| warm-edge audit | `orange` yellow-gold boundary passed at `20121..20128` |
+| next boundary | choose the next warm-edge group and seed mode before any new pulse |
 
 ## Residue Map
 
@@ -128,6 +137,13 @@ pulse stack. It is a next-scope map, not a live failure total.
 | broader continuation | source order `48` | `20106..20120` | `14 anchors / 1 seam / 0 excluded` |
 | warm residue | `20084`, `20088`, `20107` | outside the cool-edge correction | secondary peach / pearl residue |
 
+## Active Warm-Edge Read
+
+| Pressure group | Seed mode | Rows | Read |
+| --- | --- | --- | --- |
+| `orange` yellow-gold boundary | exact inputs from `19962`, `19964`, `19965`, `19968`, `19970`, `19971`, `19973`, and `19976` | `20121..20128` | `8 anchors / 0 seams / 0 excluded` |
+| next candidate | `yellow` green / olive shoulder | not started | choose seed mode before sampling |
+
 ## Plans
 
 Plans are useful, but they are not evidence.
@@ -138,7 +154,9 @@ Plans are useful, but they are not evidence.
 | 2 | keep `20106..20120` as the broader corrected neutral continuation | the pulse passed at `14 / 1` |
 | 3 | treat `brown` as parked behind three clean bounded pulses | do not reopen the old context-dependence read without new evidence |
 | 4 | use `410_N3` as the completed split-correction read | keep the undertone-bucket correction attached to the evidence |
-| 5 | use `420_RESIDUE` to choose the next `Beta 1.0` method or scope | all runtime family lanes now have a parked read |
+| 5 | use `420_RESIDUE` as the promoted residue map | all runtime family lanes now have a parked read |
+| 6 | keep `20121..20128` as the first warm-edge audit pass | the `orange` yellow-gold boundary passed at `8 / 0` |
+| 7 | use `430_WARM_EDGE_AUDIT` to choose the next group | no new pulse starts until one edge group and seed mode are chosen |
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.

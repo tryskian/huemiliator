@@ -43,6 +43,7 @@ Current live research lane:
 Current active proof surface:
 
 - broader corrected `neutral` continuation at `20106..20120`
+- warm-edge `orange` yellow-gold audit pulse at `20121..20128`
 - pulse-level proof surface
 
 Current closed comparison surface:
