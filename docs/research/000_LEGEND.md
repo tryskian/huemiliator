@@ -5,7 +5,7 @@
 | Code | `000_LEGEND` |
 | Category | `legend` |
 | Status | `active` |
-| Last evidence | `2026-06-06` |
+| Last evidence | `2026-06-09` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -19,7 +19,11 @@
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
-| `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam residue map | `backlog` | `triaged` |
+| `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam residue map | `backlog` | `promoted` |
+| `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit and active pulse read | `hypothesis` | `active` |
+
+`RESIDUE` remains the triaged backlog map; `WARM_EDGE_AUDIT` is the promoted
+active read from that map.
 
 ## Ordering
 

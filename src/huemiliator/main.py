@@ -4,7 +4,8 @@ import argparse
 import sqlite3
 import sys
 
-from huemiliator.config import TAGLINE, load_settings
+from huemiliator.agent import RUNTIME_CONTRACT_LINES, TAGLINE
+from huemiliator.config import load_settings
 from huemiliator.eval_db import (
     LIST_VERDICTS,
     PULSE_EXCLUSION_REASONS,
@@ -29,23 +30,6 @@ from huemiliator.picker import PickerError, pick_hex
 from huemiliator.pipeline import build_one_up_state
 from huemiliator.resolution import ResolutionError
 from huemiliator.swatches import SwatchDatasetError, load_swatch_snapshot
-
-STATUS_LINES: tuple[str, ...] = (
-    "status: partial runtime",
-    "platform: macos local only",
-    "runtime: native colour picker -> canonical hex",
-    "input: native colour picker hex",
-    "swatch snapshot: frozen local margaret2 reference",
-    "swatch resolution: nearest snapshot match",
-    "distance rule: delta-e cie76 with source-order tie-break",
-    "family routing: fixed neutral and hue thresholds",
-    "same-family rank: fixed strength ladder with neutral undertone buckets",
-    "transform: next same-family rank with neutral undertone/top-rank clamp",
-    "line: fixed family loss bank",
-    "evidence: local sqlite eval db",
-    "sampler: long-run local source-order or scoped cohort cycle",
-    "eval: binary pass/fail",
-)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -231,12 +215,12 @@ def build_parser() -> argparse.ArgumentParser:
 def render_status() -> str:
     settings = load_settings()
     lines = [settings.app_name.lower(), TAGLINE, ""]
-    lines.extend(STATUS_LINES)
+    lines.extend(RUNTIME_CONTRACT_LINES)
     return "\n".join(lines)
 
 
 def render_contract() -> str:
-    return "\n".join(STATUS_LINES)
+    return "\n".join(RUNTIME_CONTRACT_LINES)
 
 
 def render_resolution(hex_value: str) -> str:

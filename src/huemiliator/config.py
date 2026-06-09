@@ -56,8 +56,6 @@ ROOT = SOURCE_ROOT
 SWATCH_SNAPSHOT_PATH = SOURCE_ROOT / "data" / "margaret2_swatches.json"
 EVAL_DB_PATH = STATE_ROOT / ".local" / "evals.sqlite"
 
-TAGLINE = "pick a colour. hue's is better."
-
 
 @dataclass(frozen=True)
 class Settings:

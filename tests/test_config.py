@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import huemiliator.config as config
 from huemiliator.config import load_settings, resolve_state_root
 
 
@@ -10,6 +11,12 @@ def test_load_settings_points_to_repo_swatch_snapshot_path() -> None:
     assert settings.swatch_snapshot_path.exists()
     assert settings.eval_db_path.name == "evals.sqlite"
     assert settings.eval_db_path.parent.name == ".local"
+
+
+def test_config_stays_structural_only() -> None:
+    assert not hasattr(config, "TAGLINE")
+    assert not hasattr(config, "RUNTIME_CONTRACT_LINES")
+    assert not hasattr(config, "ORACLE_INSTRUCTIONS")
 
 
 def test_resolve_state_root_uses_checkout_root_when_git_dir_exists(
