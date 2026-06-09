@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-06-06
+Last updated: 2026-06-09
 
 ## Start Here
 
@@ -34,6 +34,9 @@ fail-pressure pulse lane for the current non-OCR logic method boundary.
 
 The core tracked shape is:
 
+- README now states the Polinko research model is staged for the next beta:
+  - status language is model-level, not repo-only
+  - badges align with the shared toy-factory status pattern
 - bare `huemiliator` keeps the runtime local and CLI-first
 - the active input surface is the native macOS colour picker
 - the canonical user state is one hex code
