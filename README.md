@@ -1,9 +1,19 @@
 # Huemiliator
 
 [![Research Stage](https://img.shields.io/badge/research_stage-Beta%201.0%20fail--pressure%20pulse-E15759)](./docs/research/README.md)
+[![Polinko Model](https://img.shields.io/badge/polinko_model-staged_next_beta-4C956C)](https://github.com/tryskian/polinko)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
+![Model Refactor](https://img.shields.io/badge/model_refactor-active-F28E2B)
 
 ## pick a colour. huey's is better
+
+> [!NOTE]
+> **Current status:** The Polinko research model is being staged for the next
+> beta.
+>
+> This is an active refactor window for the model contract, evidence snapshots,
+> docs, and supporting tools. Current builds are kept stable while the repo
+> surfaces are simplified, tested, and aligned for the next release.
 
 Huemiliator is a small, local, agent-backed CLI mini chatbot using the
 **[Polinko research model](https://github.com/tryskian/polinko)**.
