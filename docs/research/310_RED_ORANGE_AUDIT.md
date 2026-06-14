@@ -7,31 +7,37 @@ Date: `2026-05-16`
 Does the active branch still support the same narrow `red` claim, and is the
 repo ready to log fresh `red` evidence?
 
+This audit is now closed evidence for the representative red-orange case.
+
 ## Short Answer
 
 Yes on the claim. No on the first real Beta 1.0 pulse.
 
-The live proof surface still supports the same warm-clay / peach edge read, but
-the branch surfaced sampler-truth and source-order blockers that should be
-repaired before fresh `red` rows are logged.
+The source proof surface still supported the same warm-clay / peach edge read,
+but the branch surfaced sampler-truth and source-order blockers that should be
+repaired before fresh `red` rows were logged.
+
+Those blockers were repaired before the first `Beta 1.0` pulse, and the later
+bounded red pulses passed.
 
 ## Audit Snapshot
 
 | Surface | Result |
 | --- | --- |
-| active proof surface | closed third corrected `red` rerun |
-| current totals | `1268 total / 1162 pass / 106 fail / 0 pending` |
-| active ids | `18424..19691` |
-| current branch finding | narrow `red -> orange` edge still looks right |
+| source proof surface | closed third corrected `red` rerun |
+| source totals | `1268 total / 1162 pass / 106 fail / 0 pending` |
+| source ids | `18424..19691` |
+| branch finding | narrow `red -> orange` edge still looked right |
 | promotion gate | repair scoped sampler truth and true source-order targeting first |
+| later bounded read | red pulses at `19692..19706` and `19707..19721` passed |
 
 ## Confirmed Signal
 
-- the live proof surface still matches the tracked red read
+- the source proof surface still matched the tracked red read
 - the dominant repeated fail seam is still the warm-clay / peach drift
 - the coherent muted-red local cluster still looks healthy enough to keep in
   `red`
-- the next red family cut is still the same narrow target
+- the next red family cut was still the same narrow target
 
 ## Repeated Fail Drift
 
@@ -50,7 +56,7 @@ repaired before fresh `red` rows are logged.
 
 ## What It Points To
 
-1. keep the closed third corrected `red` rerun as the active proof surface
+1. keep the closed third corrected `red` rerun as the source proof surface
 2. repair sampler truth and source-order targeting
 3. repair the dead `contract` command while the surfaced truth gaps are open
 4. only then launch the first bounded `red` Beta 1.0 pulse
@@ -89,10 +95,15 @@ Date: `2026-05-21`
 
 - the next bounded `red` pulse targeted the older repeated fail cluster at
   source-order `850`
-- the active proof surface is now `19707..19721`
+- the latest red proof surface is now `19707..19721`
 - that deeper cluster also passed at:
   - `10 anchors`
   - `5 counted seams`
   - `0 excluded`
 - the older repeated fail cluster is still a real drift, but it no longer
   dominates the lane under bounded pulse pressure
+
+## Current Read
+
+The red-orange edge is closed as an audit gate and retained as a representative
+case. Later red work is optional follow-up, not the next required boundary.
