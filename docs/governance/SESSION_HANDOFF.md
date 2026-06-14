@@ -54,7 +54,7 @@ The core tracked shape is:
   `20140..20145` is the carried warm-edge proof surface
 - the warm-edge `yellow` residual chartreuse audit pulse at `20146..20150` is
   the carried warm-edge proof surface
-- the warm-neutral peach / pearl audit pulse at `20151..20153` is the active
+- the warm-neutral peach / pearl audit pulse at `20151..20153` is the latest
   proof surface
 - the corrected split stack at `20097..20105` cleared the nine cool-edge seams
   from the failed `20082..20096` source surface
@@ -68,7 +68,8 @@ The core tracked shape is:
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the active live verdict unit
-- the current kernel is warm-edge residue audit; the next group is not selected
+- the promoted warm-edge residue map is closed; no new group is queued without
+  fresh promoted evidence
 
 Canonical live work stays on the repo `.local` surface. Superseded eval rows
 stay quarantined locally instead of mixing back into the live DB.
@@ -82,13 +83,13 @@ stay quarantined locally instead of mixing back into the live DB.
   `3 / 0`, `3 / 0`, and `3 / 0`
 - treat `20106..20120` as the broader corrected `neutral` continuation:
   `14 / 1`
-- choose the next method or scope before launching another pulse
+- keep the next method or scope evidence-gated before launching another pulse
 - keep `20121..20128` as the first warm-edge audit pass
 - keep `20129..20139` as the second warm-edge audit pass
 - keep `20140..20145` as the third warm-edge audit pass
 - keep `20146..20150` as the fourth warm-edge audit pass
 - keep `20151..20153` as the fifth warm-edge audit pass
-- close the promoted warm-edge residue map unless new evidence appears
+- carry the closed promoted warm-edge residue map unless new evidence appears
 - keep the warm seams as secondary residue outside the cool-edge split
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
@@ -205,7 +206,7 @@ stay quarantined locally instead of mixing back into the live DB.
    - `20084` `Parchment -> Novelle peach`
    - `20088` `Pearled ivory -> Pearl`
    - `20107` `Pastel parchment -> Creme de peche`
-7. Use `430_WARM_EDGE_AUDIT` for the active warm-edge audit:
+7. Use `430_WARM_EDGE_AUDIT` for the closed warm-edge audit:
    - first candidate passed: `orange` yellow-gold boundary at `20121..20128`
    - second candidate passed: `yellow` green / olive shoulder at
      `20129..20139`
@@ -230,14 +231,14 @@ stay quarantined locally instead of mixing back into the live DB.
   pulse at `20140..20145`
 - carried warm-edge proof surface: `yellow` residual chartreuse audit pulse at
   `20146..20150`
-- active proof surface: warm-neutral peach / pearl audit pulse at
+- latest proof surface: warm-neutral peach / pearl audit pulse at
   `20151..20153`
 - carried prior pulse result: `14 anchors / 1 counted seam / 0 excluded`
 - carried warm-edge pulse result: `8 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `11 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `6 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `5 anchors / 0 counted seams / 0 excluded`
-- active pulse result: `3 anchors / 0 counted seams / 0 excluded`
+- latest pulse result: `3 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -315,16 +316,15 @@ stay quarantined locally instead of mixing back into the live DB.
   - derive chart lane labels from row data; archive labels stay annotations
 - active beta question before the warm-edge audit: choose the next method or
   scope after all runtime family lanes have parked reads
-- active beta question: close the warm-edge residue map unless new evidence
-  promotes another narrow group
+- active beta question: no new warm-edge group without fresh promoted evidence
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
 - active beta note: `020_B10`
-- active warm-edge note: `430_WARM_EDGE_AUDIT`
+- closed warm-edge note: `430_WARM_EDGE_AUDIT`
 - active family lane before the warm-edge audit: none selected after
   `neutral` park
-- active family lane: none; current pulse is an explicit warm-edge audit group
+- active family lane: none; warm-edge audit is closed and no pulse is queued
 - tracked research notes:
   - `000_LEGEND`
   - `010_PB10`
