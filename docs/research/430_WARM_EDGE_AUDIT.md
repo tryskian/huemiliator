@@ -29,6 +29,13 @@ The third warm-edge pulse launched from exact `orange` pale straw / buff /
 blush inputs and passed at `20140..20145`:
 `6 anchors / 0 counted seams / 0 excluded`.
 
+The fourth warm-edge pulse launched from exact `yellow` residual chartreuse
+inputs and passed at `20146..20150`:
+`5 anchors / 0 counted seams / 0 excluded`.
+
+The fifth warm-edge pulse launched from exact warm-neutral peach / pearl inputs
+and passed at `20151..20153`: `3 anchors / 0 counted seams / 0 excluded`.
+
 The previous live proof surfaces were quarantined locally before each pulse:
 
 | Archived surface | Rows | Archive |
@@ -36,6 +43,8 @@ The previous live proof surfaces were quarantined locally before each pulse:
 | `20106..20120` | `15` | `.local/parked/eval-surface-20260609T161558Z-beta-1-0-neutral-continuation-before-warm-edge-audit.jsonl` |
 | `20121..20128` | `8` | `.local/parked/eval-surface-20260614T180152Z-beta-1-0-warm-edge-orange-yellow-gold-boundary-pass.jsonl` |
 | `20129..20139` | `11` | `.local/parked/eval-surface-20260614T180546Z-beta-1-0-warm-edge-yellow-green-olive-shoulder-pass.jsonl` |
+| `20140..20145` | `6` | `.local/parked/eval-surface-20260614T181316Z-beta-1-0-warm-edge-orange-pale-straw-buff-blush-shoulder-pass.jsonl` |
+| `20146..20150` | `5` | `.local/parked/eval-surface-20260614T181353Z-beta-1-0-warm-edge-yellow-residual-chartreuse-shoulder-pass.jsonl` |
 
 ## Audit Boundary
 
@@ -53,8 +62,8 @@ The previous live proof surfaces were quarantined locally before each pulse:
 | 1 | `orange` yellow-gold boundary | `19962`, `19964`, `19965`, `19968`, `19970`, `19971`, `19973`, `19976` | `8` | passed at `20121..20128`; six rows now route `orange`, and `Honey` / `Ceylon yellow` route `yellow` | done: explicit inputs |
 | 2 | `yellow` green / olive shoulder | `19723`, `19729`, `19730`, `19733`, `19734`, `19735`, `19737`, `19738`, `19741`, `19742`, `19743`, `19746`, `19747`, `19749`, `19750`, `19751` | `16` | passed at `20129..20139`; repeated rows collapse to `11` unique inputs, with olive-side rows routing `green` and brighter rows routing `yellow` | done: unique explicit inputs |
 | 3 | `orange` pale straw / buff / blush shoulder | `19918`, `19919`, `19920`, `19921`, `19922`, `19923` | `6` | passed at `20140..20145`; all rows route and replace within `orange` | done: explicit inputs |
-| 4 | `yellow` residual chartreuse shoulder | `19756`, `19757`, `19758`, `19765`, `19766` | `5` | smaller post-correction yellow residue | exact inputs preferred |
-| 5 | warm `neutral` peach / pearl residue | `20084`, `20088`, `20107` | `3` | outside the cool-edge split; still visible after neutral parked | explicit inputs only |
+| 4 | `yellow` residual chartreuse shoulder | `19756`, `19757`, `19758`, `19765`, `19766` | `5` | passed at `20146..20150`; chartreuse-side rows now route `green`, and yellow-side rows stay `yellow` | done: explicit inputs |
+| 5 | warm `neutral` peach / pearl residue | `20084`, `20088`, `20107` | `3` | passed at `20151..20153`; all rows route and replace within `neutral` | done: explicit inputs |
 
 ## Comparison Baselines
 
@@ -71,10 +80,9 @@ The previous live proof surfaces were quarantined locally before each pulse:
 | choose one group | do not run one broad warm pulse before selecting the edge group |
 | choose the seed mode | use `--family warm` only for `red`, `orange`, `yellow`, and `brown`; use repeated `--input-hex` for mixed or `neutral` rows |
 | preserve verdict units | a thematic group should stay a bounded pulse, not a loose row pile |
-| keep live DB clean | no new pulse starts until the current `20140..20145` proof surface is intentionally replaced or quarantined |
+| keep live DB clean | no new pulse starts until the current `20151..20153` proof surface is intentionally replaced or quarantined |
 
 ## Recommendation
 
-Use the `yellow` residual chartreuse shoulder as the next candidate if the
-warm-edge audit continues. The first three warm-edge pulses already passed
-cleanly, so do not rerun them without new evidence.
+The promoted warm-edge residue groups are complete. Stop here unless new
+evidence promotes another narrow group.

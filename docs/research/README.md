@@ -27,11 +27,13 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | carried prior proof surface | broader corrected `neutral` continuation at `20106..20120` |
 | carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
-| active proof surface | warm-edge `orange` pale straw / buff / blush audit pulse at `20140..20145` |
+| carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
+| carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
+| active proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
 | verdict unit | pulse-level proof surface |
 | comparison surface | closed third corrected `red` rerun at `id > 18423` |
 | beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
-| beta question | choose the next warm-edge group after the third audit pass |
+| beta question | close the warm-edge audit or require new evidence before another group |
 
 ## Current Research State
 
@@ -41,13 +43,17 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | carried prior proof surface | `neutral` continuation pulse at `20106..20120` |
 | carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
-| active proof surface | warm-edge `orange` pale straw / buff / blush audit pulse at `20140..20145` |
+| carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
+| carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
+| active proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
 | carried prior totals | `15 total / 14 pass / 1 fail / 0 pending` |
 | carried warm-edge totals | `8 total / 8 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `11 total / 11 pass / 0 fail / 0 pending` |
-| current totals | `6 total / 6 pass / 0 fail / 0 pending` |
+| carried warm-edge totals | `6 total / 6 pass / 0 fail / 0 pending` |
+| carried warm-edge totals | `5 total / 5 pass / 0 fail / 0 pending` |
+| current totals | `3 total / 3 pass / 0 fail / 0 pending` |
 | prior question | next method or scope after the family-lane sweep |
-| current question | next warm-edge residue group |
+| current question | warm-edge audit closeout unless new evidence appears |
 | active beta note | `020_B10` |
 | closed staging note | `010_PB10` |
 | corrected method note | `410_N3` |
@@ -77,7 +83,7 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | audit note | the audit blockers are repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
 | [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
 | [Post-Sweep Residue Map](./420_RESIDUE.md) | promoted backlog note | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted the warm-edge audit scope |
-| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | active hypothesis | records the first three warm-edge passes and names the next warm-edge candidates |
+| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | active hypothesis | records the five warm-edge residue passes and the closeout rule |
 
 ## How To Read This Folder
 
@@ -123,8 +129,8 @@ the eval rows; archive labels stay annotations.
 | comparison baseline | closed third corrected `red` rerun stays the row-level comparison baseline |
 | scoped sampling | current sampling truth matches the runtime ladder again |
 | operator surface | pulse start, label, report, and local quarantine are live |
-| warm-edge audit | `orange` yellow-gold boundary passed at `20121..20128`; `yellow` green / olive shoulder passed at `20129..20139`; `orange` pale straw / buff / blush shoulder passed at `20140..20145` |
-| next boundary | choose the next warm-edge group and seed mode before any new pulse |
+| warm-edge audit | all five promoted warm-edge residue groups passed |
+| next boundary | no new warm-edge group starts without fresh promoted evidence |
 
 ## Residue Map
 
@@ -150,7 +156,8 @@ pulse stack. It is a next-scope map, not a live failure total.
 | `orange` yellow-gold boundary | exact inputs from `19962`, `19964`, `19965`, `19968`, `19970`, `19971`, `19973`, and `19976` | `20121..20128` | `8 anchors / 0 seams / 0 excluded` |
 | `yellow` green / olive shoulder | exact unique inputs from the repeated `19723..19751` evidence set | `20129..20139` | `11 anchors / 0 seams / 0 excluded` |
 | `orange` pale straw / buff / blush shoulder | exact inputs from `19918..19923` | `20140..20145` | `6 anchors / 0 seams / 0 excluded` |
-| next candidate | `yellow` residual chartreuse shoulder | not started | exact inputs preferred |
+| `yellow` residual chartreuse shoulder | exact inputs from `19756`, `19757`, `19758`, `19765`, and `19766` | `20146..20150` | `5 anchors / 0 seams / 0 excluded` |
+| warm `neutral` peach / pearl residue | exact inputs from `20084`, `20088`, and `20107` | `20151..20153` | `3 anchors / 0 seams / 0 excluded` |
 
 ## Plans
 
@@ -166,7 +173,9 @@ Plans are useful, but they are not evidence.
 | 6 | keep `20121..20128` as the first warm-edge audit pass | the `orange` yellow-gold boundary passed at `8 / 0` |
 | 7 | keep `20129..20139` as the second warm-edge audit pass | the `yellow` green / olive shoulder passed at `11 / 0` |
 | 8 | keep `20140..20145` as the third warm-edge audit pass | the `orange` pale straw / buff / blush shoulder passed at `6 / 0` |
-| 9 | use `430_WARM_EDGE_AUDIT` to choose the next group | no new pulse starts until one edge group and seed mode are chosen |
+| 9 | keep `20146..20150` as the fourth warm-edge audit pass | the `yellow` residual chartreuse shoulder passed at `5 / 0` |
+| 10 | keep `20151..20153` as the fifth warm-edge audit pass | the warm-neutral peach / pearl residue passed at `3 / 0` |
+| 11 | close the promoted warm-edge residue map | no new pulse starts without fresh promoted evidence |
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.
