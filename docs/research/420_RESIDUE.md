@@ -9,16 +9,16 @@ next eval scope be?
 
 ## Status
 
-Triaged.
+Closed.
 
-Promoted into [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md).
-Closed by [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md).
+This map was triaged, promoted into
+[Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md), and closed by that audit.
 
 Do not launch another family-lane continuation by default. The row-order pulse
 stack now says the useful next move is a residue-scope choice.
 
-The family lanes are parked, but the counted-seam history still shows where
-the next method could focus if the repo wants another eval boundary.
+The family lanes are parked, and the counted-seam history now stays as a source
+map for future promoted claims rather than an active backlog.
 
 ## Residue Chart
 
@@ -48,14 +48,14 @@ The next useful scope is not one more blind family lane. It is one of these:
 
 | Candidate scope | Why it fits | Gate |
 | --- | --- | --- |
-| warm-edge residue audit | `orange`, `yellow`, and warm `neutral` residue carry the largest seam counts | define the edge groups before sampling |
+| warm-edge residue audit | `orange`, `yellow`, and warm `neutral` residue carried the largest seam counts | closed by explicit-input audit |
 | cool-neutral follow-up | the cool-edge split cleared, but its source failure was the sharpest neutral collapse | only reopen if a new cool-edge claim appears |
-| chart-only closeout | all family lanes are parked and the residue map may be enough for this branch | no new runtime evidence needed |
+| chart-only closeout | all family lanes are parked and the residue map is closed | no new runtime evidence needed |
 
 ## Recommendation
 
 Use the warm-edge residue audit as the closed proof surface if the next task
-needs the promoted residue read.
+needs the residue read.
 
 The warm-edge residue audit is now closed. The first `orange` yellow-gold
 boundary pulse passed at `20121..20128`, and the second `yellow` green / olive
@@ -64,6 +64,6 @@ blush shoulder pulse passed at `20140..20145`. The fourth `yellow` residual
 chartreuse shoulder pulse passed at `20146..20150`, and the fifth warm-neutral
 peach / pearl residue pulse passed at `20151..20153`.
 
-Otherwise, stop at the chart-only closeout: `Beta 1.0` has a complete
+The chart-only closeout is now the current state: `Beta 1.0` has a complete
 family-lane sweep with row-order chart truth, a parked `neutral` lane, and no
 pending eval rows.

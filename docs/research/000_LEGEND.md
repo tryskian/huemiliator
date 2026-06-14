@@ -19,11 +19,11 @@
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
-| `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam residue map | `backlog` | `promoted` |
+| `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
 
-`RESIDUE` remains the triaged backlog map; `WARM_EDGE_AUDIT` is the promoted
-closed proof surface from that map.
+`RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
+surface promoted from that map.
 
 ## Ordering
 

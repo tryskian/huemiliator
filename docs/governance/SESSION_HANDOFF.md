@@ -68,8 +68,8 @@ The core tracked shape is:
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the current verdict unit
-- the promoted warm-edge residue map is closed; no new group is queued without
-  fresh promoted evidence
+- `420_RESIDUE` is closed as the residue source map; no new group is queued
+  without fresh promoted evidence
 
 Canonical live work stays on the repo `.local` surface. Superseded eval rows
 stay quarantined locally instead of mixing back into the live DB.
@@ -89,7 +89,8 @@ stay quarantined locally instead of mixing back into the live DB.
 - keep `20140..20145` as the third warm-edge audit pass
 - keep `20146..20150` as the fourth warm-edge audit pass
 - keep `20151..20153` as the fifth warm-edge audit pass
-- carry the closed promoted warm-edge residue map unless new evidence appears
+- carry the closed residue source map and closed warm-edge audit unless new
+  evidence appears
 - keep the warm seams as secondary residue outside the cool-edge split
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
