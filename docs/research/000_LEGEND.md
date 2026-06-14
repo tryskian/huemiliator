@@ -20,10 +20,10 @@
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam residue map | `backlog` | `promoted` |
-| `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit and active pulse read | `hypothesis` | `active` |
+| `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
 
 `RESIDUE` remains the triaged backlog map; `WARM_EDGE_AUDIT` is the promoted
-active read from that map.
+closed proof surface from that map.
 
 ## Ordering
 

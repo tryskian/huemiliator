@@ -29,11 +29,11 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
 | carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
 | carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
-| active proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
+| latest proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
 | verdict unit | pulse-level proof surface |
 | comparison surface | closed third corrected `red` rerun at `id > 18423` |
 | beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
-| beta question | close the warm-edge audit or require new evidence before another group |
+| beta question | warm-edge audit is closed; require new evidence before another group |
 
 ## Current Research State
 
@@ -45,23 +45,23 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
 | carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
 | carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
-| active proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
+| latest proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
 | carried prior totals | `15 total / 14 pass / 1 fail / 0 pending` |
 | carried warm-edge totals | `8 total / 8 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `11 total / 11 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `6 total / 6 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `5 total / 5 pass / 0 fail / 0 pending` |
-| current totals | `3 total / 3 pass / 0 fail / 0 pending` |
+| latest totals | `3 total / 3 pass / 0 fail / 0 pending` |
 | prior question | next method or scope after the family-lane sweep |
-| current question | warm-edge audit closeout unless new evidence appears |
+| current question | no new warm-edge group without fresh promoted evidence |
 | active beta note | `020_B10` |
 | closed staging note | `010_PB10` |
 | corrected method note | `410_N3` |
 | active family lane before warm-edge audit | none selected after `neutral` park |
-| active family lane | none; current pulse is an explicit warm-edge audit group |
+| active family lane | none; warm-edge audit is closed and no pulse is queued |
 | stable prior lanes | `red` through `neutral` |
 | prior audit note | `310_RED_ORANGE_AUDIT` |
-| current audit note | `430_WARM_EDGE_AUDIT` |
+| closed audit note | `430_WARM_EDGE_AUDIT` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 | live DB rule | keep only the current proof surface in `eval_outputs` |
 
@@ -83,7 +83,7 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | audit note | the audit blockers are repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
 | [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
 | [Post-Sweep Residue Map](./420_RESIDUE.md) | promoted backlog note | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted the warm-edge audit scope |
-| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | active hypothesis | records the five warm-edge residue passes and the closeout rule |
+| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | closed audit note | records the five warm-edge residue passes and the closeout rule |
 
 ## How To Read This Folder
 
@@ -149,7 +149,7 @@ pulse stack. It is a next-scope map, not a live failure total.
 | broader continuation | source order `48` | `20106..20120` | `14 anchors / 1 seam / 0 excluded` |
 | warm residue | `20084`, `20088`, `20107` | outside the cool-edge correction | secondary peach / pearl residue |
 
-## Active Warm-Edge Read
+## Closed Warm-Edge Read
 
 | Pressure group | Seed mode | Rows | Read |
 | --- | --- | --- | --- |

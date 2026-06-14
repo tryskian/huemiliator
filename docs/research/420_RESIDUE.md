@@ -12,6 +12,7 @@ next eval scope be?
 Triaged.
 
 Promoted into [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md).
+Closed by [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md).
 
 Do not launch another family-lane continuation by default. The row-order pulse
 stack now says the useful next move is a residue-scope choice.
@@ -53,9 +54,10 @@ The next useful scope is not one more blind family lane. It is one of these:
 
 ## Recommendation
 
-Use the warm-edge residue audit if the next task is still eval research.
+Use the warm-edge residue audit as the closed proof surface if the next task
+needs the promoted residue read.
 
-The warm-edge residue audit is now active. The first `orange` yellow-gold
+The warm-edge residue audit is now closed. The first `orange` yellow-gold
 boundary pulse passed at `20121..20128`, and the second `yellow` green / olive
 shoulder pulse passed at `20129..20139`. The third `orange` pale straw / buff /
 blush shoulder pulse passed at `20140..20145`. The fourth `yellow` residual

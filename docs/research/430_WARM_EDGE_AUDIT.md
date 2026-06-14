@@ -3,11 +3,11 @@
 | Field | Value |
 | --- | --- |
 | Code | `WARM_EDGE_AUDIT` |
-| Category | `hypothesis` |
-| Status | `active` |
+| Category | `validation` |
+| Status | `closed` |
 | Date | `2026-06-09` |
 | Last evidence | `2026-06-14` |
-| Owns | warm-edge residue audit scope and active pulse read |
+| Owns | warm-edge residue audit scope and closed proof-surface read |
 
 ## What This Asks
 
@@ -16,7 +16,10 @@ After the full family-lane sweep, which warm residue groups still need bounded
 
 ## Status
 
-Active.
+Closed.
+
+The promoted warm-edge residue groups are complete. This note now carries the
+closed audit proof surface rather than an active sampling lane.
 
 The first warm-edge pulse launched from exact `orange` yellow-gold inputs and
 passed at `20121..20128`: `8 anchors / 0 counted seams / 0 excluded`.
@@ -80,7 +83,7 @@ The previous live proof surfaces were quarantined locally before each pulse:
 | choose one group | do not run one broad warm pulse before selecting the edge group |
 | choose the seed mode | use `--family warm` only for `red`, `orange`, `yellow`, and `brown`; use repeated `--input-hex` for mixed or `neutral` rows |
 | preserve verdict units | a thematic group should stay a bounded pulse, not a loose row pile |
-| keep live DB clean | no new pulse starts until the current `20151..20153` proof surface is intentionally replaced or quarantined |
+| keep live DB clean | no new pulse starts from this audit unless fresh evidence promotes another narrow group |
 
 ## Recommendation
 
