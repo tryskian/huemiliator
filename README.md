@@ -60,7 +60,7 @@ evidence means, not just when wording or procedure gets tidier. Pre-beta
 staging notes can hold the next method boundary before the first real evidence
 run starts.
 
-`Beta 1.0` here names the live research-method boundary, not an app release
+`Beta 1.0` here names the research-method boundary, not an app release
 version.
 
 ## What This Repo Demonstrates

@@ -14,7 +14,7 @@
 | --- | --- | --- | --- | --- |
 | `README` | `README.md` | research entry and current-state index | `legend` | `active` |
 | `PB10` | `010_PB10.md` | pre-Beta 1.0 fail-pressure pulse boundary | `boundary` | `closed` |
-| `B10` | `020_B10.md` | `Beta 1.0` fail-pressure pulse boundary | `boundary` | `active` |
+| `B10` | `020_B10.md` | `Beta 1.0` fail-pressure pulse boundary | `boundary` | `closed` |
 | `BROWN` | `120_BROWN.md` | brown context-dependence lane | `lane` | `snapshot` |
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |

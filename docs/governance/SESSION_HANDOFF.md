@@ -314,13 +314,13 @@ stay quarantined locally instead of mixing back into the live DB.
   - `docs/research/eval-residue-family-bars.svg`
   - regenerate research charts with `npm run charts:research`
   - derive chart lane labels from row data; archive labels stay annotations
-- active beta question before the warm-edge audit: choose the next method or
+- beta question before the warm-edge audit: choose the next method or
   scope after all runtime family lanes have parked reads
-- active beta question: no new warm-edge group without fresh promoted evidence
+- beta question: no new warm-edge group without fresh promoted evidence
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
-- current beta note: `020_B10`
+- closed beta note: `020_B10`
 - closed warm-edge note: `430_WARM_EDGE_AUDIT`
 - active family lane before the warm-edge audit: none selected after
   `neutral` park
