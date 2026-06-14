@@ -55,8 +55,12 @@ The next useful scope is not one more blind family lane. It is one of these:
 
 Use the warm-edge residue audit if the next task is still eval research.
 
-The warm-edge residue audit is now active, and the first `orange` yellow-gold
-boundary pulse passed at `20121..20128`.
+The warm-edge residue audit is now active. The first `orange` yellow-gold
+boundary pulse passed at `20121..20128`, and the second `yellow` green / olive
+shoulder pulse passed at `20129..20139`. The third `orange` pale straw / buff /
+blush shoulder pulse passed at `20140..20145`. The fourth `yellow` residual
+chartreuse shoulder pulse passed at `20146..20150`, and the fifth warm-neutral
+peach / pearl residue pulse passed at `20151..20153`.
 
 Otherwise, stop at the chart-only closeout: `Beta 1.0` has a complete
 family-lane sweep with row-order chart truth, a parked `neutral` lane, and no

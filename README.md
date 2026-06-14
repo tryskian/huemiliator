@@ -44,6 +44,10 @@ Current active proof surface:
 
 - broader corrected `neutral` continuation at `20106..20120`
 - warm-edge `orange` yellow-gold audit pulse at `20121..20128`
+- warm-edge `yellow` green / olive audit pulse at `20129..20139`
+- warm-edge `orange` pale straw / buff / blush audit pulse at `20140..20145`
+- warm-edge `yellow` residual chartreuse audit pulse at `20146..20150`
+- warm-neutral peach / pearl audit pulse at `20151..20153`
 - pulse-level proof surface
 
 Current closed comparison surface:
