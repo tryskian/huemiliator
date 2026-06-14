@@ -5,7 +5,7 @@
 | Code | `000_LEGEND` |
 | Category | `legend` |
 | Status | `active` |
-| Last evidence | `2026-06-09` |
+| Last evidence | `2026-06-14` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map

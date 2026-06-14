@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-06-09
+Last updated: 2026-06-14
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -25,11 +25,13 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | --- | --- |
 | live research lane | `Beta 1.0` fail-pressure pulse |
 | carried prior proof surface | broader corrected `neutral` continuation at `20106..20120` |
-| active proof surface | warm-edge `orange` yellow-gold audit pulse at `20121..20128` |
+| carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
+| carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
+| active proof surface | warm-edge `orange` pale straw / buff / blush audit pulse at `20140..20145` |
 | verdict unit | pulse-level proof surface |
 | comparison surface | closed third corrected `red` rerun at `id > 18423` |
 | beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
-| beta question | choose the next warm-edge group after the first audit pass |
+| beta question | choose the next warm-edge group after the third audit pass |
 
 ## Current Research State
 
@@ -37,9 +39,13 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | --- | --- |
 | stage | `Beta 1.0` |
 | carried prior proof surface | `neutral` continuation pulse at `20106..20120` |
-| active proof surface | warm-edge `orange` yellow-gold audit pulse at `20121..20128` |
+| carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
+| carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
+| active proof surface | warm-edge `orange` pale straw / buff / blush audit pulse at `20140..20145` |
 | carried prior totals | `15 total / 14 pass / 1 fail / 0 pending` |
-| current totals | `8 total / 8 pass / 0 fail / 0 pending` |
+| carried warm-edge totals | `8 total / 8 pass / 0 fail / 0 pending` |
+| carried warm-edge totals | `11 total / 11 pass / 0 fail / 0 pending` |
+| current totals | `6 total / 6 pass / 0 fail / 0 pending` |
 | prior question | next method or scope after the family-lane sweep |
 | current question | next warm-edge residue group |
 | active beta note | `020_B10` |
@@ -71,7 +77,7 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | audit note | the audit blockers are repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
 | [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
 | [Post-Sweep Residue Map](./420_RESIDUE.md) | promoted backlog note | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted the warm-edge audit scope |
-| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | active hypothesis | records the first `orange` yellow-gold pass and names the next warm-edge candidates |
+| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | active hypothesis | records the first three warm-edge passes and names the next warm-edge candidates |
 
 ## How To Read This Folder
 
@@ -117,7 +123,7 @@ the eval rows; archive labels stay annotations.
 | comparison baseline | closed third corrected `red` rerun stays the row-level comparison baseline |
 | scoped sampling | current sampling truth matches the runtime ladder again |
 | operator surface | pulse start, label, report, and local quarantine are live |
-| warm-edge audit | `orange` yellow-gold boundary passed at `20121..20128` |
+| warm-edge audit | `orange` yellow-gold boundary passed at `20121..20128`; `yellow` green / olive shoulder passed at `20129..20139`; `orange` pale straw / buff / blush shoulder passed at `20140..20145` |
 | next boundary | choose the next warm-edge group and seed mode before any new pulse |
 
 ## Residue Map
@@ -142,7 +148,9 @@ pulse stack. It is a next-scope map, not a live failure total.
 | Pressure group | Seed mode | Rows | Read |
 | --- | --- | --- | --- |
 | `orange` yellow-gold boundary | exact inputs from `19962`, `19964`, `19965`, `19968`, `19970`, `19971`, `19973`, and `19976` | `20121..20128` | `8 anchors / 0 seams / 0 excluded` |
-| next candidate | `yellow` green / olive shoulder | not started | choose seed mode before sampling |
+| `yellow` green / olive shoulder | exact unique inputs from the repeated `19723..19751` evidence set | `20129..20139` | `11 anchors / 0 seams / 0 excluded` |
+| `orange` pale straw / buff / blush shoulder | exact inputs from `19918..19923` | `20140..20145` | `6 anchors / 0 seams / 0 excluded` |
+| next candidate | `yellow` residual chartreuse shoulder | not started | exact inputs preferred |
 
 ## Plans
 
@@ -156,7 +164,9 @@ Plans are useful, but they are not evidence.
 | 4 | use `410_N3` as the completed split-correction read | keep the undertone-bucket correction attached to the evidence |
 | 5 | use `420_RESIDUE` as the promoted residue map | all runtime family lanes now have a parked read |
 | 6 | keep `20121..20128` as the first warm-edge audit pass | the `orange` yellow-gold boundary passed at `8 / 0` |
-| 7 | use `430_WARM_EDGE_AUDIT` to choose the next group | no new pulse starts until one edge group and seed mode are chosen |
+| 7 | keep `20129..20139` as the second warm-edge audit pass | the `yellow` green / olive shoulder passed at `11 / 0` |
+| 8 | keep `20140..20145` as the third warm-edge audit pass | the `orange` pale straw / buff / blush shoulder passed at `6 / 0` |
+| 9 | use `430_WARM_EDGE_AUDIT` to choose the next group | no new pulse starts until one edge group and seed mode are chosen |
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.

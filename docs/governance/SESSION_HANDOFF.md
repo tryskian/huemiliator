@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-06-12
+Last updated: 2026-06-14
 
 ## Start Here
 
@@ -46,13 +46,19 @@ The core tracked shape is:
 - route and family correctness stay binary
 - the broader corrected `neutral` continuation at `20106..20120` is the carried
   prior proof surface
-- the warm-edge `orange` yellow-gold audit pulse at `20121..20128` is the active
-  proof surface
+- the warm-edge `orange` yellow-gold audit pulse at `20121..20128` is the
+  carried warm-edge proof surface
+- the warm-edge `yellow` green / olive audit pulse at `20129..20139` is the
+  carried warm-edge proof surface
+- the warm-edge `orange` pale straw / buff / blush audit pulse at
+  `20140..20145` is the active proof surface
 - the corrected split stack at `20097..20105` cleared the nine cool-edge seams
   from the failed `20082..20096` source surface
 - the broader `neutral` continuation from source order `48` passed at `14 / 1`
   and is now quarantined locally
 - the first warm-edge audit pulse passed at `8 / 0`
+- the second warm-edge audit pulse passed at `11 / 0`
+- the third warm-edge audit pulse passed at `6 / 0`
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the active live verdict unit
@@ -72,6 +78,8 @@ stay quarantined locally instead of mixing back into the live DB.
   `14 / 1`
 - choose the next method or scope before launching another pulse
 - keep `20121..20128` as the first warm-edge audit pass
+- keep `20129..20139` as the second warm-edge audit pass
+- keep `20140..20145` as the third warm-edge audit pass
 - use `430_WARM_EDGE_AUDIT` to choose the next warm-edge group before launching
   another pulse
 - keep the warm seams as secondary residue outside the cool-edge split
@@ -95,8 +103,12 @@ stay quarantined locally instead of mixing back into the live DB.
 3. Read the current active pulse proof surface:
    - carried prior ids `20106..20120`
    - `14 anchors / 1 counted seam / 0 excluded`
-   - ids `20121..20128`
+   - carried warm-edge ids `20121..20128`
    - `8 anchors / 0 counted seams / 0 excluded`
+   - ids `20129..20139`
+   - `11 anchors / 0 counted seams / 0 excluded`
+   - ids `20140..20145`
+   - `6 anchors / 0 counted seams / 0 excluded`
    - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
@@ -163,6 +175,10 @@ stay quarantined locally instead of mixing back into the live DB.
    - `14 anchors / 1 counted seam / 0 excluded`
    - ids `20121..20128`
    - `8 anchors / 0 counted seams / 0 excluded`
+   - ids `20129..20139`
+   - `11 anchors / 0 counted seams / 0 excluded`
+   - ids `20140..20145`
+   - `6 anchors / 0 counted seams / 0 excluded`
 5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`,
    `brown`, and `neutral` as stable. Carry the corrected `neutral` evidence as:
    - lilac / mauve pulse: `20097..20099`
@@ -176,7 +192,11 @@ stay quarantined locally instead of mixing back into the live DB.
    - `20107` `Pastel parchment -> Creme de peche`
 7. Use `430_WARM_EDGE_AUDIT` for the active warm-edge audit:
    - first candidate passed: `orange` yellow-gold boundary at `20121..20128`
-   - next primary candidate: `yellow` green / olive shoulder
+   - second candidate passed: `yellow` green / olive shoulder at
+     `20129..20139`
+   - third candidate passed: `orange` pale straw / buff / blush shoulder at
+     `20140..20145`
+   - next primary candidate: `yellow` residual chartreuse shoulder
    - warm-neutral rows require explicit inputs because `--family warm` does not
      include `neutral`
    - no new pulse starts until one group and seed mode are chosen
@@ -186,10 +206,16 @@ stay quarantined locally instead of mixing back into the live DB.
 - active research lane: `Beta 1.0`
 - carried prior proof surface: broader corrected `neutral` continuation at
   `20106..20120`
-- active proof surface: warm-edge `orange` yellow-gold audit pulse at
+- carried warm-edge proof surface: `orange` yellow-gold audit pulse at
   `20121..20128`
+- carried warm-edge proof surface: `yellow` green / olive audit pulse at
+  `20129..20139`
+- active proof surface: warm-edge `orange` pale straw / buff / blush audit
+  pulse at `20140..20145`
 - carried prior pulse result: `14 anchors / 1 counted seam / 0 excluded`
-- active pulse result: `8 anchors / 0 counted seams / 0 excluded`
+- carried warm-edge pulse result: `8 anchors / 0 counted seams / 0 excluded`
+- carried warm-edge pulse result: `11 anchors / 0 counted seams / 0 excluded`
+- active pulse result: `6 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -251,6 +277,10 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20106..20120` -> `14 anchors / 1 counted seam / 0 excluded`
 - first warm-edge audit pulse:
   - `20121..20128` -> `8 anchors / 0 counted seams / 0 excluded`
+- second warm-edge audit pulse:
+  - `20129..20139` -> `11 anchors / 0 counted seams / 0 excluded`
+- third warm-edge audit pulse:
+  - `20140..20145` -> `6 anchors / 0 counted seams / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/eval-pulse-stack.svg`
@@ -260,7 +290,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - active beta question before the warm-edge audit: choose the next method or
   scope after all runtime family lanes have parked reads
 - active beta question: choose the next warm-edge residue group after the first
-  audit pass
+  three audit passes
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
