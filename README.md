@@ -35,12 +35,12 @@ That narrow surface is the point. Huemiliator is not trying to be a general
 colour utility. It studies whether deterministic colour matching, family
 routing, and one-up logic can stay legible under tight runtime rules.
 
-Current live research lane:
+Current research lane:
 
 - `Beta 1.0`
 - `fail-pressure pulse`
 
-Current active proof surface:
+Latest closed proof surface:
 
 - broader corrected `neutral` continuation at `20106..20120`
 - warm-edge `orange` yellow-gold audit pulse at `20121..20128`
@@ -68,8 +68,8 @@ version.
 - picker-first input instead of freeform text
 - deterministic swatch matching against a frozen local reference
 - runtime-owned family assignment, same-family rank, and one-up selection
-- the current pulse proof surface plus the closed row-level comparison baseline
-- the active fail-pressure pulse boundary for the current non-OCR eval unit
+- the latest pulse proof surface plus the closed row-level comparison baseline
+- the closed fail-pressure pulse boundary for the current non-OCR eval unit
 - a small local evidence surface for following deterministic output and pulse
   evidence
 
@@ -121,7 +121,7 @@ Closeout rule:
 ## Read Next
 
 - [docs/research/README.md](./docs/research/README.md)
-  - proof surface and active research notes
+  - proof surface and research notes
 - [docs/governance/DECISIONS.md](./docs/governance/DECISIONS.md)
   - durable runtime and eval decisions
 

@@ -70,7 +70,7 @@ The stable runtime path is:
 - local quarantine artefacts for superseded runs:
   - `.local/parked/`
 - tracked research notes:
-  - current proof surface
+  - latest proof surface
   - durable notes
   - next narrow correction
 
@@ -89,18 +89,19 @@ flowchart LR
   D --> E
 ```
 
-The active method is:
+The current method record is:
 
 - Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The broader corrected `neutral` continuation at `20106..20120` is the
-  active judged proof surface, with the corrected split stack at
-  `20097..20105` carried as the current neutral correction. The full parked
-  red, yellow, green, blue, purple, pink, orange, brown, and neutral proof
-  stacks stay as the current Beta 1.0 comparison stack, and the closed third
-  corrected `red` rerun stays as the closed row-level comparison baseline.
-- one active family lane at a time
+  The broader corrected `neutral` continuation at `20106..20120` is a carried
+  prior proof surface, and the warm-edge audit stack through `20151..20153` is
+  the latest closed proof surface. The corrected split stack at `20097..20105`
+  stays carried as the neutral correction. The full parked red, yellow, green,
+  blue, purple, pink, orange, brown, and neutral proof stacks stay as the
+  current Beta 1.0 comparison stack, and the closed third corrected `red`
+  rerun stays as the closed row-level comparison baseline.
+- one active family lane at a time when an eval pulse is queued
 - one active sampler at a time
-- bounded fail-pressure pulse as the current live judgement unit
+- bounded fail-pressure pulse as the current judgement unit
 - rows stay visible as evidence inside the pulse
 - `warm` as an audit cohort only
 - closed proof surfaces stay active until the next correction is explicit
@@ -108,11 +109,11 @@ The active method is:
 ## Placement Rules
 
 - durable rules belong in `CHARTER`
-- current active carryover belongs in `SESSION_HANDOFF`
+- current carryover belongs in `SESSION_HANDOFF`
 - operator procedure belongs in `RUNBOOK`
 - compact commands belong in `START_END_REFERENCE`
 - durable rationale belongs in `DECISIONS`
-- current proof-surface reads belong in tracked research notes
+- latest proof-surface reads belong in tracked research notes
 - local scratch and field material belong in `docs/peanut`
 
 ## Governance Flow

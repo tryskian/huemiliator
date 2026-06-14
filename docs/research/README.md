@@ -23,7 +23,7 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 
 | Signal | Current read |
 | --- | --- |
-| live research lane | `Beta 1.0` fail-pressure pulse |
+| research lane | `Beta 1.0` fail-pressure pulse |
 | carried prior proof surface | broader corrected `neutral` continuation at `20106..20120` |
 | carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
@@ -54,7 +54,7 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | latest totals | `3 total / 3 pass / 0 fail / 0 pending` |
 | prior question | next method or scope after the family-lane sweep |
 | current question | no new warm-edge group without fresh promoted evidence |
-| active beta note | `020_B10` |
+| closed beta note | `020_B10` |
 | closed staging note | `010_PB10` |
 | corrected method note | `410_N3` |
 | active family lane before warm-edge audit | none selected after `neutral` park |
@@ -63,7 +63,7 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | prior audit note | `310_RED_ORANGE_AUDIT` |
 | closed audit note | `430_WARM_EDGE_AUDIT` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
-| live DB rule | keep only the current proof surface in `eval_outputs` |
+| live DB rule | keep only the latest proof surface in `eval_outputs` |
 
 ## Family Range Palette
 
@@ -77,7 +77,7 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 | --- | --- | --- |
 | [Research Legend](./000_LEGEND.md) | legend | file map, code ranges, filename contract, category meanings, and status language |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./010_PB10.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
-| [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | active beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, and `neutral` parks after the split correction plus a broader `14 / 1` continuation |
+| [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | closed beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, and `neutral` parks after the split correction plus a broader `14 / 1` continuation |
 | [Brown Context Dependence](./120_BROWN.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./210_RED_ORANGE.md) | active note | the next `red` cut is still a narrow warm-clay / peach edge escape |
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | audit note | the audit blockers are repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
@@ -125,7 +125,7 @@ the eval rows; archive labels stay annotations.
 
 | Method / runtime signal | Read |
 | --- | --- |
-| verdict unit | fail-pressure pulse is the active `Beta 1.0` unit |
+| verdict unit | fail-pressure pulse is the current `Beta 1.0` unit |
 | comparison baseline | closed third corrected `red` rerun stays the row-level comparison baseline |
 | scoped sampling | current sampling truth matches the runtime ladder again |
 | operator surface | pulse start, label, report, and local quarantine are live |
@@ -183,7 +183,7 @@ release versions, package versions, branch names, or one more sweep.
 | Surface | Verdict unit | What it proves |
 | --- | --- | --- |
 | closed row-level `red` rerun | row-level family proof | family-correction baseline |
-| `Beta 1.0` | bounded fail-pressure pulse | current live lane-by-lane verdicts |
+| `Beta 1.0` | bounded fail-pressure pulse | closed lane-by-lane verdicts |
 
 Later method surfaces do not erase earlier ones. They narrow what each verdict
 is allowed to mean.
