@@ -82,7 +82,7 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 | [Red Orange Edge Drift](./210_RED_ORANGE.md) | representative case | the warm-clay / peach edge remains useful signal, but later bounded red pulses mean it is not the active gate |
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | closed audit note | the audit blockers were repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
 | [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
-| [Post-Sweep Residue Map](./420_RESIDUE.md) | promoted backlog note | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted the warm-edge audit scope |
+| [Post-Sweep Residue Map](./420_RESIDUE.md) | closed source map | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted, then closed by, the warm-edge audit scope |
 | [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | closed audit note | records the five warm-edge residue passes and the closeout rule |
 
 ## How To Read This Folder
@@ -169,13 +169,13 @@ Plans are useful, but they are not evidence.
 | 2 | keep `20106..20120` as the broader corrected neutral continuation | the pulse passed at `14 / 1` |
 | 3 | treat `brown` as parked behind three clean bounded pulses | do not reopen the old context-dependence read without new evidence |
 | 4 | use `410_N3` as the completed split-correction read | keep the undertone-bucket correction attached to the evidence |
-| 5 | use `420_RESIDUE` as the promoted residue map | all runtime family lanes now have a parked read |
+| 5 | use `420_RESIDUE` as the source residue map | all runtime family lanes now have a parked read |
 | 6 | keep `20121..20128` as the first warm-edge audit pass | the `orange` yellow-gold boundary passed at `8 / 0` |
 | 7 | keep `20129..20139` as the second warm-edge audit pass | the `yellow` green / olive shoulder passed at `11 / 0` |
 | 8 | keep `20140..20145` as the third warm-edge audit pass | the `orange` pale straw / buff / blush shoulder passed at `6 / 0` |
 | 9 | keep `20146..20150` as the fourth warm-edge audit pass | the `yellow` residual chartreuse shoulder passed at `5 / 0` |
 | 10 | keep `20151..20153` as the fifth warm-edge audit pass | the warm-neutral peach / pearl residue passed at `3 / 0` |
-| 11 | close the promoted warm-edge residue map | no new pulse starts without fresh promoted evidence |
+| 11 | keep the residue map closed through `430_WARM_EDGE_AUDIT` | no new pulse starts without fresh promoted evidence |
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.
