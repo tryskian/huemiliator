@@ -79,7 +79,7 @@ function pulseFromRows({rows, source, label, sequence}) {
     sequence,
     family,
     label: `P${String(sequence).padStart(2, "0")} ${family}${
-      source === "live" ? " live" : ""
+      source === "live" ? " latest" : ""
     }`,
     archiveLabel: label,
     source,
@@ -142,7 +142,7 @@ function buildPulseData() {
       pulseFromRows({
         rows: liveRows,
         source: "live",
-        label: `active ${liveFamily} proof surface ${d3.min(
+        label: `latest ${liveFamily} proof surface ${d3.min(
           liveRows,
           (row) => row.id,
         )}..${d3.max(liveRows, (row) => row.id)}`,

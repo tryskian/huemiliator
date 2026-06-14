@@ -29,7 +29,7 @@ Last updated: 2026-06-14
 ## Current Snapshot
 
 Huemiliator is a small, local, agent-backed colour mini chatbot with a real
-picker runtime, deterministic one-up logic, and an active `Beta 1.0`
+picker runtime, deterministic one-up logic, and a closed `Beta 1.0`
 fail-pressure pulse lane for the current non-OCR logic method boundary.
 
 The core tracked shape is:
@@ -67,7 +67,7 @@ The core tracked shape is:
 - the fifth warm-edge audit pulse passed at `3 / 0`
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
-- fail-pressure pulse is now the active live verdict unit
+- fail-pressure pulse is now the current verdict unit
 - the promoted warm-edge residue map is closed; no new group is queued without
   fresh promoted evidence
 
@@ -108,7 +108,7 @@ stay quarantined locally instead of mixing back into the live DB.
 2. Inspect the live repo snapshot:
    - `make session-status`
    - current local proof-surface artefacts under `.local/`
-3. Read the current active pulse proof surface:
+3. Read the latest closed pulse proof surface:
    - carried prior ids `20106..20120`
    - `14 anchors / 1 counted seam / 0 excluded`
    - carried warm-edge ids `20121..20128`
@@ -220,7 +220,7 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Research Snapshot
 
-- active research lane: `Beta 1.0`
+- current research lane: `Beta 1.0`
 - carried prior proof surface: broader corrected `neutral` continuation at
   `20106..20120`
 - carried warm-edge proof surface: `orange` yellow-gold audit pulse at
@@ -320,7 +320,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
-- active beta note: `020_B10`
+- current beta note: `020_B10`
 - closed warm-edge note: `430_WARM_EDGE_AUDIT`
 - active family lane before the warm-edge audit: none selected after
   `neutral` park
@@ -335,7 +335,7 @@ stay quarantined locally instead of mixing back into the live DB.
   - `410_N3`
   - `420_RESIDUE`
   - `430_WARM_EDGE_AUDIT`
-- live DB rule: keep only the current proof surface in `eval_outputs`
+- live DB rule: keep only the latest proof surface in `eval_outputs`
 
 ## Guardrails
 
@@ -343,8 +343,8 @@ stay quarantined locally instead of mixing back into the live DB.
 - keep the live runtime surface macOS-local
 - keep one active kernel at a time
 - keep one active sampler at a time
-- keep active eval pressure on one family lane at a time
-- keep the live DB limited to the current proof surface
+- keep eval pressure on one family lane at a time when a pulse is queued
+- keep the live DB limited to the latest proof surface
 - keep `.local/` and `docs/peanut/` local unless explicitly promoted
 - capture notes, findings, and truth-surface changes as they emerge
 - keep tracked docs truthful to the current repo surface
