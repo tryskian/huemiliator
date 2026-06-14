@@ -6,6 +6,8 @@ Date: `2026-05-15`
 
 What is the next narrow `red` correction after the third closed rerun?
 
+This note is now a representative case, not the active gate.
+
 ## Short Answer
 
 Keep the coherent muted-red local cluster in `red`.
@@ -14,15 +16,19 @@ The next cut should target a warm-clay / peach edge still trapped inside
 the red ladder. That likely means a narrow `red -> orange` edge escape, not
 another broad pink-or-brown sweep.
 
+Later `Beta 1.0` red pulses kept that seam visible but bounded. The case still
+explains the edge, while the current method no longer waits on this cut.
+
 ## Signal Snapshot
 
 | Surface | Result |
 | --- | --- |
-| active proof surface | closed third corrected `red` rerun |
+| source proof surface | closed third corrected `red` rerun |
 | row signal | `1162 pass / 106 fail` |
 | pair signal | `129 pass / 13 fail` |
 | dominant seam | warm clay / peach edge still inside `red` |
 | smaller residual seam | dark-to-pale jumps that may be rank pressure |
+| later bounded read | two `red` `Beta 1.0` pulses passed with bounded seams |
 
 ## Shape Of The Problem
 
@@ -55,9 +61,9 @@ The coherent muted-red local cluster is still healthy:
 | `Canyon rose -> Mauvewood` |
 | `Mesa rose -> Roan rouge` |
 
-## Recommended Next Cut
+## Original Recommended Next Cut
 
-Recommendation:
+Original recommendation:
 
 1. keep the coherent muted-red local pass cluster in `red`
 2. add a tight warm-clay / peach edge escape from `red` to `orange`
@@ -65,3 +71,10 @@ Recommendation:
 4. only then launch the first bounded `red` Beta 1.0 pulse
 5. only then decide whether the smaller dark-to-pale jumps belong to a later
    rank kernel
+
+## Later Read
+
+The first two `Beta 1.0` red pulses launched after the sampler and source-order
+repairs. Both passed. The warm-clay / peach edge remains useful as a
+representative case, but later red work is optional follow-up rather than the
+next required gate.
