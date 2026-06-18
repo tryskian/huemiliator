@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-06-14
+Last updated: 2026-06-18
 
 ## Start Here
 
@@ -37,6 +37,9 @@ The core tracked shape is:
 - README now states the Polinko research model is staged for the next beta:
   - status language is model-level, not repo-only
   - badges align with the shared toy-factory status pattern
+- dependency/security cleanup is current on `main`:
+  - grouped Python dependency updates are merged
+  - no open Huemiliator PRs remain
 - bare `huemiliator` keeps the runtime local and CLI-first
 - the active input surface is the native macOS colour picker
 - the canonical user state is one hex code
