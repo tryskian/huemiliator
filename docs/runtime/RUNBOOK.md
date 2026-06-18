@@ -189,6 +189,8 @@ Use this doc for operator procedure.
   - fail closeout if eval `pending` is not `0`
 - `make lint-docs`
   - tracked markdown validation
+- `make scripts-check`
+  - tracked shell helper contract gate
 - `make check`
   - repo validation suite
 - `make package-check`
