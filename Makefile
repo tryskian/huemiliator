@@ -7,12 +7,18 @@ CAFFEINATE_LOG ?= /tmp/huemiliator-caffeinate.log
 CAFFEINATE_CMD ?= /usr/bin/caffeinate -d -i -m
 PIP_AUDIT_ARGS ?=
 
-.PHONY: install env doctor-env path-leak-check path-leak-audit-local test lint lint-docs format-check format typecheck precommit-install precommit-run prepush-run check package-check package-install-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
+.PHONY: install refresh-deps env doctor-env path-leak-check path-leak-audit-local test lint lint-docs format-check format typecheck precommit-install precommit-run prepush-run check package-check package-install-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
 	$(BIN)/python -m pip install --upgrade pip
 	$(BIN)/python -m pip install -e ".[dev]"
+
+refresh-deps:
+	@test -d "$(VENV)" || $(PYTHON) -m venv $(VENV)
+	$(BIN)/python -m pip install --upgrade pip
+	$(BIN)/python -m pip install --upgrade --upgrade-strategy eager -e ".[dev]"
+	npm install --no-audit --no-fund
 
 env:
 	@test -d "$(VENV)" || (echo "Missing .venv. Run make install." && exit 1)

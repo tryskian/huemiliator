@@ -93,6 +93,12 @@ Preflight:
 - use it only when an explicit branch-local preflight was requested
 - it does not close the day and it does not replace `make end`
 
+Dependency maintenance:
+
+- `make refresh-deps`
+- run it after merged Dependabot or dependency metadata work, then run
+  `make security-checks`
+
 Expected result:
 
 - when the operator says `close out the day`, the command is `make end`

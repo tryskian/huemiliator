@@ -163,6 +163,8 @@ Use this doc for operator procedure.
 
 - `make install`
   - install or refresh the local environment
+- `make refresh-deps`
+  - refresh local Python and npm dependencies after Dependabot work
 - `make doctor-env`
   - environment health check
 - `make session-status`
@@ -199,6 +201,13 @@ Use this doc for operator procedure.
   - explicit branch-local validation only; does not stop background tasks or close the day
 - `make end-git-check`
   - clean-main closeout check
+
+Dependency maintenance:
+
+1. Merge grouped Dependabot PRs before single-package duplicates.
+2. Run `make refresh-deps` after syncing `main`.
+3. Run `make security-checks`.
+4. Finish with `make end` on clean synced `main`.
 
 ## Pulse Eval Commands
 
