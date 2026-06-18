@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +21,7 @@ def test_makefile_exposes_closeout_tooling_targets() -> None:
 
     for target in (
         "lint-docs",
+        "scripts-check",
         "package-check",
         "package-install-check",
         "security-checks",
@@ -32,6 +35,7 @@ def test_end_routine_uses_make_targets() -> None:
 
     for command in (
         'run_step "lint-docs" make --no-print-directory lint-docs',
+        'run_step "scripts-check" make --no-print-directory scripts-check',
         'run_step "package-check" make --no-print-directory package-check',
         'run_step "package-install-check" '
         "make --no-print-directory package-install-check",
@@ -53,8 +57,22 @@ def test_runtime_docs_name_the_closeout_targets() -> None:
 
     for command in (
         "make lint-docs",
+        "make scripts-check",
         "make package-install-check",
         "make security-checks",
         "make end-pending-check",
     ):
         assert command in docs
+
+
+def test_shell_script_contract_checker_accepts_tracked_scripts() -> None:
+    result = subprocess.run(
+        [sys.executable, "scripts/check_shell_scripts.py"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert "shell-script-contracts: PASS" in result.stdout
+    assert "scripts checked" in result.stdout

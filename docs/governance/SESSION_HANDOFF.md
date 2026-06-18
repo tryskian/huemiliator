@@ -40,6 +40,9 @@ The core tracked shape is:
 - dependency/security cleanup is current on `main`:
   - grouped Python dependency updates are merged
   - no open Huemiliator PRs remain
+- local shell helper contracts are now a named gate:
+  - `make scripts-check` validates tracked `scripts/*.sh`
+  - closeout runs the gate before the broader `make check`
 - bare `huemiliator` keeps the runtime local and CLI-first
 - the active input surface is the native macOS colour picker
 - the canonical user state is one hex code

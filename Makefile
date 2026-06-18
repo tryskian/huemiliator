@@ -7,7 +7,7 @@ CAFFEINATE_LOG ?= /tmp/huemiliator-caffeinate.log
 CAFFEINATE_CMD ?= /usr/bin/caffeinate -d -i -m
 PIP_AUDIT_ARGS ?=
 
-.PHONY: install refresh-deps env doctor-env path-leak-check path-leak-audit-local test lint lint-docs format-check format typecheck precommit-install precommit-run prepush-run check package-check package-install-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
+.PHONY: install refresh-deps env doctor-env path-leak-check path-leak-audit-local test lint lint-docs scripts-check format-check format typecheck precommit-install precommit-run prepush-run check package-check package-install-check security-checks app startup-docs-read session-status caffeinate decaffeinate caffeinate-status decaffeinate-status start rituals end end-preflight end-docs-check end-pending-check end-git-check
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -48,6 +48,9 @@ lint-docs:
 		exit 0; \
 	fi; \
 	npx --yes markdownlint-cli2 $$files
+
+scripts-check:
+	$(PY) ./scripts/check_shell_scripts.py
 
 format-check:
 	$(PY) -m ruff format --check scripts src tests
