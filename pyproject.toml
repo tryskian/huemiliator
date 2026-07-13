@@ -12,19 +12,19 @@ license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dependencies = [
   "idna==3.18",
-  "openai==2.44.0",
+  "openai==2.45.0",
   "python-dotenv==1.2.2",
   "urllib3==2.7.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-  "build==1.5.0",
-  "mypy==2.1.0",
+  "build==1.5.1",
+  "mypy==2.3.0",
   "pip-audit==2.10.1",
   "pre-commit==4.6.0",
   "pytest==9.1.1",
-  "ruff==0.15.20",
+  "ruff==0.15.21",
 ]
 
 [project.scripts]
