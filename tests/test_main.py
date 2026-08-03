@@ -136,6 +136,7 @@ def test_render_colour_boundaries_prints_text_report() -> None:
     assert "shown bins: 1" in text
     assert "Lab a*" in text
     assert "samples:" in text
+    assert "family samples:" in text
 
 
 def test_render_colour_boundaries_can_emit_json_packet() -> None:
@@ -144,9 +145,11 @@ def test_render_colour_boundaries_can_emit_json_packet() -> None:
     assert packet["schema"] == "huemiliator.colour_boundaries.v1"
     assert packet["bin_step"] == 10
     assert packet["min_family_count"] == 3
+    assert packet["samples_per_family"] == 3
     assert packet["shown_bin_count"] == 2
     assert packet["bins"][0]["family_count"] >= 3
     assert "samples" in packet["bins"][0]
+    assert "family_samples" in packet["bins"][0]
 
 
 def test_main_colour_boundaries_prints_text_report() -> None:
@@ -164,6 +167,7 @@ def test_main_colour_boundaries_prints_text_report() -> None:
         "limit": 2,
         "bin_step": 10,
         "min_families": 3,
+        "samples_per_family": 3,
     }
     assert "shown bins: 2" in stdout.getvalue()
 
@@ -186,6 +190,8 @@ def test_main_colour_boundaries_accepts_json_and_parameters() -> None:
                     "20",
                     "--min-families",
                     "2",
+                    "--samples-per-family",
+                    "1",
                 ]
             )
 
@@ -195,6 +201,7 @@ def test_main_colour_boundaries_accepts_json_and_parameters() -> None:
         "limit": 4,
         "bin_step": 20,
         "min_families": 2,
+        "samples_per_family": 1,
     }
     assert "huemiliator.colour_boundaries.v1" in stdout.getvalue()
 

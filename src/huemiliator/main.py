@@ -93,6 +93,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=3,
         help="Minimum number of runtime families required in a reported bin.",
     )
+    colour_boundaries_parser.add_argument(
+        "--samples-per-family",
+        type=int,
+        default=3,
+        help="Maximum source-order samples to include for each family in a bin.",
+    )
 
     resolve_parser = subparsers.add_parser(
         "resolve",
@@ -332,6 +338,7 @@ def render_colour_boundaries(
     limit: int = 10,
     bin_step: int = 10,
     min_families: int = 3,
+    samples_per_family: int = 3,
 ) -> str:
     settings = load_settings()
     dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
@@ -340,6 +347,7 @@ def render_colour_boundaries(
         bin_step=bin_step,
         min_family_count=min_families,
         limit=limit,
+        samples_per_family=samples_per_family,
     )
     if output_format == "json":
         return json.dumps(packet, indent=2)
@@ -367,8 +375,7 @@ def render_colour_boundaries(
             f"{item['family']} {item['count']}" for item in boundary_bin["families"]
         )
         samples = "; ".join(
-            (f"{item['source_order']} {item['name']} ({item['family']}) {item['hex']}")
-            for item in boundary_bin["samples"]
+            _format_boundary_sample(item) for item in boundary_bin["samples"]
         )
         lines.extend(
             [
@@ -381,9 +388,22 @@ def render_colour_boundaries(
                     f"{boundary_bin['swatch_count']}; families: {families}"
                 ),
                 f"  samples: {samples}",
+                "  family samples:",
             ]
         )
+        for family_sample in boundary_bin["family_samples"]:
+            family_samples = "; ".join(
+                _format_boundary_sample(item) for item in family_sample["samples"]
+            )
+            lines.append(f"    {family_sample['family']}: {family_samples}")
     return "\n".join(lines)
+
+
+def _format_boundary_sample(sample: dict[str, Any]) -> str:
+    return (
+        f"{sample['source_order']} {sample['name']} "
+        f"({sample['family']}) {sample['hex']}"
+    )
 
 
 def build_behaviour_fact_packet(hex_value: str) -> dict[str, Any]:
@@ -802,6 +822,7 @@ def main(argv: list[str] | None = None) -> int:
                     limit=args.limit,
                     bin_step=args.bin_step,
                     min_families=args.min_families,
+                    samples_per_family=args.samples_per_family,
                 )
             )
         except (SwatchDatasetError, ValueError) as exc:

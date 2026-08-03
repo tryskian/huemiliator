@@ -221,8 +221,10 @@ Dependency maintenance:
 - `huemiliator colour-boundaries`
   - print the strongest mixed-family Lab bins from the runtime colour library
 - `huemiliator colour-boundaries --format json`
-  - emit mixed-family Lab bins with capped row samples for chart, audit, and
-    next-pulse candidate selection
+  - emit mixed-family Lab bins with capped row samples and family-balanced
+    samples for chart, audit, and next-pulse candidate selection
+- `huemiliator colour-boundaries --samples-per-family 1`
+  - cap the per-family candidates when staging a small exact-input pulse
 
 ## Behaviour Eval Commands
 

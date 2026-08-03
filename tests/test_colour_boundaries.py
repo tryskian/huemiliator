@@ -58,6 +58,34 @@ def test_build_boundary_bins_reports_mixed_family_lab_bins() -> None:
     assert [item.source_order for item in bins[0].samples] == [1, 2, 3]
 
 
+def test_build_boundary_bins_includes_family_balanced_samples() -> None:
+    rows = (
+        _row(1, "Brown first", "brown", 12.0, 15.0),
+        _row(2, "Brown second", "brown", 15.0, 12.0),
+        _row(3, "Neutral first", "neutral", 18.0, 16.0),
+        _row(4, "Neutral second", "neutral", 14.0, 11.0),
+        _row(5, "Pink first", "pink", 13.0, 17.0),
+    )
+
+    (boundary_bin,) = build_boundary_bins(
+        rows,
+        bin_step=10,
+        min_family_count=2,
+        samples_per_family=1,
+    )
+
+    assert [item.family for item in boundary_bin.family_samples] == [
+        "neutral",
+        "brown",
+        "pink",
+    ]
+    assert [item.samples[0].source_order for item in boundary_bin.family_samples] == [
+        3,
+        1,
+        5,
+    ]
+
+
 def test_build_boundary_bins_validates_report_parameters() -> None:
     with pytest.raises(ValueError, match="bin step"):
         build_boundary_bins((), bin_step=0)
@@ -67,3 +95,6 @@ def test_build_boundary_bins_validates_report_parameters() -> None:
 
     with pytest.raises(ValueError, match="sample limit"):
         build_boundary_bins((), sample_limit=0)
+
+    with pytest.raises(ValueError, match="samples per family"):
+        build_boundary_bins((), samples_per_family=0)
