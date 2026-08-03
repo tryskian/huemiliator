@@ -29,11 +29,12 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
 | carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
 | carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
-| latest proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
+| carried warm-edge proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
+| latest proof surface | colour-boundary warm low-chroma five-family pulse at `20154..20158` |
 | verdict unit | pulse-level proof surface |
 | comparison surface | closed third corrected `red` rerun at `id > 18423` |
 | beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
-| beta question | warm-edge audit is closed; require new evidence before another group |
+| beta question | colour-boundary audit is closed; require new evidence before another group |
 
 ## Current Research State
 
@@ -45,23 +46,25 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
 | carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
 | carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
-| latest proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
+| carried warm-edge proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
+| latest proof surface | colour-boundary warm low-chroma five-family pulse at `20154..20158` |
 | carried prior totals | `15 total / 14 pass / 1 fail / 0 pending` |
 | carried warm-edge totals | `8 total / 8 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `11 total / 11 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `6 total / 6 pass / 0 fail / 0 pending` |
 | carried warm-edge totals | `5 total / 5 pass / 0 fail / 0 pending` |
-| latest totals | `3 total / 3 pass / 0 fail / 0 pending` |
+| latest totals | `5 total / 5 pass / 0 fail / 0 pending` |
 | prior question | next method or scope after the family-lane sweep |
-| current question | no new warm-edge group without fresh promoted evidence |
+| current question | no new boundary group without fresh promoted evidence |
 | closed beta note | `020_B10` |
 | closed staging note | `010_PB10` |
 | corrected method note | `410_N3` |
 | active family lane before warm-edge audit | none selected after `neutral` park |
-| active family lane | none; warm-edge audit is closed and no pulse is queued |
+| active family lane | none; colour-boundary audit is closed and no pulse is queued |
 | stable prior lanes | `red` through `neutral` |
 | prior audit note | `310_RED_ORANGE_AUDIT` |
 | closed audit note | `430_WARM_EDGE_AUDIT` |
+| closed boundary audit note | `440_COLOUR_BOUNDARY_AUDIT` |
 | comparison baseline | closed third corrected `red` rerun at `18424..19691` |
 | live DB rule | keep only the latest proof surface in `eval_outputs` |
 
@@ -105,13 +108,14 @@ Off-diagonal cells mark archive-label drift.
 | --- | --- | --- |
 | [Research Legend](./000_LEGEND.md) | legend | file map, code ranges, filename contract, category meanings, and status language |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./010_PB10.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
-| [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | closed beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, and `neutral` parks after the split correction plus a broader `14 / 1` continuation |
+| [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | closed beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, `neutral` parks after the split correction plus a broader `14 / 1` continuation, and the first colour-boundary report pulse passes |
 | [Brown Context Dependence](./120_BROWN.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
 | [Red Orange Edge Drift](./210_RED_ORANGE.md) | representative case | the warm-clay / peach edge remains useful signal, but later bounded red pulses mean it is not the active gate |
 | [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | closed audit note | the audit blockers were repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
 | [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
 | [Post-Sweep Residue Map](./420_RESIDUE.md) | closed source map | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted, then closed by, the warm-edge audit scope |
 | [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | closed audit note | records the five warm-edge residue passes and the closeout rule |
+| [Colour Boundary Audit](./440_COLOUR_BOUNDARY_AUDIT.md) | closed audit note | records the first report-derived mixed Lab bin pulse before classifier edits |
 
 ## How To Read This Folder
 
@@ -158,7 +162,8 @@ the eval rows; archive labels stay annotations.
 | scoped sampling | current sampling truth matches the runtime ladder again |
 | operator surface | pulse start, label, report, and local quarantine are live |
 | warm-edge audit | all five promoted warm-edge residue groups passed |
-| next boundary | no new warm-edge group starts without fresh promoted evidence |
+| colour-boundary audit | first report-derived mixed Lab bin passed |
+| next boundary | no new boundary group starts without fresh promoted evidence |
 
 ## Residue Map
 
@@ -192,6 +197,12 @@ it.
 | `yellow` residual chartreuse shoulder | exact inputs from `19756`, `19757`, `19758`, `19765`, and `19766` | `20146..20150` | `5 anchors / 0 seams / 0 excluded` |
 | warm `neutral` peach / pearl residue | exact inputs from `20084`, `20088`, and `20107` | `20151..20153` | `3 anchors / 0 seams / 0 excluded` |
 
+## Closed Colour-Boundary Read
+
+| Pressure group | Seed mode | Rows | Read |
+| --- | --- | --- | --- |
+| warm low-chroma five-family bin | family-balanced exact inputs from `colour-boundaries --limit 1 --samples-per-family 1` | `20154..20158` | `5 anchors / 0 seams / 0 excluded` |
+
 ## Plans
 
 Plans are useful, but they are not evidence.
@@ -208,7 +219,8 @@ Plans are useful, but they are not evidence.
 | 8 | keep `20140..20145` as the third warm-edge audit pass | the `orange` pale straw / buff / blush shoulder passed at `6 / 0` |
 | 9 | keep `20146..20150` as the fourth warm-edge audit pass | the `yellow` residual chartreuse shoulder passed at `5 / 0` |
 | 10 | keep `20151..20153` as the fifth warm-edge audit pass | the warm-neutral peach / pearl residue passed at `3 / 0` |
-| 11 | keep the residue map closed through `430_WARM_EDGE_AUDIT` | no new pulse starts without fresh promoted evidence |
+| 11 | keep `20154..20158` as the first colour-boundary audit pass | the family-balanced warm low-chroma bin passed at `5 / 0` |
+| 12 | keep the residue map closed through `430_WARM_EDGE_AUDIT` | no new pulse starts without fresh promoted evidence |
 
 These betas and staged notes are research architectures. They are not app
 release versions, package versions, branch names, or one more sweep.
@@ -217,6 +229,7 @@ release versions, package versions, branch names, or one more sweep.
 | --- | --- | --- |
 | closed row-level `red` rerun | row-level family proof | family-correction baseline |
 | `Beta 1.0` | bounded fail-pressure pulse | closed lane-by-lane verdicts |
+| colour-boundary audit | exact-input pulse | report-derived mixed-bin preflight before classifier edits |
 
 Later method surfaces do not erase earlier ones. They narrow what each verdict
 is allowed to mean.

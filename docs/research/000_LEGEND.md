@@ -5,7 +5,7 @@
 | Code | `000_LEGEND` |
 | Category | `legend` |
 | Status | `active` |
-| Last evidence | `2026-06-14` |
+| Last evidence | `2026-08-03` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -21,9 +21,11 @@
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
+| `COLOUR_BOUNDARY_AUDIT` | `440_COLOUR_BOUNDARY_AUDIT.md` | colour-boundary report pulse proof | `validation` | `closed` |
 
 `RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
-surface promoted from that map.
+surface promoted from that map. `COLOUR_BOUNDARY_AUDIT` is the report-derived
+proof surface for mixed Lab bins.
 
 ## Ordering
 
