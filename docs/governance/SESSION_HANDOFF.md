@@ -318,6 +318,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/family-count-bars.svg`
+  - `docs/research/active-fail-surface-split.svg`
   - `docs/research/eval-pulse-stack.svg`
   - `docs/research/eval-residue-family-bars.svg`
   - regenerate research charts with `npm run charts:research`
