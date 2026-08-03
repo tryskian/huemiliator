@@ -223,10 +223,6 @@ Dependency maintenance:
 - `huemiliator behaviour-facts "#d9a6a1" --format json`
   - emit the same fact packet as machine-readable JSON for Polinko-facing eval
     fixtures
-- `huemiliator behaviour-response "#d9a6a1"`
-  - emit fixed facts plus the visible response text to be scored
-- `huemiliator behaviour-response "#d9a6a1" --format json`
-  - emit the response eval packet as machine-readable JSON
 
 ## Pulse Eval Commands
 

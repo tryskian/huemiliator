@@ -9,7 +9,6 @@ from huemiliator.main import (
     main,
     render_behaviour_contract,
     render_behaviour_facts,
-    render_behaviour_response,
     render_contract,
     render_status,
 )
@@ -243,60 +242,6 @@ def test_main_behaviour_facts_accepts_json_format() -> None:
     assert result == 0
     assert render.call_args.args == ("#d9a6a1", "json")
     assert "huemiliator.behaviour_facts.v1" in stdout.getvalue()
-
-
-def test_render_behaviour_response_exposes_visible_response_text() -> None:
-    text = render_behaviour_response("#d9a6a1")
-
-    assert "behaviour response packet" in text
-    assert "input: #d9a6a1" in text
-    assert "family: red" in text
-    assert "replacement shade: Ash rose" in text
-    assert "response:" in text
-    assert "Ash rose.\nthe idea was right. the nerve was missing." in text
-
-
-def test_render_behaviour_response_can_emit_json_packet() -> None:
-    packet = json.loads(render_behaviour_response("#d9a6a1", "json"))
-
-    assert packet["schema"] == "huemiliator.behaviour_response.v1"
-    assert packet["fact_packet"]["schema"] == "huemiliator.behaviour_facts.v1"
-    assert packet["fact_packet"]["input"]["hex"] == "#d9a6a1"
-    assert packet["response"]["replacement_line"] == "Ash rose."
-    assert packet["response"]["loss_line"] == (
-        "the idea was right. the nerve was missing."
-    )
-    assert packet["response"]["text"] == (
-        "Ash rose.\nthe idea was right. the nerve was missing."
-    )
-
-
-def test_main_behaviour_response_prints_text_packet() -> None:
-    stdout = io.StringIO()
-    with patch(
-        "huemiliator.main.render_behaviour_response",
-        return_value="behaviour response packet\nresponse:\nAsh rose.",
-    ) as render:
-        with redirect_stdout(stdout):
-            result = main(["behaviour-response", "#d9a6a1"])
-
-    assert result == 0
-    assert render.call_args.args == ("#d9a6a1", "text")
-    assert "Ash rose." in stdout.getvalue()
-
-
-def test_main_behaviour_response_accepts_json_format() -> None:
-    stdout = io.StringIO()
-    with patch(
-        "huemiliator.main.render_behaviour_response",
-        return_value='{"schema": "huemiliator.behaviour_response.v1"}',
-    ) as render:
-        with redirect_stdout(stdout):
-            result = main(["behaviour-response", "#d9a6a1", "--format", "json"])
-
-    assert result == 0
-    assert render.call_args.args == ("#d9a6a1", "json")
-    assert "huemiliator.behaviour_response.v1" in stdout.getvalue()
 
 
 def test_main_eval_init_prints_db_path() -> None:
