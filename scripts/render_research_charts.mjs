@@ -10,6 +10,12 @@ const repoRoot = process.cwd();
 const parkedDir = path.join(repoRoot, ".local", "parked");
 const evalDb = path.join(repoRoot, ".local", "evals.sqlite");
 const swatchDataPath = path.join(repoRoot, "data", "margaret2_swatches.json");
+const familyRangePaletteOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "family-range-palette.svg",
+);
 const pulseStackOutputPath = path.join(
   repoRoot,
   "docs",
@@ -95,6 +101,7 @@ const neutralSplitGroups = [
     proofIds: [20151, 20152, 20153],
   },
 ];
+let familySummaryCache = null;
 
 function pythonEnv() {
   const srcPath = path.join(repoRoot, "src");
@@ -207,7 +214,10 @@ function readLiveRows() {
   return JSON.parse(output);
 }
 
-function readFamilyCounts() {
+function readFamilySummaries() {
+  if (familySummaryCache !== null) {
+    return familySummaryCache;
+  }
   if (!fs.existsSync(swatchDataPath)) {
     throw new Error(`Missing swatch snapshot: ${swatchDataPath}`);
   }
@@ -215,7 +225,6 @@ function readFamilyCounts() {
   // Reuse the Python runtime classifier so the chart cannot drift from app logic.
   const code = String.raw`
 import json
-from collections import Counter
 from pathlib import Path
 
 from huemiliator.families import FAMILY_NAMES, build_family_rank_index
@@ -223,11 +232,40 @@ from huemiliator.swatches import load_swatch_snapshot
 
 dataset = load_swatch_snapshot(Path("data/margaret2_swatches.json"))
 ranked = build_family_rank_index(dataset)
-counts = Counter(item.family for item in ranked.values())
-payload = [
-    {"family": family, "count": counts.get(family, 0)}
-    for family in FAMILY_NAMES
-]
+members = {family: [] for family in FAMILY_NAMES}
+for item in ranked.values():
+    members[item.family].append(item)
+
+
+def sample_members(group):
+    group = sorted(group, key=lambda item: item.family_rank)
+    if not group:
+        return []
+    if len(group) <= 6:
+        indexes = range(len(group))
+    else:
+        indexes = [round(index * (len(group) - 1) / 5) for index in range(6)]
+    return [
+        {
+            "name": group[index].swatch.name,
+            "hex": group[index].swatch.hex,
+            "rank": group[index].family_rank,
+            "source_order": group[index].swatch.source_order,
+        }
+        for index in indexes
+    ]
+
+
+payload = []
+for family in FAMILY_NAMES:
+    group = members[family]
+    payload.append(
+        {
+            "family": family,
+            "count": len(group),
+            "samples": sample_members(group),
+        }
+    )
 print(json.dumps(payload))
 `;
 
@@ -236,7 +274,12 @@ print(json.dumps(payload))
     encoding: "utf8",
     env: pythonEnv(),
   });
-  return JSON.parse(output);
+  familySummaryCache = JSON.parse(output);
+  return familySummaryCache;
+}
+
+function readFamilyCounts() {
+  return readFamilySummaries().map(({family, count}) => ({family, count}));
 }
 
 function buildPulseData() {
@@ -380,6 +423,134 @@ function renderEvalPulseStack() {
 
   fs.writeFileSync(pulseStackOutputPath, `${svg.outerHTML}\n`);
   console.log(`wrote ${path.relative(repoRoot, pulseStackOutputPath)}`);
+}
+
+function createSvgElement(document, name, attributes = {}, text = null) {
+  const element = document.createElementNS("http://www.w3.org/2000/svg", name);
+  for (const [key, value] of Object.entries(attributes)) {
+    element.setAttribute(key, String(value));
+  }
+  if (text !== null) {
+    element.textContent = text;
+  }
+  return element;
+}
+
+function appendSvg(parent, name, attributes = {}, text = null) {
+  const element = createSvgElement(parent.ownerDocument, name, attributes, text);
+  parent.append(element);
+  return element;
+}
+
+function needsSwatchStroke(hex) {
+  const channels = hex
+    .slice(1)
+    .match(/.{2}/g)
+    .map((channel) => Number.parseInt(channel, 16) / 255);
+  const [red, green, blue] = channels.map((channel) =>
+    channel <= 0.03928
+      ? channel / 12.92
+      : ((channel + 0.055) / 1.055) ** 2.4,
+  );
+  return 0.2126 * red + 0.7152 * green + 0.0722 * blue > 0.82;
+}
+
+function renderFamilyRangePalette() {
+  const summaries = readFamilySummaries();
+  const {window} = new JSDOM("<!DOCTYPE html>");
+  const document = window.document;
+  const width = 774;
+  const height = 534;
+  const cardWidth = 230;
+  const cardHeight = 150;
+  const cardGapX = 18;
+  const cardGapY = 18;
+  const cardStartX = 24;
+  const cardStartY = 24;
+
+  const svg = createSvgElement(document, "svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: `0 0 ${width} ${height}`,
+    role: "img",
+    "aria-labelledby": "title desc",
+  });
+  appendSvg(svg, "title", {id: "title"}, "Huemiliator family range palette");
+  appendSvg(
+    svg,
+    "desc",
+    {id: "desc"},
+    "Nine colour-chip cards showing sampled range chips for neutral, brown, red, orange, yellow, green, blue, purple, and pink.",
+  );
+  appendSvg(svg, "rect", {width, height, fill: "#f6f5f2"});
+
+  const root = appendSvg(svg, "g", {"font-family": "Inter, Arial, sans-serif"});
+
+  for (const [index, family] of familyOrder.entries()) {
+    const summary = summaries.find((item) => item.family === family);
+    if (!summary) {
+      throw new Error(`Missing family summary: ${family}`);
+    }
+
+    const x = cardStartX + (index % 3) * (cardWidth + cardGapX);
+    const y = cardStartY + Math.floor(index / 3) * (cardHeight + cardGapY);
+    const card = appendSvg(root, "g", {transform: `translate(${x} ${y})`});
+
+    appendSvg(card, "rect", {
+      width: cardWidth,
+      height: cardHeight,
+      rx: 8,
+      fill: "#ffffff",
+      stroke: "#d8d4cc",
+    });
+
+    for (const [sampleIndex, sample] of summary.samples.entries()) {
+      const chip = appendSvg(card, "rect", {
+        x: 16 + sampleIndex * 35,
+        y: 16,
+        width: 28,
+        height: 28,
+        rx: 3,
+        fill: sample.hex,
+      });
+      if (needsSwatchStroke(sample.hex)) {
+        chip.setAttribute("stroke", "#d8d4cc");
+      }
+      appendSvg(
+        chip,
+        "title",
+        {},
+        `${sample.name}\nrank ${sample.rank} / ${summary.count}\nsource order ${sample.source_order}`,
+      );
+    }
+
+    appendSvg(
+      card,
+      "text",
+      {
+        x: 16,
+        y: 86,
+        fill: "#211f1b",
+        "font-size": 24,
+        "font-weight": 700,
+      },
+      family,
+    );
+    appendSvg(
+      card,
+      "text",
+      {x: 16, y: 113, fill: "#6b6258", "font-size": 13},
+      `${summary.count} swatches`,
+    );
+    appendSvg(
+      card,
+      "text",
+      {x: 16, y: 133, fill: "#9c948b", "font-size": 11},
+      "sampled classifier range",
+    );
+  }
+
+  fs.writeFileSync(familyRangePaletteOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, familyRangePaletteOutputPath)}`);
 }
 
 function renderResidueFamilyBars() {
@@ -736,6 +907,7 @@ function buildLegend(document) {
   return legend;
 }
 
+renderFamilyRangePalette();
 renderEvalPulseStack();
 renderResidueFamilyBars();
 renderFamilyCountBars();
