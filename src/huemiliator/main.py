@@ -10,6 +10,7 @@ from huemiliator.agent import (
     BEHAVIOUR_CONTRACT_LINES,
     RUNTIME_CONTRACT_LINES,
     TAGLINE,
+    compose_visible_response,
 )
 from huemiliator.config import load_settings
 from huemiliator.eval_db import (
@@ -82,6 +83,22 @@ def build_parser() -> argparse.ArgumentParser:
         default="text",
         dest="output_format",
         help="Output format for fixed eval facts.",
+    )
+
+    behaviour_response_parser = subparsers.add_parser(
+        "behaviour-response",
+        help="Emit fixed facts plus visible response language for behaviour eval.",
+    )
+    behaviour_response_parser.add_argument(
+        "hex_value",
+        help="Hex value to turn into a response eval packet.",
+    )
+    behaviour_response_parser.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        dest="output_format",
+        help="Output format for response eval packet.",
     )
 
     subparsers.add_parser(
@@ -323,6 +340,64 @@ def render_behaviour_facts(hex_value: str, output_format: str = "text") -> str:
         (f"replacement rank: {replacement['rank']}/{runtime_facts['family_size']}"),
         f"loss line: {runtime_facts['loss_line']}",
         "language target: concise one-up judgement with playful precision",
+        "eval target: language fidelity, tone fit, evidence fit, consistency",
+    ]
+    return "\n".join(lines)
+
+
+def build_behaviour_response_packet(hex_value: str) -> dict[str, Any]:
+    fact_packet = build_behaviour_fact_packet(hex_value)
+    runtime_facts = fact_packet["runtime_facts"]
+    if not isinstance(runtime_facts, dict):
+        raise TypeError("Behaviour fact packet runtime_facts must be a mapping.")
+    replacement = runtime_facts["replacement"]
+    if not isinstance(replacement, dict):
+        raise TypeError("Behaviour fact packet replacement must be a mapping.")
+
+    response_text = compose_visible_response(
+        replacement_shade_name=str(replacement["name"]),
+        loss_line=str(runtime_facts["loss_line"]),
+    )
+    response_lines = response_text.splitlines()
+    return {
+        "schema": "huemiliator.behaviour_response.v1",
+        "fact_packet": fact_packet,
+        "response": {
+            "text": response_text,
+            "lines": response_lines,
+            "replacement_line": response_lines[0],
+            "loss_line": response_lines[1],
+        },
+    }
+
+
+def render_behaviour_response(hex_value: str, output_format: str = "text") -> str:
+    packet = build_behaviour_response_packet(hex_value)
+    if output_format == "json":
+        return json.dumps(packet, indent=2)
+    if output_format != "text":
+        raise ValueError(f"Unsupported behaviour response format '{output_format}'.")
+
+    fact_packet = packet["fact_packet"]
+    if not isinstance(fact_packet, dict):
+        raise TypeError("Behaviour response packet fact_packet must be a mapping.")
+    runtime_facts = fact_packet["runtime_facts"]
+    if not isinstance(runtime_facts, dict):
+        raise TypeError("Behaviour fact packet runtime_facts must be a mapping.")
+    replacement = runtime_facts["replacement"]
+    if not isinstance(replacement, dict):
+        raise TypeError("Behaviour fact packet replacement must be a mapping.")
+    response = packet["response"]
+    if not isinstance(response, dict):
+        raise TypeError("Behaviour response packet response must be a mapping.")
+
+    lines = [
+        "behaviour response packet",
+        f"input: {fact_packet['input']['hex']}",
+        f"family: {runtime_facts['family']}",
+        f"replacement shade: {replacement['name']}",
+        "response:",
+        str(response["text"]),
         "eval target: language fidelity, tone fit, evidence fit, consistency",
     ]
     return "\n".join(lines)
@@ -678,6 +753,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "behaviour-facts":
         try:
             print(render_behaviour_facts(args.hex_value, args.output_format))
+        except (ResolutionError, SwatchDatasetError, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "behaviour-response":
+        try:
+            print(render_behaviour_response(args.hex_value, args.output_format))
         except (ResolutionError, SwatchDatasetError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1
