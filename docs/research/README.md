@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-06-14
+Last updated: 2026-08-03
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -70,6 +70,13 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 ![Huemiliator family range palette](./family-range-palette.svg)
 
 The chips sample the current classifier order from the frozen swatch snapshot.
+
+## Family Count Bars
+
+![Huemiliator swatches by runtime family](./family-count-bars.svg)
+
+The bars count the current runtime family assignment across the frozen swatch
+snapshot.
 
 ## Research Map
 
