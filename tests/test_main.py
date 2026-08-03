@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import json
 from contextlib import redirect_stderr, redirect_stdout
 from unittest.mock import patch
 
@@ -198,17 +199,49 @@ def test_render_behaviour_facts_exposes_fixed_runtime_fact_packet() -> None:
     assert "eval target: language fidelity, tone fit, evidence fit, consistency" in text
 
 
+def test_render_behaviour_facts_can_emit_json_packet() -> None:
+    packet = json.loads(render_behaviour_facts("#d9a6a1", "json"))
+
+    assert packet["schema"] == "huemiliator.behaviour_facts.v1"
+    assert packet["input"]["hex"] == "#d9a6a1"
+    assert packet["runtime_facts"]["nearest_swatch"]["name"] == "Mellow rose"
+    assert packet["runtime_facts"]["family"] == "red"
+    assert packet["runtime_facts"]["replacement"]["name"] == "Ash rose"
+    assert packet["runtime_facts"]["loss_line"]
+    assert packet["response_contract"]["eval_targets"] == [
+        "language fidelity",
+        "tone fit",
+        "evidence fit",
+        "consistency",
+    ]
+
+
 def test_main_behaviour_facts_prints_fact_packet() -> None:
     stdout = io.StringIO()
     with patch(
         "huemiliator.main.render_behaviour_facts",
         return_value="behaviour eval facts\nfamily: red",
-    ):
+    ) as render:
         with redirect_stdout(stdout):
             result = main(["behaviour-facts", "#d9a6a1"])
 
     assert result == 0
+    assert render.call_args.args == ("#d9a6a1", "text")
     assert "family: red" in stdout.getvalue()
+
+
+def test_main_behaviour_facts_accepts_json_format() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_behaviour_facts",
+        return_value='{"schema": "huemiliator.behaviour_facts.v1"}',
+    ) as render:
+        with redirect_stdout(stdout):
+            result = main(["behaviour-facts", "#d9a6a1", "--format", "json"])
+
+    assert result == 0
+    assert render.call_args.args == ("#d9a6a1", "json")
+    assert "huemiliator.behaviour_facts.v1" in stdout.getvalue()
 
 
 def test_main_eval_init_prints_db_path() -> None:

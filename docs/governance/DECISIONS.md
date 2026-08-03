@@ -451,7 +451,8 @@ into implementation authorship.
 - Decision: Huey exposes a behaviour eval contract and a fixed runtime fact
   packet from `src/huemiliator/agent.py` and the CLI. The fact packet resolves
   canonical hex, nearest swatch, family, rank, replacement, and loss line
-  before response-language scoring begins.
+  before response-language scoring begins, with JSON output for machine-readable
+  Polinko-facing fixtures.
 - Validation:
   - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_agent.py tests/test_main.py`
 - Why: Polinko should be able to evaluate Huey's visible language and behaviour
