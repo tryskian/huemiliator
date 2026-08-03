@@ -65,7 +65,9 @@ The core tracked shape is:
 - the colour-boundary warm low-chroma five-family pulse at `20154..20158` is
   the carried colour-boundary proof surface
 - the colour-boundary neutral / brown / orange / yellow pulse at
-  `20159..20162` is the latest proof surface
+  `20159..20162` is the carried colour-boundary proof surface
+- the colour-boundary neutral / pink / brown / red pulse at `20163..20166` is
+  the latest proof surface
 - the corrected split stack at `20097..20105` cleared the nine cool-edge seams
   from the failed `20082..20096` source surface
 - the broader `neutral` continuation from source order `48` passed at `14 / 1`
@@ -77,6 +79,7 @@ The core tracked shape is:
 - the fifth warm-edge audit pulse passed at `3 / 0`
 - the first colour-boundary audit pulse passed at `5 / 0`
 - the second colour-boundary audit pulse passed at `4 / 0`
+- the third colour-boundary audit pulse passed at `4 / 0`
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the current verdict unit
@@ -103,6 +106,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - keep `20151..20153` as the fifth warm-edge audit pass
 - keep `20154..20158` as the first colour-boundary audit pass
 - keep `20159..20162` as the second colour-boundary audit pass
+- keep `20163..20166` as the third colour-boundary audit pass
 - carry the closed residue source map, closed warm-edge audit, and closed
   colour-boundary audit unless new evidence appears
 - keep the warm seams as secondary residue outside the cool-edge split
@@ -139,6 +143,8 @@ stay quarantined locally instead of mixing back into the live DB.
    - ids `20154..20158`
    - `5 anchors / 0 counted seams / 0 excluded`
    - ids `20159..20162`
+   - `4 anchors / 0 counted seams / 0 excluded`
+   - ids `20163..20166`
    - `4 anchors / 0 counted seams / 0 excluded`
    - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
@@ -239,8 +245,9 @@ stay quarantined locally instead of mixing back into the live DB.
    pulses:
    - strongest warm low-chroma five-family bin passed at `20154..20158`
    - second neutral / brown / orange / yellow bin passed at `20159..20162`
-   - no classifier edit followed because both pulses held at `5 / 0` and
-     `4 / 0`
+   - third neutral / pink / brown / red bin passed at `20163..20166`
+   - no classifier edit followed because the pulses held at `5 / 0`, `4 / 0`,
+     and `4 / 0`
    - no new pulse starts without fresh promoted evidence
 
 ## Research Snapshot
@@ -260,8 +267,10 @@ stay quarantined locally instead of mixing back into the live DB.
   `20151..20153`
 - carried colour-boundary proof surface: warm low-chroma five-family pulse at
   `20154..20158`
-- latest proof surface: colour-boundary neutral / brown / orange / yellow
+- carried colour-boundary proof surface: neutral / brown / orange / yellow
   pulse at `20159..20162`
+- latest proof surface: colour-boundary neutral / pink / brown / red pulse at
+  `20163..20166`
 - carried prior pulse result: `14 anchors / 1 counted seam / 0 excluded`
 - carried warm-edge pulse result: `8 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `11 anchors / 0 counted seams / 0 excluded`
@@ -269,6 +278,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - carried warm-edge pulse result: `5 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `3 anchors / 0 counted seams / 0 excluded`
 - carried colour-boundary pulse result: `5 anchors / 0 counted seams / 0 excluded`
+- carried colour-boundary pulse result: `4 anchors / 0 counted seams / 0 excluded`
 - latest pulse result: `4 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
@@ -343,6 +353,8 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20154..20158` -> `5 anchors / 0 counted seams / 0 excluded`
 - second colour-boundary audit pulse:
   - `20159..20162` -> `4 anchors / 0 counted seams / 0 excluded`
+- third colour-boundary audit pulse:
+  - `20163..20166` -> `4 anchors / 0 counted seams / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/family-count-bars.svg`
