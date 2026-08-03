@@ -485,9 +485,11 @@ into implementation authorship.
 - Decision: Huey exposes `colour-boundaries` as a deterministic report over
   the runtime colour library. JSON output uses schema
   `huemiliator.colour_boundaries.v1` and carries mixed-family Lab bins with
-  capped row samples.
+  capped row samples plus family-balanced samples.
 - Validation:
   - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_colour_boundaries.py tests/test_main.py`
 - Why: Classifier tightening should start from a reproducible candidate surface.
-  Boundary reports identify where runtime families share colour-space bins, but
-  they do not by themselves author a classifier change or open an eval pulse.
+  Boundary reports identify where runtime families share colour-space bins, and
+  family-balanced samples keep exact-input pulse candidates from inheriting
+  source-order bias. They do not by themselves author a classifier change or
+  open an eval pulse.
