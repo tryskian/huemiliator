@@ -6,7 +6,7 @@
 | Category | `validation` |
 | Status | `closed` |
 | Date | `2026-06-09` |
-| Last evidence | `2026-06-14` |
+| Last evidence | `2026-08-03` |
 | Owns | warm-edge residue audit scope and closed proof-surface read |
 
 ## What This Asks
@@ -39,7 +39,7 @@ inputs and passed at `20146..20150`:
 The fifth warm-edge pulse launched from exact warm-neutral peach / pearl inputs
 and passed at `20151..20153`: `3 anchors / 0 counted seams / 0 excluded`.
 
-The previous live proof surfaces were quarantined locally before each pulse:
+The previous live proof surfaces were quarantined locally before later pulses:
 
 | Archived surface | Rows | Archive |
 | --- | ---: | --- |
@@ -48,6 +48,7 @@ The previous live proof surfaces were quarantined locally before each pulse:
 | `20129..20139` | `11` | `.local/parked/eval-surface-20260614T180546Z-beta-1-0-warm-edge-yellow-green-olive-shoulder-pass.jsonl` |
 | `20140..20145` | `6` | `.local/parked/eval-surface-20260614T181316Z-beta-1-0-warm-edge-orange-pale-straw-buff-blush-shoulder-pass.jsonl` |
 | `20146..20150` | `5` | `.local/parked/eval-surface-20260614T181353Z-beta-1-0-warm-edge-yellow-residual-chartreuse-shoulder-pass.jsonl` |
+| `20151..20153` | `3` | `.local/parked/eval-surface-20260803T215237Z-beta-1-0-boundary-balanced-warm-low-chroma-preflight.jsonl` |
 
 ## Audit Boundary
 

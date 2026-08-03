@@ -60,8 +60,10 @@ The core tracked shape is:
   `20140..20145` is the carried warm-edge proof surface
 - the warm-edge `yellow` residual chartreuse audit pulse at `20146..20150` is
   the carried warm-edge proof surface
-- the warm-neutral peach / pearl audit pulse at `20151..20153` is the latest
-  proof surface
+- the warm-neutral peach / pearl audit pulse at `20151..20153` is the carried
+  warm-edge proof surface
+- the colour-boundary warm low-chroma five-family pulse at `20154..20158` is
+  the latest proof surface
 - the corrected split stack at `20097..20105` cleared the nine cool-edge seams
   from the failed `20082..20096` source surface
 - the broader `neutral` continuation from source order `48` passed at `14 / 1`
@@ -71,6 +73,7 @@ The core tracked shape is:
 - the third warm-edge audit pulse passed at `6 / 0`
 - the fourth warm-edge audit pulse passed at `5 / 0`
 - the fifth warm-edge audit pulse passed at `3 / 0`
+- the first colour-boundary audit pulse passed at `5 / 0`
 - the closed third corrected `red` rerun remains the closed row-level
   comparison baseline
 - fail-pressure pulse is now the current verdict unit
@@ -95,8 +98,9 @@ stay quarantined locally instead of mixing back into the live DB.
 - keep `20140..20145` as the third warm-edge audit pass
 - keep `20146..20150` as the fourth warm-edge audit pass
 - keep `20151..20153` as the fifth warm-edge audit pass
-- carry the closed residue source map and closed warm-edge audit unless new
-  evidence appears
+- keep `20154..20158` as the first colour-boundary audit pass
+- carry the closed residue source map, closed warm-edge audit, and closed
+  colour-boundary audit unless new evidence appears
 - keep the warm seams as secondary residue outside the cool-edge split
 - keep the startup and closeout contract small, truthful, and aligned with the
   actual operator flow
@@ -128,6 +132,8 @@ stay quarantined locally instead of mixing back into the live DB.
    - `5 anchors / 0 counted seams / 0 excluded`
    - ids `20151..20153`
    - `3 anchors / 0 counted seams / 0 excluded`
+   - ids `20154..20158`
+   - `5 anchors / 0 counted seams / 0 excluded`
    - verdict `PASS`
 4. Compare it against the stable prior pulse surfaces:
    - ids `19692..19706`
@@ -223,6 +229,10 @@ stay quarantined locally instead of mixing back into the live DB.
      `20146..20150`
    - fifth candidate passed: warm-neutral peach / pearl residue at
      `20151..20153`
+8. Use `440_COLOUR_BOUNDARY_AUDIT` for the first report-derived boundary
+   pulse:
+   - strongest warm low-chroma five-family bin passed at `20154..20158`
+   - no classifier edit followed because the pulse held at `5 / 0`
    - no new pulse starts without fresh promoted evidence
 
 ## Research Snapshot
@@ -238,14 +248,17 @@ stay quarantined locally instead of mixing back into the live DB.
   pulse at `20140..20145`
 - carried warm-edge proof surface: `yellow` residual chartreuse audit pulse at
   `20146..20150`
-- latest proof surface: warm-neutral peach / pearl audit pulse at
+- carried warm-edge proof surface: warm-neutral peach / pearl audit pulse at
   `20151..20153`
+- latest proof surface: colour-boundary warm low-chroma five-family pulse at
+  `20154..20158`
 - carried prior pulse result: `14 anchors / 1 counted seam / 0 excluded`
 - carried warm-edge pulse result: `8 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `11 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `6 anchors / 0 counted seams / 0 excluded`
 - carried warm-edge pulse result: `5 anchors / 0 counted seams / 0 excluded`
-- latest pulse result: `3 anchors / 0 counted seams / 0 excluded`
+- carried warm-edge pulse result: `3 anchors / 0 counted seams / 0 excluded`
+- latest pulse result: `5 anchors / 0 counted seams / 0 excluded`
 - stable red pulse results:
   - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
   - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
@@ -315,6 +328,8 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20146..20150` -> `5 anchors / 0 counted seams / 0 excluded`
 - fifth warm-edge audit pulse:
   - `20151..20153` -> `3 anchors / 0 counted seams / 0 excluded`
+- first colour-boundary audit pulse:
+  - `20154..20158` -> `5 anchors / 0 counted seams / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
   - `docs/research/family-count-bars.svg`
@@ -325,15 +340,17 @@ stay quarantined locally instead of mixing back into the live DB.
   - derive chart lane labels from row data; archive labels stay annotations
 - beta question before the warm-edge audit: choose the next method or
   scope after all runtime family lanes have parked reads
-- beta question: no new warm-edge group without fresh promoted evidence
+- beta question: no new boundary group without fresh promoted evidence
 - pulse operator surface: start, label, report, and local quarantine are live
 - staged pulse note: `010_PB10`
 - corrected neutral method note: `410_N3`
 - closed beta note: `020_B10`
 - closed warm-edge note: `430_WARM_EDGE_AUDIT`
+- closed colour-boundary note: `440_COLOUR_BOUNDARY_AUDIT`
 - active family lane before the warm-edge audit: none selected after
   `neutral` park
-- active family lane: none; warm-edge audit is closed and no pulse is queued
+- active family lane: none; colour-boundary audit is closed and no pulse is
+  queued
 - tracked research notes:
   - `000_LEGEND`
   - `010_PB10`
@@ -344,6 +361,7 @@ stay quarantined locally instead of mixing back into the live DB.
   - `410_N3`
   - `420_RESIDUE`
   - `430_WARM_EDGE_AUDIT`
+  - `440_COLOUR_BOUNDARY_AUDIT`
 - live DB rule: keep only the latest proof surface in `eval_outputs`
 
 ## Guardrails

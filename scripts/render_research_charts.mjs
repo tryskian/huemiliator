@@ -156,6 +156,9 @@ function majorityFamily(rows) {
     (row) => row.family,
   );
   counts.sort((left, right) => d3.descending(left[1], right[1]));
+  if (counts.length > 1 && counts[0][1] === counts[1][1]) {
+    return "mixed";
+  }
   return counts[0]?.[0] ?? "unknown";
 }
 
