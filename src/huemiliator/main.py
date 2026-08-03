@@ -11,6 +11,7 @@ from huemiliator.agent import (
     RUNTIME_CONTRACT_LINES,
     TAGLINE,
 )
+from huemiliator.colour_boundaries import build_colour_boundary_packet
 from huemiliator.colour_library import build_colour_library_packet
 from huemiliator.config import load_settings
 from huemiliator.eval_db import (
@@ -61,6 +62,36 @@ def build_parser() -> argparse.ArgumentParser:
         default="text",
         dest="output_format",
         help="Output format for the runtime colour library.",
+    )
+
+    colour_boundaries_parser = subparsers.add_parser(
+        "colour-boundaries",
+        help="Report mixed-family Lab bins from the runtime colour library.",
+    )
+    colour_boundaries_parser.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        dest="output_format",
+        help="Output format for the colour-boundary report.",
+    )
+    colour_boundaries_parser.add_argument(
+        "--limit",
+        type=int,
+        default=10,
+        help="Maximum number of boundary bins to show.",
+    )
+    colour_boundaries_parser.add_argument(
+        "--bin-step",
+        type=int,
+        default=10,
+        help="Lab a*/b* bin width for the boundary report.",
+    )
+    colour_boundaries_parser.add_argument(
+        "--min-families",
+        type=int,
+        default=3,
+        help="Minimum number of runtime families required in a reported bin.",
     )
 
     resolve_parser = subparsers.add_parser(
@@ -292,6 +323,66 @@ def render_colour_library(output_format: str = "text") -> str:
         if not isinstance(family, dict):
             raise TypeError("Colour library packet family rows must be mappings.")
         lines.append(f"- {family['family']}: {family['count']}")
+    return "\n".join(lines)
+
+
+def render_colour_boundaries(
+    *,
+    output_format: str = "text",
+    limit: int = 10,
+    bin_step: int = 10,
+    min_families: int = 3,
+) -> str:
+    settings = load_settings()
+    dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
+    packet = build_colour_boundary_packet(
+        dataset,
+        bin_step=bin_step,
+        min_family_count=min_families,
+        limit=limit,
+    )
+    if output_format == "json":
+        return json.dumps(packet, indent=2)
+    if output_format != "text":
+        raise ValueError(f"Unsupported colour boundaries format '{output_format}'.")
+
+    bins = packet["bins"]
+    if not isinstance(bins, list):
+        raise TypeError("Colour boundaries packet bins must be a list.")
+
+    lines = [
+        "colour boundaries",
+        f"schema: {packet['schema']}",
+        f"source: {packet['source']['name']}",
+        f"snapshot date: {packet['source']['snapshot_date']}",
+        f"bin step: {packet['bin_step']}",
+        f"minimum families: {packet['min_family_count']}",
+        f"mixed bins: {packet['mixed_bin_count']}",
+        f"shown bins: {packet['shown_bin_count']}",
+    ]
+    for boundary_bin in bins:
+        if not isinstance(boundary_bin, dict):
+            raise TypeError("Colour boundaries packet bin rows must be mappings.")
+        families = ", ".join(
+            f"{item['family']} {item['count']}" for item in boundary_bin["families"]
+        )
+        samples = "; ".join(
+            (f"{item['source_order']} {item['name']} ({item['family']}) {item['hex']}")
+            for item in boundary_bin["samples"]
+        )
+        lines.extend(
+            [
+                "",
+                (
+                    f"- Lab a* {boundary_bin['lab_a']['min']}.."
+                    f"{boundary_bin['lab_a']['max']}; Lab b* "
+                    f"{boundary_bin['lab_b']['min']}.."
+                    f"{boundary_bin['lab_b']['max']}; swatches: "
+                    f"{boundary_bin['swatch_count']}; families: {families}"
+                ),
+                f"  samples: {samples}",
+            ]
+        )
     return "\n".join(lines)
 
 
@@ -699,6 +790,20 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "colour-library":
         try:
             print(render_colour_library(args.output_format))
+        except (SwatchDatasetError, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "colour-boundaries":
+        try:
+            print(
+                render_colour_boundaries(
+                    output_format=args.output_format,
+                    limit=args.limit,
+                    bin_step=args.bin_step,
+                    min_families=args.min_families,
+                )
+            )
         except (SwatchDatasetError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1

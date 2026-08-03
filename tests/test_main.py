@@ -9,6 +9,7 @@ from huemiliator.main import (
     main,
     render_behaviour_contract,
     render_behaviour_facts,
+    render_colour_boundaries,
     render_colour_library,
     render_contract,
     render_status,
@@ -124,6 +125,78 @@ def test_main_colour_library_accepts_json_format() -> None:
     assert result == 0
     assert render.call_args.args == ("json",)
     assert "huemiliator.colour_library.v1" in stdout.getvalue()
+
+
+def test_render_colour_boundaries_prints_text_report() -> None:
+    text = render_colour_boundaries(limit=1)
+
+    assert "colour boundaries" in text
+    assert "schema: huemiliator.colour_boundaries.v1" in text
+    assert "minimum families: 3" in text
+    assert "shown bins: 1" in text
+    assert "Lab a*" in text
+    assert "samples:" in text
+
+
+def test_render_colour_boundaries_can_emit_json_packet() -> None:
+    packet = json.loads(render_colour_boundaries(output_format="json", limit=2))
+
+    assert packet["schema"] == "huemiliator.colour_boundaries.v1"
+    assert packet["bin_step"] == 10
+    assert packet["min_family_count"] == 3
+    assert packet["shown_bin_count"] == 2
+    assert packet["bins"][0]["family_count"] >= 3
+    assert "samples" in packet["bins"][0]
+
+
+def test_main_colour_boundaries_prints_text_report() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_colour_boundaries",
+        return_value="colour boundaries\nshown bins: 2",
+    ) as render:
+        with redirect_stdout(stdout):
+            result = main(["colour-boundaries", "--limit", "2"])
+
+    assert result == 0
+    assert render.call_args.kwargs == {
+        "output_format": "text",
+        "limit": 2,
+        "bin_step": 10,
+        "min_families": 3,
+    }
+    assert "shown bins: 2" in stdout.getvalue()
+
+
+def test_main_colour_boundaries_accepts_json_and_parameters() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_colour_boundaries",
+        return_value='{"schema": "huemiliator.colour_boundaries.v1"}',
+    ) as render:
+        with redirect_stdout(stdout):
+            result = main(
+                [
+                    "colour-boundaries",
+                    "--format",
+                    "json",
+                    "--limit",
+                    "4",
+                    "--bin-step",
+                    "20",
+                    "--min-families",
+                    "2",
+                ]
+            )
+
+    assert result == 0
+    assert render.call_args.kwargs == {
+        "output_format": "json",
+        "limit": 4,
+        "bin_step": 20,
+        "min_families": 2,
+    }
+    assert "huemiliator.colour_boundaries.v1" in stdout.getvalue()
 
 
 def test_main_pick_prints_selected_hex() -> None:
