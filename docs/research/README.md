@@ -148,6 +148,11 @@ pulse stack. It is a next-scope map, not a live failure total.
 
 ## Active Neutral Read
 
+![Huemiliator neutral fail-surface split](./active-fail-surface-split.svg)
+
+The bars pair each neutral source seam group with the proof anchors that closed
+it.
+
 | Pressure group | Source rows | Corrected pulse | Read |
 | --- | --- | --- | --- |
 | lilac / mauve | `20082`, `20083`, `20094` | `20097..20099` | `3 anchors / 0 seams / 0 excluded` |

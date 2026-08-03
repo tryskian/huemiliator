@@ -28,6 +28,12 @@ const familyCountBarsOutputPath = path.join(
   "research",
   "family-count-bars.svg",
 );
+const activeFailSurfaceSplitOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "active-fail-surface-split.svg",
+);
 
 const segmentOrder = ["anchor", "counted_seam", "excluded_noise"];
 const segmentLabels = new Map([
@@ -62,6 +68,33 @@ const familyColours = new Map([
   ["purple", "#7b5ea7"],
   ["pink", "#c96b8d"],
 ]);
+const splitPhaseOrder = ["source seams", "closed anchors"];
+const splitPhaseColours = new Map([
+  ["source seams", "#c34f4d"],
+  ["closed anchors", "#287a68"],
+]);
+const neutralSplitGroups = [
+  {
+    group: "lilac / mauve",
+    sourceIds: [20082, 20083, 20094],
+    proofIds: [20097, 20098, 20099],
+  },
+  {
+    group: "blue / jade",
+    sourceIds: [20085, 20090, 20091],
+    proofIds: [20100, 20101, 20102],
+  },
+  {
+    group: "mint / green",
+    sourceIds: [20086, 20087, 20095],
+    proofIds: [20103, 20104, 20105],
+  },
+  {
+    group: "warm peach / pearl",
+    sourceIds: [20084, 20088, 20107],
+    proofIds: [20151, 20152, 20153],
+  },
+];
 
 function pythonEnv() {
   const srcPath = path.join(repoRoot, "src");
@@ -228,6 +261,20 @@ function buildPulseData() {
   }
 
   return pulses.sort((left, right) => d3.ascending(left.sequence, right.sequence));
+}
+
+function rowsById(pulses) {
+  return new Map(pulses.flatMap((pulse) => pulse.rows.map((row) => [row.id, row])));
+}
+
+function readRowsForIds(rowIndex, ids, context) {
+  return ids.map((id) => {
+    const row = rowIndex.get(id);
+    if (!row) {
+      throw new Error(`Missing row ${id} for ${context}`);
+    }
+    return row;
+  });
 }
 
 function toSegments(pulses) {
@@ -509,6 +556,153 @@ function renderFamilyCountBars() {
   console.log(`wrote ${path.relative(repoRoot, familyCountBarsOutputPath)}`);
 }
 
+function buildNeutralSplitRows() {
+  const rowIndex = rowsById(buildPulseData());
+
+  return neutralSplitGroups.flatMap((group, groupIndex) => {
+    const sourceRows = readRowsForIds(
+      rowIndex,
+      group.sourceIds,
+      `${group.group} source`,
+    );
+    const proofRows = readRowsForIds(rowIndex, group.proofIds, `${group.group} proof`);
+    const sourceCount = sourceRows.filter(
+      (row) => row.pulse_label === "counted_seam",
+    ).length;
+    const proofCount = proofRows.filter((row) => row.pulse_label === "anchor").length;
+
+    return [
+      {
+        group: group.group,
+        phase: "source seams",
+        rowLabel: `${group.group} source`,
+        count: sourceCount,
+        order: groupIndex * 2,
+        ids: group.sourceIds,
+        pairs: sourceRows.map(
+          (row) => `${row.nearest_swatch_name} -> ${row.replacement_shade_name}`,
+        ),
+      },
+      {
+        group: group.group,
+        phase: "closed anchors",
+        rowLabel: `${group.group} proof`,
+        count: proofCount,
+        order: groupIndex * 2 + 1,
+        ids: group.proofIds,
+        pairs: proofRows.map(
+          (row) => `${row.nearest_swatch_name} -> ${row.replacement_shade_name}`,
+        ),
+      },
+    ];
+  });
+}
+
+function renderActiveFailSurfaceSplit() {
+  const splitRows = buildNeutralSplitRows();
+  const yDomain = splitRows.map((row) => row.rowLabel);
+  const {window} = new JSDOM("<!DOCTYPE html>");
+
+  const svg = Plot.plot({
+    document: window.document,
+    className: "huey-active-fail-surface-split",
+    width: 820,
+    height: 120 + yDomain.length * 30,
+    marginTop: 56,
+    marginRight: 76,
+    marginBottom: 44,
+    marginLeft: 188,
+    style: {
+      background: "#f6f5f2",
+      color: "#26231f",
+      fontFamily: "Inter, Arial, sans-serif",
+      fontSize: 12,
+    },
+    x: {
+      domain: [0, 3],
+      label: "rows in pressure group",
+      ticks: [0, 1, 2, 3],
+      grid: true,
+    },
+    y: {
+      domain: yDomain,
+      label: null,
+    },
+    marks: [
+      Plot.ruleX([0]),
+      Plot.barX(splitRows, {
+        x: "count",
+        y: "rowLabel",
+        fill: (row) => splitPhaseColours.get(row.phase),
+        rx: 3,
+        title: (row) =>
+          `${row.group}\n${row.phase}: ${row.count}\nrows ${row.ids.join(
+            ", ",
+          )}\n${row.pairs.join("\n")}`,
+      }),
+      Plot.text(splitRows, {
+        x: "count",
+        y: "rowLabel",
+        text: "count",
+        dx: 10,
+        fill: "#26231f",
+        fontWeight: 700,
+      }),
+    ],
+  });
+
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-labelledby", "title desc");
+
+  const title = window.document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "title");
+  title.textContent = "Huemiliator neutral fail-surface split";
+
+  const desc = window.document.createElementNS("http://www.w3.org/2000/svg", "desc");
+  desc.setAttribute("id", "desc");
+  desc.textContent =
+    "Grouped bars pairing each neutral source seam group with the proof anchors that closed it.";
+
+  svg.prepend(desc);
+  svg.prepend(title);
+  svg.append(buildSplitLegend(window.document));
+
+  fs.writeFileSync(activeFailSurfaceSplitOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, activeFailSurfaceSplitOutputPath)}`);
+}
+
+function buildSplitLegend(document) {
+  const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  legend.setAttribute("aria-label", "legend");
+  legend.setAttribute("transform", "translate(188 18)");
+
+  let x = 0;
+  for (const phase of splitPhaseOrder) {
+    const square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    square.setAttribute("x", x);
+    square.setAttribute("y", 0);
+    square.setAttribute("width", 12);
+    square.setAttribute("height", 12);
+    square.setAttribute("rx", 2);
+    square.setAttribute("fill", splitPhaseColours.get(phase));
+    legend.append(square);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x + 18);
+    text.setAttribute("y", 10);
+    text.setAttribute("font-size", 12);
+    text.setAttribute("fill", "#26231f");
+    text.setAttribute("text-anchor", "start");
+    text.textContent = phase;
+    legend.append(text);
+
+    x += 130;
+  }
+
+  return legend;
+}
+
 function buildLegend(document) {
   const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
   legend.setAttribute("aria-label", "legend");
@@ -532,6 +726,7 @@ function buildLegend(document) {
     text.setAttribute("y", 10);
     text.setAttribute("font-size", 12);
     text.setAttribute("fill", "#26231f");
+    text.setAttribute("text-anchor", "start");
     text.textContent = label;
     legend.append(text);
 
@@ -544,3 +739,4 @@ function buildLegend(document) {
 renderEvalPulseStack();
 renderResidueFamilyBars();
 renderFamilyCountBars();
+renderActiveFailSurfaceSplit();

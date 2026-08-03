@@ -1,0 +1,51 @@
+<svg class="huey-active-fail-surface-split" fill="currentColor" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" width="820" height="360" viewBox="0 0 820 360" style="background: rgb(246, 245, 242); color: rgb(38, 35, 31); font-family: Inter, Arial, sans-serif;" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc"><title id="title">Huemiliator neutral fail-surface split</title><desc id="desc">Grouped bars pairing each neutral source seam group with the proof anchors that closed it.</desc><style>:where(.huey-active-fail-surface-split) {
+  --plot-background: white;
+  display: block;
+  height: auto;
+  height: intrinsic;
+  max-width: 100%;
+}
+:where(.huey-active-fail-surface-split text),
+:where(.huey-active-fail-surface-split tspan) {
+  white-space: pre;
+}</style><g aria-label="y-axis tick" aria-hidden="true" fill="none" stroke="currentColor" transform="translate(0,14.5)"><path transform="translate(188,60)" d="M0,0L-6,0"></path><path transform="translate(188,92)" d="M0,0L-6,0"></path><path transform="translate(188,124)" d="M0,0L-6,0"></path><path transform="translate(188,156)" d="M0,0L-6,0"></path><path transform="translate(188,188)" d="M0,0L-6,0"></path><path transform="translate(188,220)" d="M0,0L-6,0"></path><path transform="translate(188,252)" d="M0,0L-6,0"></path><path transform="translate(188,284)" d="M0,0L-6,0"></path></g><g aria-label="y-axis tick label" text-anchor="end" transform="translate(-9,14.5)"><text y="0.32em" transform="translate(188,60)">lilac / mauve source</text><text y="0.32em" transform="translate(188,92)">lilac / mauve proof</text><text y="0.32em" transform="translate(188,124)">blue / jade source</text><text y="0.32em" transform="translate(188,156)">blue / jade proof</text><text y="0.32em" transform="translate(188,188)">mint / green source</text><text y="0.32em" transform="translate(188,220)">mint / green proof</text><text y="0.32em" transform="translate(188,252)">warm peach / pearl source</text><text y="0.32em" transform="translate(188,284)">warm peach / pearl proof</text></g><g aria-label="x-grid" aria-hidden="true" stroke="currentColor" stroke-opacity="0.1"><line x1="188" x2="188" y1="56" y2="316"></line><line x1="373.33333333333337" x2="373.33333333333337" y1="56" y2="316"></line><line x1="558.6666666666666" x2="558.6666666666666" y1="56" y2="316"></line><line x1="744" x2="744" y1="56" y2="316"></line></g><g aria-label="x-axis tick" aria-hidden="true" fill="none" stroke="currentColor"><path transform="translate(188,316)" d="M0,0L0,6"></path><path transform="translate(373.33333333333337,316)" d="M0,0L0,6"></path><path transform="translate(558.6666666666666,316)" d="M0,0L0,6"></path><path transform="translate(744,316)" d="M0,0L0,6"></path></g><g aria-label="x-axis tick label" font-variant="tabular-nums" transform="translate(0,9)"><text y="0.71em" transform="translate(188,316)">0.0</text><text y="0.71em" transform="translate(373.33333333333337,316)">1.0</text><text y="0.71em" transform="translate(558.6666666666666,316)">2.0</text><text y="0.71em" transform="translate(744,316)">3.0</text></g><g aria-label="x-axis label" text-anchor="end" transform="translate(73,41)"><text transform="translate(744,316)">rows in pressure group →</text></g><g aria-label="rule" stroke="currentColor"><line x1="188" x2="188" y1="56" y2="316"></line></g><g aria-label="bar"><rect x="188" width="556" y="60" height="29" rx="3" fill="#c34f4d"><title>lilac / mauve
+source seams: 3
+rows 20082, 20083, 20094
+Tapioca -&gt; Lilac ash
+Creme brulee -&gt; Lilac snow
+Petal pink -&gt; Shrinking violet</title></rect><rect x="188" width="556" y="92" height="29" rx="3" fill="#287a68"><title>lilac / mauve
+closed anchors: 3
+rows 20097, 20098, 20099
+Tapioca -&gt; Gray sand
+Creme brulee -&gt; Tapioca
+Petal pink -&gt; Delicacy</title></rect><rect x="188" width="556" y="124" height="29" rx="3" fill="#c34f4d"><title>blue / jade
+source seams: 3
+rows 20085, 20090, 20091
+Sheer pink -&gt; Bit of blue
+Ecru -&gt; Mystic blue
+Navajo -&gt; Moonlight jade</title></rect><rect x="188" width="556" y="156" height="29" rx="3" fill="#287a68"><title>blue / jade
+closed anchors: 3
+rows 20100, 20101, 20102
+Sheer pink -&gt; Sheer pink
+Ecru -&gt; Eggnog
+Navajo -&gt; Alabaster gleam</title></rect><rect x="188" width="556" y="188" height="29" rx="3" fill="#c34f4d"><title>mint / green
+source seams: 3
+rows 20086, 20087, 20095
+Dew -&gt; Water lily
+Powder puff -&gt; Whisper green
+Bridal blush -&gt; Hint of mint</title></rect><rect x="188" width="556" y="220" height="29" rx="3" fill="#287a68"><title>mint / green
+closed anchors: 3
+rows 20103, 20104, 20105
+Dew -&gt; Powder puff
+Powder puff -&gt; Cream pink
+Bridal blush -&gt; Bridal blush</title></rect><rect x="188" width="556" y="252" height="29" rx="3" fill="#c34f4d"><title>warm peach / pearl
+source seams: 3
+rows 20084, 20088, 20107
+Parchment -&gt; Novelle peach
+Pearled ivory -&gt; Pearl
+Pastel parchment -&gt; Creme de peche</title></rect><rect x="188" width="556" y="284" height="29" rx="3" fill="#287a68"><title>warm peach / pearl
+closed anchors: 3
+rows 20151, 20152, 20153
+Parchment -&gt; Banana crepe
+Pearled ivory -&gt; Buttercream
+Pastel parchment -&gt; Creme de peche</title></rect></g><g aria-label="text" fill="#26231f" font-variant="tabular-nums" font-weight="700" transform="translate(10,14.5)"><text y="0.32em" transform="translate(744,60)">3</text><text y="0.32em" transform="translate(744,92)">3</text><text y="0.32em" transform="translate(744,124)">3</text><text y="0.32em" transform="translate(744,156)">3</text><text y="0.32em" transform="translate(744,188)">3</text><text y="0.32em" transform="translate(744,220)">3</text><text y="0.32em" transform="translate(744,252)">3</text><text y="0.32em" transform="translate(744,284)">3</text></g><g aria-label="legend" transform="translate(188 18)"><rect x="0" y="0" width="12" height="12" rx="2" fill="#c34f4d"></rect><text x="18" y="10" font-size="12" fill="#26231f" text-anchor="start">source seams</text><rect x="130" y="0" width="12" height="12" rx="2" fill="#287a68"></rect><text x="148" y="10" font-size="12" fill="#26231f" text-anchor="start">closed anchors</text></g></svg>
