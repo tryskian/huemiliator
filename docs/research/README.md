@@ -78,6 +78,13 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 The bars count the current runtime family assignment across the frozen swatch
 snapshot.
 
+## Edge Density Heatmap
+
+![Huemiliator edge-density heatmap](./edge-density-heatmap.svg)
+
+Lab-space bins highlight where runtime families share colour-space cells. Red
+cells are mixed-family pressure; darker cells contain more swatches.
+
 ## Archive Integrity Check
 
 ![Huemiliator archive labels versus row truth](./archive-integrity-check.svg)

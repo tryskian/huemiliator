@@ -34,6 +34,12 @@ const familyCountBarsOutputPath = path.join(
   "research",
   "family-count-bars.svg",
 );
+const edgeDensityHeatmapOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "edge-density-heatmap.svg",
+);
 const activeFailSurfaceSplitOutputPath = path.join(
   repoRoot,
   "docs",
@@ -108,6 +114,7 @@ const neutralSplitGroups = [
   },
 ];
 let familySummaryCache = null;
+let familyRowsCache = null;
 
 function pythonEnv() {
   const srcPath = path.join(repoRoot, "src");
@@ -313,6 +320,45 @@ print(json.dumps(payload))
 
 function readFamilyCounts() {
   return readFamilySummaries().map(({family, count}) => ({family, count}));
+}
+
+function readFamilyRows() {
+  if (familyRowsCache !== null) {
+    return familyRowsCache;
+  }
+  if (!fs.existsSync(swatchDataPath)) {
+    throw new Error(`Missing swatch snapshot: ${swatchDataPath}`);
+  }
+
+  const code = String.raw`
+import json
+from pathlib import Path
+
+from huemiliator.families import build_family_rank_index
+from huemiliator.swatches import load_swatch_snapshot
+
+dataset = load_swatch_snapshot(Path("data/margaret2_swatches.json"))
+ranked = build_family_rank_index(dataset)
+payload = [
+    {
+        "name": item.swatch.name,
+        "hex": item.swatch.hex,
+        "family": item.family,
+        "family_rank": item.family_rank,
+        "source_order": item.swatch.source_order,
+    }
+    for item in ranked.values()
+]
+print(json.dumps(payload))
+`;
+
+  const output = execFileSync(pythonBin(), ["-c", code], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: pythonEnv(),
+  });
+  familyRowsCache = JSON.parse(output);
+  return familyRowsCache;
 }
 
 function buildPulseData() {
@@ -760,6 +806,191 @@ function renderFamilyCountBars() {
   console.log(`wrote ${path.relative(repoRoot, familyCountBarsOutputPath)}`);
 }
 
+function buildEdgeDensityBins() {
+  const binStep = 10;
+  const bins = new Map();
+
+  for (const row of readFamilyRows()) {
+    const lab = d3.lab(row.hex);
+    const a0 = Math.floor(lab.a / binStep) * binStep;
+    const b0 = Math.floor(lab.b / binStep) * binStep;
+    const key = `${a0}\0${b0}`;
+
+    if (!bins.has(key)) {
+      bins.set(key, {
+        a0,
+        a1: a0 + binStep,
+        b0,
+        b1: b0 + binStep,
+        count: 0,
+        families: new Map(),
+        samples: [],
+      });
+    }
+
+    const bin = bins.get(key);
+    bin.count += 1;
+    bin.families.set(row.family, (bin.families.get(row.family) ?? 0) + 1);
+    if (bin.samples.length < 8) {
+      bin.samples.push(`${row.name} (${row.family})`);
+    }
+  }
+
+  return [...bins.values()]
+    .map((bin) => {
+      const families = [...bin.families.entries()].sort(
+        (left, right) =>
+          d3.descending(left[1], right[1]) || d3.ascending(left[0], right[0]),
+      );
+      const familySummary = families
+        .map(([family, count]) => `${family} ${count}`)
+        .join(", ");
+
+      return {
+        ...bin,
+        aMid: (bin.a0 + bin.a1) / 2,
+        bMid: (bin.b0 + bin.b1) / 2,
+        familyCount: families.length,
+        familySummary,
+        title: `Lab a* ${bin.a0}..${bin.a1}\nLab b* ${bin.b0}..${bin.b1}\nswatches: ${bin.count}\nfamilies: ${familySummary}\n${bin.samples.join(
+          "\n",
+        )}`,
+      };
+    })
+    .sort(
+      (left, right) =>
+        d3.ascending(left.a0, right.a0) || d3.ascending(left.b0, right.b0),
+    );
+}
+
+function renderEdgeDensityHeatmap() {
+  const bins = buildEdgeDensityBins();
+  const maxCount = d3.max(bins, (bin) => bin.count) ?? 1;
+  const maxMix = Math.max(1, d3.max(bins, (bin) => bin.familyCount - 1) ?? 1);
+  const countPressure = d3.scaleSqrt([1, maxCount], [0.18, 1]);
+  const sameFill = d3.interpolateRgb("#dfeee8", "#287a68");
+  const mixedFill = d3.interpolateRgb("#f4d8d6", "#b83b45");
+  const {window} = new JSDOM("<!DOCTYPE html>");
+
+  const svg = Plot.plot({
+    document: window.document,
+    className: "huey-edge-density-heatmap",
+    width: 860,
+    height: 620,
+    marginTop: 66,
+    marginRight: 38,
+    marginBottom: 64,
+    marginLeft: 82,
+    style: {
+      background: "#f6f5f2",
+      color: "#26231f",
+      fontFamily: "Inter, Arial, sans-serif",
+      fontSize: 12,
+    },
+    x: {
+      domain: [-50, 70],
+      label: "Lab a* (green to red)",
+      grid: true,
+      ticks: d3.range(-50, 71, 20),
+    },
+    y: {
+      domain: [-50, 90],
+      label: "Lab b* (blue to yellow)",
+      grid: true,
+      ticks: d3.range(-40, 91, 20),
+    },
+    marks: [
+      Plot.rect(bins, {
+        x1: "a0",
+        x2: "a1",
+        y1: "b0",
+        y2: "b1",
+        fill: (bin) => {
+          const density = countPressure(bin.count);
+          if (bin.familyCount === 1) {
+            return sameFill(0.12 + density * 0.58);
+          }
+          const mixPressure = (bin.familyCount - 1) / maxMix;
+          return mixedFill(0.18 + density * 0.46 + mixPressure * 0.32);
+        },
+        title: "title",
+        inset: 0.5,
+      }),
+      Plot.text(
+        bins.filter((bin) => bin.familyCount >= 4 && bin.count >= 8),
+        {
+          x: "aMid",
+          y: "bMid",
+          text: (bin) => bin.familyCount,
+          fill: "#26231f",
+          fontSize: 10,
+          fontWeight: 700,
+        },
+      ),
+      Plot.ruleX([0], {stroke: "#9c948b", strokeDasharray: "4,4"}),
+      Plot.ruleY([0], {stroke: "#9c948b", strokeDasharray: "4,4"}),
+      Plot.frame({stroke: "#d8d4cc"}),
+    ],
+  });
+
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-labelledby", "title desc");
+
+  const title = window.document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "title");
+  title.textContent = "Huemiliator edge-density heatmap";
+
+  const desc = window.document.createElementNS("http://www.w3.org/2000/svg", "desc");
+  desc.setAttribute("id", "desc");
+  desc.textContent =
+    "A Lab-space heatmap showing runtime-classified swatch density and mixed-family edge pressure across colour bins.";
+
+  svg.prepend(desc);
+  svg.prepend(title);
+  svg.append(buildEdgeDensityLegend(window.document));
+
+  fs.writeFileSync(edgeDensityHeatmapOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, edgeDensityHeatmapOutputPath)}`);
+}
+
+function buildEdgeDensityLegend(document) {
+  const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  legend.setAttribute("aria-label", "legend");
+  legend.setAttribute("transform", "translate(82 22)");
+
+  const items = [
+    {label: "single-family bin", fill: "#287a68"},
+    {label: "mixed-family edge", fill: "#b83b45"},
+    {label: "darker cells hold more swatches", fill: "#6f6259"},
+  ];
+
+  let x = 0;
+  for (const item of items) {
+    const square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    square.setAttribute("x", x);
+    square.setAttribute("y", 0);
+    square.setAttribute("width", 12);
+    square.setAttribute("height", 12);
+    square.setAttribute("rx", 2);
+    square.setAttribute("fill", item.fill);
+    legend.append(square);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x + 18);
+    text.setAttribute("y", 10);
+    text.setAttribute("font-size", 12);
+    text.setAttribute("fill", "#26231f");
+    text.setAttribute("text-anchor", "start");
+    text.textContent = item.label;
+    legend.append(text);
+
+    x += item.label.length > 18 ? 224 : 154;
+  }
+
+  return legend;
+}
+
 function buildNeutralSplitRows() {
   const rowIndex = rowsById(buildPulseData());
 
@@ -1114,5 +1345,6 @@ renderFamilyRangePalette();
 renderEvalPulseStack();
 renderResidueFamilyBars();
 renderFamilyCountBars();
+renderEdgeDensityHeatmap();
 renderActiveFailSurfaceSplit();
 renderArchiveIntegrityCheck();
