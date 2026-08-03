@@ -9,6 +9,7 @@ from huemiliator.main import (
     main,
     render_behaviour_contract,
     render_behaviour_facts,
+    render_colour_library,
     render_contract,
     render_status,
 )
@@ -74,6 +75,55 @@ def test_main_behaviour_contract_prints_contract() -> None:
 
     assert result == 0
     assert stdout.getvalue().strip() == "status: behaviour eval ready"
+
+
+def test_render_colour_library_prints_text_summary() -> None:
+    text = render_colour_library()
+
+    assert "colour library" in text
+    assert "schema: huemiliator.colour_library.v1" in text
+    assert "swatches: 2310" in text
+    assert "families:" in text
+    assert "- neutral:" in text
+
+
+def test_render_colour_library_can_emit_json_packet() -> None:
+    packet = json.loads(render_colour_library("json"))
+
+    assert packet["schema"] == "huemiliator.colour_library.v1"
+    assert packet["source"]["swatch_count"] == 2310
+    assert len(packet["swatches"]) == 2310
+    assert packet["swatches"][0]["name"] == "Egret"
+    assert packet["swatches"][0]["family"] == "neutral"
+    assert "lab_chroma" in packet["swatches"][0]["metrics"]
+
+
+def test_main_colour_library_prints_text_summary() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_colour_library",
+        return_value="colour library\nswatches: 2310",
+    ) as render:
+        with redirect_stdout(stdout):
+            result = main(["colour-library"])
+
+    assert result == 0
+    assert render.call_args.args == ("text",)
+    assert "swatches: 2310" in stdout.getvalue()
+
+
+def test_main_colour_library_accepts_json_format() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_colour_library",
+        return_value='{"schema": "huemiliator.colour_library.v1"}',
+    ) as render:
+        with redirect_stdout(stdout):
+            result = main(["colour-library", "--format", "json"])
+
+    assert result == 0
+    assert render.call_args.args == ("json",)
+    assert "huemiliator.colour_library.v1" in stdout.getvalue()
 
 
 def test_main_pick_prints_selected_hex() -> None:

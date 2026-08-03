@@ -9,7 +9,6 @@ import {JSDOM} from "jsdom";
 const repoRoot = process.cwd();
 const parkedDir = path.join(repoRoot, ".local", "parked");
 const evalDb = path.join(repoRoot, ".local", "evals.sqlite");
-const swatchDataPath = path.join(repoRoot, "data", "margaret2_swatches.json");
 const familyRangePaletteOutputPath = path.join(
   repoRoot,
   "docs",
@@ -119,8 +118,7 @@ const neutralSplitGroups = [
     proofIds: [20151, 20152, 20153],
   },
 ];
-let familySummaryCache = null;
-let familyRowsCache = null;
+let colourLibraryCache = null;
 
 function pythonEnv() {
   const srcPath = path.join(repoRoot, "src");
@@ -260,111 +258,69 @@ function readLiveRows() {
   return JSON.parse(output);
 }
 
+function readColourLibrary() {
+  if (colourLibraryCache !== null) {
+    return colourLibraryCache;
+  }
+
+  const output = execFileSync(
+    pythonBin(),
+    ["-m", "huemiliator", "colour-library", "--format", "json"],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: pythonEnv(),
+      maxBuffer: 8 * 1024 * 1024,
+    },
+  );
+  const packet = JSON.parse(output);
+  if (packet.schema !== "huemiliator.colour_library.v1") {
+    throw new Error(`Unexpected colour library schema: ${packet.schema}`);
+  }
+  colourLibraryCache = packet;
+  return colourLibraryCache;
+}
+
 function readFamilySummaries() {
-  if (familySummaryCache !== null) {
-    return familySummaryCache;
-  }
-  if (!fs.existsSync(swatchDataPath)) {
-    throw new Error(`Missing swatch snapshot: ${swatchDataPath}`);
-  }
-
-  // Reuse the Python runtime classifier so the chart cannot drift from app logic.
-  const code = String.raw`
-import json
-from pathlib import Path
-
-from huemiliator.families import FAMILY_NAMES, build_family_rank_index
-from huemiliator.swatches import load_swatch_snapshot
-
-dataset = load_swatch_snapshot(Path("data/margaret2_swatches.json"))
-ranked = build_family_rank_index(dataset)
-members = {family: [] for family in FAMILY_NAMES}
-for item in ranked.values():
-    members[item.family].append(item)
-
-
-def sample_members(group):
-    group = sorted(group, key=lambda item: item.family_rank)
-    if not group:
-        return []
-    if len(group) <= 6:
-        indexes = range(len(group))
-    else:
-        indexes = [round(index * (len(group) - 1) / 5) for index in range(6)]
-    return [
-        {
-            "name": group[index].swatch.name,
-            "hex": group[index].swatch.hex,
-            "rank": group[index].family_rank,
-            "source_order": group[index].swatch.source_order,
-        }
-        for index in indexes
-    ]
-
-
-payload = []
-for family in FAMILY_NAMES:
-    group = members[family]
-    payload.append(
-        {
-            "family": family,
-            "count": len(group),
-            "samples": sample_members(group),
-        }
-    )
-print(json.dumps(payload))
-`;
-
-  const output = execFileSync(pythonBin(), ["-c", code], {
-    cwd: repoRoot,
-    encoding: "utf8",
-    env: pythonEnv(),
+  const library = readColourLibrary();
+  const rows = library.swatches;
+  return library.families.map(({family, count}) => {
+    const members = rows
+      .filter((row) => row.family === family)
+      .sort((left, right) => d3.ascending(left.family_rank, right.family_rank));
+    return {
+      family,
+      count,
+      samples: sampleFamilyMembers(members),
+    };
   });
-  familySummaryCache = JSON.parse(output);
-  return familySummaryCache;
+}
+
+function sampleFamilyMembers(group) {
+  if (group.length === 0) {
+    return [];
+  }
+  const indexes =
+    group.length <= 6
+      ? d3.range(group.length)
+      : d3.range(6).map((index) => Math.round((index * (group.length - 1)) / 5));
+  return indexes.map((index) => {
+    const row = group[index];
+    return {
+      name: row.name,
+      hex: row.hex,
+      rank: row.family_rank,
+      source_order: row.source_order,
+    };
+  });
 }
 
 function readFamilyCounts() {
-  return readFamilySummaries().map(({family, count}) => ({family, count}));
+  return readColourLibrary().families.map(({family, count}) => ({family, count}));
 }
 
 function readFamilyRows() {
-  if (familyRowsCache !== null) {
-    return familyRowsCache;
-  }
-  if (!fs.existsSync(swatchDataPath)) {
-    throw new Error(`Missing swatch snapshot: ${swatchDataPath}`);
-  }
-
-  const code = String.raw`
-import json
-from pathlib import Path
-
-from huemiliator.families import build_family_rank_index
-from huemiliator.swatches import load_swatch_snapshot
-
-dataset = load_swatch_snapshot(Path("data/margaret2_swatches.json"))
-ranked = build_family_rank_index(dataset)
-payload = [
-    {
-        "name": item.swatch.name,
-        "hex": item.swatch.hex,
-        "family": item.family,
-        "family_rank": item.family_rank,
-        "source_order": item.swatch.source_order,
-    }
-    for item in ranked.values()
-]
-print(json.dumps(payload))
-`;
-
-  const output = execFileSync(pythonBin(), ["-c", code], {
-    cwd: repoRoot,
-    encoding: "utf8",
-    env: pythonEnv(),
-  });
-  familyRowsCache = JSON.parse(output);
-  return familyRowsCache;
+  return readColourLibrary().swatches;
 }
 
 function buildPulseData() {
@@ -817,9 +773,8 @@ function buildEdgeDensityBins() {
   const bins = new Map();
 
   for (const row of readFamilyRows()) {
-    const lab = d3.lab(row.hex);
-    const a0 = Math.floor(lab.a / binStep) * binStep;
-    const b0 = Math.floor(lab.b / binStep) * binStep;
+    const a0 = Math.floor(row.metrics.lab_a / binStep) * binStep;
+    const b0 = Math.floor(row.metrics.lab_b / binStep) * binStep;
     const key = `${a0}\0${b0}`;
 
     if (!bins.has(key)) {
@@ -894,10 +849,10 @@ function renderEdgeDensityHeatmap() {
       fontSize: 12,
     },
     x: {
-      domain: [-50, 70],
+      domain: [-60, 70],
       label: "Lab a* (green to red)",
       grid: true,
-      ticks: d3.range(-50, 71, 20),
+      ticks: d3.range(-60, 71, 20),
     },
     y: {
       domain: [-50, 90],
@@ -962,19 +917,20 @@ function renderEdgeDensityHeatmap() {
 
 function buildColourSpaceRows() {
   return readFamilyRows()
-    .map((row) => {
-      const lab = d3.lab(row.hex);
-      return {
-        ...row,
-        a: lab.a,
-        b: lab.b,
-        lightness: lab.l,
-        familyOrder: familyOrder.indexOf(row.family),
-        title: `${row.name} ${row.hex}; family: ${row.family}; rank: ${row.family_rank}; source order: ${row.source_order}; Lab L*: ${lab.l.toFixed(
-          1,
-        )}; Lab a*: ${lab.a.toFixed(1)}; Lab b*: ${lab.b.toFixed(1)}`,
-      };
-    })
+    .map((row) => ({
+      ...row,
+      a: row.metrics.lab_a,
+      b: row.metrics.lab_b,
+      lightness: row.metrics.lab_lightness,
+      familyOrder: familyOrder.indexOf(row.family),
+      title: `${row.name} ${row.hex}; family: ${row.family}; rank: ${
+        row.family_rank
+      }; source order: ${row.source_order}; Lab L*: ${row.metrics.lab_lightness.toFixed(
+        1,
+      )}; Lab a*: ${row.metrics.lab_a.toFixed(1)}; Lab b*: ${row.metrics.lab_b.toFixed(
+        1,
+      )}`,
+    }))
     .sort(
       (left, right) =>
         d3.ascending(left.familyOrder, right.familyOrder) ||
@@ -1002,10 +958,10 @@ function renderColourSpaceScatter() {
       fontSize: 12,
     },
     x: {
-      domain: [-50, 70],
+      domain: [-60, 70],
       label: "Lab a* (green to red)",
       grid: true,
-      ticks: d3.range(-50, 71, 20),
+      ticks: d3.range(-60, 71, 20),
     },
     y: {
       domain: [-50, 90],

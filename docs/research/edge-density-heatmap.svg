@@ -8,1218 +8,1217 @@
 :where(.huey-edge-density-heatmap text),
 :where(.huey-edge-density-heatmap tspan) {
   white-space: pre;
-}</style><g aria-label="y-grid" aria-hidden="true" stroke="currentColor" stroke-opacity="0.1"><line x1="82" x2="822" y1="521" y2="521"></line><line x1="82" x2="822" y1="451" y2="451"></line><line x1="82" x2="822" y1="380.99999999999994" y2="380.99999999999994"></line><line x1="82" x2="822" y1="311" y2="311"></line><line x1="82" x2="822" y1="241" y2="241"></line><line x1="82" x2="822" y1="171" y2="171"></line><line x1="82" x2="822" y1="100.99999999999997" y2="100.99999999999997"></line></g><g aria-label="y-axis tick" aria-hidden="true" fill="none" stroke="currentColor"><path transform="translate(82,521)" d="M0,0L-6,0"></path><path transform="translate(82,451)" d="M0,0L-6,0"></path><path transform="translate(82,380.99999999999994)" d="M0,0L-6,0"></path><path transform="translate(82,311)" d="M0,0L-6,0"></path><path transform="translate(82,241)" d="M0,0L-6,0"></path><path transform="translate(82,171)" d="M0,0L-6,0"></path><path transform="translate(82,100.99999999999997)" d="M0,0L-6,0"></path></g><g aria-label="y-axis tick label" text-anchor="end" font-variant="tabular-nums" transform="translate(-9,0)"><text y="0.32em" transform="translate(82,521)">−40</text><text y="0.32em" transform="translate(82,451)">−20</text><text y="0.32em" transform="translate(82,380.99999999999994)">0</text><text y="0.32em" transform="translate(82,311)">20</text><text y="0.32em" transform="translate(82,241)">40</text><text y="0.32em" transform="translate(82,171)">60</text><text y="0.32em" transform="translate(82,100.99999999999997)">80</text></g><g aria-label="y-axis label" text-anchor="start" transform="translate(-79,-63)"><text y="0.71em" transform="translate(82,66)">↑ Lab b* (blue to yellow)</text></g><g aria-label="x-grid" aria-hidden="true" stroke="currentColor" stroke-opacity="0.1"><line x1="82" x2="82" y1="66" y2="556"></line><line x1="205.33333333333334" x2="205.33333333333334" y1="66" y2="556"></line><line x1="328.6666666666667" x2="328.6666666666667" y1="66" y2="556"></line><line x1="452" x2="452" y1="66" y2="556"></line><line x1="575.3333333333334" x2="575.3333333333334" y1="66" y2="556"></line><line x1="698.6666666666666" x2="698.6666666666666" y1="66" y2="556"></line><line x1="822" x2="822" y1="66" y2="556"></line></g><g aria-label="x-axis tick" aria-hidden="true" fill="none" stroke="currentColor"><path transform="translate(82,556)" d="M0,0L0,6"></path><path transform="translate(205.33333333333334,556)" d="M0,0L0,6"></path><path transform="translate(328.6666666666667,556)" d="M0,0L0,6"></path><path transform="translate(452,556)" d="M0,0L0,6"></path><path transform="translate(575.3333333333334,556)" d="M0,0L0,6"></path><path transform="translate(698.6666666666666,556)" d="M0,0L0,6"></path><path transform="translate(822,556)" d="M0,0L0,6"></path></g><g aria-label="x-axis tick label" font-variant="tabular-nums" transform="translate(0,9)"><text y="0.71em" transform="translate(82,556)">−50</text><text y="0.71em" transform="translate(205.33333333333334,556)">−30</text><text y="0.71em" transform="translate(328.6666666666667,556)">−10</text><text y="0.71em" transform="translate(452,556)">10</text><text y="0.71em" transform="translate(575.3333333333334,556)">30</text><text y="0.71em" transform="translate(698.6666666666666,556)">50</text><text y="0.71em" transform="translate(822,556)">70</text></g><g aria-label="x-axis label" text-anchor="end" transform="translate(35,61)"><text transform="translate(822,556)">Lab a* (green to red) →</text></g><g aria-label="rect"><rect x="82.5" y="381.49999999999994" width="60.66666666666666" height="34.00000000000006" fill="rgb(223, 160, 162)"><title>Lab a* -50..-40
+}</style><g aria-label="y-grid" aria-hidden="true" stroke="currentColor" stroke-opacity="0.1"><line x1="82" x2="822" y1="521" y2="521"></line><line x1="82" x2="822" y1="451" y2="451"></line><line x1="82" x2="822" y1="380.99999999999994" y2="380.99999999999994"></line><line x1="82" x2="822" y1="311" y2="311"></line><line x1="82" x2="822" y1="241" y2="241"></line><line x1="82" x2="822" y1="171" y2="171"></line><line x1="82" x2="822" y1="100.99999999999997" y2="100.99999999999997"></line></g><g aria-label="y-axis tick" aria-hidden="true" fill="none" stroke="currentColor"><path transform="translate(82,521)" d="M0,0L-6,0"></path><path transform="translate(82,451)" d="M0,0L-6,0"></path><path transform="translate(82,380.99999999999994)" d="M0,0L-6,0"></path><path transform="translate(82,311)" d="M0,0L-6,0"></path><path transform="translate(82,241)" d="M0,0L-6,0"></path><path transform="translate(82,171)" d="M0,0L-6,0"></path><path transform="translate(82,100.99999999999997)" d="M0,0L-6,0"></path></g><g aria-label="y-axis tick label" text-anchor="end" font-variant="tabular-nums" transform="translate(-9,0)"><text y="0.32em" transform="translate(82,521)">−40</text><text y="0.32em" transform="translate(82,451)">−20</text><text y="0.32em" transform="translate(82,380.99999999999994)">0</text><text y="0.32em" transform="translate(82,311)">20</text><text y="0.32em" transform="translate(82,241)">40</text><text y="0.32em" transform="translate(82,171)">60</text><text y="0.32em" transform="translate(82,100.99999999999997)">80</text></g><g aria-label="y-axis label" text-anchor="start" transform="translate(-79,-63)"><text y="0.71em" transform="translate(82,66)">↑ Lab b* (blue to yellow)</text></g><g aria-label="x-grid" aria-hidden="true" stroke="currentColor" stroke-opacity="0.1"><line x1="82" x2="82" y1="66" y2="556"></line><line x1="195.84615384615387" x2="195.84615384615387" y1="66" y2="556"></line><line x1="309.6923076923077" x2="309.6923076923077" y1="66" y2="556"></line><line x1="423.53846153846155" x2="423.53846153846155" y1="66" y2="556"></line><line x1="537.3846153846154" x2="537.3846153846154" y1="66" y2="556"></line><line x1="651.2307692307693" x2="651.2307692307693" y1="66" y2="556"></line><line x1="765.0769230769231" x2="765.0769230769231" y1="66" y2="556"></line></g><g aria-label="x-axis tick" aria-hidden="true" fill="none" stroke="currentColor"><path transform="translate(82,556)" d="M0,0L0,6"></path><path transform="translate(195.84615384615387,556)" d="M0,0L0,6"></path><path transform="translate(309.6923076923077,556)" d="M0,0L0,6"></path><path transform="translate(423.53846153846155,556)" d="M0,0L0,6"></path><path transform="translate(537.3846153846154,556)" d="M0,0L0,6"></path><path transform="translate(651.2307692307693,556)" d="M0,0L0,6"></path><path transform="translate(765.0769230769231,556)" d="M0,0L0,6"></path></g><g aria-label="x-axis tick label" font-variant="tabular-nums" transform="translate(0,9)"><text y="0.71em" transform="translate(82,556)">−60</text><text y="0.71em" transform="translate(195.84615384615387,556)">−40</text><text y="0.71em" transform="translate(309.6923076923077,556)">−20</text><text y="0.71em" transform="translate(423.53846153846155,556)">0</text><text y="0.71em" transform="translate(537.3846153846154,556)">20</text><text y="0.71em" transform="translate(651.2307692307693,556)">40</text><text y="0.71em" transform="translate(765.0769230769231,556)">60</text></g><g aria-label="x-axis label" text-anchor="end" transform="translate(35,61)"><text transform="translate(822,556)">Lab a* (green to red) →</text></g><g aria-label="rect"><rect x="82.5" y="276.5" width="55.923076923076934" height="34" fill="rgb(182, 212, 203)"><title>Lab a* -60..-50
+Lab b* 20..30
+swatches: 1
+families: green 1
+Island green (green)</title></rect><rect x="82.5" y="206.5" width="55.923076923076934" height="34" fill="rgb(182, 212, 203)"><title>Lab a* -60..-50
+Lab b* 40..50
+swatches: 1
+families: green 1
+Classic green (green)</title></rect><rect x="139.42307692307693" y="381.49999999999994" width="55.923076923076934" height="34.00000000000006" fill="rgb(223, 160, 162)"><title>Lab a* -50..-40
 Lab b* -10..0
 swatches: 2
 families: blue 1, green 1
-Pool green (green)
-Atlantis (blue)</title></rect><rect x="82.5" y="346.5" width="60.66666666666666" height="33.99999999999994" fill="rgb(219, 151, 154)"><title>Lab a* -50..-40
+Atlantis (blue)
+Pool green (green)</title></rect><rect x="139.42307692307693" y="346.5" width="55.923076923076934" height="33.99999999999994" fill="rgb(219, 151, 154)"><title>Lab a* -50..-40
 Lab b* 0..10
 swatches: 10
 families: green 9, blue 1
-Arcadia (green)
-Gumdrop green (green)
-Vivid green (green)
-Parakeet (green)
-Emerald (green)
-Peacock green (green)
 Aqua green (green)
-Simply green (green)</title></rect><rect x="82.5" y="311.5" width="60.66666666666666" height="34" fill="rgb(173, 206, 197)"><title>Lab a* -50..-40
+Billiard (blue)
+Arcadia (green)
+Deep green (green)
+Mint leaf (green)
+Peacock green (green)
+Vivid green (green)
+Emerald (green)</title></rect><rect x="139.42307692307693" y="311.5" width="55.923076923076934" height="34" fill="rgb(167, 202, 193)"><title>Lab a* -50..-40
 Lab b* 10..20
-swatches: 5
-families: green 5
+swatches: 9
+families: green 9
 Holly green (green)
-Jelly bean (green)
-Deep mint (green)
+Golf green (green)
+Spring bud (green)
+Ming green (green)
+Blarney (green)
 Mint (green)
-Blarney (green)</title></rect><rect x="82.5" y="276.5" width="60.66666666666666" height="34" fill="rgb(171, 205, 196)"><title>Lab a* -50..-40
+Deep mint (green)
+Simply green (green)</title></rect><rect x="139.42307692307693" y="276.5" width="55.923076923076934" height="34" fill="rgb(170, 204, 195)"><title>Lab a* -50..-40
 Lab b* 20..30
-swatches: 6
-families: green 6
-Kelly green (green)
+swatches: 7
+families: green 7
 Spring bouquet (green)
-Bright green (green)
 Irish green (green)
+Vibrant green (green)
+Kelly green (green)
+Bright green (green)
 Fern green (green)
-Island green (green)</title></rect><rect x="82.5" y="241.5" width="60.66666666666666" height="34" fill="rgb(182, 212, 203)"><title>Lab a* -50..-40
+Jolly green (green)</title></rect><rect x="139.42307692307693" y="241.5" width="55.923076923076934" height="34" fill="rgb(179, 210, 201)"><title>Lab a* -50..-40
 Lab b* 30..40
-swatches: 1
-families: green 1
-Poison green (green)</title></rect><rect x="82.5" y="206.5" width="60.66666666666666" height="34" fill="rgb(179, 210, 201)"><title>Lab a* -50..-40
-Lab b* 40..50
 swatches: 2
 families: green 2
-Classic green (green)
-Green flash (green)</title></rect><rect x="82.5" y="171.5" width="60.66666666666666" height="34" fill="rgb(182, 212, 203)"><title>Lab a* -50..-40
+Summer green (green)
+Poison green (green)</title></rect><rect x="139.42307692307693" y="206.5" width="55.923076923076934" height="34" fill="rgb(182, 212, 203)"><title>Lab a* -50..-40
+Lab b* 40..50
+swatches: 1
+families: green 1
+Green flash (green)</title></rect><rect x="139.42307692307693" y="171.5" width="55.923076923076934" height="34" fill="rgb(182, 212, 203)"><title>Lab a* -50..-40
 Lab b* 50..60
 swatches: 1
 families: green 1
-Jasmine green (green)</title></rect><rect x="144.16666666666666" y="451.5" width="60.666666666666686" height="34.00000000000006" fill="rgb(179, 210, 201)"><title>Lab a* -40..-30
-Lab b* -30..-20
-swatches: 2
-families: blue 2
-Scuba blue (blue)
-Blue atoll (blue)</title></rect><rect x="144.16666666666666" y="416.5" width="60.666666666666686" height="34" fill="rgb(169, 203, 194)"><title>Lab a* -40..-30
+Jasmine green (green)</title></rect><rect x="196.34615384615387" y="416.5" width="55.923076923076906" height="34" fill="rgb(176, 209, 199)"><title>Lab a* -40..-30
 Lab b* -20..-10
-swatches: 8
-families: blue 8
-Baltic (blue)
-Blue radiance (blue)
-Viridian green (blue)
-Capri (blue)
-Bluebird (blue)
-Peacock blue (blue)
+swatches: 3
+families: blue 3
 Blue curacao (blue)
-Ceramic (blue)</title></rect><rect x="144.16666666666666" y="381.49999999999994" width="60.666666666666686" height="34.00000000000006" fill="rgb(218, 147, 150)"><title>Lab a* -40..-30
+Baltic (blue)
+Viridian green (blue)</title></rect><rect x="196.34615384615387" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(218, 149, 152)"><title>Lab a* -40..-30
 Lab b* -10..0
-swatches: 16
-families: blue 11, green 5
+swatches: 13
+families: blue 9, green 4
+Ceramic (blue)
 Tropical green (green)
+Navigate (blue)
 Lapis (green)
-Porcelain green (green)
-Florida keys (green)
-Cockatoo (green)
-Blue grass (blue)
-Teal blue (blue)
-Deep peacock blue (blue)</title></rect><rect x="144.16666666666666" y="346.5" width="60.666666666666686" height="33.99999999999994" fill="rgb(217, 147, 150)"><title>Lab a* -40..-30
+Turquoise (blue)
+Waterfall (blue)
+Bright aqua (blue)
+Porcelain green (green)</title></rect><rect x="196.34615384615387" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(217, 146, 149)"><title>Lab a* -40..-30
 Lab b* 0..10
-swatches: 17
-families: green 15, blue 2
-Shady glade (green)
-Opal (green)
-Winter green (green)
-Ultramarine green (green)
-Verdant green (green)
-Spearmint (green)
+swatches: 18
+families: green 16, blue 2
 Marine green (green)
-Lush meadow (green)</title></rect><rect x="144.16666666666666" y="311.5" width="60.666666666666686" height="34" fill="rgb(169, 203, 194)"><title>Lab a* -40..-30
+Sea green (blue)
+Greenlake (blue)
+Cabbage (green)
+Opal (green)
+Biscay green (green)
+Spearmint (green)
+Florida keys (green)</title></rect><rect x="196.34615384615387" y="311.5" width="55.923076923076906" height="34" fill="rgb(170, 204, 195)"><title>Lab a* -40..-30
 Lab b* 10..20
-swatches: 8
-families: green 8
-Leprechaun (green)
-Jade cream (green)
+swatches: 7
+families: green 7
+Green spruce (green)
+Absinthe green (green)
 Katydid (green)
-Amazon (green)
+Jade cream (green)
 Greenbriar (green)
-Golf green (green)
-Ming green (green)
-Spring bud (green)</title></rect><rect x="144.16666666666666" y="276.5" width="60.666666666666686" height="34" fill="rgb(177, 209, 200)"><title>Lab a* -40..-30
+Leprechaun (green)
+Amazon (green)</title></rect><rect x="196.34615384615387" y="276.5" width="55.923076923076906" height="34" fill="rgb(179, 210, 201)"><title>Lab a* -40..-30
 Lab b* 20..30
-swatches: 3
-families: green 3
+swatches: 2
+families: green 2
 Medium green (green)
-Jolly green (green)
-Vibrant green (green)</title></rect><rect x="144.16666666666666" y="241.5" width="60.666666666666686" height="34" fill="rgb(177, 209, 200)"><title>Lab a* -40..-30
+Paradise green (green)</title></rect><rect x="196.34615384615387" y="241.5" width="55.923076923076906" height="34" fill="rgb(174, 207, 198)"><title>Lab a* -40..-30
 Lab b* 30..40
-swatches: 3
-families: green 3
+swatches: 4
+families: green 4
+Grass green (green)
 Bud green (green)
 Online lime (green)
-Summer green (green)</title></rect><rect x="205.83333333333334" y="486.50000000000006" width="60.66666666666666" height="33.99999999999994" fill="rgb(179, 210, 201)"><title>Lab a* -30..-20
-Lab b* -40..-30
-swatches: 2
-families: blue 2
-Vivid blue (blue)
-Hawaiian ocean (blue)</title></rect><rect x="205.83333333333334" y="451.5" width="60.66666666666666" height="34.00000000000006" fill="rgb(219, 151, 154)"><title>Lab a* -30..-20
+Kiwi (green)</title></rect><rect x="196.34615384615387" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* -40..-30
+Lab b* 60..70
+swatches: 1
+families: green 1
+Lime green (green)</title></rect><rect x="196.34615384615387" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(182, 212, 203)"><title>Lab a* -40..-30
+Lab b* 70..80
+swatches: 1
+families: green 1
+Acid lime (green)</title></rect><rect x="253.26923076923077" y="451.5" width="55.923076923076906" height="34.00000000000006" fill="rgb(220, 153, 156)"><title>Lab a* -30..-20
 Lab b* -30..-20
-swatches: 10
-families: blue 9, green 1
-Caneel bay (green)
-Mosaic blue (blue)
-Algiers blue (blue)
-Caribbean sea (blue)
-Barrier reef (blue)
-Bachelor button (blue)
+swatches: 8
+families: blue 7, green 1
+River blue (blue)
+Cyan blue (blue)
 Horizon blue (blue)
-River blue (blue)</title></rect><rect x="205.83333333333334" y="416.5" width="60.66666666666666" height="34" fill="rgb(218, 147, 150)"><title>Lab a* -30..-20
+Bachelor button (blue)
+Blue atoll (blue)
+Algiers blue (blue)
+Caneel bay (green)
+Scuba blue (blue)</title></rect><rect x="253.26923076923077" y="416.5" width="55.923076923076906" height="34" fill="rgb(218, 148, 151)"><title>Lab a* -30..-20
 Lab b* -20..-10
-swatches: 16
-families: blue 14, green 2
-Island paradise (green)
+swatches: 14
+families: blue 13, green 1
+Peacock blue (blue)
+Capri breeze (blue)
+Blue radiance (blue)
+Capri (blue)
+Bluebird (blue)
+Enamel blue (blue)
 Lake blue (green)
-Angel blue (blue)
-Shaded spruce (blue)
-Aquarelle (blue)
-Tanager turquoise (blue)
-Harbor blue (blue)
-Deep lake (blue)</title></rect><rect x="205.83333333333334" y="381.49999999999994" width="60.66666666666666" height="34.00000000000006" fill="rgb(215, 139, 143)"><title>Lab a* -30..-20
+Tile blue (blue)</title></rect><rect x="253.26923076923077" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(215, 140, 144)"><title>Lab a* -30..-20
 Lab b* -10..0
-swatches: 31
-families: blue 29, green 2
-Antique green (green)
-Cascade (green)
-North sea (blue)
-Deep jungle (blue)
-Teal (blue)
-Aqua sea (blue)
-Tibetan stone (blue)
-Meadowbrook (blue)</title></rect><rect x="205.83333333333334" y="346.5" width="60.66666666666666" height="33.99999999999994" fill="rgb(160, 198, 188)"><title>Lab a* -30..-20
+swatches: 28
+families: blue 27, green 1
+Aqua sky (blue)
+Pool blue (blue)
+Blue turquoise (blue)
+Aruba blue (blue)
+Deep peacock blue (blue)
+Lagoon (blue)
+Blue grass (blue)
+Fanfare (blue)</title></rect><rect x="253.26923076923077" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(159, 197, 187)"><title>Lab a* -30..-20
 Lab b* 0..10
-swatches: 16
-families: green 16
-Yucca (green)
-Ocean wave (green)
-Creme de menthe (green)
-Dusty jade green (green)
+swatches: 17
+families: green 17
 Bottle green (green)
-Foliage green (green)
-Fir (green)
-Holiday (green)</title></rect><rect x="205.83333333333334" y="311.5" width="60.66666666666666" height="34" fill="rgb(163, 200, 190)"><title>Lab a* -30..-20
+Antique green (green)
+Ocean wave (green)
+Holiday (green)
+Cascade (green)
+Dusty jade green (green)
+Beveled glass (green)
+Yucca (green)</title></rect><rect x="253.26923076923077" y="311.5" width="55.923076923076906" height="34" fill="rgb(162, 200, 190)"><title>Lab a* -30..-20
 Lab b* 10..20
 swatches: 13
 families: green 13
-Fairway (green)
-Meadow (green)
 Stone green (green)
-Ming (green)
-Jadesheen (green)
-Peapod (green)
-Light grass green (green)
-Zephyr green (green)</title></rect><rect x="205.83333333333334" y="276.5" width="60.66666666666666" height="34" fill="rgb(165, 201, 191)"><title>Lab a* -30..-20
+English ivy (green)
+Deep grass green (green)
+Juniper (green)
+Fairway (green)
+Hemlock (green)
+Meadow (green)
+Jadesheen (green)</title></rect><rect x="253.26923076923077" y="276.5" width="55.923076923076906" height="34" fill="rgb(161, 199, 189)"><title>Lab a* -30..-20
 Lab b* 20..30
-swatches: 11
-families: green 11
-Arcadian green (green)
-Pistachio green (green)
-Patina green (green)
-Green tea (green)
+swatches: 14
+families: green 14
+Piquant green (green)
 Forest green (green)
-Greengage (green)
 Fluorite green (green)
-Shamrock (green)</title></rect><rect x="205.83333333333334" y="241.5" width="60.66666666666666" height="34" fill="rgb(171, 205, 196)"><title>Lab a* -30..-20
+Cactus (green)
+Artichoke green (green)
+Greengage (green)
+Patina green (green)
+Pistachio green (green)</title></rect><rect x="253.26923076923077" y="241.5" width="55.923076923076906" height="34" fill="rgb(173, 206, 197)"><title>Lab a* -30..-20
 Lab b* 30..40
-swatches: 6
-families: green 6
-Meadow green (green)
-Opaline green (green)
-Jade lime (green)
-Grass green (green)
+swatches: 5
+families: green 5
 Foliage (green)
-Kiwi (green)</title></rect><rect x="205.83333333333334" y="206.5" width="60.66666666666666" height="34" fill="rgb(175, 207, 198)"><title>Lab a* -30..-20
-Lab b* 40..50
-swatches: 4
-families: green 4
-Bright lime green (green)
-Parrot green (green)
-Green glow (green)
-Greenery (green)</title></rect><rect x="205.83333333333334" y="171.5" width="60.66666666666666" height="34" fill="rgb(179, 210, 201)"><title>Lab a* -30..-20
-Lab b* 50..60
-swatches: 2
-families: green 2
-Sharp green (green)
-Macaw green (green)</title></rect><rect x="205.83333333333334" y="136.50000000000003" width="60.66666666666666" height="33.99999999999997" fill="rgb(179, 210, 201)"><title>Lab a* -30..-20
-Lab b* 60..70
-swatches: 2
-families: green 2
-Lime green (green)
-Tender shoots (green)</title></rect><rect x="205.83333333333334" y="101.49999999999997" width="60.66666666666666" height="34.00000000000006" fill="rgb(177, 209, 200)"><title>Lab a* -30..-20
-Lab b* 70..80
-swatches: 3
-families: green 3
-Lime popsicle (green)
-Lime punch (green)
-Acid lime (green)</title></rect><rect x="267.5" y="521.5" width="60.666666666666686" height="34" fill="rgb(179, 210, 201)"><title>Lab a* -20..-10
-Lab b* -50..-40
-swatches: 2
-families: blue 2
-Blue aster (blue)
-Brilliant blue (blue)</title></rect><rect x="267.5" y="486.50000000000006" width="60.666666666666686" height="33.99999999999994" fill="rgb(163, 200, 190)"><title>Lab a* -20..-10
-Lab b* -40..-30
-swatches: 13
-families: blue 13
-Bonnie blue (blue)
-Mediterranean blue (blue)
-Hawaiian surf (blue)
-Blue jewel (blue)
-Blue danube (blue)
-Methyl blue (blue)
-Swedish blue (blue)
-Dresden blue (blue)</title></rect><rect x="267.5" y="451.5" width="60.666666666666686" height="34.00000000000006" fill="rgb(154, 194, 184)"><title>Lab a* -20..-10
-Lab b* -30..-20
-swatches: 23
-families: blue 23
-Moroccan blue (blue)
-Niagara (blue)
-Saxony blue (blue)
-Lyons blue (blue)
-Crystal teal (blue)
-Faience (blue)
-Blue moon (blue)
-Celestial (blue)</title></rect><rect x="267.5" y="416.5" width="60.666666666666686" height="34" fill="rgb(150, 192, 181)"><title>Lab a* -20..-10
-Lab b* -20..-10
-swatches: 29
-families: blue 29
-Sea angel (blue)
-Aquatic (blue)
-Aquamarine (blue)
-Porcelain blue (blue)
-Crystal blue (blue)
-Reef waters (blue)
-Legion blue (blue)
-Adriatic blue (blue)</title></rect><rect x="267.5" y="381.49999999999994" width="60.666666666666686" height="34.00000000000006" fill="rgb(207, 119, 124)"><title>Lab a* -20..-10
-Lab b* -10..0
-swatches: 52
-families: blue 25, neutral 23, green 4
-Sagebrush green (neutral)
-Arctic (neutral)
-Trellis (neutral)
-Blue spruce (neutral)
-Mineral blue (neutral)
-Sea pine (neutral)
-Silver pine (neutral)
-Mallard green (neutral)</title></rect><rect x="267.5" y="346.5" width="60.666666666666686" height="33.99999999999994" fill="rgb(215, 140, 144)"><title>Lab a* -20..-10
-Lab b* 0..10
-swatches: 29
-families: green 21, neutral 8
-Granite green (neutral)
-Trekking green (neutral)
-Pineneedle (neutral)
-Cameo green (neutral)
-Subtle green (neutral)
-Gossamer green (neutral)
-Misty jade (neutral)
-Dusty aqua (neutral)</title></rect><rect x="267.5" y="311.5" width="60.666666666666686" height="34" fill="rgb(151, 192, 182)"><title>Lab a* -20..-10
-Lab b* 10..20
-swatches: 27
-families: green 27
-Smoke green (green)
-Ambrosia (green)
-Seacrest (green)
-Basil (green)
-Loden frost (green)
-Vineyard green (green)
-Mistletoe (green)
-Gleam (green)</title></rect><rect x="267.5" y="276.5" width="60.666666666666686" height="34" fill="rgb(161, 199, 189)"><title>Lab a* -20..-10
-Lab b* 20..30
-swatches: 15
-families: green 15
-Garden green (green)
-Kale (green)
-Epsom (green)
-Margarita (green)
-Nile green (green)
-Lily green (green)
-Jade green (green)
-Artichoke green (green)</title></rect><rect x="267.5" y="241.5" width="60.666666666666686" height="34" fill="rgb(219, 150, 153)"><title>Lab a* -20..-10
-Lab b* 30..40
-swatches: 12
-families: green 11, yellow 1
-Turtle green (yellow)
-Shadow lime (green)
-Luminary green (green)
-Pale lime yellow (green)
-Leaf green (green)
-Lettuce green (green)
-Lime sherbet (green)
-Sap green (green)</title></rect><rect x="267.5" y="206.5" width="60.666666666666686" height="34" fill="rgb(173, 206, 197)"><title>Lab a* -20..-10
+Meadow green (green)
+Jade lime (green)
+Sap green (green)
+Opaline green (green)</title></rect><rect x="253.26923076923077" y="206.5" width="55.923076923076906" height="34" fill="rgb(173, 206, 197)"><title>Lab a* -30..-20
 Lab b* 40..50
 swatches: 5
 families: green 5
-Charlock (green)
-Daiquiri green (green)
-Dark citron (green)
-Green oasis (green)
-Sunny lime (green)</title></rect><rect x="267.5" y="171.5" width="60.666666666666686" height="34" fill="rgb(175, 207, 198)"><title>Lab a* -20..-10
+Green glow (green)
+Bright lime green (green)
+Greenery (green)
+Parrot green (green)
+Sunny lime (green)</title></rect><rect x="253.26923076923077" y="171.5" width="55.923076923076906" height="34" fill="rgb(176, 209, 199)"><title>Lab a* -30..-20
 Lab b* 50..60
-swatches: 4
-families: green 4
-Bright chartreuse (green)
-Wild lime (green)
-Apple green (green)
-Limeade (green)</title></rect><rect x="267.5" y="101.49999999999997" width="60.666666666666686" height="34.00000000000006" fill="rgb(223, 160, 162)"><title>Lab a* -20..-10
-Lab b* 70..80
-swatches: 2
-families: green 1, yellow 1
-Evening primrose (yellow)
-Sulphur spring (green)</title></rect><rect x="329.1666666666667" y="521.5" width="60.66666666666663" height="34" fill="rgb(169, 203, 194)"><title>Lab a* -10..0
-Lab b* -50..-40
-swatches: 8
-families: blue 8
-Indigo bunting (blue)
-Nebulas blue (blue)
-Palace blue (blue)
-Strong blue (blue)
-Directoire blue (blue)
-Skydiver (blue)
-French blue (blue)
-Victoria blue (blue)</title></rect><rect x="329.1666666666667" y="486.50000000000006" width="60.66666666666663" height="33.99999999999994" fill="rgb(159, 197, 187)"><title>Lab a* -10..0
-Lab b* -40..-30
-swatches: 17
-families: blue 17
-Deep water (blue)
-Vista blue (blue)
-Bright cobalt (blue)
-Blue bonnet (blue)
-Star sapphire (blue)
-Little boy blue (blue)
-Provence (blue)
-Azure blue (blue)</title></rect><rect x="329.1666666666667" y="451.5" width="60.66666666666663" height="34.00000000000006" fill="rgb(155, 195, 184)"><title>Lab a* -10..0
-Lab b* -30..-20
-swatches: 22
-families: blue 22
-Poseidon (blue)
-Dusk blue (blue)
-Blue opal (blue)
-Blue bell (blue)
-Quiet harbor (blue)
-Allure (blue)
-Serenity (blue)
-Placid blue (blue)</title></rect><rect x="329.1666666666667" y="416.5" width="60.66666666666663" height="34" fill="rgb(211, 129, 134)"><title>Lab a* -10..0
-Lab b* -20..-10
-swatches: 57
-families: blue 41, neutral 16
-Flint stone (neutral)
-Blue mirage (neutral)
-China blue (neutral)
-Bering sea (neutral)
-Ashley blue (neutral)
-Dusty blue (neutral)
-Stargazer (neutral)
-Forget-me-not (neutral)</title></rect><rect x="329.1666666666667" y="381.49999999999994" width="60.66666666666663" height="34.00000000000006" fill="rgb(127, 177, 165)"><title>Lab a* -10..0
-Lab b* -10..0
-swatches: 71
-families: neutral 71
-Trooper (neutral)
-Stormy sea (neutral)
-Goblin blue (neutral)
-Sedona sage (neutral)
-Smoke blue (neutral)
-North atlantic (neutral)
-Citadel (neutral)
-Tradewinds (neutral)</title></rect><rect x="329.1666666666667" y="346.5" width="60.66666666666663" height="33.99999999999994" fill="rgb(205, 114, 120)"><title>Lab a* -10..0
-Lab b* 0..10
-swatches: 114
-families: neutral 113, brown 1
-Sea spray (neutral)
-Vetiver (neutral)
-Agave green (neutral)
-Moon mist (neutral)
-Laurel wreath (neutral)
-Castor gray (neutral)
-Chinois green (neutral)
-Dark forest (neutral)</title></rect><rect x="329.1666666666667" y="311.5" width="60.66666666666663" height="34" fill="rgb(207, 118, 124)"><title>Lab a* -10..0
-Lab b* 10..20
-swatches: 53
-families: neutral 19, yellow 18, green 16
-Deep lichen green (neutral)
-Oil green (neutral)
-Olivine (neutral)
-Four leaf clover (neutral)
-Burnt olive (neutral)
-Tea (neutral)
-Ivy green (neutral)
-Elm (neutral)</title></rect><rect x="329.1666666666667" y="276.5" width="60.66666666666663" height="34" fill="rgb(215, 139, 143)"><title>Lab a* -10..0
-Lab b* 20..30
-swatches: 31
-families: yellow 25, green 6
-Pear sorbet (yellow)
-Pale olive green (yellow)
-Transparent yellow (yellow)
-Hay (yellow)
-Boa (yellow)
-Olive branch (yellow)
-Olive drab (yellow)
-Mosstone (yellow)</title></rect><rect x="329.1666666666667" y="241.5" width="60.66666666666663" height="34" fill="rgb(217, 144, 148)"><title>Lab a* -10..0
-Lab b* 30..40
-swatches: 21
-families: yellow 13, green 8
-French vanilla (yellow)
-Lemon grass (yellow)
-Calla green (yellow)
-Sweet pea (yellow)
-Lima bean (yellow)
-Chardonnay (yellow)
-Guacamole (yellow)
-Custard (yellow)</title></rect><rect x="329.1666666666667" y="206.5" width="60.66666666666663" height="34" fill="rgb(220, 152, 155)"><title>Lab a* -10..0
-Lab b* 40..50
-swatches: 9
-families: green 5, yellow 4
-Elfin yellow (yellow)
-Yellow iris (yellow)
-Canary yellow (yellow)
-Lentil sprout (yellow)
-Woodbine (green)
-Palm (green)
-Oasis (green)
-Split pea (green)</title></rect><rect x="329.1666666666667" y="171.5" width="60.66666666666663" height="34" fill="rgb(220, 154, 157)"><title>Lab a* -10..0
-Lab b* 50..60
-swatches: 7
-families: yellow 6, green 1
-Yellow cream (yellow)
-Acacia (yellow)
-Limelight (yellow)
-Lemon verbena (yellow)
-Celery (yellow)
-Celandine (yellow)
-Cress green (green)</title></rect><rect x="329.1666666666667" y="136.50000000000003" width="60.66666666666663" height="33.99999999999997" fill="rgb(221, 155, 158)"><title>Lab a* -10..0
+swatches: 3
+families: green 3
+Macaw green (green)
+Sharp green (green)
+Wild lime (green)</title></rect><rect x="253.26923076923077" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* -30..-20
 Lab b* 60..70
-swatches: 6
-families: green 3, yellow 3
-Aurora (yellow)
-Meadowlark (yellow)
-Marigold (yellow)
-Warm olive (green)
-Green sheen (green)
-Citronelle (green)</title></rect><rect x="329.1666666666667" y="101.49999999999997" width="60.66666666666663" height="34.00000000000006" fill="rgb(179, 210, 201)"><title>Lab a* -10..0
-Lab b* 70..80
-swatches: 2
-families: yellow 2
-Golden kiwi (yellow)
-Buttercup (yellow)</title></rect><rect x="329.1666666666667" y="66.5" width="60.66666666666663" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* -10..0
-Lab b* 80..90
 swatches: 1
-families: yellow 1
-Blazing yellow (yellow)</title></rect><rect x="390.8333333333333" y="521.5" width="60.666666666666686" height="34" fill="rgb(170, 204, 195)"><title>Lab a* 0..10
-Lab b* -50..-40
-swatches: 7
-families: blue 7
-Turkish sea (blue)
-Olympian blue (blue)
-Nautical blue (blue)
-Lapis blue (blue)
-Amparo blue (blue)
-Surf the web (blue)
-Princess blue (blue)</title></rect><rect x="390.8333333333333" y="486.50000000000006" width="60.666666666666686" height="33.99999999999994" fill="rgb(162, 199, 189)"><title>Lab a* 0..10
-Lab b* -40..-30
-swatches: 14
-families: blue 14
-Jacaranda (blue)
-Galaxy blue (blue)
-Cornflower blue (blue)
-Monaco blue (blue)
-Deep periwinkle (blue)
-Iolite (blue)
-Sodalite blue (blue)
-True blue (blue)</title></rect><rect x="390.8333333333333" y="451.5" width="60.666666666666686" height="34.00000000000006" fill="rgb(150, 192, 181)"><title>Lab a* 0..10
-Lab b* -30..-20
-swatches: 28
-families: blue 28
-Blue heron (blue)
-Coastal fjord (blue)
-Blue ice (blue)
-Bijou blue (blue)
-English manor (blue)
-Lavender lustre (blue)
-Gray blue (blue)
-Colony blue (blue)</title></rect><rect x="390.8333333333333" y="416.5" width="60.666666666666686" height="34" fill="rgb(208, 121, 127)"><title>Lab a* 0..10
-Lab b* -20..-10
-swatches: 44
-families: neutral 20, blue 18, purple 6
-Blue granite (neutral)
-Silver bullet (neutral)
-Folkstone gray (neutral)
-Cadet (neutral)
-Grisaille (neutral)
-Wisteria (neutral)
-Nightshadow blue (neutral)
-Aleutian (neutral)</title></rect><rect x="390.8333333333333" y="381.49999999999994" width="60.666666666666686" height="34.00000000000006" fill="rgb(119, 172, 159)"><title>Lab a* 0..10
-Lab b* -10..0
-swatches: 92
-families: neutral 92
-Storm front (neutral)
-December sky (neutral)
-Gray ridge (neutral)
-Silver filigree (neutral)
-Titanium (neutral)
-Quicksilver (neutral)
-Steel gray (neutral)
-Purple sage (neutral)</title></rect><rect x="390.8333333333333" y="346.5" width="60.666666666666686" height="33.99999999999994" fill="rgb(201, 103, 110)"><title>Lab a* 0..10
-Lab b* 0..10
-swatches: 165
-families: neutral 147, brown 18
-Fallen rock (neutral)
-Brindle (neutral)
-Pine bark (neutral)
-Fossil (neutral)
-Driftwood (neutral)
-Brushed nickel (neutral)
-Steeple gray (neutral)
-Taupe gray (neutral)</title></rect><rect x="390.8333333333333" y="311.5" width="60.666666666666686" height="34" fill="rgb(193, 84, 92)"><title>Lab a* 0..10
-Lab b* 10..20
-swatches: 136
-families: neutral 99, brown 27, yellow 6, orange 4
-Mermaid (neutral)
-Caribou (neutral)
-Dusky green (neutral)
-Timber wolf (neutral)
-Ginger snap (neutral)
-Greige (neutral)
-Coriander (neutral)
-Winter twig (neutral)</title></rect><rect x="390.8333333333333" y="276.5" width="60.666666666666686" height="34" fill="rgb(203, 108, 114)"><title>Lab a* 0..10
-Lab b* 20..30
-swatches: 47
-families: orange 18, yellow 12, neutral 11, brown 6
-Tan (neutral)
-Latte (neutral)
-Almond buff (neutral)
-Beige (neutral)
-Boulder (neutral)
-Soybean (neutral)
-Marzipan (neutral)
-Sea mist (neutral)</title></rect><rect x="390.8333333333333" y="241.5" width="60.666666666666686" height="34" fill="rgb(210, 127, 132)"><title>Lab a* 0..10
-Lab b* 30..40
-swatches: 31
-families: orange 20, yellow 9, brown 2
-Medal bronze (brown)
-Cumin (brown)
-Antelope (orange)
-Cocoon (orange)
-Plantation (orange)
-Sahara sun (orange)
-New wheat (orange)
-Pale gold (orange)</title></rect><rect x="390.8333333333333" y="206.5" width="60.666666666666686" height="34" fill="rgb(214, 138, 142)"><title>Lab a* 0..10
-Lab b* 40..50
-swatches: 11
-families: orange 7, yellow 3, green 1
-Dried tobacco (orange)
-Amber green (orange)
-Olivenite (orange)
-Ochre (orange)
-Sauterne (orange)
-Cornsilk (orange)
-Misted yellow (orange)
-Dusky citron (yellow)</title></rect><rect x="390.8333333333333" y="171.5" width="60.666666666666686" height="34" fill="rgb(218, 148, 152)"><title>Lab a* 0..10
-Lab b* 50..60
-swatches: 14
-families: yellow 8, orange 6
-Lemon drop (orange)
-Snapdragon (orange)
-Yarrow (orange)
-Bamboo (orange)
-Spicy mustard (orange)
-Mimosa (orange)
-Honey (yellow)
-Oil yellow (yellow)</title></rect><rect x="390.8333333333333" y="136.50000000000003" width="60.666666666666686" height="33.99999999999997" fill="rgb(215, 139, 143)"><title>Lab a* 0..10
-Lab b* 60..70
-swatches: 10
-families: yellow 6, green 2, orange 2
-Aspen gold (orange)
-Minion yellow (orange)
-Super lemon (yellow)
-Primrose yellow (yellow)
-Lemon zest (yellow)
-Lemon curry (yellow)
-Maize (yellow)
-Habanero gold (yellow)</title></rect><rect x="390.8333333333333" y="101.49999999999997" width="60.666666666666686" height="34.00000000000006" fill="rgb(222, 159, 161)"><title>Lab a* 0..10
+families: green 1
+Tender shoots (green)</title></rect><rect x="253.26923076923077" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(222, 158, 161)"><title>Lab a* -30..-20
 Lab b* 70..80
 swatches: 3
-families: yellow 2, orange 1
-Freesia (orange)
-Sulphur (yellow)
-Dandelion (yellow)</title></rect><rect x="390.8333333333333" y="66.5" width="60.666666666666686" height="33.99999999999997" fill="rgb(175, 207, 198)"><title>Lab a* 0..10
+families: green 2, yellow 1
+Lime punch (green)
+Lime popsicle (green)
+Evening primrose (yellow)</title></rect><rect x="310.1923076923077" y="486.50000000000006" width="55.92307692307696" height="33.99999999999994" fill="rgb(170, 204, 195)"><title>Lab a* -20..-10
+Lab b* -40..-30
+swatches: 7
+families: blue 7
+Hawaiian ocean (blue)
+Blue danube (blue)
+Blue jewel (blue)
+Malibu blue (blue)
+Swedish blue (blue)
+Dresden blue (blue)
+Hawaiian surf (blue)</title></rect><rect x="310.1923076923077" y="451.5" width="55.92307692307696" height="34.00000000000006" fill="rgb(157, 196, 186)"><title>Lab a* -20..-10
+Lab b* -30..-20
+swatches: 19
+families: blue 19
+Ethereal blue (blue)
+Blue grotto (blue)
+Norse blue (blue)
+Aquarius (blue)
+Blue moon (blue)
+Bluejay (blue)
+Vivid blue (blue)
+Celestial (blue)</title></rect><rect x="310.1923076923077" y="416.5" width="55.92307692307696" height="34" fill="rgb(151, 193, 182)"><title>Lab a* -20..-10
+Lab b* -20..-10
+swatches: 26
+families: blue 26
+Air blue (blue)
+Adriatic blue (blue)
+Milky blue (blue)
+Maui blue (blue)
+Blue mist (blue)
+Porcelain blue (blue)
+Petit four (blue)
+Reef waters (blue)</title></rect><rect x="310.1923076923077" y="381.49999999999994" width="55.92307692307696" height="34.00000000000006" fill="rgb(206, 117, 123)"><title>Lab a* -20..-10
+Lab b* -10..0
+swatches: 55
+families: blue 33, neutral 19, green 3
+Cameo blue (blue)
+Clearwater (blue)
+Plume (blue)
+Aquatic (blue)
+Marine blue (blue)
+Arctic (neutral)
+Aquifer (neutral)
+Icy morn (neutral)</title></rect><rect x="310.1923076923077" y="346.5" width="55.92307692307696" height="33.99999999999994" fill="rgb(215, 139, 143)"><title>Lab a* -20..-10
+Lab b* 0..10
+swatches: 31
+families: green 21, neutral 10
+Beryl green (green)
+Dusty aqua (neutral)
+Honeydew (green)
+Brook green (green)
+Bay (green)
+Granite green (neutral)
+Comfrey (green)
+Dark ivy (green)</title></rect><rect x="310.1923076923077" y="311.5" width="55.92307692307696" height="34" fill="rgb(151, 193, 182)"><title>Lab a* -20..-10
+Lab b* 10..20
+swatches: 26
+families: green 26
+Smoke green (green)
+Mistletoe (green)
+Basil (green)
+Mineral green (green)
+Green eyes (green)
+Turf green (green)
+Watercress (green)
+Elm green (green)</title></rect><rect x="310.1923076923077" y="276.5" width="55.92307692307696" height="34" fill="rgb(218, 148, 151)"><title>Lab a* -20..-10
+Lab b* 20..30
+swatches: 15
+families: green 13, yellow 2
+Garden green (green)
+Nile green (green)
+Jade green (green)
+Tendril (green)
+Butterfly (green)
+Lily green (green)
+Nile (yellow)
+Fern (yellow)</title></rect><rect x="310.1923076923077" y="241.5" width="55.92307692307696" height="34" fill="rgb(217, 146, 149)"><title>Lab a* -20..-10
+Lab b* 30..40
+swatches: 18
+families: green 13, yellow 5
+Peridot (green)
+Herbal garden (green)
+Leaf green (green)
+Shadow lime (green)
+Lime sherbet (green)
+Lettuce green (green)
+Pale green (green)
+Luminary green (green)</title></rect><rect x="310.1923076923077" y="206.5" width="55.92307692307696" height="34" fill="rgb(219, 150, 153)"><title>Lab a* -20..-10
+Lab b* 40..50
+swatches: 12
+families: green 9, yellow 3
+Elfin yellow (yellow)
+Canary yellow (yellow)
+Woodbine (green)
+Dark citron (green)
+Daiquiri green (green)
+Charlock (green)
+Green oasis (green)
+Palm (green)</title></rect><rect x="310.1923076923077" y="171.5" width="55.92307692307696" height="34" fill="rgb(221, 155, 157)"><title>Lab a* -20..-10
+Lab b* 50..60
+swatches: 6
+families: green 3, yellow 3
+Limelight (yellow)
+Bright chartreuse (green)
+Limeade (green)
+Apple green (green)
+Celandine (yellow)
+Lemon verbena (yellow)</title></rect><rect x="310.1923076923077" y="136.50000000000003" width="55.92307692307696" height="33.99999999999997" fill="rgb(179, 210, 201)"><title>Lab a* -20..-10
+Lab b* 60..70
+swatches: 2
+families: green 2
+Green sheen (green)
+Citronelle (green)</title></rect><rect x="310.1923076923077" y="66.5" width="55.92307692307696" height="33.99999999999997" fill="rgb(223, 160, 162)"><title>Lab a* -20..-10
 Lab b* 80..90
-swatches: 4
-families: yellow 4
-Lemon (yellow)
-Vibrant yellow (yellow)
-Empire yellow (yellow)
-Cyber yellow (yellow)</title></rect><rect x="452.5" y="521.5" width="60.66666666666674" height="34" fill="rgb(179, 210, 201)"><title>Lab a* 10..20
+swatches: 2
+families: green 1, yellow 1
+Blazing yellow (yellow)
+Sulphur spring (green)</title></rect><rect x="367.11538461538464" y="521.5" width="55.923076923076906" height="34" fill="rgb(179, 210, 201)"><title>Lab a* -10..0
 Lab b* -50..-40
 swatches: 2
 families: blue 2
-Royal blue (blue)
-Dazzling blue (blue)</title></rect><rect x="452.5" y="486.50000000000006" width="60.66666666666674" height="33.99999999999994" fill="rgb(219, 151, 154)"><title>Lab a* 10..20
+French blue (blue)
+Brilliant blue (blue)</title></rect><rect x="367.11538461538464" y="486.50000000000006" width="55.923076923076906" height="33.99999999999994" fill="rgb(164, 200, 190)"><title>Lab a* -10..0
 Lab b* -40..-30
-swatches: 10
-families: blue 9, purple 1
-Orient blue (blue)
-Violet storm (blue)
-Iris bloom (blue)
-Purple corallite (blue)
-Blue iris (blue)
-Spectrum blue (blue)
-Purple opulence (blue)
-Clematis blue (blue)</title></rect><rect x="452.5" y="451.5" width="60.66666666666674" height="34.00000000000006" fill="rgb(217, 146, 149)"><title>Lab a* 10..20
+swatches: 12
+families: blue 12
+Bonnie blue (blue)
+Little boy blue (blue)
+Azure blue (blue)
+Mediterranean blue (blue)
+Methyl blue (blue)
+Blithe (blue)
+Diva blue (blue)
+Blue aster (blue)</title></rect><rect x="367.11538461538464" y="451.5" width="55.923076923076906" height="34.00000000000006" fill="rgb(153, 194, 183)"><title>Lab a* -10..0
 Lab b* -30..-20
-swatches: 18
-families: purple 13, blue 5
-Veronica (blue)
-Aster purple (blue)
-Corsican blue (blue)
-Navy blue (blue)
-Deep wisteria (blue)
-Lavender (purple)
+swatches: 24
+families: blue 24
+Silver lake blue (blue)
+Blue bell (blue)
+Placid blue (blue)
+Della Robbia blue (blue)
+Allure (blue)
+Heritage blue (blue)
+Cendre blue (blue)
+Parisian blue (blue)</title></rect><rect x="367.11538461538464" y="416.5" width="55.923076923076906" height="34" fill="rgb(212, 131, 135)"><title>Lab a* -10..0
+Lab b* -20..-10
+swatches: 51
+families: blue 37, neutral 14
+Skyway (neutral)
+Cashmere blue (blue)
+Moonlight blue (blue)
+Cerulean (blue)
+Powder blue (blue)
+Celestial blue (neutral)
+Blue fog (neutral)
+Flint stone (neutral)</title></rect><rect x="367.11538461538464" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(128, 178, 166)"><title>Lab a* -10..0
+Lab b* -10..0
+swatches: 67
+families: neutral 67
+Bit of blue (neutral)
+Spa blue (neutral)
+Hint of mint (neutral)
+Billowing sail (neutral)
+Glacier gray (neutral)
+Gray violet (neutral)
+High-rise (neutral)
+Sedona sage (neutral)</title></rect><rect x="367.11538461538464" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(204, 110, 116)"><title>Lab a* -10..0
+Lab b* 0..10
+swatches: 125
+families: neutral 123, brown 2
+Snow white (neutral)
+Bright white (neutral)
+Cloud dancer (neutral)
+Marshmallow (neutral)
+Blanc de blanc (neutral)
+Turtledove (neutral)
+Bone white (neutral)
+Silver birch (neutral)</title></rect><rect x="367.11538461538464" y="311.5" width="55.923076923076906" height="34" fill="rgb(205, 113, 119)"><title>Lab a* -10..0
+Lab b* 10..20
+swatches: 67
+families: neutral 31, yellow 21, green 15
+White asparagus (neutral)
+Papyrus (neutral)
+Winter white (neutral)
+Cloud cream (neutral)
+Asparagus green (neutral)
+Oyster white (yellow)
+Putty (neutral)
+Moth (yellow)</title></rect><rect x="367.11538461538464" y="276.5" width="55.923076923076906" height="34" fill="rgb(203, 110, 116)"><title>Lab a* -10..0
+Lab b* 20..30
+swatches: 41
+families: yellow 29, green 5, orange 4, neutral 3
+Almond oil (yellow)
+Transparent yellow (yellow)
+Double cream (orange)
+Sea mist (neutral)
+Chino green (neutral)
+Parsnip (orange)
+Dusty yellow (yellow)
+Silver fern (yellow)</title></rect><rect x="367.11538461538464" y="241.5" width="55.923076923076906" height="34" fill="rgb(211, 129, 134)"><title>Lab a* -10..0
+Lab b* 30..40
+swatches: 25
+families: yellow 15, green 5, orange 5
+Rich gold (orange)
+Lemon grass (yellow)
+Raffia (orange)
+Pampas (yellow)
+Dried moss (yellow)
+Southern moss (orange)
+Golden green (yellow)
+Antique gold (orange)</title></rect><rect x="367.11538461538464" y="206.5" width="55.923076923076906" height="34" fill="rgb(221, 156, 158)"><title>Lab a* -10..0
+Lab b* 40..50
+swatches: 5
+families: yellow 4, green 1
+Dusky citron (yellow)
+Popcorn (yellow)
+Sunshine (yellow)
+Golden olive (green)
+Lentil sprout (yellow)</title></rect><rect x="367.11538461538464" y="171.5" width="55.923076923076906" height="34" fill="rgb(221, 155, 157)"><title>Lab a* -10..0
+Lab b* 50..60
+swatches: 6
+families: yellow 5, green 1
+Cress green (green)
+Celery (yellow)
+Acacia (yellow)
+Yellow cream (yellow)
+Cream gold (yellow)
+Goldfinch (yellow)</title></rect><rect x="367.11538461538464" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(220, 154, 157)"><title>Lab a* -10..0
+Lab b* 60..70
+swatches: 7
+families: yellow 5, green 2
+Aurora (yellow)
+Primrose yellow (yellow)
+Marigold (yellow)
+Warm olive (green)
+Antique moss (green)
+Lemon zest (yellow)
+Meadowlark (yellow)</title></rect><rect x="367.11538461538464" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(179, 210, 201)"><title>Lab a* -10..0
+Lab b* 70..80
+swatches: 2
+families: yellow 2
+Buttercup (yellow)
+Golden kiwi (yellow)</title></rect><rect x="367.11538461538464" y="66.5" width="55.923076923076906" height="33.99999999999997" fill="rgb(176, 209, 199)"><title>Lab a* -10..0
+Lab b* 80..90
+swatches: 3
+families: yellow 3
+Empire yellow (yellow)
+Vibrant yellow (yellow)
+Cyber yellow (yellow)</title></rect><rect x="424.03846153846155" y="521.5" width="55.923076923076906" height="34" fill="rgb(167, 202, 193)"><title>Lab a* 0..10
+Lab b* -50..-40
+swatches: 9
+families: blue 9
+Palace blue (blue)
+Strong blue (blue)
+Victoria blue (blue)
+Nautical blue (blue)
+Princess blue (blue)
+Directoire blue (blue)
+Skydiver (blue)
+Nebulas blue (blue)</title></rect><rect x="424.03846153846155" y="486.50000000000006" width="55.923076923076906" height="33.99999999999994" fill="rgb(155, 195, 185)"><title>Lab a* 0..10
+Lab b* -40..-30
+swatches: 21
+families: blue 21
+Blue bonnet (blue)
+Cornflower blue (blue)
+Persian jewel (blue)
+Wedgewood (blue)
+Provence (blue)
+Ultramarine (blue)
+Star sapphire (blue)
+Bright cobalt (blue)</title></rect><rect x="424.03846153846155" y="451.5" width="55.923076923076906" height="34.00000000000006" fill="rgb(147, 190, 179)"><title>Lab a* 0..10
+Lab b* -30..-20
+swatches: 32
+families: blue 32
+Bleached denim (blue)
+Skipper blue (blue)
+Easter egg (blue)
+Twilight purple (blue)
+Lavender violet (blue)
+Velvet morning (blue)
+Marlin (blue)
+Blueprint (blue)</title></rect><rect x="424.03846153846155" y="416.5" width="55.923076923076906" height="34" fill="rgb(207, 118, 124)"><title>Lab a* 0..10
+Lab b* -20..-10
+swatches: 52
+families: blue 29, neutral 20, purple 3
+Heirloom lilac (purple)
+Wisteria (neutral)
+Dusk (purple)
+Daybreak (purple)
+Cadet (neutral)
+Orchid petal (neutral)
+Heron (blue)
+Purple heather (blue)</title></rect><rect x="424.03846153846155" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(114, 169, 156)"><title>Lab a* 0..10
+Lab b* -10..0
+swatches: 101
+families: neutral 101
+Smoked pearl (neutral)
+Steel gray (neutral)
+Castlerock (neutral)
+Nine iron (neutral)
+Frost gray (neutral)
+Excalibur (neutral)
+Rabbit (neutral)
+Jet black (neutral)</title></rect><rect x="424.03846153846155" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(201, 103, 110)"><title>Lab a* 0..10
+Lab b* 0..10
+swatches: 160
+families: neutral 143, brown 17
+Egret (neutral)
+Gardenia (neutral)
+Pristine (neutral)
+Whisper white (neutral)
+Birch (neutral)
+Antique white (neutral)
+Whitecap gray (neutral)
+Sandshell (neutral)</title></rect><rect x="424.03846153846155" y="311.5" width="55.923076923076906" height="34" fill="rgb(194, 84, 92)"><title>Lab a* 0..10
+Lab b* 10..20
+swatches: 129
+families: neutral 88, brown 32, orange 6, yellow 3
+Angora (neutral)
+Seedpearl (neutral)
+Vanilla custard (neutral)
+Alabaster gleam (neutral)
+Vanilla (neutral)
+Rutabaga (neutral)
+Fog (neutral)
+White swan (neutral)</title></rect><rect x="424.03846153846155" y="276.5" width="55.923076923076906" height="34" fill="rgb(203, 110, 116)"><title>Lab a* 0..10
+Lab b* 20..30
+swatches: 41
+families: orange 19, brown 8, neutral 8, yellow 6
+Banana crepe (neutral)
+Italian straw (orange)
+Winter wheat (orange)
+Summer melon (neutral)
+Chamomile (orange)
+Cornhusk (orange)
+Apricot gelato (orange)
+Autumn blonde (orange)</title></rect><rect x="424.03846153846155" y="241.5" width="55.923076923076906" height="34" fill="rgb(211, 129, 134)"><title>Lab a* 0..10
+Lab b* 30..40
+swatches: 25
+families: orange 16, brown 6, yellow 3
+Pale gold (orange)
+Sunlight (yellow)
+Straw (yellow)
+Jojoba (orange)
+Rattan (orange)
+Cocoon (orange)
+Fall leaf (orange)
+Antelope (orange)</title></rect><rect x="424.03846153846155" y="206.5" width="55.923076923076906" height="34" fill="rgb(161, 199, 189)"><title>Lab a* 0..10
+Lab b* 40..50
+swatches: 14
+families: orange 14
+Olivenite (orange)
+Misted yellow (orange)
+Sauterne (orange)
+Harvest gold (orange)
+Ochre (orange)
+Tinsel (orange)
+Bright gold (orange)
+Honey gold (orange)</title></rect><rect x="424.03846153846155" y="171.5" width="55.923076923076906" height="34" fill="rgb(217, 145, 149)"><title>Lab a* 0..10
+Lab b* 50..60
+swatches: 19
+families: orange 13, yellow 6
+Bamboo (orange)
+Olive oil (yellow)
+Oil yellow (yellow)
+Green sulphur (yellow)
+Mimosa (orange)
+Lemon drop (orange)
+Honey (yellow)
+Arrowwood (orange)</title></rect><rect x="424.03846153846155" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(215, 139, 143)"><title>Lab a* 0..10
+Lab b* 60..70
+swatches: 9
+families: orange 4, yellow 4, green 1
+Golden palm (green)
+Maize (yellow)
+Aspen gold (orange)
+Super lemon (yellow)
+Lemon curry (yellow)
+Nugget gold (orange)
+Solar power (orange)
+Habanero gold (yellow)</title></rect><rect x="424.03846153846155" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(222, 158, 161)"><title>Lab a* 0..10
+Lab b* 70..80
+swatches: 3
+families: yellow 2, orange 1
+Sulphur (yellow)
+Dandelion (yellow)
+Freesia (orange)</title></rect><rect x="424.03846153846155" y="66.5" width="55.923076923076906" height="33.99999999999997" fill="rgb(179, 210, 201)"><title>Lab a* 0..10
+Lab b* 80..90
+swatches: 2
+families: yellow 2
+Lemon (yellow)
+Lemon chrome (yellow)</title></rect><rect x="480.96153846153845" y="521.5" width="55.923076923076906" height="34" fill="rgb(176, 209, 199)"><title>Lab a* 10..20
+Lab b* -50..-40
+swatches: 3
+families: blue 3
+Dazzling blue (blue)
+Amparo blue (blue)
+Surf the web (blue)</title></rect><rect x="480.96153846153845" y="486.50000000000006" width="55.923076923076906" height="33.99999999999994" fill="rgb(164, 200, 190)"><title>Lab a* 10..20
+Lab b* -40..-30
+swatches: 12
+families: blue 12
+Blue iris (blue)
+Jacaranda (blue)
+Deep periwinkle (blue)
+Violet storm (blue)
+Baja blue (blue)
+Clematis blue (blue)
+Spectrum blue (blue)
+Deep ultramarine (blue)</title></rect><rect x="480.96153846153845" y="451.5" width="55.923076923076906" height="34.00000000000006" fill="rgb(217, 146, 150)"><title>Lab a* 10..20
+Lab b* -30..-20
+swatches: 17
+families: purple 9, blue 8
 Mulberry purple (purple)
-Sand verbena (purple)</title></rect><rect x="452.5" y="416.5" width="60.66666666666674" height="34" fill="rgb(146, 189, 178)"><title>Lab a* 10..20
+Paisley purple (purple)
+Imperial palace (purple)
+Parachute purple (purple)
+Bougainvillea (purple)
+Violet tulip (purple)
+Aster purple (blue)
+Corsican blue (blue)</title></rect><rect x="480.96153846153845" y="416.5" width="55.923076923076906" height="34" fill="rgb(214, 138, 142)"><title>Lab a* 10..20
 Lab b* -20..-10
 swatches: 34
-families: purple 34
-Montana grape (purple)
-Gothic grape (purple)
-Navy cosmos (purple)
-Purple plumeria (purple)
-Orchid bloom (purple)
-Grape compote (purple)
+families: purple 33, blue 1
 Grape jam (purple)
-Purple pennant (purple)</title></rect><rect x="452.5" y="381.49999999999994" width="60.66666666666674" height="34.00000000000006" fill="rgb(208, 121, 126)"><title>Lab a* 10..20
+Deep purple (purple)
+Navy cosmos (purple)
+Indigo (purple)
+Purple pennant (purple)
+Shadow purple (purple)
+Blackberry cordial (purple)
+Purple reign (purple)</title></rect><rect x="480.96153846153845" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(208, 121, 126)"><title>Lab a* 10..20
 Lab b* -10..0
 swatches: 45
 families: pink 22, neutral 14, purple 9
-Toadstool (neutral)
-Elderberry (neutral)
-Arctic dusk (neutral)
-Ephemera (neutral)
-Flint (neutral)
-Black plum (neutral)
-Mauve shadows (neutral)
-Dawn pink (neutral)</title></rect><rect x="452.5" y="346.5" width="60.66666666666674" height="33.99999999999994" fill="rgb(201, 105, 111)"><title>Lab a* 10..20
+Pink lady (pink)
+Cradle pink (neutral)
+Light lilac (neutral)
+Pink nectar (pink)
+Orchid haze (pink)
+Parfait pink (pink)
+Pink mist (pink)
+Pink lavender (pink)</title></rect><rect x="480.96153846153845" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(201, 103, 110)"><title>Lab a* 10..20
 Lab b* 0..10
-swatches: 56
-families: neutral 24, pink 19, brown 12, red 1
-Twilight mauve (neutral)
-Grape shake (neutral)
-Antler (neutral)
-Rose taupe (neutral)
+swatches: 58
+families: neutral 20, pink 20, brown 15, red 3
 Almondine (neutral)
-Woodrose (neutral)
-Deauville mauve (neutral)
-Huckleberry (neutral)</title></rect><rect x="452.5" y="311.5" width="60.66666666666674" height="34" fill="rgb(196, 90, 97)"><title>Lab a* 10..20
+Fudgesickle (brown)
+Deep mahogany (neutral)
+Rum raisin (brown)
+Brown stone (brown)
+Bitter chocolate (brown)
+Hot chocolate (brown)
+Andorra (brown)</title></rect><rect x="480.96153846153845" y="311.5" width="55.923076923076906" height="34" fill="rgb(196, 91, 99)"><title>Lab a* 10..20
 Lab b* 10..20
-swatches: 63
-families: brown 34, neutral 12, pink 9, orange 6, red 2
-Cafe au lait (neutral)
-Praline (neutral)
-Cork (neutral)
-Roebuck (neutral)
-Tuscany (neutral)
-Cafe creme (neutral)
-Sirocco (neutral)
-Mahogany rose (neutral)</title></rect><rect x="452.5" y="276.5" width="60.66666666666674" height="34" fill="rgb(209, 124, 129)"><title>Lab a* 10..20
+swatches: 57
+families: brown 31, neutral 9, pink 9, orange 5, red 3
+Bison (brown)
+Dachshund (brown)
+Aztec (brown)
+Friar brown (brown)
+Mustang (brown)
+Potting soil (brown)
+Beaver fur (brown)
+Tawny birch (brown)</title></rect><rect x="480.96153846153845" y="276.5" width="55.923076923076906" height="34" fill="rgb(214, 137, 141)"><title>Lab a* 10..20
 Lab b* 20..30
-swatches: 38
-families: orange 22, brown 15, neutral 1
-Macaroon (neutral)
-Toasted coconut (brown)
-Toffee (brown)
-Camel (brown)
+swatches: 35
+families: orange 19, brown 16
+Doe (orange)
 Indian tan (brown)
-Thrush (brown)
-Tortoise shell (brown)
-Tobacco brown (brown)</title></rect><rect x="452.5" y="241.5" width="60.66666666666674" height="34" fill="rgb(217, 147, 150)"><title>Lab a* 10..20
-Lab b* 30..40
-swatches: 17
-families: brown 11, orange 6
-Tapenade (brown)
-Apple cinnamon (brown)
 Brown sugar (brown)
-Bone brown (brown)
-Almond (brown)
-Bronze brown (brown)
-Cashew (brown)
-Meerkat (brown)</title></rect><rect x="452.5" y="206.5" width="60.66666666666674" height="34" fill="rgb(218, 149, 152)"><title>Lab a* 10..20
-Lab b* 40..50
+Chipmunk (brown)
+Tobacco brown (brown)
+Monk's robe (brown)
+Toffee (brown)
+Camel (brown)</title></rect><rect x="480.96153846153845" y="241.5" width="55.923076923076906" height="34" fill="rgb(218, 149, 152)"><title>Lab a* 10..20
+Lab b* 30..40
 swatches: 13
-families: orange 12, brown 1
-Spruce yellow (brown)
-Amber gold (orange)
-Honey yellow (orange)
-Tinsel (orange)
+families: orange 7, brown 6
+Butterum (orange)
+Cashew (brown)
+Golden brown (brown)
+Bone brown (brown)
+Cathay spice (brown)
+Oak buff (orange)
+Clay (orange)
+Sunburst (orange)</title></rect><rect x="480.96153846153845" y="206.5" width="55.923076923076906" height="34" fill="rgb(220, 152, 155)"><title>Lab a* 10..20
+Lab b* 40..50
+swatches: 9
+families: orange 8, brown 1
+Golden cream (orange)
 Flax (orange)
-Narcissus (orange)
-Golden nugget (orange)
-Honey gold (orange)</title></rect><rect x="452.5" y="171.5" width="60.66666666666674" height="34" fill="rgb(213, 134, 138)"><title>Lab a* 10..20
+Golden apricot (orange)
+Honey yellow (orange)
+Spruce yellow (brown)
+Buff orange (orange)
+Chamois (orange)
+Golden nugget (orange)</title></rect><rect x="480.96153846153845" y="171.5" width="55.923076923076906" height="34" fill="rgb(214, 137, 141)"><title>Lab a* 10..20
 Lab b* 50..60
-swatches: 17
-families: orange 14, yellow 2, brown 1
-Buckthorn brown (brown)
-Chai tea (orange)
-Sunset gold (orange)
-Golden spice (orange)
-Pale marigold (orange)
-Jurassic gold (orange)
+swatches: 12
+families: orange 8, brown 2, yellow 2
 Mineral yellow (orange)
-Yolk yellow (orange)</title></rect><rect x="452.5" y="136.50000000000003" width="60.66666666666674" height="33.99999999999997" fill="rgb(220, 154, 157)"><title>Lab a* 10..20
+Pale marigold (orange)
+Amber yellow (orange)
+Amber (orange)
+Beeswax (orange)
+Banana (yellow)
+Golden glow (yellow)
+Sunflower (orange)</title></rect><rect x="480.96153846153845" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(220, 154, 157)"><title>Lab a* 10..20
 Lab b* 60..70
 swatches: 7
 families: orange 5, yellow 2
-Mango mojito (orange)
-Golden orange (orange)
-Nugget gold (orange)
-Golden rod (orange)
-Solar power (orange)
+Golden yellow (yellow)
 Daffodil (yellow)
-Golden yellow (yellow)</title></rect><rect x="452.5" y="101.49999999999997" width="60.66666666666674" height="34.00000000000006" fill="rgb(179, 210, 201)"><title>Lab a* 10..20
+Golden rod (orange)
+Artisan's gold (orange)
+Mango mojito (orange)
+Autumn blaze (orange)
+Golden orange (orange)</title></rect><rect x="480.96153846153845" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(176, 209, 199)"><title>Lab a* 10..20
 Lab b* 70..80
-swatches: 2
-families: orange 2
-Old gold (orange)
-Spectra yellow (orange)</title></rect><rect x="452.5" y="66.5" width="60.66666666666674" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* 10..20
-Lab b* 80..90
-swatches: 1
-families: yellow 1
-Lemon chrome (yellow)</title></rect><rect x="514.1666666666667" y="486.50000000000006" width="60.66666666666663" height="33.99999999999994" fill="rgb(220, 153, 156)"><title>Lab a* 20..30
-Lab b* -40..-30
-swatches: 8
-families: purple 7, blue 1
-Deep blue (blue)
-Heliotrope (purple)
-Ultra violet (purple)
-Passion flower (purple)
-Deep lavender (purple)
-Tillandsia purple (purple)
-Royal purple (purple)
-Prism violet (purple)</title></rect><rect x="514.1666666666667" y="451.5" width="60.66666666666663" height="34.00000000000006" fill="rgb(161, 199, 189)"><title>Lab a* 20..30
-Lab b* -30..-20
-swatches: 15
-families: purple 15
-Purple heart (purple)
-English lavendar (purple)
-Petunia (purple)
-Acai (purple)
-Meadow violet (purple)
-Mauve mist (purple)
-Imperial purple (purple)
-Plum jam (purple)</title></rect><rect x="514.1666666666667" y="416.5" width="60.66666666666663" height="34" fill="rgb(216, 144, 147)"><title>Lab a* 20..30
-Lab b* -20..-10
-swatches: 22
-families: purple 21, pink 1
-Chinese violet (purple)
-Smoky grape (purple)
-Dusty lavender (purple)
-Concord grape (purple)
-Purple passion (purple)
-Grape royale (purple)
-Crushed grape (purple)
-Majesty (purple)</title></rect><rect x="514.1666666666667" y="381.49999999999994" width="60.66666666666663" height="34.00000000000006" fill="rgb(157, 196, 186)"><title>Lab a* 20..30
-Lab b* -10..0
-swatches: 19
-families: pink 19
-Cameo pink (pink)
-Prune (pink)
-Tulipwood (pink)
-Crushed violets (pink)
-Grape wine (pink)
-Sweet lilac (pink)
-Mauve orchid (pink)
-Grape nectar (pink)</title></rect><rect x="514.1666666666667" y="346.5" width="60.66666666666663" height="33.99999999999994" fill="rgb(210, 126, 131)"><title>Lab a* 20..30
-Lab b* 0..10
-swatches: 32
-families: pink 17, red 8, brown 7
-Nocturne (brown)
-Wild ginger (brown)
-Windsor wine (brown)
-Crushed berry (brown)
-Tawny port (brown)
-Apple butter (brown)
-Maroon (brown)
-Renaissance rose (red)</title></rect><rect x="514.1666666666667" y="311.5" width="60.66666666666663" height="34" fill="rgb(209, 124, 129)"><title>Lab a* 20..30
-Lab b* 10..20
-swatches: 37
-families: pink 15, brown 14, red 8
-Hot chocolate (brown)
-Sable (brown)
-Mahogany (brown)
-Cherry mahogany (brown)
-Rustic brown (brown)
-Madder brown (brown)
-Henna (brown)
-Copper brown (brown)</title></rect><rect x="514.1666666666667" y="276.5" width="60.66666666666663" height="34" fill="rgb(206, 117, 122)"><title>Lab a* 20..30
-Lab b* 20..30
-swatches: 26
-families: brown 10, orange 9, pink 4, red 3
-Brown patina (brown)
-Coconut shell (brown)
-Mocha bisque (brown)
-Brandy brown (brown)
-Sierra (brown)
-Bran (brown)
-Sunburn (brown)
-Hazel (brown)</title></rect><rect x="514.1666666666667" y="241.5" width="60.66666666666663" height="34" fill="rgb(217, 144, 148)"><title>Lab a* 20..30
-Lab b* 30..40
-swatches: 21
-families: brown 11, orange 10
-Caramel cafe (brown)
-Raw sienna (brown)
-Adobe (brown)
-Autumn leaf (brown)
-Glazed ginger (brown)
-Caramel (brown)
-Roasted pecan (brown)
-Sugar almond (brown)</title></rect><rect x="514.1666666666667" y="206.5" width="60.66666666666663" height="34" fill="rgb(219, 151, 154)"><title>Lab a* 20..30
-Lab b* 40..50
-swatches: 11
-families: orange 6, brown 5
-Tomato cream (brown)
-Golden ochre (brown)
-Nugget (brown)
-Sudan brown (brown)
-Pumpkin spice (brown)
-Buff orange (orange)
-Buckskin (orange)
-Chamois (orange)</title></rect><rect x="514.1666666666667" y="171.5" width="60.66666666666663" height="34" fill="rgb(220, 152, 155)"><title>Lab a* 20..30
-Lab b* 50..60
-swatches: 9
-families: brown 5, orange 4
-Inca gold (brown)
-Golden oak (brown)
-Honey ginger (brown)
-Thai curry (brown)
-Desert sun (brown)
-Warm apricot (orange)
-Butterscotch (orange)
-Blazing orange (orange)</title></rect><rect x="514.1666666666667" y="136.50000000000003" width="60.66666666666663" height="33.99999999999997" fill="rgb(177, 209, 200)"><title>Lab a* 20..30
-Lab b* 60..70
 swatches: 3
 families: orange 3
-Artisan's gold (orange)
-Autumn blaze (orange)
-Cadmium yellow (orange)</title></rect><rect x="514.1666666666667" y="101.49999999999997" width="60.66666666666663" height="34.00000000000006" fill="rgb(179, 210, 201)"><title>Lab a* 20..30
-Lab b* 70..80
-swatches: 2
-families: orange 2
-Citrus (orange)
-Saffron (orange)</title></rect><rect x="514.1666666666667" y="66.5" width="60.66666666666663" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* 20..30
+Old gold (orange)
+Spectra yellow (orange)
+Citrus (orange)</title></rect><rect x="480.96153846153845" y="66.5" width="55.923076923076906" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* 10..20
 Lab b* 80..90
 swatches: 1
 families: orange 1
-Gold fusion (orange)</title></rect><rect x="575.8333333333334" y="451.5" width="60.66666666666663" height="34.00000000000006" fill="rgb(166, 202, 192)"><title>Lab a* 30..40
+Gold fusion (orange)</title></rect><rect x="537.8846153846154" y="521.5" width="55.92307692307702" height="34" fill="rgb(182, 212, 203)"><title>Lab a* 20..30
+Lab b* -50..-40
+swatches: 1
+families: blue 1
+Royal blue (blue)</title></rect><rect x="537.8846153846154" y="486.50000000000006" width="55.92307692307702" height="33.99999999999994" fill="rgb(219, 150, 153)"><title>Lab a* 20..30
+Lab b* -40..-30
+swatches: 11
+families: purple 7, blue 4
+Royal purple (purple)
+Deep lavender (purple)
+Dahlia purple (purple)
+Passion flower (purple)
+Ultra violet (purple)
+Prism violet (purple)
+Purple opulence (blue)
+Liberty (blue)</title></rect><rect x="537.8846153846154" y="451.5" width="55.92307692307702" height="34.00000000000006" fill="rgb(158, 197, 186)"><title>Lab a* 20..30
 Lab b* -30..-20
-swatches: 10
-families: purple 10
-Charisma (purple)
-Iris orchid (purple)
-Purple magic (purple)
-Bright violet (purple)
-Amaranth purple (purple)
-Willowherb (purple)
-Hyacinth violet (purple)
-Byzantium (purple)</title></rect><rect x="575.8333333333334" y="416.5" width="60.66666666666663" height="34" fill="rgb(218, 148, 152)"><title>Lab a* 30..40
+swatches: 18
+families: purple 18
+Mauve mist (purple)
+Hyacinth (purple)
+Amethyst orchid (purple)
+Purple heart (purple)
+Meadow violet (purple)
+Pansy (purple)
+Imperial purple (purple)
+Heliotrope (purple)</title></rect><rect x="537.8846153846154" y="416.5" width="55.92307692307702" height="34" fill="rgb(216, 143, 146)"><title>Lab a* 20..30
 Lab b* -20..-10
-swatches: 14
-families: pink 7, purple 7
-Phlox (purple)
-Violet (purple)
-Grape juice (purple)
-Bodacious (purple)
-Striking purple (purple)
-Spring crocus (purple)
-Radiant orchid (purple)
-Lilac chiffon (pink)</title></rect><rect x="575.8333333333334" y="381.49999999999994" width="60.66666666666663" height="34.00000000000006" fill="rgb(166, 202, 192)"><title>Lab a* 30..40
+swatches: 23
+families: purple 22, pink 1
+Orchid (purple)
+Chinese violet (purple)
+Crushed grape (purple)
+Concord grape (purple)
+Sunset purple (purple)
+Wood violet (purple)
+Purple passion (purple)
+Wineberry (purple)</title></rect><rect x="537.8846153846154" y="381.49999999999994" width="55.92307692307702" height="34.00000000000006" fill="rgb(157, 196, 186)"><title>Lab a* 20..30
 Lab b* -10..0
-swatches: 10
-families: pink 10
-Cashmere rose (pink)
-Violet quartz (pink)
-Purple potion (pink)
-Prism pink (pink)
-Red violet (pink)
-Magenta purple (pink)
-Rosebloom (pink)
-Begonia pink (pink)</title></rect><rect x="575.8333333333334" y="346.5" width="60.66666666666663" height="33.99999999999994" fill="rgb(213, 136, 140)"><title>Lab a* 30..40
+swatches: 19
+families: pink 19
+Lilac sachet (pink)
+Orchid smoke (pink)
+Polignac (pink)
+Mauve orchid (pink)
+Cameo pink (pink)
+Sweet lilac (pink)
+Pastel lavender (pink)
+Mellow mauve (pink)</title></rect><rect x="537.8846153846154" y="346.5" width="55.92307692307702" height="33.99999999999994" fill="rgb(209, 126, 130)"><title>Lab a* 20..30
 Lab b* 0..10
-swatches: 14
-families: pink 8, red 4, brown 2
-Cordovan (brown)
-Cabernet (brown)
-Mauvewood (red)
-Peony (red)
-Tibetan red (red)
-Rumba red (red)
+swatches: 33
+families: pink 17, brown 8, red 8
+Quartz pink (pink)
 Pink icing (pink)
-Wild rose (pink)</title></rect><rect x="575.8333333333334" y="311.5" width="60.66666666666663" height="34" fill="rgb(211, 129, 134)"><title>Lab a* 30..40
+Powder pink (pink)
+Brandied apricot (pink)
+Dusty rose (pink)
+Bridal rose (pink)
+Blush (pink)
+Apple butter (brown)</title></rect><rect x="537.8846153846154" y="311.5" width="55.92307692307702" height="34" fill="rgb(209, 124, 129)"><title>Lab a* 20..30
 Lab b* 10..20
-swatches: 26
-families: red 15, pink 6, brown 5
-Ruby wine (brown)
-Burnt russet (brown)
-Cowhide (brown)
-Syrah (brown)
-Pomegranate (brown)
-Marsala (red)
-Red pear (red)
-Dusty cedar (red)</title></rect><rect x="575.8333333333334" y="276.5" width="60.66666666666663" height="34" fill="rgb(211, 129, 133)"><title>Lab a* 30..40
+swatches: 36
+families: pink 15, brown 14, red 7
+Chutney (brown)
+Copper brown (brown)
+Sequoia (brown)
+Mahogany (brown)
+Henna (brown)
+Russet brown (brown)
+Madder brown (brown)
+Coral pink (pink)</title></rect><rect x="537.8846153846154" y="276.5" width="55.92307692307702" height="34" fill="rgb(206, 118, 123)"><title>Lab a* 20..30
 Lab b* 20..30
-swatches: 27
-families: red 17, pink 6, orange 4
-Terra cotta (red)
-Etruscan red (red)
-Aragon (red)
-Redwood (red)
-Barn red (red)
-Bruschetta (red)
-Copper coin (red)
-Chili oil (red)</title></rect><rect x="575.8333333333334" y="241.5" width="60.66666666666663" height="34" fill="rgb(213, 134, 138)"><title>Lab a* 30..40
+swatches: 23
+families: brown 7, orange 7, red 6, pink 3
+Amber brown (brown)
+Sierra (brown)
+Ginger bread (brown)
+Mocha bisque (brown)
+Pheasant (orange)
+Sunburn (brown)
+Autumn leaf (brown)
+Copper coin (red)</title></rect><rect x="537.8846153846154" y="241.5" width="55.92307692307702" height="34" fill="rgb(216, 143, 147)"><title>Lab a* 20..30
 Lab b* 30..40
-swatches: 17
-families: orange 9, red 5, brown 3
+swatches: 22
+families: orange 12, brown 10
+Adobe (brown)
+Leather brown (brown)
+Glazed ginger (brown)
+Caramel (brown)
+Raw sienna (brown)
 Bombay brown (brown)
-Cinnamon stick (brown)
-Potter's clay (brown)
-Carnelian (red)
-Mango (red)
-Autumn glaze (red)
-Spice route (red)
-Arabesque (red)</title></rect><rect x="575.8333333333334" y="206.5" width="60.66666666666663" height="34" fill="rgb(219, 151, 154)"><title>Lab a* 30..40
+Copper (orange)
+Apricot tan (orange)</title></rect><rect x="537.8846153846154" y="206.5" width="55.92307692307702" height="34" fill="rgb(218, 149, 152)"><title>Lab a* 20..30
 Lab b* 40..50
-swatches: 10
-families: orange 7, brown 3
-Autumnal (brown)
-Rust (brown)
-Gold flame (brown)
-Muskmelon (orange)
+swatches: 13
+families: brown 7, orange 6
+Sudan brown (brown)
+Nugget (brown)
+Yam (orange)
+Golden oak (brown)
+Topaz (orange)
+Golden ochre (brown)
 Mock orange (orange)
-Papaya (orange)
-Apricot orange (orange)
-Burnt orange (orange)</title></rect><rect x="575.8333333333334" y="171.5" width="60.66666666666663" height="34" fill="rgb(222, 157, 160)"><title>Lab a* 30..40
+Muskmelon (orange)</title></rect><rect x="537.8846153846154" y="171.5" width="55.92307692307702" height="34" fill="rgb(221, 155, 157)"><title>Lab a* 20..30
 Lab b* 50..60
-swatches: 4
-families: brown 3, orange 1
-Hawaiian sunset (brown)
-Marmalade (brown)
-Autumn maple (brown)
-Orange ochre (orange)</title></rect><rect x="575.8333333333334" y="136.50000000000003" width="60.66666666666663" height="33.99999999999997" fill="rgb(221, 156, 159)"><title>Lab a* 30..40
-Lab b* 60..70
-swatches: 5
-families: orange 4, brown 1
-Orange pepper (brown)
-Iceland poppy (orange)
-Apricot (orange)
-Dark cheddar (orange)
-Flame orange (orange)</title></rect><rect x="575.8333333333334" y="101.49999999999997" width="60.66666666666663" height="34.00000000000006" fill="rgb(175, 207, 198)"><title>Lab a* 30..40
-Lab b* 70..80
-swatches: 4
-families: orange 4
-Radiant yellow (orange)
-Carrot curl (orange)
-Zinnia (orange)
-Bright marigold (orange)</title></rect><rect x="637.5" y="416.5" width="60.66666666666663" height="34" fill="rgb(220, 152, 155)"><title>Lab a* 40..50
-Lab b* -20..-10
-swatches: 9
-families: purple 5, pink 4
-Rosebud (purple)
-Hollyhock (purple)
-Clover (purple)
-Purple wine (purple)
-Vivid viola (purple)
-Dahlia mauve (pink)
-Super pink (pink)
-Wild aster (pink)</title></rect><rect x="637.5" y="381.49999999999994" width="60.66666666666663" height="34.00000000000006" fill="rgb(169, 203, 194)"><title>Lab a* 40..50
-Lab b* -10..0
-swatches: 8
-families: pink 8
-Raspberry radiance (pink)
-Magenta haze (pink)
-Wild orchid (pink)
-Sachet pink (pink)
-Aurora pink (pink)
-Baton rouge (pink)
-Ibis rose (pink)
-Cactus flower (pink)</title></rect><rect x="637.5" y="346.5" width="60.66666666666663" height="33.99999999999994" fill="rgb(165, 201, 191)"><title>Lab a* 40..50
-Lab b* 0..10
-swatches: 11
-families: pink 11
-Anemone (pink)
-Chateau rose (pink)
-Beet red (pink)
-Confetti (pink)
-Morning glory (pink)
-Red bud (pink)
-Pink carnation (pink)
-Fruit dove (pink)</title></rect><rect x="637.5" y="311.5" width="60.66666666666663" height="34" fill="rgb(214, 137, 141)"><title>Lab a* 40..50
-Lab b* 10..20
-swatches: 13
-families: pink 6, red 6, orange 1
-Garnet rose (red)
-Garnet (red)
-Holly berry (red)
-Deep claret (red)
-Rio red (red)
-Cardinal (red)
-Desert rose (orange)
-Geranium pink (pink)</title></rect><rect x="637.5" y="276.5" width="60.66666666666663" height="34" fill="rgb(219, 151, 154)"><title>Lab a* 40..50
-Lab b* 20..30
-swatches: 11
-families: red 8, pink 3
-Red dahlia (red)
-Burnt sienna (red)
-Ketchup (red)
-Baked apple (red)
-Cranberry (red)
-American beauty (red)
-Scooter (red)
-Chrysanthemum (red)</title></rect><rect x="637.5" y="241.5" width="60.66666666666663" height="34" fill="rgb(218, 149, 152)"><title>Lab a* 40..50
-Lab b* 30..40
-swatches: 13
-families: pink 7, red 6
-Mecca orange (red)
-Chili (red)
-Rooibos tea (red)
-Orange rust (red)
-Burnt ochre (red)
-Summer fig (red)
-Fusion coral (pink)
-Flamingo (pink)</title></rect><rect x="637.5" y="206.5" width="60.66666666666663" height="34" fill="rgb(210, 127, 132)"><title>Lab a* 40..50
-Lab b* 40..50
-swatches: 9
-families: orange 5, red 2, brown 1, pink 1
-Harvest pumpkin (brown)
-Koi (red)
-Red clay (red)
-Autumn sunset (orange)
-Jaffa orange (orange)
-Bird of paradise (orange)
-Nectarine (orange)
-Coral rose (orange)</title></rect><rect x="637.5" y="171.5" width="60.66666666666663" height="34" fill="rgb(173, 206, 197)"><title>Lab a* 40..50
-Lab b* 50..60
-swatches: 5
-families: orange 5
-Celosia orange (orange)
-Sun orange (orange)
-Mandarin orange (orange)
-Russet orange (orange)
-Orange peel (orange)</title></rect><rect x="637.5" y="136.50000000000003" width="60.66666666666663" height="33.99999999999997" fill="rgb(223, 160, 162)"><title>Lab a* 40..50
-Lab b* 60..70
-swatches: 2
-families: brown 1, orange 1
-Exuberance (brown)
-Persimmon orange (orange)</title></rect><rect x="637.5" y="101.49999999999997" width="60.66666666666663" height="34.00000000000006" fill="rgb(175, 207, 198)"><title>Lab a* 40..50
-Lab b* 70..80
-swatches: 4
-families: orange 4
-Autumn glory (orange)
-Turmeric (orange)
-Orange popsicle (orange)
-Tangelo (orange)</title></rect><rect x="699.1666666666666" y="416.5" width="60.66666666666674" height="34" fill="rgb(179, 210, 201)"><title>Lab a* 50..60
-Lab b* -20..-10
-swatches: 2
-families: pink 2
-Phlox pink (pink)
-Rose violet (pink)</title></rect><rect x="699.1666666666666" y="381.49999999999994" width="60.66666666666674" height="34.00000000000006" fill="rgb(171, 205, 196)"><title>Lab a* 50..60
-Lab b* -10..0
 swatches: 6
-families: pink 6
-Festival fuchsia (pink)
-Lilac rose (pink)
-Fuchsia red (pink)
-Carmine rose (pink)
-Very berry (pink)
-Raspberry rose (pink)</title></rect><rect x="699.1666666666666" y="346.5" width="60.66666666666674" height="33.99999999999994" fill="rgb(166, 202, 192)"><title>Lab a* 50..60
-Lab b* 0..10
-swatches: 10
-families: pink 10
-Vivacious (pink)
-Pink lemonade (pink)
-Azalea pink (pink)
-Cherries jubilee (pink)
-Granita (pink)
-Pink flambe (pink)
-Shocking pink (pink)
-Fuchsia rose (pink)</title></rect><rect x="699.1666666666666" y="311.5" width="60.66666666666674" height="34" fill="rgb(220, 154, 157)"><title>Lab a* 50..60
-Lab b* 10..20
-swatches: 7
-families: pink 5, red 2
-Claret red (red)
-Raspberry wine (red)
-Sunkist coral (pink)
-Camellia rose (pink)
-Honeysuckle (pink)
-Persian red (pink)
-Cerise (pink)</title></rect><rect x="699.1666666666666" y="276.5" width="60.66666666666674" height="34" fill="rgb(217, 147, 150)"><title>Lab a* 50..60
-Lab b* 20..30
-swatches: 17
-families: red 11, pink 6
-Scarlet sage (red)
-Chili pepper (red)
-Pompeian red (red)
-Samba (red)
-Jester red (red)
-Rococco red (red)
-Haute red (red)
-Tomato puree (red)</title></rect><rect x="699.1666666666666" y="241.5" width="60.66666666666674" height="34" fill="rgb(218, 148, 151)"><title>Lab a* 50..60
-Lab b* 30..40
-swatches: 15
-families: red 10, pink 5
-Paprika (red)
-Aurora red (red)
-Molten lava (red)
-Salsa (red)
-Ribbon red (red)
-Aura orange (red)
-Valiant poppy (red)
-Poinsettia (red)</title></rect><rect x="699.1666666666666" y="206.5" width="60.66666666666674" height="34" fill="rgb(221, 156, 159)"><title>Lab a* 50..60
-Lab b* 40..50
-swatches: 5
-families: pink 3, red 2
-Pureed pumpkin (red)
-Poinciana (red)
-Tigerlily (pink)
-Firecracker (pink)
-Nasturtium (pink)</title></rect><rect x="699.1666666666666" y="171.5" width="60.66666666666674" height="34" fill="rgb(210, 127, 132)"><title>Lab a* 50..60
-Lab b* 50..60
-swatches: 9
-families: orange 4, pink 3, brown 1, red 1
-Puffin's bill (brown)
-Orangeade (red)
-Carrot (orange)
-Golden poppy (orange)
-Exotic orange (orange)
-Dragon fire (orange)
-Vermillion orange (pink)
-Flame (pink)</title></rect><rect x="699.1666666666666" y="136.50000000000003" width="60.66666666666674" height="33.99999999999997" fill="rgb(179, 210, 201)"><title>Lab a* 50..60
+families: brown 3, orange 3
+Butterscotch (orange)
+Blazing orange (orange)
+Desert sun (brown)
+Kumquat (orange)
+Thai curry (brown)
+Honey ginger (brown)</title></rect><rect x="537.8846153846154" y="136.50000000000003" width="55.92307692307702" height="33.99999999999997" fill="rgb(179, 210, 201)"><title>Lab a* 20..30
 Lab b* 60..70
 swatches: 2
 families: orange 2
-Vibrant orange (orange)
-Orange tiger (orange)</title></rect><rect x="760.8333333333334" y="346.5" width="60.66666666666663" height="33.99999999999994" fill="rgb(170, 204, 195)"><title>Lab a* 60..70
+Cadmium yellow (orange)
+Iceland poppy (orange)</title></rect><rect x="537.8846153846154" y="101.49999999999997" width="55.92307692307702" height="34.00000000000006" fill="rgb(176, 209, 199)"><title>Lab a* 20..30
+Lab b* 70..80
+swatches: 3
+families: orange 3
+Saffron (orange)
+Zinnia (orange)
+Radiant yellow (orange)</title></rect><rect x="594.8076923076924" y="451.5" width="55.923076923076906" height="34.00000000000006" fill="rgb(167, 202, 193)"><title>Lab a* 30..40
+Lab b* -30..-20
+swatches: 9
+families: purple 9
+Iris orchid (purple)
+Hyacinth violet (purple)
+Sparkling grape (purple)
+Grape juice (purple)
+Royal lilac (purple)
+Bright violet (purple)
+Amaranth purple (purple)
+Purple magic (purple)</title></rect><rect x="594.8076923076924" y="416.5" width="55.923076923076906" height="34" fill="rgb(218, 148, 151)"><title>Lab a* 30..40
+Lab b* -20..-10
+swatches: 14
+families: purple 8, pink 6
+Fuchsia pink (pink)
+Lilac chiffon (pink)
+Cyclamen (pink)
+Opera mauve (pink)
+Crocus (pink)
+Mulberry (purple)
+Striking purple (purple)
+Violet (purple)</title></rect><rect x="594.8076923076924" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(167, 202, 193)"><title>Lab a* 30..40
+Lab b* -10..0
+swatches: 9
+families: pink 9
+Prism pink (pink)
+Begonia pink (pink)
+Rosebloom (pink)
+Cashmere rose (pink)
+Moonlite mauve (pink)
+Magenta purple (pink)
+Purple potion (pink)
+Red violet (pink)</title></rect><rect x="594.8076923076924" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(213, 134, 138)"><title>Lab a* 30..40
 Lab b* 0..10
+swatches: 17
+families: pink 8, red 6, brown 3
+Mauveglow (pink)
+Baroque rose (red)
+Rumba red (red)
+Earth red (red)
+Tibetan red (red)
+Ruby wine (brown)
+Cordovan (brown)
+Mauvewood (red)</title></rect><rect x="594.8076923076924" y="311.5" width="55.923076923076906" height="34" fill="rgb(212, 132, 136)"><title>Lab a* 30..40
+Lab b* 10..20
+swatches: 20
+families: red 13, pink 6, brown 1
+Coral haze (pink)
+Dusty cedar (red)
+Faded rose (red)
+Barn red (red)
+Lantana (red)
+Candlelight peach (pink)
+Strawberry ice (pink)
+Peach blossom (pink)</title></rect><rect x="594.8076923076924" y="276.5" width="55.923076923076906" height="34" fill="rgb(211, 130, 135)"><title>Lab a* 30..40
+Lab b* 20..30
+swatches: 23
+families: red 13, pink 6, orange 4
+Carnelian (red)
+Langoustino (red)
+Ginger (orange)
+Ginger spice (red)
+Picante (red)
+Tandori spice (red)
+Cinnabar (red)
+Bossa nova (red)</title></rect><rect x="594.8076923076924" y="241.5" width="55.923076923076906" height="34" fill="rgb(209, 124, 129)"><title>Lab a* 30..40
+Lab b* 30..40
+swatches: 13
+families: red 6, orange 4, brown 2, pink 1
+Mecca orange (red)
+Mango (red)
+Cantaloupe (orange)
+Cadmium orange (orange)
+Dusty orange (orange)
+Arabesque (red)
+Flamingo (pink)
+Orange rust (red)</title></rect><rect x="594.8076923076924" y="206.5" width="55.923076923076906" height="34" fill="rgb(220, 152, 155)"><title>Lab a* 30..40
+Lab b* 40..50
+swatches: 9
+families: orange 7, brown 2
+Rust (brown)
+Amberglow (orange)
+Jaffa orange (orange)
+Apricot orange (orange)
+Burnt orange (orange)
+Autumn sunset (orange)
+Tangerine (orange)
+Bird of paradise (orange)</title></rect><rect x="594.8076923076924" y="171.5" width="55.923076923076906" height="34" fill="rgb(221, 156, 158)"><title>Lab a* 30..40
+Lab b* 50..60
+swatches: 5
+families: brown 3, orange 2
+Orange ochre (orange)
+Sun orange (orange)
+Marmalade (brown)
+Hawaiian sunset (brown)
+Autumn maple (brown)</title></rect><rect x="594.8076923076924" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(221, 157, 160)"><title>Lab a* 30..40
+Lab b* 60..70
+swatches: 4
+families: orange 3, brown 1
+Apricot (orange)
+Dark cheddar (orange)
+Flame orange (orange)
+Orange pepper (brown)</title></rect><rect x="594.8076923076924" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(176, 209, 199)"><title>Lab a* 30..40
+Lab b* 70..80
+swatches: 3
+families: orange 3
+Bright marigold (orange)
+Autumn glory (orange)
+Carrot curl (orange)</title></rect><rect x="651.7307692307693" y="451.5" width="55.923076923076906" height="34.00000000000006" fill="rgb(176, 209, 199)"><title>Lab a* 40..50
+Lab b* -30..-20
+swatches: 3
+families: purple 3
+Dahlia (purple)
+Byzantium (purple)
+Willowherb (purple)</title></rect><rect x="651.7307692307693" y="416.5" width="55.923076923076906" height="34" fill="rgb(218, 149, 152)"><title>Lab a* 40..50
+Lab b* -20..-10
+swatches: 13
+families: purple 7, pink 6
+Super pink (pink)
+Radiant orchid (purple)
+Spring crocus (purple)
+Meadow mauve (pink)
+Rosebud (purple)
+Purple orchid (pink)
+Dahlia mauve (pink)
+Vivid viola (purple)</title></rect><rect x="651.7307692307693" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(167, 202, 193)"><title>Lab a* 40..50
+Lab b* -10..0
+swatches: 9
+families: pink 9
+Ibis rose (pink)
+Sachet pink (pink)
+Wild orchid (pink)
+Aurora pink (pink)
+Cactus flower (pink)
+Magenta haze (pink)
+Baton rouge (pink)
+Boysenberry (pink)</title></rect><rect x="651.7307692307693" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(165, 201, 191)"><title>Lab a* 40..50
+Lab b* 0..10
+swatches: 11
+families: pink 11
+Confetti (pink)
+Bubblegum (pink)
+Rapture rose (pink)
+Chateau rose (pink)
+Morning glory (pink)
+Carmine (pink)
+Pink carnation (pink)
+Red bud (pink)</title></rect><rect x="651.7307692307693" y="311.5" width="55.923076923076906" height="34" fill="rgb(213, 136, 140)"><title>Lab a* 40..50
+Lab b* 10..20
+swatches: 14
+families: red 9, pink 4, orange 1
+Cardinal (red)
+Desert rose (orange)
+Conch shell (pink)
+Salmon rose (pink)
+Strawberry pink (pink)
+Tea rose (pink)
+Garnet rose (red)
+Holly berry (red)</title></rect><rect x="651.7307692307693" y="276.5" width="55.923076923076906" height="34" fill="rgb(219, 150, 153)"><title>Lab a* 40..50
+Lab b* 20..30
+swatches: 11
+families: red 6, pink 5
+Baked apple (red)
+Pompeian red (red)
+Ketchup (red)
+Fusion coral (pink)
+Shell pink (pink)
+Porcelain rose (pink)
+Spiced coral (pink)
+Deep sea coral (pink)</title></rect><rect x="651.7307692307693" y="241.5" width="55.923076923076906" height="34" fill="rgb(219, 150, 153)"><title>Lab a* 40..50
+Lab b* 30..40
+swatches: 12
+families: pink 8, red 4
+Melon (pink)
+Burnt ochre (red)
+Chili (red)
+Fresh salmon (pink)
+Persimmon (pink)
+Coral (pink)
+Camellia (pink)
+Emberglow (pink)</title></rect><rect x="651.7307692307693" y="206.5" width="55.923076923076906" height="34" fill="rgb(216, 143, 147)"><title>Lab a* 40..50
+Lab b* 40..50
+swatches: 5
+families: orange 2, red 2, brown 1
+Harvest pumpkin (brown)
+Nectarine (orange)
+Coral rose (orange)
+Red clay (red)
+Koi (red)</title></rect><rect x="651.7307692307693" y="171.5" width="55.923076923076906" height="34" fill="rgb(174, 207, 198)"><title>Lab a* 40..50
+Lab b* 50..60
+swatches: 4
+families: orange 4
+Russet orange (orange)
+Orange peel (orange)
+Mandarin orange (orange)
+Celosia orange (orange)</title></rect><rect x="651.7307692307693" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(222, 158, 161)"><title>Lab a* 40..50
+Lab b* 60..70
+swatches: 3
+families: orange 2, brown 1
+Persimmon orange (orange)
+Vibrant orange (orange)
+Exuberance (brown)</title></rect><rect x="651.7307692307693" y="101.49999999999997" width="55.923076923076906" height="34.00000000000006" fill="rgb(176, 209, 199)"><title>Lab a* 40..50
+Lab b* 70..80
+swatches: 3
+families: orange 3
+Orange popsicle (orange)
+Turmeric (orange)
+Tangelo (orange)</title></rect><rect x="708.6538461538462" y="416.5" width="55.923076923076906" height="34" fill="rgb(176, 209, 199)"><title>Lab a* 50..60
+Lab b* -20..-10
+swatches: 3
+families: pink 3
+Phlox pink (pink)
+Rose violet (pink)
+Fuchsia red (pink)</title></rect><rect x="708.6538461538462" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(170, 204, 195)"><title>Lab a* 50..60
+Lab b* -10..0
 swatches: 7
 families: pink 7
-Magenta (pink)
-Cabaret (pink)
-Raspberry sorbet (pink)
-Pink yarrow (pink)
+Azalea pink (pink)
+Shocking pink (pink)
+Carmine rose (pink)
+Lilac rose (pink)
+Very berry (pink)
+Raspberry rose (pink)
+Festival fuchsia (pink)</title></rect><rect x="708.6538461538462" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(166, 202, 192)"><title>Lab a* 50..60
+Lab b* 0..10
+swatches: 10
+families: pink 10
+Pink lemonade (pink)
+Camellia rose (pink)
+Cerise (pink)
+Hot pink (pink)
+Fuchsia rose (pink)
+Pink flambe (pink)
+Sangria (pink)
+Granita (pink)</title></rect><rect x="708.6538461538462" y="311.5" width="55.923076923076906" height="34" fill="rgb(221, 156, 158)"><title>Lab a* 50..60
+Lab b* 10..20
+swatches: 5
+families: pink 3, red 2
+Sunkist coral (pink)
+Claret red (red)
+Raspberry wine (red)
+Persian red (pink)
+Honeysuckle (pink)</title></rect><rect x="708.6538461538462" y="276.5" width="55.923076923076906" height="34" fill="rgb(217, 145, 148)"><title>Lab a* 50..60
+Lab b* 20..30
+swatches: 20
+families: red 14, pink 6
+Georgia peach (pink)
+Sugar coral (pink)
+Dubarry (pink)
+Rose of sharon (pink)
+Cayenne (pink)
+Poinsettia (red)
+Rococco red (red)
+Tomato puree (red)</title></rect><rect x="708.6538461538462" y="241.5" width="55.923076923076906" height="34" fill="rgb(220, 152, 155)"><title>Lab a* 50..60
+Lab b* 30..40
+swatches: 9
+families: red 7, pink 2
+Living coral (pink)
+Hot coral (pink)
+Paprika (red)
+Molten lava (red)
+Aurora red (red)
+Mars red (red)
+Barbados cherry (red)
+Valiant poppy (red)</title></rect><rect x="708.6538461538462" y="206.5" width="55.923076923076906" height="34" fill="rgb(220, 153, 156)"><title>Lab a* 50..60
+Lab b* 40..50
+swatches: 8
+families: pink 4, red 4
+Firecracker (pink)
+Tigerlily (pink)
+Mandarin red (pink)
+Fiesta (red)
+Spicy orange (red)
+Nasturtium (pink)
+Pureed pumpkin (red)
+Poinciana (red)</title></rect><rect x="708.6538461538462" y="171.5" width="55.923076923076906" height="34" fill="rgb(209, 125, 130)"><title>Lab a* 50..60
+Lab b* 50..60
+swatches: 11
+families: orange 4, pink 3, brown 2, red 2
+Golden poppy (orange)
+Carrot (orange)
+Red orange (pink)
+Vermillion orange (pink)
+Flame (pink)
+Puffin's bill (brown)
+Orangeade (red)
+Tangerine tango (red)</title></rect><rect x="708.6538461538462" y="136.50000000000003" width="55.923076923076906" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* 50..60
+Lab b* 60..70
+swatches: 1
+families: orange 1
+Orange tiger (orange)</title></rect><rect x="765.5769230769231" y="381.49999999999994" width="55.923076923076906" height="34.00000000000006" fill="rgb(176, 209, 199)"><title>Lab a* 60..70
+Lab b* -10..0
+swatches: 3
+families: pink 3
 Fuchsia purple (pink)
-Pink peacock (pink)
-Beetroot purple (pink)</title></rect><rect x="760.8333333333334" y="311.5" width="60.66666666666663" height="34" fill="rgb(169, 203, 194)"><title>Lab a* 60..70
+Cabaret (pink)
+Pink yarrow (pink)</title></rect><rect x="765.5769230769231" y="346.5" width="55.923076923076906" height="33.99999999999994" fill="rgb(171, 205, 196)"><title>Lab a* 60..70
+Lab b* 0..10
+swatches: 6
+families: pink 6
+Bright rose (pink)
+Fandango pink (pink)
+Raspberry sorbet (pink)
+Beetroot purple (pink)
+Magenta (pink)
+Pink peacock (pink)</title></rect><rect x="765.5769230769231" y="311.5" width="55.923076923076906" height="34" fill="rgb(168, 203, 194)"><title>Lab a* 60..70
 Lab b* 10..20
 swatches: 8
 families: pink 8
-Jazzy (pink)
 Rouge red (pink)
-Love potion (pink)
 Raspberry (pink)
-Rose red (pink)
-Bright rose (pink)
 Azalea (pink)
-Virtual pink (pink)</title></rect><rect x="760.8333333333334" y="276.5" width="60.66666666666663" height="34" fill="rgb(220, 153, 156)"><title>Lab a* 60..70
-Lab b* 20..30
-swatches: 8
-families: pink 4, red 4
-Crimson (red)
-Geranium (red)
-Toreador (red)
-Ski patrol (red)
-Jalapeno red (pink)
+Virtual pink (pink)
+Rose red (pink)
 Barberry (pink)
+Jazzy (pink)
+Love potion (pink)</title></rect><rect x="765.5769230769231" y="276.5" width="55.923076923076906" height="34" fill="rgb(220, 154, 157)"><title>Lab a* 60..70
+Lab b* 20..30
+swatches: 7
+families: red 4, pink 3
+Ski patrol (red)
+Geranium (red)
 Paradise pink (pink)
-Teaberry (pink)</title></rect><rect x="760.8333333333334" y="241.5" width="60.66666666666663" height="34" fill="rgb(219, 151, 154)"><title>Lab a* 60..70
-Lab b* 30..40
-swatches: 11
-families: red 10, pink 1
+Teaberry (pink)
+Toreador (red)
 Lychee (red)
-True red (red)
+Jalapeno red (pink)</title></rect><rect x="765.5769230769231" y="241.5" width="55.923076923076906" height="34" fill="rgb(219, 151, 154)"><title>Lab a* 60..70
+Lab b* 30..40
+swatches: 10
+families: red 9, pink 1
+Hibiscus (pink)
 Bittersweet (red)
-Goji berry (red)
-Racing red (red)
+Poppy red (red)
 Tomato (red)
-Chinese red (red)
-Lollipop (red)</title></rect><rect x="760.8333333333334" y="206.5" width="60.66666666666663" height="34" fill="rgb(221, 155, 158)"><title>Lab a* 60..70
+High risk red (red)
+Lollipop (red)
+Racing red (red)
+Chinese red (red)</title></rect><rect x="765.5769230769231" y="206.5" width="55.923076923076906" height="34" fill="rgb(176, 209, 199)"><title>Lab a* 60..70
 Lab b* 40..50
-swatches: 6
-families: red 5, pink 1
-Fiesta (red)
-Grenadine (red)
-Flame scarlet (red)
-Spicy orange (red)
-Fiery red (red)
-Mandarin red (pink)</title></rect><rect x="760.8333333333334" y="171.5" width="60.66666666666663" height="34" fill="rgb(177, 209, 200)"><title>Lab a* 60..70
-Lab b* 50..60
 swatches: 3
 families: red 3
-Tangerine tango (red)
-Orange.com (red)
-Cherry tomato (red)</title></rect><rect x="760.8333333333334" y="136.50000000000003" width="60.66666666666663" height="33.99999999999997" fill="rgb(182, 212, 203)"><title>Lab a* 60..70
-Lab b* 60..70
-swatches: 1
-families: brown 1
-Scarlet ibis (brown)</title></rect></g><g aria-label="text" fill="#26231f" font-size="10" font-variant="tabular-nums" font-weight="700"><text y="0.32em" transform="translate(421.1666666666667,328.5)">4</text><text y="0.32em" transform="translate(421.1666666666667,293.5)">4</text><text y="0.32em" transform="translate(482.83333333333326,363.50000000000006)">4</text><text y="0.32em" transform="translate(482.83333333333326,328.5)">5</text><text y="0.32em" transform="translate(544.5,293.5)">4</text><text y="0.32em" transform="translate(667.8333333333334,223.49999999999997)">4</text><text y="0.32em" transform="translate(729.5,188.5)">4</text></g><g aria-label="rule" stroke="#9c948b" stroke-dasharray="4,4"><line x1="390.3333333333333" x2="390.3333333333333" y1="66" y2="556"></line></g><g aria-label="rule" stroke="#9c948b" stroke-dasharray="4,4"><line x1="82" x2="822" y1="380.99999999999994" y2="380.99999999999994"></line></g><rect aria-label="frame" fill="none" stroke="#d8d4cc" x="82" y="66" width="740" height="490"></rect><g aria-label="legend" transform="translate(82 22)"><rect x="0" y="0" width="12" height="12" rx="2" fill="#287a68"></rect><text x="18" y="10" font-size="12" fill="#26231f" text-anchor="start">single-family bin</text><rect x="154" y="0" width="12" height="12" rx="2" fill="#b83b45"></rect><text x="172" y="10" font-size="12" fill="#26231f" text-anchor="start">mixed-family edge</text><rect x="308" y="0" width="12" height="12" rx="2" fill="#6f6259"></rect><text x="326" y="10" font-size="12" fill="#26231f" text-anchor="start">darker cells hold more swatches</text></g></svg>
+Grenadine (red)
+Fiery red (red)
+Flame scarlet (red)</title></rect><rect x="765.5769230769231" y="171.5" width="55.923076923076906" height="34" fill="rgb(179, 210, 201)"><title>Lab a* 60..70
+Lab b* 50..60
+swatches: 2
+families: red 2
+Cherry tomato (red)
+Orange.com (red)</title></rect></g><g aria-label="text" fill="#26231f" font-size="10" font-variant="tabular-nums" font-weight="700"><text y="0.32em" transform="translate(395.0769230769231,293.5)">4</text><text y="0.32em" transform="translate(452,328.5)">4</text><text y="0.32em" transform="translate(452,293.5)">4</text><text y="0.32em" transform="translate(508.92307692307685,363.50000000000006)">4</text><text y="0.32em" transform="translate(508.92307692307685,328.5)">5</text><text y="0.32em" transform="translate(565.8461538461538,293.5)">4</text><text y="0.32em" transform="translate(622.7692307692307,258.5)">4</text><text y="0.32em" transform="translate(736.6153846153845,188.5)">4</text></g><g aria-label="rule" stroke="#9c948b" stroke-dasharray="4,4"><line x1="423.53846153846155" x2="423.53846153846155" y1="66" y2="556"></line></g><g aria-label="rule" stroke="#9c948b" stroke-dasharray="4,4"><line x1="82" x2="822" y1="380.99999999999994" y2="380.99999999999994"></line></g><rect aria-label="frame" fill="none" stroke="#d8d4cc" x="82" y="66" width="740" height="490"></rect><g aria-label="legend" transform="translate(82 22)"><rect x="0" y="0" width="12" height="12" rx="2" fill="#287a68"></rect><text x="18" y="10" font-size="12" fill="#26231f" text-anchor="start">single-family bin</text><rect x="154" y="0" width="12" height="12" rx="2" fill="#b83b45"></rect><text x="172" y="10" font-size="12" fill="#26231f" text-anchor="start">mixed-family edge</text><rect x="308" y="0" width="12" height="12" rx="2" fill="#6f6259"></rect><text x="326" y="10" font-size="12" fill="#26231f" text-anchor="start">darker cells hold more swatches</text></g></svg>
