@@ -65,6 +65,10 @@ The stable runtime path is:
 
 - frozen swatch reference:
   - `data/margaret2_swatches.json`
+- runtime colour library export:
+  - `huemiliator colour-library --format json`
+  - schema `huemiliator.colour_library.v1`
+  - every frozen swatch with runtime family, rank, and colour metrics
 - live eval evidence:
   - `.local/evals.sqlite`
 - local quarantine artefacts for superseded runs:

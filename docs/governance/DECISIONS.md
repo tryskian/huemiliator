@@ -459,3 +459,19 @@ into implementation authorship.
   while treating the colour substrate as already measured. This keeps language
   fidelity, tone fit, evidence fit, and consistency separate from picker and
   swatch-resolution correctness.
+
+## D-034: Colour library export is the chart substrate
+
+- Date: `2026-08-03`
+- Category: `eval_quality`
+- Tags: `colour_library`, `chart_data`, `swatch_snapshot`, `runtime_metrics`
+- Provenance: `implementation decision`
+- Decision: Huey exposes `colour-library` as a deterministic runtime export.
+  JSON output uses schema `huemiliator.colour_library.v1` and carries every
+  frozen swatch with runtime family assignment, same-family rank, and derived
+  colour metrics.
+- Validation:
+  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_colour_library.py tests/test_main.py`
+- Why: Research charts and Polinko-facing eval fixtures should derive from
+  swatch rows, classifier output, and colour metrics rather than from prose
+  labels or duplicated chart-script logic.

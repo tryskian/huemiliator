@@ -211,6 +211,14 @@ Dependency maintenance:
 3. Run `make security-checks`.
 4. Finish with `make end` on clean synced `main`.
 
+## Colour Library Commands
+
+- `huemiliator colour-library`
+  - print the frozen swatch source and current runtime family counts
+- `huemiliator colour-library --format json`
+  - emit every frozen swatch with runtime family, same-family rank, and colour
+    metrics for chart and eval data
+
 ## Behaviour Eval Commands
 
 - `huemiliator behaviour-contract`

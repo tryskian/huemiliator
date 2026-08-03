@@ -11,6 +11,7 @@ from huemiliator.agent import (
     RUNTIME_CONTRACT_LINES,
     TAGLINE,
 )
+from huemiliator.colour_library import build_colour_library_packet
 from huemiliator.config import load_settings
 from huemiliator.eval_db import (
     LIST_VERDICTS,
@@ -49,6 +50,18 @@ def build_parser() -> argparse.ArgumentParser:
         help="Show the language and behaviour eval contract.",
     )
     subparsers.add_parser("pick", help="Open the native macOS colour picker.")
+
+    colour_library_parser = subparsers.add_parser(
+        "colour-library",
+        help="Emit the runtime colour library for chart and eval data.",
+    )
+    colour_library_parser.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        dest="output_format",
+        help="Output format for the runtime colour library.",
+    )
 
     resolve_parser = subparsers.add_parser(
         "resolve",
@@ -251,6 +264,35 @@ def render_contract() -> str:
 
 def render_behaviour_contract() -> str:
     return "\n".join(BEHAVIOUR_CONTRACT_LINES)
+
+
+def render_colour_library(output_format: str = "text") -> str:
+    settings = load_settings()
+    dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
+    packet = build_colour_library_packet(dataset)
+    if output_format == "json":
+        return json.dumps(packet, indent=2)
+    if output_format != "text":
+        raise ValueError(f"Unsupported colour library format '{output_format}'.")
+
+    families = packet["families"]
+    if not isinstance(families, list):
+        raise TypeError("Colour library packet families must be a list.")
+
+    lines = [
+        "colour library",
+        f"schema: {packet['schema']}",
+        f"source: {packet['source']['name']}",
+        f"snapshot date: {packet['source']['snapshot_date']}",
+        f"swatches: {packet['source']['swatch_count']}",
+        "",
+        "families:",
+    ]
+    for family in families:
+        if not isinstance(family, dict):
+            raise TypeError("Colour library packet family rows must be mappings.")
+        lines.append(f"- {family['family']}: {family['count']}")
+    return "\n".join(lines)
 
 
 def build_behaviour_fact_packet(hex_value: str) -> dict[str, Any]:
@@ -651,6 +693,13 @@ def main(argv: list[str] | None = None) -> int:
         try:
             print(pick_hex())
         except PickerError as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "colour-library":
+        try:
+            print(render_colour_library(args.output_format))
+        except (SwatchDatasetError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1
         return 0
