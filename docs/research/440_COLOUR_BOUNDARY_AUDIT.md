@@ -18,7 +18,7 @@ classifier seams before chart and Polinko-facing eval expansion?
 
 Closed.
 
-The first two colour-boundary report pulses launched from the strongest mixed
+The first three colour-boundary report pulses launched from the strongest mixed
 Lab bins in `huemiliator colour-boundaries --limit 3 --samples-per-family 1`.
 
 The first pulse passed at `20154..20158`:
@@ -27,12 +27,16 @@ The first pulse passed at `20154..20158`:
 The second pulse passed at `20159..20162`:
 `4 anchors / 0 counted seams / 0 excluded`.
 
+The third pulse passed at `20163..20166`:
+`4 anchors / 0 counted seams / 0 excluded`.
+
 The prior live proof surfaces were quarantined locally before later pulses:
 
 | Archived surface | Rows | Archive |
 | --- | ---: | --- |
 | `20151..20153` | `3` | `.local/parked/eval-surface-20260803T215237Z-beta-1-0-boundary-balanced-warm-low-chroma-preflight.jsonl` |
 | `20154..20158` | `5` | `.local/parked/eval-surface-20260803T220104Z-beta-1-0-colour-boundary-warm-low-chroma-five-family-pass.jsonl` |
+| `20159..20162` | `4` | `.local/parked/eval-surface-20260803T220515Z-beta-1-0-colour-boundary-neutral-brown-orange-yellow-pass.jsonl` |
 
 ## Boundary Source
 
@@ -75,12 +79,32 @@ The prior live proof surfaces were quarantined locally before later pulses:
 | `20161` | `236` `Incense` | `#af9a7e` | `orange` | `Travertine` | `anchor` |
 | `20162` | `97` `Twill` | `#a79b82` | `yellow` | `Aloe wash` | `anchor` |
 
+## Third Boundary Source
+
+| Signal | Value |
+| --- | --- |
+| report command | `huemiliator colour-boundaries --limit 3 --samples-per-family 1` |
+| Lab a* bin | `10..20` |
+| Lab b* bin | `0..10` |
+| swatches in bin | `58` |
+| family counts | `neutral 20`, `pink 20`, `brown 15`, `red 3` |
+| seed mode | `explicit-input-hex` |
+
+## Third Pulse Rows
+
+| Output | Family sample | Input | Runtime family | Replacement | Label |
+| ---: | --- | --- | --- | --- | --- |
+| `20163` | `297` `Almondine` | `#a78c8b` | `neutral` | `Plum kitten` | `anchor` |
+| `20164` | `843` `Silver pink` | `#dcb1af` | `pink` | `Grapeade` | `anchor` |
+| `20165` | `404` `Fudgesickle` | `#63403a` | `brown` | `Beaver fur` | `anchor` |
+| `20166` | `894` `Mellow rose` | `#d9a6a1` | `red` | `Ash rose` | `anchor` |
+
 ## Read
 
 The first warm low-chroma five-family junction and the second neutral / brown /
-orange / yellow junction both held under exact-input sampling. The boundary
-report is useful for candidate selection, but these pulses do not justify a
-classifier edit.
+orange / yellow junction both held under exact-input sampling. The third
+neutral / pink / brown / red junction also held. The boundary report is useful
+for candidate selection, but these pulses do not justify a classifier edit.
 
 Next colour-boundary work should move to another promoted mixed bin or chart
 signal rather than retesting these passed surfaces.
@@ -94,4 +118,6 @@ PYTHONPATH=src .venv/bin/python -m huemiliator eval-pulse-report 20154 20158
 PYTHONPATH=src .venv/bin/python -m huemiliator colour-boundaries --limit 3 --samples-per-family 1
 PYTHONPATH=src .venv/bin/python -m huemiliator eval-pulse-start --input-hex "#dfd1bb" --input-hex "#8a7963" --input-hex "#af9a7e" --input-hex "#a79b82" --quarantine-label "beta 1 0 colour boundary warm low chroma five family pass"
 PYTHONPATH=src .venv/bin/python -m huemiliator eval-pulse-report 20159 20162
+PYTHONPATH=src .venv/bin/python -m huemiliator eval-pulse-start --input-hex "#a78c8b" --input-hex "#dcb1af" --input-hex "#63403a" --input-hex "#d9a6a1" --quarantine-label "beta 1 0 colour boundary neutral brown orange yellow pass"
+PYTHONPATH=src .venv/bin/python -m huemiliator eval-pulse-report 20163 20166
 ```

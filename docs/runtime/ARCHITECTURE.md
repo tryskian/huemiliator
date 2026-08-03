@@ -104,12 +104,13 @@ The current method record is:
   The broader corrected `neutral` continuation at `20106..20120` is a carried
   prior proof surface, the warm-edge audit stack through `20151..20153` is
   carried as closed proof, the colour-boundary audit pulse at `20154..20158`
-  is carried as closed proof, and the pulse at `20159..20162` is the latest
-  closed proof surface. The corrected split stack at `20097..20105` stays
-  carried as the neutral correction. The full parked red, yellow, green, blue,
-  purple, pink, orange, brown, and neutral proof stacks stay as the current
-  Beta 1.0 comparison stack, and the closed third corrected `red` rerun stays
-  as the closed row-level comparison baseline.
+  is carried as closed proof, the pulse at `20159..20162` is carried as closed
+  proof, and the pulse at `20163..20166` is the latest closed proof surface.
+  The corrected split stack at `20097..20105` stays carried as the neutral
+  correction. The full parked red, yellow, green, blue, purple, pink, orange,
+  brown, and neutral proof stacks stay as the current Beta 1.0 comparison
+  stack, and the closed third corrected `red` rerun stays as the closed
+  row-level comparison baseline.
 - one active family lane at a time when an eval pulse is queued
 - one active sampler at a time
 - bounded fail-pressure pulse as the current judgement unit
