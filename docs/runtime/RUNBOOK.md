@@ -218,6 +218,11 @@ Dependency maintenance:
 - `huemiliator colour-library --format json`
   - emit every frozen swatch with runtime family, same-family rank, and colour
     metrics for chart and eval data
+- `huemiliator colour-boundaries`
+  - print the strongest mixed-family Lab bins from the runtime colour library
+- `huemiliator colour-boundaries --format json`
+  - emit mixed-family Lab bins with capped row samples for chart, audit, and
+    next-pulse candidate selection
 
 ## Behaviour Eval Commands
 

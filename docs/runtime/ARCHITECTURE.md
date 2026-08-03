@@ -69,6 +69,10 @@ The stable runtime path is:
   - `huemiliator colour-library --format json`
   - schema `huemiliator.colour_library.v1`
   - every frozen swatch with runtime family, rank, and colour metrics
+- runtime colour-boundary report:
+  - `huemiliator colour-boundaries --format json`
+  - schema `huemiliator.colour_boundaries.v1`
+  - mixed-family Lab bins with capped row samples for candidate selection
 - live eval evidence:
   - `.local/evals.sqlite`
 - local quarantine artefacts for superseded runs:
