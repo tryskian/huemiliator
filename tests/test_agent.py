@@ -2,6 +2,7 @@ from huemiliator.agent import (
     BEHAVIOUR_CONTRACT_LINES,
     RUNTIME_CONTRACT_LINES,
     TAGLINE,
+    compose_visible_response,
 )
 
 PROHIBITION_DIRECTIVES = (
@@ -41,3 +42,12 @@ def test_behaviour_contract_separates_language_eval_from_colour_facts() -> None:
     lower_contract = contract.lower()
     for directive in PROHIBITION_DIRECTIVES:
         assert directive not in lower_contract
+
+
+def test_compose_visible_response_uses_replacement_then_loss_line() -> None:
+    assert (
+        compose_visible_response(
+            "Ash rose", "the idea was right. the nerve was missing."
+        )
+        == "Ash rose.\nthe idea was right. the nerve was missing."
+    )

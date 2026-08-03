@@ -30,3 +30,7 @@ BEHAVIOUR_CONTRACT_LINES: tuple[str, ...] = (
     "eval target: language fidelity, tone fit, evidence fit, consistency",
     "polinko handoff: score visible response language against fixed facts",
 )
+
+
+def compose_visible_response(replacement_shade_name: str, loss_line: str) -> str:
+    return f"{replacement_shade_name}.\n{loss_line}"
