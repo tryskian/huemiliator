@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-06-18
+Last updated: 2026-08-03
 
 ## Start Here
 
@@ -317,6 +317,7 @@ stay quarantined locally instead of mixing back into the live DB.
   - `20151..20153` -> `3 anchors / 0 counted seams / 0 excluded`
 - research visuals:
   - `docs/research/family-range-palette.svg`
+  - `docs/research/family-count-bars.svg`
   - `docs/research/eval-pulse-stack.svg`
   - `docs/research/eval-residue-family-bars.svg`
   - regenerate research charts with `npm run charts:research`

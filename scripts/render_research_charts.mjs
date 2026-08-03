@@ -9,6 +9,7 @@ import {JSDOM} from "jsdom";
 const repoRoot = process.cwd();
 const parkedDir = path.join(repoRoot, ".local", "parked");
 const evalDb = path.join(repoRoot, ".local", "evals.sqlite");
+const swatchDataPath = path.join(repoRoot, "data", "margaret2_swatches.json");
 const pulseStackOutputPath = path.join(
   repoRoot,
   "docs",
@@ -20,6 +21,12 @@ const residueBarsOutputPath = path.join(
   "docs",
   "research",
   "eval-residue-family-bars.svg",
+);
+const familyCountBarsOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "family-count-bars.svg",
 );
 
 const segmentOrder = ["anchor", "counted_seam", "excluded_noise"];
@@ -33,6 +40,43 @@ const segmentColours = new Map([
   ["counted_seam", "#c34f4d"],
   ["excluded_noise", "#8e8378"],
 ]);
+const familyOrder = [
+  "neutral",
+  "brown",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "pink",
+];
+const familyColours = new Map([
+  ["neutral", "#9a9286"],
+  ["brown", "#76513c"],
+  ["red", "#b83b45"],
+  ["orange", "#d8793e"],
+  ["yellow", "#c89f2d"],
+  ["green", "#5e8c49"],
+  ["blue", "#3e76a8"],
+  ["purple", "#7b5ea7"],
+  ["pink", "#c96b8d"],
+]);
+
+function pythonEnv() {
+  const srcPath = path.join(repoRoot, "src");
+  return {
+    ...process.env,
+    PYTHONPATH: process.env.PYTHONPATH
+      ? `${srcPath}${path.delimiter}${process.env.PYTHONPATH}`
+      : srcPath,
+  };
+}
+
+function pythonBin() {
+  const venvPython = path.join(repoRoot, ".venv", "bin", "python");
+  return fs.existsSync(venvPython) ? venvPython : "python3";
+}
 
 function readJsonl(filePath) {
   return fs
@@ -127,6 +171,38 @@ function readLiveRows() {
     ],
     {encoding: "utf8"},
   );
+  return JSON.parse(output);
+}
+
+function readFamilyCounts() {
+  if (!fs.existsSync(swatchDataPath)) {
+    throw new Error(`Missing swatch snapshot: ${swatchDataPath}`);
+  }
+
+  // Reuse the Python runtime classifier so the chart cannot drift from app logic.
+  const code = String.raw`
+import json
+from collections import Counter
+from pathlib import Path
+
+from huemiliator.families import FAMILY_NAMES, build_family_rank_index
+from huemiliator.swatches import load_swatch_snapshot
+
+dataset = load_swatch_snapshot(Path("data/margaret2_swatches.json"))
+ranked = build_family_rank_index(dataset)
+counts = Counter(item.family for item in ranked.values())
+payload = [
+    {"family": family, "count": counts.get(family, 0)}
+    for family in FAMILY_NAMES
+]
+print(json.dumps(payload))
+`;
+
+  const output = execFileSync(pythonBin(), ["-c", code], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: pythonEnv(),
+  });
   return JSON.parse(output);
 }
 
@@ -348,6 +424,91 @@ function renderResidueFamilyBars() {
   console.log(`wrote ${path.relative(repoRoot, residueBarsOutputPath)}`);
 }
 
+function renderFamilyCountBars() {
+  const familyCounts = readFamilyCounts()
+    .map((item) => ({
+      family: item.family,
+      count: item.count,
+      order: familyOrder.indexOf(item.family),
+    }))
+    .sort(
+      (left, right) =>
+        d3.descending(left.count, right.count) ||
+        d3.ascending(left.order, right.order),
+    );
+  const total = d3.sum(familyCounts, (item) => item.count);
+  const yDomain = familyCounts.map((item) => item.family);
+  const maxCount = d3.max(familyCounts, (item) => item.count) ?? 0;
+  const percent = d3.format(".1%");
+  const {window} = new JSDOM("<!DOCTYPE html>");
+
+  const svg = Plot.plot({
+    document: window.document,
+    className: "huey-family-count-bars",
+    width: 760,
+    height: 108 + yDomain.length * 34,
+    marginTop: 52,
+    marginRight: 86,
+    marginBottom: 44,
+    marginLeft: 98,
+    style: {
+      background: "#f6f5f2",
+      color: "#26231f",
+      fontFamily: "Inter, Arial, sans-serif",
+      fontSize: 12,
+    },
+    x: {
+      domain: [0, maxCount],
+      label: "swatches in runtime family",
+      grid: true,
+    },
+    y: {
+      domain: yDomain,
+      label: null,
+    },
+    marks: [
+      Plot.ruleX([0]),
+      Plot.barX(familyCounts, {
+        x: "count",
+        y: "family",
+        fill: (item) => familyColours.get(item.family),
+        rx: 3,
+        title: (item) =>
+          `${item.family}\n${item.count} swatches\n${percent(
+            item.count / total,
+          )} of snapshot`,
+      }),
+      Plot.text(familyCounts, {
+        x: "count",
+        y: "family",
+        text: "count",
+        dx: 10,
+        fill: "#26231f",
+        fontWeight: 700,
+      }),
+    ],
+  });
+
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-labelledby", "title desc");
+
+  const title = window.document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "title");
+  title.textContent = "Huemiliator swatches by runtime family";
+
+  const desc = window.document.createElementNS("http://www.w3.org/2000/svg", "desc");
+  desc.setAttribute("id", "desc");
+  desc.textContent =
+    "Horizontal bars showing frozen swatch snapshot counts by current Huemiliator runtime family assignment.";
+
+  svg.prepend(desc);
+  svg.prepend(title);
+
+  fs.writeFileSync(familyCountBarsOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, familyCountBarsOutputPath)}`);
+}
+
 function buildLegend(document) {
   const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
   legend.setAttribute("aria-label", "legend");
@@ -382,3 +543,4 @@ function buildLegend(document) {
 
 renderEvalPulseStack();
 renderResidueFamilyBars();
+renderFamilyCountBars();
