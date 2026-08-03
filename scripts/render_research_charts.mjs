@@ -40,6 +40,12 @@ const edgeDensityHeatmapOutputPath = path.join(
   "research",
   "edge-density-heatmap.svg",
 );
+const colourSpaceScatterOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "colour-space-scatter.svg",
+);
 const activeFailSurfaceSplitOutputPath = path.join(
   repoRoot,
   "docs",
@@ -954,6 +960,102 @@ function renderEdgeDensityHeatmap() {
   console.log(`wrote ${path.relative(repoRoot, edgeDensityHeatmapOutputPath)}`);
 }
 
+function buildColourSpaceRows() {
+  return readFamilyRows()
+    .map((row) => {
+      const lab = d3.lab(row.hex);
+      return {
+        ...row,
+        a: lab.a,
+        b: lab.b,
+        lightness: lab.l,
+        familyOrder: familyOrder.indexOf(row.family),
+        title: `${row.name} ${row.hex}; family: ${row.family}; rank: ${row.family_rank}; source order: ${row.source_order}; Lab L*: ${lab.l.toFixed(
+          1,
+        )}; Lab a*: ${lab.a.toFixed(1)}; Lab b*: ${lab.b.toFixed(1)}`,
+      };
+    })
+    .sort(
+      (left, right) =>
+        d3.ascending(left.familyOrder, right.familyOrder) ||
+        d3.ascending(left.source_order, right.source_order),
+    );
+}
+
+function renderColourSpaceScatter() {
+  const rows = buildColourSpaceRows();
+  const {window} = new JSDOM("<!DOCTYPE html>");
+
+  const svg = Plot.plot({
+    document: window.document,
+    className: "huey-colour-space-scatter",
+    width: 860,
+    height: 650,
+    marginTop: 92,
+    marginRight: 38,
+    marginBottom: 64,
+    marginLeft: 82,
+    style: {
+      background: "#f6f5f2",
+      color: "#26231f",
+      fontFamily: "Inter, Arial, sans-serif",
+      fontSize: 12,
+    },
+    x: {
+      domain: [-50, 70],
+      label: "Lab a* (green to red)",
+      grid: true,
+      ticks: d3.range(-50, 71, 20),
+    },
+    y: {
+      domain: [-50, 90],
+      label: "Lab b* (blue to yellow)",
+      grid: true,
+      ticks: d3.range(-40, 91, 20),
+    },
+    color: {
+      domain: familyOrder,
+      range: familyOrder.map((family) => familyColours.get(family)),
+    },
+    marks: [
+      Plot.dot(rows, {
+        x: "a",
+        y: "b",
+        fill: "family",
+        fillOpacity: 0.68,
+        stroke: "#f6f5f2",
+        strokeOpacity: 0.55,
+        strokeWidth: 0.45,
+        r: 2.15,
+        title: "title",
+      }),
+      Plot.ruleX([0], {stroke: "#9c948b", strokeDasharray: "4,4"}),
+      Plot.ruleY([0], {stroke: "#9c948b", strokeDasharray: "4,4"}),
+      Plot.frame({stroke: "#d8d4cc"}),
+    ],
+  });
+
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-labelledby", "title desc");
+
+  const title = window.document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "title");
+  title.textContent = "Huemiliator colour-space scatter";
+
+  const desc = window.document.createElementNS("http://www.w3.org/2000/svg", "desc");
+  desc.setAttribute("id", "desc");
+  desc.textContent =
+    "A Lab-space scatterplot placing every frozen swatch by colour metrics and colouring each point by runtime family assignment.";
+
+  svg.prepend(desc);
+  svg.prepend(title);
+  svg.append(buildFamilyLegend(window.document, "translate(82 20)"));
+
+  fs.writeFileSync(colourSpaceScatterOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, colourSpaceScatterOutputPath)}`);
+}
+
 function buildEdgeDensityLegend(document) {
   const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
   legend.setAttribute("aria-label", "legend");
@@ -986,6 +1088,40 @@ function buildEdgeDensityLegend(document) {
     legend.append(text);
 
     x += item.label.length > 18 ? 224 : 154;
+  }
+
+  return legend;
+}
+
+function buildFamilyLegend(document, transform) {
+  const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  legend.setAttribute("aria-label", "legend");
+  legend.setAttribute("transform", transform);
+
+  const columnWidth = 92;
+  const rowHeight = 20;
+
+  for (const [index, family] of familyOrder.entries()) {
+    const x = (index % 5) * columnWidth;
+    const y = Math.floor(index / 5) * rowHeight;
+
+    const square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    square.setAttribute("x", x);
+    square.setAttribute("y", y);
+    square.setAttribute("width", 12);
+    square.setAttribute("height", 12);
+    square.setAttribute("rx", 2);
+    square.setAttribute("fill", familyColours.get(family));
+    legend.append(square);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x + 18);
+    text.setAttribute("y", y + 10);
+    text.setAttribute("font-size", 12);
+    text.setAttribute("fill", "#26231f");
+    text.setAttribute("text-anchor", "start");
+    text.textContent = family;
+    legend.append(text);
   }
 
   return legend;
@@ -1346,5 +1482,6 @@ renderEvalPulseStack();
 renderResidueFamilyBars();
 renderFamilyCountBars();
 renderEdgeDensityHeatmap();
+renderColourSpaceScatter();
 renderActiveFailSurfaceSplit();
 renderArchiveIntegrityCheck();

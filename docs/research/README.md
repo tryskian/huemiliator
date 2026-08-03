@@ -78,6 +78,13 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 The bars count the current runtime family assignment across the frozen swatch
 snapshot.
 
+## Colour-Space Scatter
+
+![Huemiliator colour-space scatter](./colour-space-scatter.svg)
+
+Each point is a frozen swatch placed by Lab `a*` and `b*`; colour shows the
+runtime family assignment.
+
 ## Edge Density Heatmap
 
 ![Huemiliator edge-density heatmap](./edge-density-heatmap.svg)
