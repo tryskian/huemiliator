@@ -1,0 +1,225 @@
+<svg class="huey-archive-integrity-check" fill="currentColor" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" width="860" height="620" viewBox="0 0 860 620" style="background: rgb(246, 245, 242); color: rgb(38, 35, 31); font-family: Inter, Arial, sans-serif;" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc"><title id="title">Huemiliator archive integrity check</title><desc id="desc">A table heatmap comparing family tokens in parked archive labels with row-family truth from each archived eval surface.</desc><style>:where(.huey-archive-integrity-check) {
+  --plot-background: white;
+  display: block;
+  height: auto;
+  height: intrinsic;
+  max-width: 100%;
+}
+:where(.huey-archive-integrity-check text),
+:where(.huey-archive-integrity-check tspan) {
+  white-space: pre;
+}</style><g aria-label="y-axis tick" aria-hidden="true" fill="none" stroke="currentColor" transform="translate(0,23)"><path transform="translate(104,72)" d="M0,0L-6,0"></path><path transform="translate(104,123)" d="M0,0L-6,0"></path><path transform="translate(104,174)" d="M0,0L-6,0"></path><path transform="translate(104,225)" d="M0,0L-6,0"></path><path transform="translate(104,276)" d="M0,0L-6,0"></path><path transform="translate(104,327)" d="M0,0L-6,0"></path><path transform="translate(104,378)" d="M0,0L-6,0"></path><path transform="translate(104,429)" d="M0,0L-6,0"></path><path transform="translate(104,480)" d="M0,0L-6,0"></path></g><g aria-label="y-axis tick label" text-anchor="end" transform="translate(-9,23)"><text y="0.32em" transform="translate(104,72)">neutral</text><text y="0.32em" transform="translate(104,123)">brown</text><text y="0.32em" transform="translate(104,174)">red</text><text y="0.32em" transform="translate(104,225)">orange</text><text y="0.32em" transform="translate(104,276)">yellow</text><text y="0.32em" transform="translate(104,327)">green</text><text y="0.32em" transform="translate(104,378)">blue</text><text y="0.32em" transform="translate(104,429)">purple</text><text y="0.32em" transform="translate(104,480)">pink</text></g><g aria-label="y-axis label" transform="translate(-101,0)"><text y="0.71em" transform="translate(104,299) rotate(-90)">row family truth</text></g><g aria-label="x-axis tick" aria-hidden="true" fill="none" stroke="currentColor" transform="translate(35.5,0)"><path transform="translate(113,532)" d="M0,0L0,6"></path><path transform="translate(192,532)" d="M0,0L0,6"></path><path transform="translate(271,532)" d="M0,0L0,6"></path><path transform="translate(350,532)" d="M0,0L0,6"></path><path transform="translate(429,532)" d="M0,0L0,6"></path><path transform="translate(508,532)" d="M0,0L0,6"></path><path transform="translate(587,532)" d="M0,0L0,6"></path><path transform="translate(666,532)" d="M0,0L0,6"></path><path transform="translate(745,532)" d="M0,0L0,6"></path></g><g aria-label="x-axis tick label" text-anchor="end" transform="translate(35.5,12.276608177155968)"><text y="0.32em" transform="translate(113,532) rotate(-35)">neutral</text><text y="0.32em" transform="translate(192,532) rotate(-35)">brown</text><text y="0.32em" transform="translate(271,532) rotate(-35)">red</text><text y="0.32em" transform="translate(350,532) rotate(-35)">orange</text><text y="0.32em" transform="translate(429,532) rotate(-35)">yellow</text><text y="0.32em" transform="translate(508,532) rotate(-35)">green</text><text y="0.32em" transform="translate(587,532) rotate(-35)">blue</text><text y="0.32em" transform="translate(666,532) rotate(-35)">purple</text><text y="0.32em" transform="translate(745,532) rotate(-35)">pink</text></g><g aria-label="x-axis label" transform="translate(0,85)"><text transform="translate(465,532)">archive label family</text></g><g aria-label="cell"><rect x="114" width="69" y="73" height="44" fill="rgb(156, 195, 185)"><title>archive label: neutral
+row truth: neutral
+rows: 69
+surfaces: 7
+eval-surface-20260523T004035Z-beta-1-0-pulse-25-neutral-tranche-002.jsonl
+eval-surface-20260523T004642Z-beta-1-0-pulse-26-neutral-tranche-003.jsonl
+eval-surface-20260606T230728Z-beta-1-0-neutral-source-surface-before-three-pulse-split.jsonl
+eval-surface-20260606T234048Z-beta-1-0-pulse-27-neutral-split-lilac-mauve-pass.jsonl
+eval-surface-20260606T234141Z-beta-1-0-pulse-28-neutral-split-blue-jade-pass.jsonl
+eval-surface-20260607T000023Z-beta-1-0-pulse-29-neutral-split-mint-green-pass.jsonl
+eval-surface-20260609T161558Z-beta-1-0-neutral-continuation-before-warm-edge-audit.jsonl</title></rect><rect x="114" width="69" y="124" height="44" fill="rgb(231, 180, 178)"><title>archive label: neutral
+row truth: brown
+rows: 15
+surfaces: 1
+eval-surface-20260523T003512Z-beta-1-0-pulse-24-neutral-tranche-001.jsonl</title></rect><rect x="114" width="69" y="175" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: red
+rows: 0</title></rect><rect x="114" width="69" y="226" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: orange
+rows: 0</title></rect><rect x="114" width="69" y="277" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: yellow
+rows: 0</title></rect><rect x="114" width="69" y="328" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: green
+rows: 0</title></rect><rect x="114" width="69" y="379" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: blue
+rows: 0</title></rect><rect x="114" width="69" y="430" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: purple
+rows: 0</title></rect><rect x="114" width="69" y="481" height="44" fill="#ece8df"><title>archive label: neutral
+row truth: pink
+rows: 0</title></rect><rect x="193" width="69" y="73" height="44" fill="#ece8df"><title>archive label: brown
+row truth: neutral
+rows: 0</title></rect><rect x="193" width="69" y="124" height="44" fill="rgb(168, 203, 193)"><title>archive label: brown
+row truth: brown
+rows: 30
+surfaces: 2
+eval-surface-20260522T031702Z-beta-1-0-pulse-22-brown-tranche-002.jsonl
+eval-surface-20260522T031938Z-beta-1-0-pulse-23-brown-tranche-003.jsonl</title></rect><rect x="193" width="69" y="175" height="44" fill="#ece8df"><title>archive label: brown
+row truth: red
+rows: 0</title></rect><rect x="193" width="69" y="226" height="44" fill="rgb(231, 180, 178)"><title>archive label: brown
+row truth: orange
+rows: 15
+surfaces: 1
+eval-surface-20260522T031155Z-beta-1-0-pulse-21-brown-tranche-001.jsonl</title></rect><rect x="193" width="69" y="277" height="44" fill="#ece8df"><title>archive label: brown
+row truth: yellow
+rows: 0</title></rect><rect x="193" width="69" y="328" height="44" fill="#ece8df"><title>archive label: brown
+row truth: green
+rows: 0</title></rect><rect x="193" width="69" y="379" height="44" fill="#ece8df"><title>archive label: brown
+row truth: blue
+rows: 0</title></rect><rect x="193" width="69" y="430" height="44" fill="#ece8df"><title>archive label: brown
+row truth: purple
+rows: 0</title></rect><rect x="193" width="69" y="481" height="44" fill="#ece8df"><title>archive label: brown
+row truth: pink
+rows: 0</title></rect><rect x="272" width="69" y="73" height="44" fill="#ece8df"><title>archive label: red
+row truth: neutral
+rows: 0</title></rect><rect x="272" width="69" y="124" height="44" fill="#ece8df"><title>archive label: red
+row truth: brown
+rows: 0</title></rect><rect x="272" width="69" y="175" height="44" fill="rgb(40, 122, 104)"><title>archive label: red
+row truth: red
+rows: 1298
+surfaces: 3
+eval-surface-20260522T001236Z-closed-third-corrected-red-rerun.jsonl
+eval-surface-20260522T002145Z-beta-1-0-pulse-1-red-tranche-001.jsonl
+eval-surface-20260522T003037Z-beta-1-0-pulse-2-red-tranche-002.jsonl</title></rect><rect x="272" width="69" y="226" height="44" fill="#ece8df"><title>archive label: red
+row truth: orange
+rows: 0</title></rect><rect x="272" width="69" y="277" height="44" fill="#ece8df"><title>archive label: red
+row truth: yellow
+rows: 0</title></rect><rect x="272" width="69" y="328" height="44" fill="#ece8df"><title>archive label: red
+row truth: green
+rows: 0</title></rect><rect x="272" width="69" y="379" height="44" fill="#ece8df"><title>archive label: red
+row truth: blue
+rows: 0</title></rect><rect x="272" width="69" y="430" height="44" fill="#ece8df"><title>archive label: red
+row truth: purple
+rows: 0</title></rect><rect x="272" width="69" y="481" height="44" fill="#ece8df"><title>archive label: red
+row truth: pink
+rows: 0</title></rect><rect x="351" width="69" y="73" height="44" fill="#ece8df"><title>archive label: orange
+row truth: neutral
+rows: 0</title></rect><rect x="351" width="69" y="124" height="44" fill="#ece8df"><title>archive label: orange
+row truth: brown
+rows: 0</title></rect><rect x="351" width="69" y="175" height="44" fill="#ece8df"><title>archive label: orange
+row truth: red
+rows: 0</title></rect><rect x="351" width="69" y="226" height="44" fill="rgb(152, 193, 182)"><title>archive label: orange
+row truth: orange
+rows: 87
+surfaces: 7
+eval-surface-20260522T023943Z-beta-1-0-pulse-16-orange-tranche-001.jsonl
+eval-surface-20260522T024557Z-beta-1-0-pulse-17-orange-tranche-002.jsonl
+eval-surface-20260522T025048Z-beta-1-0-pulse-18-orange-tranche-003.jsonl
+eval-surface-20260522T030326Z-beta-1-0-pulse-19-orange-tranche-004.jsonl
+eval-surface-20260522T030505Z-beta-1-0-pulse-20-orange-tranche-005.jsonl
+eval-surface-20260614T180152Z-beta-1-0-warm-edge-orange-yellow-gold-boundary-pass.jsonl
+eval-surface-20260614T181316Z-beta-1-0-warm-edge-orange-pale-straw-buff-blush-shoulder-pass.jsonl</title></rect><rect x="351" width="69" y="277" height="44" fill="rgb(234, 187, 185)"><title>archive label: orange
+row truth: yellow
+rows: 2
+surfaces: 1
+eval-surface-20260614T180152Z-beta-1-0-warm-edge-orange-yellow-gold-boundary-pass.jsonl</title></rect><rect x="351" width="69" y="328" height="44" fill="#ece8df"><title>archive label: orange
+row truth: green
+rows: 0</title></rect><rect x="351" width="69" y="379" height="44" fill="#ece8df"><title>archive label: orange
+row truth: blue
+rows: 0</title></rect><rect x="351" width="69" y="430" height="44" fill="#ece8df"><title>archive label: orange
+row truth: purple
+rows: 0</title></rect><rect x="351" width="69" y="481" height="44" fill="#ece8df"><title>archive label: orange
+row truth: pink
+rows: 0</title></rect><rect x="430" width="69" y="73" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: neutral
+rows: 0</title></rect><rect x="430" width="69" y="124" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: brown
+rows: 0</title></rect><rect x="430" width="69" y="175" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: red
+rows: 0</title></rect><rect x="430" width="69" y="226" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: orange
+rows: 0</title></rect><rect x="430" width="69" y="277" height="44" fill="rgb(155, 195, 185)"><title>archive label: yellow
+row truth: yellow
+rows: 71
+surfaces: 6
+eval-surface-20260522T003539Z-beta-1-0-pulse-3-yellow-tranche-001.jsonl
+eval-surface-20260522T005009Z-beta-1-0-pulse-4-yellow-tranche-002.jsonl
+eval-surface-20260522T010326Z-beta-1-0-pulse-5-yellow-tranche-003.jsonl
+eval-surface-20260522T010949Z-beta-1-0-pulse-6-yellow-tranche-004.jsonl
+eval-surface-20260614T180546Z-beta-1-0-warm-edge-yellow-green-olive-shoulder-pass.jsonl
+eval-surface-20260614T181353Z-beta-1-0-warm-edge-yellow-residual-chartreuse-shoulder-pass.jsonl</title></rect><rect x="430" width="69" y="328" height="44" fill="rgb(233, 185, 183)"><title>archive label: yellow
+row truth: green
+rows: 5
+surfaces: 2
+eval-surface-20260614T180546Z-beta-1-0-warm-edge-yellow-green-olive-shoulder-pass.jsonl
+eval-surface-20260614T181353Z-beta-1-0-warm-edge-yellow-residual-chartreuse-shoulder-pass.jsonl</title></rect><rect x="430" width="69" y="379" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: blue
+rows: 0</title></rect><rect x="430" width="69" y="430" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: purple
+rows: 0</title></rect><rect x="430" width="69" y="481" height="44" fill="#ece8df"><title>archive label: yellow
+row truth: pink
+rows: 0</title></rect><rect x="509" width="69" y="73" height="44" fill="#ece8df"><title>archive label: green
+row truth: neutral
+rows: 0</title></rect><rect x="509" width="69" y="124" height="44" fill="#ece8df"><title>archive label: green
+row truth: brown
+rows: 0</title></rect><rect x="509" width="69" y="175" height="44" fill="#ece8df"><title>archive label: green
+row truth: red
+rows: 0</title></rect><rect x="509" width="69" y="226" height="44" fill="#ece8df"><title>archive label: green
+row truth: orange
+rows: 0</title></rect><rect x="509" width="69" y="277" height="44" fill="#ece8df"><title>archive label: green
+row truth: yellow
+rows: 0</title></rect><rect x="509" width="69" y="328" height="44" fill="rgb(168, 203, 193)"><title>archive label: green
+row truth: green
+rows: 30
+surfaces: 2
+eval-surface-20260522T011302Z-beta-1-0-pulse-7-green-tranche-001.jsonl
+eval-surface-20260522T011733Z-beta-1-0-pulse-8-green-tranche-002.jsonl</title></rect><rect x="509" width="69" y="379" height="44" fill="#ece8df"><title>archive label: green
+row truth: blue
+rows: 0</title></rect><rect x="509" width="69" y="430" height="44" fill="#ece8df"><title>archive label: green
+row truth: purple
+rows: 0</title></rect><rect x="509" width="69" y="481" height="44" fill="#ece8df"><title>archive label: green
+row truth: pink
+rows: 0</title></rect><rect x="588" width="69" y="73" height="44" fill="#ece8df"><title>archive label: blue
+row truth: neutral
+rows: 0</title></rect><rect x="588" width="69" y="124" height="44" fill="#ece8df"><title>archive label: blue
+row truth: brown
+rows: 0</title></rect><rect x="588" width="69" y="175" height="44" fill="#ece8df"><title>archive label: blue
+row truth: red
+rows: 0</title></rect><rect x="588" width="69" y="226" height="44" fill="#ece8df"><title>archive label: blue
+row truth: orange
+rows: 0</title></rect><rect x="588" width="69" y="277" height="44" fill="#ece8df"><title>archive label: blue
+row truth: yellow
+rows: 0</title></rect><rect x="588" width="69" y="328" height="44" fill="#ece8df"><title>archive label: blue
+row truth: green
+rows: 0</title></rect><rect x="588" width="69" y="379" height="44" fill="rgb(163, 200, 190)"><title>archive label: blue
+row truth: blue
+rows: 45
+surfaces: 3
+eval-surface-20260522T013650Z-beta-1-0-pulse-9-blue-tranche-001.jsonl
+eval-surface-20260522T014834Z-beta-1-0-pulse-10-blue-tranche-002.jsonl
+eval-surface-20260522T015452Z-beta-1-0-pulse-11-blue-tranche-003.jsonl</title></rect><rect x="588" width="69" y="430" height="44" fill="#ece8df"><title>archive label: blue
+row truth: purple
+rows: 0</title></rect><rect x="588" width="69" y="481" height="44" fill="#ece8df"><title>archive label: blue
+row truth: pink
+rows: 0</title></rect><rect x="667" width="69" y="73" height="44" fill="#ece8df"><title>archive label: purple
+row truth: neutral
+rows: 0</title></rect><rect x="667" width="69" y="124" height="44" fill="#ece8df"><title>archive label: purple
+row truth: brown
+rows: 0</title></rect><rect x="667" width="69" y="175" height="44" fill="#ece8df"><title>archive label: purple
+row truth: red
+rows: 0</title></rect><rect x="667" width="69" y="226" height="44" fill="#ece8df"><title>archive label: purple
+row truth: orange
+rows: 0</title></rect><rect x="667" width="69" y="277" height="44" fill="#ece8df"><title>archive label: purple
+row truth: yellow
+rows: 0</title></rect><rect x="667" width="69" y="328" height="44" fill="#ece8df"><title>archive label: purple
+row truth: green
+rows: 0</title></rect><rect x="667" width="69" y="379" height="44" fill="#ece8df"><title>archive label: purple
+row truth: blue
+rows: 0</title></rect><rect x="667" width="69" y="430" height="44" fill="rgb(168, 203, 193)"><title>archive label: purple
+row truth: purple
+rows: 30
+surfaces: 2
+eval-surface-20260522T015833Z-beta-1-0-pulse-12-purple-tranche-001.jsonl
+eval-surface-20260522T021414Z-beta-1-0-pulse-13-purple-tranche-002.jsonl</title></rect><rect x="667" width="69" y="481" height="44" fill="#ece8df"><title>archive label: purple
+row truth: pink
+rows: 0</title></rect><rect x="746" width="69" y="73" height="44" fill="#ece8df"><title>archive label: pink
+row truth: neutral
+rows: 0</title></rect><rect x="746" width="69" y="124" height="44" fill="#ece8df"><title>archive label: pink
+row truth: brown
+rows: 0</title></rect><rect x="746" width="69" y="175" height="44" fill="#ece8df"><title>archive label: pink
+row truth: red
+rows: 0</title></rect><rect x="746" width="69" y="226" height="44" fill="#ece8df"><title>archive label: pink
+row truth: orange
+rows: 0</title></rect><rect x="746" width="69" y="277" height="44" fill="#ece8df"><title>archive label: pink
+row truth: yellow
+rows: 0</title></rect><rect x="746" width="69" y="328" height="44" fill="#ece8df"><title>archive label: pink
+row truth: green
+rows: 0</title></rect><rect x="746" width="69" y="379" height="44" fill="#ece8df"><title>archive label: pink
+row truth: blue
+rows: 0</title></rect><rect x="746" width="69" y="430" height="44" fill="#ece8df"><title>archive label: pink
+row truth: purple
+rows: 0</title></rect><rect x="746" width="69" y="481" height="44" fill="rgb(168, 203, 193)"><title>archive label: pink
+row truth: pink
+rows: 30
+surfaces: 2
+eval-surface-20260522T022127Z-beta-1-0-pulse-14-pink-tranche-001.jsonl
+eval-surface-20260522T022930Z-beta-1-0-pulse-15-pink-tranche-002.jsonl</title></rect></g><g aria-label="text" font-variant="tabular-nums" font-weight="700" transform="translate(35.5,23)"><text y="0.32em" transform="translate(113,72)" fill="#26231f">69</text><text y="0.32em" transform="translate(113,123)" fill="#26231f">15</text><text y="0.32em" transform="translate(192,123)" fill="#26231f">30</text><text y="0.32em" transform="translate(192,225)" fill="#26231f">15</text><text y="0.32em" transform="translate(271,174)" fill="#ffffff">1,298</text><text y="0.32em" transform="translate(350,225)" fill="#26231f">87</text><text y="0.32em" transform="translate(350,276)" fill="#26231f">2</text><text y="0.32em" transform="translate(429,276)" fill="#26231f">71</text><text y="0.32em" transform="translate(429,327)" fill="#26231f">5</text><text y="0.32em" transform="translate(508,327)" fill="#26231f">30</text><text y="0.32em" transform="translate(587,378)" fill="#26231f">45</text><text y="0.32em" transform="translate(666,429)" fill="#26231f">30</text><text y="0.32em" transform="translate(745,480)" fill="#26231f">30</text></g><rect aria-label="frame" fill="none" stroke="#d8d4cc" x="104" y="66" width="722" height="466"></rect><g aria-label="legend" transform="translate(104 22)"><rect x="0" y="0" width="12" height="12" rx="2" fill="#287a68"></rect><text x="18" y="10" font-size="12" fill="#26231f" text-anchor="start">label matches row truth</text><rect x="176" y="0" width="12" height="12" rx="2" fill="#c34f4d"></rect><text x="194" y="10" font-size="12" fill="#26231f" text-anchor="start">label drift</text><rect x="352" y="0" width="12" height="12" rx="2" fill="#ece8df"></rect><text x="370" y="10" font-size="12" fill="#26231f" text-anchor="start">no rows</text></g></svg>

@@ -78,6 +78,13 @@ The chips sample the current classifier order from the frozen swatch snapshot.
 The bars count the current runtime family assignment across the frozen swatch
 snapshot.
 
+## Archive Integrity Check
+
+![Huemiliator archive labels versus row truth](./archive-integrity-check.svg)
+
+The table compares parked archive-family labels against row-family truth.
+Off-diagonal cells mark archive-label drift.
+
 ## Research Map
 
 | Surface | Type | What it says now |

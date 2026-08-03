@@ -40,6 +40,12 @@ const activeFailSurfaceSplitOutputPath = path.join(
   "research",
   "active-fail-surface-split.svg",
 );
+const archiveIntegrityOutputPath = path.join(
+  repoRoot,
+  "docs",
+  "research",
+  "archive-integrity-check.svg",
+);
 
 const segmentOrder = ["anchor", "counted_seam", "excluded_noise"];
 const segmentLabels = new Map([
@@ -195,6 +201,33 @@ function readParkedPulses() {
     .map((pulse, index) => ({...pulse, sequence: index + 1}))
     .map(pulseFromRows)
     .sort((left, right) => d3.ascending(left.sequence, right.sequence));
+}
+
+function familyFromArchiveLabel(label) {
+  const tokens = label.toLowerCase().split(/[^a-z]+/).filter(Boolean);
+  return tokens.find((token) => familyOrder.includes(token)) ?? "unknown";
+}
+
+function readParkedArchives() {
+  if (!fs.existsSync(parkedDir)) {
+    throw new Error(`Missing parked eval directory: ${parkedDir}`);
+  }
+
+  return fs
+    .readdirSync(parkedDir)
+    .filter((file) => /^eval-surface-.*\.jsonl$/.test(file))
+    .sort()
+    .map((file) => {
+      const filePath = path.join(parkedDir, file);
+      const rows = readJsonl(filePath);
+      const label = readMetaLabel(filePath);
+      return {
+        file,
+        rows,
+        label,
+        archiveFamily: familyFromArchiveLabel(label),
+      };
+    });
 }
 
 function readLiveRows() {
@@ -843,6 +876,176 @@ function renderActiveFailSurfaceSplit() {
   console.log(`wrote ${path.relative(repoRoot, activeFailSurfaceSplitOutputPath)}`);
 }
 
+function buildArchiveIntegrityCells() {
+  const archives = readParkedArchives();
+  const aggregates = new Map();
+
+  for (const archive of archives) {
+    const rowFamilyCounts = d3.rollups(
+      archive.rows,
+      (items) => items.length,
+      (row) => row.family ?? "unknown",
+    );
+
+    for (const [rowFamily, rowCount] of rowFamilyCounts) {
+      const key = `${archive.archiveFamily}\0${rowFamily}`;
+      if (!aggregates.has(key)) {
+        aggregates.set(key, {
+          archiveFamily: archive.archiveFamily,
+          rowFamily,
+          rows: 0,
+          surfaces: new Set(),
+          labels: new Set(),
+        });
+      }
+
+      const aggregate = aggregates.get(key);
+      aggregate.rows += rowCount;
+      aggregate.surfaces.add(archive.file);
+      aggregate.labels.add(archive.label);
+    }
+  }
+
+  return familyOrder.flatMap((archiveFamily) =>
+    familyOrder.map((rowFamily) => {
+      const aggregate = aggregates.get(`${archiveFamily}\0${rowFamily}`);
+      const rows = aggregate?.rows ?? 0;
+      const surfaces = aggregate ? [...aggregate.surfaces] : [];
+      return {
+        archiveFamily,
+        rowFamily,
+        rows,
+        surfaceCount: surfaces.length,
+        sameFamily: archiveFamily === rowFamily,
+        labels: aggregate ? [...aggregate.labels] : [],
+        title:
+          rows === 0
+            ? `archive label: ${archiveFamily}\nrow truth: ${rowFamily}\nrows: 0`
+            : `archive label: ${archiveFamily}\nrow truth: ${rowFamily}\nrows: ${rows}\nsurfaces: ${surfaces.length}\n${surfaces.join(
+                "\n",
+              )}`,
+      };
+    }),
+  );
+}
+
+function renderArchiveIntegrityCheck() {
+  const cells = buildArchiveIntegrityCells();
+  const filledCells = cells.filter((cell) => cell.rows > 0);
+  const maxRows = d3.max(filledCells, (cell) => cell.rows) ?? 1;
+  const intensity = d3.scaleSqrt([1, maxRows], [0.2, 1]);
+  const sameFill = d3.interpolateRgb("#dfeee8", "#287a68");
+  const driftFill = d3.interpolateRgb("#f4d8d6", "#c34f4d");
+  const {window} = new JSDOM("<!DOCTYPE html>");
+
+  const svg = Plot.plot({
+    document: window.document,
+    className: "huey-archive-integrity-check",
+    width: 860,
+    height: 620,
+    marginTop: 66,
+    marginRight: 34,
+    marginBottom: 88,
+    marginLeft: 104,
+    style: {
+      background: "#f6f5f2",
+      color: "#26231f",
+      fontFamily: "Inter, Arial, sans-serif",
+      fontSize: 12,
+    },
+    x: {
+      domain: familyOrder,
+      label: "archive label family",
+      tickRotate: -35,
+    },
+    y: {
+      domain: familyOrder,
+      label: "row family truth",
+    },
+    marks: [
+      Plot.cell(cells, {
+        x: "archiveFamily",
+        y: "rowFamily",
+        fill: (cell) => {
+          if (cell.rows === 0) {
+            return "#ece8df";
+          }
+          return cell.sameFamily
+            ? sameFill(intensity(cell.rows))
+            : driftFill(intensity(cell.rows));
+        },
+        title: "title",
+        inset: 1,
+      }),
+      Plot.text(filledCells, {
+        x: "archiveFamily",
+        y: "rowFamily",
+        text: (cell) => cell.rows,
+        fill: (cell) => (cell.rows > maxRows * 0.4 ? "#ffffff" : "#26231f"),
+        fontWeight: 700,
+      }),
+      Plot.frame({stroke: "#d8d4cc"}),
+    ],
+  });
+
+  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-labelledby", "title desc");
+
+  const title = window.document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "title");
+  title.textContent = "Huemiliator archive integrity check";
+
+  const desc = window.document.createElementNS("http://www.w3.org/2000/svg", "desc");
+  desc.setAttribute("id", "desc");
+  desc.textContent =
+    "A table heatmap comparing family tokens in parked archive labels with row-family truth from each archived eval surface.";
+
+  svg.prepend(desc);
+  svg.prepend(title);
+  svg.append(buildArchiveIntegrityLegend(window.document));
+
+  fs.writeFileSync(archiveIntegrityOutputPath, `${svg.outerHTML}\n`);
+  console.log(`wrote ${path.relative(repoRoot, archiveIntegrityOutputPath)}`);
+}
+
+function buildArchiveIntegrityLegend(document) {
+  const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  legend.setAttribute("aria-label", "legend");
+  legend.setAttribute("transform", "translate(104 22)");
+
+  const items = [
+    {label: "label matches row truth", fill: "#287a68"},
+    {label: "label drift", fill: "#c34f4d"},
+    {label: "no rows", fill: "#ece8df"},
+  ];
+
+  let x = 0;
+  for (const item of items) {
+    const square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    square.setAttribute("x", x);
+    square.setAttribute("y", 0);
+    square.setAttribute("width", 12);
+    square.setAttribute("height", 12);
+    square.setAttribute("rx", 2);
+    square.setAttribute("fill", item.fill);
+    legend.append(square);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x + 18);
+    text.setAttribute("y", 10);
+    text.setAttribute("font-size", 12);
+    text.setAttribute("fill", "#26231f");
+    text.setAttribute("text-anchor", "start");
+    text.textContent = item.label;
+    legend.append(text);
+
+    x += item.label.length > 10 ? 176 : 86;
+  }
+
+  return legend;
+}
+
 function buildSplitLegend(document) {
   const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
   legend.setAttribute("aria-label", "legend");
@@ -912,3 +1115,4 @@ renderEvalPulseStack();
 renderResidueFamilyBars();
 renderFamilyCountBars();
 renderActiveFailSurfaceSplit();
+renderArchiveIntegrityCheck();
