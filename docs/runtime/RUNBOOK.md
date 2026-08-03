@@ -211,6 +211,16 @@ Dependency maintenance:
 3. Run `make security-checks`.
 4. Finish with `make end` on clean synced `main`.
 
+## Behaviour Eval Commands
+
+- `huemiliator behaviour-contract`
+  - print the positive language and behaviour eval contract from
+    `src/huemiliator/agent.py`
+- `huemiliator behaviour-facts "#d9a6a1"`
+  - emit the fixed runtime fact packet for one response-language eval
+  - include canonical hex, nearest swatch, family, rank, replacement, and loss
+    line before scoring visible response behaviour
+
 ## Pulse Eval Commands
 
 - `huemiliator eval-pulse-start --count 15 --family red --quarantine-label "<label>"`

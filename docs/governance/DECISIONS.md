@@ -441,3 +441,20 @@ into implementation authorship.
   before longer closeout checks run. Uppercase closeout environment variables
   keep the branch-local preflight and clean-main git gate aligned with the
   surrounding repo-family convention.
+
+## D-033: Behaviour evals score visible language against fixed colour facts
+
+- Date: `2026-08-03`
+- Category: `eval_quality`
+- Tags: `behaviour_eval`, `fixed_facts`, `polinko_handoff`, `agent_contract`
+- Provenance: `human-led method decision with implementation decision`
+- Decision: Huey exposes a behaviour eval contract and a fixed runtime fact
+  packet from `src/huemiliator/agent.py` and the CLI. The fact packet resolves
+  canonical hex, nearest swatch, family, rank, replacement, and loss line
+  before response-language scoring begins.
+- Validation:
+  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_agent.py tests/test_main.py`
+- Why: Polinko should be able to evaluate Huey's visible language and behaviour
+  while treating the colour substrate as already measured. This keeps language
+  fidelity, tone fit, evidence fit, and consistency separate from picker and
+  swatch-resolution correctness.

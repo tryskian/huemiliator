@@ -1,4 +1,8 @@
-from huemiliator.agent import RUNTIME_CONTRACT_LINES, TAGLINE
+from huemiliator.agent import (
+    BEHAVIOUR_CONTRACT_LINES,
+    RUNTIME_CONTRACT_LINES,
+    TAGLINE,
+)
 
 PROHIBITION_DIRECTIVES = (
     "never",
@@ -20,6 +24,19 @@ def test_runtime_contract_uses_positive_target_shape() -> None:
     assert "swatch resolution: nearest snapshot match" in contract
     assert "transform: next same-family rank" in contract
     assert "line: fixed family loss bank" in contract
+
+    lower_contract = contract.lower()
+    for directive in PROHIBITION_DIRECTIVES:
+        assert directive not in lower_contract
+
+
+def test_behaviour_contract_separates_language_eval_from_colour_facts() -> None:
+    contract = "\n".join(BEHAVIOUR_CONTRACT_LINES)
+
+    assert "substrate: fixed runtime colour facts" in contract
+    assert "response truth: colour claims trace to the fact packet" in contract
+    assert "response shape: replacement shade plus fixed family loss line" in contract
+    assert "polinko handoff: score visible response language" in contract
 
     lower_contract = contract.lower()
     for directive in PROHIBITION_DIRECTIVES:

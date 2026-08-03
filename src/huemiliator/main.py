@@ -4,7 +4,11 @@ import argparse
 import sqlite3
 import sys
 
-from huemiliator.agent import RUNTIME_CONTRACT_LINES, TAGLINE
+from huemiliator.agent import (
+    BEHAVIOUR_CONTRACT_LINES,
+    RUNTIME_CONTRACT_LINES,
+    TAGLINE,
+)
 from huemiliator.config import load_settings
 from huemiliator.eval_db import (
     LIST_VERDICTS,
@@ -38,6 +42,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     subparsers.add_parser("status", help="Show the current runtime state.")
     subparsers.add_parser("contract", help="Show the current runtime contract.")
+    subparsers.add_parser(
+        "behaviour-contract",
+        help="Show the language and behaviour eval contract.",
+    )
     subparsers.add_parser("pick", help="Open the native macOS colour picker.")
 
     resolve_parser = subparsers.add_parser(
@@ -57,6 +65,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="Emit the deterministic replacement shade and short loss line.",
     )
     one_up_parser.add_argument("hex_value", help="Hex value to one-up.")
+
+    behaviour_facts_parser = subparsers.add_parser(
+        "behaviour-facts",
+        help="Emit fixed colour facts for language and behaviour eval.",
+    )
+    behaviour_facts_parser.add_argument(
+        "hex_value",
+        help="Hex value to turn into fixed eval facts.",
+    )
 
     subparsers.add_parser(
         "eval-init",
@@ -221,6 +238,36 @@ def render_status() -> str:
 
 def render_contract() -> str:
     return "\n".join(RUNTIME_CONTRACT_LINES)
+
+
+def render_behaviour_contract() -> str:
+    return "\n".join(BEHAVIOUR_CONTRACT_LINES)
+
+
+def render_behaviour_facts(hex_value: str) -> str:
+    settings = load_settings()
+    dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
+    state = build_one_up_state(hex_value, dataset)
+    lines = [
+        "behaviour eval facts",
+        f"input: {state.resolution.input_hex}",
+        f"nearest swatch: {state.current.swatch.name}",
+        f"swatch hex: {state.current.swatch.hex}",
+        f"family: {state.current.family}",
+        f"current rank: {state.current.family_rank}/{state.current.family_size}",
+        f"source order: {state.current.swatch.source_order}",
+        f"distance (delta-e-cie76): {state.resolution.distance:.4f}",
+        f"replacement shade: {state.replacement.swatch.name}",
+        f"replacement hex: {state.replacement.swatch.hex}",
+        (
+            "replacement rank: "
+            f"{state.replacement.family_rank}/{state.replacement.family_size}"
+        ),
+        f"loss line: {state.loss_line}",
+        "language target: concise one-up judgement with playful precision",
+        "eval target: language fidelity, tone fit, evidence fit, consistency",
+    ]
+    return "\n".join(lines)
 
 
 def render_resolution(hex_value: str) -> str:
@@ -539,6 +586,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "contract":
         print(render_contract())
         return 0
+    if args.command == "behaviour-contract":
+        print(render_behaviour_contract())
+        return 0
     if args.command == "pick":
         try:
             print(pick_hex())
@@ -563,6 +613,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "one-up":
         try:
             print(render_one_up(args.hex_value))
+        except (ResolutionError, SwatchDatasetError, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "behaviour-facts":
+        try:
+            print(render_behaviour_facts(args.hex_value))
         except (ResolutionError, SwatchDatasetError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1
