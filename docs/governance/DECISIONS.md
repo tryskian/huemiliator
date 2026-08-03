@@ -459,19 +459,3 @@ into implementation authorship.
   while treating the colour substrate as already measured. This keeps language
   fidelity, tone fit, evidence fit, and consistency separate from picker and
   swatch-resolution correctness.
-
-## D-034: Behaviour response packets carry fixed facts plus visible language
-
-- Date: `2026-08-03`
-- Category: `eval_quality`
-- Tags: `behaviour_eval`, `response_packet`, `visible_language`, `polinko_handoff`
-- Provenance: `implementation decision`
-- Decision: Huey exposes `behaviour-response` as a deterministic response eval
-  packet. The packet includes the fixed fact packet plus the visible response
-  text, and JSON output uses schema `huemiliator.behaviour_response.v1`.
-- Validation:
-  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_agent.py tests/test_main.py`
-- Why: Response-language evals need the exact text to score, not only the
-  colour facts. Carrying facts and response text in one packet gives Polinko a
-  single fixture for language fidelity, tone fit, evidence fit, and
-  consistency.

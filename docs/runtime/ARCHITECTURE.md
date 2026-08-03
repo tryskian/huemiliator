@@ -155,8 +155,6 @@ The colour substrate is measured before the response read starts:
    - fixed family loss line
 2. `behaviour-facts --format json` emits the same packet as a machine-readable
    fixture
-3. `behaviour-response --format json` emits the fact packet plus the visible
-   Huey response text
-4. response evaluation reads the visible language against that packet
-5. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
+3. response evaluation reads the visible language against that packet
+4. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
    and consistency while treating the colour facts as fixed
