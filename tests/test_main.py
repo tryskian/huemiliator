@@ -4,7 +4,13 @@ import io
 from contextlib import redirect_stderr, redirect_stdout
 from unittest.mock import patch
 
-from huemiliator.main import main, render_contract, render_status
+from huemiliator.main import (
+    main,
+    render_behaviour_contract,
+    render_behaviour_facts,
+    render_contract,
+    render_status,
+)
 from huemiliator.picker import PickerError
 from huemiliator.resolution import ResolutionError
 from huemiliator.swatches import SwatchDatasetError
@@ -46,6 +52,27 @@ def test_main_contract_prints_runtime_contract() -> None:
 
     assert result == 0
     assert stdout.getvalue().strip() == "status: partial runtime"
+
+
+def test_render_behaviour_contract_exposes_language_eval_boundary() -> None:
+    text = render_behaviour_contract()
+
+    assert "status: behaviour eval ready" in text
+    assert "substrate: fixed runtime colour facts" in text
+    assert "eval target: language fidelity, tone fit, evidence fit, consistency" in text
+
+
+def test_main_behaviour_contract_prints_contract() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_behaviour_contract",
+        return_value="status: behaviour eval ready",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["behaviour-contract"])
+
+    assert result == 0
+    assert stdout.getvalue().strip() == "status: behaviour eval ready"
 
 
 def test_main_pick_prints_selected_hex() -> None:
@@ -157,6 +184,31 @@ def test_main_one_up_errors_cleanly() -> None:
     assert result == 1
     assert stdout.getvalue() == ""
     assert "unknown loss-line family" in stderr.getvalue()
+
+
+def test_render_behaviour_facts_exposes_fixed_runtime_fact_packet() -> None:
+    text = render_behaviour_facts("#d9a6a1")
+
+    assert "behaviour eval facts" in text
+    assert "input: #d9a6a1" in text
+    assert "nearest swatch:" in text
+    assert "family:" in text
+    assert "replacement shade:" in text
+    assert "loss line:" in text
+    assert "eval target: language fidelity, tone fit, evidence fit, consistency" in text
+
+
+def test_main_behaviour_facts_prints_fact_packet() -> None:
+    stdout = io.StringIO()
+    with patch(
+        "huemiliator.main.render_behaviour_facts",
+        return_value="behaviour eval facts\nfamily: red",
+    ):
+        with redirect_stdout(stdout):
+            result = main(["behaviour-facts", "#d9a6a1"])
+
+    assert result == 0
+    assert "family: red" in stdout.getvalue()
 
 
 def test_main_eval_init_prints_db_path() -> None:

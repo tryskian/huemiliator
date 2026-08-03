@@ -18,3 +18,15 @@ RUNTIME_CONTRACT_LINES: tuple[str, ...] = (
     "sampler: long-run local source-order or scoped cohort cycle",
     "eval: binary pass/fail",
 )
+
+BEHAVIOUR_CONTRACT_LINES: tuple[str, ...] = (
+    "status: behaviour eval ready",
+    "substrate: fixed runtime colour facts",
+    "fact packet: canonical hex, nearest swatch, family, rank, replacement, line",
+    "response goal: concise one-up judgement with playful precision",
+    "response truth: colour claims trace to the fact packet",
+    "response shape: replacement shade plus fixed family loss line",
+    "tone: sharp, warm, bounded, and evidence-led",
+    "eval target: language fidelity, tone fit, evidence fit, consistency",
+    "polinko handoff: score visible response language against fixed facts",
+)

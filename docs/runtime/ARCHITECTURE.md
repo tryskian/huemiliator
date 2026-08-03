@@ -131,3 +131,28 @@ flowchart LR
 
 Tracked truth moves through closed proof surfaces and narrow runtime
 corrections, not through mixed historical queues or branch-local notes.
+
+## Behaviour Eval Flow
+
+```mermaid
+flowchart LR
+  A["hex input"]
+  B["fixed runtime facts"]
+  C["visible Huey response"]
+  D["language and behaviour read"]
+
+  A --> B --> C --> D
+```
+
+The colour substrate is measured before the response read starts:
+
+1. `behaviour-facts` resolves the input into a fixed fact packet:
+   - canonical hex
+   - nearest swatch
+   - family
+   - current rank
+   - replacement shade
+   - fixed family loss line
+2. response evaluation reads the visible language against that packet
+3. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
+   and consistency while treating the colour facts as fixed
