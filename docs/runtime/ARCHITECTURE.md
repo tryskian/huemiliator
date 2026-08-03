@@ -153,6 +153,8 @@ The colour substrate is measured before the response read starts:
    - current rank
    - replacement shade
    - fixed family loss line
-2. response evaluation reads the visible language against that packet
-3. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
+2. `behaviour-facts --format json` emits the same packet as a machine-readable
+   fixture
+3. response evaluation reads the visible language against that packet
+4. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
    and consistency while treating the colour facts as fixed

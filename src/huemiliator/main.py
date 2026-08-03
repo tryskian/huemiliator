@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sqlite3
 import sys
+from typing import Any
 
 from huemiliator.agent import (
     BEHAVIOUR_CONTRACT_LINES,
@@ -73,6 +75,13 @@ def build_parser() -> argparse.ArgumentParser:
     behaviour_facts_parser.add_argument(
         "hex_value",
         help="Hex value to turn into fixed eval facts.",
+    )
+    behaviour_facts_parser.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        dest="output_format",
+        help="Output format for fixed eval facts.",
     )
 
     subparsers.add_parser(
@@ -244,26 +253,75 @@ def render_behaviour_contract() -> str:
     return "\n".join(BEHAVIOUR_CONTRACT_LINES)
 
 
-def render_behaviour_facts(hex_value: str) -> str:
+def build_behaviour_fact_packet(hex_value: str) -> dict[str, Any]:
     settings = load_settings()
     dataset = load_swatch_snapshot(settings.swatch_snapshot_path)
     state = build_one_up_state(hex_value, dataset)
+    return {
+        "schema": "huemiliator.behaviour_facts.v1",
+        "input": {
+            "hex": state.resolution.input_hex,
+        },
+        "runtime_facts": {
+            "nearest_swatch": {
+                "name": state.current.swatch.name,
+                "hex": state.current.swatch.hex,
+                "source_order": state.current.swatch.source_order,
+            },
+            "distance_cie76": round(state.resolution.distance, 4),
+            "family": state.current.family,
+            "current_rank": state.current.family_rank,
+            "family_size": state.current.family_size,
+            "replacement": {
+                "name": state.replacement.swatch.name,
+                "hex": state.replacement.swatch.hex,
+                "rank": state.replacement.family_rank,
+            },
+            "loss_line": state.loss_line,
+        },
+        "response_contract": {
+            "language_target": "concise one-up judgement with playful precision",
+            "eval_targets": [
+                "language fidelity",
+                "tone fit",
+                "evidence fit",
+                "consistency",
+            ],
+            "contract_lines": list(BEHAVIOUR_CONTRACT_LINES),
+        },
+    }
+
+
+def render_behaviour_facts(hex_value: str, output_format: str = "text") -> str:
+    packet = build_behaviour_fact_packet(hex_value)
+    if output_format == "json":
+        return json.dumps(packet, indent=2)
+    if output_format != "text":
+        raise ValueError(f"Unsupported behaviour facts format '{output_format}'.")
+
+    runtime_facts = packet["runtime_facts"]
+    if not isinstance(runtime_facts, dict):
+        raise TypeError("Behaviour fact packet runtime_facts must be a mapping.")
+    nearest_swatch = runtime_facts["nearest_swatch"]
+    if not isinstance(nearest_swatch, dict):
+        raise TypeError("Behaviour fact packet nearest_swatch must be a mapping.")
+    replacement = runtime_facts["replacement"]
+    if not isinstance(replacement, dict):
+        raise TypeError("Behaviour fact packet replacement must be a mapping.")
+
     lines = [
         "behaviour eval facts",
-        f"input: {state.resolution.input_hex}",
-        f"nearest swatch: {state.current.swatch.name}",
-        f"swatch hex: {state.current.swatch.hex}",
-        f"family: {state.current.family}",
-        f"current rank: {state.current.family_rank}/{state.current.family_size}",
-        f"source order: {state.current.swatch.source_order}",
-        f"distance (delta-e-cie76): {state.resolution.distance:.4f}",
-        f"replacement shade: {state.replacement.swatch.name}",
-        f"replacement hex: {state.replacement.swatch.hex}",
-        (
-            "replacement rank: "
-            f"{state.replacement.family_rank}/{state.replacement.family_size}"
-        ),
-        f"loss line: {state.loss_line}",
+        f"input: {packet['input']['hex']}",
+        f"nearest swatch: {nearest_swatch['name']}",
+        f"swatch hex: {nearest_swatch['hex']}",
+        f"family: {runtime_facts['family']}",
+        f"current rank: {runtime_facts['current_rank']}/{runtime_facts['family_size']}",
+        f"source order: {nearest_swatch['source_order']}",
+        f"distance (delta-e-cie76): {runtime_facts['distance_cie76']:.4f}",
+        f"replacement shade: {replacement['name']}",
+        f"replacement hex: {replacement['hex']}",
+        (f"replacement rank: {replacement['rank']}/{runtime_facts['family_size']}"),
+        f"loss line: {runtime_facts['loss_line']}",
         "language target: concise one-up judgement with playful precision",
         "eval target: language fidelity, tone fit, evidence fit, consistency",
     ]
@@ -619,7 +677,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "behaviour-facts":
         try:
-            print(render_behaviour_facts(args.hex_value))
+            print(render_behaviour_facts(args.hex_value, args.output_format))
         except (ResolutionError, SwatchDatasetError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1

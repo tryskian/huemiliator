@@ -220,6 +220,9 @@ Dependency maintenance:
   - emit the fixed runtime fact packet for one response-language eval
   - include canonical hex, nearest swatch, family, rank, replacement, and loss
     line before scoring visible response behaviour
+- `huemiliator behaviour-facts "#d9a6a1" --format json`
+  - emit the same fact packet as machine-readable JSON for Polinko-facing eval
+    fixtures
 
 ## Pulse Eval Commands
 
