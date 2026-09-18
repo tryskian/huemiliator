@@ -45,6 +45,43 @@ def test_end_routine_uses_make_targets() -> None:
         assert command in script
 
 
+def test_repo_lifecycle_does_not_own_mac_wide_power_control() -> None:
+    makefile = read("Makefile")
+    lifecycle = "\n".join(
+        (
+            makefile,
+            read("scripts/start_of_day_routine.sh"),
+            read("scripts/end_of_day_routine.sh"),
+        )
+    )
+
+    for target in (
+        "caffeinate",
+        "caffeinate-status",
+        "decaffeinate",
+        "decaffeinate-status",
+    ):
+        assert not re.search(rf"(?m)^{re.escape(target)}:", makefile), target
+
+    for local_power_control in (
+        "CAFFEINATE_",
+        "/usr/bin/caffeinate",
+        "make --no-print-directory caffeinate",
+        "make --no-print-directory decaffeinate",
+    ):
+        assert local_power_control not in lifecycle
+
+    docs = "\n".join(
+        (
+            read("docs/runtime/RUNBOOK.md"),
+            read("docs/runtime/START_END_REFERENCE.md"),
+            read("docs/governance/DECISIONS.md"),
+        )
+    )
+    for coffee_action in ("`coffee`", "`coffee start`", "`coffee stop`"):
+        assert coffee_action in docs
+
+
 def test_runtime_docs_name_the_closeout_targets() -> None:
     docs = "\n".join(
         read(path)

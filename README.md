@@ -100,8 +100,6 @@ Core operator commands:
 make start
 make end
 make startup-docs-read
-make caffeinate-status
-make decaffeinate
 make check
 ```
 
