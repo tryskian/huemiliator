@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-08-03
+Last updated: 2026-09-18
 
 ## Start Here
 
@@ -38,7 +38,9 @@ The core tracked shape is:
   - status language is model-level, not repo-only
   - badges align with the shared toy-factory status pattern
 - dependency/security cleanup is current on `main`:
-  - grouped Python dependency updates are merged
+  - grouped Python dependency and GitHub Actions updates are merged
+  - `jsdom` stays on `29.1.1` while the local Node `25` line is outside
+    `jsdom 30`'s supported engine range
   - no open Huemiliator PRs remain
 - local shell helper contracts are now a named gate:
   - `make scripts-check` validates tracked `scripts/*.sh`
