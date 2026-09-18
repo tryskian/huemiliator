@@ -493,3 +493,18 @@ into implementation authorship.
   family-balanced samples keep exact-input pulse candidates from inheriting
   source-order bias. They do not by themselves author a classifier change or
   open an eval pulse.
+
+## D-036: Next-beta pulses map binary verdicts in real time
+
+- Date: `2026-09-18`
+- Category: `eval_quality`
+- Tags: `next_beta`, `fifteen_minute_pulse`, `live_signal`, `pass_fail`
+- Provenance: `human-led method decision`
+- Decision: The next-beta eval method runs for `15` minutes. Each evaluation
+  receives a `PASS` or `FAIL` verdict while the pulse is running, and the
+  ordered verdicts build the live signal map used to choose the next
+  adjustment. `retain` and `evict` are not verdicts or evidence labels in this
+  method.
+- Why: Recording verdicts as the run unfolds shows where the signal changes,
+  repeats, or clusters. That live shape gives the operator evidence for the
+  next adjustment while keeping the judgement vocabulary binary.
