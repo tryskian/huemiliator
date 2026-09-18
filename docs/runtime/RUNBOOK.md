@@ -41,18 +41,6 @@ Use this doc for operator procedure.
 6. `make start` opens the session by reading the tracked startup docs and
    printing the startup gate; startup completes after the rehydrate response
    names one active kernel.
-7. Keep Mac-wide power control outside the repo lifecycle.
-
-## Shared Power Control
-
-1. The external Coffee Codex plugin owns the one shared Mac-wide keep-awake
-   session.
-2. Use `coffee` for status, `coffee start` to begin a session, and `coffee stop`
-   to release it.
-3. Treat those as explicit operator actions independent of repo startup and
-   closeout.
-4. `make start` and `make end` do not inspect, start, adopt, or stop Coffee.
-5. Huemiliator owns no keep-awake PID file, process state, or wrapper target.
 
 ## Morning Startup Ritual
 
@@ -61,6 +49,8 @@ Use this doc for operator procedure.
 2. Treat `make start` as the mechanical bootstrap plus tracked startup-doc read:
    - workspace context
    - `make doctor-env`
+   - `make caffeinate`
+   - `make caffeinate-status`
    - `make startup-docs-read`
    - `make session-status`
    - startup gate prompt
@@ -159,8 +149,6 @@ Use this doc for operator procedure.
    - merged
    - clean local `main`
    - synced with `origin/main`
-6. `make end` leaves the shared Coffee session unchanged. Use `coffee stop` only
-   when the operator explicitly asks to release it.
 
 ## Local-Only Docs Policy
 
@@ -183,6 +171,14 @@ Use this doc for operator procedure.
   - live repo, runtime, and eval snapshot
 - `make startup-docs-read`
   - tracked startup-doc inspection
+- `make caffeinate`
+  - start repo-managed wake lock
+- `make caffeinate-status`
+  - report repo-managed wake-lock status
+- `make decaffeinate`
+  - stop repo-managed wake lock
+- `make decaffeinate-status`
+  - report closeout wake-lock status
 - `make path-leak-check`
   - tracked repo path leak check
 - `make path-leak-audit-local`
@@ -204,7 +200,7 @@ Use this doc for operator procedure.
 - `make security-checks`
   - dependency security audit
 - `make end-preflight`
-  - explicit branch-local validation only; does not close the day
+  - explicit branch-local validation only; does not stop background tasks or close the day
 - `make end-git-check`
   - clean-main closeout check
 

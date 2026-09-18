@@ -19,6 +19,8 @@ Sequence:
    - `git status --short --branch`
 2. Run the startup safety path:
    - `make doctor-env`
+   - `make caffeinate`
+   - `make caffeinate-status`
    - `make startup-docs-read`
    - `make session-status`
 3. Inspect the tracked startup docs in-band:
@@ -46,12 +48,10 @@ Source of truth:
 - [Makefile](../../Makefile)
 - [scripts/start_of_day_routine.sh](../../scripts/start_of_day_routine.sh)
 
-Power-control boundary:
+Wake-lock rule:
 
-- the repo lifecycle does not start, inspect, or stop Mac-wide keep-awake state
-- the external Coffee Codex plugin owns the one shared Mac-wide session
-- use `coffee`, `coffee start`, and `coffee stop` as separate explicit actions
-- `make start` and `make end` never invoke those actions
+- `make caffeinate` records only this repo's managed PID
+- unmanaged `caffeinate` processes are reported but never adopted or stopped
 
 Startup completion rule:
 
@@ -81,6 +81,7 @@ Sequence:
   - `make package-install-check`
   - `make security-checks`
   - `make end-pending-check`
+  - `make decaffeinate`
   - `make session-status`
 2. Enforce the final git state:
   - `make end-git-check`
@@ -89,6 +90,7 @@ Preflight:
 
 - `make end-preflight`
 - runs the docs and validation path without requiring a clean synced `main`
+- does not stop background tasks
 - use it only when an explicit branch-local preflight was requested
 - it does not close the day and it does not replace `make end`
 
