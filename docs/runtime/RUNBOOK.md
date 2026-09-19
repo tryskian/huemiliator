@@ -38,9 +38,9 @@ Use this doc for operator procedure.
 3. Keep wrapper targets mechanical.
 4. Use `make session-status` as the live repo and runtime snapshot.
 5. Use `make end` as the strict clean-main closeout routine.
-6. `make start` opens the session by reading the tracked startup docs and
-   printing the startup gate; startup completes after the rehydrate response
-   names one active kernel.
+6. `make start` opens the session by running the bootstrap, printing startup
+   document summaries, and showing the startup gate; startup completes after
+   substantive reading and a rehydrate response names one active kernel.
 7. Keep Mac-wide power control outside the repo lifecycle.
 
 ## Shared Power Control
@@ -58,13 +58,14 @@ Use this doc for operator procedure.
 
 1. Run:
    - `make start`
-2. Treat `make start` as the mechanical bootstrap plus tracked startup-doc read:
+2. Treat `make start` as the mechanical bootstrap plus a startup-doc summary:
    - workspace context
    - `make doctor-env`
    - `make startup-docs-read`
    - `make session-status`
    - startup gate prompt
-3. Use the startup-doc read across:
+3. Read the substantive startup docs after the summary reports their titles and
+   dates. The required surface is:
    - `README.md`
    - `docs/governance/CHARTER.md`
    - `docs/governance/DECISIONS.md`
@@ -91,13 +92,14 @@ Use this doc for operator procedure.
 
 1. Run:
    - `make doctor-env`
-2. It checks:
-   - Python path
-   - venv
-   - package imports
-   - repo runtime files
-   - live credential visibility when credentials are in play
-3. Resolve actionable issues before runtime or eval work.
+2. It reports:
+   - the repository root
+   - the running Python version
+   - whether `.env.example` is present
+   - the static runtime summary and eval DB path
+3. It is a diagnostic snapshot, not a venv, import, credential, or runtime-file
+   health check. Use `make install`, `make check`, and the relevant runtime
+   command for those checks.
 
 ## Inspect-First Rule
 
@@ -196,11 +198,11 @@ Mechanical checks supply no behaviour verdict; the colour eval DB is untouched.
 - `make refresh-deps`
   - refresh local Python and npm dependencies after Dependabot work
 - `make doctor-env`
-  - environment health check
+  - diagnostic snapshot of repo, Python, runtime summary, and eval DB path
 - `make session-status`
   - live repo, runtime, and eval snapshot
 - `make startup-docs-read`
-  - tracked startup-doc inspection
+  - title/date summary for required startup docs; substantive reading remains operator work
 - `make path-leak-check`
   - tracked repo path leak check
 - `make path-leak-audit-local`
@@ -251,8 +253,10 @@ Dependency maintenance:
 ## Behaviour Eval Commands
 
 These commands expose the implemented contract and fact fixtures. The
-[15-minute behaviour method](../research/030_PB_BEHAVIOUR.md) is staged; its
-model execution and pulse procedure will follow the aligned staging choices.
+[composer](COMPOSITION.md) is implemented and records model requests and
+responses. The [15-minute behaviour method](../research/030_PB_BEHAVIOUR.md)
+is still staged: its timed pulse procedure, observation unit, and pulse-wide
+verdict rule await alignment. These commands do not run that procedure.
 
 - `huemiliator behaviour-contract`
   - print the positive language and behaviour eval contract from
