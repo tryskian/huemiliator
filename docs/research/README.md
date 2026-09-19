@@ -7,8 +7,11 @@ Huemiliator keeps the tracked research lane small on purpose.
 Each beta is a distinct eval approach. This folder preserves the method shifts
 that changed what the evidence means.
 
-Raw run notes and scratch material stay out of the tracked research surface
-until they become evidence.
+Substantive reasoning, findings, method clarifications, and agreed decisions
+are recorded as they emerge, using the [research templates](../runtime/templates/README.md).
+Notes and diagrams are equally important records. State clearly whether each
+claim is authorial direction, interpretation, a staged hypothesis, implementation,
+or observed evidence; hypotheses can be documented before a behaviour pulse.
 
 Tracked research-note names use the category code contract:
 `NNN_CODE.md` or `NNN_CODE-QUALIFIER.md`. Dates live inside the docs, not in
@@ -131,6 +134,7 @@ Off-diagonal cells mark archive-label drift.
 | --- | --- | --- |
 | [Research Legend](./000_LEGEND.md) | legend | file map, code ranges, filename contract, category meanings, and status language |
 | [Pre-Beta: 15-Minute Behaviour Pulses](./030_PB_BEHAVIOUR.md) | staged boundary | agreed behaviour focus and assistant ownership, with draft directions, judgment lens, and promotion condition |
+| [Local Language and Reasoning](./450_LOCAL_LANGUAGE.md) | staged hypothesis | language relationships supporting coherent colour arguments and expressive range, with sources, diagram, proposed test, and preserved authorial and observation records |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./010_PB10.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
 | [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | closed beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, `neutral` parks after the split correction plus a broader `14 / 1` continuation, and the first three colour-boundary report pulses pass |
 | [Brown Context Dependence](./120_BROWN.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |

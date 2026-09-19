@@ -5,21 +5,24 @@
 | Code | `LOCAL_LANGUAGE` |
 | Category | `hypothesis` |
 | Status | `staged` |
+| Last evidence | `2026-09-19`: authorial direction and composer smoke observations; first behaviour pulse pending |
 | Direction recorded | `2026-09-19` |
 | Implementation | starter bank `0.4.0`, instructions `1.2.0`, and model-driven composer `0.4.0` |
 | Agreed character configuration | D-046; recorded, with runtime and library alignment pending |
 | Behaviour evidence | awaits the first aligned pulse |
 | Owns | application of the character profile to local library structure, sample language, and connector relationships |
+| Template | [Hypothesis](../runtime/templates/hypothesis.md) |
 
 ## Question
 
-Can a broad local language library give Huey expressive range while its words
-and connectors remain faithful to the colour facts and the interaction?
+Can a broad local language library support coherent colour arguments and
+expressive range in Hugh's voice, including rhetorical questions?
 
 ## Current Claim
 
-A local library organised by meaning and usage conditions can support varied,
-coherent one-up lines under a compact set of positive directions.
+A local library of words and meaningful relationships can support coherent
+colour arguments and expressive range in Hugh's academic voice under a compact
+set of positive directions.
 
 The human lead chose a local library and asked for explicit connector logic,
 using Probaboracle as a reference. [D-039](../governance/DECISIONS.md#d-039-stage-a-local-language-library-and-connector-logic)
@@ -51,6 +54,107 @@ The observable question for the behaviour pulses is whether Hugh's response
 develops a colour argument whose relationships hold, including when he uses
 academic flourish or rhetorical questions. The current implementation makes
 those forms available; their behavioural quality remains to be established.
+
+## Source Shape
+
+| Source | Contribution | Evidence status |
+| --- | --- | --- |
+| September 19 human-led clarification | local library plus explicit connector logic | agreed staging direction |
+| September 19 human-led character clarification and opening examples | Hue's identity, backhanded compliment, and restrained snobbery | authorial voice reference; implementation still awaits behaviour evaluation |
+| September 19 human-led assertion clarification | aesthetic judgment delivered as settled fact; exact fragment “is just more satisfying” | authorial voice reference recorded in D-044 |
+| [Agreed configuration](#agreed-authorial-configuration) | grounded verbosity, generic courtesy, meaningful colour rationale, exacting statements or rhetorical questions | agreed authorial direction under D-046; broader runtime alignment pending |
+| [Reference material](#authorial-reference-material) and [academic flourish](#rhetorical-questions-and-academic-flourish) | adjective references and connective language participating in reasoning | D-047/D-048; bank and interface support implemented; behaviour awaits a pulse |
+| [Probaboracle's earlier bank and generation path](#rhetorical-questions-and-academic-flourish) | shared signals alongside a reasoning progression, with model-owned sentence construction | historical precedent; its later runtime has developed beyond this beta |
+| [Huey's fact export](../../src/huemiliator/pipeline.py) and [fixed family lines](../../src/huemiliator/loss_lines.py) | factual foundation and current wording baseline | implemented starting point |
+| [Probaboracle D-024](https://github.com/tryskian/probaboracle/blob/af4b3dc7ec287519a27f2622b827d84039282317/docs/governance/DECISIONS.md#d-024-coherence-requires-one-resolved-sentence-not-stacked-fragments) | historical finding that connective-heavy fragments can appear coherent without resolving an idea | reference lesson for Huey's design |
+| [Later Probaboracle instructions](https://github.com/tryskian/probaboracle/blob/af4b3dc7ec287519a27f2622b827d84039282317/src/probaboracle/agent.py) | subsequent sentence-shape guidance | chronology and comparison context, distinct from the earlier bank |
+
+Proposed first test material: a bounded selection of ordinary replacements, a
+same-hex replacement, and a top-rank clamp, with relation-specific examples and
+a single-claim case. Case selection remains to be aligned. The judged object
+is an actual complete response with its supplied facts and context; behavioural
+coverage supplies the selection rationale rather than reopening a family lane.
+The assistant runs and judges the 15-minute pulse under
+[PB_BEHAVIOUR](030_PB_BEHAVIOUR.md). Its pulse-wide verdict rule remains open.
+
+| Test dimension | Staged shape |
+| --- | --- |
+| Judged object | complete visible response with supplied facts, context, and recorded setup |
+| Bounded source | one aligned 15-minute behaviour pulse, run and judged by the assistant |
+| Family scope | behaviour cases across relevant colour conditions; colour classification remains the stable foundation |
+| Verdict unit | pulse-level `PASS / FAIL`; aggregation and judgment record remain to be aligned |
+| Existing observations | [composer smoke checks](#september-19-composer-smoke-observations) and [later response records](#behaviour-evidence-to-establish), each retaining its setup and judgment status |
+
+## Diagram
+
+```mermaid
+flowchart TD
+  F["Fixed colour facts and interaction context"] --> M
+  L["Local library<br/>Words and meaningful relationships"] --> M
+  P["Compact positive directions<br/>Hugh's character"] --> M
+  M["One model generation<br/>Develop the colour argument and compose its expression"] --> O
+  O["Visible statement or rhetorical question<br/>with its facts and recorded setup"] --> E
+  E["Assistant judges the aligned 15-minute pulse"] --> S["Evidence supporting the claim"]
+  E --> B["Evidence challenging the claim"]
+  S --> N["Interpret findings<br/>Promote, narrow, or retire the tested claim"]
+  B --> N
+```
+
+The diagram relates the hypothesis, implemented composition, and proposed test.
+The model owns argument and wording within one generation. Its entry references
+and relationship annotations are inspectable reports about the visible response.
+Assistant judgment and the 15-minute pulse protocol remain in staging.
+
+## What Would Support It
+
+| Candidate support signal | What the response would show |
+| --- | --- |
+| Factual grounding | literal colour claims agree with the supplied facts |
+| Coherent development | the relationship between ideas holds and contributes to a meaningful colour rationale |
+| Rhetorical form | a question expresses an intelligible implied claim with a defensible basis |
+| Character | gracious generic courtesy and assured academic judgment, with grounded development |
+| Expressive range | varied wording and argument forms that fit comparable inputs |
+
+These signals are proposed for alignment with the pulse judgment contract.
+The number of available entries describes the library; observed responses
+supply behavioural evidence. Historical smoke observations remain in the
+[supporting record](#supporting-research-record).
+
+## What Would Break It
+
+| Candidate break signal | What would challenge the claim |
+| --- | --- |
+| Unsupported relationship | an explanation lacks a basis, a concession lacks its expected outcome, or claims contradict each other |
+| Unresolved thought | connective accumulation or a rhetorical question conceals a broken argument |
+| Factual drift | a description or metaphor asserts colour properties that the facts do not establish |
+| Character drift | omitted opening courtesy, overt ridicule, personal-preference framing, or self-reference as “Huey” |
+| Collapsed range | repeated or interchangeable wording overlooks the actual situation |
+
+These remain candidate failure signals awaiting alignment as evaluation criteria.
+
+## Why It Matters
+
+Connector words carry commitments about how ideas relate. Defining those
+commitments gives the local bank a basis for coherent composition while keeping
+the instruction set small. The library and composer carry the detailed language
+structure; the short directions carry Huey's purpose and manner.
+
+## Next Move
+
+Use the [composer's inspection record](../runtime/COMPOSITION.md) beside the
+[five directions](030_PB_BEHAVIOUR.md#instructions-and-judgment-lens)
+to align the pulse protocol and assistant judgment record.
+The bank can expand as behavioural findings identify useful additions.
+If the hypothesis holds in aligned pulses, promote
+the tested scope into the behaviour method; if it breaks, narrow the relations
+or language entries around the observed failure, or retire the claim if the
+evidence no longer supports pursuing it.
+
+## Supporting Research Record
+
+The authorial references, source comparisons, and historical observations below
+preserve the basis for this hypothesis. Their original wording, setup, and
+judgments remain distinct from the prospective test above.
 
 ### Agreed Authorial Configuration
 
@@ -386,44 +490,6 @@ The line retains the input family and selected replacement.
 This is a draft for voice review, with its colour facts checked through the
 read-only export. It carries no behaviour-eval verdict.
 
-## Source Shape
-
-| Source | Contribution | Evidence status |
-| --- | --- | --- |
-| September 19 human-led clarification | local library plus explicit connector logic | agreed staging direction |
-| September 19 human-led character clarification and opening examples | Hue's identity, backhanded compliment, and restrained snobbery | authorial voice reference; implementation still awaits behaviour evaluation |
-| September 19 human-led assertion clarification | aesthetic judgment delivered as settled fact; exact fragment “is just more satisfying” | authorial voice reference recorded in D-044 |
-| [Huey's fact export](../../src/huemiliator/pipeline.py) and [fixed family lines](../../src/huemiliator/loss_lines.py) | factual foundation and current wording baseline | implemented starting point |
-| [Probaboracle D-024](https://github.com/tryskian/probaboracle/blob/af4b3dc7ec287519a27f2622b827d84039282317/docs/governance/DECISIONS.md#d-024-coherence-requires-one-resolved-sentence-not-stacked-fragments) | historical finding that connective-heavy fragments can appear coherent without resolving an idea | reference lesson for Huey's design |
-| [Probaboracle instructions](https://github.com/tryskian/probaboracle/blob/af4b3dc7ec287519a27f2622b827d84039282317/src/probaboracle/agent.py) | current sentence-shape guidance | source reference; connector mechanics here are a new draft |
-
-Proposed first test material: a bounded selection of ordinary replacements, a
-same-hex replacement, and a top-rank clamp, with relation-specific examples and
-a single-claim case. Case selection remains to be aligned. The judged object
-is an actual complete response with its supplied facts and context; behavioural
-coverage supplies the selection rationale rather than reopening a family lane.
-The assistant runs and judges the 15-minute pulse under
-[PB_BEHAVIOUR](030_PB_BEHAVIOUR.md). Its pulse-wide verdict rule remains open.
-
-## Diagram
-
-```mermaid
-flowchart TD
-  F["Fixed colour facts and interaction context"] --> C["Choose supported claims"]
-  C --> R["Identify their relationship and its basis"]
-  R --> W["Choose fitting words and sentence shape"]
-  L["Local library<br/>Words, claims, relations, worked lines"] --> W
-  P["Compact positive directions<br/>Room for Huey's choices"] --> C
-  W --> O["Complete visible response"]
-  O --> E["Assistant judges facts, relation and voice<br/>within a 15-minute pulse"]
-```
-
-The model-driven composer now implements the language path in this sequence.
-Its entry references and relationship annotations are inspectable model reports.
-Assistant judgment and the 15-minute pulse protocol remain in staging.
-
-## What Would Support It
-
 ### September 19 Composer Smoke Observations
 
 Five live requests exercised the composition and recording path with the
@@ -566,36 +632,3 @@ is `.local/composition-smoke/2026-09-19-intellectual-voice-6em708vy/ordinary-gre
 The line still falls back to “the finer choice”; the new reference has not yet
 demonstrated expressive range. This remains an open behavioural finding, with
 no overall voice verdict or pulse result assigned to this response.
-
-Candidate support signals are factual fidelity, a defensible relationship
-between ideas, intentional grammatical shape, the opening backhanded compliment,
-restrained tastemaker behaviour, and useful variation
-across comparable inputs. A larger count of possible combinations is a library
-property; actual responses establish behavioural evidence.
-
-## What Would Break It
-
-Candidate failures include an unsupported explanation, a concession whose
-expectation cannot be identified, contradictory claims, broken grammatical
-joins, a metaphor that changes the facts, and interchangeable wording that
-ignores the situation. Voice failures include an omitted opening compliment,
-overt ridicule, personal-preference framing such as “I prefer”, and self-reference
-as “Huey”. Repetition and voice fit also need
-inspection across responses. These signals await alignment as evaluation criteria.
-
-## Why It Matters
-
-Connector words carry commitments about how ideas relate. Defining those
-commitments gives the local bank a basis for coherent composition while keeping
-the instruction set small. The library and composer carry the detailed language
-structure; the short directions carry Huey's purpose and manner.
-
-## Next Move
-
-Use the [composer's inspection record](../runtime/COMPOSITION.md) beside the
-[five directions](030_PB_BEHAVIOUR.md#instructions-and-judgment-lens)
-to align the pulse protocol and assistant judgment record.
-The bank can expand as behavioural findings identify useful additions.
-If the hypothesis holds in aligned pulses, promote
-the tested scope into the behaviour method; if it breaks, narrow the relations
-or language entries around the observed failure.

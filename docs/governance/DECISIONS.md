@@ -821,3 +821,25 @@ into implementation authorship.
   remain questions for the agreed 15-minute pulses.
 - Reference: [Authorial source and comparison](../research/450_LOCAL_LANGUAGE.md#rhetorical-questions-and-academic-flourish)
   and [connector meanings](../runtime/LANGUAGE_BANK.md#conditions-and-connector-meaning).
+
+## D-049: Record research reasoning with the same care as diagrams
+
+- Date: `2026-09-19`
+- Category: `evidence_governance`
+- Tags: `research_documentation`, `templates`, `diagrams`, `continuity`
+- Provenance: `human-led standing documentation instruction`
+- Decision: Document substantive reasoning, findings, method clarifications,
+  and agreed decisions as they emerge, without waiting for another request.
+  Research notes carry the same importance as diagrams. Use the existing
+  [category templates](../runtime/templates/README.md) and keep the relevant
+  note and diagram aligned with the current meaning of the work.
+- Record quality: Preserve sources, exact authorial wording, and chronology.
+  Distinguish direction, interpretation, hypothesis, implementation, and observed
+  evidence. Staged ideas receive a durable record before experimental support
+  exists. Raw scratch and private source material retain their local ownership.
+- Application: [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md) follows the
+  hypothesis template with its claim, source shape, diagram, support and break
+  signals, and next move together. Its detailed authorial and observation
+  history remains linked in the supporting record.
+- Reference: [Documentation governance](CHARTER.md#documentation-governance)
+  and [research index](../research/README.md).
