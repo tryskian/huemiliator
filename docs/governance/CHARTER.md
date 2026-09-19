@@ -196,13 +196,13 @@ describe the carried implementation and `Beta 1.0` baseline.
 
 ## Documentation Governance
 
-Research notes and diagrams are equally important records of the work. Capture
+Keep every document concise and easy to scan, with one clear job and links to
+supporting detail. Research notes and diagrams receive equal care. Capture
 substantive reasoning, findings, method clarifications, and agreed decisions as
-they emerge, without waiting for a separate reminder. Use the appropriate
-[research template](../runtime/templates/README.md), preserve source and
-chronology, and distinguish authorial direction, interpretation, hypothesis,
-implementation, and observed evidence. Keep the relevant note and diagram
-aligned when the meaning or method changes. D-049 records this standing practice.
+they emerge, using the [research templates](../runtime/templates/README.md).
+Preserve source and chronology; distinguish direction, interpretation,
+hypothesis, implementation, and evidence. Keep notes and diagrams aligned as
+the meaning or method changes. D-049 records this standing practice.
 
 - `docs/governance/CHARTER.md`
   - mission, durable rules, and the authorial character profile
