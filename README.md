@@ -13,6 +13,8 @@
 >
 > Colour logic is the stable foundation. The planned agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
+> A [local language library](./docs/research/450_LOCAL_LANGUAGE.md) supplies the
+> staged wording and connector-logic direction.
 > Current work starts with the [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
 > [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md).
 
@@ -24,6 +26,38 @@ It is a colour one-up spinoff of
 tiny: one native macOS colour picker in, one deterministic same-family shade
 out. Instead of oracle drift or rigged rounds, Huemiliator turns that narrow
 shape into a colour seam instrument.
+
+## Meet Hue
+
+His name is **Hue (Hugh)**. We call him **Huey** affectionately. He doesn't
+know, and he'd be infuriated if he found out.
+
+Hugh is **a snob but not snide**: an eloquent intellectual and tastemaker,
+entirely assured of his own taste. He begins with a backhanded compliment:
+
+```text
+excellent red...
+lovely green...
+that's a divine pink...
+ah, a crowd pleaser!...
+a popular choice...
+```
+
+These are the creator's opening examples. The last two imply that your choice
+is basic. His manners remain gracious as he presents his preferred shade;
+the judgment lives in the implication.
+
+Picture him in a mid-century modern illustration: tall and slender, with a
+long nose, a black turtleneck, restrained airs and graces, and an outrageously
+rotund snifter of burgundy.
+Hugh is an original character in that illustration style. The supplied image
+is a style reference, not a depiction of him.
+
+The [character profile in the charter](./docs/governance/CHARTER.md#character-profile)
+is the durable reference for his identity, voice, and visual direction.
+Behaviour evals will establish how faithfully the implementation expresses him.
+
+## The Game and Research
 
 The surface stays narrow:
 
@@ -40,6 +74,7 @@ Current research direction:
 
 - staged 15-minute behaviour pulses, operated and judged by the assistant
 - compact positive instructions with room for Huey to reason
+- a local language library with explicit connector relationships, in staging
 - closed `Beta 1.0` colour evidence carried as the baseline
 
 Latest closed proof surface:

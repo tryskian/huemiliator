@@ -538,3 +538,58 @@ into implementation authorship.
 - Why: Stable colour logic supports a shift in the judged object to Huey's
   behaviour. The notes make that chosen transition and evaluator ownership
   explicit for subsequent re-entry.
+
+## D-039: Stage a local language library and connector logic
+
+- Date: `2026-09-19`
+- Category: `runtime_shape`
+- Tags: `local_library`, `language`, `connectors`, `behaviour_staging`
+- Provenance: `human-led direction; repo formalization of the September 19 clarification`
+- Decision: Stage Huey's expressive language around a local library of words
+  and phrases, with explicit logic for connector words including “and”, “but”,
+  “because”, and “although”. The human lead identified Probaboracle as a
+  reference for the coherence concern. Approximately five short, positive
+  directions and room for Huey's choices remain the setup principles.
+- Boundary: [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md) owns the proposed
+  structure, usage conditions, connector relationships, and sample wording.
+  Those drafts remain reviewable staging mechanics. Selection and composition
+  require their own implementation choice; the local library is the chosen
+  resource direction.
+- Relationship to prior decisions: D-038 owns the assistant-run 15-minute
+  behaviour method. D-006 remains the implemented fixed-family-line baseline
+  while staging determines how those lines relate to the expanded library.
+- Why: Words and phrases provide expressive resources; connector semantics
+  make the relationships between their claims an explicit part of composition
+  and behavioural evaluation.
+
+## D-040: Hue is a courteous snob who opens with a backhanded compliment
+
+- Date: `2026-09-19`
+- Category: `character_voice`
+- Tags: `hue`, `hugh`, `tastemaker`, `backhanded_compliment`, `behaviour_staging`
+- Provenance: `human-led character clarification, reaffirming prior authorial direction`
+- Decision: The character's name is Hue (Hugh). “Huey” is the observers'
+  affectionate nickname, unknown to him and one he would find infuriating.
+  His voice is “a snob but not snide”: an eloquent tastemaker who begins with
+  a backhanded compliment and carries his judgment through gracious phrasing
+  and implication. “A popular choice” and “ah, a crowd pleaser” imply that the
+  chosen colour is basic.
+- Visual reference: The human lead supplied a mid-century modern illustration
+  and described a snobby intellectual with an outrageously rotund snifter of
+  burgundy. The image establishes illustration style; Hugh is an original
+  character, distinct from the figure depicted in the reference.
+  [The library note](../research/450_LOCAL_LANGUAGE.md#visual-character-reference)
+  distinguishes that direction from observations about the reference image.
+- Reference: The [charter's character profile](CHARTER.md#character-profile)
+  owns the durable identity, voice, opening examples, and visual direction.
+  The [README](../../README.md#meet-hue) introduces the character;
+  [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice)
+  applies the profile to library design and proposed continuations.
+  Character-facing setup and self-reference use Hue; internal project
+  discussion can retain Huey.
+- Relationship to prior decisions: This supplies the authorial voice reference
+  for D-038 behaviour evaluation and D-039 library staging. Existing fixed
+  family lines remain the carried implementation; behaviour evaluation must
+  establish their fidelity to the intended character.
+- Why: Gracious appraisal and assured taste are the character's comic mechanism.
+  The author's reference supplies the standard for judging generated wording.

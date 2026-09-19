@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-09-18
+Last updated: 2026-09-19
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -26,11 +26,13 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | [Next beta note](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour using stable colour facts |
 | Cadence and ownership | 15-minute pulses run and judged by the assistant |
 | Agent directions | approximately five short, positive instructions with room to reason |
+| [Local language library](450_LOCAL_LANGUAGE.md) | staged entry structure, sample voice, and connector logic |
 | [Execution diagram](../diagrams/BEHAVIOUR_PULSE.md) | staged responsibilities and information flow |
-| Current kernel | beta notes, diagrams, and alignment of the draft instructions and judgment lens |
+| Current kernel | local library and connector draft beside the instructions and judgment lens |
 | First behaviour evidence | awaits staging completion and the first pulse |
 
-The direction was clarified by the human lead on September 18. The older
+The pulse direction was clarified by the human lead on September 18; the local
+library and connector direction followed on September 19. The older
 colour tools are the starting point for the transition. The tables and charts
 below preserve the closed colour evidence.
 
