@@ -1,6 +1,8 @@
 # Pipeline
 
-This is the canonical target flow for Huemiliator.
+This is the implemented colour pipeline carried into behaviour-beta staging.
+The [staged behaviour pulse](BEHAVIOUR_PULSE.md) shows the next method's
+responsibilities and information flow.
 
 The picker kernel, the frozen swatch snapshot, nearest-swatch resolution,
 family assignment, same-family rank, neutral undertone constraint,
@@ -20,7 +22,7 @@ flowchart LR
   G["replacement shade + short loss line"]
   H["optional sqlite evidence row"]
   I["local source-order or scoped cohort sampler"]
-  J["human pass/fail judgment"]
+  J["recorded pass/fail judgment"]
   K["follow-along notebook"]
 
   A --> B --> C --> D --> E --> U --> F --> G

@@ -6,6 +6,18 @@ Build a small, local, CLI-first mini chatbot for inspecting deterministic
 colour one-up behaviour through picker-first input, fixed family rules, and
 fail-first evaluation.
 
+## Staged Method Direction
+
+The next boundary evaluates Huey's behaviour in 15-minute pulses run and
+judged by the assistant. The agent receives approximately five short, positive
+directions with room to reason. Stable colour logic supplies the foundation.
+
+[D-038](DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses)
+records the human-led direction. The
+[staging note](../research/030_PB_BEHAVIOUR.md) owns draft instructions,
+judgment choices, and promotion. The colour runtime and evidence rules below
+describe the carried implementation and `Beta 1.0` baseline.
+
 ## Durable Rules
 
 - Local picker runtime is canonical.

@@ -232,6 +232,10 @@ Dependency maintenance:
 
 ## Behaviour Eval Commands
 
+These commands expose the implemented contract and fact fixtures. The
+[15-minute behaviour method](../research/030_PB_BEHAVIOUR.md) is staged; its
+model execution and pulse procedure will follow the aligned staging choices.
+
 - `huemiliator behaviour-contract`
   - print the positive language and behaviour eval contract from
     `src/huemiliator/agent.py`
@@ -243,7 +247,7 @@ Dependency maintenance:
   - emit the same fact packet as machine-readable JSON for Polinko-facing eval
     fixtures
 
-## Pulse Eval Commands
+## Colour Pulse Eval Commands
 
 - `huemiliator eval-pulse-start --count 15 --family red --quarantine-label "<label>"`
   - archive any current live proof surface into local `.local/parked/`

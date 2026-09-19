@@ -26,7 +26,24 @@ Last updated: 2026-09-18
    - active branch
 5. Start one active kernel.
 
-## Current Snapshot
+## Current Staging
+
+| Surface | Current direction |
+| --- | --- |
+| Boundary | [Pre-Beta: 15-Minute Behaviour Pulses](../research/030_PB_BEHAVIOUR.md), `staged` |
+| Focus | Huey's behaviour using the stable colour foundation |
+| Agent setup | approximately five short, positive directions with room to reason |
+| Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
+| Stopping point | beta note and diagrams prepared; draft review is the next session's entry |
+| Review next | draft instructions beside the judgment lens and [execution diagram](../diagrams/BEHAVIOUR_PULSE.md) |
+| First behaviour evidence | awaits staging completion and the first pulse |
+
+The human lead clarified this direction on September 18. The restored colour
+implementation is the starting point for the transition. Draft wording and
+mechanics are identified as proposals in the boundary note; the next research
+focus is already chosen.
+
+## Carried Implementation Snapshot
 
 Huemiliator is a small, local, agent-backed colour mini chatbot with a real
 picker runtime, deterministic one-up logic, and a closed `Beta 1.0`
@@ -94,168 +111,29 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
-- carry the two passing `Beta 1.0` red pulses plus the parked `yellow`,
-  `green`, `blue`, `purple`, `pink`, `orange`, `brown`, and `neutral` proof
-  stacks as comparison context
-- treat `20097..20105` as the completed corrected `neutral` split stack:
-  `3 / 0`, `3 / 0`, and `3 / 0`
-- treat `20106..20120` as the broader corrected `neutral` continuation:
-  `14 / 1`
-- keep the next method or scope evidence-gated before launching another pulse
-- keep `20121..20128` as the first warm-edge audit pass
-- keep `20129..20139` as the second warm-edge audit pass
-- keep `20140..20145` as the third warm-edge audit pass
-- keep `20146..20150` as the fourth warm-edge audit pass
-- keep `20151..20153` as the fifth warm-edge audit pass
-- keep `20154..20158` as the first colour-boundary audit pass
-- keep `20159..20162` as the second colour-boundary audit pass
-- keep `20163..20166` as the third colour-boundary audit pass
-- carry the closed residue source map, closed warm-edge audit, and closed
-  colour-boundary audit unless new evidence appears
-- keep the warm seams as secondary residue outside the cool-edge split
-- keep the startup and closeout contract small, truthful, and aligned with the
-  actual operator flow
+- The documentation pass is complete: the boundary note, diagrams, and re-entry
+  pointers carry the chosen method and distinguish draft mechanics.
+- Resume with review of the four positive directions beside the judgment lens.
+  The fixed-line role, actual agent setup, timing convention, and pulse-wide
+  verdict rule remain staging choices for alignment.
 
 ## Next Slice
 
-1. Inspect:
-   - `docs/research/README.md`
-   - `docs/research/000_LEGEND.md`
-   - `docs/research/010_PB10.md`
-   - `docs/research/020_B10.md`
-   - `docs/research/120_BROWN.md`
-   - `docs/research/410_N3.md`
-   - `docs/research/420_RESIDUE.md`
-   - `docs/research/430_WARM_EDGE_AUDIT.md`
-2. Inspect the live repo snapshot:
-   - `make session-status`
-   - current local proof-surface artefacts under `.local/`
-3. Read the latest closed pulse proof surface:
-   - carried prior ids `20106..20120`
-   - `14 anchors / 1 counted seam / 0 excluded`
-   - carried warm-edge ids `20121..20128`
-   - `8 anchors / 0 counted seams / 0 excluded`
-   - ids `20129..20139`
-   - `11 anchors / 0 counted seams / 0 excluded`
-   - ids `20140..20145`
-   - `6 anchors / 0 counted seams / 0 excluded`
-   - ids `20146..20150`
-   - `5 anchors / 0 counted seams / 0 excluded`
-   - ids `20151..20153`
-   - `3 anchors / 0 counted seams / 0 excluded`
-   - ids `20154..20158`
-   - `5 anchors / 0 counted seams / 0 excluded`
-   - ids `20159..20162`
-   - `4 anchors / 0 counted seams / 0 excluded`
-   - ids `20163..20166`
-   - `4 anchors / 0 counted seams / 0 excluded`
-   - verdict `PASS`
-4. Compare it against the stable prior pulse surfaces:
-   - ids `19692..19706`
-   - `11 anchors / 4 counted seams / 0 excluded`
-   - ids `19707..19721`
-   - `10 anchors / 5 counted seams / 0 excluded`
-   - ids `19722..19736`
-   - `9 anchors / 6 counted seams / 0 excluded`
-   - ids `19737..19751`
-   - `5 anchors / 10 counted seams / 0 excluded`
-   - ids `19752..19766`
-   - `10 anchors / 5 counted seams / 0 excluded`
-   - ids `19767..19781`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19782..19796`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19797..19811`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19812..19826`
-   - `10 anchors / 5 counted seams / 0 excluded`
-   - ids `19827..19841`
-   - `10 anchors / 5 counted seams / 0 excluded`
-   - ids `19842..19856`
-   - `14 anchors / 1 counted seam / 0 excluded`
-   - ids `19857..19871`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19872..19886`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19887..19901`
-   - `9 anchors / 6 counted seams / 0 excluded`
-   - ids `19902..19916`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19917..19931`
-   - `9 anchors / 6 counted seams / 0 excluded`
-   - ids `19932..19946`
-   - `11 anchors / 4 counted seams / 0 excluded`
-   - ids `19947..19961`
-   - `10 anchors / 5 counted seams / 0 excluded`
-   - ids `19962..19976`
-   - `7 anchors / 8 counted seams / 0 excluded`
-   - ids `19977..19991`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `19992..20006`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `20007..20021`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `20022..20036`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `20037..20051`
-   - `15 anchors / 0 counted seams / 0 excluded`
-   - ids `20052..20066`
-   - `11 anchors / 4 counted seams / 0 excluded`
-   - ids `20067..20081`
-   - `9 anchors / 6 counted seams / 0 excluded`
-   - ids `20082..20096`
-   - `4 anchors / 11 counted seams / 0 excluded`
-   - ids `20097..20099`
-   - `3 anchors / 0 counted seams / 0 excluded`
-   - ids `20100..20102`
-   - `3 anchors / 0 counted seams / 0 excluded`
-   - ids `20103..20105`
-   - `3 anchors / 0 counted seams / 0 excluded`
-   - ids `20106..20120`
-   - `14 anchors / 1 counted seam / 0 excluded`
-   - ids `20121..20128`
-   - `8 anchors / 0 counted seams / 0 excluded`
-   - ids `20129..20139`
-   - `11 anchors / 0 counted seams / 0 excluded`
-   - ids `20140..20145`
-   - `6 anchors / 0 counted seams / 0 excluded`
-   - ids `20146..20150`
-   - `5 anchors / 0 counted seams / 0 excluded`
-   - ids `20151..20153`
-   - `3 anchors / 0 counted seams / 0 excluded`
-5. Treat `red`, `yellow`, `green`, `blue`, `purple`, `pink`, `orange`,
-   `brown`, and `neutral` as stable. Carry the corrected `neutral` evidence as:
-   - lilac / mauve pulse: `20097..20099`
-   - blue / jade pulse: `20100..20102`
-   - mint / green pulse: `20103..20105`
-   - broader source-order continuation: `20106..20120`
+1. Read [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md) and the
+   [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
+2. Review the four positive draft directions beside the candidate judgment lens.
+3. Align the actual agent setup, fixed-line role, pulse timing, observation unit,
+   and pulse-wide verdict rule with the human lead.
+4. Use the aligned choices to define the next implementation kernel. The first
+   completed behaviour pulse will supply the evidence for method activation.
 
-6. Keep the warm seams as secondary residue:
-   - `20084` `Parchment -> Novelle peach`
-   - `20088` `Pearled ivory -> Pearl`
-   - `20107` `Pastel parchment -> Creme de peche`
-7. Use `430_WARM_EDGE_AUDIT` for the closed warm-edge audit:
-   - first candidate passed: `orange` yellow-gold boundary at `20121..20128`
-   - second candidate passed: `yellow` green / olive shoulder at
-     `20129..20139`
-   - third candidate passed: `orange` pale straw / buff / blush shoulder at
-     `20140..20145`
-   - fourth candidate passed: `yellow` residual chartreuse shoulder at
-     `20146..20150`
-   - fifth candidate passed: warm-neutral peach / pearl residue at
-     `20151..20153`
-8. Use `440_COLOUR_BOUNDARY_AUDIT` for the first report-derived boundary
-   pulses:
-   - strongest warm low-chroma five-family bin passed at `20154..20158`
-   - second neutral / brown / orange / yellow bin passed at `20159..20162`
-   - third neutral / pink / brown / red bin passed at `20163..20166`
-   - no classifier edit followed because the pulses held at `5 / 0`, `4 / 0`,
-     and `4 / 0`
-   - no new pulse starts without fresh promoted evidence
+The closed colour stack below remains comparison context. Its full sequence
+and interpretation live in [B10](../research/020_B10.md), with the latest
+proof in [COLOUR_BOUNDARY_AUDIT](../research/440_COLOUR_BOUNDARY_AUDIT.md).
 
-## Research Snapshot
+## Carried Colour Research Snapshot
 
-- current research lane: `Beta 1.0`
+- closed colour research lane: `Beta 1.0`
 - carried prior proof surface: broader corrected `neutral` continuation at
   `20106..20120`
 - carried warm-edge proof surface: `orange` yellow-gold audit pulse at
@@ -366,11 +244,11 @@ stay quarantined locally instead of mixing back into the live DB.
   - `docs/research/eval-residue-family-bars.svg`
   - regenerate research charts with `npm run charts:research`
   - derive chart lane labels from row data; archive labels stay annotations
-- beta question before the warm-edge audit: choose the next method or
+- historical question before the warm-edge audit: choose the next method or
   scope after all runtime family lanes have parked reads
-- beta question: no new boundary group without fresh promoted evidence
+- colour-audit continuation rule: new groups require fresh promoted evidence
 - pulse operator surface: start, label, report, and local quarantine are live
-- staged pulse note: `010_PB10`
+- historical staging note: `010_PB10`
 - corrected neutral method note: `410_N3`
 - closed beta note: `020_B10`
 - closed warm-edge note: `430_WARM_EDGE_AUDIT`
@@ -398,7 +276,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - keep the live runtime surface macOS-local
 - keep one active kernel at a time
 - keep one active sampler at a time
-- keep eval pressure on one family lane at a time when a pulse is queued
+- keep colour-audit pressure on one family lane at a time when a colour pulse is queued
 - keep the live DB limited to the latest proof surface
 - keep `.local/` and `docs/peanut/` local unless explicitly promoted
 - capture notes, findings, and truth-surface changes as they emerge
@@ -431,7 +309,8 @@ Run make start. Use the startup-docs read across README.md,
 docs/governance/CHARTER.md, docs/governance/DECISIONS.md,
 docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md,
 docs/governance/SESSION_HANDOFF.md, and local
-docs/peanut/governance/SESSION_HANDOFF.md if present.
+docs/peanut/governance/SESSION_HANDOFF.md if present. Read the next method in
+docs/research/030_PB_BEHAVIOUR.md and docs/diagrams/BEHAVIOUR_PULSE.md.
 
 In 5 bullets: current state, risks, next kernel, repo or worktree context, and
 active branch.
@@ -443,6 +322,8 @@ clean main or feature branch.
 Apply no-guessing controls: prefer repo-scoped edits and preserve user shell
 profile files and global VS Code settings unless explicitly approved in-chat.
 
-Run one active kernel at a time. Then execute the Next Slice from
-SESSION_HANDOFF with minimal behavior drift and full validation.
+Carry the agreed direction: stable colour logic, about five positive agent
+directions, reasoning space, and assistant-run and judged 15-minute behaviour
+pulses. Start with the beta notes and diagrams. Use the Next Slice to align
+the next bounded kernel with the human lead, then execute that kernel.
 ```

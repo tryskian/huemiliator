@@ -1,6 +1,6 @@
 # Huemiliator
 
-[![Research Stage](https://img.shields.io/badge/research_stage-Beta%201.0%20fail--pressure%20pulse-E15759)](./docs/research/README.md)
+[![Research Stage](https://img.shields.io/badge/research_stage-behaviour_beta_staging-E15759)](./docs/research/030_PB_BEHAVIOUR.md)
 [![Polinko Model](https://img.shields.io/badge/polinko_model-staged_next_beta-4C956C)](https://github.com/tryskian/polinko)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
 ![Model Refactor](https://img.shields.io/badge/model_refactor-active-F28E2B)
@@ -8,12 +8,13 @@
 ## pick a colour. huey's is better
 
 > [!NOTE]
-> **Current status:** The Polinko research model is being staged for the next
-> beta.
+> **Current status:** Huey is staging the next Polinko method boundary:
+> 15-minute behaviour eval pulses, run and judged by the assistant.
 >
-> This is an active refactor window for the model contract, evidence snapshots,
-> docs, and supporting tools. Current builds are kept stable while the repo
-> surfaces are simplified, tested, and aligned for the next release.
+> Colour logic is the stable foundation. The planned agent setup uses
+> approximately five short, positive directions with room for Huey to reason.
+> Current work starts with the [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
+> [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md).
 
 Huemiliator is a small, local, agent-backed CLI mini chatbot using the
 **[Polinko research model](https://github.com/tryskian/polinko)**.
@@ -35,10 +36,11 @@ That narrow surface is the point. Huemiliator is not trying to be a general
 colour utility. It studies whether deterministic colour matching, family
 routing, and one-up logic can stay legible under tight runtime rules.
 
-Current research lane:
+Current research direction:
 
-- `Beta 1.0`
-- `fail-pressure pulse`
+- staged 15-minute behaviour pulses, operated and judged by the assistant
+- compact positive instructions with room for Huey to reason
+- closed `Beta 1.0` colour evidence carried as the baseline
 
 Latest closed proof surface:
 
@@ -48,6 +50,8 @@ Latest closed proof surface:
 - warm-edge `orange` pale straw / buff / blush audit pulse at `20140..20145`
 - warm-edge `yellow` residual chartreuse audit pulse at `20146..20150`
 - warm-neutral peach / pearl audit pulse at `20151..20153`
+- colour-boundary audit pulses at `20154..20158`, `20159..20162`, and
+  `20163..20166`
 - pulse-level proof surface
 
 Current closed comparison surface:
@@ -118,6 +122,8 @@ Closeout rule:
 
 ## Read Next
 
+- [Pre-Beta: 15-Minute Behaviour Pulses](./docs/research/030_PB_BEHAVIOUR.md)
+  - agreed direction, draft instructions, judgment lens, and staging choices
 - [docs/research/README.md](./docs/research/README.md)
   - proof surface and research notes
 - [docs/governance/DECISIONS.md](./docs/governance/DECISIONS.md)

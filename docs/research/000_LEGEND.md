@@ -6,6 +6,7 @@
 | Category | `legend` |
 | Status | `active` |
 | Last evidence | `2026-08-03` |
+| Last updated | `2026-09-18` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -15,6 +16,7 @@
 | `README` | `README.md` | research entry and current-state index | `legend` | `active` |
 | `PB10` | `010_PB10.md` | pre-Beta 1.0 fail-pressure pulse boundary | `boundary` | `closed` |
 | `B10` | `020_B10.md` | `Beta 1.0` fail-pressure pulse boundary | `boundary` | `closed` |
+| `PB_BEHAVIOUR` | `030_PB_BEHAVIOUR.md` | assistant-run 15-minute behaviour pulse staging | `boundary` | `staged` |
 | `BROWN` | `120_BROWN.md` | brown context-dependence lane | `lane` | `snapshot` |
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
@@ -26,6 +28,10 @@
 `RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
 surface promoted from that map. `COLOUR_BOUNDARY_AUDIT` is the report-derived
 proof surface for mixed Lab bins.
+
+`PB_BEHAVIOUR` owns the chosen next research direction. Its draft instructions
+and judgment mechanics are staging choices; the closed colour findings remain
+the carried baseline.
 
 ## Ordering
 

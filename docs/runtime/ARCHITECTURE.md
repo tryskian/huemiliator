@@ -154,6 +154,12 @@ corrections, not through mixed historical queues or branch-local notes.
 
 ## Behaviour Eval Flow
 
+The implemented surface exports fixed colour facts and contract metadata. The
+flow below describes their intended use in response evaluation. The next
+[15-minute behaviour pulse](../diagrams/BEHAVIOUR_PULSE.md) is staged in
+[PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md), including assistant operation
+and verdict ownership; model execution remains a staging choice.
+
 ```mermaid
 flowchart LR
   A["hex input"]

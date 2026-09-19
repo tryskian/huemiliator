@@ -515,3 +515,26 @@ into implementation authorship.
   files and automatic start or stop hooks create conflicting ownership. One
   external control surface keeps session state singular and prevents one repo's
   closeout from stopping another repo's work.
+
+## D-038: Stage assistant-run behaviour evals in 15-minute pulses
+
+- Date: `2026-09-18`
+- Category: `eval_quality`
+- Tags: `behaviour_eval`, `fifteen_minute_pulse`, `positive_instructions`, `staging`
+- Provenance: `human-led method decision; repo formalization of the September 18 clarifications`
+- Decision: Stage the next beta around Huey's behaviour, with colour logic held
+  as the stable foundation. Evals run in 15-minute pulses. The assistant owns
+  both operation and verdicts. The agent setup uses approximately five short,
+  positive directions with room for Huey to reason.
+- Boundary: [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md) records the agreed
+  direction separately from proposed instruction wording, judgment mechanics,
+  and evidence handling. Its first completed, documented behaviour pulse will
+  establish the active method surface after staging alignment.
+- Relationship to prior decisions: D-031 supplies the positive-direction
+  principle; D-033 supplies the fixed-colour-facts behaviour-eval separation.
+  D-006 remains the implemented fixed-line baseline while staging resolves
+  the expressive role of that bank. The `Beta 1.0` colour evidence stays closed
+  and available for comparison.
+- Why: Stable colour logic supports a shift in the judged object to Huey's
+  behaviour. The notes make that chosen transition and evaluator ownership
+  explicit for subsequent re-entry.
