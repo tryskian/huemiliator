@@ -25,7 +25,7 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language resources | local library of words and phrases with explicit connector logic |
+| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md) implemented with 94 entries and five connector senses |
 | Character | Hue (Hugh), a courteous snob who begins with a backhanded compliment; “Huey” is our nickname |
 | Operator and evaluator | the assistant runs the pulses and supplies verdicts |
 | Current work | beta notes, diagrams, and staging alignment |
@@ -133,8 +133,9 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 
 The existing duration sampler produces deterministic colour rows. Existing
 `behaviour-facts` exports facts and contract metadata. Those are starting
-components for the staged work. The local selection/composition path and behavioural
-evidence record await implementation alignment.
+components for the staged work. The starter language bank and read-only
+`language-bank` inspection are now available. The local selection/composition
+path and behavioural evidence record await implementation alignment.
 
 ## What Would Promote It
 
@@ -146,7 +147,6 @@ The boundary becomes active when the aligned setup produces its first completed
 documented PASS or FAIL supplies that first evidence surface. The beta note
 then records the designation, setup, result, limitations, and next decision.
 
-Immediate next step: build the starter bank described in the
-[local library and connector draft](450_LOCAL_LANGUAGE.md). Then use it to align
+Immediate next step: use the [starter bank](../runtime/LANGUAGE_BANK.md) to align
 the selection and composition mechanism beside the instructions, judgment lens,
 and [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

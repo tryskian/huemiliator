@@ -13,8 +13,9 @@
 >
 > Colour logic is the stable foundation. The planned agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
-> A [local language library](./docs/research/450_LOCAL_LANGUAGE.md) supplies the
-> staged wording and connector-logic direction.
+> The [starter language bank](./docs/runtime/LANGUAGE_BANK.md) now supplies
+> inspectable wording and connector meanings. Selection and composition remain
+> in staging.
 > Current work starts with the [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
 > [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md).
 
@@ -74,7 +75,7 @@ Current research direction:
 
 - staged 15-minute behaviour pulses, operated and judged by the assistant
 - compact positive instructions with room for Huey to reason
-- a local language library with explicit connector relationships, in staging
+- a local starter language bank with explicit connector relationships
 - closed `Beta 1.0` colour evidence carried as the baseline
 
 Latest closed proof surface:
@@ -141,6 +142,16 @@ make end
 make startup-docs-read
 make check
 ```
+
+Inspect the starter language bank:
+
+```sh
+huemiliator language-bank
+huemiliator language-bank --format json
+```
+
+The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 94 language entries,
+five connector senses, provenance, usage conditions, and extension workflow.
 
 Closeout rule:
 

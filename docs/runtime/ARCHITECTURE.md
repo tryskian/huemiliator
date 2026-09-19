@@ -7,6 +7,8 @@
     ladder, one-up selection, output composition, and CLI entrypoints
 - `data/margaret2_swatches.json`
   - frozen local swatch reference
+- `src/huemiliator/data/language_bank.json`
+  - packaged starter language resource, separate from the fixed loss-line runtime
 - `.local/evals.sqlite`
   - live eval evidence store
 - `docs/governance/`
@@ -71,6 +73,11 @@ The stable runtime path is:
 
 ## Data Surfaces
 
+- starter language bank:
+  - `huemiliator language-bank --format json`
+  - schema `huemiliator.language_bank.v1`
+  - authored wording, grammar, conditions, provenance, and connector senses
+  - [inspection and extension guide](LANGUAGE_BANK.md)
 - frozen swatch reference:
   - `data/margaret2_swatches.json`
 - runtime colour library export:
@@ -158,7 +165,9 @@ The implemented surface exports fixed colour facts and contract metadata. The
 flow below describes their intended use in response evaluation. The next
 [15-minute behaviour pulse](../diagrams/BEHAVIOUR_PULSE.md) is staged in
 [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md), including assistant operation
-and verdict ownership; model execution remains a staging choice.
+and verdict ownership; selection and composition remain staging choices.
+The starter language bank is implemented as a packaged resource with structural
+validation and read-only inspection. It supplies material for that future path.
 
 ```mermaid
 flowchart LR

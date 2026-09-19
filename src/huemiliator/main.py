@@ -34,6 +34,7 @@ from huemiliator.eval_sampling import (
     sample_local_eval_outputs,
 )
 from huemiliator.eval_scope import EVAL_SCOPE_NAMES, describe_eval_scope
+from huemiliator.language_bank import LanguageBankError, render_language_bank
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.pipeline import build_one_up_state
 from huemiliator.resolution import ResolutionError
@@ -51,6 +52,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Show the language and behaviour eval contract.",
     )
     subparsers.add_parser("pick", help="Open the native macOS colour picker.")
+
+    language_bank_parser = subparsers.add_parser(
+        "language-bank", help="Inspect the local starter language bank."
+    )
+    language_bank_parser.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        dest="output_format",
+        help="Text inventory or full bank with usage conditions and provenance.",
+    )
 
     colour_library_parser = subparsers.add_parser(
         "colour-library",
@@ -804,6 +816,13 @@ def main(argv: list[str] | None = None) -> int:
         try:
             print(pick_hex())
         except PickerError as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        return 0
+    if args.command == "language-bank":
+        try:
+            print(render_language_bank(args.output_format))
+        except LanguageBankError as exc:
             print(str(exc), file=sys.stderr)
             return 1
         return 0
