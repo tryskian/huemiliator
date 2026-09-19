@@ -68,9 +68,9 @@ Palette assets should:
 
 ## Style Rules
 
+- Keep each document concise, with one clear purpose and essential explanation.
+- Link to canonical sources and supporting detail; state shared facts once.
 - Treat README docs as visual maps.
-- Use charts as first-class doc structure, not decoration.
-- Let charts, tables, or diagrams do the heavy lifting.
 - Lead with a chart, table, or diagram.
 - Use stacked bar charts for signal, progress, or pass/fail pressure.
 - Use diagrams for flow.

@@ -833,7 +833,8 @@ into implementation authorship.
   Research notes carry the same importance as diagrams. Use the existing
   [category templates](../runtime/templates/README.md) and keep the relevant
   note and diagram aligned with the current meaning of the work.
-- Record quality: Preserve sources, exact authorial wording, and chronology.
+- Record quality: Keep every document concise and easy to scan, with one clear
+  job and links to supporting detail. Preserve sources, exact authorial wording, and chronology.
   Distinguish direction, interpretation, hypothesis, implementation, and observed
   evidence. Staged ideas receive a durable record before experimental support
   exists. Raw scratch and private source material retain their local ownership.

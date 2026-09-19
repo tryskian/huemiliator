@@ -334,6 +334,7 @@ proof in [COLOUR_BOUNDARY_AUDIT](../research/440_COLOUR_BOUNDARY_AUDIT.md).
   [the documentation contract](CHARTER.md#documentation-governance), without
   waiting for a separate reminder
 - keep tracked docs truthful to the current repo surface
+- keep every document concise and easy to scan; link supporting detail
 - keep tracked research-note names aligned with the `NNN_CODE` contract
 
 ## Pinned Later
