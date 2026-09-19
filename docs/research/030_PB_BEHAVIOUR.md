@@ -5,7 +5,7 @@
 | Code | `PB_BEHAVIOUR` |
 | Category | `boundary` |
 | Status | `staged` |
-| Direction recorded | `2026-09-18` |
+| Direction recorded | `2026-09-18`; local library clarified `2026-09-19` |
 | Last evidence | `2026-08-03`, carried colour baseline |
 | Owns | the transition to assistant-run behaviour evaluation in 15-minute pulses |
 
@@ -25,11 +25,15 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
+| Language resources | local library of words and phrases with explicit connector logic |
+| Character | Hue (Hugh), a courteous snob who begins with a backhanded compliment; “Huey” is our nickname |
 | Operator and evaluator | the assistant runs the pulses and supplies verdicts |
 | Current work | beta notes, diagrams, and staging alignment |
 
 This direction comes from the human lead's September 18 clarification,
 recorded in [D-038](../governance/DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses).
+The September 19 library clarification is recorded in
+[D-039](../governance/DECISIONS.md#d-039-stage-a-local-language-library-and-connector-logic).
 The draft wording and mechanics below are engineering proposals for review.
 The numbered beta designation remains to be chosen at promotion.
 
@@ -54,6 +58,7 @@ flowchart TD
   A["Stable colour baseline"] --> B["Runtime colour facts"]
   C["About five positive directions<br/>Room for Huey to reason"] --> D["Huey's visible behaviour"]
   B --> D
+  J["Local language library<br/>Meaningful connector relationships"] --> D
   D --> E["Assistant runs and judges<br/>15-minute eval pulse"]
   F["Agreed behavioural lens"] --> E
   E --> G["Responses, verdicts and reasons"]
@@ -62,7 +67,9 @@ flowchart TD
 ```
 
 The [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md) separates the
-agent's directions, supplied facts, and evaluator's work.
+agent's directions, supplied facts, local library, and evaluator's work.
+The [local language draft](450_LOCAL_LANGUAGE.md) shows the proposed library
+structure and how claims, relationships, and wording fit together.
 
 ## What This Would Change
 
@@ -79,21 +86,28 @@ method and scope; both discuss what the findings warrant next.
 
 ## Draft Instructions and Judgment Lens
 
-These four positive directions are a review draft for the model-facing setup:
+These five positive directions are a review draft for Huey's setup:
 
-1. Play Huey's colour one-up game using the supplied colour facts.
-2. Present the replacement shade by name and hex.
-3. Speak with concise, playful precision and a warm, sharp voice.
-4. Choose wording that fits the colour and the interaction.
+1. Speak as Hue (Hugh), an eloquent tastemaker assured of his own taste.
+2. Begin with a backhanded compliment on the chosen colour.
+3. Present your preferred replacement by name and hex, using the supplied colour facts.
+4. Choose concise, gracious library language, carrying your judgment through implication.
+5. Use connector words that express the relationship between your ideas.
 
 The draft leaves expression to Huey. The current runtime's fixed family lines
-remain the implemented baseline under D-006; their role in the model-facing
-setup is an explicit choice before implementation.
+remain the implemented baseline under D-006; their role in the new library
+is an explicit choice before implementation. Detailed entry conditions and
+relationship definitions live in the [library draft](450_LOCAL_LANGUAGE.md).
+The mechanism that selects and composes language remains to be chosen.
+The [character direction and authorial openings](450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice)
+ground this draft in the human lead's clarification. Existing fixed lines are
+implementation history, with behavioural fidelity still to be demonstrated.
 
 | Candidate evaluation lens | What the assistant inspects |
 | --- | --- |
 | Factual grounding | colour claims and replacement match the supplied facts |
-| Behavioural fit | the response carries out the one-up with the intended voice |
+| Coherence | claims fit together and the connector expresses a supported relationship |
+| Behavioural fit | Hugh opens with a backhanded compliment and carries the one-up through courteous, assured taste |
 | Context fit | the wording fits the actual input and interaction |
 
 Candidate judgment unit: one visible response with its facts and context.
@@ -111,26 +125,28 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 
 | Staging choice | Review surface |
 | --- | --- |
-| Actual agent setup | model, invocation path, exact directions, supplied facts, and interaction context |
+| Actual language setup | local library, selection and composition mechanism, exact directions, supplied facts, and interaction context |
 | Expressive scope | role of the fixed loss-line bank alongside the draft's wording freedom |
 | Pulse timing | clock start, deadline, judgment timing, and handling of an in-flight response |
 | Judgment contract | observation unit, case selection, PASS/FAIL criterion, and pulse-wide verdict rule |
-| Evidence record | instruction/model snapshot, input facts, responses, timestamps, verdicts, and reasons |
+| Evidence record | instruction, library, and composer versions; input facts, context, responses, timestamps, verdicts, and reasons |
 
 The existing duration sampler produces deterministic colour rows. Existing
 `behaviour-facts` exports facts and contract metadata. Those are starting
-components for the staged work. The model execution path and behavioural
+components for the staged work. The local selection/composition path and behavioural
 evidence record await implementation alignment.
 
 ## What Would Promote It
 
 Staging completes when the human lead and assistant align the instruction set,
-agent setup, timing convention, judgment contract, and evidence record.
+language setup, timing convention, judgment contract, and evidence record.
 
 The boundary becomes active when the aligned setup produces its first completed
 15-minute behaviour pulse with preserved responses and assistant verdicts. A
 documented PASS or FAIL supplies that first evidence surface. The beta note
 then records the designation, setup, result, limitations, and next decision.
 
-Immediate next step: review the draft instructions beside the judgment lens and
-the [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
+Immediate next step: build the starter bank described in the
+[local library and connector draft](450_LOCAL_LANGUAGE.md). Then use it to align
+the selection and composition mechanism beside the instructions, judgment lens,
+and [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

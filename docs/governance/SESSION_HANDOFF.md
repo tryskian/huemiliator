@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-09-18
+Last updated: 2026-09-19
 
 ## Start Here
 
@@ -33,12 +33,15 @@ Last updated: 2026-09-18
 | Boundary | [Pre-Beta: 15-Minute Behaviour Pulses](../research/030_PB_BEHAVIOUR.md), `staged` |
 | Focus | Huey's behaviour using the stable colour foundation |
 | Agent setup | approximately five short, positive directions with room to reason |
+| Language direction | local library plus connector logic; [structure and examples](../research/450_LOCAL_LANGUAGE.md) drafted for review |
+| [Character profile](CHARTER.md#character-profile) | Hue (Hugh): courteous tastemaker, opening backhanded compliment, MCM style and burgundy snifter; introduced in the [README](../../README.md#meet-hue) |
 | Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
-| Stopping point | beta note and diagrams prepared; draft review is the next session's entry |
-| Review next | draft instructions beside the judgment lens and [execution diagram](../diagrams/BEHAVIOUR_PULSE.md) |
+| Staging surface | five draft directions, language-library structure, and connector relationships |
+| Next work | build the starter language bank from the character reference, then choose its selection and composition mechanism |
 | First behaviour evidence | awaits staging completion and the first pulse |
 
-The human lead clarified this direction on September 18. The restored colour
+The human lead clarified the pulse direction on September 18 and chose a local
+language library with explicit connector logic on September 19. The restored colour
 implementation is the starting point for the transition. Draft wording and
 mechanics are identified as proposals in the boundary note; the next research
 focus is already chosen.
@@ -111,21 +114,32 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
-- The documentation pass is complete: the boundary note, diagrams, and re-entry
-  pointers carry the chosen method and distinguish draft mechanics.
-- Resume with review of the four positive directions beside the judgment lens.
-  The fixed-line role, actual agent setup, timing convention, and pulse-wide
-  verdict rule remain staging choices for alignment.
+- The local-language staging draft adds a library structure, representative
+  entries, and meaningful uses of “and”, “but”, “because”, and “although”.
+- The human lead's voice clarification now anchors the draft: Hue (Hugh) opens
+  with a backhanded compliment and expresses superiority through gracious
+  appraisal. Authorial openings are separated from assistant continuations.
+  The character reference also carries the supplied mid-century modern style
+  and outrageously rotund burgundy snifter; its image stays in private re-entry
+  material.
+- The next implementation slice starts with the language bank. It supplies
+  material for selection and composition; the mechanism making those choices
+  remains to be chosen. Fixed-line role, timing convention, and pulse-wide
+  verdict rule also remain staging choices for alignment.
 
 ## Next Slice
 
-1. Read [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md) and the
+1. Read [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md),
+   [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md), and the
    [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
-2. Review the four positive draft directions beside the candidate judgment lens.
-3. Align the actual agent setup, fixed-line role, pulse timing, observation unit,
-   and pulse-wide verdict rule with the human lead.
-4. Use the aligned choices to define the next implementation kernel. The first
-   completed behaviour pulse will supply the evidence for method activation.
+2. Build a starter local bank from the authorial openings, candidate
+   continuations, and connector relationships, preserving meaning, usage
+   conditions, and authorship for each entry.
+3. Use that concrete bank to align the selection/composition mechanism and
+   fixed-line role beside the five positive directions.
+4. Align pulse timing, observation unit, and the pulse-wide verdict rule before
+   the first run. The first completed behaviour pulse will supply the evidence
+   for method activation.
 
 The closed colour stack below remains comparison context. Its full sequence
 and interpretation live in [B10](../research/020_B10.md), with the latest

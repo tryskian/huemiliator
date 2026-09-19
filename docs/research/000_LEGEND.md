@@ -6,7 +6,7 @@
 | Category | `legend` |
 | Status | `active` |
 | Last evidence | `2026-08-03` |
-| Last updated | `2026-09-18` |
+| Last updated | `2026-09-19` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -24,6 +24,7 @@
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
 | `COLOUR_BOUNDARY_AUDIT` | `440_COLOUR_BOUNDARY_AUDIT.md` | colour-boundary report pulse proof | `validation` | `closed` |
+| `LOCAL_LANGUAGE` | `450_LOCAL_LANGUAGE.md` | local language library and connector relationship draft | `hypothesis` | `staged` |
 
 `RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
 surface promoted from that map. `COLOUR_BOUNDARY_AUDIT` is the report-derived
@@ -32,6 +33,8 @@ proof surface for mixed Lab bins.
 `PB_BEHAVIOUR` owns the chosen next research direction. Its draft instructions
 and judgment mechanics are staging choices; the closed colour findings remain
 the carried baseline.
+`LOCAL_LANGUAGE` develops the chosen local-library direction within that staging
+boundary; its structure and example wording are proposals awaiting review.
 
 ## Ordering
 
