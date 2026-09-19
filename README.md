@@ -9,7 +9,9 @@
 
 > [!NOTE]
 > **Current status:** Huey is staging the next Polinko method boundary:
-> 15-minute behaviour eval pulses, run and judged by the assistant.
+> 15-minute behaviour eval pulses, operated by the assistant; the human lead
+> and assistant judge the first rounds together to develop the assistant's
+> reading of signal and nuance.
 >
 > Colour logic is the stable foundation. The planned agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
@@ -80,7 +82,9 @@ routing, and one-up logic can stay legible under tight runtime rules.
 
 Current research direction:
 
-- staged 15-minute behaviour pulses, operated and judged by the assistant
+- staged 15-minute behaviour pulses, operated by the assistant; the human lead
+  and assistant judge initial rounds together, with later independent assistant
+  judgment conditional on alignment
 - compact positive instructions with room for Huey to reason
 - a local starter language bank with explicit connector relationships
 - closed `Beta 1.0` colour evidence carried as the baseline

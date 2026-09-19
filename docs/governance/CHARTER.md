@@ -119,9 +119,13 @@ records that direction and its historical Probaboracle reference.
 
 ## Staged Method Direction
 
-The next boundary evaluates Huey's behaviour in 15-minute pulses run and
-judged by the assistant. The agent receives approximately five short, positive
-directions with room to reason. Stable colour logic supplies the foundation.
+The next boundary evaluates Huey's behaviour in 15-minute pulses run by the
+assistant. The human lead and assistant judge the first rounds together under
+[D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together), developing
+the assistant's reading of high signals, low signals and the nuances between.
+The move to independent assistant judgment remains to be aligned together.
+The agent receives approximately five short, positive directions with room to
+reason. Stable colour logic supplies the foundation.
 The chosen language direction is a local library with explicit relationships
 for connector words, recorded in
 [D-039](DECISIONS.md#d-039-stage-a-local-language-library-and-connector-logic).
@@ -215,8 +219,8 @@ The documentation lead handles small assignments directly and uses bounded
 internal helpers when useful. It coordinates file ownership, reviews their
 contributions and returns one concise, checked result with sources and gaps.
 The primary reviews against the conversation and evidence, integrates the result,
-and owns experiment execution, eval verdicts and Git. Meaning-level decisions
-and acceptance remain with the human lead.
+and owns experiment execution, evaluation under the agreed method, and Git.
+Meaning-level decisions and acceptance remain with the human lead.
 
 Under [D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
 the lead combines writing, editing and reference upkeep. Optional transcript,

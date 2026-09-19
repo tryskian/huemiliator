@@ -900,3 +900,24 @@ into implementation authorship.
 - Reference: [Role and assignment guide](../diagrams/COLLABORATION.md) and
   [charter](CHARTER.md#documentation-delegation). Reader reports and the source
   comparison stay in `docs/peanut/research/2026-09-19-collaboration-roles/`.
+
+## D-052: Judge the first behaviour rounds together
+
+- Date: `2026-09-19`
+- Category: `eval_quality`
+- Tags: `behaviour`, `shared_judgment`, `signal`, `calibration`
+- Provenance: `human-led method decision`
+- Source: “so for the first rounds of evals, we'll judge them together so you
+  can learn high signals and low signals with the nuances in between”.
+- Decision: The human lead and primary assistant judge the first behaviour
+  rounds together. Shared readings develop the assistant's understanding of
+  signal and nuance; examples, judgments and reasons retain their attribution.
+  The assistant operates the pulses and records the evidence.
+- Relationship: Refines D-038's assistant-run evaluation direction with an
+  initial shared judgment phase. Its duration and the move to independent
+  assistant judgment remain to be aligned together.
+- Boundary: Behaviour pulses remain staged. Timing, observation unit and
+  pulse-wide verdict aggregation remain open; this clarification supplies no
+  new experimental evidence.
+- Reference: [Behaviour beta notes](../research/030_PB_BEHAVIOUR.md) and
+  [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

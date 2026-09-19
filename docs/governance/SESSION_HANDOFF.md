@@ -14,7 +14,7 @@ scope, workspace/host and active branch before implementation.
 
 | Surface | Current state |
 | --- | --- |
-| Research | [15-minute behaviour pulses](../research/030_PB_BEHAVIOUR.md), staged; the assistant runs pulses and supplies verdicts |
+| Research | [15-minute behaviour pulses](../research/030_PB_BEHAVIOUR.md), staged; assistant-operated, with the first rounds judged together by the human lead and assistant under D-052 |
 | Character | [Hue (Hugh)](CHARTER.md#character-profile); D-046's agreed five-point configuration is recorded, with broader runtime/library alignment pending |
 | Language | [Bank](../runtime/LANGUAGE_BANK.md) `0.4.0`: 106 entries, including 15 authorial references and 91 assistant candidates; 14 connector senses |
 | Composer | [Composition](../runtime/COMPOSITION.md) `0.4.0`, instruction version `1.2.0`, configured `gpt-5.6-luna` with `medium` reasoning |
@@ -31,12 +31,12 @@ research interpretation and exact authorial history.
 
 ## Active Kernel
 
-Completed collaboration role setup under
-[D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
-using Scorey's broader documentation and three fresh Huey reader reports.
-The audit, role guide and source review are complete. The private role record
-owns the verification receipt. Behaviour staging remains the next substantive
-work; its method choices are still open.
+Initial shared judgment is recorded under
+[D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together).
+The first rounds will develop the assistant's reading of high and low signals
+and their nuances through joint evaluation with the human lead. The phase's
+duration and transition to independent judgment remain open. Behaviour staging
+continues; no pulse has run under this clarification.
 
 ### Documentation Task
 
@@ -44,12 +44,15 @@ work; its method choices are still open.
 lead in the same local checkout. It retains documentation context and can use
 bounded internal helpers. The primary owns final review, integration and Git.
 
-| Owner | Completed assignment |
+| Owner | Completed documentation assignment |
 | --- | --- |
-| Documentation lead | Collaboration diagram/role guide and private role-audit synthesis |
-| Primary engineer | Charter, decision and handoff; source review, preservation checks, integration and Git |
+| Documentation lead | Behaviour beta notes, pulse diagram and README ownership wording |
+| Primary engineer | Charter, D-052 and handoff; source review, preservation checks, integration and Git |
 
-The [role guide](../diagrams/COLLABORATION.md) defines optional transcript,
+The update's preservation and verification records are in
+`.local/shared-eval-judgment-20260919/`.
+
+The completed D-051 [role guide](../diagrams/COLLABORATION.md) defines optional transcript,
 evidence and visual functions and the assignment/return contract. Fresh reader
 reports and synthesis live in
 `docs/peanut/research/2026-09-19-collaboration-roles/`; the preservation manifest
@@ -94,7 +97,9 @@ not a fresh live-DB inspection during the documentation trial.
    `1.2.0` still carries earlier guidance. Inspect the bank and composer records
    as evidence for that comparison.
 3. Align pulse timing, observation unit and the pulse-wide verdict rule before
-   the first behaviour run. Its completed evidence will support method activation.
+   the first behaviour run. Judge the initial rounds together under D-052;
+   retain the examples and reasons that establish signal and nuance. Completed
+   pulse evidence will support method activation.
 
 ## Operating References
 
