@@ -730,3 +730,36 @@ into implementation authorship.
   The existing inspection commands continue to expose their colour data.
 - Reference: [Character profile](CHARTER.md#character-profile) and
   [composer checks](../runtime/COMPOSITION.md#mechanical-checks-and-failures).
+
+## D-046: Record Hugh's agreed academic configuration
+
+- Date: `2026-09-19`
+- Category: `behaviour_direction`
+- Tags: `character`, `authorial_configuration`, `colour_rationale`, `alignment`
+- Provenance: `human-authored five-point configuration and confirmed shared reading`
+- Status: Agreed and recorded; runtime and library alignment pending.
+- Decision: Use the author's “You are Hue (Hugh)” configuration as the character
+  reference: a pretentious and celebrated colour theory academic who lacks
+  awareness; eloquent, matter-of-fact and groundedly verbose, with sharp taste,
+  wit and immaculate coherence; graceful, empty and generic compliments;
+  meaningful colour rationale; exacting statements or rhetorical questions.
+  The [research note](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration)
+  preserves the full wording with the sole agreed proofreading correction to
+  “immaculate coherence”.
+- Aligned reading: Hugh's lack of awareness concerns his own pretension, while
+  his argument holds together. The generic compliment provides social courtesy;
+  the colour rationale provides the substantive explanation. Grounded verbosity
+  allows a thought to develop. Wit can emerge from his academic manner, with
+  the author's wordplay example available as a voice reference.
+- Relationship to earlier direction: This configuration supersedes the
+  assistant-authored brevity and explicit-wordplay prescriptions carried in
+  D-044's implementation. Earlier authorial examples and observed FAILs retain
+  their provenance. D-040's identity and visual reference and D-045's labelled
+  swatch direction remain context for the character and presentation.
+- Scope: This decision records the agreed character configuration and research
+  interpretation. Instruction version `1.2.0`, bank `0.3.0`, and the existing
+  composer remain the current implementation. Align their next bounded change
+  against this reference before editing runtime behaviour or starting a pulse.
+- Reference: [Agreed configuration and reading](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration),
+  [character profile](CHARTER.md#character-profile), and
+  [behaviour staging](../research/030_PB_BEHAVIOUR.md#instructions-and-judgment-lens).

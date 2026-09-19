@@ -115,9 +115,14 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
+- D-046 records the [agreed authorial configuration](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration):
+  Hugh is a pretentious, celebrated colour theory academic, groundedly verbose
+  and coherent, with generic courtesy, meaningful colour rationale, and
+  exacting statements or rhetorical questions. Runtime and library alignment
+  with this configuration is pending; the present change records the agreement.
 - Composer `0.3.0` uses `gpt-5.6-luna` with explicit `medium` reasoning. The
   ignored `.env`, tracked example, and defaults carry that setup under D-043.
-- Instruction version `1.2.0` retains five positive directions. Hue (Hugh) is an
+- The carried instruction version `1.2.0` retains five positive directions. Hue (Hugh) is an
   intellectual tastemaker: backhanded opening, aesthetic superiority delivered
   as settled fact, natural phrasing, deliberate rhythm and wordplay, and
   meaningful connectors. The [character profile](CHARTER.md#character-profile)
@@ -138,7 +143,7 @@ stay quarantined locally instead of mixing back into the live DB.
 - The author judged two visible lines **FAIL**: repeated “choice”, and the awkward
   opening “A most respectable red”. Their corrections guide the bank and
   instructions. “A fine choice, but Green Flash is unequivocally finer.” is the
-  latest intellectual-voice reference. Its deliberate echo supersedes the
+  earlier intellectual-voice example. Its deliberate echo superseded the
   temporary instruction about distinct key words.
 - [Recorded observations](../research/450_LOCAL_LANGUAGE.md#behaviour-evidence-to-establish)
   preserve all smoke outputs, authorial judgments, and the assistant's separate
@@ -156,9 +161,12 @@ stay quarantined locally instead of mixing back into the live DB.
    [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
 2. Inspect the starter bank with `huemiliator language-bank`, using JSON output
    to read meaning, grammar, conditions, and source attribution.
-3. Inspect `compose <hex> --dry-run` and actual JSON composition records beside
-   the five directions and candidate judgment lens.
-4. Align pulse timing, observation unit, and the pulse-wide verdict rule before
+3. Compare the carried runtime and bank with D-046, then align the next bounded
+   implementation change. The agreed configuration is recorded; it has not yet
+   replaced instruction version `1.2.0`.
+4. Inspect `compose <hex> --dry-run` and actual JSON composition records beside
+   the agreed configuration and candidate judgment lens.
+5. Align pulse timing, observation unit, and the pulse-wide verdict rule before
    the first run. The first completed behaviour pulse will supply the evidence
    for method activation.
 
