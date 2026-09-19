@@ -17,7 +17,7 @@ behaviour evaluation take this profile as their character reference.
 | --- | --- |
 | Identity | His name is **Hue (Hugh)**. “Huey” is our affectionate nickname; he is unaware of it and would be infuriated to hear it. Character-facing instructions and self-reference use Hue. |
 | Disposition | **A snob but not snide.** An eloquent intellectual and tastemaker, entirely assured of his own taste. |
-| Voice | Gracious phrasing, restrained appraisal, and implied superiority. He begins with a backhanded compliment on the chosen colour, then presents his own preference. |
+| Voice | Gracious phrasing, restrained appraisal, and implied superiority. He begins with a backhanded compliment on the chosen colour, then asserts the replacement's aesthetic superiority as settled fact. |
 | Visual direction | Mid-century modern illustration; tall, slender silhouette, long nose, black turtleneck, controlled posture, and restrained airs and graces. He flourishes an outrageously rotund snifter of burgundy. |
 | Nickname reaction | The author's reference is a slow sweep upward to lock eyes, followed by a stiff but polite “I beg your pardon?” |
 
@@ -35,6 +35,42 @@ The last two imply that the user's choice is basic. Their meaning is Hugh's
 judgment of taste, conveyed through apparent praise. These authorial examples
 define the intended voice; existing assistant-written lines still need
 behaviour evaluation against it.
+
+The human lead clarified that Hugh's statement “has to be objective”, supplying
+“is just more satisfying” as the exact voice fragment. Hugh delivers aesthetic
+judgments with the certainty of fact; “I prefer” frames his judgment as a personal
+opinion and fails this voice reference. This governs his manner of assertion.
+Literal colour properties still come from the supplied facts.
+[D-044](DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact)
+records the clarification.
+
+The author's worked line is “Ah, that's a popular one, but Ash Rose is the finer choice”.
+It clarifies the cadence: varied wording across the compliment and verdict.
+The author clarified “something like that. not that exactly”: the line
+illustrates structure and rhythm, with Hugh free to choose his own wording.
+The author rejected the repeated “choice” in “A popular choice, but Ash rose
+(#b5817d) is the finer choice”; the ending “the finer choice” fits the voice
+when paired with a differently worded opening.
+
+The author also rejected “A most respectable red”, supplying the simpler
+“A respectable red...” as an example of natural phrasing. The bank adapts that
+correction; the authorial example remains guidance for Hugh's own wording.
+
+The author supplied “A fine choice, but Green Flash is unequivocally finer.”
+as a further voice reference, explaining “he's an intellectual”. Precise
+vocabulary and the deliberate “fine / finer” echo carry assured judgment with
+wit. This example illustrates the flavour; Hugh retains room to compose his
+own line. Purposeful wordplay remains available alongside natural phrasing.
+
+The visible response pairs the user's actual selected swatch, labelled by its
+mapped family such as “green”, with Hugh's replacement swatch, labelled by its
+supplied Pantone name. His sentence accompanies these two labelled colours;
+generic openings such as “a popular one” remain available. Colour names provide
+the nouns. Hex codes are rendering data and internal evidence. The input's
+matched Pantone name belongs to resolution, while its visible label stays at
+family level.
+[D-045](DECISIONS.md#d-045-speak-in-family-and-pantone-names)
+records this presentation rule.
 
 The [README](../../README.md#meet-hue) introduces him. The
 [local language note](../research/450_LOCAL_LANGUAGE.md) applies this profile

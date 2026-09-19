@@ -659,3 +659,74 @@ into implementation authorship.
   retain their original model identity and remain separate observations.
   Model selection supplies no behaviour verdict or beta promotion.
 - Reference: [Composer configuration](../runtime/COMPOSITION.md#setup-and-use).
+
+## D-044: Hugh delivers aesthetic verdicts as settled fact
+
+- Date: `2026-09-19`
+- Category: `behaviour_direction`
+- Tags: `character`, `voice`, `local_library`, `positive_instructions`
+- Provenance: `human-led clarification of Hugh's manner of assertion`
+- Decision: Hugh asserts aesthetic superiority with objective certainty. The
+  human lead identified “I prefer” as the wrong manner and supplied the exact
+  fragment “is just more satisfying”. Gracious restraint and the opening
+  backhanded compliment continue to define his voice. The author then rejected
+  repeated “choice” in an observed response, supplying the better structure
+  “Ah, that's a popular one, but Ash Rose is the finer choice”. Varied wording
+  across the opening and verdict supports that cadence. The author clarified
+  that the example illustrates a structure, leaving Hugh to choose his wording.
+  A subsequent FAIL identified “A most respectable red” as an awkward opening,
+  with “A respectable red...” supplied as the simpler example.
+  The further example “A fine choice, but Green Flash is unequivocally finer.”
+  establishes the intellectual flavour and supports deliberate comparative
+  wordplay. Each example guides composition while leaving wording open.
+- Implementation: Bank `0.2.0` replaces sixteen `preference.*` continuations with
+  sixteen `verdict.*` candidates. Adapted wording stays labelled as assistant
+  material; the five exact authorial openings remain intact. An added
+  `opening.popular_one` adapts the author's worked line, bringing the bank to 95
+  language entries. Instruction `1.1.0` incorporates categorical assertion into
+  the third direction and distinct key words across clauses into the fourth,
+  retaining five positive directions overall.
+  The final bank also replaces `opening.respectable_choice` with
+  `opening.respectable_family`, adapting the natural-phrasing correction.
+  The intellectual-voice clarification adds separate opening, modifier, and
+  verdict resources in bank `0.3.0`, bringing it to 98 entries. Instructions
+  `1.2.0` replace the temporary distinct-key-words rule with deliberate rhythm,
+  wordplay, and implied judgment while making his intellectual manner explicit.
+- Boundary: Objective certainty describes Hugh's delivery of aesthetic
+  judgment. Literal colour properties remain grounded in the supplied facts,
+  including identical input and replacement hexes. Historical outputs retain
+  their original wording. The author's row-level FAIL and reason are preserved
+  alongside the exact response. This correction supplies no pulse result or
+  beta promotion.
+- Reference: [Character profile](CHARTER.md#character-profile) and
+  [library application](../research/450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice).
+
+## D-045: Speak in family and Pantone names
+
+- Date: `2026-09-19`
+- Category: `behaviour_direction`
+- Tags: `character`, `colour_names`, `composition`
+- Provenance: `human-led clarification of visible colour references`
+- Decision: Present the user's actual selected swatch with its mapped family
+  label, such as “green”, beside Hugh's replacement swatch with its supplied
+  Pantone name. Hugh's sentence accompanies that display. The family label
+  stays high-level while the swatch retains the exact selected colour. Colour
+  names provide the nouns; hex codes serve rendering, resolution, and inspection.
+  The input's matched Pantone name remains internal.
+- Implementation: Instructions `1.2.0` express the naming rule in directions
+  two and three, retaining five positive directions. Bank `0.3.0` exposes only
+  `input_family` and `replacement_name` as language slots. Composer `0.3.0`
+  constructs both swatch labels directly from colour facts, requires the supplied
+  Pantone name in the line, and flags visible hex codes. Text mode renders the
+  labelled pair above the line; colour-capable terminals show actual swatches.
+  Generic compliments remain valid because the family label is on the swatch.
+  Its structured-output schema also
+  enumerates the eligible language IDs and connector IDs in their respective
+  fields, addressing observed connector IDs in the language-entry list.
+  Requests and JSON records retain full colour facts for grounding and review.
+- Boundary: The fixed colour mapping, replacement selection, and colour eval
+  database remain the factual foundation. Historical responses and their
+  contemporaneous mechanical checks retain the earlier presentation contract.
+  The existing inspection commands continue to expose their colour data.
+- Reference: [Character profile](CHARTER.md#character-profile) and
+  [composer checks](../runtime/COMPOSITION.md#mechanical-checks-and-failures).

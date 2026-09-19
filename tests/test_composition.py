@@ -20,7 +20,7 @@ from huemiliator.composition import (
     generate_composition,
 )
 from huemiliator.config import SOURCE_ROOT
-from huemiliator.main import build_behaviour_fact_packet, main
+from huemiliator.main import build_behaviour_fact_packet, main, render_composition
 
 
 @pytest.fixture
@@ -33,14 +33,16 @@ def request_packet() -> dict[str, Any]:
 @pytest.fixture
 def candidate() -> dict[str, Any]:
     return {
-        "response": "Excellent red... but I favour Ash rose, #b5817d.",
-        "entry_ids": ["opening.excellent_red", "preference.favour"],
+        "response": "Excellent red... but Ash rose is just more satisfying.",
+        "entry_ids": ["opening.excellent_red", "verdict.just_more_satisfying"],
         "relationships": [
             {
                 "connector_id": "but.contrast",
                 "claim_a": "The chosen red receives Hugh's approval.",
-                "claim_b": "Hugh prefers Ash rose.",
-                "basis": "Qualified approval contrasted with his own preference.",
+                "claim_b": "Ash rose is just more satisfying.",
+                "basis": (
+                    "Approval of the input contrasted with Ash rose's superiority."
+                ),
             }
         ],
     }
@@ -101,6 +103,8 @@ def test_request_filters_only_fact_conflicts_and_keeps_semantics(
     assert original == saved
     assert "loss_line" not in material["runtime_facts"]
     assert "response_contract" not in material
+    assert material["input"]["hex"] == original["input"]["hex"]
+    assert set(material["slot_values"]) == {"input_family", "replacement_name"}
     assert (
         material["runtime_facts"]["replacement"]
         == original["runtime_facts"]["replacement"]
@@ -117,6 +121,12 @@ def test_request_filters_only_fact_conflicts_and_keeps_semantics(
             material["factual_conditions"].get(key, True) for key in entry["requires"]
         )
     assert len(material["library"]["connectors"]) == 5
+    properties = request["api_request"]["text"]["format"]["schema"]["properties"]
+    assert set(properties["entry_ids"]["items"]["enum"]) == set(entries)
+    relation_properties = properties["relationships"]["items"]["properties"]
+    assert set(relation_properties["connector_id"]["enum"]) == {
+        connector["id"] for connector in material["library"]["connectors"]
+    }
     assert request["api_request"]["model"] == "chosen-model"
     assert request == build_composition_request(original, "chosen-model")
     other = build_composition_request(original, "different-model")
@@ -168,9 +178,7 @@ def test_sdk_serializes_request_and_record_retains_actual_output(
     "problem",
     [
         "missing_name",
-        "missing_hex",
-        "malformed_hex",
-        "invented_hex",
+        "visible_hex",
         "ineligible_entry",
         "duplicate_entry",
         "no_opening_reference",
@@ -188,18 +196,14 @@ def test_mechanical_checks_catch_concrete_failures(
         candidate["response"] = candidate["response"].replace(
             "Ash rose", "Something else"
         )
-    elif problem == "missing_hex":
-        candidate["response"] = candidate["response"].replace("#b5817d", "")
-    elif problem == "malformed_hex":
-        candidate["response"] = candidate["response"].replace("#b5817d", "#b5817dzzz")
-    elif problem == "invented_hex":
-        candidate["response"] += " #123456"
+    elif problem == "visible_hex":
+        candidate["response"] += " #b5817d"
     elif problem == "ineligible_entry":
         candidate["entry_ids"].append("opening.lovely_green")
     elif problem == "duplicate_entry":
         candidate["entry_ids"].append(candidate["entry_ids"][0])
     elif problem == "no_opening_reference":
-        candidate["entry_ids"] = ["preference.favour"]
+        candidate["entry_ids"] = ["verdict.just_more_satisfying"]
     elif problem == "missing_relationship":
         candidate["relationships"] = []
     elif problem == "unknown_connector":
@@ -218,6 +222,36 @@ def test_mechanical_checks_do_not_pretend_to_validate_meaning(
 ) -> None:
     candidate["relationships"][0]["basis"] = "A deliberately unsupported explanation."
     assert check_composition(candidate, request_packet) == []
+
+
+@pytest.mark.parametrize(
+    "hex_code", ["#b5817d", "#B5817D", "#abc", "#12345678", "0x79c753", "79c753"]
+)
+def test_visible_hex_codes_fail_while_facts_remain_inspectable(
+    hex_code: str, candidate: dict[str, Any], request_packet: dict[str, Any]
+) -> None:
+    candidate["response"] += f" ({hex_code})"
+    assert "The visible response contains a hex code." in check_composition(
+        candidate, request_packet
+    )
+    material = json.loads(request_packet["api_request"]["input"])
+    assert material["runtime_facts"]["replacement"]["hex"] == "#b5817d"
+
+
+def test_ordinary_words_are_not_mistaken_for_bare_hex_codes(
+    candidate: dict[str, Any], request_packet: dict[str, Any]
+) -> None:
+    candidate["response"] += " A decade of assured taste."
+    assert check_composition(candidate, request_packet) == []
+
+
+def test_generic_opening_works_with_the_family_on_the_swatch_label(
+    candidate: dict[str, Any], request_packet: dict[str, Any]
+) -> None:
+    candidate["response"] = "A popular one... but Ash rose is just more satisfying."
+    candidate["entry_ids"] = ["opening.popular_one", "verdict.just_more_satisfying"]
+    assert check_composition(candidate, request_packet) == []
+    assert request_packet["display_swatches"][0]["label"] == "red"
 
 
 @pytest.mark.parametrize(
@@ -304,9 +338,47 @@ def test_cli_preserves_failed_record_and_returns_distinct_status(
 
 
 def test_cli_prints_visible_response_on_success(
-    candidate: dict[str, Any], capsys: pytest.CaptureFixture[str]
+    candidate: dict[str, Any],
+    request_packet: dict[str, Any],
+    capsys: pytest.CaptureFixture[str],
 ) -> None:
-    record = {"composition": candidate, "mechanical_checks": {"ok": True, "issues": []}}
+    record = {
+        "request": request_packet,
+        "composition": candidate,
+        "mechanical_checks": {"ok": True, "issues": []},
+    }
     with patch("huemiliator.main.generate_composition", return_value=record):
         assert main(["compose", "#d9a6a1"]) == 0
-    assert capsys.readouterr().out.strip() == candidate["response"]
+    assert capsys.readouterr().out.strip() == (
+        "■ red    ■ Ash rose\n\n" + candidate["response"]
+    )
+
+
+@pytest.mark.parametrize("colour", [False, True])
+def test_swatch_rendering_keeps_labels_and_exact_selection_separate_from_speech(
+    colour: bool, candidate: dict[str, Any]
+) -> None:
+    packet = build_behaviour_fact_packet("#d9a6a1")
+    packet["input"]["hex"] = "#d9a6a2"
+    request = build_composition_request(packet, "test")
+    material = json.loads(request["api_request"]["input"])
+    assert (
+        request["display_swatches"]
+        == material["display_swatches"]
+        == [
+            {"role": "chosen", "label": "red", "hex": "#d9a6a2"},
+            {"role": "replacement", "label": "Ash rose", "hex": "#b5817d"},
+        ]
+    )
+    output = render_composition(
+        {"request": request, "composition": candidate}, colour=colour
+    )
+    assert "red" in output.splitlines()[0]
+    assert "Ash rose" in output.splitlines()[0]
+    assert "#" not in output
+    assert output.endswith(candidate["response"])
+    if colour:
+        assert "\x1b[48;2;217;166;162m" in output
+        assert "\x1b[48;2;181;129;125m" in output
+    else:
+        assert "\x1b" not in output

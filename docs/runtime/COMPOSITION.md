@@ -2,8 +2,11 @@
 
 `huemiliator compose <hex>` uses the fixed colour result and local language bank
 to generate Hugh's visible response through the OpenAI Responses API. Composer
-version `0.2.0` is an implemented staging surface. Its responses await behaviour
-evaluation in the aligned 15-minute pulses.
+version `0.3.0` is an implemented staging surface, using instruction version
+`1.2.0` and bank `0.3.0`. The directions and bank now express Hugh's aesthetic
+judgment as settled fact under
+[D-044](../governance/DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact).
+The aligned 15-minute behaviour pulses remain in staging.
 
 ## Setup and Use
 
@@ -33,9 +36,20 @@ huemiliator compose '#d9a6a1' --format json
 ```
 
 Dry-run prints the exact request packet as JSON and needs no API key. Text mode
-prints the visible response after mechanical checks. JSON mode prints the full
+prints two labelled swatches and the visible response after mechanical checks.
+Colour-capable terminals use the actual chosen and replacement colours;
+redirected output, `NO_COLOR`, and `TERM=dumb` use plain square markers and
+labels. JSON mode prints the full
 inspection record. Standard output can be redirected to a chosen local file.
 The command does not create files or modify the colour eval database.
+
+The chosen swatch carries the family label; Hugh's swatch carries its supplied
+Pantone name. Those labels are derived from the fixed facts, with the chosen
+swatch retaining the actual input hex. Hugh's sentence accompanies the pair,
+so a generic opening can rely on the family label already displayed. Hexes
+remain rendering data and internal evidence in the request and JSON record.
+This presentation rule is recorded in
+[D-045](../governance/DECISIONS.md#d-045-speak-in-family-and-pantone-names).
 
 ## Selection and Composition
 
@@ -48,6 +62,11 @@ The command does not create files or modify the colour eval database.
    [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md#instructions-and-judgment-lens).
 5. It returns a complete line, the IDs of entries it reports using, and brief
    relationship descriptions identifying the claims and supporting basis.
+
+The structured-output schema enumerates eligible language IDs and connector
+IDs in their respective fields. A connector ID belongs in its relationship
+record; the schema keeps the two reference types distinct while composition
+remains free within the supplied language and facts.
 
 The five directions are the complete `instructions` field. Entry conditions
 are language data. Semantic conditions such as familiarity, explanatory support,
@@ -67,6 +86,7 @@ The `huemiliator.composition_record.v1` JSON contains:
 - the exact API request, including instructions, facts, context, supplied bank
   entries, and output schema
 - composer, instruction, and bank versions, plus bank and request hashes
+- fixed `display_swatches`, with roles, human-facing labels, and rendering hexes
 - request start and completion timestamps
 - API response ID, returned model, status, usage, and incomplete/refusal details
 - the original output text and parsed composition
@@ -87,8 +107,9 @@ whether that expectation and the claimed relationship are supported.
 ## Mechanical Checks and Failures
 
 Checks cover output shape, eligible entry IDs, an opening reference, the supplied
-replacement name and hex, additional hexes, and connector records. They verify
-that each of the four bank connector words appearing in the line has a record,
+replacement Pantone name, visible hex codes,
+and connector records. They verify that each of the four bank connector words
+appearing in the line has a record,
 and that each recorded word appears in the line. They do not prove grammar,
 voice, factual meaning, or fidelity of the model's annotations.
 

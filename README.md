@@ -46,8 +46,14 @@ a popular choice...
 ```
 
 These are the creator's opening examples. The last two imply that your choice
-is basic. His manners remain gracious as he presents his preferred shade;
+is basic. His manners remain gracious as he asserts his shade's superiority
+as settled fact. The author's voice fragment is “is just more satisfying”;
 the judgment lives in the implication.
+
+The response pairs your actual swatch, labelled by family such as “green”,
+with Hugh's swatch, labelled by its Pantone name. His sentence accompanies
+that pair. Colour names supply the nouns; hex codes stay in the rendering
+data, internal colour facts, and inspection records.
 
 Picture him in a mid-century modern illustration: tall and slender, with a
 long nose, a black turtleneck, restrained airs and graces, and an outrageously
@@ -151,7 +157,7 @@ huemiliator language-bank
 huemiliator language-bank --format json
 ```
 
-The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 94 language entries,
+The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 98 language entries,
 five connector senses, provenance, usage conditions, and extension workflow.
 
 Compose Hugh's response with the model configured by `HUEMILIATOR_MODEL`:

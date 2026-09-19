@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 import sys
 from typing import Any
@@ -83,7 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
         choices=("text", "json"),
         default="text",
         dest="output_format",
-        help="Visible response or full inspection record, including mechanical issues.",
+        help="Labelled swatches and response, or the full JSON inspection record.",
     )
 
     colour_library_parser = subparsers.add_parser(
@@ -825,6 +826,20 @@ def render_eval_sample_local(
     return "\n".join(lines)
 
 
+def render_composition(record: dict[str, Any], *, colour: bool = False) -> str:
+    """Pair fixed swatch labels with Hugh's exact generated line."""
+    swatches = []
+    for swatch in record["request"]["display_swatches"]:
+        marker = "■"
+        if colour:
+            red, green, blue = (
+                int(swatch["hex"][offset : offset + 2], 16) for offset in (1, 3, 5)
+            )
+            marker = f"\x1b[48;2;{red};{green};{blue}m    \x1b[0m"
+        swatches.append(f"{marker} {swatch['label']}")
+    return "    ".join(swatches) + "\n\n" + record["composition"]["response"]
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
@@ -871,7 +886,16 @@ def main(argv: list[str] | None = None) -> int:
         if args.output_format == "json" or not record["mechanical_checks"]["ok"]:
             print(json.dumps(record, ensure_ascii=False, indent=2))
         elif record["mechanical_checks"]["ok"]:
-            print(record["composition"]["response"])
+            print(
+                render_composition(
+                    record,
+                    colour=(
+                        sys.stdout.isatty()
+                        and "NO_COLOR" not in os.environ
+                        and os.environ.get("TERM") != "dumb"
+                    ),
+                )
+            )
         if not record["mechanical_checks"]["ok"]:
             print(
                 "Composition needs inspection: "
