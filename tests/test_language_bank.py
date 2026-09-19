@@ -134,7 +134,7 @@ def test_text_inventory_identifies_provenance_and_evaluation_status(
     assert main(["language-bank"]) == 0
     output = capsys.readouterr().out
     assert "[human]: excellent red..." in output
-    assert "[assistant]: I prefer {replacement_name}" in output
+    assert "[assistant]: {replacement_name} is just more satisfying" in output
     assert "awaiting_behaviour_evaluation" in output
     assert "because.explanation" in output
 

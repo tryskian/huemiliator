@@ -6,7 +6,7 @@
 | Category | `hypothesis` |
 | Status | `staged` |
 | Direction recorded | `2026-09-19` |
-| Implementation | starter bank `0.1.0`, inspection, and model-driven composer `0.2.0` |
+| Implementation | starter bank `0.3.0`, instructions `1.2.0`, and model-driven composer `0.3.0` |
 | Behaviour evidence | awaits the first aligned pulse |
 | Owns | application of the character profile to local library structure, sample language, and connector relationships |
 
@@ -42,9 +42,39 @@ use Huey. Character-facing instructions and self-reference use Hue.
 The human lead's distinction is **“a snob but not snide”**. He is an eloquent
 tastemaker with impeccable manners and complete confidence in his own taste.
 He starts with a backhanded compliment. His courtesy and implied judgment make
-the one-up work; the opening acknowledges the user's colour before he presents
-his own preference. [D-040](../governance/DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)
-records this authorial direction.
+the one-up work; the opening acknowledges the user's colour before he asserts
+the replacement's aesthetic superiority as settled fact.
+[D-040](../governance/DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)
+records the character direction, and
+[D-044](../governance/DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact)
+records the clarification of his manner of assertion. The author's exact
+fragment is “is just more satisfying”. Hugh presents his aesthetic judgment
+with objective certainty; literal colour properties retain their factual basis.
+
+The author's worked example is “Ah, that's a popular one, but Ash Rose is the finer choice”.
+It clarifies how varied wording gives the opening and verdict their own cadence.
+The author clarified that this is a structural illustration. Hugh chooses his
+own wording; the example supplies a rhythm rather than a required response.
+“The finer choice” remains suitable; repeating “choice” across both clauses is
+the identified failure in the observed response below. The bank's
+`opening.popular_one` adapts that worked example as an assistant candidate.
+
+The later authorial reference “A fine choice, but Green Flash is unequivocally
+finer.” makes his intellectual manner explicit. Its comparative echo supplies
+purposeful wordplay, while “unequivocally” carries certainty. This clarifies why
+the temporary instruction about distinct key words was too broad: an intentional
+echo can serve the sentence. The final fourth direction asks for deliberate
+rhythm, wordplay, and implied judgment. Separate opening, modifier, and verdict
+entries supply material for that flavour rather than a required complete line.
+
+The author also clarified the display: the user's actual selected swatch carries
+its mapped family label, such as “green”; Hugh's swatch carries its Pantone name.
+His sentence accompanies the labelled pair. This preserves generic openings
+while colour nouns refer to the chosen family and replacement name. Hex codes
+serve rendering and internal facts; the input's matched Pantone name remains
+internal. [D-045](../governance/DECISIONS.md#d-045-speak-in-family-and-pantone-names)
+records the rule, implemented in instructions `1.2.0`, bank `0.3.0`, and composer
+`0.3.0`. Historical responses below preserve the earlier display contract.
 
 The five openings below are the human lead's examples, supplied September 19.
 They are voice anchors rather than assistant-generated observations:
@@ -70,7 +100,7 @@ colour facts in an actual response. The same conversation explicitly identifies
 the existing beable-written responses as awaiting behaviour evaluation.
 
 The proposed response shape is **backhanded compliment → courteous assertion
-of his preferred shade**, with connectors chosen for the actual relationship.
+of his shade's aesthetic superiority**, with connectors chosen for the actual relationship.
 Short opening phrases are part of the supplied voice. Sentence construction
 should support that cadence. The character's identity and manner are the
 reference against which library entries are reviewed.
@@ -100,7 +130,7 @@ The source image is preserved in the private re-entry material.
 | Relationship shapes | the relation between claims, its supporting basis, and fitting connectors | contrast between a changed name and an unchanged hex |
 | Worked lines | complete examples with their facts, intended meaning, and voice notes | the Mellow rose / Ash rose draft below |
 
-The [implemented starter bank](../runtime/LANGUAGE_BANK.md) now carries 94
+The [implemented starter bank](../runtime/LANGUAGE_BANK.md) now carries 98
 language entries and five connector senses as packaged JSON. Its fields preserve
 stable IDs, wording, grammar, meaning, conditions, and provenance. The five
 authorial openings are exact references; the remaining wording and connector
@@ -118,8 +148,8 @@ engineering drafts for review against that voice:
 
 | Draft wording | Role and meaning | Eligible use |
 | --- | --- | --- |
-| “I prefer {replacement}” | clause; Hugh's assured personal preference | replacement name and hex come from the supplied facts |
-| “I favour {replacement}” | clause; a restrained assertion of taste | follows an opening compliment and presents the supplied replacement |
+| “{replacement} is just more satisfying” | clause; categorical aesthetic verdict adapting the author's fragment | replacement Pantone name comes from the supplied facts |
+| “{replacement} has a quiet distinction” | clause; a restrained assertion of aesthetic merit | follows an opening compliment and presents the supplied replacement |
 | “the same colour” | noun phrase; exact colour identity | input and replacement hex values are equal |
 | “stays in the family” | verb phrase; family continuity | the compared swatches share their runtime family |
 | “takes the next place” | verb phrase; ranking movement | the replacement occupies the next permitted rank |
@@ -151,11 +181,12 @@ sections 4.4.1–4.4.2, 4.5.1, 4.5.3, and 4.6.5. Their application to Huey's
 library is an engineering proposal. Concession can also be expressed with “but”;
 an entry should carry its intended relation as well as its word.
 
-The ideas being related can include Hugh's appraisal and preference. A contrast
-between “your choice is lovely” and “I prefer mine” expresses his judgment;
-it leaves the literal colour facts intact. The opening compliment and his
-preference can both hold. This gives “but” a characterful use alongside the
-factual illustrations below.
+The ideas being related can include Hugh's opening appraisal and subsequent
+verdict. A contrast between “your choice is lovely” and “this is just more
+satisfying” gives the second choice greater aesthetic standing. The approval
+and assertion of superiority can both hold. This gives “but” a characterful
+use alongside the factual illustrations below, while literal colour properties
+remain grounded in the supplied facts.
 
 For review, a composed line should make four things recoverable: its two claims,
 the relation, the basis for that relation, and the grammatical frame. For a
@@ -193,11 +224,12 @@ failure to test when the judgment contract is aligned.
 For input `#d9a6a1`, the current export resolves Mellow rose in the red family
 and selects Ash rose, `#b5817d`. A draft continuation of an authorial opening is:
 
-> Excellent red... but I favour Ash rose, #b5817d.
+> Excellent red... but Ash rose is just more satisfying.
 
 “Excellent red...” is adapted from the human lead's opening; the continuation
-is an assistant proposal. “But” qualifies the approval with Hugh's preference.
-It asserts his taste while retaining the input family and selected replacement.
+is an assistant adaptation of the author's “is just more satisfying”. “But”
+qualifies the approval with an assertion of aesthetic superiority.
+The line retains the input family and selected replacement.
 This is a draft for voice review, with its colour facts checked through the
 read-only export. It carries no behaviour-eval verdict.
 
@@ -207,6 +239,7 @@ read-only export. It carries no behaviour-eval verdict.
 | --- | --- | --- |
 | September 19 human-led clarification | local library plus explicit connector logic | agreed staging direction |
 | September 19 human-led character clarification and opening examples | Hue's identity, backhanded compliment, and restrained snobbery | authorial voice reference; implementation still awaits behaviour evaluation |
+| September 19 human-led assertion clarification | aesthetic judgment delivered as settled fact; exact fragment “is just more satisfying” | authorial voice reference recorded in D-044 |
 | [Huey's fact export](../../src/huemiliator/pipeline.py) and [fixed family lines](../../src/huemiliator/loss_lines.py) | factual foundation and current wording baseline | implemented starting point |
 | [Probaboracle D-024](https://github.com/tryskian/probaboracle/blob/af4b3dc7ec287519a27f2622b827d84039282317/docs/governance/DECISIONS.md#d-024-coherence-requires-one-resolved-sentence-not-stacked-fragments) | historical finding that connective-heavy fragments can appear coherent without resolving an idea | reference lesson for Huey's design |
 | [Probaboracle instructions](https://github.com/tryskian/probaboracle/blob/af4b3dc7ec287519a27f2622b827d84039282317/src/probaboracle/agent.py) | current sentence-shape guidance | source reference; connector mechanics here are a new draft |
@@ -279,6 +312,108 @@ complete record is local at
 This confirms the configuration and preserves a metadata finding; it supplies
 no behavioural verdict or model-comparison result.
 
+The author's subsequent clarification identifies “I prefer” as the wrong
+manner of assertion for Hugh. The original output and metadata finding remain
+intact above. Bank `0.2.0` replaces sixteen personal-preference continuations
+with sixteen aesthetic-verdict candidates; instruction `1.1.0` states the same
+direction within the existing five positive instructions. The bank keeps the
+five opening quotations verbatim and labels all adapted continuations as
+assistant candidates.
+
+One subsequent smoke request used Luna with medium reasoning, bank `0.2.0`,
+and instructions `1.1.0`. It returned:
+
+> A popular choice, but Ash rose (#b5817d) is the finer choice.
+
+This response uses the categorical aesthetic construction requested by the
+author. The supplied replacement matches, its two entry IDs identify the
+opening and verdict, and the connector record identifies `but.contrast`.
+Mechanical checks passed. The exact request and response are preserved at
+`.local/composition-smoke/2026-09-19-objective-voice-c33xqtit/ordinary.json`.
+
+| Row judgment | Value |
+| --- | --- |
+| Evaluator | Human lead, September 19 |
+| Verdict | **FAIL** |
+| Author's reason | Repetition of “choice” across the opening and verdict |
+| Author's better structure | “Ah, that's a popular one, but Ash Rose is the finer choice” |
+
+The generated record retains its original output and automatic mechanical
+results; the subsequent authorial judgment is recorded here. Mechanical success
+and categorical construction were insufficient for acceptance. This is a row
+judgment outside a timed pulse; it supplies no pulse-wide result.
+The author's clarification retains “the finer choice”. It resolves the assistant's
+earlier, broader suspicion about that ending: the failure is the repetition.
+Instruction `1.1.0` now includes varied wording across the opening and verdict
+within its fourth positive direction. Bank `0.2.0` also adds an opening adapted
+from the author's worked example, bringing its total to 98 language entries.
+That opening remains optional material for composition, with the author’s
+example serving as structural guidance.
+
+Two follow-up requests used the added opening and a fourth direction asking
+for varied wording across the opening and verdict. Their exact records are in
+`.local/composition-smoke/2026-09-19-varied-wording-zo9urw1h/`.
+
+| Case | Exact response | Finding |
+| --- | --- | --- |
+| `ordinary-red.json` | “Ah, a popular one—Mellow rose (#d9a6a1) is perfectly agreeable, but Ash rose (#b5817d) is the finer choice.” | Key-word repetition absent, but the response adds another appraisal and input details; no overall row verdict assigned |
+| `ordinary-green.json` | “Ah, a classic choice, but Green flash (#79c753) is the finer choice.” | **FAIL**, assistant applying the author's repetition criterion: “choice” appears in both clauses |
+
+Both passed mechanical checks. The second response shows that the initial
+varied-wording direction did not reliably express the intended constraint.
+The fourth direction was then made more precise: distinct key words across the
+opening and verdict, retaining five positive directions and free composition.
+All requests preserve their exact instruction text and hashes, including these
+intermediate versions of the staged setup.
+
+Two further requests with the distinct-key-words direction are retained in
+`.local/composition-smoke/2026-09-19-distinct-words-iclw6cz0/`. Both passed the
+then-current mechanical checks and avoided the repeated “choice”; red still
+included an extra appraisal and the input's matched name. Both displayed the
+replacement hex. The author's subsequent D-045 clarification established the
+family/Pantone naming rule; the old records retain their original presentation
+and check results.
+
+Three requests with the D-045 spoken-name contract are preserved in
+`.local/composition-smoke/2026-09-19-spoken-names-6645y4_3/`.
+
+| Case | Exact response | Mechanical result |
+| --- | --- | --- |
+| `ordinary-red.json` | “A most respectable red, but Ash rose is the finer choice.” | passed |
+| `ordinary-green.json` | “Ah, a crowd pleaser—green, certainly; but Green flash is the finer choice.” | flagged `but.contrast` in the language-entry ID list |
+| `same-hex.json` | “Ah, a popular brown, but Burro is the finer choice.” | passed; the relationship annotation locates the distinction in naming and appraisal |
+
+All three use the input family and replacement Pantone name without a visible
+hex. All three also reuse “the finer choice”, leaving variation across responses
+as a concrete inspection target. To address the recurring metadata error, the
+output schema now enumerates eligible language IDs and connector IDs separately.
+The failed record remains intact; the refinement changes the schema, with the
+five positive directions preserved.
+
+The author judged the red response **FAIL** because “A most respectable red”
+does not fit, and supplied “A respectable red...” as the better opening.
+The bank now adapts that example through `opening.respectable_family`, replacing
+the earlier `opening.respectable_choice` entry that supplied the awkward phrase.
+The fourth direction also names natural phrasing as a positive aim. This
+reason is distinct from the assistant's observation about the repeated ending.
+
+A subsequent request using the simplified opening and enumerated metadata IDs
+returned “A respectable red, but Ash rose is the finer choice.” Its record is
+`.local/composition-smoke/2026-09-19-labelled-swatches-e_uork06/ordinary-red.json`.
+Mechanical checks passed, and the rendered text paired `red` with `Ash rose`
+above the unmodified line. The later intellectual-voice clarification adds
+`opening.fine_choice`, `modifier.unequivocally`, and `verdict.finer` as separate
+language resources, bringing the current bank to 98 entries. It also replaces
+the temporary distinct-key-words rule with deliberate rhythm and wordplay.
+
+A final smoke request against the intellectual-voice setup returned
+“A respectable green, but Green flash is the finer choice.” Mechanical checks
+passed, and the display labels were `green` and `Green flash`. The exact record
+is `.local/composition-smoke/2026-09-19-intellectual-voice-6em708vy/ordinary-green.json`.
+The line still falls back to “the finer choice”; the new reference has not yet
+demonstrated expressive range. This remains an open behavioural finding, with
+no overall voice verdict or pulse result assigned to this response.
+
 Candidate support signals are factual fidelity, a defensible relationship
 between ideas, intentional grammatical shape, the opening backhanded compliment,
 restrained tastemaker behaviour, and useful variation
@@ -291,7 +426,8 @@ Candidate failures include an unsupported explanation, a concession whose
 expectation cannot be identified, contradictory claims, broken grammatical
 joins, a metaphor that changes the facts, and interchangeable wording that
 ignores the situation. Voice failures include an omitted opening compliment,
-overt ridicule, and self-reference as “Huey”. Repetition and voice fit also need
+overt ridicule, personal-preference framing such as “I prefer”, and self-reference
+as “Huey”. Repetition and voice fit also need
 inspection across responses. These signals await alignment as evaluation criteria.
 
 ## Why It Matters

@@ -2,7 +2,7 @@
 
 The starter bank is a bundled, editable JSON resource:
 [`src/huemiliator/data/language_bank.json`](../../src/huemiliator/data/language_bank.json).
-Schema `huemiliator.language_bank.v1`, bank version `0.1.0`.
+Schema `huemiliator.language_bank.v1`, bank version `0.3.0`.
 
 It supplies language for the next behaviour beta. The
 [charter's character profile](../governance/CHARTER.md#character-profile) owns
@@ -13,13 +13,13 @@ additional entries are assistant candidates awaiting behaviour evaluation.
 
 | Role | Entries | Examples |
 | --- | ---: | --- |
-| Opening compliments | 22 | `excellent red...`, `a most agreeable choice...` |
+| Opening compliments | 24 | `excellent red...`, `a most agreeable choice...` |
 | Appraisal words | 24 | `lovely`, `refined`, `discerning` |
-| Modifiers | 8 | `rather`, `quite`, `decidedly` |
+| Modifiers | 9 | `rather`, `quite`, `decidedly` |
 | Appraisal phrases | 10 | `a certain elegance`, `a touch of distinction` |
-| Preferences | 16 | `I favour {replacement_name}`, `my choice is {replacement_name}` |
+| Aesthetic verdicts | 17 | `{replacement_name} is just more satisfying`, `{replacement_name} has a quiet distinction` |
 | Colour descriptions | 14 | the nine family labels, `the same colour`, `a new name` |
-| Total language entries | 94 | five authorial references and 89 assistant candidates |
+| Total language entries | 98 | five authorial references and 93 assistant candidates |
 
 Five connector records cover four words: `and.addition`, `but.contrast`,
 `but.concession`, `because.explanation`, and `although.concession`.
@@ -57,26 +57,44 @@ Bank inspection neither generates a response nor assigns a behavioural verdict.
 
 For example, `opening.excellent_red` retains `excellent red...`, links to the
 human source, and requires the red family plus aesthetic appraisal. The
-`preference.favour` template expresses a personal preference after the opening
-compliment, with the chosen name bound to the supplied replacement.
+`verdict.just_more_satisfying` template asserts aesthetic superiority after the
+opening compliment, with the chosen name bound to the supplied replacement.
+It is an assistant adaptation of the author's exact fragment “is just more
+satisfying”. All seventeen verdict templates remain labelled as assistant
+candidates. Version `0.2.0` replaces the former `preference.*` entries with new
+`verdict.*` IDs; saved requests retain their original bank and meanings.
+The new `opening.popular_one` adapts the author's worked line to pair “a popular
+one” with “the finer choice”. The full line is preserved in the
+[character profile](../governance/CHARTER.md#character-profile); the bank's
+adapted opening is labelled as an assistant candidate. The author supplied
+the line to illustrate structure and rhythm; the model chooses its own wording
+from the available material.
+`opening.respectable_family` adapts the author's “A respectable red...” to the
+mapped input family. It replaces the earlier “a most respectable choice...”
+after the author identified the resulting opening as awkward.
+The intellectual-voice example adds `opening.fine_choice`,
+`modifier.unequivocally`, and `verdict.finer` as separate resources. Their
+combination remains the model's choice; the complete authorial line is a voice
+reference, and deliberate echoes such as “fine / finer” remain available.
 
 The declared slots bind to the existing behaviour fact packet:
 
 | Slot | Fact field |
 | --- | --- |
 | `input_family` | `runtime_facts.family` |
-| `input_name` | `runtime_facts.nearest_swatch.name` |
 | `replacement_name` | `runtime_facts.replacement.name` |
-| `replacement_hex` | `runtime_facts.replacement.hex` |
 
 Slot names are the only interpolation form in this version. The composer
 supplies their values alongside the entries; the model builds the response.
+Version `0.3.0` limits language slots to the spoken colour references: the
+chosen family and replacement Pantone name. The full fact packet still carries
+hexes and input resolution for reasoning and inspection.
 
 ## Conditions and Connector Meaning
 
 Conditions are named, human-readable requirements. They include:
 
-- aesthetic appraisal and restrained preference
+- aesthetic appraisal and categorical, gracious verdicts
 - particular input families
 - equality or difference of the actual input and replacement hexes
 - equality or difference of resolved swatch names
@@ -87,6 +105,9 @@ Conditions are named, human-readable requirements. They include:
 The familiarity condition distinguishes that appraisal from a factual claim
 about usage statistics. Literal colour comparisons require their corresponding
 facts; this starter bank uses the supplied family labels and identity comparisons.
+Hugh delivers aesthetic judgments with objective certainty. Where the input
+and replacement have the same hex, any distinction must concern the choice
+or naming while preserving the actual colour identity.
 
 Connector records carry `id`, `word`, `relation`, `frame`, `meaning`, `requires`,
 and `source`. In `A because B`, the registered condition requires a basis for

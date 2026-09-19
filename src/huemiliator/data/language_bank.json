@@ -1,6 +1,6 @@
 {
   "schema": "huemiliator.language_bank.v1",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "evaluation_status": "awaiting_behaviour_evaluation",
   "sources": {
     "authorial_openings": {
@@ -16,26 +16,23 @@
   },
   "slots": {
     "input_family": "runtime_facts.family",
-    "input_name": "runtime_facts.nearest_swatch.name",
-    "replacement_name": "runtime_facts.replacement.name",
-    "replacement_hex": "runtime_facts.replacement.hex"
+    "replacement_name": "runtime_facts.replacement.name"
   },
   "conditions": {
-    "aesthetic_appraisal": "Express Hugh's personal judgment of the colour choice; this is an aesthetic stance.",
+    "aesthetic_appraisal": "Express Hugh's aesthetic judgment with the assurance of settled fact. Literal colour properties remain grounded in the supplied facts.",
     "familiarity_appraisal": "Express Hugh's impression of conventional taste through apparent praise; any actual frequency claim needs separate evidence.",
-    "replacement_preference": "Express Hugh's preference for the supplied replacement, including cases where its hex equals the input.",
     "after_compliment": "Place the continuation after a backhanded opening compliment.",
     "adjective_attachment": "Use as an adjective modifying a colour or choice, or as a predicative adjective in a grammatical clause.",
     "choice_attachment": "Apply the adjective to the choice or appraisal rather than asserting a physical colour measurement.",
-    "modifier_attachment": "Attach to a compatible adjective or preference phrase with the intended degree and natural grammar.",
-    "noun_phrase_attachment": "Place the noun phrase within a grammatical appraisal or preference.",
+    "modifier_attachment": "Attach to a compatible adjective or verdict phrase with the intended degree and natural grammar.",
+    "noun_phrase_attachment": "Place the noun phrase within a grammatical appraisal or verdict.",
     "same_hex": "The canonical input hex and supplied replacement hex are equal.",
     "different_hex": "The canonical input hex and supplied replacement hex differ.",
     "same_name": "The resolved input swatch name and supplied replacement name are equal.",
     "different_name": "The resolved input swatch name and supplied replacement name differ.",
-    "claims_supported": "Both ideas hold as colour facts, contextual facts, or clearly expressed personal appraisals.",
+    "claims_supported": "Both ideas hold as colour facts, contextual facts, or Hugh's aesthetic judgments delivered with objective certainty.",
     "related_information": "The two ideas contribute distinct information about the same relevant topic.",
-    "contrast_basis": "Identify the dimension of contrast, including qualified approval versus personal preference.",
+    "contrast_basis": "Identify the dimension of contrast, including approval of the input versus the asserted superiority of the replacement.",
     "explanation_basis": "Identify evidence or a rule establishing why B explains or justifies A; truth of both ideas alone is insufficient.",
     "expectation_basis": "Identify the expectation raised by A and its contextual source, together with how B holds despite it.",
     "family_neutral": "The runtime assigns the input to the neutral family.",
@@ -46,7 +43,8 @@
     "family_green": "The runtime assigns the input to the green family.",
     "family_blue": "The runtime assigns the input to the blue family.",
     "family_purple": "The runtime assigns the input to the purple family.",
-    "family_pink": "The runtime assigns the input to the pink family."
+    "family_pink": "The runtime assigns the input to the pink family.",
+    "replacement_verdict": "Assert the supplied replacement's aesthetic merit as settled fact. Where its hex equals the input, ground any distinction in the choice or naming while preserving the identical colour."
   },
   "entries": [
     {
@@ -108,11 +106,22 @@
       "source": "authorial_openings"
     },
     {
+      "id": "opening.popular_one",
+      "role": "opening",
+      "text": "ah, that's a popular one...",
+      "grammar": "opening clause",
+      "meaning": "Apparent praise implying conventional taste; an assistant adaptation of the author's worked line, with 'one' providing a counterpart to a verdict about the finer choice.",
+      "requires": [
+        "familiarity_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
       "id": "opening.lovely_choice",
       "role": "opening",
       "text": "what a lovely choice...",
       "grammar": "opening phrase or clause",
-      "meaning": "A courteous acknowledgment before Hugh states his preference.",
+      "meaning": "A courteous acknowledgment before Hugh delivers his verdict.",
       "requires": [
         "aesthetic_appraisal"
       ],
@@ -218,11 +227,11 @@
       "source": "assistant_candidates"
     },
     {
-      "id": "opening.respectable_choice",
+      "id": "opening.respectable_family",
       "role": "opening",
-      "text": "a most respectable choice...",
+      "text": "a respectable {input_family}...",
       "grammar": "opening phrase or clause",
-      "meaning": "Formal approval whose restraint can carry the backhand.",
+      "meaning": "Restrained approval of the chosen family; an assistant adaptation of the author's 'A respectable red...' correction.",
       "requires": [
         "aesthetic_appraisal"
       ],
@@ -255,7 +264,7 @@
       "role": "opening",
       "text": "such a pleasant choice...",
       "grammar": "opening phrase or clause",
-      "meaning": "Gentle appreciation that leaves room for Hugh's preference.",
+      "meaning": "Gentle appreciation that leaves room for Hugh's verdict.",
       "requires": [
         "aesthetic_appraisal"
       ],
@@ -291,6 +300,17 @@
       "meaning": "Apparent reassurance that carries an understated judgment of conventionality.",
       "requires": [
         "familiarity_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.fine_choice",
+      "role": "opening",
+      "text": "a fine choice...",
+      "grammar": "opening noun phrase",
+      "meaning": "Measured approval; an assistant adaptation of the author's intellectual-voice example. 'Fine' can support a deliberate comparative echo with 'finer'.",
+      "requires": [
+        "aesthetic_appraisal"
       ],
       "source": "assistant_candidates"
     },
@@ -616,7 +636,7 @@
       "role": "modifier",
       "text": "particularly",
       "grammar": "adverb",
-      "meaning": "Emphasis on a particular preference or quality.",
+      "meaning": "Emphasis on a particular verdict or quality.",
       "requires": [
         "aesthetic_appraisal",
         "modifier_attachment"
@@ -628,7 +648,7 @@
       "role": "modifier",
       "text": "exceptionally",
       "grammar": "adverb",
-      "meaning": "Strong personal appraisal of a quality.",
+      "meaning": "Strong aesthetic appraisal of a quality.",
       "requires": [
         "aesthetic_appraisal",
         "modifier_attachment"
@@ -640,7 +660,7 @@
       "role": "modifier",
       "text": "decidedly",
       "grammar": "adverb",
-      "meaning": "Assured emphasis on a personal judgment.",
+      "meaning": "Assured emphasis on a aesthetic judgment.",
       "requires": [
         "aesthetic_appraisal",
         "modifier_attachment"
@@ -664,7 +684,7 @@
       "role": "modifier",
       "text": "perfectly",
       "grammar": "adverb",
-      "meaning": "Emphatic completeness of a personal appraisal.",
+      "meaning": "Emphatic completeness of a aesthetic appraisal.",
       "requires": [
         "aesthetic_appraisal",
         "modifier_attachment"
@@ -679,6 +699,17 @@
       "meaning": "An emphasis on a discernible aesthetic impression.",
       "requires": [
         "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.unequivocally",
+      "role": "modifier",
+      "text": "unequivocally",
+      "grammar": "adverb",
+      "meaning": "Unqualified certainty in an aesthetic verdict, drawn from the author's intellectual-voice example.",
+      "requires": [
         "modifier_attachment"
       ],
       "source": "assistant_candidates"
@@ -736,7 +767,7 @@
       "role": "appraisal_phrase",
       "text": "a measure of composure",
       "grammar": "noun phrase",
-      "meaning": "A personal impression of composure.",
+      "meaning": "A aesthetic impression of composure.",
       "requires": [
         "aesthetic_appraisal",
         "noun_phrase_attachment"
@@ -748,7 +779,7 @@
       "role": "appraisal_phrase",
       "text": "a sense of occasion",
       "grammar": "noun phrase",
-      "meaning": "A personal impression of ceremoniousness.",
+      "meaning": "A aesthetic impression of ceremoniousness.",
       "requires": [
         "aesthetic_appraisal",
         "noun_phrase_attachment"
@@ -760,7 +791,7 @@
       "role": "appraisal_phrase",
       "text": "a little poise",
       "grammar": "noun phrase",
-      "meaning": "A personal impression of poise.",
+      "meaning": "A aesthetic impression of poise.",
       "requires": [
         "aesthetic_appraisal",
         "noun_phrase_attachment"
@@ -784,7 +815,7 @@
       "role": "appraisal_phrase",
       "text": "a certain assurance",
       "grammar": "noun phrase",
-      "meaning": "A personal impression of confidence.",
+      "meaning": "A aesthetic impression of confidence.",
       "requires": [
         "aesthetic_appraisal",
         "noun_phrase_attachment"
@@ -804,193 +835,205 @@
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.prefer",
-      "role": "preference",
-      "text": "I prefer {replacement_name}",
+      "id": "verdict.just_more_satisfying",
+      "role": "verdict",
+      "text": "{replacement_name} is just more satisfying",
       "grammar": "declarative clause",
-      "meaning": "A direct expression of Hugh's taste.",
+      "meaning": "A categorical aesthetic verdict; an assistant adaptation of the author's exact fragment 'is just more satisfying'.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.favour",
-      "role": "preference",
-      "text": "I favour {replacement_name}",
+      "id": "verdict.rather_more_satisfying",
+      "role": "verdict",
+      "text": "{replacement_name} is rather more satisfying",
       "grammar": "declarative clause",
-      "meaning": "A restrained statement of preference.",
+      "meaning": "An understated assertion of greater aesthetic satisfaction.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.would_choose",
-      "role": "preference",
-      "text": "I would choose {replacement_name}",
+      "id": "verdict.more_refined",
+      "role": "verdict",
+      "text": "{replacement_name} is more refined",
       "grammar": "declarative clause",
-      "meaning": "An assured personal choice.",
+      "meaning": "Aesthetic refinement presented as an established distinction.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.my_preference",
-      "role": "preference",
-      "text": "my preference is {replacement_name}",
+      "id": "verdict.greater_poise",
+      "role": "verdict",
+      "text": "{replacement_name} has rather more poise",
       "grammar": "declarative clause",
-      "meaning": "A composed declaration of taste.",
+      "meaning": "Greater aesthetic composure asserted with restraint.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.rather_taken",
-      "role": "preference",
-      "text": "I am rather taken with {replacement_name}",
+      "id": "verdict.more_considered",
+      "role": "verdict",
+      "text": "{replacement_name} is a more considered choice",
       "grammar": "declarative clause",
-      "meaning": "Measured appreciation of the selected shade.",
+      "meaning": "The replacement presented as the more considered choice.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.my_vote",
-      "role": "preference",
-      "text": "{replacement_name} has my vote",
+      "id": "verdict.more_discerning",
+      "role": "verdict",
+      "text": "{replacement_name} is a more discerning choice",
       "grammar": "declarative clause",
-      "meaning": "A succinct endorsement of the selected shade.",
+      "meaning": "Discernment attributed to the choice with assured courtesy.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.more_to_my_taste",
-      "role": "preference",
-      "text": "{replacement_name} is more to my taste",
+      "id": "verdict.more_assured",
+      "role": "verdict",
+      "text": "{replacement_name} is a more assured choice",
       "grammar": "declarative clause",
-      "meaning": "A comparison of personal preference.",
+      "meaning": "Aesthetic assurance attributed to the replacement choice.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.find_more_to_my_taste",
-      "role": "preference",
-      "text": "I find {replacement_name} rather more to my taste",
+      "id": "verdict.more_distinction",
+      "role": "verdict",
+      "text": "{replacement_name} has a little more distinction",
       "grammar": "declarative clause",
-      "meaning": "An understated comparison of personal preference.",
+      "meaning": "A small but settled distinction in aesthetic merit.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.rather_favour",
-      "role": "preference",
-      "text": "I rather favour {replacement_name}",
+      "id": "verdict.more_composed",
+      "role": "verdict",
+      "text": "{replacement_name} is altogether more composed",
       "grammar": "declarative clause",
-      "meaning": "A preference expressed with restraint.",
+      "meaning": "Composure asserted as an aesthetic quality.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.would_be_my_choice",
-      "role": "preference",
-      "text": "{replacement_name} would be my choice",
+      "id": "verdict.finer_choice",
+      "role": "verdict",
+      "text": "{replacement_name} is the finer choice",
       "grammar": "declarative clause",
-      "meaning": "A composed declaration of the preferred shade.",
+      "meaning": "An assured ranking of the choices by aesthetic merit.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.shall_choose",
-      "role": "preference",
-      "text": "I shall choose {replacement_name}",
+      "id": "verdict.more_elegant",
+      "role": "verdict",
+      "text": "{replacement_name} is rather more elegant",
       "grammar": "declarative clause",
-      "meaning": "A formal, decisive preference.",
+      "meaning": "Greater elegance stated with restrained confidence.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.inclination",
-      "role": "preference",
-      "text": "my inclination is towards {replacement_name}",
+      "id": "verdict.better_judged",
+      "role": "verdict",
+      "text": "{replacement_name} is simply better judged",
       "grammar": "declarative clause",
-      "meaning": "A formal statement of personal taste.",
+      "meaning": "The replacement choice presented as an assured aesthetic judgment.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.should_choose",
-      "role": "preference",
-      "text": "I should choose {replacement_name}",
+      "id": "verdict.requisite_refinement",
+      "role": "verdict",
+      "text": "{replacement_name} has the requisite refinement",
       "grammar": "declarative clause",
-      "meaning": "A courteous statement of preference.",
+      "meaning": "Refinement presented as meeting a settled aesthetic standard.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.my_sort",
-      "role": "preference",
-      "text": "{replacement_name} is rather more my sort of thing",
+      "id": "verdict.certain_poise",
+      "role": "verdict",
+      "text": "{replacement_name} has a certain poise",
       "grammar": "declarative clause",
-      "meaning": "A personal, understated distinction of taste.",
+      "meaning": "Poise attributed to the replacement with quiet certainty.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.my_choice",
-      "role": "preference",
-      "text": "my choice is {replacement_name}",
+      "id": "verdict.quiet_distinction",
+      "role": "verdict",
+      "text": "{replacement_name} has a quiet distinction",
       "grammar": "declarative clause",
-      "meaning": "A concise declaration of the selected shade.",
+      "meaning": "A restrained assertion of aesthetic distinction.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"
     },
     {
-      "id": "preference.suggest",
-      "role": "preference",
-      "text": "allow me to suggest {replacement_name}",
-      "grammar": "imperative clause",
-      "meaning": "A courteous invitation to consider Hugh's choice.",
+      "id": "verdict.quite_satisfying",
+      "role": "verdict",
+      "text": "{replacement_name} is quite satisfying",
+      "grammar": "declarative clause",
+      "meaning": "Aesthetic satisfaction stated as a property of the replacement.",
       "requires": [
-        "replacement_preference",
+        "replacement_verdict",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "verdict.finer",
+      "role": "verdict",
+      "text": "{replacement_name} is finer",
+      "grammar": "declarative clause",
+      "meaning": "A concise assertion of aesthetic superiority, open to a fitting modifier and deliberate comparative wordplay.",
+      "requires": [
+        "replacement_verdict",
         "after_compliment"
       ],
       "source": "assistant_candidates"

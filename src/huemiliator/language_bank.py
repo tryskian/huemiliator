@@ -13,7 +13,7 @@ LANGUAGE_ROLES = (
     "appraisal_word",
     "modifier",
     "appraisal_phrase",
-    "preference",
+    "verdict",
     "colour_description",
 )
 RELATIONS = {"addition", "contrast", "explanation", "concession"}

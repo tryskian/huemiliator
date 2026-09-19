@@ -16,7 +16,7 @@ from huemiliator.agent import (
 from huemiliator.config import DEFAULT_REASONING_EFFORT
 from huemiliator.language_bank import load_language_bank
 
-COMPOSER_VERSION = "0.2.0"
+COMPOSER_VERSION = "0.3.0"
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_SECONDS = 60.0
 
@@ -30,11 +30,11 @@ def _digest(value: object) -> str:
     return hashlib.sha256(text.encode()).hexdigest()
 
 
-def _output_schema() -> dict[str, Any]:
+def _output_schema(entry_ids: list[str], connector_ids: list[str]) -> dict[str, Any]:
     relationship = {
         "type": "object",
         "properties": {
-            "connector_id": {"type": "string"},
+            "connector_id": {"type": "string", "enum": connector_ids},
             "claim_a": {"type": "string"},
             "claim_b": {"type": "string"},
             "basis": {
@@ -57,7 +57,7 @@ def _output_schema() -> dict[str, Any]:
             },
             "entry_ids": {
                 "type": "array",
-                "items": {"type": "string"},
+                "items": {"type": "string", "enum": entry_ids},
                 "description": "Library entries used or adapted in the visible line.",
             },
             "relationships": {
@@ -118,10 +118,22 @@ def build_composition_request(
             value = value[part]
         slot_values[slot] = value
 
+    display_swatches = [
+        {"role": "chosen", "label": facts["family"], "hex": input_hex},
+        {
+            "role": "replacement",
+            "label": replacement["name"],
+            "hex": replacement["hex"],
+        },
+    ]
     material = {
         "input": fact_packet["input"],
         "runtime_facts": facts,
-        "context": "A person chose this colour in the picker. Hugh responds once.",
+        "context": (
+            "A person chose this colour in the picker. Hugh responds once, "
+            "alongside the two labelled display swatches."
+        ),
+        "display_swatches": display_swatches,
         "factual_conditions": factual_conditions,
         "slot_values": slot_values,
         "library": {**bank, "entries": eligible},
@@ -138,7 +150,10 @@ def build_composition_request(
                 "type": "json_schema",
                 "name": "hue_composition",
                 "strict": True,
-                "schema": _output_schema(),
+                "schema": _output_schema(
+                    [entry["id"] for entry in eligible],
+                    [connector["id"] for connector in bank["connectors"]],
+                ),
             }
         },
         "max_output_tokens": MAX_OUTPUT_TOKENS,
@@ -151,6 +166,7 @@ def build_composition_request(
         "bank_version": bank["version"],
         "bank_sha256": _digest(bank),
         "request_sha256": _digest(api_request),
+        "display_swatches": display_swatches,
         "api_request": api_request,
     }
 
@@ -190,18 +206,31 @@ def check_composition(payload: object, request: dict[str, Any]) -> list[str]:
     ):
         errors.append("The entry references must include an opening.")
     replacement = material["runtime_facts"]["replacement"]
-    if not re.search(rf"(?<!\w){re.escape(replacement['name'])}(?!\w)", response, re.I):
+    replacement_pattern = rf"(?<!\w){re.escape(replacement['name'])}(?!\w)"
+    if not re.search(replacement_pattern, response, re.I):
         errors.append("The visible response is missing the supplied replacement name.")
-    hexes = re.findall(r"#[0-9a-fA-F]{6}\b", response)
-    if replacement["hex"].lower() not in [value.lower() for value in hexes]:
-        errors.append("The visible response is missing the supplied replacement hex.")
     supplied_hexes = {
-        material["input"]["hex"],
-        material["runtime_facts"]["nearest_swatch"]["hex"],
-        replacement["hex"],
+        value.lstrip("#").lower()
+        for value in (
+            material["input"]["hex"],
+            material["runtime_facts"]["nearest_swatch"]["hex"],
+            replacement["hex"],
+        )
     }
-    if any(value.lower() not in supplied_hexes for value in hexes):
-        errors.append("The visible response contains a hex outside the supplied facts.")
+    hex_tokens = re.findall(
+        r"(?<!\w)(?:#[0-9a-f]{3,8}|0x[0-9a-f]{3,8}|"
+        r"[0-9a-f]{8}\b|[0-9a-f]{6}\b)",
+        response,
+        re.I,
+    )
+    if any(
+        value.startswith("#")
+        or value.lower().startswith("0x")
+        or any(char.isdigit() for char in value)
+        or value.lower() in supplied_hexes
+        for value in hex_tokens
+    ):
+        errors.append("The visible response contains a hex code.")
     recorded_words = set()
     for relationship in relationships:
         fields = {"connector_id", "claim_a", "claim_b", "basis"}

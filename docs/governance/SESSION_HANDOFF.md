@@ -33,7 +33,7 @@ Last updated: 2026-09-19
 | Boundary | [Pre-Beta: 15-Minute Behaviour Pulses](../research/030_PB_BEHAVIOUR.md), `staged` |
 | Focus | Huey's behaviour using the stable colour foundation |
 | Agent setup | approximately five short, positive directions with room to reason |
-| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md): 94 language entries and five connector senses, with read-only CLI inspection |
+| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md): 98 language entries and five connector senses, with read-only CLI inspection |
 | [Character profile](CHARTER.md#character-profile) | Hue (Hugh): courteous tastemaker, opening backhanded compliment, MCM style and burgundy snifter; introduced in the [README](../../README.md#meet-hue) |
 | Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
 | Staging surface | five draft directions, language-library structure, and connector relationships |
@@ -115,35 +115,39 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
-- The starter language bank is implemented as packaged JSON, with 94 entries
-  and five connector senses. `huemiliator language-bank` provides the inventory;
-  `--format json` exposes grammar, meaning, conditions, and provenance.
-- The human lead's voice clarification now anchors the draft: Hue (Hugh) opens
-  with a backhanded compliment and expresses superiority through gracious
-  appraisal. Authorial openings are separated from assistant continuations.
-  The character reference also carries the supplied mid-century modern style
-  and outrageously rotund burgundy snifter; its image stays in private re-entry
-  material.
-- Structural checks preserve authorial quotations and validate the bank's
-  references and templates. They supply no behavioural verdict. The colour
-  output still uses its existing fixed family lines.
-- `compose` uses the configured OpenAI model to select and adapt bank language
-  under the five positive directions. Its request omits the carried fixed loss
-  line and old response instructions. The human lead selected `gpt-5.6-luna`
-  with explicit `medium` reasoning under D-043. Model and reasoning are configured
-  in the ignored `.env`; the tracked example carries the same defaults.
-- Dry-run exposes the request; JSON records preserve versions, hashes, facts,
-  supplied bank entries, raw output, relation annotations, and mechanical issues.
-  They assign no behaviour verdict. Timing and pulse judgments remain staging
-  choices for alignment.
-- Five live smoke requests reached the configured model. The
-  [smoke observations](../research/450_LOCAL_LANGUAGE.md#september-19-composer-smoke-observations)
-  retain initial failures, the output-budget adjustment, and voice/annotation
-  questions for the first pulse. They carry no behavioural verdict.
-- A subsequent live call confirmed Luna with explicit medium reasoning and the
-  correct replacement. Its record retains a connector ID in the word-entry
-  list, flagged by the mechanical check. This model-setting check carries no
-  behavioural verdict; the earlier five observations remain nano evidence.
+- Composer `0.3.0` uses `gpt-5.6-luna` with explicit `medium` reasoning. The
+  ignored `.env`, tracked example, and defaults carry that setup under D-043.
+- Instruction version `1.2.0` retains five positive directions. Hue (Hugh) is an
+  intellectual tastemaker: backhanded opening, aesthetic superiority delivered
+  as settled fact, natural phrasing, deliberate rhythm and wordplay, and
+  meaningful connectors. The [character profile](CHARTER.md#character-profile)
+  preserves exact authorial examples and their intended use as voice references.
+- Bank `0.3.0` supplies 98 language entries and five connector senses. Five
+  openings remain exact human references; 93 additional entries are labelled
+  assistant candidates. `language-bank --format json` exposes their meanings,
+  conditions, and provenance. D-044 records the voice clarification.
+- D-045 defines the display: the actual chosen swatch has its family label;
+  Hugh's swatch has its Pantone name. These labels come directly from colour
+  facts. His generated sentence accompanies the pair, with generic compliments
+  available. Hexes remain rendering data and internal evidence. Text mode shows
+  coloured blocks in capable terminals and plain markers in redirected output.
+- Requests and records retain full facts, exact model setup, versions, hashes,
+  supplied material, raw output, relation annotations, and mechanical issues.
+  The schema separates eligible language IDs from connector IDs. Checks flag
+  visible hex codes and missing replacement names; they supply no voice verdict.
+- The author judged two visible lines **FAIL**: repeated “choice”, and the awkward
+  opening “A most respectable red”. Their corrections guide the bank and
+  instructions. “A fine choice, but Green Flash is unequivocally finer.” is the
+  latest intellectual-voice reference. Its deliberate echo supersedes the
+  temporary instruction about distinct key words.
+- [Recorded observations](../research/450_LOCAL_LANGUAGE.md#behaviour-evidence-to-establish)
+  preserve all smoke outputs, authorial judgments, and the assistant's separate
+  findings. Repeated use of “the finer choice” remains a variation target. These
+  observations sit outside a timed pulse; the first pulse and its judgment
+  protocol remain in staging.
+- The deterministic colour engine, fixed-line inspection commands, and live
+  colour eval database remain the carried factual baseline. Authorial art
+  references and the burgundy-snifter image stay in private re-entry material.
 
 ## Next Slice
 
