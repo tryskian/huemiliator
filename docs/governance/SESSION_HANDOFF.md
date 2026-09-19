@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-08-03
+Last updated: 2026-09-18
 
 ## Start Here
 
@@ -43,6 +43,9 @@ The core tracked shape is:
 - local shell helper contracts are now a named gate:
   - `make scripts-check` validates tracked `scripts/*.sh`
   - closeout runs the gate before the broader `make check`
+- Mac-wide keep-awake control is external to the repo lifecycle:
+  - the Coffee Codex plugin owns the one shared session
+  - `make start` and `make end` leave that session unchanged
 - bare `huemiliator` keeps the runtime local and CLI-first
 - the active input surface is the native macOS colour picker
 - the canonical user state is one hex code

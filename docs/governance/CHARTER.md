@@ -97,4 +97,6 @@ fail-first evaluation.
 - `.local/evals.sqlite` is the live eval evidence store.
 - `make doctor-env` is the environment confirmation entrypoint.
 - `make end` is only complete when live eval `pending` is `0`.
+- Mac-wide keep-awake state is owned outside the repo by the Coffee Codex
+  plugin; `make start` and `make end` do not control it.
 - Default branch changes land through protected-main PR flow.

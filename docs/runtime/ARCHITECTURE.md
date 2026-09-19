@@ -61,6 +61,14 @@ The stable runtime path is:
 - the loss line stays downstream of the stable colour decision
 - the runtime owns the final colour output
 
+## Operator Boundary
+
+- the repo owns its startup checks, tracked-doc rehydrate, validation, and
+  clean-main closeout
+- the external Coffee Codex plugin owns the one shared Mac-wide keep-awake
+  session
+- repo lifecycle commands do not inspect, start, adopt, or stop Coffee state
+
 ## Data Surfaces
 
 - frozen swatch reference:
