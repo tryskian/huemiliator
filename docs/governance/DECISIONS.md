@@ -869,3 +869,34 @@ into implementation authorship.
 - Reference: [Documentation delegation](CHARTER.md#documentation-delegation)
   and [collaboration diagram](../diagrams/COLLABORATION.md). The private trial
   record preserves the Scorey task reference and verification receipts.
+
+## D-051: Assign documentation roles from source audits
+
+- Date: `2026-09-19`
+- Category: `workflow_environment`
+- Tags: `documentation`, `roles`, `delegation`, `source_review`
+- Provenance: `repo formalization`, requested by the human lead; concrete role
+  assignments are engineering recommendations from three repository readers.
+- Source: The human lead requested readers to audit how roles and delegation
+  should work, referring to Scorey's broader collaboration documentation:
+  “you can just create huey's version”.
+- Decision: Apply D-050 through one continuing lead/editor and optional
+  transcript, evidence and visual contributors. Combine small jobs; split work
+  when its sources or outputs benefit from a bounded helper assignment.
+  Each brief identifies its question, complete source scope and versions,
+  evidence references, owned files, allowed operations and intended result.
+  Returns include the artifact, source links, coverage, checks and gaps.
+- Review and ownership: The lead checks contributions; the primary reviews
+  meaning against the sources and conversation before integration. Human
+  decisions, assistant interpretations, mechanical results and behaviour
+  verdicts retain their attribution. Primary experiment, evidence and Git
+  ownership remains as established in D-050.
+- Why: Huey's authorial references, evolving bank and versioned composition
+  records need different source checks within the same documentation workflow.
+- Boundary: Technical reading supports documentation; implementation requires
+  a separate assignment. Parallel implementation uses worktrees while live
+  evidence remains canonical and primary-coordinated. This role setup leaves
+  behaviour-pulse staging choices open.
+- Reference: [Role and assignment guide](../diagrams/COLLABORATION.md) and
+  [charter](CHARTER.md#documentation-delegation). Reader reports and the source
+  comparison stay in `docs/peanut/research/2026-09-19-collaboration-roles/`.
