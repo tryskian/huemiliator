@@ -84,9 +84,9 @@ structure and how claims, relationships, and wording fit together.
 The assistant owns pulse operation and evaluation. The human lead owns the
 method and scope; both discuss what the findings warrant next.
 
-## Draft Instructions and Judgment Lens
+## Instructions and Judgment Lens
 
-These five positive directions are a review draft for Huey's setup:
+These five positive directions now form the composer's complete instruction set:
 
 1. Speak as Hue (Hugh), an eloquent tastemaker assured of his own taste.
 2. Begin with a backhanded compliment on the chosen colour.
@@ -94,13 +94,13 @@ These five positive directions are a review draft for Huey's setup:
 4. Choose concise, gracious library language, carrying your judgment through implication.
 5. Use connector words that express the relationship between your ideas.
 
-The draft leaves expression to Huey. The current runtime's fixed family lines
-remain the implemented baseline under D-006; their role in the new library
-is an explicit choice before implementation. Detailed entry conditions and
-relationship definitions live in the [library draft](450_LOCAL_LANGUAGE.md).
-The mechanism that selects and composes language remains to be chosen.
+The [implemented composer](../runtime/COMPOSITION.md) leaves expression to Hugh.
+It supplies fixed colour facts and local bank entries to the configured model.
+The fixed family lines remain in the carried `one-up` path under D-006 and are
+omitted from the composer request under D-042. Detailed entry conditions and
+relationship definitions live in the [library note](450_LOCAL_LANGUAGE.md).
 The [character direction and authorial openings](450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice)
-ground this draft in the human lead's clarification. Existing fixed lines are
+ground these directions in the human lead's clarification. Existing fixed lines are
 implementation history, with behavioural fidelity still to be demonstrated.
 
 | Candidate evaluation lens | What the assistant inspects |
@@ -125,17 +125,17 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 
 | Staging choice | Review surface |
 | --- | --- |
-| Actual language setup | local library, selection and composition mechanism, exact directions, supplied facts, and interaction context |
-| Expressive scope | role of the fixed loss-line bank alongside the draft's wording freedom |
+| Composer review | implemented model call, five directions, fact-filtered bank, and inspection record |
 | Pulse timing | clock start, deadline, judgment timing, and handling of an in-flight response |
 | Judgment contract | observation unit, case selection, PASS/FAIL criterion, and pulse-wide verdict rule |
-| Evidence record | instruction, library, and composer versions; input facts, context, responses, timestamps, verdicts, and reasons |
+| Pulse evidence | attach assistant verdicts and reasons to the implemented composition records; define pulse membership and completion |
 
 The existing duration sampler produces deterministic colour rows. Existing
 `behaviour-facts` exports facts and contract metadata. Those are starting
-components for the staged work. The starter language bank and read-only
-`language-bank` inspection are now available. The local selection/composition
-path and behavioural evidence record await implementation alignment.
+components for the staged work. The starter language bank, `language-bank`
+inspection, and model-driven `compose` command are available. Composition
+records preserve the exact setup and actual output, including mechanical
+failures. The pulse protocol and assistant judgment record remain staging work.
 
 ## What Would Promote It
 
@@ -147,6 +147,6 @@ The boundary becomes active when the aligned setup produces its first completed
 documented PASS or FAIL supplies that first evidence surface. The beta note
 then records the designation, setup, result, limitations, and next decision.
 
-Immediate next step: use the [starter bank](../runtime/LANGUAGE_BANK.md) to align
-the selection and composition mechanism beside the instructions, judgment lens,
-and [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
+Immediate next step: inspect [composition records](../runtime/COMPOSITION.md),
+then align pulse timing, case selection, and the judgment contract beside the
+[execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

@@ -56,6 +56,12 @@ for connector words, recorded in
 The [character profile](#character-profile) supplies the voice reference for
 this behaviour work.
 
+[D-042](DECISIONS.md#d-042-compose-with-the-configured-model-and-local-language-bank)
+implements a separate model-driven composition command under five positive
+directions. It uses the same deterministic replacement and the local bank;
+`one-up` retains the carried fixed-line behaviour. Generated lines await the
+aligned behaviour pulses.
+
 [D-038](DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses)
 records the human-led direction. The
 [staging note](../research/030_PB_BEHAVIOUR.md) owns draft instructions,

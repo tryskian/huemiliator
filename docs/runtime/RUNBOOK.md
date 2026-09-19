@@ -144,6 +144,15 @@ provenance. The command validates the bundled resource and reads independently
 of colour/eval state. The [bank guide](LANGUAGE_BANK.md) owns its editing workflow
 and the boundary between structural checks and behaviour evaluation.
 
+## Language Composition
+
+Configure `OPENAI_API_KEY` and `HUEMILIATOR_MODEL` in the ignored `.env`.
+`huemiliator compose <hex> --dry-run` prints the exact request without calling
+OpenAI. `huemiliator compose <hex> --format json` makes one live request and
+prints the complete inspection record. The [composer guide](COMPOSITION.md)
+explains exit codes, recording failed candidates, and the five-direction setup.
+Mechanical checks supply no behaviour verdict; the colour eval DB is untouched.
+
 ## End Of Day
 
 1. When the goal is to close out the day, run:

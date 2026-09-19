@@ -42,12 +42,13 @@ sequenceDiagram
 | Assistant evaluator | runs the pulse, inspects responses, assigns verdicts, and records supporting reasons |
 | Pulse evidence | preserves the actual setup, observations, and judgments for discussion |
 
-The directions and evaluator lens have distinct recipients. The final payload
-is a staging choice, including which fields from the existing fact export reach
-Huey. The [library draft](../research/450_LOCAL_LANGUAGE.md) describes connector
-relationships and language entries; Huey's selection and composition mechanism
-remains to be chosen. Clock boundaries and judgment timing are also staging
-choices documented in the boundary note.
+The directions and evaluator lens have distinct recipients. The
+[implemented composer](../runtime/COMPOSITION.md) supplies fixed colour facts,
+fact-filtered bank entries, and five positive directions to the configured model.
+Fixed family lines and old response instructions stay in the carried commands.
+The [library note](../research/450_LOCAL_LANGUAGE.md) describes connector
+relationships and language entries. Clock boundaries and judgment timing remain
+staging choices documented in the boundary note.
 
 ## Implemented Starting Point
 
@@ -55,6 +56,8 @@ The [current pipeline](PIPELINE.md) supplies colour results and fixed family
 lines. `behaviour-facts` exposes those facts with response-contract metadata.
 The existing SQLite records describe colour outputs and their judgments.
 
-This diagram describes the next execution shape. Its local library, composer,
-behavioural record, and pulse-wide verdict rule remain to be aligned and
-implemented. The first completed pulse will establish the new evidence surface.
+The local library and composer are implemented. Composition records preserve
+setup and actual output, including mechanical failures. This diagram describes
+the complete pulse shape; the pulse protocol, assistant judgments, and pulse-wide
+verdict rule remain to be aligned and implemented. The first completed pulse
+will establish the new behavioural evidence surface.

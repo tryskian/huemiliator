@@ -2,6 +2,17 @@ from __future__ import annotations
 
 TAGLINE = "pick a colour. hue's is better."
 
+COMPOSITION_INSTRUCTIONS_VERSION = "1.0.0"
+COMPOSITION_DIRECTIONS: tuple[str, ...] = (
+    "Speak as Hue (Hugh), an eloquent tastemaker assured of his own taste.",
+    "Begin with a backhanded compliment on the chosen colour.",
+    "Present your preferred replacement by name and hex, "
+    "using the supplied colour facts.",
+    "Choose concise, gracious library language, "
+    "carrying your judgment through implication.",
+    "Use connector words that express the relationship between your ideas.",
+)
+
 RUNTIME_CONTRACT_LINES: tuple[str, ...] = (
     "status: partial runtime",
     "platform: macos local only",

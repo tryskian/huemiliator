@@ -6,7 +6,7 @@
 | Category | `hypothesis` |
 | Status | `staged` |
 | Direction recorded | `2026-09-19` |
-| Implementation | starter bank `0.1.0` and read-only inspection; selection/composition staged |
+| Implementation | starter bank `0.1.0`, inspection, and model-driven composer `0.1.0` |
 | Behaviour evidence | awaits the first aligned pulse |
 | Owns | application of the character profile to local library structure, sample language, and connector relationships |
 
@@ -23,9 +23,10 @@ coherent one-up lines under a compact set of positive directions.
 The human lead chose a local library and asked for explicit connector logic,
 using Probaboracle as a reference. [D-039](../governance/DECISIONS.md#d-039-stage-a-local-language-library-and-connector-logic)
 records that direction. The structure, entries, and examples here are review
-drafts. Library size, selection mechanism, and composition mechanism remain
-staging choices. A library supplies language resources; a selector and composer
-must still determine which claims, relationships, and wording fit.
+drafts awaiting behaviour evidence. The [composer](../runtime/COMPOSITION.md)
+now supplies fact-filtered entries to the configured model, which selects and
+adapts wording under five positive directions. Library growth remains guided
+by findings from actual responses.
 
 ### Character Direction: Write Hue's Voice
 
@@ -106,9 +107,9 @@ authorial openings are exact references; the remaining wording and connector
 definitions are assistant candidates awaiting behaviour evaluation. The guide
 owns the file format, inventory, and extension workflow.
 
-The bank's usage conditions remain requirements for a future composer.
-Structural validation establishes reference integrity; the first aligned pulse
-will establish behavioural evidence.
+The composer filters factual conflicts and supplies the remaining usage
+conditions to the model. Structural validation establishes reference integrity;
+the first aligned pulse will establish behavioural evidence.
 
 ### A Small Starting Shelf
 
@@ -231,11 +232,41 @@ flowchart TD
   O --> E["Assistant judges facts, relation and voice<br/>within a 15-minute pulse"]
 ```
 
-This is a proposed composition sequence. Selecting claims and judging their
-relationships still require an implementation choice. A stored library by
-itself supplies neither reasoning nor a running response generator.
+The model-driven composer now implements the language path in this sequence.
+Its entry references and relationship annotations are inspectable model reports.
+Assistant judgment and the 15-minute pulse protocol remain in staging.
 
 ## What Would Support It
+
+### September 19 Composer Smoke Observations
+
+Five live requests exercised the composition and recording path with the
+human-configured `gpt-5-nano`, returned as `gpt-5-nano-2025-08-07`. Full records
+are retained locally in `.local/composition-smoke/2026-09-19-34x9wzp2/`.
+This was an implementation smoke check, with no timed pulse or behavioural
+verdicts.
+
+| Case | Observation |
+| --- | --- |
+| Mellow rose to Ash rose, initial | reached the 4,096-token output cap; incomplete output preserved |
+| Woodsmoke to Burro, same hex | complete response, correct replacement name and hex, mechanical checks satisfied |
+| Bridal blush at the selection clamp, initial | complete response with a reported “and” absent from the visible line; mechanical check flagged it |
+| Mellow rose, follow-up | completed under the 8,192-token cap with mechanical checks satisfied |
+| Bridal blush, follow-up | completed with mechanical checks satisfied after the schema description clarified that separate sentences can carry an empty relationship list |
+
+The final composer uses the larger budget and clarified schema description;
+both earlier failures remain in the saved records. These are changed-setup
+observations, not evidence of a measured improvement rate.
+
+The ordinary follow-up said “how reassuringly conventional”. That makes the
+judgment explicit, raising a voice question against the author's preference for
+implication. Its annotation also described a divergence in hue, which the
+supplied packet does not establish. The clamp follow-up omitted its preference
+entry from the reported IDs. Those are concrete inspection targets for the
+first behaviour pulse: mechanical success does not establish voice, semantic
+grounding, or complete model-reported attribution.
+
+### Behaviour Evidence To Establish
 
 Candidate support signals are factual fidelity, a defensible relationship
 between ideas, intentional grammatical shape, the opening backhanded compliment,
@@ -261,9 +292,9 @@ structure; the short directions carry Huey's purpose and manner.
 
 ## Next Move
 
-Use the [starter bank](../runtime/LANGUAGE_BANK.md) beside the
-[five draft directions](030_PB_BEHAVIOUR.md#draft-instructions-and-judgment-lens)
-to choose the selection and composition mechanism and its evidence record.
+Use the [composer's inspection record](../runtime/COMPOSITION.md) beside the
+[five directions](030_PB_BEHAVIOUR.md#instructions-and-judgment-lens)
+to align the pulse protocol and assistant judgment record.
 The bank can expand as behavioural findings identify useful additions.
 If the hypothesis holds in aligned pulses, promote
 the tested scope into the behaviour method; if it breaks, narrow the relations

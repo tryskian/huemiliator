@@ -37,7 +37,8 @@ Last updated: 2026-09-19
 | [Character profile](CHARTER.md#character-profile) | Hue (Hugh): courteous tastemaker, opening backhanded compliment, MCM style and burgundy snifter; introduced in the [README](../../README.md#meet-hue) |
 | Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
 | Staging surface | five draft directions, language-library structure, and connector relationships |
-| Next work | use the starter bank to choose the selection and composition mechanism |
+| Composition | [model-driven composer](../runtime/COMPOSITION.md), five directions, and full request/response inspection |
+| Next work | align the pulse protocol and assistant judgment record |
 | First behaviour evidence | awaits staging completion and the first pulse |
 
 The human lead clarified the pulse direction on September 18 and chose a local
@@ -126,9 +127,18 @@ stay quarantined locally instead of mixing back into the live DB.
 - Structural checks preserve authorial quotations and validate the bank's
   references and templates. They supply no behavioural verdict. The colour
   output still uses its existing fixed family lines.
-- The bank supplies material for selection and composition; the mechanism making
-  those choices remains to be chosen. Fixed-line role, timing convention, and
-  pulse-wide verdict rule also remain staging choices for alignment.
+- `compose` uses the configured OpenAI model to select and adapt bank language
+  under the five positive directions. Its request omits the carried fixed loss
+  line and old response instructions. `HUEMILIATOR_MODEL` is set to `gpt-5-nano`
+  by the human lead; the key stays in the ignored `.env`.
+- Dry-run exposes the request; JSON records preserve versions, hashes, facts,
+  supplied bank entries, raw output, relation annotations, and mechanical issues.
+  They assign no behaviour verdict. Timing and pulse judgments remain staging
+  choices for alignment.
+- Five live smoke requests reached the configured model. The
+  [smoke observations](../research/450_LOCAL_LANGUAGE.md#september-19-composer-smoke-observations)
+  retain initial failures, the output-budget adjustment, and voice/annotation
+  questions for the first pulse. They carry no behavioural verdict.
 
 ## Next Slice
 
@@ -137,8 +147,8 @@ stay quarantined locally instead of mixing back into the live DB.
    [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
 2. Inspect the starter bank with `huemiliator language-bank`, using JSON output
    to read meaning, grammar, conditions, and source attribution.
-3. Use that concrete bank to align the selection/composition mechanism and
-   fixed-line role beside the five positive directions.
+3. Inspect `compose <hex> --dry-run` and actual JSON composition records beside
+   the five directions and candidate judgment lens.
 4. Align pulse timing, observation unit, and the pulse-wide verdict rule before
    the first run. The first completed behaviour pulse will supply the evidence
    for method activation.
