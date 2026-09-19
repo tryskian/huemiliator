@@ -7,7 +7,9 @@ evaluation in the aligned 15-minute pulses.
 
 ## Setup and Use
 
-The ignored `.env` uses the same small configuration shape as Scorey:
+The tracked [`.env.example`](../../.env.example) documents the two settings.
+For a fresh setup, copy it to `.env` and add Hugh's key. The `.env` file stays
+ignored by Git. It uses the same small configuration shape as Scorey:
 
 ```dotenv
 OPENAI_API_KEY=your-key
