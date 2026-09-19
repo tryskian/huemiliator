@@ -2,8 +2,10 @@
 
 # Huemiliator Research Template Folder
 
-Local peanut draft for splitting the `huemiliator` research-doc standard into
-reusable category templates.
+Reusable category templates for Huemiliator's tracked research documentation.
+Use the appropriate template when recording substantive reasoning, findings,
+method clarifications, or agreed decisions. Research notes and diagrams receive
+equal care under the [documentation contract](../../governance/CHARTER.md#documentation-governance).
 
 ## Kernel
 

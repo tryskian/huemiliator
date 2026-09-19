@@ -328,7 +328,11 @@ proof in [COLOUR_BOUNDARY_AUDIT](../research/440_COLOUR_BOUNDARY_AUDIT.md).
 - keep colour-audit pressure on one family lane at a time when a colour pulse is queued
 - keep the live DB limited to the latest proof surface
 - keep `.local/` and `docs/peanut/` local unless explicitly promoted
-- capture notes, findings, and truth-surface changes as they emerge
+- capture substantive reasoning, findings, method clarifications, and agreed
+  decisions as they emerge, using the [research templates](../runtime/templates/README.md)
+- give research notes and diagrams equal care; keep their meaning aligned under
+  [the documentation contract](CHARTER.md#documentation-governance), without
+  waiting for a separate reminder
 - keep tracked docs truthful to the current repo surface
 - keep tracked research-note names aligned with the `NNN_CODE` contract
 
