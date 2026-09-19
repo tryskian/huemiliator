@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-08-03
+Last updated: 2026-09-18
 
 Huemiliator keeps the tracked research lane small on purpose.
 
@@ -21,6 +21,21 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 
 ## Current Stage
 
+| Staging surface | Current read |
+| --- | --- |
+| [Next beta note](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour using stable colour facts |
+| Cadence and ownership | 15-minute pulses run and judged by the assistant |
+| Agent directions | approximately five short, positive instructions with room to reason |
+| [Execution diagram](../diagrams/BEHAVIOUR_PULSE.md) | staged responsibilities and information flow |
+| Current kernel | beta notes, diagrams, and alignment of the draft instructions and judgment lens |
+| First behaviour evidence | awaits staging completion and the first pulse |
+
+The direction was clarified by the human lead on September 18. The older
+colour tools are the starting point for the transition. The tables and charts
+below preserve the closed colour evidence.
+
+## Carried Colour Stage
+
 | Signal | Current read |
 | --- | --- |
 | research lane | `Beta 1.0` fail-pressure pulse |
@@ -38,7 +53,7 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
 | beta question | colour-boundary audit is closed; require new evidence before another group |
 
-## Current Research State
+## Carried Colour Research State
 
 | Item | Current state |
 | --- | --- |
@@ -113,6 +128,7 @@ Off-diagonal cells mark archive-label drift.
 | Surface | Type | What it says now |
 | --- | --- | --- |
 | [Research Legend](./000_LEGEND.md) | legend | file map, code ranges, filename contract, category meanings, and status language |
+| [Pre-Beta: 15-Minute Behaviour Pulses](./030_PB_BEHAVIOUR.md) | staged boundary | agreed behaviour focus and assistant ownership, with draft directions, judgment lens, and promotion condition |
 | [Pre-Beta 1.0 Fail-Pressure Pulse](./010_PB10.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
 | [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | closed beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, `neutral` parks after the split correction plus a broader `14 / 1` continuation, and the first three colour-boundary report pulses pass |
 | [Brown Context Dependence](./120_BROWN.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
@@ -142,7 +158,7 @@ flowchart LR
 | active note | holds the current research edge |
 | handoff / decision | carries repo truth while research notes explain what the signal means |
 
-## Current Signal
+## Carried Colour Signal
 
 ![Huemiliator Beta 1.0 eval pulse stacked bars](./eval-pulse-stack.svg)
 
