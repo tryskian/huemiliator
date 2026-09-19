@@ -146,7 +146,8 @@ and the boundary between structural checks and behaviour evaluation.
 
 ## Language Composition
 
-Configure `OPENAI_API_KEY` and `HUEMILIATOR_MODEL` in the ignored `.env`.
+Configure `OPENAI_API_KEY`, `HUEMILIATOR_MODEL`, and
+`HUEMILIATOR_REASONING_EFFORT` in the ignored `.env`.
 `huemiliator compose <hex> --dry-run` prints the exact request without calling
 OpenAI. `huemiliator compose <hex> --format json` makes one live request and
 prints the complete inspection record. The [composer guide](COMPOSITION.md)

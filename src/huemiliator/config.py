@@ -56,6 +56,8 @@ STATE_ROOT = resolve_state_root(Path.cwd().resolve(), SOURCE_ROOT)
 ROOT = SOURCE_ROOT
 SWATCH_SNAPSHOT_PATH = SOURCE_ROOT / "data" / "margaret2_swatches.json"
 EVAL_DB_PATH = STATE_ROOT / ".local" / "evals.sqlite"
+DEFAULT_MODEL = "gpt-5.6-luna"
+DEFAULT_REASONING_EFFORT = "medium"
 
 
 @dataclass(frozen=True)
@@ -63,7 +65,8 @@ class Settings:
     app_name: str
     swatch_snapshot_path: Path
     eval_db_path: Path
-    model: str = "gpt-5-nano"
+    model: str = DEFAULT_MODEL
+    reasoning_effort: str = DEFAULT_REASONING_EFFORT
 
 
 def load_settings() -> Settings:
@@ -78,5 +81,7 @@ def load_settings() -> Settings:
         app_name="Huemiliator",
         swatch_snapshot_path=SWATCH_SNAPSHOT_PATH,
         eval_db_path=EVAL_DB_PATH,
-        model=os.getenv("HUEMILIATOR_MODEL", "").strip() or "gpt-5-nano",
+        model=os.getenv("HUEMILIATOR_MODEL", "").strip() or DEFAULT_MODEL,
+        reasoning_effort=os.getenv("HUEMILIATOR_REASONING_EFFORT", "").strip()
+        or DEFAULT_REASONING_EFFORT,
     )

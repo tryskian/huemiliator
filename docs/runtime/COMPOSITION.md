@@ -2,23 +2,28 @@
 
 `huemiliator compose <hex>` uses the fixed colour result and local language bank
 to generate Hugh's visible response through the OpenAI Responses API. Composer
-version `0.1.0` is an implemented staging surface. Its responses await behaviour
+version `0.2.0` is an implemented staging surface. Its responses await behaviour
 evaluation in the aligned 15-minute pulses.
 
 ## Setup and Use
 
-The tracked [`.env.example`](../../.env.example) documents the two settings.
+The tracked [`.env.example`](../../.env.example) documents the key, model, and reasoning settings.
 For a fresh setup, copy it to `.env` and add Hugh's key. The `.env` file stays
 ignored by Git. It uses the same small configuration shape as Scorey:
 
 ```dotenv
 OPENAI_API_KEY=your-key
-HUEMILIATOR_MODEL=gpt-5-nano
+HUEMILIATOR_MODEL=gpt-5.6-luna
+HUEMILIATOR_REASONING_EFFORT=medium
 ```
 
 An exported variable takes precedence over `.env`. An absent or blank model
-setting uses `gpt-5-nano`. The model is configurable; its suitability is a
-behaviour-evaluation question. The bank and colour engine are local, while live
+setting uses `gpt-5.6-luna`; reasoning defaults to `medium` and is sent explicitly
+as `reasoning.effort` in the API request. The current Luna model accepts `none`,
+`low`, `medium`, `high`, `xhigh`, and `max`, as documented in the
+[model reference](https://developers.openai.com/api/docs/models/gpt-5.6-luna).
+Both settings appear in the dry-run and saved request. Model suitability remains
+a behaviour-evaluation question. The bank and colour engine are local, while live
 composition sends the supplied colour facts and language material to OpenAI.
 
 ```sh

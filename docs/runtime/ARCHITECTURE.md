@@ -82,7 +82,8 @@ The stable runtime path is:
   - `huemiliator compose <hex> --dry-run` exposes the exact request
   - `huemiliator compose <hex> --format json` emits a composition record
   - fixed colour facts plus fact-filtered local bank and five positive directions
-  - OpenAI Responses API using `HUEMILIATOR_MODEL`
+  - OpenAI Responses API using `HUEMILIATOR_MODEL` and
+    `HUEMILIATOR_REASONING_EFFORT`
   - [configuration, inspection, and failure handling](COMPOSITION.md)
 - frozen swatch reference:
   - `data/margaret2_swatches.json`

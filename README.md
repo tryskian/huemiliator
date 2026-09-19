@@ -161,7 +161,7 @@ huemiliator compose '#d9a6a1' --dry-run
 huemiliator compose '#d9a6a1' --format json
 ```
 
-The [composer guide](./docs/runtime/COMPOSITION.md) covers the two-variable setup,
+The [composer guide](./docs/runtime/COMPOSITION.md) covers configuration,
 request inspection, visible response, and recording of mechanical failures.
 
 Closeout rule:

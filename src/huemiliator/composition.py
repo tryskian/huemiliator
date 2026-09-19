@@ -13,9 +13,10 @@ from huemiliator.agent import (
     COMPOSITION_DIRECTIONS,
     COMPOSITION_INSTRUCTIONS_VERSION,
 )
+from huemiliator.config import DEFAULT_REASONING_EFFORT
 from huemiliator.language_bank import load_language_bank
 
-COMPOSER_VERSION = "0.1.0"
+COMPOSER_VERSION = "0.2.0"
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_SECONDS = 60.0
 
@@ -74,9 +75,16 @@ def _output_schema() -> dict[str, Any]:
 
 
 def build_composition_request(
-    fact_packet: dict[str, Any], model: str
+    fact_packet: dict[str, Any],
+    model: str,
+    reasoning_effort: str = DEFAULT_REASONING_EFFORT,
 ) -> dict[str, Any]:
     """Prepare the exact model request using fixed facts and a local bank snapshot."""
+    if reasoning_effort not in {"none", "low", "medium", "high", "xhigh", "max"}:
+        raise ValueError(
+            "HUEMILIATOR_REASONING_EFFORT must be "
+            "none, low, medium, high, xhigh or max."
+        )
     bank = load_language_bank()
     facts = {k: v for k, v in fact_packet["runtime_facts"].items() if k != "loss_line"}
     input_hex = fact_packet["input"]["hex"]
@@ -120,6 +128,7 @@ def build_composition_request(
     }
     api_request = {
         "model": model,
+        "reasoning": {"effort": reasoning_effort},
         "instructions": "\n".join(
             f"{i}. {line}" for i, line in enumerate(COMPOSITION_DIRECTIONS, start=1)
         ),
