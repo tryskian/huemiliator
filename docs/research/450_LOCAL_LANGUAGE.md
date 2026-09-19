@@ -29,6 +29,29 @@ now supplies fact-filtered entries to the configured model, which selects and
 adapts wording under five positive directions. Library growth remains guided
 by findings from actual responses.
 
+### Research Interpretation: Language Participates in Reasoning
+
+The author's clarification, “so that's part of his reasoning”, places the
+library within Hugh's development of a thought. Words and connective relations
+give the model material for appraisal, qualification, contrast, explanation,
+and conclusion. The model composes the argument and its sentence structure;
+Hugh's academic manner shapes how that argument is expressed. A rhetorical
+question can develop the argument through an intelligible implied claim.
+
+The precedent is Probaboracle's **earlier bank-based beta**: shared language
+signals accompanied a certainty/indecision/hinge/conclusion progression inside
+one generation path. Its later movement beyond that bank is part of the research
+history. The [historical comparison](#rhetorical-questions-and-academic-flourish)
+preserves the source and chronology. Hugh's colour argument and character supply
+his own reasoning shape.
+
+The working hypothesis is that a richer library of meaningful language
+relationships can support coherent development and expressive range together.
+The observable question for the behaviour pulses is whether Hugh's response
+develops a colour argument whose relationships hold, including when he uses
+academic flourish or rhetorical questions. The current implementation makes
+those forms available; their behavioural quality remains to be established.
+
 ### Agreed Authorial Configuration
 
 The human lead supplied and confirmed this five-point configuration on
