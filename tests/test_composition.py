@@ -34,7 +34,7 @@ def request_packet() -> dict[str, Any]:
 def candidate() -> dict[str, Any]:
     return {
         "response": "Excellent red... but Ash rose is just more satisfying.",
-        "entry_ids": ["opening.excellent_red", "verdict.just_more_satisfying"],
+        "entry_ids": ["appraisal.excellent", "verdict.just_more_satisfying"],
         "relationships": [
             {
                 "connector_id": "but.contrast",
@@ -114,13 +114,24 @@ def test_request_filters_only_fact_conflicts_and_keeps_semantics(
     )
     assert ("colour.same_colour" in entries) == same_hex
     assert ("colour.different_shade" in entries) != same_hex
-    assert "opening.popular_choice" in entries
-    assert "familiarity_appraisal" in entries["opening.popular_choice"]["requires"]
+    assert "opening.popular_fragment" in entries
+    assert "familiarity_appraisal" in entries["opening.popular_fragment"]["requires"]
+    assert "popular_completion" in entries["opening.popular_fragment"]["requires"]
+    assert {
+        "appraisal.bold",
+        "appraisal.lovely",
+        "appraisal.excellent",
+        "appraisal.divine",
+        "appraisal.sublime",
+        "appraisal.exceptional",
+        "opening.crowd_pleaser",
+        "opening.popular_fragment",
+    } <= entries.keys()
     for entry in entries.values():
         assert all(
             material["factual_conditions"].get(key, True) for key in entry["requires"]
         )
-    assert len(material["library"]["connectors"]) == 5
+    assert len(material["library"]["connectors"]) == 14
     properties = request["api_request"]["text"]["format"]["schema"]["properties"]
     assert set(properties["entry_ids"]["items"]["enum"]) == set(entries)
     relation_properties = properties["relationships"]["items"]["properties"]
@@ -199,7 +210,7 @@ def test_mechanical_checks_catch_concrete_failures(
     elif problem == "visible_hex":
         candidate["response"] += " #b5817d"
     elif problem == "ineligible_entry":
-        candidate["entry_ids"].append("opening.lovely_green")
+        candidate["entry_ids"].append("colour.green")
     elif problem == "duplicate_entry":
         candidate["entry_ids"].append(candidate["entry_ids"][0])
     elif problem == "no_opening_reference":
@@ -252,6 +263,73 @@ def test_generic_opening_works_with_the_family_on_the_swatch_label(
     candidate["entry_ids"] = ["opening.popular_one", "verdict.just_more_satisfying"]
     assert check_composition(candidate, request_packet) == []
     assert request_packet["display_swatches"][0]["label"] == "red"
+
+
+@pytest.mark.parametrize(
+    ("word", "connector_id"),
+    [
+        ("therefore", "therefore.consequence"),
+        ("however", "however.contrast"),
+        ("yet", "yet.contrast"),
+        ("nevertheless", "nevertheless.concession"),
+    ],
+)
+def test_rhetorical_question_keeps_its_connector_and_implied_claim(
+    word: str, connector_id: str, request_packet: dict[str, Any]
+) -> None:
+    candidate = {
+        "response": f"A lovely red; {word}, is Ash rose not the finer choice?",
+        "entry_ids": ["appraisal.lovely", "verdict.finer"],
+        "relationships": [
+            {
+                "connector_id": connector_id,
+                "claim_a": "The chosen red receives Hugh's approval.",
+                "claim_b": "Hugh judges Ash rose the finer choice.",
+                "basis": "Test annotation; the evaluator must judge the relationship.",
+            }
+        ],
+    }
+    assert check_composition(candidate, request_packet) == []
+
+
+@pytest.mark.parametrize(
+    ("response", "entry_id"),
+    [
+        ("A lovely red. Ash rose is rather finer.", "modifier.rather"),
+        ("A lovely red. Which is finer than Ash rose?", "question.which"),
+        ("A lovely red. Ash rose is yet finer.", "modifier.yet"),
+        (
+            "A lovely red. Ash rose is essentially the finer choice.",
+            "modifier.essentially",
+        ),
+    ],
+)
+def test_lexical_uses_do_not_require_invented_two_claim_relationships(
+    response: str, entry_id: str, request_packet: dict[str, Any]
+) -> None:
+    candidate = {
+        "response": response,
+        "entry_ids": ["appraisal.lovely", entry_id, "verdict.finer"],
+        "relationships": [],
+    }
+    assert check_composition(candidate, request_packet) == []
+    candidate["entry_ids"] = ["appraisal.lovely", "verdict.finer"]
+    assert any(
+        "needs a relationship record" in issue
+        for issue in check_composition(candidate, request_packet)
+    )
+
+
+def test_unambiguous_conclusion_marker_requires_a_relationship(
+    candidate: dict[str, Any], request_packet: dict[str, Any]
+) -> None:
+    candidate["response"] = (
+        "A lovely red. Therefore, why settle for less than Ash rose?"
+    )
+    candidate["relationships"] = []
+    assert "The visible connector 'therefore' needs a relationship record." in (
+        check_composition(candidate, request_packet)
+    )
 
 
 @pytest.mark.parametrize(

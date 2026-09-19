@@ -6,7 +6,7 @@
 | Category | `hypothesis` |
 | Status | `staged` |
 | Direction recorded | `2026-09-19` |
-| Implementation | starter bank `0.3.0`, instructions `1.2.0`, and model-driven composer `0.3.0` |
+| Implementation | starter bank `0.4.0`, instructions `1.2.0`, and model-driven composer `0.4.0` |
 | Agreed character configuration | D-046; recorded, with runtime and library alignment pending |
 | Behaviour evidence | awaits the first aligned pulse |
 | Owns | application of the character profile to local library structure, sample language, and connector relationships |
@@ -63,9 +63,10 @@ This configuration supersedes the earlier assistant-authored emphasis on
 concise lines and explicit wordplay as the character direction. Earlier examples
 remain voice references, and recorded responses retain their original setups
 and verdicts. The current runtime still uses instruction version `1.2.0` and
-bank `0.3.0`; applying the agreed configuration is a separate bounded step to
-align. This note records the agreement and its meaning, rather than claiming
-that the existing composer already implements it.
+bank `0.4.0`; the author's subsequent reference-material change is recorded below.
+The broader application of the agreed configuration remains a separate bounded
+step to align. This note records the agreement and its meaning, rather than
+claiming that the existing composer already implements it.
 
 ### Character Direction: Write Hue's Voice
 
@@ -120,8 +121,10 @@ internal. [D-045](../governance/DECISIONS.md#d-045-speak-in-family-and-pantone-n
 records the rule, implemented in instructions `1.2.0`, bank `0.3.0`, and composer
 `0.3.0`. Historical responses below preserve the earlier display contract.
 
-The five openings below are the human lead's examples, supplied September 19.
-They are voice anchors rather than assistant-generated observations:
+The five openings below are the human lead's original examples, supplied
+September 19. The later [reference-material clarification](#authorial-reference-material)
+defines their current use in the bank. These earlier examples remain authorial
+context rather than assistant-generated observations:
 
 | Authorial opening | What it gives the library |
 | --- | --- |
@@ -151,6 +154,85 @@ reference against which library entries are reviewed.
 The D-046 configuration broadens that draft to grounded development, meaningful
 colour rationale, and exacting statements or rhetorical questions.
 
+### Authorial Reference Material
+
+After discussing what forms the bank, the author clarified “for the references
+we use just the adjective” and supplied this exact list:
+
+```text
+bold, lovely, excellent, divine, sublime, lovely, exceptional, a crowd pleaser!, that's a popular
+```
+
+[D-047](../governance/DECISIONS.md#d-047-use-adjectives-and-short-phrases-as-authorial-bank-references)
+records this refinement. Bank `0.4.0` represents the six distinct adjectives and
+two phrases as eight human reference entries. `lovely` appears once in the
+bank; its repetition is preserved in the source quotation above. The reference
+adjectives carry no family restriction. `a crowd pleaser!` retains its punctuation,
+and `that's a popular` remains a fragment for the model to complete with a noun
+or noun phrase. Grammar, meaning, and usage annotations are engineering
+interpretations, with the wording itself attributed to the author.
+
+The three existing appraisal entries `excellent`, `lovely`, and `divine` now cite
+this explicit authorial source. The original five full opening references leave
+the active bank; their quotations remain in the character history above.
+Composer `0.4.0` accepts an appraisal-word reference
+as opening material, allowing Hugh to form the opening himself. This mechanical
+check establishes the presence of material; voice and grammatical quality remain
+behaviour-evaluation questions. The broader D-046 configuration alignment and
+first behaviour pulse remain pending.
+
+### Rhetorical Questions and Academic Flourish
+
+The author clarified that connectors should allow rhetorical questions and
+supplied this flourish vocabulary:
+
+```text
+therefore, however, perhaps, essentially, its, yet, which, begs the question, rather
+```
+
+The follow-up “so that's part of his reasoning” makes their role explicit.
+[D-048](../governance/DECISIONS.md#d-048-let-connective-language-express-hughs-reasoning)
+records the direction. The model develops the argument and chooses language
+that expresses its relationships. For a rhetorical question, the implied claim
+and its basis must be intelligible. Academic flourish serves that development.
+
+The author pointed to Probaboracle's earlier beta work and clarified that its
+current runtime has progressed beyond that bank. The relevant historical
+[config at `5614700`](https://github.com/tryskian/probaboracle/blob/5614700/src/probaboracle/config.py)
+contains a shared `STYLE_SIGNALS` pool with words such as `perhaps`, `but`,
+`though`, `and yet`, and `which`. Its `PIPELINE_STEPS` are certainty signal,
+indecision signal, connective or hinge, and soft conclusion. The corresponding
+[agent](https://github.com/tryskian/probaboracle/blob/5614700/src/probaboracle/agent.py)
+supplies the signals and progression to a single model generation path, with
+the prompt type controlling the reasoning lane and the model composing the line.
+
+Later source at
+[`b6b4e66`](https://github.com/tryskian/probaboracle/blob/b6b4e66/src/probaboracle/config.py)
+expresses the style signals as abstract shapes, while the current source has
+progressed to structural config. The historical bank is the comparison the
+author requested. D-008/D-010 distinguish shared language cues from model-owned
+sentence construction; the coherence research separately documents failures
+from unresolved thoughts masked by stacked connectives. Applying those findings
+to Hugh means his vocabulary participates in developing his colour argument.
+His local library, academic character, and grounded verbosity remain his own
+design; Probaboracle's certainty/indecision progression is historical context.
+
+The implementation records deduction, contrast, concession, elaboration,
+correction, and restatement alongside the original relations. `perhaps` supplies
+qualification; `its` supplies possession; `begs the question` introduces a
+connected rhetorical question. `which`, `rather`, `essentially`, and `yet` have
+both relational and ordinary grammatical uses. Their source wording is authorial;
+the sense definitions, conditions, and illustrative frames are assistant-authored.
+Additional candidate words are `indeed`, `surely`, `consequently`, and `nevertheless`.
+Frames demonstrate possibilities and leave sentence construction to the model.
+
+Bank `0.4.0` has 106 language entries (15 authorial, 91 assistant candidates) and
+14 connector senses. Composer `0.4.0` supports rhetorical claims in relationship
+annotations and permits ordinary grammatical uses without requiring a fictional
+two-claim relationship. Mechanical checks and synthetic tests establish that
+these forms can pass through the interface. A behaviour pulse must establish
+whether Hugh uses them coherently and with the intended character.
+
 ### Visual Character Reference
 
 The human lead supplied `mcm-ref-2.jpeg` as a reference for mid-century modern
@@ -171,16 +253,16 @@ The source image is preserved in the private re-entry material.
 
 | Collection | Holds | Example |
 | --- | --- | --- |
-| Words and phrases | authorial opening compliments and candidate continuations, grouped by meaning, grammar, and eligibility | “excellent red...” for a red input |
+| Words and phrases | authorial adjectives and short phrases plus candidate continuations, grouped by meaning, grammar, and eligibility | “excellent” available across colour families |
 | Claim shapes | complete ideas whose factual slots resolve against the supplied facts | “the name changes”; “the hex stays the same” |
 | Relationship shapes | the relation between claims, its supporting basis, and fitting connectors | contrast between a changed name and an unchanged hex |
 | Worked lines | complete examples with their facts, intended meaning, and voice notes | the Mellow rose / Ash rose draft below |
 
-The [implemented starter bank](../runtime/LANGUAGE_BANK.md) now carries 98
-language entries and five connector senses as packaged JSON. Its fields preserve
-stable IDs, wording, grammar, meaning, conditions, and provenance. The five
-authorial openings are exact references; the remaining wording and connector
-definitions are assistant candidates awaiting behaviour evaluation. The guide
+The [implemented starter bank](../runtime/LANGUAGE_BANK.md) now carries 106
+language entries and 14 connector senses as packaged JSON. Its fields preserve
+stable IDs, wording, grammar, meaning, conditions, and provenance. The 15
+authorial words and phrases are exact references; additional wording and all
+semantic annotations are assistant-authored and await behaviour evaluation. The guide
 owns the file format, inventory, and extension workflow.
 
 The composer filters factual conflicts and supplies the remaining usage
@@ -189,7 +271,7 @@ the first aligned pulse will establish behavioural evidence.
 
 ### A Small Starting Shelf
 
-The authorial openings above lead this shelf. These additional entries are
+The authorial reference material above leads this shelf. These additional entries are
 engineering drafts for review against that voice:
 
 | Draft wording | Role and meaning | Eligible use |
@@ -213,7 +295,9 @@ alone establishes ordering in the game.
 
 The composer first identifies the claims and their relationship, then chooses
 the connective and sentence shape. The table defines initial supported uses;
-English connectives can carry other senses in other contexts.
+English connectives can carry other senses in other contexts. This initial table
+is extended by the [academic-flourish direction](#rhetorical-questions-and-academic-flourish)
+and the current [relation inventory](../runtime/LANGUAGE_BANK.md#conditions-and-connector-meaning).
 
 | Connector | Relationship | Required basis | Draft sentence shape |
 | --- | --- | --- | --- |
@@ -449,7 +533,7 @@ returned “A respectable red, but Ash rose is the finer choice.” Its record i
 Mechanical checks passed, and the rendered text paired `red` with `Ash rose`
 above the unmodified line. The later intellectual-voice clarification adds
 `opening.fine_choice`, `modifier.unequivocally`, and `verdict.finer` as separate
-language resources, bringing the current bank to 98 entries. It also replaces
+language resources, bringing bank `0.3.0` to 98 entries. It also replaces
 the temporary distinct-key-words rule with deliberate rhythm and wordplay.
 
 A final smoke request against the intellectual-voice setup returned

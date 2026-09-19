@@ -763,3 +763,61 @@ into implementation authorship.
 - Reference: [Agreed configuration and reading](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration),
   [character profile](CHARTER.md#character-profile), and
   [behaviour staging](../research/030_PB_BEHAVIOUR.md#instructions-and-judgment-lens).
+
+## D-047: Use adjectives and short phrases as authorial bank references
+
+- Date: `2026-09-19`
+- Category: `behaviour_direction`
+- Tags: `local_library`, `authorial_references`, `composition`
+- Provenance: `human-authored reference list and direction to use the adjectives`
+- Decision: Use `bold`, `lovely`, `excellent`, `divine`, `sublime`, `exceptional`,
+  `a crowd pleaser!`, and `that's a popular` as the authorial bank references.
+  Preserve the full source list, including its repeated `lovely`, in the
+  [research note](../research/450_LOCAL_LANGUAGE.md#authorial-reference-material).
+  The active bank holds each distinct reference once. Adjectives are available
+  across colour families; the model supplies the noun and sentence construction.
+  The two phrases retain their exact wording, with `that's a popular` recorded
+  as a fragment requiring completion.
+- Implementation: Bank `0.4.0` replaces the five earlier full opening references
+  with these eight entries. Existing adjective entries for `excellent`, `lovely`,
+  and `divine` now cite the authorial source. Composer
+  `0.4.0` accepts an appraisal-word reference as opening material; the check
+  establishes available material, while behaviour evaluation owns the judgment.
+- Boundary: This is the agreed reference-material refinement. Earlier full
+  examples and response records retain their provenance. Instructions `1.2.0`
+  remain in use; the broader D-046 configuration alignment is pending.
+- Reference: [Current character references](CHARTER.md#opening-reference-material)
+  and [bank guide](../runtime/LANGUAGE_BANK.md).
+
+## D-048: Let connective language express Hugh's reasoning
+
+- Date: `2026-09-19`
+- Category: `behaviour_direction`
+- Tags: `connectors`, `reasoning`, `rhetorical_questions`, `academic_flourish`
+- Provenance: `human-led expansion and clarification; Probaboracle source comparison`
+- Decision: Support rhetorical questions and a richer academic vocabulary of
+  relations. The author's supplied words are `therefore`, `however`, `perhaps`,
+  `essentially`, `its`, `yet`, `which`, `begs the question`, and `rather`.
+  Their clarification makes this part of Hugh's reasoning: the words express
+  how his thought develops, with a coherent implied claim in a rhetorical question.
+- Implementation: Bank `0.4.0` records 14 connector senses and 106 language
+  entries, with the author's wording distinguished from assistant definitions
+  and additional candidates. The relations include consequence, elaboration,
+  correction, and restatement. Other entries cover qualification, possession,
+  and rhetorical phrasing. The model owns sentence construction; recorded
+  frames illustrate possibilities. Composer `0.4.0` accepts rhetorical claims
+  in relationship annotations and separates ambiguous grammatical uses from
+  connector-presence checks.
+- Source comparison: The author identified Probaboracle's earlier bank-based
+  beta as the reference. Historical source at `5614700` has shared style signals
+  and a certainty/indecision/hinge/conclusion progression supplied to one model
+  generation path. Later versions developed beyond that bank. Hugh uses the
+  earlier work as evidence that vocabulary participates in the reasoning shape;
+  his colour argument and academic manner define his own development. The
+  [research comparison](../research/450_LOCAL_LANGUAGE.md#rhetorical-questions-and-academic-flourish)
+  links the historical code and distinguishes it from the current runtime.
+- Boundary: The broader D-046 instruction alignment remains pending. Tests
+  establish interface compatibility; behavioural coherence and character fit
+  remain questions for the agreed 15-minute pulses.
+- Reference: [Authorial source and comparison](../research/450_LOCAL_LANGUAGE.md#rhetorical-questions-and-academic-flourish)
+  and [connector meanings](../runtime/LANGUAGE_BANK.md#conditions-and-connector-meaning).

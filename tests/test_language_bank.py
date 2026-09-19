@@ -17,23 +17,26 @@ from huemiliator.language_bank import (
 from huemiliator.main import main, render_behaviour_facts
 
 
-def test_authorial_openings_preserve_the_charter_verbatim() -> None:
+def test_authorial_references_preserve_the_charter_verbatim() -> None:
     charter = (SOURCE_ROOT / "docs/governance/CHARTER.md").read_text()
-    reference = re.search(r"```text\n(.*?)\n```", charter, re.DOTALL)
+    reference_section = charter.split("### Opening Reference Material\n", 1)[1]
+    reference = re.search(r"```text\n(.*?)\n```", reference_section, re.DOTALL)
     assert reference is not None
     bank = load_language_bank()
     authorial = [
-        entry
-        for entry in bank["entries"]
-        if bank["sources"][entry["source"]]["authorship"] == "human"
+        entry for entry in bank["entries"] if entry["source"] == "authorial_references"
     ]
 
     assert [entry["text"] for entry in authorial] == reference.group(1).splitlines()
-    assert all(entry["role"] == "opening" for entry in authorial)
-    for entry in authorial:
-        for family in FAMILY_NAMES:
-            if re.search(rf"\b{family}\b", entry["text"]):
-                assert f"family_{family}" in entry["requires"]
+    assert [entry["role"] for entry in authorial] == ["appraisal_word"] * 6 + [
+        "opening"
+    ] * 2
+    assert not any(
+        condition.startswith("family_")
+        for entry in authorial
+        for condition in entry["requires"]
+    )
+    assert "popular_completion" in authorial[-1]["requires"]
 
 
 def test_bank_covers_runtime_families_and_evidence_sensitive_relations() -> None:
@@ -133,7 +136,8 @@ def test_text_inventory_identifies_provenance_and_evaluation_status(
 ) -> None:
     assert main(["language-bank"]) == 0
     output = capsys.readouterr().out
-    assert "[human]: excellent red..." in output
+    assert "[human]: excellent" in output
+    assert "[human]: that's a popular" in output
     assert "[assistant]: {replacement_name} is just more satisfying" in output
     assert "awaiting_behaviour_evaluation" in output
     assert "because.explanation" in output

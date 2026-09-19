@@ -157,8 +157,8 @@ huemiliator language-bank
 huemiliator language-bank --format json
 ```
 
-The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 98 language entries,
-five connector senses, provenance, usage conditions, and extension workflow.
+The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 106 language entries,
+14 connector senses, provenance, usage conditions, and extension workflow.
 
 Compose Hugh's response with the model configured by `HUEMILIATOR_MODEL`:
 

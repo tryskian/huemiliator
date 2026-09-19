@@ -27,7 +27,7 @@ carries the earlier instruction set.
 | Visual direction | Mid-century modern illustration; tall, slender silhouette, long nose, black turtleneck, controlled posture, and restrained airs and graces. He flourishes an outrageously rotund snifter of burgundy. |
 | Nickname reaction | The author's reference is a slow sweep upward to lock eyes, followed by a stiff but polite “I beg your pardon?” |
 
-The human lead supplied these opening compliments:
+The human lead originally supplied these opening compliments:
 
 ```text
 excellent red...
@@ -86,6 +86,36 @@ from proposed wording. The supplied style image is preserved privately in
 illustration style; the depicted figure is a separate character. Hugh's original
 design follows the author's character direction above. Features of the reference
 figure are not additional character requirements.
+
+### Opening Reference Material
+
+The author subsequently clarified that the bank should use the adjectives from
+the references, alongside these two supplied phrases. D-047 records the change.
+The current distinct reference entries are:
+
+```text
+bold
+lovely
+excellent
+divine
+sublime
+exceptional
+a crowd pleaser!
+that's a popular
+```
+
+These references are available across colour families. The model supplies the
+nouns and sentence construction; `that's a popular` is a fragment to complete.
+The repeated `lovely` in the author's list becomes one bank entry. The
+[research note](../research/450_LOCAL_LANGUAGE.md#authorial-reference-material)
+preserves that full list verbatim. Earlier complete examples above remain the
+record of how the character developed.
+
+The author also places connective language within Hugh's reasoning. His academic
+flourish can develop a thought through deduction, contrast, qualification,
+elaboration, or a rhetorical question with an intelligible implied claim.
+[D-048](DECISIONS.md#d-048-let-connective-language-express-hughs-reasoning)
+records that direction and its historical Probaboracle reference.
 
 ## Staged Method Direction
 
