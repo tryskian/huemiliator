@@ -4,7 +4,10 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-TOTAL_STEPS=13
+TOTAL_STEPS=14
+if [ "${END_SKIP_STOP:-}" = "1" ]; then
+	TOTAL_STEPS=$((TOTAL_STEPS - 1))
+fi
 if [ "${END_SKIP_GIT_CHECK:-}" = "1" ]; then
 	TOTAL_STEPS=$((TOTAL_STEPS - 1))
 fi
@@ -31,6 +34,13 @@ run_step "package-check" make --no-print-directory package-check
 run_step "package-install-check" make --no-print-directory package-install-check
 run_step "security-checks" make --no-print-directory security-checks
 run_step "pending eval gate" make --no-print-directory end-pending-check
+
+if [ "${END_SKIP_STOP:-}" = "1" ]; then
+	echo "[end] stop background tasks skipped (preflight only; day is not closed)"
+else
+	run_step "stop background tasks" make --no-print-directory decaffeinate
+fi
+
 run_step "session snapshot" make --no-print-directory session-status
 
 if [ "${END_SKIP_GIT_CHECK:-}" = "1" ]; then
