@@ -21,14 +21,24 @@ def test_config_stays_structural_only() -> None:
     assert not hasattr(config, "ORACLE_INSTRUCTIONS")
 
 
-@pytest.mark.parametrize("model", ["gpt-5-nano", "another-model", "", "  "])
+@pytest.mark.parametrize("model", ["gpt-5.6-luna", "another-model", "", "  "])
 def test_model_setting_respects_environment_and_blank_default(
     model: str, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
     monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
     monkeypatch.setenv("HUEMILIATOR_MODEL", model)
-    assert load_settings().model == (model.strip() or "gpt-5-nano")
+    assert load_settings().model == (model.strip() or "gpt-5.6-luna")
+
+
+@pytest.mark.parametrize("effort", ["medium", "low", "max", "", "  "])
+def test_reasoning_setting_respects_environment_and_blank_default(
+    effort: str, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
+    monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
+    monkeypatch.setenv("HUEMILIATOR_REASONING_EFFORT", effort)
+    assert load_settings().reasoning_effort == (effort.strip() or "medium")
 
 
 def test_model_loads_from_local_env_with_process_precedence(
@@ -37,10 +47,16 @@ def test_model_loads_from_local_env_with_process_precedence(
     monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
     monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
     monkeypatch.delenv("HUEMILIATOR_MODEL", raising=False)
-    (tmp_path / ".env").write_text("HUEMILIATOR_MODEL=file-model\n")
+    monkeypatch.delenv("HUEMILIATOR_REASONING_EFFORT", raising=False)
+    (tmp_path / ".env").write_text(
+        "HUEMILIATOR_MODEL=file-model\nHUEMILIATOR_REASONING_EFFORT=low\n"
+    )
     assert load_settings().model == "file-model"
+    assert load_settings().reasoning_effort == "low"
     monkeypatch.setenv("HUEMILIATOR_MODEL", "process-model")
+    monkeypatch.setenv("HUEMILIATOR_REASONING_EFFORT", "high")
     assert load_settings().model == "process-model"
+    assert load_settings().reasoning_effort == "high"
 
 
 def test_resolve_state_root_uses_checkout_root_when_git_dir_exists(

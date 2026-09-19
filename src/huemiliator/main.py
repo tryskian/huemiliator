@@ -852,7 +852,9 @@ def main(argv: list[str] | None = None) -> int:
         try:
             settings = load_settings()
             request = build_composition_request(
-                build_behaviour_fact_packet(args.hex_value), settings.model
+                build_behaviour_fact_packet(args.hex_value),
+                settings.model,
+                settings.reasoning_effort,
             )
             if args.dry_run:
                 print(json.dumps(request, ensure_ascii=False, indent=2))

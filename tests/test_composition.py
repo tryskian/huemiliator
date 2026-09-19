@@ -122,6 +122,17 @@ def test_request_filters_only_fact_conflicts_and_keeps_semantics(
     other = build_composition_request(original, "different-model")
     assert request["request_sha256"] != other["request_sha256"]
     assert request["bank_sha256"] == other["bank_sha256"]
+    assert request["api_request"]["reasoning"] == {"effort": "medium"}
+    other_effort = build_composition_request(original, "chosen-model", "low")
+    assert other_effort["api_request"]["reasoning"] == {"effort": "low"}
+    assert request["request_sha256"] != other_effort["request_sha256"]
+
+
+def test_invalid_reasoning_is_rejected_before_building_request() -> None:
+    with pytest.raises(ValueError, match="HUEMILIATOR_REASONING_EFFORT"):
+        build_composition_request(
+            build_behaviour_fact_packet("#d9a6a1"), "test", "typo"
+        )
 
 
 def test_identity_condition_uses_actual_input_not_nearest_swatch() -> None:
@@ -262,6 +273,7 @@ def test_dry_run_works_without_credentials_or_state_writes(
     monkeypatch.chdir(tmp_path)
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.setenv("HUEMILIATOR_MODEL", "configured-model")
+    monkeypatch.setenv("HUEMILIATOR_REASONING_EFFORT", "high")
     with (
         patch("huemiliator.config.load_dotenv"),
         patch("huemiliator.main.generate_composition") as generate,
@@ -269,6 +281,7 @@ def test_dry_run_works_without_credentials_or_state_writes(
         assert main(["compose", "#d9a6a1", "--dry-run"]) == 0
     request = json.loads(capsys.readouterr().out)
     assert request["api_request"]["model"] == "configured-model"
+    assert request["api_request"]["reasoning"] == {"effort": "high"}
     assert "OPENAI_API_KEY" not in json.dumps(request)
     assert not list(tmp_path.iterdir())
     generate.assert_not_called()

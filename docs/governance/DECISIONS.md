@@ -642,3 +642,20 @@ into implementation authorship.
   alignment. Smoke checks establish connection and recording behaviour.
 - Reference: [The composer guide](../runtime/COMPOSITION.md) owns configuration,
   record fields, command behaviour, and limitations.
+
+## D-043: Use GPT-5.6 Luna with explicit medium reasoning
+
+- Date: `2026-09-19`
+- Category: `runtime_shape`
+- Tags: `model_configuration`, `reasoning`, `composition`
+- Provenance: `human-selected model and reasoning effort`
+- Decision: Set the composer model to `gpt-5.6-luna` and reasoning effort to
+  `medium`. `HUEMILIATOR_MODEL` and `HUEMILIATOR_REASONING_EFFORT` configure these
+  values; the runtime defaults and tracked example match the selected setup.
+  Composer `0.2.0` sends reasoning explicitly in the API request and therefore
+  includes it in request hashes and inspection records.
+- Boundary: The five positive directions, language bank, colour engine, and
+  8,192-token output budget are carried unchanged. Historical nano smoke records
+  retain their original model identity and remain separate observations.
+  Model selection supplies no behaviour verdict or beta promotion.
+- Reference: [Composer configuration](../runtime/COMPOSITION.md#setup-and-use).

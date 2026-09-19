@@ -6,7 +6,7 @@
 | Category | `hypothesis` |
 | Status | `staged` |
 | Direction recorded | `2026-09-19` |
-| Implementation | starter bank `0.1.0`, inspection, and model-driven composer `0.1.0` |
+| Implementation | starter bank `0.1.0`, inspection, and model-driven composer `0.2.0` |
 | Behaviour evidence | awaits the first aligned pulse |
 | Owns | application of the character profile to local library structure, sample language, and connector relationships |
 
@@ -267,6 +267,17 @@ first behaviour pulse: mechanical success does not establish voice, semantic
 grounding, or complete model-reported attribution.
 
 ### Behaviour Evidence To Establish
+
+After those nano observations, the human lead selected `gpt-5.6-luna` with
+explicit `medium` reasoning under D-043. One live configuration check confirmed
+both requested settings and returned model `gpt-5.6-luna`. The response was
+“Ah, a crowd pleaser! But I prefer Ash rose (#b5817d).” The mechanical check
+flagged `but.contrast` in the word-entry ID list, while its connector record was
+also present. The replacement name and hex matched the supplied facts. The
+complete record is local at
+`.local/composition-smoke/2026-09-19-luna-medium-zkk7h5zl/ordinary.json`.
+This confirms the configuration and preserves a metadata finding; it supplies
+no behavioural verdict or model-comparison result.
 
 Candidate support signals are factual fidelity, a defensible relationship
 between ideas, intentional grammatical shape, the opening backhanded compliment,
