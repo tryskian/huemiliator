@@ -205,7 +205,7 @@ into implementation authorship.
 - Category: `workflow_environment`
 - Tags: `startup`, `closeout`, `atomic_commands`
 - Decision: Startup stays a short mechanical bootstrap plus rehydrate
-  contract, and closeout stays a strict docs, validation, wake-lock, and
+  contract, and closeout stays a strict docs, validation, eval-state, and
   clean-main sequence. `make end` is the day-close command. `make
   end-preflight` is only an explicit preflight path and never a substitute for
   full closeout.
@@ -493,3 +493,25 @@ into implementation authorship.
   family-balanced samples keep exact-input pulse candidates from inheriting
   source-order bias. They do not by themselves author a classifier change or
   open an eval pulse.
+
+## D-037: Mac-wide keep-awake control stays outside the repo lifecycle
+
+- Date: `2026-09-18`
+- Category: `workflow_environment`
+- Tags: `coffee_plugin`, `keep_awake`, `repo_lifecycle`, `shared_control`
+- Provenance: `human-led workflow decision with implementation decision`
+- Decision: The external Coffee Codex plugin exclusively owns the one shared
+  Mac-wide keep-awake session. Huemiliator owns no local power-control PID or
+  log, Make targets, startup checks, or closeout stop. `make start` and `make
+  end` remain repo lifecycle commands, while `coffee`, `coffee start`, and
+  `coffee stop` remain separate explicit operator actions. This replaces the
+  former repo-owned wake-lock clause in `D-016`.
+- Validation:
+  - `PYTHONPATH=src .venv/bin/python -m pytest tests/test_tooling_contract.py`
+  - `make scripts-check`
+  - `make lint-docs`
+  - `make end-preflight`
+- Why: A Mac-wide process is shared across repos and tasks, so repo-local PID
+  files and automatic start or stop hooks create conflicting ownership. One
+  external control surface keeps session state singular and prevents one repo's
+  closeout from stopping another repo's work.
