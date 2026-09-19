@@ -6,6 +6,7 @@
 | Category | `hypothesis` |
 | Status | `staged` |
 | Direction recorded | `2026-09-19` |
+| Implementation | starter bank `0.1.0` and read-only inspection; selection/composition staged |
 | Behaviour evidence | awaits the first aligned pulse |
 | Owns | application of the character profile to local library structure, sample language, and connector relationships |
 
@@ -98,11 +99,16 @@ The source image is preserved in the private re-entry material.
 | Relationship shapes | the relation between claims, its supporting basis, and fitting connectors | contrast between a changed name and an unchanged hex |
 | Worked lines | complete examples with their facts, intended meaning, and voice notes | the Mellow rose / Ash rose draft below |
 
-Each entry carries a stable ID, wording, grammatical role, intended meaning,
-usage conditions, and source or authorship. Factual language names its fact
-requirements. Character language names its attitude and any factual implication
-carried by the metaphor. These are proposed fields, with storage format to be
-chosen during implementation.
+The [implemented starter bank](../runtime/LANGUAGE_BANK.md) now carries 94
+language entries and five connector senses as packaged JSON. Its fields preserve
+stable IDs, wording, grammar, meaning, conditions, and provenance. The five
+authorial openings are exact references; the remaining wording and connector
+definitions are assistant candidates awaiting behaviour evaluation. The guide
+owns the file format, inventory, and extension workflow.
+
+The bank's usage conditions remain requirements for a future composer.
+Structural validation establishes reference integrity; the first aligned pulse
+will establish behavioural evidence.
 
 ### A Small Starting Shelf
 
@@ -255,10 +261,10 @@ structure; the short directions carry Huey's purpose and manner.
 
 ## Next Move
 
-Build the starter bank from the authorial openings, candidate continuations,
-and four connector relationships. Use that concrete material beside the
+Use the [starter bank](../runtime/LANGUAGE_BANK.md) beside the
 [five draft directions](030_PB_BEHAVIOUR.md#draft-instructions-and-judgment-lens)
-to choose the selection and composition mechanism. The bank can expand as
-behavioural findings identify useful additions. If the hypothesis holds in aligned pulses, promote
+to choose the selection and composition mechanism and its evidence record.
+The bank can expand as behavioural findings identify useful additions.
+If the hypothesis holds in aligned pulses, promote
 the tested scope into the behaviour method; if it breaks, narrow the relations
 or language entries around the observed failure.

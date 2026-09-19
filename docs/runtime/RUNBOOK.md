@@ -136,6 +136,14 @@ Use this doc for operator procedure.
    - `git pull --ff-only`
 8. Final local repo state is clean and synced with `origin/main`.
 
+## Language Bank Inspection
+
+Use `huemiliator language-bank` for the grouped local inventory, or
+`huemiliator language-bank --format json` for all wording, conditions, and
+provenance. The command validates the bundled resource and reads independently
+of colour/eval state. The [bank guide](LANGUAGE_BANK.md) owns its editing workflow
+and the boundary between structural checks and behaviour evaluation.
+
 ## End Of Day
 
 1. When the goal is to close out the day, run:

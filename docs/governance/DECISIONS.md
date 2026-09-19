@@ -593,3 +593,26 @@ into implementation authorship.
   establish their fidelity to the intended character.
 - Why: Gracious appraisal and assured taste are the character's comic mechanism.
   The author's reference supplies the standard for judging generated wording.
+
+## D-041: Bundle the starter language bank with read-only inspection
+
+- Date: `2026-09-19`
+- Category: `runtime_shape`
+- Tags: `local_library`, `provenance`, `connector_senses`, `inspection`
+- Provenance: `implementation decision within the human-led bank-first slice`
+- Decision: Store the starter language bank as a packaged JSON resource under
+  schema `huemiliator.language_bank.v1`. Preserve the five authorial openings
+  verbatim and identify assistant additions separately. Entries carry stable
+  IDs, wording, grammar, meaning, usage conditions, and provenance. Connectors
+  carry their relation and supporting requirements, including separate contrast
+  and concession senses of “but”.
+- Inspection: `huemiliator language-bank` renders a grouped inventory; its JSON
+  form exposes the complete resource. Loading validates structure, references,
+  and fact-slot syntax independently of colour/eval state. Packaging includes
+  the resource so inspection also works from an installed wheel.
+- Boundary: Usage conditions describe what future selection/composition must
+  establish. Structural validation supplies no behavioural verdict. D-006's
+  fixed family lines remain the current output; D-038 owns the future pulse
+  method, D-039 the library direction, and D-040 the character reference.
+- Reference: [The bank guide](../runtime/LANGUAGE_BANK.md) owns the inventory,
+  schema fields, and extension workflow.

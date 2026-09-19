@@ -33,11 +33,11 @@ Last updated: 2026-09-19
 | Boundary | [Pre-Beta: 15-Minute Behaviour Pulses](../research/030_PB_BEHAVIOUR.md), `staged` |
 | Focus | Huey's behaviour using the stable colour foundation |
 | Agent setup | approximately five short, positive directions with room to reason |
-| Language direction | local library plus connector logic; [structure and examples](../research/450_LOCAL_LANGUAGE.md) drafted for review |
+| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md): 94 language entries and five connector senses, with read-only CLI inspection |
 | [Character profile](CHARTER.md#character-profile) | Hue (Hugh): courteous tastemaker, opening backhanded compliment, MCM style and burgundy snifter; introduced in the [README](../../README.md#meet-hue) |
 | Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
 | Staging surface | five draft directions, language-library structure, and connector relationships |
-| Next work | build the starter language bank from the character reference, then choose its selection and composition mechanism |
+| Next work | use the starter bank to choose the selection and composition mechanism |
 | First behaviour evidence | awaits staging completion and the first pulse |
 
 The human lead clarified the pulse direction on September 18 and chose a local
@@ -114,27 +114,29 @@ stay quarantined locally instead of mixing back into the live DB.
 
 ## Active Kernel
 
-- The local-language staging draft adds a library structure, representative
-  entries, and meaningful uses of “and”, “but”, “because”, and “although”.
+- The starter language bank is implemented as packaged JSON, with 94 entries
+  and five connector senses. `huemiliator language-bank` provides the inventory;
+  `--format json` exposes grammar, meaning, conditions, and provenance.
 - The human lead's voice clarification now anchors the draft: Hue (Hugh) opens
   with a backhanded compliment and expresses superiority through gracious
   appraisal. Authorial openings are separated from assistant continuations.
   The character reference also carries the supplied mid-century modern style
   and outrageously rotund burgundy snifter; its image stays in private re-entry
   material.
-- The next implementation slice starts with the language bank. It supplies
-  material for selection and composition; the mechanism making those choices
-  remains to be chosen. Fixed-line role, timing convention, and pulse-wide
-  verdict rule also remain staging choices for alignment.
+- Structural checks preserve authorial quotations and validate the bank's
+  references and templates. They supply no behavioural verdict. The colour
+  output still uses its existing fixed family lines.
+- The bank supplies material for selection and composition; the mechanism making
+  those choices remains to be chosen. Fixed-line role, timing convention, and
+  pulse-wide verdict rule also remain staging choices for alignment.
 
 ## Next Slice
 
 1. Read [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md),
    [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md), and the
    [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
-2. Build a starter local bank from the authorial openings, candidate
-   continuations, and connector relationships, preserving meaning, usage
-   conditions, and authorship for each entry.
+2. Inspect the starter bank with `huemiliator language-bank`, using JSON output
+   to read meaning, grammar, conditions, and source attribution.
 3. Use that concrete bank to align the selection/composition mechanism and
    fixed-line role beside the five positive directions.
 4. Align pulse timing, observation unit, and the pulse-wide verdict rule before

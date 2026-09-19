@@ -1,0 +1,1220 @@
+{
+  "schema": "huemiliator.language_bank.v1",
+  "version": "0.1.0",
+  "evaluation_status": "awaiting_behaviour_evaluation",
+  "sources": {
+    "authorial_openings": {
+      "authorship": "human",
+      "reference": "docs/governance/CHARTER.md#character-profile",
+      "description": "The five exact opening examples supplied by the human lead on 2026-09-19."
+    },
+    "assistant_candidates": {
+      "authorship": "assistant",
+      "reference": "docs/research/450_LOCAL_LANGUAGE.md",
+      "description": "Candidate language and connector definitions authored on 2026-09-19 against the character profile; voice quality awaits behaviour evaluation."
+    }
+  },
+  "slots": {
+    "input_family": "runtime_facts.family",
+    "input_name": "runtime_facts.nearest_swatch.name",
+    "replacement_name": "runtime_facts.replacement.name",
+    "replacement_hex": "runtime_facts.replacement.hex"
+  },
+  "conditions": {
+    "aesthetic_appraisal": "Express Hugh's personal judgment of the colour choice; this is an aesthetic stance.",
+    "familiarity_appraisal": "Express Hugh's impression of conventional taste through apparent praise; any actual frequency claim needs separate evidence.",
+    "replacement_preference": "Express Hugh's preference for the supplied replacement, including cases where its hex equals the input.",
+    "after_compliment": "Place the continuation after a backhanded opening compliment.",
+    "adjective_attachment": "Use as an adjective modifying a colour or choice, or as a predicative adjective in a grammatical clause.",
+    "choice_attachment": "Apply the adjective to the choice or appraisal rather than asserting a physical colour measurement.",
+    "modifier_attachment": "Attach to a compatible adjective or preference phrase with the intended degree and natural grammar.",
+    "noun_phrase_attachment": "Place the noun phrase within a grammatical appraisal or preference.",
+    "same_hex": "The canonical input hex and supplied replacement hex are equal.",
+    "different_hex": "The canonical input hex and supplied replacement hex differ.",
+    "same_name": "The resolved input swatch name and supplied replacement name are equal.",
+    "different_name": "The resolved input swatch name and supplied replacement name differ.",
+    "claims_supported": "Both ideas hold as colour facts, contextual facts, or clearly expressed personal appraisals.",
+    "related_information": "The two ideas contribute distinct information about the same relevant topic.",
+    "contrast_basis": "Identify the dimension of contrast, including qualified approval versus personal preference.",
+    "explanation_basis": "Identify evidence or a rule establishing why B explains or justifies A; truth of both ideas alone is insufficient.",
+    "expectation_basis": "Identify the expectation raised by A and its contextual source, together with how B holds despite it.",
+    "family_neutral": "The runtime assigns the input to the neutral family.",
+    "family_brown": "The runtime assigns the input to the brown family.",
+    "family_red": "The runtime assigns the input to the red family.",
+    "family_orange": "The runtime assigns the input to the orange family.",
+    "family_yellow": "The runtime assigns the input to the yellow family.",
+    "family_green": "The runtime assigns the input to the green family.",
+    "family_blue": "The runtime assigns the input to the blue family.",
+    "family_purple": "The runtime assigns the input to the purple family.",
+    "family_pink": "The runtime assigns the input to the pink family."
+  },
+  "entries": [
+    {
+      "id": "opening.excellent_red",
+      "role": "opening",
+      "text": "excellent red...",
+      "grammar": "opening noun phrase",
+      "meaning": "Gracious approval of a red choice.",
+      "requires": [
+        "family_red",
+        "aesthetic_appraisal"
+      ],
+      "source": "authorial_openings"
+    },
+    {
+      "id": "opening.lovely_green",
+      "role": "opening",
+      "text": "lovely green...",
+      "grammar": "opening noun phrase",
+      "meaning": "Gracious approval of a green choice.",
+      "requires": [
+        "family_green",
+        "aesthetic_appraisal"
+      ],
+      "source": "authorial_openings"
+    },
+    {
+      "id": "opening.divine_pink",
+      "role": "opening",
+      "text": "that's a divine pink...",
+      "grammar": "opening clause",
+      "meaning": "Elevated praise of a pink choice.",
+      "requires": [
+        "family_pink",
+        "aesthetic_appraisal"
+      ],
+      "source": "authorial_openings"
+    },
+    {
+      "id": "opening.crowd_pleaser",
+      "role": "opening",
+      "text": "ah, a crowd pleaser!...",
+      "grammar": "interjection and opening noun phrase",
+      "meaning": "Apparent praise implying that the choice is basic.",
+      "requires": [
+        "familiarity_appraisal"
+      ],
+      "source": "authorial_openings"
+    },
+    {
+      "id": "opening.popular_choice",
+      "role": "opening",
+      "text": "a popular choice...",
+      "grammar": "opening noun phrase",
+      "meaning": "Apparent praise implying that the choice is basic.",
+      "requires": [
+        "familiarity_appraisal"
+      ],
+      "source": "authorial_openings"
+    },
+    {
+      "id": "opening.lovely_choice",
+      "role": "opening",
+      "text": "what a lovely choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "A courteous acknowledgment before Hugh states his preference.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.pleasing_choice",
+      "role": "opening",
+      "text": "a very pleasing choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Polite appreciation of the chosen colour.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.agreeable_choice",
+      "role": "opening",
+      "text": "a most agreeable choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Formal approval with a measured degree of enthusiasm.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.charming",
+      "role": "opening",
+      "text": "how charming...",
+      "grammar": "opening phrase or clause",
+      "meaning": "A brief, gracious acknowledgment.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.delightful",
+      "role": "opening",
+      "text": "quite delightful...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Compact approval before the one-up.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.excellent_choice",
+      "role": "opening",
+      "text": "an excellent choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Confident praise offered as the opening courtesy.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.agreeable_family",
+      "role": "opening",
+      "text": "an agreeable {input_family}...",
+      "grammar": "opening phrase or clause",
+      "meaning": "A courteous appraisal naming the supplied family.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.lovely_family",
+      "role": "opening",
+      "text": "a lovely {input_family}...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Warm approval naming the supplied family.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.pleasing_family",
+      "role": "opening",
+      "text": "a rather pleasing {input_family}...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Qualified approval naming the supplied family.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.charming_family",
+      "role": "opening",
+      "text": "such a charming {input_family}...",
+      "grammar": "opening phrase or clause",
+      "meaning": "A gracious introduction naming the supplied family.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.respectable_choice",
+      "role": "opening",
+      "text": "a most respectable choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Formal approval whose restraint can carry the backhand.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.entirely_respectable",
+      "role": "opening",
+      "text": "an entirely respectable choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "A carefully measured acknowledgment of good taste.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.very_agreeable",
+      "role": "opening",
+      "text": "how very agreeable...",
+      "grammar": "opening phrase or clause",
+      "meaning": "A courteous response with restrained emphasis.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.pleasant_choice",
+      "role": "opening",
+      "text": "such a pleasant choice...",
+      "grammar": "opening phrase or clause",
+      "meaning": "Gentle appreciation that leaves room for Hugh's preference.",
+      "requires": [
+        "aesthetic_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.familiar_favourite",
+      "role": "opening",
+      "text": "a familiar favourite...",
+      "grammar": "opening noun phrase",
+      "meaning": "Apparent approval that treats the choice as conventional.",
+      "requires": [
+        "familiarity_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.classic_choice",
+      "role": "opening",
+      "text": "ah, a classic choice...",
+      "grammar": "opening noun phrase",
+      "meaning": "A gracious acknowledgment that can imply familiar taste.",
+      "requires": [
+        "familiarity_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "opening.reassuringly_familiar",
+      "role": "opening",
+      "text": "a reassuringly familiar choice...",
+      "grammar": "opening noun phrase",
+      "meaning": "Apparent reassurance that carries an understated judgment of conventionality.",
+      "requires": [
+        "familiarity_appraisal"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.excellent",
+      "role": "appraisal_word",
+      "text": "excellent",
+      "grammar": "adjective",
+      "meaning": "Strong approval.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.lovely",
+      "role": "appraisal_word",
+      "text": "lovely",
+      "grammar": "adjective",
+      "meaning": "Gracious appreciation.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.divine",
+      "role": "appraisal_word",
+      "text": "divine",
+      "grammar": "adjective",
+      "meaning": "Elevated, extravagant praise.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.charming",
+      "role": "appraisal_word",
+      "text": "charming",
+      "grammar": "adjective",
+      "meaning": "Approval of an appealing quality.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.delightful",
+      "role": "appraisal_word",
+      "text": "delightful",
+      "grammar": "adjective",
+      "meaning": "Polite pleasure in a choice.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.agreeable",
+      "role": "appraisal_word",
+      "text": "agreeable",
+      "grammar": "adjective",
+      "meaning": "Measured approval.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.pleasing",
+      "role": "appraisal_word",
+      "text": "pleasing",
+      "grammar": "adjective",
+      "meaning": "An agreeable aesthetic impression.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.elegant",
+      "role": "appraisal_word",
+      "text": "elegant",
+      "grammar": "adjective",
+      "meaning": "A judgment of graceful taste.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.refined",
+      "role": "appraisal_word",
+      "text": "refined",
+      "grammar": "adjective",
+      "meaning": "A judgment of cultivated taste.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.distinguished",
+      "role": "appraisal_word",
+      "text": "distinguished",
+      "grammar": "adjective",
+      "meaning": "A judgment of particular distinction.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.exquisite",
+      "role": "appraisal_word",
+      "text": "exquisite",
+      "grammar": "adjective",
+      "meaning": "A judgment of exceptional taste.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.impeccable",
+      "role": "appraisal_word",
+      "text": "impeccable",
+      "grammar": "adjective",
+      "meaning": "Hugh's assurance of faultless taste.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.tasteful",
+      "role": "appraisal_word",
+      "text": "tasteful",
+      "grammar": "adjective",
+      "meaning": "Approval of aesthetic judgment.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.assured",
+      "role": "appraisal_word",
+      "text": "assured",
+      "grammar": "adjective",
+      "meaning": "An impression of confidence in the choice.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment",
+        "choice_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.composed",
+      "role": "appraisal_word",
+      "text": "composed",
+      "grammar": "adjective",
+      "meaning": "An impression of composure.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment",
+        "choice_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.considered",
+      "role": "appraisal_word",
+      "text": "considered",
+      "grammar": "adjective",
+      "meaning": "A judgment of deliberateness in the choice.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment",
+        "choice_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.restrained",
+      "role": "appraisal_word",
+      "text": "restrained",
+      "grammar": "adjective",
+      "meaning": "An impression of aesthetic restraint.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.graceful",
+      "role": "appraisal_word",
+      "text": "graceful",
+      "grammar": "adjective",
+      "meaning": "A judgment of grace.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.dignified",
+      "role": "appraisal_word",
+      "text": "dignified",
+      "grammar": "adjective",
+      "meaning": "An impression of dignity.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.judicious",
+      "role": "appraisal_word",
+      "text": "judicious",
+      "grammar": "adjective",
+      "meaning": "Approval of discernment in the choice.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment",
+        "choice_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.discerning",
+      "role": "appraisal_word",
+      "text": "discerning",
+      "grammar": "adjective",
+      "meaning": "Approval of selective taste.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment",
+        "choice_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.splendid",
+      "role": "appraisal_word",
+      "text": "splendid",
+      "grammar": "adjective",
+      "meaning": "Formal, generous approval.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.admirable",
+      "role": "appraisal_word",
+      "text": "admirable",
+      "grammar": "adjective",
+      "meaning": "A measured expression of admiration.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "appraisal.polished",
+      "role": "appraisal_word",
+      "text": "polished",
+      "grammar": "adjective",
+      "meaning": "An impression of cultivated finish.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.rather",
+      "role": "modifier",
+      "text": "rather",
+      "grammar": "adverb",
+      "meaning": "Measured emphasis with context-dependent degree.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.quite",
+      "role": "modifier",
+      "text": "quite",
+      "grammar": "adverb",
+      "meaning": "A degree of approval determined by the attached phrase.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.particularly",
+      "role": "modifier",
+      "text": "particularly",
+      "grammar": "adverb",
+      "meaning": "Emphasis on a particular preference or quality.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.exceptionally",
+      "role": "modifier",
+      "text": "exceptionally",
+      "grammar": "adverb",
+      "meaning": "Strong personal appraisal of a quality.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.decidedly",
+      "role": "modifier",
+      "text": "decidedly",
+      "grammar": "adverb",
+      "meaning": "Assured emphasis on a personal judgment.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.most",
+      "role": "modifier",
+      "text": "most",
+      "grammar": "adverb",
+      "meaning": "Formal intensification, as in most agreeable.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.perfectly",
+      "role": "modifier",
+      "text": "perfectly",
+      "grammar": "adverb",
+      "meaning": "Emphatic completeness of a personal appraisal.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "modifier.distinctly",
+      "role": "modifier",
+      "text": "distinctly",
+      "grammar": "adverb",
+      "meaning": "An emphasis on a discernible aesthetic impression.",
+      "requires": [
+        "aesthetic_appraisal",
+        "modifier_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.refinement",
+      "role": "appraisal_phrase",
+      "text": "a little refinement",
+      "grammar": "noun phrase",
+      "meaning": "A modestly phrased judgment of cultivated taste.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.distinction",
+      "role": "appraisal_phrase",
+      "text": "a touch of distinction",
+      "grammar": "noun phrase",
+      "meaning": "A judgment of distinction expressed with restraint.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.elegance",
+      "role": "appraisal_phrase",
+      "text": "a certain elegance",
+      "grammar": "noun phrase",
+      "meaning": "Measured acknowledgment of elegance.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.restraint",
+      "role": "appraisal_phrase",
+      "text": "a little restraint",
+      "grammar": "noun phrase",
+      "meaning": "An aesthetic appreciation of restraint.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.composure",
+      "role": "appraisal_phrase",
+      "text": "a measure of composure",
+      "grammar": "noun phrase",
+      "meaning": "A personal impression of composure.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.occasion",
+      "role": "appraisal_phrase",
+      "text": "a sense of occasion",
+      "grammar": "noun phrase",
+      "meaning": "A personal impression of ceremoniousness.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.poise",
+      "role": "appraisal_phrase",
+      "text": "a little poise",
+      "grammar": "noun phrase",
+      "meaning": "A personal impression of poise.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.grace",
+      "role": "appraisal_phrase",
+      "text": "a touch of grace",
+      "grammar": "noun phrase",
+      "meaning": "A restrained judgment of grace.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.assurance",
+      "role": "appraisal_phrase",
+      "text": "a certain assurance",
+      "grammar": "noun phrase",
+      "meaning": "A personal impression of confidence.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "phrase.considered_choice",
+      "role": "appraisal_phrase",
+      "text": "a considered choice",
+      "grammar": "noun phrase",
+      "meaning": "A judgment that a choice feels deliberate.",
+      "requires": [
+        "aesthetic_appraisal",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.prefer",
+      "role": "preference",
+      "text": "I prefer {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A direct expression of Hugh's taste.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.favour",
+      "role": "preference",
+      "text": "I favour {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A restrained statement of preference.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.would_choose",
+      "role": "preference",
+      "text": "I would choose {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "An assured personal choice.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.my_preference",
+      "role": "preference",
+      "text": "my preference is {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A composed declaration of taste.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.rather_taken",
+      "role": "preference",
+      "text": "I am rather taken with {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "Measured appreciation of the selected shade.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.my_vote",
+      "role": "preference",
+      "text": "{replacement_name} has my vote",
+      "grammar": "declarative clause",
+      "meaning": "A succinct endorsement of the selected shade.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.more_to_my_taste",
+      "role": "preference",
+      "text": "{replacement_name} is more to my taste",
+      "grammar": "declarative clause",
+      "meaning": "A comparison of personal preference.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.find_more_to_my_taste",
+      "role": "preference",
+      "text": "I find {replacement_name} rather more to my taste",
+      "grammar": "declarative clause",
+      "meaning": "An understated comparison of personal preference.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.rather_favour",
+      "role": "preference",
+      "text": "I rather favour {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A preference expressed with restraint.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.would_be_my_choice",
+      "role": "preference",
+      "text": "{replacement_name} would be my choice",
+      "grammar": "declarative clause",
+      "meaning": "A composed declaration of the preferred shade.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.shall_choose",
+      "role": "preference",
+      "text": "I shall choose {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A formal, decisive preference.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.inclination",
+      "role": "preference",
+      "text": "my inclination is towards {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A formal statement of personal taste.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.should_choose",
+      "role": "preference",
+      "text": "I should choose {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A courteous statement of preference.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.my_sort",
+      "role": "preference",
+      "text": "{replacement_name} is rather more my sort of thing",
+      "grammar": "declarative clause",
+      "meaning": "A personal, understated distinction of taste.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.my_choice",
+      "role": "preference",
+      "text": "my choice is {replacement_name}",
+      "grammar": "declarative clause",
+      "meaning": "A concise declaration of the selected shade.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "preference.suggest",
+      "role": "preference",
+      "text": "allow me to suggest {replacement_name}",
+      "grammar": "imperative clause",
+      "meaning": "A courteous invitation to consider Hugh's choice.",
+      "requires": [
+        "replacement_preference",
+        "after_compliment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.neutral",
+      "role": "colour_description",
+      "text": "neutral",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied neutral family label.",
+      "requires": [
+        "family_neutral"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.brown",
+      "role": "colour_description",
+      "text": "brown",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied brown family label.",
+      "requires": [
+        "family_brown"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.red",
+      "role": "colour_description",
+      "text": "red",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied red family label.",
+      "requires": [
+        "family_red"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.orange",
+      "role": "colour_description",
+      "text": "orange",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied orange family label.",
+      "requires": [
+        "family_orange"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.yellow",
+      "role": "colour_description",
+      "text": "yellow",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied yellow family label.",
+      "requires": [
+        "family_yellow"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.green",
+      "role": "colour_description",
+      "text": "green",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied green family label.",
+      "requires": [
+        "family_green"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.blue",
+      "role": "colour_description",
+      "text": "blue",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied blue family label.",
+      "requires": [
+        "family_blue"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.purple",
+      "role": "colour_description",
+      "text": "purple",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied purple family label.",
+      "requires": [
+        "family_purple"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.pink",
+      "role": "colour_description",
+      "text": "pink",
+      "grammar": "colour noun or adjective",
+      "meaning": "The supplied pink family label.",
+      "requires": [
+        "family_pink"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.same_colour",
+      "role": "colour_description",
+      "text": "the same colour",
+      "grammar": "noun phrase",
+      "meaning": "Exact equality of the canonical input and replacement hex.",
+      "requires": [
+        "same_hex",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.same_shade",
+      "role": "colour_description",
+      "text": "the same shade",
+      "grammar": "noun phrase",
+      "meaning": "The selected shade has the same hex as the input.",
+      "requires": [
+        "same_hex",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.different_shade",
+      "role": "colour_description",
+      "text": "a different shade",
+      "grammar": "noun phrase",
+      "meaning": "A replacement with a different hex from the input.",
+      "requires": [
+        "different_hex",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.new_name",
+      "role": "colour_description",
+      "text": "a new name",
+      "grammar": "noun phrase",
+      "meaning": "A replacement name differing from the resolved input swatch name.",
+      "requires": [
+        "different_name",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "colour.same_name",
+      "role": "colour_description",
+      "text": "the same name",
+      "grammar": "noun phrase",
+      "meaning": "The selected replacement retains the resolved input swatch name.",
+      "requires": [
+        "same_name",
+        "noun_phrase_attachment"
+      ],
+      "source": "assistant_candidates"
+    }
+  ],
+  "connectors": [
+    {
+      "id": "and.addition",
+      "word": "and",
+      "relation": "addition",
+      "frame": "A and B.",
+      "meaning": "A and B add related information.",
+      "requires": [
+        "claims_supported",
+        "related_information"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "but.contrast",
+      "word": "but",
+      "relation": "contrast",
+      "frame": "A, but B.",
+      "meaning": "B contrasts with A on an identified dimension.",
+      "requires": [
+        "claims_supported",
+        "contrast_basis"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "but.concession",
+      "word": "but",
+      "relation": "concession",
+      "frame": "A, but B.",
+      "meaning": "A raises an expectation; B holds despite it.",
+      "requires": [
+        "claims_supported",
+        "expectation_basis"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "because.explanation",
+      "word": "because",
+      "relation": "explanation",
+      "frame": "A because B.",
+      "meaning": "B explains or justifies A.",
+      "requires": [
+        "claims_supported",
+        "explanation_basis"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "although.concession",
+      "word": "although",
+      "relation": "concession",
+      "frame": "Although A, B.",
+      "meaning": "A raises an expectation; B holds despite it.",
+      "requires": [
+        "claims_supported",
+        "expectation_basis"
+      ],
+      "source": "assistant_candidates"
+    }
+  ]
+}
