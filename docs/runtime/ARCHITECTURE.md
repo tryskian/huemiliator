@@ -78,6 +78,12 @@ The stable runtime path is:
   - schema `huemiliator.language_bank.v1`
   - authored wording, grammar, conditions, provenance, and connector senses
   - [inspection and extension guide](LANGUAGE_BANK.md)
+- language composition:
+  - `huemiliator compose <hex> --dry-run` exposes the exact request
+  - `huemiliator compose <hex> --format json` emits a composition record
+  - fixed colour facts plus fact-filtered local bank and five positive directions
+  - OpenAI Responses API using `HUEMILIATOR_MODEL`
+  - [configuration, inspection, and failure handling](COMPOSITION.md)
 - frozen swatch reference:
   - `data/margaret2_swatches.json`
 - runtime colour library export:
@@ -165,9 +171,9 @@ The implemented surface exports fixed colour facts and contract metadata. The
 flow below describes their intended use in response evaluation. The next
 [15-minute behaviour pulse](../diagrams/BEHAVIOUR_PULSE.md) is staged in
 [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md), including assistant operation
-and verdict ownership; selection and composition remain staging choices.
-The starter language bank is implemented as a packaged resource with structural
-validation and read-only inspection. It supplies material for that future path.
+and verdict ownership. The separate model-driven composer now uses the packaged
+bank and fixed colour facts, with the exact request and response exposed for
+inspection. The timed pulse and assistant judgment record remain staging work.
 
 ```mermaid
 flowchart LR

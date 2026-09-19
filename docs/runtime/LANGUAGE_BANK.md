@@ -39,8 +39,9 @@ provenance. Both commands load the packaged resource and validate its structure.
 They work independently of the current directory, colour dataset, and eval DB.
 
 The current `one-up` command continues to use its fixed family loss lines.
-Selection, composition, and the first behaviour pulse remain the next staging
-work. Inspection neither generates a response nor assigns a behavioural verdict.
+The separate [composer](COMPOSITION.md) now selects and adapts this material
+through the configured model. The first behaviour pulse remains in staging.
+Bank inspection neither generates a response nor assigns a behavioural verdict.
 
 ## Entry Contract
 
@@ -68,8 +69,8 @@ The declared slots bind to the existing behaviour fact packet:
 | `replacement_name` | `runtime_facts.replacement.name` |
 | `replacement_hex` | `runtime_facts.replacement.hex` |
 
-Slot names are the only interpolation form in this version. The bank describes
-their binding; a future composer supplies their values and builds the response.
+Slot names are the only interpolation form in this version. The composer
+supplies their values alongside the entries; the model builds the response.
 
 ## Conditions and Connector Meaning
 
@@ -91,8 +92,8 @@ Connector records carry `id`, `word`, `relation`, `frame`, `meaning`, `requires`
 and `source`. In `A because B`, the registered condition requires a basis for
 why B explains A. In `Although A, B`, it requires the expectation raised by A,
 its source, and how B holds despite it. Those relationships are defined for the
-future composer and evaluator; the loader checks references, not their truth
-for a particular input.
+composer and evaluator; the loader checks references, not their truth for a
+particular input.
 
 ## Extend and Check
 

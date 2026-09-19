@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 import huemiliator.config as config
 from huemiliator.config import load_settings, resolve_state_root
 
@@ -17,6 +19,28 @@ def test_config_stays_structural_only() -> None:
     assert not hasattr(config, "TAGLINE")
     assert not hasattr(config, "RUNTIME_CONTRACT_LINES")
     assert not hasattr(config, "ORACLE_INSTRUCTIONS")
+
+
+@pytest.mark.parametrize("model", ["gpt-5-nano", "another-model", "", "  "])
+def test_model_setting_respects_environment_and_blank_default(
+    model: str, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
+    monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
+    monkeypatch.setenv("HUEMILIATOR_MODEL", model)
+    assert load_settings().model == (model.strip() or "gpt-5-nano")
+
+
+def test_model_loads_from_local_env_with_process_precedence(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
+    monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
+    monkeypatch.delenv("HUEMILIATOR_MODEL", raising=False)
+    (tmp_path / ".env").write_text("HUEMILIATOR_MODEL=file-model\n")
+    assert load_settings().model == "file-model"
+    monkeypatch.setenv("HUEMILIATOR_MODEL", "process-model")
+    assert load_settings().model == "process-model"
 
 
 def test_resolve_state_root_uses_checkout_root_when_git_dir_exists(

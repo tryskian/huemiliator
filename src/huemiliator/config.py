@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -62,6 +63,7 @@ class Settings:
     app_name: str
     swatch_snapshot_path: Path
     eval_db_path: Path
+    model: str = "gpt-5-nano"
 
 
 def load_settings() -> Settings:
@@ -76,4 +78,5 @@ def load_settings() -> Settings:
         app_name="Huemiliator",
         swatch_snapshot_path=SWATCH_SNAPSHOT_PATH,
         eval_db_path=EVAL_DB_PATH,
+        model=os.getenv("HUEMILIATOR_MODEL", "").strip() or "gpt-5-nano",
     )

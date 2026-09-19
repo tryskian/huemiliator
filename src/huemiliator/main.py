@@ -13,6 +13,11 @@ from huemiliator.agent import (
 )
 from huemiliator.colour_boundaries import build_colour_boundary_packet
 from huemiliator.colour_library import build_colour_library_packet
+from huemiliator.composition import (
+    CompositionError,
+    build_composition_request,
+    generate_composition,
+)
 from huemiliator.config import load_settings
 from huemiliator.eval_db import (
     LIST_VERDICTS,
@@ -62,6 +67,23 @@ def build_parser() -> argparse.ArgumentParser:
         default="text",
         dest="output_format",
         help="Text inventory or full bank with usage conditions and provenance.",
+    )
+
+    compose_parser = subparsers.add_parser(
+        "compose", help="Compose Hugh's response from fixed facts and the local bank."
+    )
+    compose_parser.add_argument("hex_value", help="The colour chosen in the picker.")
+    compose_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print the exact request JSON without an API call.",
+    )
+    compose_parser.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        dest="output_format",
+        help="Visible response or full inspection record, including mechanical issues.",
     )
 
     colour_library_parser = subparsers.add_parser(
@@ -825,6 +847,37 @@ def main(argv: list[str] | None = None) -> int:
         except LanguageBankError as exc:
             print(str(exc), file=sys.stderr)
             return 1
+        return 0
+    if args.command == "compose":
+        try:
+            settings = load_settings()
+            request = build_composition_request(
+                build_behaviour_fact_packet(args.hex_value), settings.model
+            )
+            if args.dry_run:
+                print(json.dumps(request, ensure_ascii=False, indent=2))
+                return 0
+            record = generate_composition(request)
+        except (
+            CompositionError,
+            ResolutionError,
+            SwatchDatasetError,
+            ValueError,
+        ) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        if args.output_format == "json" or not record["mechanical_checks"]["ok"]:
+            print(json.dumps(record, ensure_ascii=False, indent=2))
+        elif record["mechanical_checks"]["ok"]:
+            print(record["composition"]["response"])
+        if not record["mechanical_checks"]["ok"]:
+            print(
+                "Composition needs inspection: "
+                + " ".join(record["mechanical_checks"]["issues"])
+                + " Full record written to stdout.",
+                file=sys.stderr,
+            )
+            return 2
         return 0
     if args.command == "colour-library":
         try:

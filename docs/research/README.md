@@ -26,9 +26,9 @@ Private scratch and raw operator notes stay in `docs/peanut/`.
 | [Next beta note](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour using stable colour facts |
 | Cadence and ownership | 15-minute pulses run and judged by the assistant |
 | Agent directions | approximately five short, positive instructions with room to reason |
-| [Local language library](450_LOCAL_LANGUAGE.md) | starter bank implemented: 94 entries and five connector senses; composition staged |
+| [Local language library](450_LOCAL_LANGUAGE.md) | starter bank and model-driven composer implemented; behaviour evidence awaits a pulse |
 | [Execution diagram](../diagrams/BEHAVIOUR_PULSE.md) | staged responsibilities and information flow |
-| Next kernel | align selection and composition using the [inspectable starter bank](../runtime/LANGUAGE_BANK.md) |
+| Next kernel | align pulse timing and judgments using [composition records](../runtime/COMPOSITION.md) |
 | First behaviour evidence | awaits staging completion and the first pulse |
 
 The pulse direction was clarified by the human lead on September 18; the local

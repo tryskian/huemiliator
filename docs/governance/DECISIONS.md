@@ -616,3 +616,29 @@ into implementation authorship.
   method, D-039 the library direction, and D-040 the character reference.
 - Reference: [The bank guide](../runtime/LANGUAGE_BANK.md) owns the inventory,
   schema fields, and extension workflow.
+
+## D-042: Compose with the configured model and local language bank
+
+- Date: `2026-09-19`
+- Category: `runtime_shape`
+- Tags: `composition`, `positive_instructions`, `local_library`, `inspection`
+- Provenance: `implementation decision within the authorized composition slice; human-selected gpt-5-nano setting`
+- Decision: Add `huemiliator compose <hex>` using the OpenAI Responses API,
+  `HUEMILIATOR_MODEL`, the existing deterministic colour result, and the local
+  language bank. The five directions in PB_BEHAVIOUR are its complete instruction
+  set. Code filters factual entry conflicts; the model selects and adapts wording
+  and expresses the relationships between its ideas.
+- Expressive scope: The composer receives colour facts and bank material. D-006's
+  fixed family line and the old response-contract instructions remain in the
+  carried commands and are omitted from this request. The colour engine stays
+  authoritative for the replacement.
+- Inspection: Dry-run exposes the exact request. JSON output preserves setup,
+  versions, hashes, model identity, timestamps, original output, and mechanical
+  issues, including incomplete or refused responses. Model-reported entry IDs
+  and relation annotations require evaluator inspection. The command assigns
+  no behavioural verdict and writes no live colour evidence.
+- Boundary: This implements composition, not the 15-minute pulse protocol.
+  D-038 continues to own method staging, case selection, timing, and verdict
+  alignment. Smoke checks establish connection and recording behaviour.
+- Reference: [The composer guide](../runtime/COMPOSITION.md) owns configuration,
+  record fields, command behaviour, and limitations.

@@ -186,7 +186,7 @@ def render_language_bank(output_format: str = "text") -> str:
         f"evaluation: {bank['evaluation_status']}",
         f"entries: {len(entries)}",
         f"connector senses: {len(bank['connectors'])}",
-        "Usage conditions describe requirements for a future composer.",
+        "Usage conditions guide composition and behaviour evaluation.",
         "This inventory performs structural validation; it supplies no eval verdict.",
     ]
     for role in LANGUAGE_ROLES:

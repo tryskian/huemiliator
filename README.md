@@ -14,8 +14,9 @@
 > Colour logic is the stable foundation. The planned agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
 > The [starter language bank](./docs/runtime/LANGUAGE_BANK.md) now supplies
-> inspectable wording and connector meanings. Selection and composition remain
-> in staging.
+> inspectable wording and connector meanings. The [language composer](./docs/runtime/COMPOSITION.md)
+> now uses those resources under five positive directions; behaviour pulses
+> remain in staging.
 > Current work starts with the [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
 > [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md).
 
@@ -152,6 +153,16 @@ huemiliator language-bank --format json
 
 The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 94 language entries,
 five connector senses, provenance, usage conditions, and extension workflow.
+
+Compose Hugh's response with the model configured by `HUEMILIATOR_MODEL`:
+
+```sh
+huemiliator compose '#d9a6a1' --dry-run
+huemiliator compose '#d9a6a1' --format json
+```
+
+The [composer guide](./docs/runtime/COMPOSITION.md) covers the two-variable setup,
+request inspection, visible response, and recording of mechanical failures.
 
 Closeout rule:
 
