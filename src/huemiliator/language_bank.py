@@ -15,8 +15,20 @@ LANGUAGE_ROLES = (
     "appraisal_phrase",
     "verdict",
     "colour_description",
+    "discourse_phrase",
+    "function_word",
+    "rhetorical_phrase",
 )
-RELATIONS = {"addition", "contrast", "explanation", "concession"}
+RELATIONS = {
+    "addition",
+    "contrast",
+    "explanation",
+    "concession",
+    "consequence",
+    "elaboration",
+    "correction",
+    "restatement",
+}
 ID_PATTERN = re.compile(r"[a-z][a-z0-9_]*(?:\.[a-z][a-z0-9_]*)*")
 
 

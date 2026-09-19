@@ -25,7 +25,7 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md) implemented with 98 entries and five connector senses |
+| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md) implemented with 106 entries and 14 connector senses |
 | Character | Hue (Hugh), a pretentious and celebrated colour theory academic; the agreed five-point configuration is recorded in D-046 |
 | Operator and evaluator | the assistant runs the pulses and supplies verdicts |
 | Current work | beta notes, diagrams, and staging alignment |

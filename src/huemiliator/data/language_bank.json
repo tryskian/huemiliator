@@ -1,17 +1,22 @@
 {
   "schema": "huemiliator.language_bank.v1",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "evaluation_status": "awaiting_behaviour_evaluation",
   "sources": {
-    "authorial_openings": {
+    "authorial_references": {
       "authorship": "human",
-      "reference": "docs/governance/CHARTER.md#character-profile",
-      "description": "The five exact opening examples supplied by the human lead on 2026-09-19."
+      "reference": "docs/governance/CHARTER.md#opening-reference-material",
+      "description": "The author's six distinct adjectives and two exact phrases supplied on 2026-09-19. The repeated 'lovely' is one entry; the research note preserves the full list. Grammar, meaning, and usage annotations are assistant-authored."
     },
     "assistant_candidates": {
       "authorship": "assistant",
       "reference": "docs/research/450_LOCAL_LANGUAGE.md",
       "description": "Candidate language and connector definitions authored on 2026-09-19 against the character profile; voice quality awaits behaviour evaluation."
+    },
+    "authorial_flourish": {
+      "authorship": "human",
+      "reference": "docs/research/450_LOCAL_LANGUAGE.md#rhetorical-questions-and-academic-flourish",
+      "description": "Exact words and phrase supplied by the author on 2026-09-19: therefore, however, perhaps, essentially, its, yet, which, begs the question, rather. Grammar, relationship senses, frames, and usage conditions are assistant-authored interpretations."
     }
   },
   "slots": {
@@ -30,7 +35,7 @@
     "different_hex": "The canonical input hex and supplied replacement hex differ.",
     "same_name": "The resolved input swatch name and supplied replacement name are equal.",
     "different_name": "The resolved input swatch name and supplied replacement name differ.",
-    "claims_supported": "Both ideas hold as colour facts, contextual facts, or Hugh's aesthetic judgments delivered with objective certainty.",
+    "claims_supported": "Identify the ideas expressed by statements or rhetorical questions, including a question's implied claim. Literal colour claims follow the supplied facts; aesthetic judgments retain Hugh's assured manner.",
     "related_information": "The two ideas contribute distinct information about the same relevant topic.",
     "contrast_basis": "Identify the dimension of contrast, including approval of the input versus the asserted superiority of the replacement.",
     "explanation_basis": "Identify evidence or a rule establishing why B explains or justifies A; truth of both ideas alone is insufficient.",
@@ -44,66 +49,115 @@
     "family_blue": "The runtime assigns the input to the blue family.",
     "family_purple": "The runtime assigns the input to the purple family.",
     "family_pink": "The runtime assigns the input to the pink family.",
-    "replacement_verdict": "Assert the supplied replacement's aesthetic merit as settled fact. Where its hex equals the input, ground any distinction in the choice or naming while preserving the identical colour."
+    "replacement_verdict": "Assert the supplied replacement's aesthetic merit as settled fact. Where its hex equals the input, ground any distinction in the choice or naming while preserving the identical colour.",
+    "popular_completion": "Complete the fragment with a suitable noun or noun phrase so 'a popular' has a grammatical complement.",
+    "rhetorical_basis": "Use a rhetorical question to express a recoverable judgment or develop the argument. Its implied claim and presuppositions have a basis in the supplied facts or Hugh's aesthetic appraisal.",
+    "consequence_basis": "Identify the premise and the reasoning by which the conclusion follows. The connector expresses that inference, including when the conclusion takes rhetorical-question form.",
+    "elaboration_basis": "Identify the antecedent or idea developed by the relative clause and the information it adds.",
+    "correction_basis": "Identify the earlier formulation and the more accurate formulation that replaces or sharpens it.",
+    "restatement_basis": "Identify the idea being distilled and preserve its meaning and relevant qualifications in the restatement.",
+    "qualification_scope": "Make clear which judgment is tentatively proposed or rhetorically softened, while preserving the supplied colour facts.",
+    "possessive_antecedent": "Give 'its' a clear singular antecedent and a following possessed noun or noun phrase; any attributed colour property follows the supplied facts.",
+    "question_selection": "Use 'which' to introduce a grammatical selection question with a recoverable set of alternatives.",
+    "question_introduction": "Give 'begs the question' a grammatical subject and an ensuing question connected to the preceding idea.",
+    "degree_comparison": "Attach the degree word to a compatible comparative expression whose comparison has a factual or aesthetic basis.",
+    "essence_scope": "Use 'essentially' to qualify a clear description or judgment while preserving relevant factual distinctions."
   },
   "entries": [
     {
-      "id": "opening.excellent_red",
-      "role": "opening",
-      "text": "excellent red...",
-      "grammar": "opening noun phrase",
-      "meaning": "Gracious approval of a red choice.",
+      "id": "appraisal.bold",
+      "role": "appraisal_word",
+      "text": "bold",
+      "grammar": "adjective",
+      "meaning": "Praise of a confident choice; any literal colour-intensity claim needs supporting facts.",
       "requires": [
-        "family_red",
-        "aesthetic_appraisal"
+        "aesthetic_appraisal",
+        "adjective_attachment"
       ],
-      "source": "authorial_openings"
+      "source": "authorial_references"
     },
     {
-      "id": "opening.lovely_green",
-      "role": "opening",
-      "text": "lovely green...",
-      "grammar": "opening noun phrase",
-      "meaning": "Gracious approval of a green choice.",
+      "id": "appraisal.lovely",
+      "role": "appraisal_word",
+      "text": "lovely",
+      "grammar": "adjective",
+      "meaning": "Gracious appreciation.",
       "requires": [
-        "family_green",
-        "aesthetic_appraisal"
+        "aesthetic_appraisal",
+        "adjective_attachment"
       ],
-      "source": "authorial_openings"
+      "source": "authorial_references"
     },
     {
-      "id": "opening.divine_pink",
-      "role": "opening",
-      "text": "that's a divine pink...",
-      "grammar": "opening clause",
-      "meaning": "Elevated praise of a pink choice.",
+      "id": "appraisal.excellent",
+      "role": "appraisal_word",
+      "text": "excellent",
+      "grammar": "adjective",
+      "meaning": "Strong approval.",
       "requires": [
-        "family_pink",
-        "aesthetic_appraisal"
+        "aesthetic_appraisal",
+        "adjective_attachment"
       ],
-      "source": "authorial_openings"
+      "source": "authorial_references"
+    },
+    {
+      "id": "appraisal.divine",
+      "role": "appraisal_word",
+      "text": "divine",
+      "grammar": "adjective",
+      "meaning": "Elevated, extravagant praise.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "authorial_references"
+    },
+    {
+      "id": "appraisal.sublime",
+      "role": "appraisal_word",
+      "text": "sublime",
+      "grammar": "adjective",
+      "meaning": "Elevated praise of aesthetic excellence.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "authorial_references"
+    },
+    {
+      "id": "appraisal.exceptional",
+      "role": "appraisal_word",
+      "text": "exceptional",
+      "grammar": "adjective",
+      "meaning": "Praise presenting the choice as outstanding.",
+      "requires": [
+        "aesthetic_appraisal",
+        "adjective_attachment"
+      ],
+      "source": "authorial_references"
     },
     {
       "id": "opening.crowd_pleaser",
       "role": "opening",
-      "text": "ah, a crowd pleaser!...",
-      "grammar": "interjection and opening noun phrase",
+      "text": "a crowd pleaser!",
+      "grammar": "exclamatory noun phrase",
       "meaning": "Apparent praise implying that the choice is basic.",
       "requires": [
         "familiarity_appraisal"
       ],
-      "source": "authorial_openings"
+      "source": "authorial_references"
     },
     {
-      "id": "opening.popular_choice",
+      "id": "opening.popular_fragment",
       "role": "opening",
-      "text": "a popular choice...",
-      "grammar": "opening noun phrase",
-      "meaning": "Apparent praise implying that the choice is basic.",
+      "text": "that's a popular",
+      "grammar": "opening clause fragment awaiting a noun or noun phrase",
+      "meaning": "Apparent praise implying conventional taste, completed in composition.",
       "requires": [
-        "familiarity_appraisal"
+        "familiarity_appraisal",
+        "popular_completion"
       ],
-      "source": "authorial_openings"
+      "source": "authorial_references"
     },
     {
       "id": "opening.popular_one",
@@ -311,42 +365,6 @@
       "meaning": "Measured approval; an assistant adaptation of the author's intellectual-voice example. 'Fine' can support a deliberate comparative echo with 'finer'.",
       "requires": [
         "aesthetic_appraisal"
-      ],
-      "source": "assistant_candidates"
-    },
-    {
-      "id": "appraisal.excellent",
-      "role": "appraisal_word",
-      "text": "excellent",
-      "grammar": "adjective",
-      "meaning": "Strong approval.",
-      "requires": [
-        "aesthetic_appraisal",
-        "adjective_attachment"
-      ],
-      "source": "assistant_candidates"
-    },
-    {
-      "id": "appraisal.lovely",
-      "role": "appraisal_word",
-      "text": "lovely",
-      "grammar": "adjective",
-      "meaning": "Gracious appreciation.",
-      "requires": [
-        "aesthetic_appraisal",
-        "adjective_attachment"
-      ],
-      "source": "assistant_candidates"
-    },
-    {
-      "id": "appraisal.divine",
-      "role": "appraisal_word",
-      "text": "divine",
-      "grammar": "adjective",
-      "meaning": "Elevated, extravagant praise.",
-      "requires": [
-        "aesthetic_appraisal",
-        "adjective_attachment"
       ],
       "source": "assistant_candidates"
     },
@@ -617,7 +635,7 @@
         "aesthetic_appraisal",
         "modifier_attachment"
       ],
-      "source": "assistant_candidates"
+      "source": "authorial_flourish"
     },
     {
       "id": "modifier.quite",
@@ -1196,6 +1214,96 @@
         "noun_phrase_attachment"
       ],
       "source": "assistant_candidates"
+    },
+    {
+      "id": "discourse.perhaps",
+      "role": "discourse_phrase",
+      "text": "perhaps",
+      "grammar": "sentence adverb",
+      "meaning": "Tentative framing or a courteous rhetorical invitation to consider a judgment.",
+      "requires": [
+        "qualification_scope"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "modifier.essentially",
+      "role": "modifier",
+      "text": "essentially",
+      "grammar": "focusing adverb",
+      "meaning": "Focus on the central character of a description or judgment.",
+      "requires": [
+        "essence_scope"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "reference.its",
+      "role": "function_word",
+      "text": "its",
+      "grammar": "possessive determiner",
+      "meaning": "Refer back to a clearly identified colour or choice.",
+      "requires": [
+        "possessive_antecedent"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "modifier.yet",
+      "role": "modifier",
+      "text": "yet",
+      "grammar": "degree adverb before a comparative",
+      "meaning": "Further degree in a comparison, as in yet finer.",
+      "requires": [
+        "degree_comparison"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "question.which",
+      "role": "function_word",
+      "text": "which",
+      "grammar": "interrogative determiner or pronoun",
+      "meaning": "Introduce a selection among alternatives in a rhetorical question.",
+      "requires": [
+        "question_selection",
+        "rhetorical_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "rhetorical.begs_the_question",
+      "role": "rhetorical_phrase",
+      "text": "begs the question",
+      "grammar": "verb phrase introducing a question",
+      "meaning": "Lead from an observation into a connected rhetorical question.",
+      "requires": [
+        "question_introduction",
+        "rhetorical_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "discourse.indeed",
+      "role": "discourse_phrase",
+      "text": "indeed",
+      "grammar": "sentence adverb",
+      "meaning": "Emphasise an established judgment or observation.",
+      "requires": [
+        "claims_supported"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "rhetorical.surely",
+      "role": "rhetorical_phrase",
+      "text": "surely",
+      "grammar": "sentence adverb",
+      "meaning": "Invite assent to a judgment delivered with assurance, including in a rhetorical question.",
+      "requires": [
+        "rhetorical_basis"
+      ],
+      "source": "assistant_candidates"
     }
   ],
   "connectors": [
@@ -1203,7 +1311,7 @@
       "id": "and.addition",
       "word": "and",
       "relation": "addition",
-      "frame": "A and B.",
+      "frame": "A and B. A, and rhetorical question expressing B?",
       "meaning": "A and B add related information.",
       "requires": [
         "claims_supported",
@@ -1215,7 +1323,7 @@
       "id": "but.contrast",
       "word": "but",
       "relation": "contrast",
-      "frame": "A, but B.",
+      "frame": "A, but B. A, but rhetorical question expressing B?",
       "meaning": "B contrasts with A on an identified dimension.",
       "requires": [
         "claims_supported",
@@ -1227,7 +1335,7 @@
       "id": "but.concession",
       "word": "but",
       "relation": "concession",
-      "frame": "A, but B.",
+      "frame": "A, but B. A, but rhetorical question expressing B?",
       "meaning": "A raises an expectation; B holds despite it.",
       "requires": [
         "claims_supported",
@@ -1239,7 +1347,7 @@
       "id": "because.explanation",
       "word": "because",
       "relation": "explanation",
-      "frame": "A because B.",
+      "frame": "A because B. Rhetorical question expressing A, because B?",
       "meaning": "B explains or justifies A.",
       "requires": [
         "claims_supported",
@@ -1251,8 +1359,116 @@
       "id": "although.concession",
       "word": "although",
       "relation": "concession",
-      "frame": "Although A, B.",
+      "frame": "Although A, B. Although A, rhetorical question expressing B?",
       "meaning": "A raises an expectation; B holds despite it.",
+      "requires": [
+        "claims_supported",
+        "expectation_basis"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "therefore.consequence",
+      "word": "therefore",
+      "relation": "consequence",
+      "frame": "A; therefore B. A; therefore, rhetorical question expressing B?",
+      "meaning": "B follows from A through an identifiable inference.",
+      "requires": [
+        "claims_supported",
+        "consequence_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "however.contrast",
+      "word": "however",
+      "relation": "contrast",
+      "frame": "A. However, B. A. However, rhetorical question expressing B?",
+      "meaning": "Turn from A to B along a relevant dimension of contrast.",
+      "requires": [
+        "claims_supported",
+        "contrast_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "yet.contrast",
+      "word": "yet",
+      "relation": "contrast",
+      "frame": "A, yet B. A, yet rhetorical question expressing B?",
+      "meaning": "Set B against A on a relevant dimension.",
+      "requires": [
+        "claims_supported",
+        "contrast_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "yet.concession",
+      "word": "yet",
+      "relation": "concession",
+      "frame": "A, yet B. A, yet rhetorical question expressing B?",
+      "meaning": "B holds despite the expectation raised by A.",
+      "requires": [
+        "claims_supported",
+        "expectation_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "which.elaboration",
+      "word": "which",
+      "relation": "elaboration",
+      "frame": "A, which B. Rhetorical question containing A, which B?",
+      "meaning": "Develop an identified antecedent or preceding idea through a relative clause.",
+      "requires": [
+        "claims_supported",
+        "elaboration_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "rather.correction",
+      "word": "rather",
+      "relation": "correction",
+      "frame": "A; rather, B. A; rather, rhetorical question expressing B?",
+      "meaning": "Replace or sharpen A with the more accurate formulation B.",
+      "requires": [
+        "claims_supported",
+        "correction_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "essentially.restatement",
+      "word": "essentially",
+      "relation": "restatement",
+      "frame": "A; essentially, B. A; essentially, rhetorical question expressing B?",
+      "meaning": "Distil A into B while preserving its meaning.",
+      "requires": [
+        "claims_supported",
+        "restatement_basis"
+      ],
+      "source": "authorial_flourish"
+    },
+    {
+      "id": "consequently.consequence",
+      "word": "consequently",
+      "relation": "consequence",
+      "frame": "A; consequently B. A; consequently, rhetorical question expressing B?",
+      "meaning": "Present B as an inference from A.",
+      "requires": [
+        "claims_supported",
+        "consequence_basis"
+      ],
+      "source": "assistant_candidates"
+    },
+    {
+      "id": "nevertheless.concession",
+      "word": "nevertheless",
+      "relation": "concession",
+      "frame": "A. Nevertheless, B. A. Nevertheless, rhetorical question expressing B?",
+      "meaning": "Maintain B despite the expectation raised by A.",
       "requires": [
         "claims_supported",
         "expectation_basis"

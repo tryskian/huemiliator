@@ -2,29 +2,36 @@
 
 The starter bank is a bundled, editable JSON resource:
 [`src/huemiliator/data/language_bank.json`](../../src/huemiliator/data/language_bank.json).
-Schema `huemiliator.language_bank.v1`, bank version `0.3.0`.
+Schema `huemiliator.language_bank.v1`, bank version `0.4.0`.
 
 It supplies language for the next behaviour beta. The
 [charter's character profile](../governance/CHARTER.md#character-profile) owns
-Hugh's identity and voice. His five authorial openings are preserved verbatim;
-additional entries are assistant candidates awaiting behaviour evaluation.
+Hugh's identity and voice. The author supplies six distinct appraisal adjectives,
+two opening phrases, and the academic-flourish vocabulary recorded below.
+Additional entries are assistant candidates awaiting behaviour evaluation.
+Grammar, meaning, and usage annotations are assistant-authored.
 
 ## Inventory
 
 | Role | Entries | Examples |
 | --- | ---: | --- |
-| Opening compliments | 24 | `excellent red...`, `a most agreeable choice...` |
-| Appraisal words | 24 | `lovely`, `refined`, `discerning` |
-| Modifiers | 9 | `rather`, `quite`, `decidedly` |
+| Opening compliments | 21 | `a crowd pleaser!`, `that's a popular` |
+| Appraisal words | 27 | `bold`, `lovely`, `sublime` |
+| Modifiers | 11 | `rather`, `essentially`, `yet` |
 | Appraisal phrases | 10 | `a certain elegance`, `a touch of distinction` |
 | Aesthetic verdicts | 17 | `{replacement_name} is just more satisfying`, `{replacement_name} has a quiet distinction` |
 | Colour descriptions | 14 | the nine family labels, `the same colour`, `a new name` |
-| Total language entries | 98 | five authorial references and 93 assistant candidates |
+| Discourse phrases | 2 | `perhaps`, `indeed` |
+| Function words | 2 | possessive `its`, interrogative `which` |
+| Rhetorical phrases | 2 | `begs the question`, `surely` |
+| Total language entries | 106 | 15 authorial references and 91 assistant candidates |
 
-Five connector records cover four words: `and.addition`, `but.contrast`,
-`but.concession`, `because.explanation`, and `although.concession`.
-Separate senses of “but” preserve the difference between a contrast and a
-defeated expectation.
+Fourteen connector records cover twelve words: `and`, `but`, `because`,
+`although`, `therefore`, `however`, `yet`, `which`, `rather`, `essentially`,
+`consequently`, and `nevertheless`. Separate senses of “but” and “yet” preserve
+contrast and concession. Meanings, frames, and conditions are assistant-authored;
+the source records identify the author's supplied words separately from the
+additional candidate wording.
 
 ## Inspect It
 
@@ -48,16 +55,23 @@ Bank inspection neither generates a response nor assigns a behavioural verdict.
 | Field | Meaning |
 | --- | --- |
 | `id` | stable identifier used in review and future composition records |
-| `role` | one of the six inventory roles above |
+| `role` | one of the nine inventory roles above |
 | `text` | exact wording, optionally containing named fact slots |
 | `grammar` | the entry's grammatical shape, including opening phrases |
 | `meaning` | what the wording expresses |
 | `requires` | IDs of usage conditions from the bank's condition registry |
 | `source` | provenance record identifying human reference or assistant candidate |
 
-For example, `opening.excellent_red` retains `excellent red...`, links to the
-human source, and requires the red family plus aesthetic appraisal. The
-`verdict.just_more_satisfying` template asserts aesthetic superiority after the
+For example, `appraisal.excellent` holds the author's adjective `excellent`,
+links to the human source, and requires aesthetic appraisal plus grammatical
+adjective attachment. The reference can apply across colour families.
+`opening.popular_fragment` preserves `that's a popular` exactly, with a condition
+requiring completion by a suitable noun or noun phrase. The repeated `lovely`
+in the author's full list is represented once. Version `0.4.0` replaces the
+five earlier full opening references with this material; the original quotations
+remain in the character profile and historical requests retain their bank snapshot.
+
+The `verdict.just_more_satisfying` template asserts aesthetic superiority after the
 opening compliment, with the chosen name bound to the supplied replacement.
 It is an assistant adaptation of the author's exact fragment “is just more
 satisfying”. All seventeen verdict templates remain labelled as assistant
@@ -110,11 +124,35 @@ and replacement have the same hex, any distinction must concern the choice
 or naming while preserving the actual colour identity.
 
 Connector records carry `id`, `word`, `relation`, `frame`, `meaning`, `requires`,
-and `source`. In `A because B`, the registered condition requires a basis for
-why B explains A. In `Although A, B`, it requires the expectation raised by A,
-its source, and how B holds despite it. Those relationships are defined for the
-composer and evaluator; the loader checks references, not their truth for a
-particular input.
+and `source`. Each expresses a reasoning relationship:
+
+| Relationship | Wording | Supporting basis |
+| --- | --- | --- |
+| Addition | `and` | distinct related information |
+| Contrast | `but`, `however`, `yet` | a relevant dimension of contrast |
+| Explanation | `because` | why one idea explains or justifies the other |
+| Concession | `although`, `but`, `yet`, `nevertheless` | an expectation and how the other idea holds despite it |
+| Consequence | `therefore`, `consequently` | a premise and the inference to a conclusion |
+| Elaboration | relative `which` | a clear antecedent and what the clause adds |
+| Correction | `rather` | the formulation being sharpened or replaced |
+| Restatement | `essentially` | an idea distilled with its meaning preserved |
+
+Frames illustrate statements and rhetorical questions. A question's implied
+claim belongs in the relationship annotation, with its supporting basis.
+The model owns the complete sentence; these are meaning references, with room
+for other grammatical constructions. The evaluator judges whether the expressed
+relationship actually holds. The loader checks structural references only.
+
+The author's wider flourish list also supplies language with other jobs:
+`perhaps` qualifies a judgment, `its` has a possessive antecedent, and
+`begs the question` introduces a connected question. `which` also has an
+interrogative entry; `rather`, `essentially`, and `yet` also have modifier entries.
+These lexical uses can occur without a two-idea connector relationship.
+The response identifies that use through the corresponding language-entry ID.
+The composer checks declared connectors for visible presence, while ambiguous
+uses remain a semantic evaluation question. See the
+[research note](../research/450_LOCAL_LANGUAGE.md#rhetorical-questions-and-academic-flourish)
+for the author's list and the Probaboracle comparison.
 
 ## Extend and Check
 
@@ -131,7 +169,7 @@ huemiliator language-bank
 
 The validator rejects missing or unknown fields, duplicate IDs or wording within
 a role, unknown source/condition references, and malformed or unsupported slots.
-The tests also compare the authorial openings with the charter and check colour
+The tests also compare the authorial references with the charter and check colour
 and connector conditions. Packaging includes the JSON resource in the wheel.
 
 These checks establish that the bank can be loaded and inspected reliably.

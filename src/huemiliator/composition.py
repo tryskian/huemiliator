@@ -16,7 +16,7 @@ from huemiliator.agent import (
 from huemiliator.config import DEFAULT_REASONING_EFFORT
 from huemiliator.language_bank import load_language_bank
 
-COMPOSER_VERSION = "0.3.0"
+COMPOSER_VERSION = "0.4.0"
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_SECONDS = 60.0
 
@@ -35,8 +35,14 @@ def _output_schema(entry_ids: list[str], connector_ids: list[str]) -> dict[str, 
         "type": "object",
         "properties": {
             "connector_id": {"type": "string", "enum": connector_ids},
-            "claim_a": {"type": "string"},
-            "claim_b": {"type": "string"},
+            "claim_a": {
+                "type": "string",
+                "description": "The first idea, including an implied rhetorical claim.",
+            },
+            "claim_b": {
+                "type": "string",
+                "description": "Second idea, including an implied rhetorical claim.",
+            },
             "basis": {
                 "type": "string",
                 "description": (
@@ -53,7 +59,7 @@ def _output_schema(entry_ids: list[str], connector_ids: list[str]) -> dict[str, 
         "properties": {
             "response": {
                 "type": "string",
-                "description": "Hugh's complete visible line.",
+                "description": "Hugh's complete statement or rhetorical question.",
             },
             "entry_ids": {
                 "type": "array",
@@ -64,8 +70,10 @@ def _output_schema(entry_ids: list[str], connector_ids: list[str]) -> dict[str, 
                 "type": "array",
                 "items": relationship,
                 "description": (
-                    "Relationships between claims joined by a connector word in the "
-                    "visible line. Separate sentences can use an empty list."
+                    "Relationships between ideas joined by a connector in statements "
+                    "or rhetorical questions. State a question's implied claim and "
+                    "basis. Ordinary modifier or interrogative uses of a word can "
+                    "use its language-entry ID. Independent ideas need no relationship."
                 ),
             },
         },
@@ -202,9 +210,12 @@ def check_composition(payload: object, request: dict[str, Any]) -> list[str]:
     if len(set(entry_ids)) != len(entry_ids):
         errors.append("Entry IDs must be unique.")
     if not any(
-        entries.get(entry_id, {}).get("role") == "opening" for entry_id in entry_ids
+        entries.get(entry_id, {}).get("role") in {"opening", "appraisal_word"}
+        for entry_id in entry_ids
     ):
-        errors.append("The entry references must include an opening.")
+        errors.append(
+            "The entry references must include opening or appraisal material."
+        )
     replacement = material["runtime_facts"]["replacement"]
     replacement_pattern = rf"(?<!\w){re.escape(replacement['name'])}(?!\w)"
     if not re.search(replacement_pattern, response, re.I):
@@ -251,12 +262,22 @@ def check_composition(payload: object, request: dict[str, Any]) -> list[str]:
         else:
             word = connector["word"]
             recorded_words.add(word)
-            if not re.search(rf"\b{word}\b", response, re.I):
+            if not re.search(rf"\b{re.escape(word)}\b", response, re.I):
                 errors.append(
                     "A recorded connector is absent from the visible response."
                 )
+    lexical_uses = {
+        entry["text"].casefold()
+        for entry in entries.values()
+        if entry["id"] in entry_ids
+        and entry["role"] in {"modifier", "function_word", "discourse_phrase"}
+    }
     for word in {connector["word"] for connector in connectors.values()}:
-        if re.search(rf"\b{word}\b", response, re.I) and word not in recorded_words:
+        if (
+            re.search(rf"\b{re.escape(word)}\b", response, re.I)
+            and word not in recorded_words
+            and word.casefold() not in lexical_uses
+        ):
             errors.append(
                 f"The visible connector '{word}' needs a relationship record."
             )

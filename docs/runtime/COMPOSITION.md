@@ -2,11 +2,14 @@
 
 `huemiliator compose <hex>` uses the fixed colour result and local language bank
 to generate Hugh's visible response through the OpenAI Responses API. Composer
-version `0.3.0` is an implemented staging surface, using instruction version
-`1.2.0` and bank `0.3.0`. The directions and bank now express Hugh's aesthetic
+version `0.4.0` is an implemented staging surface, using instruction version
+`1.2.0` and bank `0.4.0`. The directions and bank now express Hugh's aesthetic
 judgment as settled fact under
 [D-044](../governance/DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact).
 The aligned 15-minute behaviour pulses remain in staging.
+Bank `0.4.0` supplies adjective references and academic connective language,
+including rhetorical-question constructions under D-047 and D-048. The broader
+D-046 instruction alignment remains pending.
 
 ## Setup and Use
 
@@ -60,13 +63,17 @@ This presentation rule is recorded in
    slot values, connector senses, colour facts, and a single picker interaction.
 4. The model selects and adapts wording under the five positive directions in
    [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md#instructions-and-judgment-lens).
-5. It returns a complete line, the IDs of entries it reports using, and brief
+5. It returns a complete statement or rhetorical question, the IDs of entries
+   it reports using, and brief
    relationship descriptions identifying the claims and supporting basis.
 
 The structured-output schema enumerates eligible language IDs and connector
 IDs in their respective fields. A connector ID belongs in its relationship
 record; the schema keeps the two reference types distinct while composition
-remains free within the supplied language and facts.
+remains free within the supplied language and facts. A rhetorical question's
+implied claim can appear in `claim_a` or `claim_b`, with the relationship's basis
+in `basis`. These fields describe the visible argument, not an internal reasoning
+trace. Function words and modifier uses have language-entry IDs of their own.
 
 The five directions are the complete `instructions` field. Entry conditions
 are language data. Semantic conditions such as familiarity, explanatory support,
@@ -106,12 +113,17 @@ whether that expectation and the claimed relationship are supported.
 
 ## Mechanical Checks and Failures
 
-Checks cover output shape, eligible entry IDs, an opening reference, the supplied
-replacement Pantone name, visible hex codes,
-and connector records. They verify that each of the four bank connector words
-appearing in the line has a record,
-and that each recorded word appears in the line. They do not prove grammar,
-voice, factual meaning, or fidelity of the model's annotations.
+Checks cover output shape, eligible entry IDs, an opening or appraisal-word
+reference, the supplied replacement Pantone name, visible hex codes, and connector
+records. Unambiguous bank connector words appearing in the response require a
+record, and each recorded word must appear in the response. Words with registered
+lexical uses, including `which`, `rather`, `essentially`, and `yet`, can function
+as ordinary grammar when identified by their language-entry ID. They then need
+no two-idea relationship record for that use.
+The evaluator inspects which sense was actually used and whether its annotation
+is complete. Checks do not prove grammar, voice, factual meaning, or fidelity
+of the model's annotations. Rhetorical questions have the same mechanical
+requirements as statements, with meaning left to behaviour evaluation.
 
 An incomplete response, refusal, malformed JSON, or failed mechanical check
 retains its original output in the record. The command returns exit `2`, writes

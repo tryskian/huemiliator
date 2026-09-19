@@ -33,7 +33,7 @@ Last updated: 2026-09-19
 | Boundary | [Pre-Beta: 15-Minute Behaviour Pulses](../research/030_PB_BEHAVIOUR.md), `staged` |
 | Focus | Huey's behaviour using the stable colour foundation |
 | Agent setup | approximately five short, positive directions with room to reason |
-| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md): 98 language entries and five connector senses, with read-only CLI inspection |
+| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md): 106 language entries and 14 connector senses, with read-only CLI inspection |
 | [Character profile](CHARTER.md#character-profile) | Hue (Hugh): courteous tastemaker, opening backhanded compliment, MCM style and burgundy snifter; introduced in the [README](../../README.md#meet-hue) |
 | Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
 | Staging surface | five draft directions, language-library structure, and connector relationships |
@@ -118,19 +118,25 @@ stay quarantined locally instead of mixing back into the live DB.
 - D-046 records the [agreed authorial configuration](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration):
   Hugh is a pretentious, celebrated colour theory academic, groundedly verbose
   and coherent, with generic courtesy, meaningful colour rationale, and
-  exacting statements or rhetorical questions. Runtime and library alignment
-  with this configuration is pending; the present change records the agreement.
-- Composer `0.3.0` uses `gpt-5.6-luna` with explicit `medium` reasoning. The
+  exacting statements or rhetorical questions. Broader runtime and library
+  alignment with this configuration is pending; D-047 refines the bank references.
+- Composer `0.4.0` uses `gpt-5.6-luna` with explicit `medium` reasoning. The
   ignored `.env`, tracked example, and defaults carry that setup under D-043.
 - The carried instruction version `1.2.0` retains five positive directions. Hue (Hugh) is an
   intellectual tastemaker: backhanded opening, aesthetic superiority delivered
   as settled fact, natural phrasing, deliberate rhythm and wordplay, and
   meaningful connectors. The [character profile](CHARTER.md#character-profile)
   preserves exact authorial examples and their intended use as voice references.
-- Bank `0.3.0` supplies 98 language entries and five connector senses. Five
-  openings remain exact human references; 93 additional entries are labelled
-  assistant candidates. `language-bank --format json` exposes their meanings,
-  conditions, and provenance. D-044 records the voice clarification.
+- Bank `0.4.0` supplies 106 language entries and 14 connector senses. D-047
+  replaces the five full opening references with six distinct authorial adjectives
+  and two phrases. D-048 adds reasoning relationships and academic flourish,
+  bringing the language inventory to 15 human references and 91 assistant candidates.
+  The references apply across colour families, and `that's a popular` remains
+  a fragment to complete. Composer checks accept appraisal words as opening
+  material. Rhetorical questions can carry the implied claim in their relation
+  records; ordinary uses of ambiguous words remain available. The research note
+  cites Probaboracle's earlier signal-pool implementation as the comparison.
+  `language-bank --format json` exposes meanings, conditions, and provenance.
 - D-045 defines the display: the actual chosen swatch has its family label;
   Hugh's swatch has its Pantone name. These labels come directly from colour
   facts. His generated sentence accompanies the pair, with generic compliments
