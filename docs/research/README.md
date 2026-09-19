@@ -2,266 +2,109 @@
 
 Last updated: 2026-09-19
 
-Huemiliator keeps the tracked research lane small on purpose.
-
-Each beta is a distinct eval approach. This folder preserves the method shifts
-that changed what the evidence means.
-
-Substantive reasoning, findings, method clarifications, and agreed decisions
-are recorded as they emerge, using the [research templates](../runtime/templates/README.md).
-Notes and diagrams are equally important records. State clearly whether each
-claim is authorial direction, interpretation, a staged hypothesis, implementation,
-or observed evidence; hypotheses can be documented before a behaviour pulse.
-
-Tracked research-note names use the category code contract:
-`NNN_CODE.md` or `NNN_CODE-QUALIFIER.md`. Dates live inside the docs, not in
-filenames.
-
-The live file map and shared category/status vocabulary live in
-[Research Legend](./000_LEGEND.md).
-
-Private scratch and raw operator notes stay in `docs/peanut/`.
+Huemiliator's research notes record method changes and what each evidence
+surface is allowed to mean. They are not release notes: `Beta 1.0`, pulse
+names, and boundary names describe research methods, not app versions,
+package versions, or release readiness.
 
 ## Current Stage
 
-| Staging surface | Current read |
+| Surface | Current read |
 | --- | --- |
-| [Next beta note](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour using stable colour facts |
-| Cadence and ownership | 15-minute pulses run and judged by the assistant |
-| Agent directions | approximately five short, positive instructions with room to reason |
-| [Local language library](450_LOCAL_LANGUAGE.md) | starter bank and model-driven composer implemented; behaviour evidence awaits a pulse |
-| [Execution diagram](../diagrams/BEHAVIOUR_PULSE.md) | staged responsibilities and information flow |
-| Next kernel | align pulse timing and judgments using [composition records](../runtime/COMPOSITION.md) |
-| First behaviour evidence | awaits staging completion and the first pulse |
+| [Behaviour boundary](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour on stable colour facts |
+| Cadence and owner | 15-minute pulses run and judged by the assistant |
+| Language direction | [local bank](450_LOCAL_LANGUAGE.md) and composer are implemented; behavioural evidence awaits the first aligned pulse |
+| Next kernel | align timing, observation unit, and pulse-wide judgment using [composition records](../runtime/COMPOSITION.md) |
+| Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
 
-The pulse direction was clarified by the human lead on September 18; the local
-library and connector direction followed on September 19. The older
-colour tools are the starting point for the transition. The tables and charts
-below preserve the closed colour evidence.
+The local-library direction followed the human lead's September 19
+clarification. The earlier colour method remains the carried comparison
+baseline while behaviour staging is aligned.
 
-## Carried Colour Stage
-
-| Signal | Current read |
-| --- | --- |
-| research lane | `Beta 1.0` fail-pressure pulse |
-| carried prior proof surface | broader corrected `neutral` continuation at `20106..20120` |
-| carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
-| carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
-| carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
-| carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
-| carried warm-edge proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
-| carried colour-boundary proof surface | warm low-chroma five-family pulse at `20154..20158` |
-| carried colour-boundary proof surface | neutral / brown / orange / yellow pulse at `20159..20162` |
-| latest proof surface | colour-boundary neutral / pink / brown / red pulse at `20163..20166` |
-| verdict unit | pulse-level proof surface |
-| comparison surface | closed third corrected `red` rerun at `id > 18423` |
-| beta question before warm-edge audit | choose the next method or scope now that all runtime family lanes are parked |
-| beta question | colour-boundary audit is closed; require new evidence before another group |
-
-## Carried Colour Research State
-
-| Item | Current state |
-| --- | --- |
-| stage | `Beta 1.0` |
-| carried prior proof surface | `neutral` continuation pulse at `20106..20120` |
-| carried warm-edge proof surface | `orange` yellow-gold audit pulse at `20121..20128` |
-| carried warm-edge proof surface | `yellow` green / olive audit pulse at `20129..20139` |
-| carried warm-edge proof surface | `orange` pale straw / buff / blush audit pulse at `20140..20145` |
-| carried warm-edge proof surface | `yellow` residual chartreuse audit pulse at `20146..20150` |
-| carried warm-edge proof surface | warm-neutral peach / pearl audit pulse at `20151..20153` |
-| carried colour-boundary proof surface | warm low-chroma five-family pulse at `20154..20158` |
-| carried colour-boundary proof surface | neutral / brown / orange / yellow pulse at `20159..20162` |
-| latest proof surface | colour-boundary neutral / pink / brown / red pulse at `20163..20166` |
-| carried prior totals | `15 total / 14 pass / 1 fail / 0 pending` |
-| carried warm-edge totals | `8 total / 8 pass / 0 fail / 0 pending` |
-| carried warm-edge totals | `11 total / 11 pass / 0 fail / 0 pending` |
-| carried warm-edge totals | `6 total / 6 pass / 0 fail / 0 pending` |
-| carried warm-edge totals | `5 total / 5 pass / 0 fail / 0 pending` |
-| carried colour-boundary totals | `5 total / 5 pass / 0 fail / 0 pending` |
-| carried colour-boundary totals | `4 total / 4 pass / 0 fail / 0 pending` |
-| latest totals | `4 total / 4 pass / 0 fail / 0 pending` |
-| prior question | next method or scope after the family-lane sweep |
-| current question | no new boundary group without fresh promoted evidence |
-| closed beta note | `020_B10` |
-| closed staging note | `010_PB10` |
-| corrected method note | `410_N3` |
-| active family lane before warm-edge audit | none selected after `neutral` park |
-| active family lane | none; colour-boundary audit is closed and no pulse is queued |
-| stable prior lanes | `red` through `neutral` |
-| prior audit note | `310_RED_ORANGE_AUDIT` |
-| closed audit note | `430_WARM_EDGE_AUDIT` |
-| closed boundary audit note | `440_COLOUR_BOUNDARY_AUDIT` |
-| comparison baseline | closed third corrected `red` rerun at `18424..19691` |
-| live DB rule | keep only the latest proof surface in `eval_outputs` |
-
-## Family Range Palette
-
-![Huemiliator family range palette](./family-range-palette.svg)
-
-The chips sample the current classifier order from the frozen swatch snapshot.
-
-## Family Count Bars
-
-![Huemiliator swatches by runtime family](./family-count-bars.svg)
-
-The bars count the current runtime family assignment across the frozen swatch
-snapshot.
-
-## Colour-Space Scatter
-
-![Huemiliator colour-space scatter](./colour-space-scatter.svg)
-
-Each point is a frozen swatch placed by Lab `a*` and `b*`; colour shows the
-runtime family assignment.
-
-## Edge Density Heatmap
-
-![Huemiliator edge-density heatmap](./edge-density-heatmap.svg)
-
-Lab-space bins highlight where runtime families share colour-space cells. Red
-cells are mixed-family pressure; darker cells contain more swatches.
-
-## Archive Integrity Check
-
-![Huemiliator archive labels versus row truth](./archive-integrity-check.svg)
-
-The table compares parked archive-family labels against row-family truth.
-Off-diagonal cells mark archive-label drift.
-
-## Research Map
-
-| Surface | Type | What it says now |
-| --- | --- | --- |
-| [Research Legend](./000_LEGEND.md) | legend | file map, code ranges, filename contract, category meanings, and status language |
-| [Pre-Beta: 15-Minute Behaviour Pulses](./030_PB_BEHAVIOUR.md) | staged boundary | agreed behaviour focus and assistant ownership, with draft directions, judgment lens, and promotion condition |
-| [Local Language and Reasoning](./450_LOCAL_LANGUAGE.md) | staged hypothesis | language relationships supporting coherent colour arguments and expressive range, with sources, diagram, proposed test, and preserved authorial and observation records |
-| [Pre-Beta 1.0 Fail-Pressure Pulse](./010_PB10.md) | staging note | the closed staging contract that led into the first live `Beta 1.0` pulse |
-| [Beta 1.0 Fail-Pressure Pulse](./020_B10.md) | closed beta note | two bounded `red` pulses pass, `yellow` parks cleanly after one fail-and-recovery stack, `green` parks on two clean passes, `blue` parks behind a corrected rerun, `purple` parks on two clean `15 / 0` pulses, `pink` parks behind a clean second continuation, `orange` parks after one fail surface plus recovery, `brown` parks on three clean bounded pulses, `neutral` parks after the split correction plus a broader `14 / 1` continuation, and the first three colour-boundary report pulses pass |
-| [Brown Context Dependence](./120_BROWN.md) | durable note | `brown` behaves like a contextual bucket rather than a clean spectral category |
-| [Red Orange Edge Drift](./210_RED_ORANGE.md) | representative case | the warm-clay / peach edge remains useful signal, but later bounded red pulses mean it is not the active gate |
-| [Red Orange Edge Drift Audit](./310_RED_ORANGE_AUDIT.md) | closed audit note | the audit blockers were repaired and the red lane is now parked as a stable prior baseline inside `Beta 1.0` |
-| [Neutral Three-Pulse Split](./410_N3.md) | closed corrected method note | the nine cool-edge seams in `20082..20096` were rerun as three smaller eval pulses at `20097..20105`, all passing cleanly |
-| [Post-Sweep Residue Map](./420_RESIDUE.md) | closed source map | counted-seam residue across the row-order `Beta 1.0` pulse stack promoted, then closed by, the warm-edge audit scope |
-| [Warm Edge Residue Audit](./430_WARM_EDGE_AUDIT.md) | closed audit note | records the five warm-edge residue passes and the closeout rule |
-| [Colour Boundary Audit](./440_COLOUR_BOUNDARY_AUDIT.md) | closed audit note | records the first three report-derived mixed Lab bin pulses before classifier edits |
-
-## How To Read This Folder
+## Method Lineage
 
 ```mermaid
 flowchart LR
-  A["closed proof surface"]
-  B["tracked research note"]
-  C["next narrow correction"]
-  D["fresh rerun"]
-  E["new proof surface"]
-
-  A --> B --> C --> D --> E
+  A["closed row-level colour proof"] --> B["Beta 1.0 bounded fail-pressure pulses"]
+  B --> C["neutral split correction"]
+  C --> D["warm-edge residue audit"]
+  D --> E["colour-boundary exact-input audit"]
+  E --> F["staged behaviour pulse"]
 ```
 
-| Doc kind | Job |
-| --- | --- |
-| durable note | holds category-level or method-level claims that survived more than one rerun |
-| active note | holds the current research edge |
-| handoff / decision | carries repo truth while research notes explain what the signal means |
+| Method surface | What it proves | Owning note |
+| --- | --- | --- |
+| closed corrected `red` rerun | row-level family comparison baseline | [B10](020_B10.md) |
+| `Beta 1.0` | bounded lane-by-lane fail-pressure verdicts | [B10](020_B10.md) |
+| neutral split | three smaller exact-input corrections plus broader continuation | [N3](410_N3.md) |
+| warm-edge audit | five promoted residue groups, including warm-neutral `20151..20153` | [warm audit](430_WARM_EDGE_AUDIT.md) |
+| colour-boundary audit | three report-derived mixed-bin pulses before classifier edits | [boundary audit](440_COLOUR_BOUNDARY_AUDIT.md) |
+| behaviour pulse | proposed next object of judgment; not yet a completed evidence surface | [PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) |
 
-## Carried Colour Signal
+## Closed Colour Read
 
-![Huemiliator Beta 1.0 eval pulse stacked bars](./eval-pulse-stack.svg)
+The colour research boundary is closed. Neutral's cool-edge seams were split into
+`20097..20099`, `20100..20102`, and `20103..20105`; the broader continuation
+`20106..20120` passed at `14 anchors / 1 counted seam / 0 excluded`. The warm
+residue group `20151..20153` passed at `3 / 0 / 0`, so the neutral correction
+and warm-edge correction are both closed records, not queued work.
 
-Each horizontal bar is one 15-row pulse. Lane labels use row-family truth from
-the eval rows; archive labels stay annotations.
+The owning audit notes retain the complete group results, seed selection,
+row identities and interpretation boundaries.
 
-| Lane | Current read |
-| --- | --- |
-| `red` | parked; the coherent muted-red local cluster stays in `red` |
-| `yellow` | failed once, corrected, and parked; the yellow-to-green correction and chartreuse cut are explicit |
-| `green` | parked behind two clean pulses |
-| `blue` | parked after the blue-drift correction; one aqua seam remains |
-| `purple` | parked behind two clean pulses |
-| `pink` | warm-orange and wine drift opened, then the lane closed cleanly |
-| `orange` | pale straw, buff, blush, cream, straw, olive, and yellow-gold drift were exposed, then corrected |
-| `brown` | parked behind three clean pulses despite the older context-dependence read |
-| `neutral` | parked after the cool-edge split and broader source-order continuation; one warm peach seam remains as residue |
+## Charts
 
-| Method / runtime signal | Read |
-| --- | --- |
-| verdict unit | fail-pressure pulse is the current `Beta 1.0` unit |
-| comparison baseline | closed third corrected `red` rerun stays the row-level comparison baseline |
-| scoped sampling | current sampling truth matches the runtime ladder again |
-| operator surface | pulse start, label, report, and local quarantine are live |
-| warm-edge audit | all five promoted warm-edge residue groups passed |
-| colour-boundary audit | first three report-derived mixed Lab bins passed |
-| next boundary | no new boundary group starts without fresh promoted evidence |
+![Huemiliator family range palette](./family-range-palette.svg)
 
-## Residue Map
+Chips sample the current classifier order from the frozen swatch snapshot.
 
-![Huemiliator counted seams by family](./eval-residue-family-bars.svg)
+![Huemiliator swatches by runtime family](./family-count-bars.svg)
 
-The residue chart counts `counted_seam` rows across the row-order `Beta 1.0`
-pulse stack. It is a next-scope map, not a live failure total.
+Bars count the current runtime family assignment across the frozen snapshot.
 
-## Active Neutral Read
+![Huemiliator colour-space scatter](./colour-space-scatter.svg)
+
+Points place frozen swatches by Lab `a*` and `b*`; colour shows runtime family.
+
+![Huemiliator edge-density heatmap](./edge-density-heatmap.svg)
+
+Lab-space bins show mixed-family pressure and swatch density.
+
+![Huemiliator archive labels versus row truth](./archive-integrity-check.svg)
+
+The archive table compares parked archive-family labels with row-family truth;
+off-diagonal cells mark archive-label drift.
 
 ![Huemiliator neutral fail-surface split](./active-fail-surface-split.svg)
 
-The bars pair each neutral source seam group with the proof anchors that closed
-it.
+The neutral split pairs each historical source seam group with the anchors that
+closed it. It is a correction record, not a current failure total.
 
-| Pressure group | Source rows | Corrected pulse | Read |
-| --- | --- | --- | --- |
-| lilac / mauve | `20082`, `20083`, `20094` | `20097..20099` | `3 anchors / 0 seams / 0 excluded` |
-| blue / jade | `20085`, `20090`, `20091` | `20100..20102` | `3 anchors / 0 seams / 0 excluded` |
-| mint / green | `20086`, `20087`, `20095` | `20103..20105` | `3 anchors / 0 seams / 0 excluded` |
-| broader continuation | source order `48` | `20106..20120` | `14 anchors / 1 seam / 0 excluded` |
-| warm residue | `20084`, `20088`, `20107` | outside the cool-edge correction | secondary peach / pearl residue |
+![Huemiliator Beta 1.0 eval pulse stacked bars](./eval-pulse-stack.svg)
 
-## Closed Warm-Edge Read
+Each horizontal bar represents one bounded pulse. Pulse row counts vary by
+source surface and exact-input group; the chart must not be read as a fixed
+15-row contract. Lane labels come from row-family truth; archive labels remain
+annotations. The residue chart is a scope map, not a current failure total.
 
-| Pressure group | Seed mode | Rows | Read |
-| --- | --- | --- | --- |
-| `orange` yellow-gold boundary | exact inputs from `19962`, `19964`, `19965`, `19968`, `19970`, `19971`, `19973`, and `19976` | `20121..20128` | `8 anchors / 0 seams / 0 excluded` |
-| `yellow` green / olive shoulder | exact unique inputs from the repeated `19723..19751` evidence set | `20129..20139` | `11 anchors / 0 seams / 0 excluded` |
-| `orange` pale straw / buff / blush shoulder | exact inputs from `19918..19923` | `20140..20145` | `6 anchors / 0 seams / 0 excluded` |
-| `yellow` residual chartreuse shoulder | exact inputs from `19756`, `19757`, `19758`, `19765`, and `19766` | `20146..20150` | `5 anchors / 0 seams / 0 excluded` |
-| warm `neutral` peach / pearl residue | exact inputs from `20084`, `20088`, and `20107` | `20151..20153` | `3 anchors / 0 seams / 0 excluded` |
+![Huemiliator counted seams by family](./eval-residue-family-bars.svg)
 
-## Closed Colour-Boundary Read
+This residue chart maps counted seams across the historical `Beta 1.0` stack;
+it does not report live failures.
 
-| Pressure group | Seed mode | Rows | Read |
-| --- | --- | --- | --- |
-| warm low-chroma five-family bin | family-balanced exact inputs from `colour-boundaries --limit 1 --samples-per-family 1` | `20154..20158` | `5 anchors / 0 seams / 0 excluded` |
-| neutral / brown / orange / yellow bin | family-balanced exact inputs from `colour-boundaries --limit 3 --samples-per-family 1` | `20159..20162` | `4 anchors / 0 seams / 0 excluded` |
-| neutral / pink / brown / red bin | family-balanced exact inputs from `colour-boundaries --limit 3 --samples-per-family 1` | `20163..20166` | `4 anchors / 0 seams / 0 excluded` |
+## Map
 
-## Plans
+| Note | Job |
+| --- | --- |
+| [000_LEGEND](000_LEGEND.md) | file map, categories, and status language |
+| [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | staged assistant-run behaviour boundary |
+| [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | local language hypothesis, sources, observations, and pending test |
+| [020_B10](020_B10.md) | closed `Beta 1.0` colour method |
+| [410_N3](410_N3.md) | closed neutral split correction |
+| [420_RESIDUE](420_RESIDUE.md) | closed counted-seam source map |
+| [430_WARM_EDGE_AUDIT](430_WARM_EDGE_AUDIT.md) | closed warm-edge audit |
+| [440_COLOUR_BOUNDARY_AUDIT](440_COLOUR_BOUNDARY_AUDIT.md) | closed mixed-bin audit |
 
-Plans are useful, but they are not evidence.
-
-| Step | Move | Gate |
-| ---: | --- | --- |
-| 1 | keep `20097..20105` as the corrected neutral split stack | all three smaller pulses passed |
-| 2 | keep `20106..20120` as the broader corrected neutral continuation | the pulse passed at `14 / 1` |
-| 3 | treat `brown` as parked behind three clean bounded pulses | do not reopen the old context-dependence read without new evidence |
-| 4 | use `410_N3` as the completed split-correction read | keep the undertone-bucket correction attached to the evidence |
-| 5 | use `420_RESIDUE` as the source residue map | all runtime family lanes now have a parked read |
-| 6 | keep `20121..20128` as the first warm-edge audit pass | the `orange` yellow-gold boundary passed at `8 / 0` |
-| 7 | keep `20129..20139` as the second warm-edge audit pass | the `yellow` green / olive shoulder passed at `11 / 0` |
-| 8 | keep `20140..20145` as the third warm-edge audit pass | the `orange` pale straw / buff / blush shoulder passed at `6 / 0` |
-| 9 | keep `20146..20150` as the fourth warm-edge audit pass | the `yellow` residual chartreuse shoulder passed at `5 / 0` |
-| 10 | keep `20151..20153` as the fifth warm-edge audit pass | the warm-neutral peach / pearl residue passed at `3 / 0` |
-| 11 | keep `20154..20158` as the first colour-boundary audit pass | the family-balanced warm low-chroma bin passed at `5 / 0` |
-| 12 | keep `20159..20162` as the second colour-boundary audit pass | the family-balanced neutral / brown / orange / yellow bin passed at `4 / 0` |
-| 13 | keep `20163..20166` as the third colour-boundary audit pass | the family-balanced neutral / pink / brown / red bin passed at `4 / 0` |
-| 14 | keep the residue map closed through `430_WARM_EDGE_AUDIT` | no new pulse starts without fresh promoted evidence |
-
-These betas and staged notes are research architectures. They are not app
-release versions, package versions, branch names, or one more sweep.
-
-| Surface | Verdict unit | What it proves |
-| --- | --- | --- |
-| closed row-level `red` rerun | row-level family proof | family-correction baseline |
-| `Beta 1.0` | bounded fail-pressure pulse | closed lane-by-lane verdicts |
-| colour-boundary audit | exact-input pulse | report-derived mixed-bin preflight before classifier edits |
-
-Later method surfaces do not erase earlier ones. They narrow what each verdict
-is allowed to mean.
+Plans are proposals. Evidence, source rows, and verdict ownership stay in the
+owning notes; private scratch and raw operator records stay in `docs/peanut/`
+and `.local/`.

@@ -844,3 +844,28 @@ into implementation authorship.
   history remains linked in the supporting record.
 - Reference: [Documentation governance](CHARTER.md#documentation-governance)
   and [research index](../research/README.md).
+
+## D-050: Use a continuing documentation task
+
+- Date: `2026-09-19`
+- Category: `workflow_environment`
+- Tags: `documentation`, `delegation`, `shared_checkout`, `provenance`
+- Provenance: `human-led adoption of Scorey's documented workflow`
+- Source: The human lead explained “so you and i can work while the mini beabs
+  do the documentation”, pointed to **Scorey documentation**, and limited Huey's
+  first run to “the narrow documentation scope”.
+- Decision: Use one continuing documentation task in the shared local checkout
+  for research notes, source capture, diagrams and document upkeep alongside
+  the primary conversation. Assign exact files, sources and intended results.
+  The lead handles small jobs directly or coordinates bounded internal helpers,
+  reviews their contributions and returns one coherent result.
+- Review: The primary checks meaning, attribution and evidence before
+  integration, and owns experiments, eval verdicts and Git. The human retains
+  scope, acceptance and meaning-level decisions. Source wording, corrections,
+  gaps and distinct capture/discourse dates remain visible.
+- Initial application: A bounded documentation edit and review pass uses the
+  existing audit. Runtime, language resources and original eval evidence retain
+  their existing state. The handoff owns the exact task and file assignment.
+- Reference: [Documentation delegation](CHARTER.md#documentation-delegation)
+  and [collaboration diagram](../diagrams/COLLABORATION.md). The private trial
+  record preserves the Scorey task reference and verification receipts.

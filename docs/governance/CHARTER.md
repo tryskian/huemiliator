@@ -204,6 +204,31 @@ Preserve source and chronology; distinguish direction, interpretation,
 hypothesis, implementation, and evidence. Keep notes and diagrams aligned as
 the meaning or method changes. D-049 records this standing practice.
 
+### Documentation Delegation
+
+Under [D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task), the human
+lead and primary engineer continue experiments and discussion while a continuing
+documentation task works in the same local checkout. The primary supplies the
+question, relevant exchanges, source versions, evidence and assigned files.
+
+The documentation lead handles small assignments directly and uses bounded
+internal helpers when useful. It coordinates file ownership, reviews their
+contributions and returns one concise, checked result with sources and gaps.
+The primary reviews against the conversation and evidence, integrates the result,
+and owns experiment execution, eval verdicts and Git. Meaning-level decisions
+and acceptance remain with the human lead.
+
+Transcript captures preserve supplied or directly inspected wording, speakers,
+order, source location and explicit gaps. Capture dates remain distinct from
+discourse dates; summaries, interpretations and later corrections keep their
+attribution. Captures stay in `docs/peanut/transcripts/`.
+
+The [collaboration diagram](../diagrams/COLLABORATION.md) shows the workflow.
+The [handoff](SESSION_HANDOFF.md#documentation-task) records the continuing task
+and its current assignment. Supporting work stays within the active scope.
+
+### Document Homes
+
 - `docs/governance/CHARTER.md`
   - mission, durable rules, and the authorial character profile
 - `docs/governance/DECISIONS.md`
@@ -239,7 +264,7 @@ the meaning or method changes. D-049 records this standing practice.
 - Local `.venv` is the canonical development environment.
 - Local terminal execution is the trusted development boundary.
 - `.local/evals.sqlite` is the live eval evidence store.
-- `make doctor-env` is the environment confirmation entrypoint.
+- `make doctor-env` reports the environment diagnostic snapshot.
 - `make end` is only complete when live eval `pending` is `0`.
 - Mac-wide keep-awake state is owned outside the repo by the Coffee Codex
   plugin; `make start` and `make end` do not control it.

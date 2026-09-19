@@ -11,6 +11,7 @@ surface are implemented.
 
 ```mermaid
 flowchart LR
+  I["local source-order or scoped cohort sampler"]
   A["native macOS colour picker"]
   B["hex code"]
   S["frozen margaret2 snapshot"]
@@ -21,12 +22,12 @@ flowchart LR
   F["deterministic one-up"]
   G["replacement shade + short loss line"]
   H["optional sqlite evidence row"]
-  I["local source-order or scoped cohort sampler"]
   J["recorded pass/fail judgment"]
   K["follow-along notebook"]
 
   A --> B --> C --> D --> E --> U --> F --> G
-  G --> H --> I --> J --> K
+  I --> B
+  G --> H --> J --> K
   S --> C
 
   classDef implemented fill:#d8f3dc,stroke:#2d6a4f,color:#1b4332

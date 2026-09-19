@@ -16,13 +16,12 @@ sequenceDiagram
   participant B as Local language library
 
   L->>A: Align method, scope and staging choices
-  A->>H: Compact positive directions
   loop 15-minute behaviour pulse
     A->>C: Selected colour input
     C-->>A: Fixed colour facts
-    A->>H: Facts and interaction context
-    H->>B: Select fitting language and relationship shapes
-    B-->>H: Eligible words, phrases and sentence shapes
+    A->>B: Prepare fact-filtered bank snapshot
+    B-->>A: Prepared eligible words, phrases and sentence shapes
+    A->>H: Directions, facts, bank snapshot and interaction context
     H->>H: Compose claims with a supported relationship
     H-->>A: Actual response
     A->>A: Inspect, judge and preserve reasons
@@ -57,7 +56,9 @@ lines. `behaviour-facts` exposes those facts with response-contract metadata.
 The existing SQLite records describe colour outputs and their judgments.
 
 The local library and composer are implemented. Composition records preserve
-setup and actual output, including mechanical failures. This diagram describes
-the complete pulse shape; the pulse protocol, assistant judgments, and pulse-wide
-verdict rule remain to be aligned and implemented. The first completed pulse
-will establish the new behavioural evidence surface.
+setup and actual output, including mechanical failures. The bank snapshot is
+prepared and supplied before composition; it is an input surface, not a pulse
+verdict. This diagram describes the staged pulse shape. Timing, observation
+unit, assistant judgment record, and pulse-wide verdict rule remain to be
+aligned and implemented. The assistant owns operation and verdicts once the
+first pulse runs; the human lead owns scope and acceptance.

@@ -4,380 +4,103 @@ Last updated: 2026-09-19
 
 ## Start Here
 
-1. Run:
-   - `make start`
-2. Ground on the startup-docs read across:
-   - `README.md`
-   - `docs/governance/CHARTER.md`
-   - `docs/governance/DECISIONS.md`
-   - `docs/runtime/ARCHITECTURE.md`
-   - `docs/runtime/RUNBOOK.md`
-   - `docs/governance/SESSION_HANDOFF.md`
-3. Confirm execution context:
-   - repo root or dedicated worktree
-   - active branch from `git branch --show-current`
-   - host or devcontainer mode
-   - clean `main` or feature branch
-4. Return the startup breakdown:
-   - current state
-   - risks
-   - next kernel
-   - repo or worktree context
-   - active branch
-5. Start one active kernel.
+Run `make start` for the mechanical snapshot, then read `README.md`, `CHARTER`,
+`DECISIONS`, `ARCHITECTURE`, `RUNBOOK` and this handoff directly. The startup
+reader emits titles/dates; its output does not supply the documents' contents.
+Read the private peanut handoff if present. Report current state, risks, next
+scope, workspace/host and active branch before implementation.
 
 ## Current Staging
 
-| Surface | Current direction |
+| Surface | Current state |
 | --- | --- |
-| Boundary | [Pre-Beta: 15-Minute Behaviour Pulses](../research/030_PB_BEHAVIOUR.md), `staged` |
-| Focus | Huey's behaviour using the stable colour foundation |
-| Agent setup | approximately five short, positive directions with room to reason |
-| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md): 106 language entries and 14 connector senses, with read-only CLI inspection |
-| [Character profile](CHARTER.md#character-profile) | Hue (Hugh): courteous tastemaker, opening backhanded compliment, MCM style and burgundy snifter; introduced in the [README](../../README.md#meet-hue) |
-| Eval ownership | assistant runs each 15-minute pulse and supplies verdicts |
-| Staging surface | five draft directions, language-library structure, and connector relationships |
-| Composition | [model-driven composer](../runtime/COMPOSITION.md), five directions, and full request/response inspection |
-| Next work | align the pulse protocol and assistant judgment record |
-| First behaviour evidence | awaits staging completion and the first pulse |
+| Research | [15-minute behaviour pulses](../research/030_PB_BEHAVIOUR.md), staged; the assistant runs pulses and supplies verdicts |
+| Character | [Hue (Hugh)](CHARTER.md#character-profile); D-046's agreed five-point configuration is recorded, with broader runtime/library alignment pending |
+| Language | [Bank](../runtime/LANGUAGE_BANK.md) `0.4.0`: 106 entries, including 15 authorial references and 91 assistant candidates; 14 connector senses |
+| Composer | [Composition](../runtime/COMPOSITION.md) `0.4.0`, instruction version `1.2.0`, configured `gpt-5.6-luna` with `medium` reasoning |
+| Presentation | Actual selected swatch labelled by family; Hugh's replacement labelled by its supplied Pantone name; hexes remain rendering/evidence data |
+| Observations | [Smoke records and authorial FAILs](../research/450_LOCAL_LANGUAGE.md#behaviour-evidence-to-establish) retain their individual setups and verdict owners |
+| Behaviour evidence | First aligned pulse pending; timing, observation unit and pulse-wide verdict aggregation still require alignment |
 
-The human lead clarified the pulse direction on September 18 and chose a local
-language library with explicit connector logic on September 19. The restored colour
-implementation is the starting point for the transition. Draft wording and
-mechanics are identified as proposals in the boundary note; the next research
-focus is already chosen.
-
-## Carried Implementation Snapshot
-
-Huemiliator is a small, local, agent-backed colour mini chatbot with a real
-picker runtime, deterministic one-up logic, and a closed `Beta 1.0`
-fail-pressure pulse lane for the current non-OCR logic method boundary.
-
-The core tracked shape is:
-
-- README now states the Polinko research model is staged for the next beta:
-  - status language is model-level, not repo-only
-  - badges align with the shared toy-factory status pattern
-- dependency/security cleanup is current on `main`:
-  - grouped Python dependency updates are merged
-  - no open Huemiliator PRs remain
-- local shell helper contracts are now a named gate:
-  - `make scripts-check` validates tracked `scripts/*.sh`
-  - closeout runs the gate before the broader `make check`
-- Mac-wide keep-awake control is external to the repo lifecycle:
-  - the Coffee Codex plugin owns the one shared session
-  - `make start` and `make end` leave that session unchanged
-- bare `huemiliator` keeps the runtime local and CLI-first
-- the active input surface is the native macOS colour picker
-- the canonical user state is one hex code
-- the runtime owns swatch matching, family assignment, same-family rank, and
-  deterministic one-up selection with neutral undertone-bucket selection
-- the loss line stays downstream of the colour decision
-- route and family correctness stay binary
-- the broader corrected `neutral` continuation at `20106..20120` is the carried
-  prior proof surface
-- the warm-edge `orange` yellow-gold audit pulse at `20121..20128` is the
-  carried warm-edge proof surface
-- the warm-edge `yellow` green / olive audit pulse at `20129..20139` is the
-  carried warm-edge proof surface
-- the warm-edge `orange` pale straw / buff / blush audit pulse at
-  `20140..20145` is the carried warm-edge proof surface
-- the warm-edge `yellow` residual chartreuse audit pulse at `20146..20150` is
-  the carried warm-edge proof surface
-- the warm-neutral peach / pearl audit pulse at `20151..20153` is the carried
-  warm-edge proof surface
-- the colour-boundary warm low-chroma five-family pulse at `20154..20158` is
-  the carried colour-boundary proof surface
-- the colour-boundary neutral / brown / orange / yellow pulse at
-  `20159..20162` is the carried colour-boundary proof surface
-- the colour-boundary neutral / pink / brown / red pulse at `20163..20166` is
-  the latest proof surface
-- the corrected split stack at `20097..20105` cleared the nine cool-edge seams
-  from the failed `20082..20096` source surface
-- the broader `neutral` continuation from source order `48` passed at `14 / 1`
-  and is now quarantined locally
-- the first warm-edge audit pulse passed at `8 / 0`
-- the second warm-edge audit pulse passed at `11 / 0`
-- the third warm-edge audit pulse passed at `6 / 0`
-- the fourth warm-edge audit pulse passed at `5 / 0`
-- the fifth warm-edge audit pulse passed at `3 / 0`
-- the first colour-boundary audit pulse passed at `5 / 0`
-- the second colour-boundary audit pulse passed at `4 / 0`
-- the third colour-boundary audit pulse passed at `4 / 0`
-- the closed third corrected `red` rerun remains the closed row-level
-  comparison baseline
-- fail-pressure pulse is now the current verdict unit
-- `420_RESIDUE` is closed as the residue source map; no new group is queued
-  without fresh promoted evidence
-
-Canonical live work stays on the repo `.local` surface. Superseded eval rows
-stay quarantined locally instead of mixing back into the live DB.
+The library makes adjective references and meaningful connective relations
+available while the model constructs the sentence. Rhetorical questions can
+carry implied claims in relationship annotations. Mechanical checks establish
+interface compliance; behavioural coherence and character fit await evaluation.
+The [local-language hypothesis](../research/450_LOCAL_LANGUAGE.md) owns the
+research interpretation and exact authorial history.
 
 ## Active Kernel
 
-- D-046 records the [agreed authorial configuration](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration):
-  Hugh is a pretentious, celebrated colour theory academic, groundedly verbose
-  and coherent, with generic courtesy, meaningful colour rationale, and
-  exacting statements or rhetorical questions. Broader runtime and library
-  alignment with this configuration is pending; D-047 refines the bank references.
-- Composer `0.4.0` uses `gpt-5.6-luna` with explicit `medium` reasoning. The
-  ignored `.env`, tracked example, and defaults carry that setup under D-043.
-- The carried instruction version `1.2.0` retains five positive directions. Hue (Hugh) is an
-  intellectual tastemaker: backhanded opening, aesthetic superiority delivered
-  as settled fact, natural phrasing, deliberate rhythm and wordplay, and
-  meaningful connectors. The [character profile](CHARTER.md#character-profile)
-  preserves exact authorial examples and their intended use as voice references.
-- Bank `0.4.0` supplies 106 language entries and 14 connector senses. D-047
-  replaces the five full opening references with six distinct authorial adjectives
-  and two phrases. D-048 adds reasoning relationships and academic flourish,
-  bringing the language inventory to 15 human references and 91 assistant candidates.
-  The references apply across colour families, and `that's a popular` remains
-  a fragment to complete. Composer checks accept appraisal words as opening
-  material. Rhetorical questions can carry the implied claim in their relation
-  records; ordinary uses of ambiguous words remain available. The research note
-  cites Probaboracle's earlier signal-pool implementation as the comparison.
-  `language-bank --format json` exposes meanings, conditions, and provenance.
-- D-045 defines the display: the actual chosen swatch has its family label;
-  Hugh's swatch has its Pantone name. These labels come directly from colour
-  facts. His generated sentence accompanies the pair, with generic compliments
-  available. Hexes remain rendering data and internal evidence. Text mode shows
-  coloured blocks in capable terminals and plain markers in redirected output.
-- Requests and records retain full facts, exact model setup, versions, hashes,
-  supplied material, raw output, relation annotations, and mechanical issues.
-  The schema separates eligible language IDs from connector IDs. Checks flag
-  visible hex codes and missing replacement names; they supply no voice verdict.
-- The author judged two visible lines **FAIL**: repeated “choice”, and the awkward
-  opening “A most respectable red”. Their corrections guide the bank and
-  instructions. “A fine choice, but Green Flash is unequivocally finer.” is the
-  earlier intellectual-voice example. Its deliberate echo superseded the
-  temporary instruction about distinct key words.
-- [Recorded observations](../research/450_LOCAL_LANGUAGE.md#behaviour-evidence-to-establish)
-  preserve all smoke outputs, authorial judgments, and the assistant's separate
-  findings. Repeated use of “the finer choice” remains a variation target. These
-  observations sit outside a timed pulse; the first pulse and its judgment
-  protocol remain in staging.
-- The deterministic colour engine, fixed-line inspection commands, and live
-  colour eval database remain the carried factual baseline. Authorial art
-  references and the burgundy-snifter image stay in private re-entry material.
+Narrow documentation workflow trial under
+[D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task). Correct and
+condense the assigned documents using the completed audit. Runtime, language
+resources, model settings and original evidence retain their existing state.
+
+### Documentation Task
+
+**Huey documentation**, `01a0bb88-752b-7762-88f7-8ad5c23a3ac9`, is the continuing
+lead in the same local checkout. It retains documentation context and can use
+bounded internal helpers. The primary owns final review, integration and Git.
+
+| Owner | This assignment |
+| --- | --- |
+| Documentation lead | Research README and `450_LOCAL_LANGUAGE`; runtime `LANGUAGE_BANK`, `RUNBOOK`, `START_END_REFERENCE`; diagrams `BEHAVIOUR_PULSE`, `PIPELINE`; template `legend` |
+| Primary engineer | Charter, decision, handoff and collaboration diagram; preservation checks and integration |
+
+The eight-file lead assignment and internal source review are complete; primary
+review restored chart context, smoke-run chronology and accurate diagram flow.
+Validation and Git outcomes are recorded in the private trial receipt. Pre-edit copies and hashes are in
+`.local/documentation-workflow-20260919/`; the manifest covers all tracked
+sources and 35 original evidence files. Private trial notes belong in
+`docs/peanut/research/2026-09-19-documentation-workflow/`. Source captures remain
+in `docs/peanut/transcripts/`. The existing audit is
+`docs/peanut/research/330_DOCS_AUDIT.md`.
+
+Longer historical consolidation, remaining decision-log cleanup and broad
+template simplification stay in the audit queue. The current trial does not
+claim to complete that larger backlog.
+
+## Carried Colour Baseline
+
+The deterministic picker, frozen swatch snapshot, family/rank selection and
+same-family replacement remain the factual foundation. Neutral replacement
+retains its undertone constraint; the carried `one-up` command uses fixed lines.
+The [pipeline](../diagrams/PIPELINE.md) owns that implementation map.
+
+[Beta 1.0](../research/020_B10.md) is closed. The latest colour-boundary proof is
+`20163..20166`: four anchors, zero counted seams and zero exclusions. Its owner is
+[COLOUR_BOUNDARY_AUDIT](../research/440_COLOUR_BOUNDARY_AUDIT.md); earlier warm-edge
+proof belongs to [WARM_EDGE_AUDIT](../research/430_WARM_EDGE_AUDIT.md). Beta 1.0
+retains the complete pulse ledger and closed row-level comparison.
+The [pulse chart](../research/eval-pulse-stack.svg) retains each pulse's row
+range and anchor/seam counts.
+
+No colour pulse is queued. A fresh colour-audit group requires promoted evidence;
+`warm` remains an audit cohort. Superseded rows stay quarantined locally, and
+the live colour DB retains its latest proof surface. These are carried findings,
+not a fresh live-DB inspection during the documentation trial.
 
 ## Next Slice
 
-1. Read [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md),
-   [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md), and the
-   [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
-2. Inspect the starter bank with `huemiliator language-bank`, using JSON output
-   to read meaning, grammar, conditions, and source attribution.
-3. Compare the carried runtime and bank with D-046, then align the next bounded
-   implementation change. The agreed configuration is recorded; it has not yet
-   replaced instruction version `1.2.0`.
-4. Inspect `compose <hex> --dry-run` and actual JSON composition records beside
-   the agreed configuration and candidate judgment lens.
-5. Align pulse timing, observation unit, and the pulse-wide verdict rule before
-   the first run. The first completed behaviour pulse will supply the evidence
-   for method activation.
+1. Resume behaviour staging from [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md),
+   [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md) and the
+   [staged pulse diagram](../diagrams/BEHAVIOUR_PULSE.md).
+2. Align the next bounded runtime/library change with D-046; instruction version
+   `1.2.0` still carries earlier guidance. Inspect the bank and composer records
+   as evidence for that comparison.
+3. Align pulse timing, observation unit and the pulse-wide verdict rule before
+   the first behaviour run. Its completed evidence will support method activation.
 
-The closed colour stack below remains comparison context. Its full sequence
-and interpretation live in [B10](../research/020_B10.md), with the latest
-proof in [COLOUR_BOUNDARY_AUDIT](../research/440_COLOUR_BOUNDARY_AUDIT.md).
+## Operating References
 
-## Carried Colour Research Snapshot
+| Need | Owner |
+| --- | --- |
+| Concise source-faithful documentation, maintained as findings emerge | [Charter](CHARTER.md#documentation-governance), D-049/D-050 and [research templates](../runtime/templates/README.md) |
+| Delegation, source capture and two review steps | [Collaboration](../diagrams/COLLABORATION.md) |
+| Commands, workspace procedure and protected-main flow | [Runbook](../runtime/RUNBOOK.md) and [command card](../runtime/START_END_REFERENCE.md) |
+| Day close | `make end` on clean synced `main`, with pending eval count zero; branch preflight is distinct |
+| Mac-wide keep-awake | External Coffee plugin, managed independently of repository lifecycle |
 
-- closed colour research lane: `Beta 1.0`
-- carried prior proof surface: broader corrected `neutral` continuation at
-  `20106..20120`
-- carried warm-edge proof surface: `orange` yellow-gold audit pulse at
-  `20121..20128`
-- carried warm-edge proof surface: `yellow` green / olive audit pulse at
-  `20129..20139`
-- carried warm-edge proof surface: `orange` pale straw / buff / blush audit
-  pulse at `20140..20145`
-- carried warm-edge proof surface: `yellow` residual chartreuse audit pulse at
-  `20146..20150`
-- carried warm-edge proof surface: warm-neutral peach / pearl audit pulse at
-  `20151..20153`
-- carried colour-boundary proof surface: warm low-chroma five-family pulse at
-  `20154..20158`
-- carried colour-boundary proof surface: neutral / brown / orange / yellow
-  pulse at `20159..20162`
-- latest proof surface: colour-boundary neutral / pink / brown / red pulse at
-  `20163..20166`
-- carried prior pulse result: `14 anchors / 1 counted seam / 0 excluded`
-- carried warm-edge pulse result: `8 anchors / 0 counted seams / 0 excluded`
-- carried warm-edge pulse result: `11 anchors / 0 counted seams / 0 excluded`
-- carried warm-edge pulse result: `6 anchors / 0 counted seams / 0 excluded`
-- carried warm-edge pulse result: `5 anchors / 0 counted seams / 0 excluded`
-- carried warm-edge pulse result: `3 anchors / 0 counted seams / 0 excluded`
-- carried colour-boundary pulse result: `5 anchors / 0 counted seams / 0 excluded`
-- carried colour-boundary pulse result: `4 anchors / 0 counted seams / 0 excluded`
-- latest pulse result: `4 anchors / 0 counted seams / 0 excluded`
-- stable red pulse results:
-  - `19692..19706` -> `11 anchors / 4 counted seams / 0 excluded`
-  - `19707..19721` -> `10 anchors / 5 counted seams / 0 excluded`
-- first yellow comparison slice:
-  - `19722..19736` -> `9 anchors / 6 counted seams / 0 excluded`
-- yellow fail surface:
-  - `19737..19751` -> `5 anchors / 10 counted seams / 0 excluded`
-- corrected yellow recovery slice:
-  - `19752..19766` -> `10 anchors / 5 counted seams / 0 excluded`
-- parked yellow close:
-  - `19767..19781` -> `15 anchors / 0 counted seams / 0 excluded`
-- opening green pass:
-  - `19782..19796` -> `15 anchors / 0 counted seams / 0 excluded`
-- parked green close:
-  - `19797..19811` -> `15 anchors / 0 counted seams / 0 excluded`
-- opening blue pass:
-  - `19812..19826` -> `10 anchors / 5 counted seams / 0 excluded`
-- deeper blue continuation:
-  - `19827..19841` -> `10 anchors / 5 counted seams / 0 excluded`
-- parked blue close:
-  - `19842..19856` -> `14 anchors / 1 counted seam / 0 excluded`
-- opening purple pass:
-  - `19857..19871` -> `15 anchors / 0 counted seams / 0 excluded`
-- parked purple close:
-  - `19872..19886` -> `15 anchors / 0 counted seams / 0 excluded`
-- opening pink pass:
-  - `19887..19901` -> `9 anchors / 6 counted seams / 0 excluded`
-- parked pink close:
-  - `19902..19916` -> `15 anchors / 0 counted seams / 0 excluded`
-- opening orange pass:
-  - `19917..19931` -> `9 anchors / 6 counted seams / 0 excluded`
-- deeper orange continuation:
-  - `19932..19946` -> `11 anchors / 4 counted seams / 0 excluded`
-- deeper orange gold-edge continuation:
-  - `19947..19961` -> `10 anchors / 5 counted seams / 0 excluded`
-- orange fail surface:
-  - `19962..19976` -> `7 anchors / 8 counted seams / 0 excluded`
-- parked orange close:
-  - `19977..19991` -> `15 anchors / 0 counted seams / 0 excluded`
-- final orange row-order close:
-  - `19992..20006` -> `15 anchors / 0 counted seams / 0 excluded`
-- opening brown pass:
-  - `20007..20021` -> `15 anchors / 0 counted seams / 0 excluded`
-- deeper brown continuation:
-  - `20022..20036` -> `15 anchors / 0 counted seams / 0 excluded`
-- parked brown close:
-  - `20037..20051` -> `15 anchors / 0 counted seams / 0 excluded`
-- opening neutral pass:
-  - `20052..20066` -> `11 anchors / 4 counted seams / 0 excluded`
-- deeper neutral continuation:
-  - `20067..20081` -> `9 anchors / 6 counted seams / 0 excluded`
-- third neutral continuation fail surface:
-  - `20082..20096` -> `4 anchors / 11 counted seams / 0 excluded`
-- corrected neutral split:
-  - `20097..20099` -> `3 anchors / 0 counted seams / 0 excluded`
-  - `20100..20102` -> `3 anchors / 0 counted seams / 0 excluded`
-  - `20103..20105` -> `3 anchors / 0 counted seams / 0 excluded`
-- broader corrected neutral continuation:
-  - `20106..20120` -> `14 anchors / 1 counted seam / 0 excluded`
-- first warm-edge audit pulse:
-  - `20121..20128` -> `8 anchors / 0 counted seams / 0 excluded`
-- second warm-edge audit pulse:
-  - `20129..20139` -> `11 anchors / 0 counted seams / 0 excluded`
-- third warm-edge audit pulse:
-  - `20140..20145` -> `6 anchors / 0 counted seams / 0 excluded`
-- fourth warm-edge audit pulse:
-  - `20146..20150` -> `5 anchors / 0 counted seams / 0 excluded`
-- fifth warm-edge audit pulse:
-  - `20151..20153` -> `3 anchors / 0 counted seams / 0 excluded`
-- first colour-boundary audit pulse:
-  - `20154..20158` -> `5 anchors / 0 counted seams / 0 excluded`
-- second colour-boundary audit pulse:
-  - `20159..20162` -> `4 anchors / 0 counted seams / 0 excluded`
-- third colour-boundary audit pulse:
-  - `20163..20166` -> `4 anchors / 0 counted seams / 0 excluded`
-- research visuals:
-  - `docs/research/family-range-palette.svg`
-  - `docs/research/family-count-bars.svg`
-  - `docs/research/active-fail-surface-split.svg`
-  - `docs/research/eval-pulse-stack.svg`
-  - `docs/research/eval-residue-family-bars.svg`
-  - regenerate research charts with `npm run charts:research`
-  - derive chart lane labels from row data; archive labels stay annotations
-- historical question before the warm-edge audit: choose the next method or
-  scope after all runtime family lanes have parked reads
-- colour-audit continuation rule: new groups require fresh promoted evidence
-- pulse operator surface: start, label, report, and local quarantine are live
-- historical staging note: `010_PB10`
-- corrected neutral method note: `410_N3`
-- closed beta note: `020_B10`
-- closed warm-edge note: `430_WARM_EDGE_AUDIT`
-- closed colour-boundary note: `440_COLOUR_BOUNDARY_AUDIT`
-- active family lane before the warm-edge audit: none selected after
-  `neutral` park
-- active family lane: none; colour-boundary audit is closed and no pulse is
-  queued
-- tracked research notes:
-  - `000_LEGEND`
-  - `010_PB10`
-  - `020_B10`
-  - `120_BROWN`
-  - `210_RED_ORANGE`
-  - `310_RED_ORANGE_AUDIT`
-  - `410_N3`
-  - `420_RESIDUE`
-  - `430_WARM_EDGE_AUDIT`
-  - `440_COLOUR_BOUNDARY_AUDIT`
-- live DB rule: keep only the latest proof surface in `eval_outputs`
-
-## Guardrails
-
-- keep the repo small and local
-- keep the live runtime surface macOS-local
-- keep one active kernel at a time
-- keep one active sampler at a time
-- keep colour-audit pressure on one family lane at a time when a colour pulse is queued
-- keep the live DB limited to the latest proof surface
-- keep `.local/` and `docs/peanut/` local unless explicitly promoted
-- capture substantive reasoning, findings, method clarifications, and agreed
-  decisions as they emerge, using the [research templates](../runtime/templates/README.md)
-- give research notes and diagrams equal care; keep their meaning aligned under
-  [the documentation contract](CHARTER.md#documentation-governance), without
-  waiting for a separate reminder
-- keep tracked docs truthful to the current repo surface
-- keep every document concise and easy to scan; link supporting detail
-- keep tracked research-note names aligned with the `NNN_CODE` contract
-
-## Pinned Later
-
-- keep the procedure-first execution contract aligned across the repo family
-- carry the same truth order across repos:
-  - docs
-  - live code
-  - live DB
-  - then change
-- keep command and operator surfaces truthful; do not invent behaviour the repo
-  does not actually implement
-
-## Close A Session
-
-1. Run:
-   - `make end`
-2. Treat `make end-preflight` as preflight only:
-   - use it only when an explicit branch-local preflight was requested
-   - do not treat it as a day-close substitute
-
-## Copy/Paste Refresh Prompt
-
-```text
-Run make start. Use the startup-docs read across README.md,
-docs/governance/CHARTER.md, docs/governance/DECISIONS.md,
-docs/runtime/ARCHITECTURE.md, docs/runtime/RUNBOOK.md,
-docs/governance/SESSION_HANDOFF.md, and local
-docs/peanut/governance/SESSION_HANDOFF.md if present. Read the next method in
-docs/research/030_PB_BEHAVIOUR.md and docs/diagrams/BEHAVIOUR_PULSE.md.
-
-In 5 bullets: current state, risks, next kernel, repo or worktree context, and
-active branch.
-
-Confirm environment/workspace context: canonical repo path is
-/abs/path/to/huemiliator, host vs devcontainer mode, active git branch, and
-clean main or feature branch.
-
-Apply no-guessing controls: prefer repo-scoped edits and preserve user shell
-profile files and global VS Code settings unless explicitly approved in-chat.
-
-Carry the agreed direction: stable colour logic, about five positive agent
-directions, reasoning space, and assistant-run and judged 15-minute behaviour
-pulses. Start with the beta notes and diagrams. Use the Next Slice to align
-the next bounded kernel with the human lead, then execute that kernel.
-```
+Keep one active scope, coordinate file ownership, and preserve local evidence
+and private notes in their existing lanes. Read sources before interpretation;
+record findings and diagrams together, with exact wording and attribution.

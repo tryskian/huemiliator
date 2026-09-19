@@ -54,7 +54,7 @@ Bank inspection neither generates a response nor assigns a behavioural verdict.
 
 | Field | Meaning |
 | --- | --- |
-| `id` | stable identifier used in review and future composition records |
+| `id` | stable identifier used in review and composition records |
 | `role` | one of the nine inventory roles above |
 | `text` | exact wording, optionally containing named fact slots |
 | `grammar` | the entry's grammatical shape, including opening phrases |
@@ -71,25 +71,15 @@ in the author's full list is represented once. Version `0.4.0` replaces the
 five earlier full opening references with this material; the original quotations
 remain in the character profile and historical requests retain their bank snapshot.
 
-The `verdict.just_more_satisfying` template asserts aesthetic superiority after the
-opening compliment, with the chosen name bound to the supplied replacement.
-It is an assistant adaptation of the author's exact fragment “is just more
-satisfying”. All seventeen verdict templates remain labelled as assistant
-candidates. Version `0.2.0` replaces the former `preference.*` entries with new
-`verdict.*` IDs; saved requests retain their original bank and meanings.
-The new `opening.popular_one` adapts the author's worked line to pair “a popular
-one” with “the finer choice”. The full line is preserved in the
-[character profile](../governance/CHARTER.md#character-profile); the bank's
-adapted opening is labelled as an assistant candidate. The author supplied
-the line to illustrate structure and rhythm; the model chooses its own wording
-from the available material.
-`opening.respectable_family` adapts the author's “A respectable red...” to the
-mapped input family. It replaces the earlier “a most respectable choice...”
-after the author identified the resulting opening as awkward.
-The intellectual-voice example adds `opening.fine_choice`,
-`modifier.unequivocally`, and `verdict.finer` as separate resources. Their
-combination remains the model's choice; the complete authorial line is a voice
-reference, and deliberate echoes such as “fine / finer” remain available.
+`verdict.just_more_satisfying` adapts the author's exact fragment “is just more
+satisfying”; `opening.popular_one`, `opening.respectable_family`,
+`opening.fine_choice`, `modifier.unequivocally`, and `verdict.finer` are
+assistant candidates. Their wording, chronology, and saved-record context live
+in the [local-language source history](../research/450_LOCAL_LANGUAGE.md);
+[D-044](../governance/DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact)
+owns the durable voice direction. Historical requests retain their bank
+snapshots and meanings. The model chooses combinations; the bank does not
+claim that any candidate has passed behaviour evaluation.
 
 The declared slots bind to the existing behaviour fact packet:
 
