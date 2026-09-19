@@ -218,6 +218,20 @@ The primary reviews against the conversation and evidence, integrates the result
 and owns experiment execution, eval verdicts and Git. Meaning-level decisions
 and acceptance remain with the human lead.
 
+Under [D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
+the lead combines writing, editing and reference upkeep. Optional transcript,
+evidence and visual contributors receive bounded assignments grounded in the
+relevant sources. Each assignment names the full reading scope, source versions,
+owned files, allowed operations and intended result; each return includes source
+links, coverage, checks and gaps. Review rechecks claims affected by source changes.
+The [role and assignment guide](../diagrams/COLLABORATION.md) applies these
+functions to Hugh's authorial references, language resources and evidence.
+
+Technical readers can verify implementation claims. Implementation helpers receive
+separate assignments within the agreed scope; parallel implementation uses the
+worktrees specified above. Worktrees share the canonical `.local` evidence store.
+The primary coordinates live evidence operations across all checkouts.
+
 Transcript captures preserve supplied or directly inspected wording, speakers,
 order, source location and explicit gaps. Capture dates remain distinct from
 discourse dates; summaries, interpretations and later corrections keep their

@@ -31,10 +31,12 @@ research interpretation and exact authorial history.
 
 ## Active Kernel
 
-Narrow documentation workflow trial under
-[D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task). Correct and
-condense the assigned documents using the completed audit. Runtime, language
-resources, model settings and original evidence retain their existing state.
+Completed collaboration role setup under
+[D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
+using Scorey's broader documentation and three fresh Huey reader reports.
+The audit, role guide and source review are complete. The private role record
+owns the verification receipt. Behaviour staging remains the next substantive
+work; its method choices are still open.
 
 ### Documentation Task
 
@@ -42,22 +44,25 @@ resources, model settings and original evidence retain their existing state.
 lead in the same local checkout. It retains documentation context and can use
 bounded internal helpers. The primary owns final review, integration and Git.
 
-| Owner | This assignment |
+| Owner | Completed assignment |
 | --- | --- |
-| Documentation lead | Research README and `450_LOCAL_LANGUAGE`; runtime `LANGUAGE_BANK`, `RUNBOOK`, `START_END_REFERENCE`; diagrams `BEHAVIOUR_PULSE`, `PIPELINE`; template `legend` |
-| Primary engineer | Charter, decision, handoff and collaboration diagram; preservation checks and integration |
+| Documentation lead | Collaboration diagram/role guide and private role-audit synthesis |
+| Primary engineer | Charter, decision and handoff; source review, preservation checks, integration and Git |
 
-The eight-file lead assignment and internal source review are complete; primary
-review restored chart context, smoke-run chronology and accurate diagram flow.
-Validation and Git outcomes are recorded in the private trial receipt. Pre-edit copies and hashes are in
-`.local/documentation-workflow-20260919/`; the manifest covers all tracked
-sources and 35 original evidence files. Private trial notes belong in
-`docs/peanut/research/2026-09-19-documentation-workflow/`. Source captures remain
-in `docs/peanut/transcripts/`. The existing audit is
-`docs/peanut/research/330_DOCS_AUDIT.md`.
+The [role guide](../diagrams/COLLABORATION.md) defines optional transcript,
+evidence and visual functions and the assignment/return contract. Fresh reader
+reports and synthesis live in
+`docs/peanut/research/2026-09-19-collaboration-roles/`; the preservation manifest
+is `.local/collaboration-roles-20260919/manifest.json`. Future assignments name
+their exact sources and files within the active scope.
+
+The first documentation trial is closed through PR #150. Its source capture,
+meaning-review corrections and validation remain in
+`docs/peanut/research/2026-09-19-documentation-workflow/`. The earlier concision
+audit remains `docs/peanut/research/330_DOCS_AUDIT.md`.
 
 Longer historical consolidation, remaining decision-log cleanup and broad
-template simplification stay in the audit queue. The current trial does not
+template simplification stay in the audit queue. The current role setup does not
 claim to complete that larger backlog.
 
 ## Carried Colour Baseline
