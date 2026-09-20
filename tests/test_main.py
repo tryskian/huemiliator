@@ -60,7 +60,8 @@ def test_main_contract_prints_runtime_contract() -> None:
 def test_render_behaviour_contract_exposes_language_eval_boundary() -> None:
     text = render_behaviour_contract()
 
-    assert "status: behaviour eval ready" in text
+    assert "status: bank-free composition ready" in text
+    assert "behaviour pulses: staging" in text
     assert "substrate: fixed runtime colour facts" in text
     assert "eval target: language fidelity, tone fit, evidence fit, consistency" in text
 
@@ -69,13 +70,13 @@ def test_main_behaviour_contract_prints_contract() -> None:
     stdout = io.StringIO()
     with patch(
         "huemiliator.main.render_behaviour_contract",
-        return_value="status: behaviour eval ready",
+        return_value="status: bank-free composition ready",
     ):
         with redirect_stdout(stdout):
             result = main(["behaviour-contract"])
 
     assert result == 0
-    assert stdout.getvalue().strip() == "status: behaviour eval ready"
+    assert stdout.getvalue().strip() == "status: bank-free composition ready"
 
 
 def test_render_colour_library_prints_text_summary() -> None:
