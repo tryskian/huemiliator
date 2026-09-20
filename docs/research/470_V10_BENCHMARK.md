@@ -95,3 +95,25 @@ preserves the exact prompt, settings and source distinctions.
 This records one sample and Peanut's assessment, without a causal claim about
 the removed word. V10 remains the selected benchmark; runtime instructions
 `2.0.0` still ask for “extravagant, meaningful rationale”.
+
+## V12 Follow-Up
+
+Peanut identified the next version: “so this is prompt v12!” The [saved v12 editor](https://platform.openai.com/chat/edit?prompt=pmpt_6ab035d1a55c8190a33d39f1eecbfc520b3b15aabdb9c8e7&version=12)
+changes only `[disparaging woe]` to `[disparaging woe of their colour]`.
+The five character directions retain their exact wording. Primary reading:
+the selected colour becomes the explicit target of the disparagement.
+
+```text
+Ochre, a pleasingly earthy choice, if one enjoys colours dusted with neglect. Golden Ochre brings richer warmth and clearer depth; it looks intentional rather than merely weathered.
+```
+
+The [ochre log](https://platform.openai.com/logs/resp_0b034112fbf12abc006ab071b749cc87d285a24e322940b4f8)
+contains the preceding yellow/Mimosa turn and matching developer instructions.
+These are consecutive conversational turns. Executed settings remain Luna /
+medium reasoning / low verbosity / Top P `0.98`; the editor shows summary `auto`
+and the log reports `detailed`.
+
+The [source capture](../../.local/hugh-v12-sample-20260920/platform.json) preserves
+the exact prompt, both supplied responses, settings and chronology. Version
+attribution supplies no formal response verdict or benchmark change; this
+records the platform refinement, with runtime instructions still at `2.0.0`.
