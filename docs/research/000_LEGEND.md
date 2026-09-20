@@ -23,6 +23,7 @@
 | `CARRIED_WORDING` | `230_CARRIED_WORDING.md` | attributed correction of four carried wording verdicts | `case` | `closed` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `320_BANK_FREE_ALIGNMENT` | `320_BANK_FREE_ALIGNMENT.md` | source audit, adaptation and integration checks | `validation` | `snapshot` |
+| `330_EVAL_ARCHIVE` | `330_EVAL_ARCHIVE.md` | verified archive and empty live eval stores | `validation` | `closed` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |

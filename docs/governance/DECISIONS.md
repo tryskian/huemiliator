@@ -1088,3 +1088,18 @@ into implementation authorship.
   and unchanged canonical evidence hashes. Fresh behavioural judgment remains open.
 - Reference: [Composer contract](../runtime/COMPOSITION.md) and
   [preserved v10 source](../research/470_V10_BENCHMARK.md).
+
+## D-061: Archive current evals before fresh bank-free evaluation
+
+- Date: `2026-09-20`
+- Category: `evidence_governance`
+- Provenance: Peanut requested “also let's archive the current evals”.
+- Decision: Preserve both current SQLite databases, source records and judgment
+  history in a verified local archive, then initialize empty live stores.
+- Result: Four colour rows, six behaviour outputs and six attributed judgments
+  are archived byte-for-byte. Existing FAILs remain; behaviour outputs `4..6`
+  stay unjudged. Sequence continuity keeps future colour IDs above `20166` and
+  behaviour output/judgment IDs above `6`.
+- Boundary: Archival supplies no new verdict, generation or pulse. The notebook
+  reads either empty live state or archived evidence without database writes.
+- Reference: [Archive and verification](../research/330_EVAL_ARCHIVE.md).

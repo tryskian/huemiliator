@@ -171,6 +171,8 @@ remains historical evidence.
 The [behaviour review notebook](./output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
 shows saved swatches, responses and attributed judgments from the local
 [behaviour database](./docs/runtime/BEHAVIOUR_RECORDS.md).
+Both live eval stores are empty after the [verified archive](./docs/research/330_EVAL_ARCHIVE.md);
+earlier responses and judgments remain available for historical review.
 
 Closeout rule:
 
