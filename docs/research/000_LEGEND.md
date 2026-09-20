@@ -21,6 +21,7 @@
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RESPONSE_CONSTRUCTION` | `220_RESPONSE_CONSTRUCTION.md` | historical wording failures and pending cue mini | `case` | `snapshot` |
 | `CARRIED_WORDING` | `230_CARRIED_WORDING.md` | attributed correction of four carried wording verdicts | `case` | `closed` |
+| `YOUR_PINK` | `240_YOUR_PINK.md` | Peanut's contextual high-signal example for shared judgment | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `320_BANK_FREE_ALIGNMENT` | `320_BANK_FREE_ALIGNMENT.md` | source audit, adaptation and integration checks | `validation` | `snapshot` |
 | `330_EVAL_ARCHIVE` | `330_EVAL_ARCHIVE.md` | verified archive and empty live eval stores | `validation` | `closed` |

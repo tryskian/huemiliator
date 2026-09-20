@@ -119,6 +119,10 @@ Each verdict would carry its evaluator attribution, response reference and a sho
 These are proposed criteria; the pulse-wide verdict rule remains to be aligned.
 Reasoning space is evaluated through Huey's observable choices.
 
+Shared calibration: Peanut marked [“your” in “your pink”](240_YOUR_PINK.md) as
+a **high signal** in its supplied response. The case preserves the wording,
+attribution and contextual read; it guides evaluation without prescribing a token.
+
 The author's clarification under
 [D-044](../governance/DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact)
 establishes the manner of Hugh's assertion: aesthetic superiority delivered

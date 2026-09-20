@@ -37,6 +37,9 @@ signal and nuance. Judgments are `PASS` or
 `FAIL` with an attributed, short reason. Shared-phase duration and transition
 to later independent assistant judgment remain open.
 
+Carry [Peanut's “your pink” high-signal case](../research/240_YOUR_PINK.md) into
+shared review as a contextual example; the full response remains the verdict unit.
+
 Before activation, align cases, observation unit, clock/judgment timing,
 in-flight handling, pulse-wide aggregation and completion.
 Existing `compose` supplies inspection records, including returned failures;
