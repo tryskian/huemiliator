@@ -17,10 +17,10 @@ about five positive directions and room to reason.
 
 | Surface | Current state |
 | --- | --- |
-| Direction | [D-056](DECISIONS.md#d-056-establish-a-bank-free-character-foundation): bank-free composition; Peanut's platform examples establish the [foundation](../research/460_BANK_FREE_FOUNDATION.md), with naming still open. D-057 scopes punctuation canaries to Peanut's writing; Hugh's punctuation serves his own voice. |
-| Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed and the D-054 instruction/library slice is implemented; behaviour remains unproven |
+| Direction | [D-058](DECISIONS.md#d-058-adopt-platform-v9-as-hughs-character-base): Peanut accepted v8 and v9 as working variants, selecting saved `huey` v9 as the [bank-free base](../research/460_BANK_FREE_FOUNDATION.md). D-057 scopes punctuation canaries to Peanut's writing. |
+| Character | Hue (Hugh); the accepted v9 prompt has five directions and crisp, brief delivery. The earlier D-054 instruction/library slice remains implemented. |
 | Runtime | local `gpt-5.6-luna` / `medium`; bank `0.5.1`; composer `0.4.0`; instructions `1.3.0`; this earlier bank-based implementation awaits D-056 alignment. Platform prompts/settings are captured in the foundation record. |
-| Evidence | prior [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md) is mechanical-only, with outputs `4..6` pending judgment in the imported record surface |
+| Evidence | platform foundation accepted, with v9 green request preserved at medium reasoning / medium verbosity; editor showed low verbosity. Earlier [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; outputs `4..6` retain pending judgments. |
 | Carried wording correction | `.local/evals.sqlite` rows `20163..20166` are now four Peanut **FAILs**: “the responses are too basic.” Their historical colour-pulse anchors do not establish wording quality; [record](../research/230_CARRIED_WORDING.md) |
 
 Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [local
@@ -61,10 +61,10 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Capture Peanut's latest platform setup, then align bank-free composition, including
+Align bank-free composition with the accepted v9 base and preserved request settings, including
 who selects Hugh's shade: the platform model or the existing colour engine.
 The [foundation record](../research/460_BANK_FREE_FOUNDATION.md) preserves the
-the platform sources and punctuation-scope clarification. This supersedes
+exact prompt, platform sources and punctuation-scope clarification. This supersedes
 the planned bank simplification. Existing outputs `4..6` remain unjudged
 historical evidence; Peanut judges first if that review resumes. Align the pulse
 brief before timed evaluation.

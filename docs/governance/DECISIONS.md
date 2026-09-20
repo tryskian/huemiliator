@@ -1022,3 +1022,25 @@ into implementation authorship.
 - Effect: Withdraw the assistant's proposed punctuation restriction. Historical
   grammar findings and attributed verdicts retain their original scope.
 - Reference: [Foundation record](../research/460_BANK_FREE_FOUNDATION.md#punctuation-scope).
+
+## D-058: Adopt platform v9 as Hugh's character base
+
+- Date: `2026-09-20`
+- Category: `runtime_engineering`
+- Provenance: Peanut accepted the shared outputs as the base, then explicitly
+  selected “V9, the version that produced green” after browser inspection.
+- Decision: Saved prompt `huey` v9 is the authorial base: five character directions
+  and a theatrical same-family colour comparison, with model-owned wording.
+  Its crisp, brief delivery supersedes the earlier verbosity direction in D-046.
+- Comparison: Peanut said “BOTH WORK!”; retain v8 as a working variant. V9 was
+  selected after one green sample avoided “if...” and used “though”. This is a
+  sample observation, with no connector ban or causal finding.
+- Source: The green log identifies v9, Luna / medium reasoning, medium verbosity,
+  detailed summary and Top P `0.98`. The editor showed low verbosity and auto
+  summary; preserve this distinction. V8 has a different response template.
+- Evidence boundary: Foundation acceptance supplies no per-row PASS or completed
+  pulse. Green has no displayed reasoning block; its internal reasoning is not
+  established by that observation.
+- Next: Align the repo composer and shade-selection responsibility with this base.
+  The earlier bank-based runtime and original evidence remain unchanged.
+- Reference: [Exact prompt, output and source settings](../research/460_BANK_FREE_FOUNDATION.md).
