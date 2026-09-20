@@ -17,8 +17,9 @@ about five positive directions and room to reason.
 
 | Surface | Current state |
 | --- | --- |
+| Direction | [D-056](DECISIONS.md#d-056-establish-a-bank-free-character-foundation): bank-free composition; Peanut's platform examples establish the [foundation](../research/460_BANK_FREE_FOUNDATION.md), with naming and punctuation still open |
 | Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed and the D-054 instruction/library slice is implemented; behaviour remains unproven |
-| Runtime | `gpt-5.6-luna` / `medium`; bank `0.5.1`; composer `0.4.0`; instructions `1.3.0` under [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences) |
+| Runtime | local `gpt-5.6-luna` / `medium`; bank `0.5.1`; composer `0.4.0`; instructions `1.3.0`; this earlier bank-based implementation awaits D-056 alignment. Platform prompts/settings are captured in the foundation record. |
 | Evidence | prior [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md) is mechanical-only, with outputs `4..6` pending judgment in the imported record surface |
 | Carried wording correction | `.local/evals.sqlite` rows `20163..20166` are now four Peanut **FAILs**: “the responses are too basic.” Their historical colour-pulse anchors do not establish wording quality; [record](../research/230_CARRIED_WORDING.md) |
 
@@ -60,16 +61,13 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Resume with the three saved responses, outputs `4..6`, through the
-[behaviour-records guide](../runtime/BEHAVIOUR_RECORDS.md). Peanut judges first;
-the assistant records separate judgments afterward.
-
-Peanut reaffirmed following Probaboracle's construction method: concise positive
-directions, vocabulary and connector cues, and model-owned sentences. After the
-judgments, make one focused bank simplification addressing the remaining prepared
-openings and verdict phrases while holding the rest of the setup steady. This
-[next slice](../research/220_RESPONSE_CONSTRUCTION.md#agreed-next-slice) is agreed
-direction, not yet implemented. Align the pulse brief before timed evaluation.
+Align bank-free composition with Peanut's inspected platform setup, including
+who selects Hugh's shade: the platform model or the existing colour engine.
+The [foundation record](../research/460_BANK_FREE_FOUNDATION.md) preserves the
+two examples and an untested positive punctuation direction. This supersedes
+the planned bank simplification. Existing outputs `4..6` remain unjudged
+historical evidence; Peanut judges first if that review resumes. Align the pulse
+brief before timed evaluation.
 
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
 synced `main`, pending eval count zero.

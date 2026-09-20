@@ -80,6 +80,9 @@ This wording removal supplies no new behavioural verdict.
 
 ## Agreed Next Slice
 
+**Superseded September 20:** [D-056's bank-free foundation](460_BANK_FREE_FOUNDATION.md)
+replaces the bank simplification below. Outputs `4..6` retain their pending status.
+
 On September 19, Peanut reaffirmed following Probaboracle's method: concise
 positive directions and shared cues support the model's sentence construction.
 Hugh retains his local vocabulary and connector meanings. The primary's

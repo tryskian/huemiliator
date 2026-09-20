@@ -5,8 +5,8 @@
 | Code | `PB_BEHAVIOUR` |
 | Category | `boundary` |
 | Status | `staged` |
-| Direction recorded | `2026-09-18`; local library and initial shared judgment clarified `2026-09-19` |
-| Last evidence | `2026-09-20`, wording review of the carried colour rows; timed behaviour pulses remain staged |
+| Direction recorded | `2026-09-18`; shared judgment `2026-09-19`; bank-free correction `2026-09-20` |
+| Last evidence | `2026-09-20`, carried wording review and accepted platform character foundation; timed behaviour pulses remain staged |
 | Owns | the transition to assistant-run behaviour evaluation in 15-minute pulses |
 
 ## What This Boundary Asks
@@ -25,15 +25,16 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md) implemented with 105 entries and 14 connector senses |
+| Language direction | [bank-free composition](460_BANK_FREE_FOUNDATION.md) under D-056; existing bank-based implementation awaits alignment |
 | Character | Hue (Hugh), a pretentious and celebrated colour theory academic; the agreed five-point configuration is recorded in D-046 |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
 | Current work | beta notes, diagrams, and staging alignment |
 
 This direction comes from the human lead's September 18 clarification,
 recorded in [D-038](../governance/DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses).
-The September 19 library clarification is recorded in
-[D-039](../governance/DECISIONS.md#d-039-stage-a-local-language-library-and-connector-logic).
+The September 20 bank-free correction under
+[D-056](../governance/DECISIONS.md#d-056-establish-a-bank-free-character-foundation)
+supersedes September 19's local-library direction.
 The implemented directions and proposed pulse mechanics are distinguished below.
 The numbered beta designation remains to be chosen at promotion.
 
@@ -68,7 +69,6 @@ flowchart TD
   A["Stable colour baseline"] --> B["Runtime colour facts"]
   C["About five positive directions<br/>Room for Huey to reason"] --> D["Huey's visible behaviour"]
   B --> D
-  J["Local language library<br/>Meaningful connector relationships"] --> D
   D --> E["Assistant operates pulse<br/>and preserves response evidence"]
   F["Agreed behavioural lens"] --> G
   E --> G["Initial rounds: human lead<br/>and primary judge together"]
@@ -79,9 +79,9 @@ flowchart TD
 ```
 
 The [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md) separates the
-agent's directions, supplied facts, local library, and evaluator's work.
-The [local language draft](450_LOCAL_LANGUAGE.md) shows the proposed library
-structure and how claims, relationships, and wording fit together.
+agent's directions, supplied facts and evaluator's work under D-056. The
+[foundation record](460_BANK_FREE_FOUNDATION.md) owns the new source setup;
+the [local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded design.
 
 ## What This Would Change
 
@@ -104,7 +104,9 @@ bank `0.5.1` supplies verdict cues and grammatical connector roles under
 [D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences).
 Behavioural fidelity remains to be judged.
 
-The composer sends these five positive directions:
+The existing bank-based composer sends these five directions. D-056 supersedes
+its library dependency; the [inspected platform setup](460_BANK_FREE_FOUNDATION.md)
+is recorded for the next alignment:
 
 1. Speak as Hue (Hugh), a pretentious and celebrated colour theory academic, unaware of his own pretension.
 2. Be eloquent, matter-of-fact and groundedly verbose, with sharp taste, wit and immaculate coherence.
@@ -148,7 +150,7 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 
 | Staging choice | Review surface |
 | --- | --- |
-| Composer review | implemented model call, five directions, fact-filtered bank, and inspection record |
+| Composer review | align bank-free composition and shade-selection ownership with the inspected platform setup |
 | Pulse timing | clock start, deadline, judgment timing, and handling of an in-flight response |
 | Judgment contract | initial joint reading, observation unit, case selection, PASS/FAIL criterion, and pulse-wide verdict rule |
 | Pulse evidence | attributed records are implemented; define timed pulse membership and completion |
@@ -172,6 +174,6 @@ The boundary becomes active when the aligned setup produces its first completed
 documented PASS or FAIL supplies that first evidence surface. The beta note
 then records the designation, setup, result, limitations, and next decision.
 
-Immediate next step: inspect [composition records](../runtime/COMPOSITION.md),
-then align pulse timing, case selection, and the judgment contract beside the
+Immediate next step: align the [bank-free foundation](460_BANK_FREE_FOUNDATION.md),
+then pulse timing, case selection and the judgment contract beside the
 [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

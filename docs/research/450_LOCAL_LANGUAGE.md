@@ -4,7 +4,7 @@
 | --- | --- |
 | Code | `LOCAL_LANGUAGE` |
 | Category | `hypothesis` |
-| Status | `staged` |
+| Status | superseded as direction by bank-free D-056; implementation and evidence retained |
 | Last evidence | `2026-09-19 America/Toronto`: fresh three-case cue mini with mechanical results only; behaviour judgments pending |
 | Implementation | aligned bank `0.5.1`, instructions `1.3.0`, composer `0.4.0`; behaviour unproven |
 | Owns | local library structure, sample language, connector relationships, and their evidence boundary |
@@ -15,7 +15,11 @@
 Can a broad local language library support coherent colour arguments and
 expressive range in Hugh's voice, including rhetorical questions?
 
-## Current Claim
+## Historical Claim
+
+Peanut's September 20 [bank-free correction](460_BANK_FREE_FOUNDATION.md)
+supersedes this library hypothesis and its proposed follow-up. The sections
+below preserve the earlier design, authorial sources and implementation history.
 
 A local library of words and meaningful relationships can support coherent
 colour arguments and expressive range in Hugh's academic voice under a compact
@@ -124,7 +128,7 @@ give the local bank a basis for coherent composition while the directions stay
 small. The library and composer carry the detailed structure; the short
 directions carry Hugh's purpose and manner.
 
-## Next Move
+## Historical Proposed Next Move
 
 Use the [composition inspection record](../runtime/COMPOSITION.md) beside the
 [five directions](030_PB_BEHAVIOUR.md#instructions-and-judgment-lens) to align
