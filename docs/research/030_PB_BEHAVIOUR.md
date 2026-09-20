@@ -28,7 +28,7 @@ judgment lens, and execution shape for that focus.
 | Language direction | five bank-free directions adapted from the [v10 benchmark](470_V10_BENCHMARK.md) under D-060, with existing colour responsibilities retained |
 | Character | Hue (Hugh), a pretentious and celebrated colour theory academic; crisp, brief delivery with model-owned wording and reasoning |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
-| Current work | [bank-free integration validation](320_BANK_FREE_ALIGNMENT.md); pulse protocol remains staged |
+| Current work | [bank-free integration checked](320_BANK_FREE_ALIGNMENT.md); ready for shared response judgment, with pulse protocol staged |
 
 This direction comes from the human lead's September 18 clarification,
 recorded in [D-038](../governance/DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses).
@@ -134,7 +134,7 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 
 | Staging choice | Review surface |
 | --- | --- |
-| Composer review | complete integration validation, then judge fresh responses under the shared method |
+| Composer review | judge fresh responses under the shared method after completed mechanical integration checks |
 | Pulse timing | clock start, deadline, judgment timing, and handling of an in-flight response |
 | Judgment contract | initial joint reading, observation unit, case selection, PASS/FAIL criterion, and pulse-wide verdict rule |
 | Pulse evidence | attributed records are implemented; define timed pulse membership and completion |
@@ -157,6 +157,6 @@ The boundary becomes active when the aligned setup produces its first completed
 documented PASS or FAIL supplies that first evidence surface. The beta note
 then records the designation, setup, result, limitations, and next decision.
 
-Immediate next step: complete [integration validation](320_BANK_FREE_ALIGNMENT.md).
-Fresh shared judgment and pulse timing, case selection and the judgment contract
-follow their agreed scope beside the [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
+The [integration checks](320_BANK_FREE_ALIGNMENT.md) are complete. Fresh shared
+judgment is next; pulse timing, case selection and the judgment contract follow
+their agreed scope beside the [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

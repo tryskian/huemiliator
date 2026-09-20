@@ -1083,7 +1083,8 @@ into implementation authorship.
 - Boundary: This refines D-059's benchmark use and implements D-056's bank-free
   direction. Original prompts, outputs and judgments retain their provenance.
   Shared judgment and timed pulse staging remain under D-052/D-038.
-- Validation: [Audit and integration record](../research/320_BANK_FREE_ALIGNMENT.md);
-  integration checks are pending while the implementation branches are assembled.
+- Validation: [Audit and integration record](../research/320_BANK_FREE_ALIGNMENT.md)
+  preserves the reader findings, 213 passing tests, mixed-record notebook execution
+  and unchanged canonical evidence hashes. Fresh behavioural judgment remains open.
 - Reference: [Composer contract](../runtime/COMPOSITION.md) and
   [preserved v10 source](../research/470_V10_BENCHMARK.md).

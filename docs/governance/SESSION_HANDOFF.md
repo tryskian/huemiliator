@@ -61,8 +61,9 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Complete integration validation of the bank-free composer and v1/v2 record
-compatibility, then review fresh responses together when Peanut starts that work.
+The bank-free composer and v1/v2 record compatibility passed
+[mechanical integration checks](../research/320_BANK_FREE_ALIGNMENT.md).
+Next, review fresh responses together when Peanut starts that work.
 The [benchmark record](../research/470_V10_BENCHMARK.md) preserves the exact source;
 [runtime directions](../../src/huemiliator/agent.py) own its adaptation. Existing
 outputs `4..6` remain unjudged historical evidence; Peanut judges first if that

@@ -15,7 +15,7 @@ package versions, or release readiness.
 | Cadence and owner | 15-minute pulses are staged; the primary assistant operates them, and Peanut and the primary assistant judge initial rounds together under [D-052](../governance/DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) |
 | Language direction | [v10 benchmark](470_V10_BENCHMARK.md) adapted under D-060: five positive directions, model-owned wording and stable deterministic colour facts |
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
-| Current kernel | [bank-free integration](320_BANK_FREE_ALIGNMENT.md): composer `0.5.0`, instructions `2.0.0`, Luna / medium / low verbosity / Top P `0.98`; validation precedes fresh shared judgment |
+| Current kernel | [bank-free integration](320_BANK_FREE_ALIGNMENT.md) checked: composer `0.5.0`, instructions `2.0.0`, Luna / medium / low verbosity / Top P `0.98`; fresh shared judgment is next |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
 | [Carried wording correction](230_CARRIED_WORDING.md) | `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
 
