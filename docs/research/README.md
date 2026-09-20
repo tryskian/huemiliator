@@ -102,6 +102,7 @@ it does not report live failures.
 | [000_LEGEND](000_LEGEND.md) | file map, categories, and status language |
 | [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | staged assistant-run behaviour boundary |
 | [220_RESPONSE_CONSTRUCTION](220_RESPONSE_CONSTRUCTION.md) | construction failures, historical study, and archived unjudged cue mini |
+| [240_YOUR_PINK](240_YOUR_PINK.md) | Peanut's high-signal assessment of “your” in context |
 | [320_BANK_FREE_ALIGNMENT](320_BANK_FREE_ALIGNMENT.md) | reader audit, runtime adaptation and integration validation |
 | [330_EVAL_ARCHIVE](330_EVAL_ARCHIVE.md) | preserved evals and judgments, empty live stores and verification |
 | [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | superseded library hypothesis, sources and historical observations |
