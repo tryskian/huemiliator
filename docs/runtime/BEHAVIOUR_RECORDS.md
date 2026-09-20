@@ -4,7 +4,8 @@ Open [Hugh behaviour review](../../output/jupyter-notebook/huemiliator-behaviour
 to inspect saved responses, swatches, setup and attributed judgments. Its
 default is the latest saved mini; change `RUN_ID` to inspect an earlier one.
 Run All opens `.local/behaviour.sqlite` in SQLite read-only mode. It refreshes
-evidence without generating responses or recording judgments.
+evidence without generating responses or recording judgments. An empty live
+store displays an empty-state message.
 
 ## Schema
 
@@ -46,7 +47,7 @@ python -m huemiliator.behaviour_db import .local/behaviour-mini-evals/<run-id>
 Imports preserve original bytes and are idempotent. Conflicting records or
 judgment events fail atomically. The default database is `.local/behaviour.sqlite`;
 an optional `--db <path>` goes before the command. An existing colour database
-is rejected. The colour proof remains in `.local/evals.sqlite`.
+is rejected. `.local/evals.sqlite` is the separate live colour store.
 
 After the evaluator supplies a verdict, record their exact reason and source:
 
@@ -59,10 +60,17 @@ Use `primary assistant` for the assistant's separately attributed judgment
 after Peanut. The notebook refreshes from the database; source mini ledgers
 remain the original import evidence. The database holds subsequent judgments.
 
-## Current Evidence
+## Current and Archived Evidence
 
-Rows `1..3` hold the original mini, with three Peanut FAILs and three assistant
-FAILs. Rows `4..6` hold the cue mini, awaiting both evaluators. These records
-precede bank `0.5.1`'s removal of `verdict.finer_choice`; they retain their
-original wording. The [construction case](../research/220_RESPONSE_CONSTRUCTION.md)
-owns context and limits. The 15-minute pulse protocol remains staged.
+Both live stores are empty following [D-061's verified archive](../research/330_EVAL_ARCHIVE.md).
+For historical review, set the notebook's `DB` to:
+
+```python
+DB = ROOT / ".local/parked/evals-20260920T214702Z-before-bank-free-evaluation/behaviour.sqlite"
+```
+
+Archived rows `1..3` retain three Peanut FAILs and three assistant FAILs;
+`4..6` remain unjudged by both evaluators. These original records precede bank
+`0.5.1`'s wording removal. The [construction case](../research/220_RESPONSE_CONSTRUCTION.md)
+owns their context. New behaviour output and judgment IDs continue from `7`;
+new colour IDs continue from `20167`. The 15-minute pulse protocol remains staged.

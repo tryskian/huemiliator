@@ -11,6 +11,10 @@
 | Current alignment | instructions `1.3.0`; bank `0.5.1`; composer `0.4.0`; 105 language entries, 16 verdict cues and 14 connector senses |
 | Fresh receipt | [cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md): red/green mechanical exit `2`, brown exit `0`; imported as outputs `4..6`, with behaviour judgments pending |
 
+**Archived September 20:** [D-061's archive](330_EVAL_ARCHIVE.md) preserves both
+minis and their judgment history. Outputs `4..6` remain unjudged; the live
+behaviour store is empty. The setup and chronology below are historical.
+
 ## Source Packet
 
 The [mini receipt](../../.local/behaviour-mini-evals/20260920T010230Z-316de2/README.md),

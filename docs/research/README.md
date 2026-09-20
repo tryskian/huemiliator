@@ -17,7 +17,8 @@ package versions, or release readiness.
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
 | Current kernel | [bank-free integration](320_BANK_FREE_ALIGNMENT.md) checked: composer `0.5.0`, instructions `2.0.0`, Luna / medium / low verbosity / Top P `0.98`; fresh shared judgment is next |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
-| [Carried wording correction](230_CARRIED_WORDING.md) | `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
+| [Eval archive](330_EVAL_ARCHIVE.md) | Both live stores are empty; four colour rows, six behaviour outputs and six judgments are preserved locally. Behaviour outputs `4..6` remain unjudged in the archive. |
+| [Carried wording correction](230_CARRIED_WORDING.md) | Archived `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
 
 September 20's bank-free correction supersedes September 19's local-library
 direction. The earlier colour method remains the carried comparison baseline
@@ -100,8 +101,9 @@ it does not report live failures.
 | --- | --- |
 | [000_LEGEND](000_LEGEND.md) | file map, categories, and status language |
 | [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | staged assistant-run behaviour boundary |
-| [220_RESPONSE_CONSTRUCTION](220_RESPONSE_CONSTRUCTION.md) | construction failures, historical study, and fresh cue mini awaiting judgment |
+| [220_RESPONSE_CONSTRUCTION](220_RESPONSE_CONSTRUCTION.md) | construction failures, historical study, and archived unjudged cue mini |
 | [320_BANK_FREE_ALIGNMENT](320_BANK_FREE_ALIGNMENT.md) | reader audit, runtime adaptation and integration validation |
+| [330_EVAL_ARCHIVE](330_EVAL_ARCHIVE.md) | preserved evals and judgments, empty live stores and verification |
 | [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | superseded library hypothesis, sources and historical observations |
 | [460_BANK_FREE_FOUNDATION](460_BANK_FREE_FOUNDATION.md) | historical v8/v9 foundation and inspected comparison sources |
 | [470_V10_BENCHMARK](470_V10_BENCHMARK.md) | current benchmark, exact prompt and three preserved responses |

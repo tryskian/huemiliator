@@ -6,7 +6,11 @@
 | Category | `case` |
 | Status | four human FAILs; current verdicts corrected |
 | Last evidence | `2026-09-20`, review of saved August 3 outputs |
-| Owns | wording judgment of `.local/evals.sqlite` rows `20163..20166` |
+| Owns | wording judgment of colour rows `20163..20166`, now archived |
+
+**Archived September 20:** The [verified eval archive](330_EVAL_ARCHIVE.md)
+preserves these corrected rows and their source ledger. The live stores are
+empty; archival changes no verdict.
 
 ## Case
 

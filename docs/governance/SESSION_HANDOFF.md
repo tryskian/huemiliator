@@ -20,8 +20,8 @@ about five positive directions and room to reason.
 | Direction | [D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow): adapt the [v10 benchmark](../research/470_V10_BENCHMARK.md) to Hugh's existing colour flow. Its exact template stays source evidence; v8/v9 remain comparisons. |
 | Character | Hue (Hugh); five adapted positive directions, crisp delivery, model-owned wording and reasoning. D-057 leaves punctuation to Hugh's voice. |
 | Runtime | bank-free composer `0.5.0`, instructions `2.0.0`; `gpt-5.6-luna` / `medium`, explicit low verbosity / Top P `0.98`. Deterministic family and shade selection supply the two swatches. |
-| Evidence | v10 benchmark: green → yellow → red conversation; all logs use medium reasoning / low verbosity. Earlier [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; outputs `4..6` retain pending judgments. |
-| Carried wording correction | `.local/evals.sqlite` rows `20163..20166` are now four Peanut **FAILs**: “the responses are too basic.” Their historical colour-pulse anchors do not establish wording quality; [record](../research/230_CARRIED_WORDING.md) |
+| Evidence | v10 benchmark: green → yellow → red conversation; all logs use medium reasoning / low verbosity. Both live eval stores are empty after the [verified archive](../research/330_EVAL_ARCHIVE.md). |
+| Archived judgments | Colour rows `20163..20166` retain four Peanut **FAILs**; behaviour rows `1..3` retain both evaluators' FAILs, and `4..6` remain unjudged. Historical colour-pulse anchors do not establish wording quality. |
 
 Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [historical
 local language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
@@ -66,7 +66,7 @@ The bank-free composer and v1/v2 record compatibility passed
 Next, review fresh responses together when Peanut starts that work.
 The [benchmark record](../research/470_V10_BENCHMARK.md) preserves the exact source;
 [runtime directions](../../src/huemiliator/agent.py) own its adaptation. Existing
-outputs `4..6` remain unjudged historical evidence; Peanut judges first if that
+outputs `4..6` remain unjudged in the archive; Peanut judges first if that
 review resumes. Align the pulse brief before timed evaluation.
 
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
