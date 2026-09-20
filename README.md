@@ -19,8 +19,10 @@
 > inspectable wording and connector meanings. The [language composer](./docs/runtime/COMPOSITION.md)
 > now uses those resources under five positive directions; behaviour pulses
 > remain in staging.
-> Current work starts with the [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
-> [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md).
+> Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):
+> current setup, eval method, roles, open choices and next step. It links the
+> [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
+> [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md) for supporting detail.
 
 Huemiliator is a small, local, agent-backed CLI mini chatbot using the
 **[Polinko research model](https://github.com/tryskian/polinko)**.
