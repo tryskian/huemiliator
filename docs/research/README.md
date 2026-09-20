@@ -15,7 +15,7 @@ package versions, or release readiness.
 | Cadence and owner | 15-minute pulses are staged; the primary assistant operates them, and Peanut and the primary assistant judge initial rounds together under [D-052](../governance/DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) |
 | Language direction | [bank-free foundation](460_BANK_FREE_FOUNDATION.md) under D-056; earlier bank-based composer awaits alignment |
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
-| Next kernel | capture the newly reported `v4` setup, then align bank-free composition; shade-selection ownership and naming remain open. Personal-writing punctuation canaries are scoped to Peanut under D-057. |
+| Next kernel | capture the latest platform setup, then align bank-free composition; shade-selection ownership and naming remain open. Personal-writing punctuation canaries are scoped to Peanut under D-057. |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
 | [Carried wording correction](230_CARRIED_WORDING.md) | `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
 

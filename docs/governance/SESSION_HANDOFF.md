@@ -61,7 +61,7 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Capture Peanut's newly reported `v4` setup, then align bank-free composition, including
+Capture Peanut's latest platform setup, then align bank-free composition, including
 who selects Hugh's shade: the platform model or the existing colour engine.
 The [foundation record](../research/460_BANK_FREE_FOUNDATION.md) preserves the
 the platform sources and punctuation-scope clarification. This supersedes
