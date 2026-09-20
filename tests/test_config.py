@@ -41,6 +41,35 @@ def test_reasoning_setting_respects_environment_and_blank_default(
     assert load_settings().reasoning_effort == (effort.strip() or "medium")
 
 
+@pytest.mark.parametrize("verbosity", ["low", "medium", "high", "", "  "])
+def test_verbosity_setting_respects_environment_and_blank_default(
+    verbosity: str, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
+    monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
+    monkeypatch.setenv("HUEMILIATOR_VERBOSITY", verbosity)
+    assert load_settings().verbosity == (verbosity.strip() or "low")
+
+
+@pytest.mark.parametrize("top_p", ["0", "1", "0.7", "", "  "])
+def test_top_p_setting_respects_environment_and_blank_default(
+    top_p: str, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
+    monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
+    monkeypatch.setenv("HUEMILIATOR_TOP_P", top_p)
+    assert load_settings().top_p == (top_p.strip() or 0.98)
+
+
+def test_top_p_validation_is_deferred_to_composition(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
+    monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
+    monkeypatch.setenv("HUEMILIATOR_TOP_P", "not-a-number")
+    assert load_settings().top_p == "not-a-number"
+
+
 def test_model_loads_from_local_env_with_process_precedence(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
@@ -48,15 +77,24 @@ def test_model_loads_from_local_env_with_process_precedence(
     monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
     monkeypatch.delenv("HUEMILIATOR_MODEL", raising=False)
     monkeypatch.delenv("HUEMILIATOR_REASONING_EFFORT", raising=False)
+    monkeypatch.delenv("HUEMILIATOR_VERBOSITY", raising=False)
+    monkeypatch.delenv("HUEMILIATOR_TOP_P", raising=False)
     (tmp_path / ".env").write_text(
         "HUEMILIATOR_MODEL=file-model\nHUEMILIATOR_REASONING_EFFORT=low\n"
+        "HUEMILIATOR_VERBOSITY=high\nHUEMILIATOR_TOP_P=0.8\n"
     )
     assert load_settings().model == "file-model"
     assert load_settings().reasoning_effort == "low"
+    assert load_settings().verbosity == "high"
+    assert load_settings().top_p == "0.8"
     monkeypatch.setenv("HUEMILIATOR_MODEL", "process-model")
     monkeypatch.setenv("HUEMILIATOR_REASONING_EFFORT", "high")
+    monkeypatch.setenv("HUEMILIATOR_VERBOSITY", "medium")
+    monkeypatch.setenv("HUEMILIATOR_TOP_P", "0.6")
     assert load_settings().model == "process-model"
     assert load_settings().reasoning_effort == "high"
+    assert load_settings().verbosity == "medium"
+    assert load_settings().top_p == "0.6"
 
 
 def test_resolve_state_root_uses_checkout_root_when_git_dir_exists(

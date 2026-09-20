@@ -2,7 +2,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | current benchmark selected by Peanut; repo alignment remains open |
+| Status | current behavioural benchmark; runtime adaptation recorded under D-060 |
 | Decision | [D-059](../governance/DECISIONS.md#d-059-select-v10-as-hughs-benchmark) |
 | Source | saved platform [prompt `huey` v10](https://platform.openai.com/chat/edit?prompt=pmpt_6ab035d1a55c8190a33d39f1eecbfc520b3b15aabdb9c8e7&version=10); September 20, 2026 |
 
@@ -27,8 +27,11 @@ response template:
 [user’s colour prompt], [slightly backhanded compliment to that colour] [disparaging woe] [remark that a pantone name colour in that same colour family without the pantone prefix] [with extravagant praise and reason as to why yours is better]
 ```
 
-The model supplies its wording from these directions and response shape. The
-three examples below are saved evidence, separate from the generation prompt.
+This is the platform source, preserved exactly. Peanut clarified: “that's what
+i meant by we use the prompt as a base--not as it is for huey”. Under
+[D-060](../governance/DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow),
+the character and behaviour inform adapted runtime directions; the exact template
+is source evidence. The three examples below remain saved observations.
 
 ## Observed Setup and Samples
 
@@ -58,8 +61,11 @@ All three show reasoning summaries; these are not full internal reasoning traces
 
 ## Use and Next Step
 
-Use v10 as the reference for the next composer alignment. Hugh's punctuation
-serves his own voice under D-057; connector observations create no word bans.
-The prior bank-based runtime remains implemented. Align its request contract and
-shade-selection responsibility with this benchmark, then judge fresh outputs
-under the agreed Peanut-first method. Earlier evidence retains its own verdicts.
+The [runtime directions](../../src/huemiliator/agent.py) adapt this foundation to
+Hugh's existing deterministic family and shade selection. His wording, reasoning
+and sentence construction belong to the model. Hugh's punctuation serves his own
+voice under D-057; connector observations create no word bans.
+
+The [integration record](320_BANK_FREE_ALIGNMENT.md) owns runtime validation.
+Fresh outputs need their own Peanut-first judgment; benchmark acceptance and
+mechanical checks supply no per-row verdict. Earlier evidence retains its scope.

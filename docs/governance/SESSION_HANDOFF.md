@@ -17,14 +17,14 @@ about five positive directions and room to reason.
 
 | Surface | Current state |
 | --- | --- |
-| Direction | [D-059](DECISIONS.md#d-059-select-v10-as-hughs-benchmark): Peanut selected saved `huey` v10 as the [benchmark](../research/470_V10_BENCHMARK.md); v8/v9 remain comparisons. D-057 scopes punctuation canaries to Peanut's writing. |
-| Character | Hue (Hugh); the v10 prompt has five directions and crisp, brief delivery. The earlier D-054 instruction/library slice remains implemented. |
-| Runtime | local `gpt-5.6-luna` / `medium`; bank `0.5.1`; composer `0.4.0`; instructions `1.3.0`; this earlier bank-based implementation awaits alignment with D-059. Platform prompt/settings are captured in the benchmark record. |
+| Direction | [D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow): adapt the [v10 benchmark](../research/470_V10_BENCHMARK.md) to Hugh's existing colour flow. Its exact template stays source evidence; v8/v9 remain comparisons. |
+| Character | Hue (Hugh); five adapted positive directions, crisp delivery, model-owned wording and reasoning. D-057 leaves punctuation to Hugh's voice. |
+| Runtime | bank-free composer `0.5.0`, instructions `2.0.0`; `gpt-5.6-luna` / `medium`, explicit low verbosity / Top P `0.98`. Deterministic family and shade selection supply the two swatches. |
 | Evidence | v10 benchmark: green → yellow → red conversation; all logs use medium reasoning / low verbosity. Earlier [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; outputs `4..6` retain pending judgments. |
 | Carried wording correction | `.local/evals.sqlite` rows `20163..20166` are now four Peanut **FAILs**: “the responses are too basic.” Their historical colour-pulse anchors do not establish wording quality; [record](../research/230_CARRIED_WORDING.md) |
 
-Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [local
-language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
+Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [historical
+local language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
 [closed colour baseline](../research/020_B10.md) and [pipeline](../diagrams/PIPELINE.md).
 Read when working the behaviour kernel.
 
@@ -61,13 +61,13 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Align bank-free composition with the v10 benchmark and preserved request settings, including
-who selects Hugh's shade: the platform model or the existing colour engine.
-The [benchmark record](../research/470_V10_BENCHMARK.md) preserves the exact prompt,
-three responses and source settings; v8/v9 remain linked comparisons. This supersedes
-the planned bank simplification. Existing outputs `4..6` remain unjudged
-historical evidence; Peanut judges first if that review resumes. Align the pulse
-brief before timed evaluation.
+The bank-free composer and v1/v2 record compatibility passed
+[mechanical integration checks](../research/320_BANK_FREE_ALIGNMENT.md).
+Next, review fresh responses together when Peanut starts that work.
+The [benchmark record](../research/470_V10_BENCHMARK.md) preserves the exact source;
+[runtime directions](../../src/huemiliator/agent.py) own its adaptation. Existing
+outputs `4..6` remain unjudged historical evidence; Peanut judges first if that
+review resumes. Align the pulse brief before timed evaluation.
 
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
 synced `main`, pending eval count zero.

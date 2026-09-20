@@ -21,6 +21,10 @@ adapted for Hugh's composition records and two attributed evaluators.
 Outputs are immutable. Judgment revisions append another event. An evaluator
 with no judgment is pending; mechanical checks supply no behaviour verdict.
 The [implementation](../../src/huemiliator/behaviour_db.py) owns schema version 1.
+The importer accepts historical bank-based composition records (`v1`) and
+bank-free records (`v2`). For v2, the legacy `bank_version` column reads
+`not applicable`; no database migration is required. Original bytes, settings
+and contemporaneous mechanical results retain their own record version.
 
 ```mermaid
 flowchart LR

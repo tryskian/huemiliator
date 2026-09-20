@@ -58,6 +58,8 @@ SWATCH_SNAPSHOT_PATH = SOURCE_ROOT / "data" / "margaret2_swatches.json"
 EVAL_DB_PATH = STATE_ROOT / ".local" / "evals.sqlite"
 DEFAULT_MODEL = "gpt-5.6-luna"
 DEFAULT_REASONING_EFFORT = "medium"
+DEFAULT_VERBOSITY = "low"
+DEFAULT_TOP_P = 0.98
 
 
 @dataclass(frozen=True)
@@ -67,6 +69,8 @@ class Settings:
     eval_db_path: Path
     model: str = DEFAULT_MODEL
     reasoning_effort: str = DEFAULT_REASONING_EFFORT
+    verbosity: str = DEFAULT_VERBOSITY
+    top_p: float | str = DEFAULT_TOP_P
 
 
 def load_settings() -> Settings:
@@ -84,4 +88,6 @@ def load_settings() -> Settings:
         model=os.getenv("HUEMILIATOR_MODEL", "").strip() or DEFAULT_MODEL,
         reasoning_effort=os.getenv("HUEMILIATOR_REASONING_EFFORT", "").strip()
         or DEFAULT_REASONING_EFFORT,
+        verbosity=os.getenv("HUEMILIATOR_VERBOSITY", "").strip() or DEFAULT_VERBOSITY,
+        top_p=os.getenv("HUEMILIATOR_TOP_P", "").strip() or DEFAULT_TOP_P,
     )

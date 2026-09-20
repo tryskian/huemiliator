@@ -13,11 +13,13 @@
 > and assistant judge the first rounds together to develop the assistant's
 > reading of signal and nuance.
 >
-> Colour logic is the stable foundation. The planned agent setup uses
+> Colour logic is the stable foundation. The agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
 > The selected [v10 benchmark](./docs/research/470_V10_BENCHMARK.md)
-> gives the model ownership of wording. The existing composer still uses the
-> earlier local bank and awaits alignment with Peanut's platform setup.
+> informs five adapted directions for Hugh's own wording and reasoning.
+> The bank-free composer uses the existing deterministic colour facts;
+> [D-060](./docs/governance/DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
+> records the source-to-runtime distinction.
 > Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):
 > current setup, eval method, roles, open choices and next step. It links the
 > [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
@@ -155,16 +157,6 @@ make startup-docs-read
 make check
 ```
 
-Inspect the earlier language-bank implementation:
-
-```sh
-huemiliator language-bank
-huemiliator language-bank --format json
-```
-
-The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 105 language entries,
-14 connector senses, provenance, usage conditions, and extension workflow.
-
 Compose Hugh's response with the model configured by `HUEMILIATOR_MODEL`:
 
 ```sh
@@ -172,8 +164,10 @@ huemiliator compose '#d9a6a1' --dry-run
 huemiliator compose '#d9a6a1' --format json
 ```
 
-The [composer guide](./docs/runtime/COMPOSITION.md) covers configuration,
-request inspection, visible response, and recording of mechanical failures.
+The [composer guide](./docs/runtime/COMPOSITION.md) covers Luna with medium
+reasoning, low verbosity and Top P `0.98`, request inspection, visible response,
+and recording of mechanical failures. The [earlier bank](./docs/runtime/LANGUAGE_BANK.md)
+remains historical evidence.
 The [behaviour review notebook](./output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
 shows saved swatches, responses and attributed judgments from the local
 [behaviour database](./docs/runtime/BEHAVIOUR_RECORDS.md).
@@ -194,7 +188,7 @@ Closeout rule:
 ## Read Next
 
 - [Pre-Beta: 15-Minute Behaviour Pulses](./docs/research/030_PB_BEHAVIOUR.md)
-  - agreed direction, draft instructions, judgment lens, and staging choices
+  - agreed direction, runtime adaptation, judgment lens, and staging choices
 - [docs/research/README.md](./docs/research/README.md)
   - proof surface and research notes
 - [docs/governance/DECISIONS.md](./docs/governance/DECISIONS.md)

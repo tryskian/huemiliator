@@ -12,14 +12,14 @@ flowchart LR
   H["Peanut / human lead<br/>method and scope"]
   A["Primary assistant<br/>operate, preserve and integrate"]
   C["Deterministic colour engine<br/>facts"]
-  X["Huey<br/>compose response"]
+  X["Hue (Hugh)<br/>free-text composition"]
   J["Initial rounds<br/>Peanut + assistant judge together"]
   I["Later path<br/>assistant judges after alignment"]
   F["Attributed judgments<br/>responses, facts and reasons"]
 
   H -->|"scope + lens"| A
   A -->|"input"| C
-  A -->|"directions + context"| X
+  A -->|"adapted directions + context"| X
   C -->|"colour facts"| X
   X -->|"response + setup"| A
   A -->|"preserved response"| J
@@ -46,21 +46,19 @@ judgment is a later path only after alignment.
 | Initial joint judgment | Peanut and the assistant develop the assistant's reading of signal and nuance |
 | Pulse evidence | preserves actual setup, responses, attributed judgments and reasons |
 
-The diagram follows the [bank-free direction](../research/460_BANK_FREE_FOUNDATION.md)
-under D-056. The existing [composer](../runtime/COMPOSITION.md) still supplies
-bank entries and awaits alignment. The [pipeline](PIPELINE.md) owns that
-implementation detail. The primary assistant operates the pulse;
-Peanut and the assistant share initial judgment, and any later independent
-judgment remains conditional.
+The [composer](../runtime/COMPOSITION.md) adapts the [v10 foundation](../research/470_V10_BENCHMARK.md)
+under D-060. The model owns wording and sentence construction; the deterministic
+[pipeline](PIPELINE.md) supplies colour facts and the replacement. The primary
+operates the pulse, Peanut and the assistant share initial judgment, and any later
+independent judgment remains conditional.
 
 ## Implemented Starting Point
 
-The earlier local library and composer remain implemented. Composition records
-preserve setup and actual output, including mechanical failures. The target
-bank-free setup awaits alignment with the inspected platform prompts, including
-the colour engine's replacement ownership. Timing, observation
-unit, pulse-wide verdict rule and the length of the shared
-judgment phase remain open in the [boundary note](../research/030_PB_BEHAVIOUR.md).
+The bank-free composer uses five adapted directions, Luna / medium reasoning,
+low verbosity and Top P `0.98`. Its v2 local records preserve setup and actual
+free-text output, including mechanical failures. The [integration record](../research/320_BANK_FREE_ALIGNMENT.md)
+owns validation. Timing, observation unit, pulse-wide verdict rule and the length
+of shared judgment remain open in the [boundary note](../research/030_PB_BEHAVIOUR.md).
 
 The [behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) now
 store original records and attributed judgment history. This supplies a review

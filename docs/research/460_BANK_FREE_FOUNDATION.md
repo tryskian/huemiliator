@@ -76,7 +76,7 @@ D-057, Hugh's punctuation serves his character, grammar and meaning. An em dash
 alone supplies no failure signal. The assistant's proposed restriction was
 withdrawn; historical grammar findings and attributed verdicts retain their scope.
 
-## Earlier Stages and Open Alignment
+## Earlier Stages and Runtime Adaptation
 
 D-056 records the bank-free correction and initial red/orange foundation acceptance,
 including the red catalogue-code miss. The [earlier capture](../../.local/bank-free-foundation-20260920/browser-source.json)
@@ -85,10 +85,10 @@ preserve later outputs and reported versions without per-row verdicts.
 Saved v8 and v9 have identical character directions but different response templates;
 both were inspected and retained before Peanut selected v9.
 
-Current alignment follows the [v10 benchmark](470_V10_BENCHMARK.md).
-The platform prompt asks Hugh to choose a same-family shade. The repo currently
-supplies a deterministic replacement and a word bank. Align that responsibility
-and the request contract before claiming the implementations match. Composer
-`0.4.0`, instructions `1.3.0` and bank `0.5.1` remain implemented. Earlier records
-and pending judgments are unchanged; bank simplification is superseded.
-The [staged diagram](../diagrams/BEHAVIOUR_PULSE.md) carries the next method flow.
+The [v10 benchmark](470_V10_BENCHMARK.md) informs the bank-free adaptation under
+[D-060](../governance/DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow).
+The source prompt asks the platform model to choose a shade; Hugh's runtime
+continues to supply the deterministic replacement. His adapted directions guide
+behaviour while leaving wording and sentence construction to the model. Earlier
+records and pending judgments remain unchanged. The [integration record](320_BANK_FREE_ALIGNMENT.md)
+and [staged diagram](../diagrams/BEHAVIOUR_PULSE.md) carry the current work.

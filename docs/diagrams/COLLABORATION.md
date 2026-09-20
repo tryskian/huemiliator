@@ -50,7 +50,7 @@ flowchart TD
 
 | Assignment | Bounded return |
 | --- | --- |
-| Authorial/library mapping | human wording, assistant adaptation, grammar, meaning and provenance |
+| Authorial/source mapping | exact human wording, runtime adaptation, source settings and provenance |
 | Fact/method reading | supported-claim and required-fact table, case coverage and open method choices |
 | Composition evidence | path, setup/version/hash, exact output, mechanical status, attributed verdict state and limits |
 | Diagram or chart | editable source-linked visual with units, chronology and evidence mapping |
@@ -65,9 +65,9 @@ file. Combine small jobs; split only when source coverage or checks are
 independently useful.
 
 Preserve exact authorial wording separately from interpretation. Keep original
-failures, null or unassigned verdicts, model-reported relations and setup
-versions visible. Relations are claims to inspect, not verified reasoning
-traces. The primary supplies future pulse records alongside execution; the
+failures, null or unassigned verdicts and setup versions visible. Historical
+model-reported relations remain claims to inspect, not verified reasoning traces.
+The primary supplies future pulse records alongside execution; the
 documentation team records them without operating the pulse or writing its
 canonical evidence.
 

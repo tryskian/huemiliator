@@ -16,9 +16,10 @@ behaviour evaluation take this profile as their character reference.
 The selected character benchmark is saved platform prompt `huey` v10 under
 [D-059](DECISIONS.md#d-059-select-v10-as-hughs-benchmark).
 The [exact authorial prompt](../research/470_V10_BENCHMARK.md#benchmark-prompt)
-uses five directions and crisp, brief delivery, refining D-046's earlier voice.
-D-056 establishes model-owned wording without a supplied word bank. The existing
-bank-based composer awaits alignment; platform foundation acceptance is recorded.
+records the source. Under [D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow),
+its character and crisp, brief delivery inform five adapted runtime directions.
+Hugh owns wording and reasoning from the supplied colour facts; the colour
+engine owns the replacement. The platform template remains source evidence.
 
 | Aspect | Character direction |
 | --- | --- |
@@ -61,8 +62,8 @@ The author rejected the repeated “choice” in “A popular choice, but Ash ro
 when paired with a differently worded opening.
 
 The author also rejected “A most respectable red”, supplying the simpler
-“A respectable red...” as an example of natural phrasing. The bank adapts that
-correction; the authorial example remains guidance for Hugh's own wording.
+“A respectable red...” as an example of natural phrasing. The authorial example
+remains guidance for Hugh's own wording.
 
 The author supplied “A fine choice, but Green Flash is unequivocally finer.”
 as a further voice reference, explaining “he's an intellectual”. Precise
@@ -81,9 +82,9 @@ family level.
 records this presentation rule.
 
 The [README](../../README.md#meet-hue) introduces him. The
-[local language note](../research/450_LOCAL_LANGUAGE.md) applies this profile
-to the staged library and connector logic, distinguishing authorial references
-from proposed wording. The supplied style image is preserved privately in
+[historical local language note](../research/450_LOCAL_LANGUAGE.md) preserves
+its earlier library application, distinguishing authorial references from proposed
+wording. The supplied style image is preserved privately in
 `docs/peanut/reentry-2026-09-18/references/mcm-ref-2.jpeg`. It establishes the
 illustration style; the depicted figure is a separate character. Hugh's original
 design follows the author's character direction above. Features of the reference
@@ -93,7 +94,7 @@ figure are not additional character requirements.
 
 The author subsequently clarified that the bank should use the adjectives from
 the references, alongside these two supplied phrases. D-047 records the change.
-The current distinct reference entries are:
+The distinct historical reference entries were:
 
 ```text
 bold
@@ -109,8 +110,8 @@ that's a popular
 These are historical authorial references. The earlier library experiment used
 them across families, with model-supplied nouns and sentence construction.
 The [research note](../research/450_LOCAL_LANGUAGE.md#authorial-reference-material)
-preserves the full list and that implementation. The selected D-059 prompt now
-owns construction; the examples retain their role in the character's development.
+preserves the full list and that implementation. D-060's adapted directions
+leave construction to Hugh; the examples retain their role in his development.
 
 The author also places connective language within Hugh's reasoning. His academic
 flourish can develop a thought through deduction, contrast, qualification,
@@ -134,18 +135,16 @@ connective relationships.
 The [character profile](#character-profile) supplies the voice reference for
 this behaviour work.
 
-[D-042](DECISIONS.md#d-042-compose-with-the-configured-model-and-local-language-bank)
-implements a separate model-driven composition command under five positive
-directions. It uses the same deterministic replacement and the local bank;
-`one-up` retains the carried fixed-line behaviour. Generated lines await the
-aligned behaviour pulses. [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences)
-records the first construction alignment: verdict cues and grammatical connector
-roles support Hugh's own sentence construction under the agreed five directions.
+[D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
+applies the benchmark through five adapted positive directions and free-text
+composition. The bank and connector scaffold are retired. The deterministic
+replacement and `one-up`'s carried fixed-line behaviour remain. Generated lines
+await shared behaviour judgment; timed pulses remain staged.
 
 [D-038](DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses)
 records the human-led direction. The
-[staging note](../research/030_PB_BEHAVIOUR.md) owns draft instructions,
-judgment choices, and promotion. The colour runtime and evidence rules below
+[staging note](../research/030_PB_BEHAVIOUR.md) owns judgment choices and
+method promotion; runtime directions live in `agent.py`. The colour runtime and evidence rules below
 describe the carried implementation and `Beta 1.0` baseline.
 
 ## Durable Rules
@@ -167,7 +166,7 @@ describe the carried implementation and `Beta 1.0` baseline.
 - Replacement stays same-family, next-rank, and non-wrapping; `neutral`
   selection is constrained to its undertone bucket.
 - The carried `one-up` loss line remains downstream of the colour decision;
-  the next composition baseline follows bank-free D-056.
+  model composition follows bank-free D-060.
 - Eval semantics stay binary:
   - `PASS`
   - `FAIL`
@@ -240,7 +239,7 @@ relevant sources. Each assignment names the full reading scope, source versions,
 owned files, allowed operations and intended result; each return includes source
 links, coverage, checks and gaps. Review rechecks claims affected by source changes.
 The [role and assignment guide](../diagrams/COLLABORATION.md) applies these
-functions to Hugh's authorial references, language resources and evidence.
+functions to Hugh's authorial sources, runtime directions and evidence.
 
 Technical readers can verify implementation claims. Implementation helpers receive
 separate assignments within the agreed scope; parallel implementation uses the

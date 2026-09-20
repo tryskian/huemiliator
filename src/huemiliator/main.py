@@ -40,7 +40,6 @@ from huemiliator.eval_sampling import (
     sample_local_eval_outputs,
 )
 from huemiliator.eval_scope import EVAL_SCOPE_NAMES, describe_eval_scope
-from huemiliator.language_bank import LanguageBankError, render_language_bank
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.pipeline import build_one_up_state
 from huemiliator.resolution import ResolutionError
@@ -59,19 +58,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     subparsers.add_parser("pick", help="Open the native macOS colour picker.")
 
-    language_bank_parser = subparsers.add_parser(
-        "language-bank", help="Inspect the local starter language bank."
-    )
-    language_bank_parser.add_argument(
-        "--format",
-        choices=("text", "json"),
-        default="text",
-        dest="output_format",
-        help="Text inventory or full bank with usage conditions and provenance.",
-    )
-
     compose_parser = subparsers.add_parser(
-        "compose", help="Compose Hugh's response from fixed facts and the local bank."
+        "compose", help="Compose Hugh's own response from fixed colour facts."
     )
     compose_parser.add_argument("hex_value", help="The colour chosen in the picker.")
     compose_parser.add_argument(
@@ -468,7 +456,9 @@ def build_behaviour_fact_packet(hex_value: str) -> dict[str, Any]:
             "loss_line": state.loss_line,
         },
         "response_contract": {
-            "language_target": "concise one-up judgement with playful precision",
+            "language_target": (
+                "crisp, brief colour judgement with Hugh's academic pretension"
+            ),
             "eval_targets": [
                 "language fidelity",
                 "tone fit",
@@ -510,7 +500,8 @@ def render_behaviour_facts(hex_value: str, output_format: str = "text") -> str:
         f"replacement hex: {replacement['hex']}",
         (f"replacement rank: {replacement['rank']}/{runtime_facts['family_size']}"),
         f"loss line: {runtime_facts['loss_line']}",
-        "language target: concise one-up judgement with playful precision",
+        "language target: crisp, brief colour judgement "
+        "with Hugh's academic pretension",
         "eval target: language fidelity, tone fit, evidence fit, consistency",
     ]
     return "\n".join(lines)
@@ -856,13 +847,6 @@ def main(argv: list[str] | None = None) -> int:
             print(str(exc), file=sys.stderr)
             return 1
         return 0
-    if args.command == "language-bank":
-        try:
-            print(render_language_bank(args.output_format))
-        except LanguageBankError as exc:
-            print(str(exc), file=sys.stderr)
-            return 1
-        return 0
     if args.command == "compose":
         try:
             settings = load_settings()
@@ -870,6 +854,8 @@ def main(argv: list[str] | None = None) -> int:
                 build_behaviour_fact_packet(args.hex_value),
                 settings.model,
                 settings.reasoning_effort,
+                settings.verbosity,
+                settings.top_p,
             )
             if args.dry_run:
                 print(json.dumps(request, ensure_ascii=False, indent=2))
