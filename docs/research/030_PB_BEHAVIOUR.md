@@ -26,7 +26,7 @@ judgment lens, and execution shape for that focus.
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
 | Language direction | [bank-free composition](460_BANK_FREE_FOUNDATION.md) under D-056; existing bank-based implementation awaits alignment |
-| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; the agreed five-point configuration is recorded in D-046 |
+| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; accepted platform v9 refines the five directions with crisp, brief delivery under D-058 |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
 | Current work | beta notes, diagrams, and staging alignment |
 
@@ -95,14 +95,12 @@ the [local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded desig
 
 ## Instructions and Judgment Lens
 
-The [agreed authorial configuration](450_LOCAL_LANGUAGE.md#agreed-authorial-configuration)
-under [D-046](../governance/DECISIONS.md#d-046-record-hughs-agreed-academic-configuration)
-now owns the character direction: grounded verbosity, graceful generic
+The [accepted platform v9 prompt](460_BANK_FREE_FOUNDATION.md#accepted-base)
+under D-058 owns the next character base: crisp, brief delivery, graceful generic
 compliments, meaningful colour rationale, and exacting statements or rhetorical
-questions. Instruction version `1.3.0` implements this character direction;
-bank `0.5.1` supplies verdict cues and grammatical connector roles under
-[D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences).
-Behavioural fidelity remains to be judged.
+questions. It refines D-046's earlier verbosity direction. The repo still runs
+instructions `1.3.0` and bank `0.5.1` under D-054; implementation alignment and
+timed behaviour evidence remain open.
 
 The existing bank-based composer sends these five directions. D-056 supersedes
 its library dependency; the [inspected platform setup](460_BANK_FREE_FOUNDATION.md)
@@ -127,7 +125,7 @@ implementation history, with behavioural fidelity still to be demonstrated.
 | --- | --- |
 | Factual grounding | colour claims and replacement match the supplied facts |
 | Coherence | claims fit together and the connector expresses a supported relationship |
-| Behavioural fit | inspect against D-046's agreed academic configuration, including generic courtesy, meaningful colour rationale, and coherent development |
+| Behavioural fit | inspect against D-058's accepted academic base, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
 | Context fit | the wording fits the actual input and interaction |
 
 Candidate judgment unit: one visible response with its facts and context.
