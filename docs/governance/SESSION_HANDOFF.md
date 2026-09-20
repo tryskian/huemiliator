@@ -18,8 +18,8 @@ about five positive directions and room to reason.
 | Surface | Current state |
 | --- | --- |
 | Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed and the D-054 instruction/library slice is implemented; behaviour remains unproven |
-| Runtime | `gpt-5.6-luna` / `medium`; bank `0.5.0`; composer `0.4.0`; instructions `1.3.0` under [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences) |
-| Evidence | prior [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md) is mechanical-only with behaviour judgments pending |
+| Runtime | `gpt-5.6-luna` / `medium`; bank `0.5.1`; composer `0.4.0`; instructions `1.3.0` under [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences) |
+| Evidence | prior [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md) is mechanical-only, with outputs `4..6` pending judgment in the imported record surface |
 
 Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [local
 language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
@@ -36,10 +36,12 @@ signal and nuance. Judgments are `PASS` or
 to later independent assistant judgment remain open.
 
 Before activation, align cases, observation unit, clock/judgment timing,
-in-flight handling, attributed records, pulse-wide aggregation and completion.
+in-flight handling, pulse-wide aggregation and completion.
 Existing `compose` supplies inspection records, including returned failures;
-mechanical checks are separate from behaviour verdicts. Additional automation
-and storage choices remain proposals.
+mechanical checks are separate from behaviour verdicts. The
+[behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) preserve
+original outputs and attributed judgment history under D-055. Pulse membership,
+timing and aggregation remain open.
 
 ## Ownership and Continuity
 
@@ -57,7 +59,9 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Review the fresh responses against their facts and context. Peanut judges first; separately attributed assistant judgments remain
-pending. Agree a short pulse brief before the first shared run.
+Review the fresh responses against their facts and context through the
+[behaviour-records guide](../runtime/BEHAVIOUR_RECORDS.md). Peanut judges first;
+the assistant records separate judgments afterward. Agree the short pulse brief
+before activating the timed method.
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
 synced `main`, pending eval count zero.

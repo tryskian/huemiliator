@@ -2,7 +2,7 @@
 
 The starter bank is a bundled, editable JSON resource:
 [`src/huemiliator/data/language_bank.json`](../../src/huemiliator/data/language_bank.json).
-Schema `huemiliator.language_bank.v1`, bank version `0.5.0`.
+Schema `huemiliator.language_bank.v1`, bank version `0.5.1`.
 
 It supplies language for the next behaviour beta. The
 [charter's character profile](../governance/CHARTER.md#character-profile) owns
@@ -19,12 +19,12 @@ Grammar, meaning, and usage annotations are assistant-authored.
 | Appraisal words | 27 | `bold`, `lovely`, `sublime` |
 | Modifiers | 11 | `rather`, `essentially`, `yet` |
 | Appraisal phrases | 10 | `a certain elegance`, `a touch of distinction` |
-| Aesthetic verdict cues | 17 | `just more satisfying`, `a quiet distinction` |
+| Aesthetic verdict cues | 16 | `just more satisfying`, `a quiet distinction` |
 | Colour descriptions | 14 | the nine family labels, `the same colour`, `a new name` |
 | Discourse phrases | 2 | `perhaps`, `indeed` |
 | Function words | 2 | possessive `its`, interrogative `which` |
 | Rhetorical phrases | 2 | `begs the question`, `surely` |
-| Total language entries | 106 | 15 authorial references and 91 assistant candidates |
+| Total language entries | 105 | 15 authorial references and 90 assistant candidates |
 
 Fourteen connector records cover twelve words: `and`, `but`, `because`,
 `although`, `therefore`, `however`, `yet`, `which`, `rather`, `essentially`,
@@ -131,6 +131,8 @@ Version `0.5.0` turns the 17 verdict clauses into phrases for Hugh to develop
 in his own complete statement or rhetorical question. Earlier versions remain
 in Git and their original composition records. Connector frames now describe
 grammatical attachment, including independent clauses for semicolons.
+Version `0.5.1` removes `verdict.finer_choice` ("the finer choice") at the
+author's request. Original recorded responses retain their wording.
 
 A question's implied claim belongs in the relationship annotation, with its supporting basis.
 The model owns the complete sentence; these are meaning references, with room

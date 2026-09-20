@@ -6,7 +6,7 @@
 | Category | `hypothesis` |
 | Status | `staged` |
 | Last evidence | `2026-09-19 America/Toronto`: fresh three-case cue mini with mechanical results only; behaviour judgments pending |
-| Implementation | aligned bank `0.5.0`, instructions `1.3.0`, composer `0.4.0`; behaviour unproven |
+| Implementation | aligned bank `0.5.1`, instructions `1.3.0`, composer `0.4.0`; behaviour unproven |
 | Owns | local library structure, sample language, connector relationships, and their evidence boundary |
 | Template | [Hypothesis](../runtime/templates/hypothesis.md) |
 
@@ -42,6 +42,12 @@ configuration in instructions `1.3.0` and bank `0.5.0`; three fresh samples are
 recorded in the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md).
 Its mechanical results are not behaviour judgments; directions and bank changed
 together, so no isolated causal conclusion follows.
+
+[D-055](../governance/DECISIONS.md#d-055-record-behaviour-outputs-in-a-local-notebook-and-sqlite-surface)
+records Peanut's removal of “finer choice” from bank `0.5.1`. The
+[behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) preserve both
+minis and separate evaluator histories. The latest three await both judgments;
+the removal is a wording decision. Original responses remain unchanged.
 
 ### Research Interpretation: Language Participates in Reasoning
 
@@ -246,9 +252,9 @@ verdict.
 | Worked lines | examples with facts, meaning, and voice notes | Mellow rose / Ash rose draft |
 
 The [bank guide](../runtime/LANGUAGE_BANK.md) owns the packaged schema and
-extension workflow. Bank `0.5.0` contains 106 language entries, 15 authorial
-references, 91 assistant candidates, and 14 connector senses. This is the
-current implemented inventory, not a behaviour verdict.
+extension workflow. Bank `0.5.1` contains 105 language entries, 15 authorial
+references, 90 assistant candidates, 16 verdict cues, and 14 connector senses.
+This is the current implemented inventory, not a behaviour verdict.
 
 ### A Small Starting Shelf
 

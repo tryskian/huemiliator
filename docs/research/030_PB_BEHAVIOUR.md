@@ -25,7 +25,7 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md) implemented with 106 entries and 14 connector senses |
+| Language resources | [starter bank](../runtime/LANGUAGE_BANK.md) implemented with 105 entries and 14 connector senses |
 | Character | Hue (Hugh), a pretentious and celebrated colour theory academic; the agreed five-point configuration is recorded in D-046 |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
 | Current work | beta notes, diagrams, and staging alignment |
@@ -99,7 +99,7 @@ under [D-046](../governance/DECISIONS.md#d-046-record-hughs-agreed-academic-conf
 now owns the character direction: grounded verbosity, graceful generic
 compliments, meaningful colour rationale, and exacting statements or rhetorical
 questions. Instruction version `1.3.0` implements this character direction;
-bank `0.5.0` supplies verdict cues and grammatical connector roles under
+bank `0.5.1` supplies verdict cues and grammatical connector roles under
 [D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences).
 Behavioural fidelity remains to be judged.
 
@@ -150,14 +150,16 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 | Composer review | implemented model call, five directions, fact-filtered bank, and inspection record |
 | Pulse timing | clock start, deadline, judgment timing, and handling of an in-flight response |
 | Judgment contract | initial joint reading, observation unit, case selection, PASS/FAIL criterion, and pulse-wide verdict rule |
-| Pulse evidence | attach attributed verdicts and reasons to the implemented composition records; define pulse membership and completion |
+| Pulse evidence | attributed records are implemented; define timed pulse membership and completion |
 
 The existing duration sampler produces deterministic colour rows. Existing
 `behaviour-facts` exports facts and contract metadata. Those are starting
 components for the staged work. The starter language bank, `language-bank`
 inspection, and model-driven `compose` command are available. Composition
 records preserve the exact setup and actual output, including mechanical
-failures. The pulse protocol and judgment record remain staging work.
+failures. The [behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) now
+preserve records and attributed judgments. Pulse membership, timing and
+aggregation remain staging work.
 
 ## What Would Promote It
 
