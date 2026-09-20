@@ -127,6 +127,10 @@ Use this doc for operator procedure.
 
 ## Protected Main PR Flow
 
+Prefix every commit subject with its change type, using `<type>: <description>`:
+for example, `docs:`, `feat:`, `fix:`, or `chore:`. Use the same format for PR
+titles and the resulting squash commit subjects.
+
 1. Work on a feature branch.
 2. Commit locally.
 3. Push the branch.
