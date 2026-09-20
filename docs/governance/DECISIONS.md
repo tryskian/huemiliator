@@ -921,3 +921,19 @@ into implementation authorship.
   new experimental evidence.
 - Reference: [Behaviour beta notes](../research/030_PB_BEHAVIOUR.md) and
   [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
+
+## D-053: Carry the eval orientation in the startup handoff
+
+- Date: `2026-09-19`
+- Category: `workflow_environment`
+- Tags: `startup`, `continuity`, `eval_method`, `concise_documentation`
+- Provenance: `human-led durability requirement after the eval-method audit`
+- Source: The human lead requested a durable, lightweight surface readable at
+  every session start so a fresh assistant can understand the current work.
+- Decision: Use the required tracked [handoff](SESSION_HANDOFF.md) for a compact
+  orientation covering setup, eval method, roles, open choices and next step.
+  Refresh it as those change. Link supporting detail and completed work in their
+  owning records; keep startup understanding independent of private reports.
+- Boundary: This promotes the audited understanding into session continuity.
+  D-046's runtime alignment remains pending, D-052 owns initial joint judgment,
+  and the open pulse rules remain staging choices.

@@ -208,6 +208,12 @@ Preserve source and chronology; distinguish direction, interpretation,
 hypothesis, implementation, and evidence. Keep notes and diagrams aligned as
 the meaning or method changes. D-049 records this standing practice.
 
+The required startup [handoff](SESSION_HANDOFF.md) carries a compact current
+orientation: setup, eval method, roles, open choices and next step. Update it
+when those change; replace completed-work recaps with links to their owning
+records. A fresh assistant can enter through tracked docs without private audit
+reports or conversation history. D-053 records this continuity requirement.
+
 ### Documentation Delegation
 
 Under [D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task), the human
