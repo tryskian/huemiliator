@@ -19,7 +19,7 @@ about five positive directions and room to reason.
 | --- | --- |
 | Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed, broader instruction/library alignment pending |
 | Runtime | `gpt-5.6-luna` / `medium`; bank `0.4.0`; composer `0.4.0`; instructions `1.2.0` |
-| Evidence | first aligned pulse pending; earlier smoke judgments retain their setups and attribution |
+| Evidence | [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md): Peanut judged all three FAIL for repeated endings and flagged punctuation; first aligned pulse pending |
 
 Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [local
 language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
@@ -57,7 +57,8 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Align instructions/library with D-046; `1.2.0` retains earlier brevity/wordplay
-guidance. Agree a short pulse brief before the first shared run.
+Review early response construction against the mini failures before aligning
+instructions/library with D-046. Version `1.2.0` retains earlier guidance.
+Agree a short pulse brief before the first shared run.
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
 synced `main`, pending eval count zero.
