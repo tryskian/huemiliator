@@ -16,7 +16,10 @@ classifier seams before chart and Polinko-facing eval expansion?
 
 ## Status
 
-Closed.
+Closed for colour-boundary judgment. On September 20, Peanut judged all four
+carried responses at `20163..20166` **FAIL** for wording: “the responses are too
+basic.” Their current row verdicts are corrected; the colour-pulse labels below
+remain historical. See the [wording correction](230_CARRIED_WORDING.md).
 
 The first three colour-boundary report pulses launched from the strongest mixed
 Lab bins in `huemiliator colour-boundaries --limit 3 --samples-per-family 1`.
