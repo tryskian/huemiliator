@@ -69,3 +69,29 @@ voice under D-057; connector observations create no word bans.
 The [integration record](320_BANK_FREE_ALIGNMENT.md) owns runtime validation.
 Fresh outputs need their own Peanut-first judgment; benchmark acceptance and
 mechanical checks supply no per-row verdict. Earlier evidence retains its scope.
+
+## V11 Follow-Up
+
+On September 20, Peanut identified this supplied response as **v11** and assessed
+it as **“extremely good!”**:
+
+```text
+Tan, a tasteful if timid compromise, condemned to beige’s shadow. Sand Dollar is its more articulate relation—warmer, subtler, and far better at giving neutrals depth.
+```
+
+The [original message](../../.local/hugh-v11-sample-20260920/message.json) and
+[attribution](../../.local/hugh-v11-sample-20260920/provenance.json) preserve that
+source. Subsequent browser inspection of the [saved v11 editor](https://platform.openai.com/chat/edit?prompt=pmpt_6ab035d1a55c8190a33d39f1eecbfc520b3b15aabdb9c8e7&version=11)
+and [matching tan log](https://platform.openai.com/logs/resp_02bae24bdc7fff91006ab06b8d214c87d2830a9c3f28932e25)
+confirms the prompt differs from v10 only by removing **“extravagant”** from
+`[with extravagant praise and reason as to why yours is better]`.
+
+The log contains developer instructions and one `tan` input, with no earlier
+conversation turns displayed. Settings: Luna / medium reasoning / low verbosity,
+Top P `0.98`, text format; 151 input and 290 output tokens. The log reports
+detailed reasoning summaries; the editor shows `auto`. The [platform capture](../../.local/hugh-v11-sample-20260920/platform.json)
+preserves the exact prompt, settings and source distinctions.
+
+This records one sample and Peanut's assessment, without a causal claim about
+the removed word. V10 remains the selected benchmark; runtime instructions
+`2.0.0` still ask for “extravagant, meaningful rationale”.
