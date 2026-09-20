@@ -1044,3 +1044,21 @@ into implementation authorship.
 - Next: Align the repo composer and shade-selection responsibility with this base.
   The earlier bank-based runtime and original evidence remain unchanged.
 - Reference: [Exact prompt, output and source settings](../research/460_BANK_FREE_FOUNDATION.md).
+
+## D-059: Select v10 as Hugh's benchmark
+
+- Date: `2026-09-20`
+- Category: `runtime_engineering`
+- Provenance: Peanut explicitly selected “yes 10 is the benchmark”.
+- Decision: Saved platform prompt `huey` v10 is the current benchmark for Hugh's
+  behaviour and next composer alignment, superseding D-058's active v9 selection.
+  Preserve v8 and v9 as working comparisons.
+- Source: Browser inspection captured the exact v10 prompt and matching green,
+  yellow and red logs: Luna / medium reasoning / low verbosity, Top P `0.98` and
+  detailed summaries. The editor showed summary `auto`.
+- Evidence boundary: The three responses form one conversation with history.
+  Benchmark selection supplies no per-row PASS or timed pulse result. Connector
+  observations and punctuation preferences introduce no phrase bank or word ban.
+- Implementation: Record the benchmark and source settings; the existing
+  bank-based composer and original evidence remain unchanged.
+- Reference: [V10 benchmark](../research/470_V10_BENCHMARK.md).

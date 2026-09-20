@@ -13,9 +13,9 @@ reaffirmed it on September 19, 2026; [D-040](DECISIONS.md#d-040-hue-is-a-courteo
 records the decision. Generated dialogue, visual design, and
 behaviour evaluation take this profile as their character reference.
 
-The accepted character base is saved platform prompt `huey` v9 under
-[D-058](DECISIONS.md#d-058-adopt-platform-v9-as-hughs-character-base).
-The [exact authorial prompt](../research/460_BANK_FREE_FOUNDATION.md#accepted-base)
+The selected character benchmark is saved platform prompt `huey` v10 under
+[D-059](DECISIONS.md#d-059-select-v10-as-hughs-benchmark).
+The [exact authorial prompt](../research/470_V10_BENCHMARK.md#benchmark-prompt)
 uses five directions and crisp, brief delivery, refining D-046's earlier voice.
 D-056 establishes model-owned wording without a supplied word bank. The existing
 bank-based composer awaits alignment; platform foundation acceptance is recorded.
@@ -109,7 +109,7 @@ that's a popular
 These are historical authorial references. The earlier library experiment used
 them across families, with model-supplied nouns and sentence construction.
 The [research note](../research/450_LOCAL_LANGUAGE.md#authorial-reference-material)
-preserves the full list and that implementation. The accepted D-058 prompt now
+preserves the full list and that implementation. The selected D-059 prompt now
 owns construction; the examples retain their role in the character's development.
 
 The author also places connective language within Hugh's reasoning. His academic
