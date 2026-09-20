@@ -2,7 +2,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | foundation accepted by Peanut; repo alignment and punctuation open |
+| Status | foundation accepted by Peanut; repo alignment open; punctuation scope clarified by D-057 |
 | Source | Peanut's API-platform excerpts and browser inspection, September 20, 2026 |
 | Decision | [D-056](../governance/DECISIONS.md#d-056-establish-a-bank-free-character-foundation) |
 
@@ -28,8 +28,9 @@ with incandescent optimism, cultivated exuberance, and the confidence
 of a sunset that has overdressed.
 ```
 
-Peanut accepted these as “good enough to establish huey's foundation”, while
-identifying the em-dash issue. This supplies a character foundation, without a
+Peanut accepted these as “good enough to establish huey's foundation”, initially
+questioning the em dash. The later clarification below resolves that concern.
+This supplies a character foundation, without a
 formal row PASS, pulse result or independently verified colour rationale.
 
 ## Inspected Platform Setup
@@ -60,19 +61,31 @@ template remained. The visible pink and purple outputs use semicolons and
 shade names without catalogue codes or the Pantone prefix. These are browser
 observations, with no attributed verdict or causal claim about the prompt edit.
 
-Earlier replies repeat the em-dash construction. Context reinforcement is a
-hypothesis to test, not a causal finding. The displayed reasoning summaries
-supply no proof of internal reasoning. The platform prompt asks the model to
+The displayed reasoning summaries supply no proof of internal reasoning.
+The platform prompt asks the model to
 choose the better shade; the repo currently supplies a deterministic replacement.
 That difference needs alignment before claiming equivalent setups.
 
+## Punctuation Scope
+
+Peanut clarified: “those punctuation canaries are for when we're writing for me”.
+Under [D-057](../governance/DECISIONS.md#d-057-scope-punctuation-canaries-to-peanuts-writing),
+Hugh uses punctuation suited to his character, grammar and meaning. An em dash
+alone supplies no failure signal. The assistant's proposed punctuation restriction
+is withdrawn; earlier grammar findings and attributed verdicts retain their scope.
+
+Peanut also supplied yellow and Mauve samples for a new `v4` experiment.
+Their [local source record](../../.local/platform-v4-20260920/shared-samples.json)
+preserves the exact shared outputs and prompt identifier. The yellow response
+contains an em dash; Mauve uses a semicolon. Neither has an attributed verdict.
+`v4` is user-reported; its prompt text/settings have not been inspected here.
+
 ## Open Alignment
 
-The current source for repo alignment is Peanut's `v3`. Rhetorical questions
-remain available under D-046. Earlier assistant suggestions for a fresh-context
-comparison and “Use conjunctions to connect clauses and full stops to separate
-complete statements” remain untested proposals, separate from Peanut's changes.
-The assistant inspected the platform without editing its prompt or generating.
+The latest reported experiment is Peanut's `v4`; `v3` remains the latest
+browser-inspected prompt. Capture the new setup before repo alignment.
+Rhetorical questions remain available under D-046. Punctuation suppression and
+the assistant's earlier context comparison are no longer queued work.
 
 The [staged diagram](../diagrams/BEHAVIOUR_PULSE.md) shows the target flow.
 The repo still implements composer `0.4.0`, instructions `1.3.0` and bank `0.5.1`.
