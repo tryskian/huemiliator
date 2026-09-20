@@ -1001,10 +1001,24 @@ into implementation authorship.
   simplification under D-039/D-041/D-042/D-054. Their implementation and evidence
   remain historical. Character, naming and evaluator-attribution rules continue.
 - Foundation: Peanut accepted two platform examples as good enough to establish
-  Hugh's foundation, with a naming miss in the red line and em-dash usage still
-  open. This is foundation acceptance, not a formal row PASS or pulse result.
+  Hugh's foundation, with a naming miss in the red line. The initial em-dash
+  concern was later resolved by D-057. This is foundation acceptance, not a
+  formal row PASS or pulse result.
 - Next: Align the repo using the inspected platform prompts and settings, keeping
   original history and the revised published prompt distinct. Existing composer `0.4.0`, instructions `1.3.0`
   and bank `0.5.1` remain implemented; bank-free generation is not yet implemented.
 - Reference: [Foundation record](../research/460_BANK_FREE_FOUNDATION.md) preserves
-  the outputs, human assessment, source differences and untested punctuation proposal.
+  the outputs, human assessment, source differences and punctuation clarification.
+
+## D-057: Scope punctuation canaries to Peanut's writing
+
+- Date: `2026-09-20`
+- Category: `evidence_governance`
+- Provenance: Peanut clarified that “those punctuation canaries are for when
+  we're writing for me”.
+- Decision: Hugh uses punctuation that serves his character, grammar and meaning.
+  Peanut's personal-writing canaries apply to writing in Peanut's voice; an em
+  dash alone supplies no Hugh failure signal or remediation task.
+- Effect: Withdraw the assistant's proposed punctuation restriction. Historical
+  grammar findings and attributed verdicts retain their original scope.
+- Reference: [Foundation record](../research/460_BANK_FREE_FOUNDATION.md#punctuation-scope).
