@@ -2,14 +2,13 @@
 
 `huemiliator compose <hex>` uses the fixed colour result and local language bank
 to generate Hugh's visible response through the OpenAI Responses API. Composer
-version `0.4.0` is an implemented staging surface, using instruction version
-`1.2.0` and bank `0.4.0`. The directions and bank now express Hugh's aesthetic
-judgment as settled fact under
-[D-044](../governance/DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact).
-The aligned 15-minute behaviour pulses remain in staging.
-Bank `0.4.0` supplies adjective references and academic connective language,
-including rhetorical-question constructions under D-047 and D-048. The broader
-D-046 instruction alignment remains pending.
+version `0.4.0` uses instruction version `1.3.0` and bank `0.5.0`.
+The five directions implement D-046's academic character profile. Verdict
+entries supply short aesthetic cues; connector frames describe grammatical
+attachment. Hugh develops the argument and sentence in one model generation.
+[D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences)
+records this first construction change. Behaviour judgment remains open, and
+the aligned 15-minute pulses remain in staging.
 
 ## Setup and Use
 

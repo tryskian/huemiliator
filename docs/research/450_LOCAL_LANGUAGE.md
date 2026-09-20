@@ -5,8 +5,8 @@
 | Code | `LOCAL_LANGUAGE` |
 | Category | `hypothesis` |
 | Status | `staged` |
-| Last evidence | `2026-09-19 America/Toronto`: three-case response-construction sample; first behaviour pulse pending |
-| Implementation | starter bank `0.4.0`, instructions `1.2.0`, composer `0.4.0` |
+| Last evidence | `2026-09-19 America/Toronto`: fresh three-case cue mini with mechanical results only; behaviour judgments pending |
+| Implementation | aligned bank `0.5.0`, instructions `1.3.0`, composer `0.4.0`; behaviour unproven |
 | Owns | local library structure, sample language, connector relationships, and their evidence boundary |
 | Template | [Hypothesis](../runtime/templates/hypothesis.md) |
 
@@ -30,9 +30,18 @@ grounding, and pulse promotion remain open.
 
 The [response-construction case](220_RESPONSE_CONSTRUCTION.md) records Peanut's
 judgment of the mini first, followed by separately attributed assistant
-judgments; all three current-setup responses were `FAIL`. Their repeated ending
-and punctuation concern are construction evidence, not a timed pulse or an
-adopted method.
+judgments; all three responses in that prior setup were `FAIL`. Their repeated
+ending and punctuation concern are construction evidence, not a timed pulse or
+an adopted method.
+
+[D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences)
+records the small follow-up: the local bank and one model generation remain,
+full verdict clauses become short cues under the same IDs, and connector
+attachment is clarified. The five positive directions now carry the D-046
+configuration in instructions `1.3.0` and bank `0.5.0`; three fresh samples are
+recorded in the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md).
+Its mechanical results are not behaviour judgments; directions and bank changed
+together, so no isolated causal conclusion follows.
 
 ### Research Interpretation: Language Participates in Reasoning
 
@@ -146,8 +155,9 @@ You are Hue (Hugh)
 | Wit | “fine / finer” illustrates a possibility, not a requirement in every response. |
 
 The configuration supersedes the earlier assistant-authored emphasis on short
-lines and explicit wordplay. The current runtime remains instructions `1.2.0`
-and bank `0.4.0`; broader alignment is pending.
+lines and explicit wordplay. The `1.2.0` / `0.4.0` setup described in earlier
+records is historical; [D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences)
+now carries the aligned `1.3.0` / `0.5.0` slice. Behaviour remains unproven.
 
 ### Character Direction: Write Hue's Voice
 
@@ -236,7 +246,7 @@ verdict.
 | Worked lines | examples with facts, meaning, and voice notes | Mellow rose / Ash rose draft |
 
 The [bank guide](../runtime/LANGUAGE_BANK.md) owns the packaged schema and
-extension workflow. Bank `0.4.0` contains 106 language entries, 15 authorial
+extension workflow. Bank `0.5.0` contains 106 language entries, 15 authorial
 references, 91 assistant candidates, and 14 connector senses. This is the
 current implemented inventory, not a behaviour verdict.
 
@@ -345,7 +355,7 @@ were insufficient for acceptance.
 
 The historical bank-count sequence is `94` in packaged `0.1.0`, the documented
 intermediate `95` at the `0.2.0` step, `98` in packaged `0.3.0`, and `106` in
-current `0.4.0`. The earlier prose saying bank `0.2.0` reached 98 was a version
+then-current `0.4.0`. The earlier prose saying bank `0.2.0` reached 98 was a version
 label error; source history supports `95 -> 98`, not `0.2.0 -> 98`.
 
 Two requests with bank `0.2.0` and the varied-wording direction are preserved
