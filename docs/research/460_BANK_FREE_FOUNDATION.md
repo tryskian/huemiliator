@@ -74,17 +74,17 @@ Hugh uses punctuation suited to his character, grammar and meaning. An em dash
 alone supplies no failure signal. The assistant's proposed punctuation restriction
 is withdrawn; earlier grammar findings and attributed verdicts retain their scope.
 
-Peanut also supplied yellow and Mauve samples for `v4`, then a pink sample for `v5`.
-Their [local source record](../../.local/platform-experiments-20260920/shared-samples.json)
-preserves the exact shared outputs and prompt identifier. The yellow response
-and `v5` pink response contain em dashes; Mauve uses a semicolon. No verdicts
-have been assigned. Versions `v4` and `v5` are user-reported; their prompt
-text/settings have not been inspected here.
+Peanut continues sharing samples while revising the platform prompt. The
+[local source record](../../.local/platform-experiments-20260920/shared-samples.json)
+preserves exact shared outputs, reported versions and the prompt identifier.
+Samples include em dashes, semicolons and separate sentences; no verdicts have
+been assigned. Later version labels are user-reported; their prompt text/settings
+have not been inspected here.
 
 ## Open Alignment
 
-The latest reported experiment is Peanut's `v5`; `v3` remains the latest
-browser-inspected prompt. Capture the new setup before repo alignment.
+`v3` remains the latest browser-inspected prompt while Peanut revises the platform
+setup. Capture the version selected for the next repo alignment.
 Rhetorical questions remain available under D-046. Punctuation suppression and
 the assistant's earlier context comparison are no longer queued work.
 
