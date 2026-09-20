@@ -5,7 +5,7 @@
 | Code | `LOCAL_LANGUAGE` |
 | Category | `hypothesis` |
 | Status | `staged` |
-| Last evidence | `2026-09-19`: authorial direction and composer smoke observations; first behaviour pulse pending |
+| Last evidence | `2026-09-19 America/Toronto`: three-case response-construction sample; first behaviour pulse pending |
 | Implementation | starter bank `0.4.0`, instructions `1.2.0`, composer `0.4.0` |
 | Owns | local library structure, sample language, connector relationships, and their evidence boundary |
 | Template | [Hypothesis](../runtime/templates/hypothesis.md) |
@@ -27,6 +27,12 @@ The human lead chose a local library with explicit connector logic under
 The [composer](../runtime/COMPOSITION.md) now supplies fact-filtered entries
 to the configured model. It is implemented; selection quality, voice, factual
 grounding, and pulse promotion remain open.
+
+The [response-construction case](220_RESPONSE_CONSTRUCTION.md) records Peanut's
+judgment of the mini first, followed by separately attributed assistant
+judgments; all three current-setup responses were `FAIL`. Their repeated ending
+and punctuation concern are construction evidence, not a timed pulse or an
+adopted method.
 
 ### Research Interpretation: Language Participates in Reasoning
 

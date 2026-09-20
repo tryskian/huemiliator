@@ -13,9 +13,9 @@ package versions, or release readiness.
 | --- | --- |
 | [Behaviour boundary](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour on stable colour facts |
 | Cadence and owner | 15-minute pulses are staged; the primary assistant operates them, and Peanut and the primary assistant judge initial rounds together under [D-052](../governance/DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) |
-| Language direction | [local bank](450_LOCAL_LANGUAGE.md) and composer are implemented; behavioural evidence awaits the first aligned pulse |
+| Language direction | [local bank](450_LOCAL_LANGUAGE.md) and composer are implemented; first aligned behaviour pulse pending |
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
-| Next kernel | align D-046 instruction/library setup, then write a short pulse brief using [composition records](../runtime/COMPOSITION.md) |
+| Next kernel | inspect the [response-construction study](220_RESPONSE_CONSTRUCTION.md), then align D-046 instruction/library setup and write a short pulse brief using [composition records](../runtime/COMPOSITION.md) |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
 
 The local-library direction followed the human lead's September 19
@@ -99,6 +99,7 @@ it does not report live failures.
 | --- | --- |
 | [000_LEGEND](000_LEGEND.md) | file map, categories, and status language |
 | [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | staged assistant-run behaviour boundary |
+| [220_RESPONSE_CONSTRUCTION](220_RESPONSE_CONSTRUCTION.md) | three-case construction failure and historical response study |
 | [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | local language hypothesis, sources, observations, and pending test |
 | [020_B10](020_B10.md) | closed `Beta 1.0` colour method |
 | [410_N3](410_N3.md) | closed neutral split correction |
