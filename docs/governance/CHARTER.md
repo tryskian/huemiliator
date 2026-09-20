@@ -16,9 +16,10 @@ behaviour evaluation take this profile as their character reference.
 The latest agreed language configuration is
 [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration). Its
 [full authorial wording and aligned reading](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration)
-govern the aligned construction. D-054 records the small implementation slice:
-instructions `1.3.0` and bank `0.5.0` now carry that direction while composer
-`0.4.0` remains; behaviour is unproven.
+govern the character. [D-056](DECISIONS.md#d-056-establish-a-bank-free-character-foundation)
+now governs construction: the model owns wording under compact positive
+directions. The existing bank-based composer awaits alignment; behaviour remains
+unproven.
 
 | Aspect | Character direction |
 | --- | --- |
@@ -127,9 +128,10 @@ the assistant's reading of high signals, low signals and the nuances between.
 The move to independent assistant judgment remains to be aligned together.
 The agent receives approximately five short, positive directions with room to
 reason. Stable colour logic supplies the foundation.
-The chosen language direction is a local library with explicit relationships
-for connector words, recorded in
-[D-039](DECISIONS.md#d-039-stage-a-local-language-library-and-connector-logic).
+The chosen language direction is bank-free composition under
+[D-056](DECISIONS.md#d-056-establish-a-bank-free-character-foundation), superseding
+the local-library approach in D-039. The model develops both wording and
+connective relationships.
 The [character profile](#character-profile) supplies the voice reference for
 this behaviour work.
 
@@ -165,7 +167,8 @@ describe the carried implementation and `Beta 1.0` baseline.
   - one-up selection
 - Replacement stays same-family, next-rank, and non-wrapping; `neutral`
   selection is constrained to its undertone bucket.
-- The loss line stays fixed-bank and downstream of the colour decision.
+- The carried `one-up` loss line remains downstream of the colour decision;
+  the next composition baseline follows bank-free D-056.
 - Eval semantics stay binary:
   - `PASS`
   - `FAIL`

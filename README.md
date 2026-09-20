@@ -15,10 +15,9 @@
 >
 > Colour logic is the stable foundation. The planned agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
-> The [starter language bank](./docs/runtime/LANGUAGE_BANK.md) now supplies
-> inspectable wording and connector meanings. The [language composer](./docs/runtime/COMPOSITION.md)
-> now uses those resources under five positive directions; behaviour pulses
-> remain in staging.
+> The agreed [bank-free foundation](./docs/research/460_BANK_FREE_FOUNDATION.md)
+> gives the model ownership of wording. The existing composer still uses the
+> earlier local bank and awaits alignment with Peanut's platform setup.
 > Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):
 > current setup, eval method, roles, open choices and next step. It links the
 > [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
@@ -88,7 +87,7 @@ Current research direction:
   and assistant judge initial rounds together, with later independent assistant
   judgment conditional on alignment
 - compact positive instructions with room for Huey to reason
-- a local starter language bank with explicit connector relationships
+- bank-free composition from character direction and grounded colour facts
 - closed `Beta 1.0` colour evidence carried as the baseline
 
 Latest closed proof surface:
@@ -156,7 +155,7 @@ make startup-docs-read
 make check
 ```
 
-Inspect the starter language bank:
+Inspect the earlier language-bank implementation:
 
 ```sh
 huemiliator language-bank

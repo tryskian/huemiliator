@@ -988,3 +988,23 @@ into implementation authorship.
   pass; all six originals match their sources and 51 prior files are unchanged.
   `make check` passes 231 tests, formatting, lint and type checks.
 - Method boundary: Timed behaviour pulses remain staged.
+
+## D-056: Establish a bank-free character foundation
+
+- Date: `2026-09-20`
+- Category: `runtime_engineering`
+- Provenance: Peanut's explicit method correction and platform experiment examples
+- Decision: Compose from Hugh's character, concise positive directions and
+  grounded colour facts. The model owns vocabulary, connections and sentence
+  construction; supplied word banks and prepared wording are outside this method.
+- Supersession: This replaces the bank-based direction and planned bank
+  simplification under D-039/D-041/D-042/D-054. Their implementation and evidence
+  remain historical. Character, naming and evaluator-attribution rules continue.
+- Foundation: Peanut accepted two platform examples as good enough to establish
+  Hugh's foundation, with a naming miss in the red line and em-dash usage still
+  open. This is foundation acceptance, not a formal row PASS or pulse result.
+- Next: Align the repo using the inspected platform prompts and settings, keeping
+  original history and the revised published prompt distinct. Existing composer `0.4.0`, instructions `1.3.0`
+  and bank `0.5.1` remain implemented; bank-free generation is not yet implemented.
+- Reference: [Foundation record](../research/460_BANK_FREE_FOUNDATION.md) preserves
+  the outputs, human assessment, source differences and untested punctuation proposal.
