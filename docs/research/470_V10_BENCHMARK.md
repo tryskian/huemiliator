@@ -69,3 +69,18 @@ voice under D-057; connector observations create no word bans.
 The [integration record](320_BANK_FREE_ALIGNMENT.md) owns runtime validation.
 Fresh outputs need their own Peanut-first judgment; benchmark acceptance and
 mechanical checks supply no per-row verdict. Earlier evidence retains its scope.
+
+## V11 Follow-Up
+
+On September 20, Peanut identified this supplied response as **v11** and assessed
+it as **“extremely good!”**:
+
+```text
+Tan, a tasteful if timid compromise, condemned to beige’s shadow. Sand Dollar is its more articulate relation—warmer, subtler, and far better at giving neutrals depth.
+```
+
+The [original message](../../.local/hugh-v11-sample-20260920/message.json) and
+[attribution](../../.local/hugh-v11-sample-20260920/provenance.json) preserve that
+source. Its prompt, settings and conversation history have not been supplied.
+This records the sample and Peanut's assessment; v10 remains the selected
+benchmark, and the adapted runtime instructions remain `2.0.0`.
