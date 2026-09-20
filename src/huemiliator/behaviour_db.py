@@ -102,9 +102,17 @@ def _insert_output(
     conn: sqlite3.Connection, run_id: str, case_id: str, path: Path, raw: bytes
 ) -> int:
     record = json.loads(raw)
-    if record["schema"] != "huemiliator.composition_record.v1":
-        raise ValueError("Expected an original composition_record.v1 record.")
+    if record["schema"] not in {
+        "huemiliator.composition_record.v1",
+        "huemiliator.composition_record.v2",
+    }:
+        raise ValueError("Expected an original composition_record.v1 or v2 record.")
     request = record["request"]
+    if record["schema"] == "huemiliator.composition_record.v1":
+        bank_version = request["bank_version"]
+    else:
+        # SQL compatibility label only; the original v2 record has no bank version.
+        bank_version = "not applicable"
     material = json.loads(request["api_request"]["input"])
     facts = material["runtime_facts"]
     digest = hashlib.sha256(raw).hexdigest()
@@ -140,7 +148,7 @@ def _insert_output(
             request["api_request"]["model"],
             request["api_request"]["reasoning"]["effort"],
             request["instructions_version"],
-            request["bank_version"],
+            bank_version,
             int(record["mechanical_checks"]["ok"]),
             str(source_path),
             digest,
