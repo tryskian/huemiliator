@@ -7,8 +7,6 @@
     ladder, one-up selection, output composition, and CLI entrypoints
 - `data/margaret2_swatches.json`
   - frozen local swatch reference
-- `src/huemiliator/data/language_bank.json`
-  - packaged starter language resource, separate from the fixed loss-line runtime
 - `.local/evals.sqlite`
   - live eval evidence store
 - `docs/governance/`
@@ -73,17 +71,12 @@ The stable runtime path is:
 
 ## Data Surfaces
 
-- starter language bank:
-  - `huemiliator language-bank --format json`
-  - schema `huemiliator.language_bank.v1`
-  - authored wording, grammar, conditions, provenance, and connector senses
-  - [inspection and extension guide](LANGUAGE_BANK.md)
 - language composition:
   - `huemiliator compose <hex> --dry-run` exposes the exact request
   - `huemiliator compose <hex> --format json` emits a composition record
-  - fixed colour facts plus fact-filtered local bank and five positive directions
-  - OpenAI Responses API using `HUEMILIATOR_MODEL` and
-    `HUEMILIATOR_REASONING_EFFORT`
+  - fixed colour facts plus five positive directions adapted from the v10 benchmark
+  - one free-text OpenAI Responses API generation; local versioned JSON evidence
+  - Luna / medium reasoning / low verbosity / Top P `0.98`, configurable through `.env`
   - [configuration, inspection, and failure handling](COMPOSITION.md)
 - behaviour review:
   - `.local/behaviour.sqlite`: saved compositions and attributed judgment history
@@ -175,10 +168,12 @@ The implemented surface exports fixed colour facts and contract metadata. The
 flow below describes their intended use in response evaluation. The next
 [15-minute behaviour pulse](../diagrams/BEHAVIOUR_PULSE.md) is staged in
 [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md), including assistant operation
-and verdict ownership. The separate model-driven composer now uses the packaged
-bank and fixed colour facts, with the exact request and response exposed for
-inspection. The [behaviour database](BEHAVIOUR_RECORDS.md) preserves attributed judgments;
-the timed pulse procedure remains staging work.
+and verdict ownership. The composer uses five adapted directions and fixed colour
+facts; Hugh owns the wording, connections and sentence construction. The bank and
+connector annotation scaffold are retired. The exact request and free-text response
+remain inspectable in a local v2 record. The [behaviour database](BEHAVIOUR_RECORDS.md)
+imports v1 and v2 originals and preserves attributed judgments; the timed pulse
+procedure remains staging work.
 
 ```mermaid
 flowchart LR

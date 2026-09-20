@@ -25,10 +25,10 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language direction | [bank-free v10 benchmark](470_V10_BENCHMARK.md) under D-059; existing bank-based implementation awaits alignment |
-| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; platform v10 retains the five directions and crisp, brief delivery under D-059 |
+| Language direction | five bank-free directions adapted from the [v10 benchmark](470_V10_BENCHMARK.md) under D-060, with existing colour responsibilities retained |
+| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; crisp, brief delivery with model-owned wording and reasoning |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
-| Current work | beta notes, diagrams, and staging alignment |
+| Current work | [bank-free integration validation](320_BANK_FREE_ALIGNMENT.md); pulse protocol remains staged |
 
 This direction comes from the human lead's September 18 clarification,
 recorded in [D-038](../governance/DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses).
@@ -79,9 +79,9 @@ flowchart TD
 ```
 
 The [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md) separates the
-agent's directions, supplied facts and evaluator's work under D-056. The
-[foundation record](460_BANK_FREE_FOUNDATION.md) owns the new source setup;
-the [local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded design.
+adapted directions, supplied facts and evaluator's work under D-060. The
+[v10 benchmark](470_V10_BENCHMARK.md) owns the exact source setup; the
+[local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded design.
 
 ## What This Would Change
 
@@ -95,37 +95,23 @@ the [local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded desig
 
 ## Instructions and Judgment Lens
 
-The [selected platform v10 prompt](470_V10_BENCHMARK.md#benchmark-prompt)
-under D-059 owns the next character benchmark: crisp, brief delivery, graceful generic
-compliments, meaningful colour rationale, and exacting statements or rhetorical
-questions. It refines D-046's earlier verbosity direction. The repo still runs
-instructions `1.3.0` and bank `0.5.1` under D-054; implementation alignment and
-timed behaviour evidence remain open.
+The [runtime directions](../../src/huemiliator/agent.py) adapt v10's character
+and behavioural foundation under D-060. Five positive directions support Hugh's
+academic pretension, crisp delivery, backhanded courtesy and meaningful rationale
+for the supplied replacement. The model owns wording, connections and sentence
+construction. The [exact platform template](470_V10_BENCHMARK.md#benchmark-prompt)
+remains source evidence.
 
-The existing bank-based composer sends these five directions. D-056 supersedes
-its library dependency; the [inspected platform setup](460_BANK_FREE_FOUNDATION.md)
-is recorded for the next alignment:
-
-1. Speak as Hue (Hugh), a pretentious and celebrated colour theory academic, unaware of his own pretension.
-2. Be eloquent, matter-of-fact and groundedly verbose, with sharp taste, wit and immaculate coherence.
-3. Open with a graceful, empty, generic compliment, naming the chosen colour at family level.
-4. Present the replacement by its supplied Pantone name alone, asserting its aesthetic superiority as settled fact with meaningful colour rationale grounded in the supplied facts.
-5. Draw on the library's cues to compose your own complete statements or rhetorical questions, with connectors and punctuation expressing the relationship between your ideas.
-
-The [implemented composer](../runtime/COMPOSITION.md) leaves expression to Hugh.
-It supplies fixed colour facts and local bank entries to the configured model.
-The fixed family lines remain in the carried `one-up` path under D-006 and are
-omitted from the composer request under D-042. Detailed entry conditions and
-relationship definitions live in the [library note](450_LOCAL_LANGUAGE.md).
-The [character direction and authorial openings](450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice)
-ground these directions in the human lead's clarification. Existing fixed lines are
-implementation history, with behavioural fidelity still to be demonstrated.
+Composer `0.5.0` / instructions `2.0.0` use Luna, medium reasoning, low verbosity
+and Top P `0.98`. The [composer guide](../runtime/COMPOSITION.md) owns the request
+and record contract. Colour selection and labelled swatches remain deterministic;
+the legacy fixed family line stays outside the composition request.
 
 | Candidate evaluation lens | What the assistant inspects |
 | --- | --- |
 | Factual grounding | colour claims and replacement match the supplied facts |
 | Coherence | claims fit together and the connector expresses a supported relationship |
-| Behavioural fit | inspect against D-059's selected benchmark, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
+| Behavioural fit | inspect against the v10 behavioural benchmark and D-060 adaptation, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
 | Context fit | the wording fits the actual input and interaction |
 
 Candidate judgment unit: one visible response with its facts and context.
@@ -148,17 +134,16 @@ give the research a repeatable occasion to inspect, judge, and choose again.
 
 | Staging choice | Review surface |
 | --- | --- |
-| Composer review | align bank-free composition and shade-selection ownership with the inspected platform setup |
+| Composer review | complete integration validation, then judge fresh responses under the shared method |
 | Pulse timing | clock start, deadline, judgment timing, and handling of an in-flight response |
 | Judgment contract | initial joint reading, observation unit, case selection, PASS/FAIL criterion, and pulse-wide verdict rule |
 | Pulse evidence | attributed records are implemented; define timed pulse membership and completion |
 
 The existing duration sampler produces deterministic colour rows. Existing
 `behaviour-facts` exports facts and contract metadata. Those are starting
-components for the staged work. The starter language bank, `language-bank`
-inspection, and model-driven `compose` command are available. Composition
-records preserve the exact setup and actual output, including mechanical
-failures. The [behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) now
+components for the staged work. The bank-free `compose` command preserves the
+exact setup and actual free-text output, including mechanical failures. The
+[behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) now
 preserve records and attributed judgments. Pulse membership, timing and
 aggregation remain staging work.
 
@@ -172,6 +157,6 @@ The boundary becomes active when the aligned setup produces its first completed
 documented PASS or FAIL supplies that first evidence surface. The beta note
 then records the designation, setup, result, limitations, and next decision.
 
-Immediate next step: align the [bank-free foundation](460_BANK_FREE_FOUNDATION.md),
-then pulse timing, case selection and the judgment contract beside the
-[execution diagram](../diagrams/BEHAVIOUR_PULSE.md).
+Immediate next step: complete [integration validation](320_BANK_FREE_ALIGNMENT.md).
+Fresh shared judgment and pulse timing, case selection and the judgment contract
+follow their agreed scope beside the [execution diagram](../diagrams/BEHAVIOUR_PULSE.md).

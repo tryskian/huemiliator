@@ -6,7 +6,7 @@
 | Category | `legend` |
 | Status | `active` |
 | Last evidence | `2026-08-03` |
-| Last updated | `2026-09-19` |
+| Last updated | `2026-09-20` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -19,22 +19,28 @@
 | `PB_BEHAVIOUR` | `030_PB_BEHAVIOUR.md` | assistant-run 15-minute behaviour pulse staging | `boundary` | `staged` |
 | `BROWN` | `120_BROWN.md` | brown context-dependence lane | `lane` | `snapshot` |
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
+| `RESPONSE_CONSTRUCTION` | `220_RESPONSE_CONSTRUCTION.md` | historical wording failures and pending cue mini | `case` | `snapshot` |
+| `CARRIED_WORDING` | `230_CARRIED_WORDING.md` | attributed correction of four carried wording verdicts | `case` | `closed` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
+| `320_BANK_FREE_ALIGNMENT` | `320_BANK_FREE_ALIGNMENT.md` | source audit, adaptation and integration checks | `validation` | `running` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
 | `COLOUR_BOUNDARY_AUDIT` | `440_COLOUR_BOUNDARY_AUDIT.md` | colour-boundary report pulse proof | `validation` | `closed` |
-| `LOCAL_LANGUAGE` | `450_LOCAL_LANGUAGE.md` | local language library and connector relationship draft | `hypothesis` | `staged` |
+| `LOCAL_LANGUAGE` | `450_LOCAL_LANGUAGE.md` | superseded library hypothesis and source history | `hypothesis` | `archived` |
+| `BANK_FREE_FOUNDATION` | `460_BANK_FREE_FOUNDATION.md` | preserved v8/v9 platform comparisons | `hypothesis` | `snapshot` |
+| `V10_BENCHMARK` | `470_V10_BENCHMARK.md` | selected behavioural foundation and exact source evidence | `hypothesis` | `snapshot` |
 
 `RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
 surface promoted from that map. `COLOUR_BOUNDARY_AUDIT` is the report-derived
 proof surface for mixed Lab bins.
 
-`PB_BEHAVIOUR` owns the chosen next research direction. Its draft instructions
-and judgment mechanics are staging choices; the closed colour findings remain
-the carried baseline.
-`LOCAL_LANGUAGE` develops the chosen local-library direction within that staging
-boundary; its structure and example wording are proposals awaiting review.
+`PB_BEHAVIOUR` owns the next research direction and staged judgment mechanics.
+The runtime directions are implemented; the closed colour findings remain the
+carried baseline.
+`LOCAL_LANGUAGE` preserves the superseded experiment. `V10_BENCHMARK` owns the
+selected platform source; `320_BANK_FREE_ALIGNMENT` records its adaptation to Hugh's
+existing colour flow. Source templates remain distinct from runtime directions.
 
 ## Ordering
 

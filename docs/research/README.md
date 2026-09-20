@@ -13,9 +13,9 @@ package versions, or release readiness.
 | --- | --- |
 | [Behaviour boundary](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour on stable colour facts |
 | Cadence and owner | 15-minute pulses are staged; the primary assistant operates them, and Peanut and the primary assistant judge initial rounds together under [D-052](../governance/DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) |
-| Language direction | [bank-free benchmark](470_V10_BENCHMARK.md): saved `huey` v10 selected under D-059; earlier bank-based composer awaits alignment |
+| Language direction | [v10 benchmark](470_V10_BENCHMARK.md) adapted under D-060: five positive directions, model-owned wording and stable deterministic colour facts |
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
-| Next kernel | align bank-free composition with v10 and its captured request settings; resolve shade-selection responsibility and preserve name-only output. Punctuation follows Hugh's own voice under D-057. |
+| Current kernel | [bank-free integration](320_BANK_FREE_ALIGNMENT.md): composer `0.5.0`, instructions `2.0.0`, Luna / medium / low verbosity / Top P `0.98`; validation precedes fresh shared judgment |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
 | [Carried wording correction](230_CARRIED_WORDING.md) | `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
 
@@ -101,6 +101,7 @@ it does not report live failures.
 | [000_LEGEND](000_LEGEND.md) | file map, categories, and status language |
 | [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | staged assistant-run behaviour boundary |
 | [220_RESPONSE_CONSTRUCTION](220_RESPONSE_CONSTRUCTION.md) | construction failures, historical study, and fresh cue mini awaiting judgment |
+| [320_BANK_FREE_ALIGNMENT](320_BANK_FREE_ALIGNMENT.md) | reader audit, runtime adaptation and integration validation |
 | [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | superseded library hypothesis, sources and historical observations |
 | [460_BANK_FREE_FOUNDATION](460_BANK_FREE_FOUNDATION.md) | historical v8/v9 foundation and inspected comparison sources |
 | [470_V10_BENCHMARK](470_V10_BENCHMARK.md) | current benchmark, exact prompt and three preserved responses |

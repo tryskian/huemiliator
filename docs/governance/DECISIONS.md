@@ -1062,3 +1062,28 @@ into implementation authorship.
 - Implementation: Record the benchmark and source settings; the existing
   bank-based composer and original evidence remain unchanged.
 - Reference: [V10 benchmark](../research/470_V10_BENCHMARK.md).
+
+## D-060: Adapt the v10 foundation to Hugh's colour flow
+
+- Date: `2026-09-20`
+- Category: `runtime_engineering`
+- Provenance: Peanut requested reader audits before orchestrated changes, then
+  clarified “that's what i meant by we use the prompt as a base--not as it is for huey”.
+- Decision: Adapt v10's character and behavioural direction into five compact
+  positive runtime directions. Hugh owns wording, connections and sentence
+  construction; the existing colour engine owns family and replacement selection.
+  The exact platform prompt, its template and samples remain source evidence.
+- Implementation: Composer `0.5.0`, instructions `2.0.0` use plain-text generation
+  and retire the supplied bank, connector scaffold and inspection command. Luna /
+  medium reasoning continues, with explicit low verbosity and Top P `0.98`.
+  The two labelled swatches and legacy `one-up` path retain their contracts.
+- Records: Local v2 JSON preserves the request and original free-text output;
+  the importer accepts v1/v2 without migrating existing evidence. The legacy bank
+  column reads `not applicable` for v2. Mechanical checks supply no behaviour verdict.
+- Boundary: This refines D-059's benchmark use and implements D-056's bank-free
+  direction. Original prompts, outputs and judgments retain their provenance.
+  Shared judgment and timed pulse staging remain under D-052/D-038.
+- Validation: [Audit and integration record](../research/320_BANK_FREE_ALIGNMENT.md);
+  integration checks are pending while the implementation branches are assembled.
+- Reference: [Composer contract](../runtime/COMPOSITION.md) and
+  [preserved v10 source](../research/470_V10_BENCHMARK.md).
