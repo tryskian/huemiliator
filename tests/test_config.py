@@ -58,17 +58,16 @@ def test_top_p_setting_respects_environment_and_blank_default(
     monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
     monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
     monkeypatch.setenv("HUEMILIATOR_TOP_P", top_p)
-    assert load_settings().top_p == (float(top_p) if top_p.strip() else 0.98)
+    assert load_settings().top_p == (top_p.strip() or 0.98)
 
 
-def test_malformed_top_p_reports_the_setting(
+def test_top_p_validation_is_deferred_to_composition(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
     monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
     monkeypatch.setenv("HUEMILIATOR_TOP_P", "not-a-number")
-    with pytest.raises(ValueError, match="HUEMILIATOR_TOP_P"):
-        load_settings()
+    assert load_settings().top_p == "not-a-number"
 
 
 def test_model_loads_from_local_env_with_process_precedence(
@@ -87,7 +86,7 @@ def test_model_loads_from_local_env_with_process_precedence(
     assert load_settings().model == "file-model"
     assert load_settings().reasoning_effort == "low"
     assert load_settings().verbosity == "high"
-    assert load_settings().top_p == 0.8
+    assert load_settings().top_p == "0.8"
     monkeypatch.setenv("HUEMILIATOR_MODEL", "process-model")
     monkeypatch.setenv("HUEMILIATOR_REASONING_EFFORT", "high")
     monkeypatch.setenv("HUEMILIATOR_VERBOSITY", "medium")
@@ -95,7 +94,7 @@ def test_model_loads_from_local_env_with_process_precedence(
     assert load_settings().model == "process-model"
     assert load_settings().reasoning_effort == "high"
     assert load_settings().verbosity == "medium"
-    assert load_settings().top_p == 0.6
+    assert load_settings().top_p == "0.6"
 
 
 def test_resolve_state_root_uses_checkout_root_when_git_dir_exists(

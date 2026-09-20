@@ -38,7 +38,7 @@ def build_composition_request(
     model: str,
     reasoning_effort: str = DEFAULT_REASONING_EFFORT,
     verbosity: str = DEFAULT_VERBOSITY,
-    top_p: float = DEFAULT_TOP_P,
+    top_p: float | str = DEFAULT_TOP_P,
 ) -> dict[str, Any]:
     """Prepare a free-text request from Hugh's directions and fixed colour facts."""
     if reasoning_effort not in {"none", "low", "medium", "high", "xhigh", "max"}:
@@ -48,7 +48,13 @@ def build_composition_request(
         )
     if verbosity not in {"low", "medium", "high"}:
         raise ValueError("HUEMILIATOR_VERBOSITY must be low, medium or high.")
-    if not 0 <= top_p <= 1:
+    try:
+        sampling_probability = float(top_p)
+    except ValueError:
+        raise ValueError(
+            "HUEMILIATOR_TOP_P must be a number between 0 and 1."
+        ) from None
+    if not 0 <= sampling_probability <= 1:
         raise ValueError("HUEMILIATOR_TOP_P must be a number between 0 and 1.")
     facts = {k: v for k, v in fact_packet["runtime_facts"].items() if k != "loss_line"}
     input_hex = fact_packet["input"]["hex"]
@@ -78,7 +84,7 @@ def build_composition_request(
         ),
         "input": json.dumps(material, ensure_ascii=False),
         "text": {"format": {"type": "text"}, "verbosity": verbosity},
-        "top_p": top_p,
+        "top_p": sampling_probability,
         "max_output_tokens": MAX_OUTPUT_TOKENS,
         "store": False,
     }

@@ -115,6 +115,7 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     [
         ({"reasoning_effort": "typo"}, "HUEMILIATOR_REASONING_EFFORT"),
         ({"verbosity": "typo"}, "HUEMILIATOR_VERBOSITY"),
+        ({"top_p": "typo"}, "HUEMILIATOR_TOP_P"),
         ({"top_p": -0.1}, "HUEMILIATOR_TOP_P"),
         ({"top_p": 1.1}, "HUEMILIATOR_TOP_P"),
         ({"top_p": float("nan")}, "HUEMILIATOR_TOP_P"),
@@ -155,6 +156,35 @@ def test_sdk_serializes_request_and_record_retains_exact_plain_text(
     assert record["started_at"] <= record["completed_at"]
     assert record["mechanical_checks"] == {"ok": True, "issues": []}
     assert record["behaviour_verdict"] is None
+
+
+def test_top_p_environment_text_becomes_a_numeric_api_setting() -> None:
+    request = build_composition_request(
+        build_behaviour_fact_packet("#d9a6a1"), "test-model", top_p="0.98"
+    )
+    assert request["api_request"]["top_p"] == 0.98
+    assert isinstance(request["api_request"]["top_p"], float)
+
+
+def test_invalid_top_p_only_blocks_composition(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    monkeypatch.setenv("HUEMILIATOR_TOP_P", "typo")
+    with (
+        patch("huemiliator.config.load_dotenv"),
+        patch("huemiliator.main.generate_composition") as generate,
+    ):
+        assert main(["compose", "#d9a6a1"]) == 1
+        composition_output = capsys.readouterr()
+        assert composition_output.out == ""
+        assert composition_output.err.strip() == (
+            "HUEMILIATOR_TOP_P must be a number between 0 and 1."
+        )
+        assert main(["resolve", "#d9a6a1"]) == 0
+        resolution_output = capsys.readouterr()
+        assert "nearest swatch: Mellow rose" in resolution_output.out
+        assert resolution_output.err == ""
+        generate.assert_not_called()
 
 
 @pytest.mark.parametrize("response", [None, "", " \n", {"response": "Ash rose"}])

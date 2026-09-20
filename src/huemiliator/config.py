@@ -70,7 +70,7 @@ class Settings:
     model: str = DEFAULT_MODEL
     reasoning_effort: str = DEFAULT_REASONING_EFFORT
     verbosity: str = DEFAULT_VERBOSITY
-    top_p: float = DEFAULT_TOP_P
+    top_p: float | str = DEFAULT_TOP_P
 
 
 def load_settings() -> Settings:
@@ -81,13 +81,6 @@ def load_settings() -> Settings:
             continue
         load_dotenv(env_path, override=False)
         seen.add(env_path)
-    raw_top_p = os.getenv("HUEMILIATOR_TOP_P", "").strip()
-    try:
-        top_p = float(raw_top_p) if raw_top_p else DEFAULT_TOP_P
-    except ValueError:
-        raise ValueError(
-            "HUEMILIATOR_TOP_P must be a number between 0 and 1."
-        ) from None
     return Settings(
         app_name="Huemiliator",
         swatch_snapshot_path=SWATCH_SNAPSHOT_PATH,
@@ -96,5 +89,5 @@ def load_settings() -> Settings:
         reasoning_effort=os.getenv("HUEMILIATOR_REASONING_EFFORT", "").strip()
         or DEFAULT_REASONING_EFFORT,
         verbosity=os.getenv("HUEMILIATOR_VERBOSITY", "").strip() or DEFAULT_VERBOSITY,
-        top_p=top_p,
+        top_p=os.getenv("HUEMILIATOR_TOP_P", "").strip() or DEFAULT_TOP_P,
     )
