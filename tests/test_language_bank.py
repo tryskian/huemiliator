@@ -138,7 +138,7 @@ def test_text_inventory_identifies_provenance_and_evaluation_status(
     output = capsys.readouterr().out
     assert "[human]: excellent" in output
     assert "[human]: that's a popular" in output
-    assert "[assistant]: {replacement_name} is just more satisfying" in output
+    assert "[assistant]: just more satisfying" in output
     assert "awaiting_behaviour_evaluation" in output
     assert "because.explanation" in output
 

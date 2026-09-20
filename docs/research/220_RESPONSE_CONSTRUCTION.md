@@ -4,10 +4,12 @@
 | --- | --- |
 | Code | `RESPONSE_CONSTRUCTION` |
 | Category | `case` |
-| Status | observed failure; historical construction study; no method adopted |
-| Evidence | `2026-09-19 America/Toronto`; three current-setup cases, not a 15-minute pulse |
-| Setup | Luna / medium; instructions `1.2.0`; composer and bank `0.4.0` |
+| Status | prior observed failure; D-054 construction alignment implemented; fresh mini mechanical-only; behaviour unproven |
+| Prior evidence | `2026-09-19 America/Toronto`; three cases, not a 15-minute pulse |
+| Prior setup | Luna / medium; instructions `1.2.0`; composer and bank `0.4.0` |
 | Unit | each visible response with supplied facts and context |
+| Current alignment | instructions `1.3.0`; bank `0.5.0`; composer `0.4.0`; 106 entries and 14 connector senses |
+| Fresh receipt | [cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md): red/green mechanical exit `2`, brown exit `0`; behaviour judgments pending |
 
 ## Source Packet
 
@@ -51,8 +53,17 @@ prompt text for one generation, not executable stages. Probaboracle's
 D-008/D-010 reinforce shared cues and model sentence ownership; D-024 and
 D-048 describe punctuation and stock-phrase failures. These are historical lessons.
 
-## Proposed Next Alignment
+## D-054 Small Construction Alignment
 
-Keep Hugh's approved local library. Review whole-clause verdict entries and how
-connectors attach to phrases or clauses, while letting the model compose
-meaningful judgment and rationale. This remains a proposal; runtime is unchanged.
+Following the user's “start small, following probsie's method” direction,
+[D-054](../governance/DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences)
+records the primary's bounded implementation: the local bank, one model
+generation and composer `0.4.0` remain; 17 full verdict clauses become short
+cues under the same IDs; connector attachment is clarified; and the five
+directions align to D-046. Instructions are `1.3.0` and the bank `0.5.0`.
+Behaviour remains unproven and pulse staging is unchanged.
+
+Three fresh samples of the same inputs are preserved in the linked receipt.
+Peanut judges first; assistant judgments follow with separate attribution.
+The earlier failures remain unchanged. Directions and bank changed together,
+so this comparison cannot isolate either change's effect.

@@ -737,7 +737,8 @@ into implementation authorship.
 - Category: `behaviour_direction`
 - Tags: `character`, `authorial_configuration`, `colour_rationale`, `alignment`
 - Provenance: `human-authored five-point configuration and confirmed shared reading`
-- Status: Agreed and recorded; runtime and library alignment pending.
+- Status: Agreed; instructions and verdict cues aligned under D-054. Behaviour
+  judgment remains open.
 - Decision: Use the author's “You are Hue (Hugh)” configuration as the character
   reference: a pretentious and celebrated colour theory academic who lacks
   awareness; eloquent, matter-of-fact and groundedly verbose, with sharp taste,
@@ -758,8 +759,8 @@ into implementation authorship.
   swatch direction remain context for the character and presentation.
 - Scope: This decision records the agreed character configuration and research
   interpretation. Instruction version `1.2.0`, bank `0.3.0`, and the existing
-  composer remain the current implementation. Align their next bounded change
-  against this reference before editing runtime behaviour or starting a pulse.
+  composer were the implementation when this was recorded. D-054 records the
+  subsequent bounded alignment; pulse procedure remains to be agreed.
 - Reference: [Agreed configuration and reading](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration),
   [character profile](CHARTER.md#character-profile), and
   [behaviour staging](../research/030_PB_BEHAVIOUR.md#instructions-and-judgment-lens).
@@ -937,3 +938,29 @@ into implementation authorship.
 - Boundary: This promotes the audited understanding into session continuity.
   D-046's runtime alignment remains pending, D-052 owns initial joint judgment,
   and the open pulse rules remain staging choices.
+
+## D-054: Start with language cues and model-owned sentences
+
+- Date: `2026-09-19`
+- Category: `behaviour_direction`
+- Tags: `construction`, `cues`, `alignment`, `small_start`
+- Provenance: human-led instruction to “start small, following probsie's
+  method”, followed by the primary's bounded implementation choices
+- Decision: Start with language cues and one model generation composing the
+  sentence, using Probaboracle's early shared-cue method as a reference.
+- Implementation choices: Convert the 17 full verdict clauses into short
+  aesthetic cues under the same IDs, clarify connector attachment, and align
+  the [five directions](../research/030_PB_BEHAVIOUR.md#instructions-and-judgment-lens)
+  with D-046. The local library and composer request path remain in place.
+- Implementation: Instructions become `1.3.0`, the bank becomes `0.5.0`, and
+  composer `0.4.0` remains. The bank remains 106 language entries and 14
+  connector senses. This is a construction alignment; behaviour remains
+  unproven and no pulse is activated.
+- Evidence boundary: Prior failures remain unchanged. The fresh three-case
+  mini has preserved mechanical results and awaits Peanut's behaviour verdicts
+  first, then separately attributed assistant judgments. Instructions and bank
+  changed together, so their effects cannot be isolated by this comparison.
+- Reference: [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration),
+  [response-construction case](../research/220_RESPONSE_CONSTRUCTION.md), and
+  [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md),
+  [local-language note](../research/450_LOCAL_LANGUAGE.md).

@@ -16,8 +16,9 @@ behaviour evaluation take this profile as their character reference.
 The latest agreed language configuration is
 [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration). Its
 [full authorial wording and aligned reading](../research/450_LOCAL_LANGUAGE.md#agreed-authorial-configuration)
-govern the next runtime and library alignment; the current implementation still
-carries the earlier instruction set.
+govern the aligned construction. D-054 records the small implementation slice:
+instructions `1.3.0` and bank `0.5.0` now carry that direction while composer
+`0.4.0` remains; behaviour is unproven.
 
 | Aspect | Character direction |
 | --- | --- |
@@ -136,7 +137,9 @@ this behaviour work.
 implements a separate model-driven composition command under five positive
 directions. It uses the same deterministic replacement and the local bank;
 `one-up` retains the carried fixed-line behaviour. Generated lines await the
-aligned behaviour pulses.
+aligned behaviour pulses. [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences)
+records the first construction alignment: verdict cues and grammatical connector
+roles support Hugh's own sentence construction under the agreed five directions.
 
 [D-038](DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses)
 records the human-led direction. The

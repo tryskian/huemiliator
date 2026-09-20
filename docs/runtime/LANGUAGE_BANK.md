@@ -2,7 +2,7 @@
 
 The starter bank is a bundled, editable JSON resource:
 [`src/huemiliator/data/language_bank.json`](../../src/huemiliator/data/language_bank.json).
-Schema `huemiliator.language_bank.v1`, bank version `0.4.0`.
+Schema `huemiliator.language_bank.v1`, bank version `0.5.0`.
 
 It supplies language for the next behaviour beta. The
 [charter's character profile](../governance/CHARTER.md#character-profile) owns
@@ -19,7 +19,7 @@ Grammar, meaning, and usage annotations are assistant-authored.
 | Appraisal words | 27 | `bold`, `lovely`, `sublime` |
 | Modifiers | 11 | `rather`, `essentially`, `yet` |
 | Appraisal phrases | 10 | `a certain elegance`, `a touch of distinction` |
-| Aesthetic verdicts | 17 | `{replacement_name} is just more satisfying`, `{replacement_name} has a quiet distinction` |
+| Aesthetic verdict cues | 17 | `just more satisfying`, `a quiet distinction` |
 | Colour descriptions | 14 | the nine family labels, `the same colour`, `a new name` |
 | Discourse phrases | 2 | `perhaps`, `indeed` |
 | Function words | 2 | possessive `its`, interrogative `which` |
@@ -127,8 +127,12 @@ and `source`. Each expresses a reasoning relationship:
 | Correction | `rather` | the formulation being sharpened or replaced |
 | Restatement | `essentially` | an idea distilled with its meaning preserved |
 
-Frames illustrate statements and rhetorical questions. A question's implied
-claim belongs in the relationship annotation, with its supporting basis.
+Version `0.5.0` turns the 17 verdict clauses into phrases for Hugh to develop
+in his own complete statement or rhetorical question. Earlier versions remain
+in Git and their original composition records. Connector frames now describe
+grammatical attachment, including independent clauses for semicolons.
+
+A question's implied claim belongs in the relationship annotation, with its supporting basis.
 The model owns the complete sentence; these are meaning references, with room
 for other grammatical constructions. The evaluator judges whether the expressed
 relationship actually holds. The loader checks structural references only.

@@ -17,9 +17,9 @@ about five positive directions and room to reason.
 
 | Surface | Current state |
 | --- | --- |
-| Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed, broader instruction/library alignment pending |
-| Runtime | `gpt-5.6-luna` / `medium`; bank `0.4.0`; composer `0.4.0`; instructions `1.2.0` |
-| Evidence | [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md): Peanut judged all three FAIL for repeated endings and flagged punctuation; first aligned pulse pending |
+| Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed and the D-054 instruction/library slice is implemented; behaviour remains unproven |
+| Runtime | `gpt-5.6-luna` / `medium`; bank `0.5.0`; composer `0.4.0`; instructions `1.3.0` under [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences) |
+| Evidence | prior [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md) is mechanical-only with behaviour judgments pending |
 
 Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [local
 language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
@@ -57,8 +57,7 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Review early response construction against the mini failures before aligning
-instructions/library with D-046. Version `1.2.0` retains earlier guidance.
-Agree a short pulse brief before the first shared run.
+Review the fresh responses against their facts and context. Peanut judges first; separately attributed assistant judgments remain
+pending. Agree a short pulse brief before the first shared run.
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
 synced `main`, pending eval count zero.
