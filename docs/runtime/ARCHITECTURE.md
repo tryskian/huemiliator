@@ -85,6 +85,9 @@ The stable runtime path is:
   - OpenAI Responses API using `HUEMILIATOR_MODEL` and
     `HUEMILIATOR_REASONING_EFFORT`
   - [configuration, inspection, and failure handling](COMPOSITION.md)
+- behaviour review:
+  - `.local/behaviour.sqlite`: saved compositions and attributed judgment history
+  - [read-only notebook and schema](BEHAVIOUR_RECORDS.md)
 - frozen swatch reference:
   - `data/margaret2_swatches.json`
 - runtime colour library export:
@@ -174,7 +177,8 @@ flow below describes their intended use in response evaluation. The next
 [PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md), including assistant operation
 and verdict ownership. The separate model-driven composer now uses the packaged
 bank and fixed colour facts, with the exact request and response exposed for
-inspection. The timed pulse and assistant judgment record remain staging work.
+inspection. The [behaviour database](BEHAVIOUR_RECORDS.md) preserves attributed judgments;
+the timed pulse procedure remains staging work.
 
 ```mermaid
 flowchart LR

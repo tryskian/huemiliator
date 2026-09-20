@@ -8,8 +8,8 @@
 | Prior evidence | `2026-09-19 America/Toronto`; three cases, not a 15-minute pulse |
 | Prior setup | Luna / medium; instructions `1.2.0`; composer and bank `0.4.0` |
 | Unit | each visible response with supplied facts and context |
-| Current alignment | instructions `1.3.0`; bank `0.5.0`; composer `0.4.0`; 106 entries and 14 connector senses |
-| Fresh receipt | [cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md): red/green mechanical exit `2`, brown exit `0`; behaviour judgments pending |
+| Current alignment | instructions `1.3.0`; bank `0.5.1`; composer `0.4.0`; 105 language entries, 16 verdict cues and 14 connector senses |
+| Fresh receipt | [cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md): red/green mechanical exit `2`, brown exit `0`; imported as outputs `4..6`, with behaviour judgments pending |
 
 ## Source Packet
 
@@ -67,3 +67,13 @@ Three fresh samples of the same inputs are preserved in the linked receipt.
 Peanut judges first; assistant judgments follow with separate attribution.
 The earlier failures remain unchanged. Directions and bank changed together,
 so this comparison cannot isolate either change's effect.
+
+## D-055 Behaviour Records and Wording Removal
+
+At Peanut's request, bank `0.5.1` removes `verdict.finer_choice` and its phrase
+from another entry's meaning. Earlier outputs retain their wording. The
+[database and notebook](../runtime/BEHAVIOUR_RECORDS.md) hold both minis:
+rows `1..3` preserve the historical judgments; rows `4..6` await Peanut first.
+[D-055](../governance/DECISIONS.md#d-055-record-behaviour-outputs-in-a-local-notebook-and-sqlite-surface)
+records the decision and [validation](../../.local/behaviour-db-20260919/validation.json).
+This wording removal supplies no new behavioural verdict.

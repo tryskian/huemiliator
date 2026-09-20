@@ -1,6 +1,6 @@
 {
   "schema": "huemiliator.language_bank.v1",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "evaluation_status": "awaiting_behaviour_evaluation",
   "sources": {
     "authorial_references": {
@@ -165,7 +165,7 @@
       "role": "opening",
       "text": "ah, that's a popular one...",
       "grammar": "opening clause",
-      "meaning": "Apparent praise implying conventional taste; an assistant adaptation of the author's worked line, with 'one' providing a counterpart to a verdict about the finer choice.",
+      "meaning": "Apparent praise implying conventional taste; an assistant adaptation of the author's worked line, using a generic noun reference in the opening compliment.",
       "requires": [
         "familiarity_appraisal"
       ],
@@ -963,19 +963,6 @@
       "text": "altogether more composed",
       "grammar": "adjective phrase",
       "meaning": "Composure asserted as an aesthetic quality.",
-      "requires": [
-        "replacement_verdict",
-        "after_compliment",
-        "verdict_attachment"
-      ],
-      "source": "assistant_candidates"
-    },
-    {
-      "id": "verdict.finer_choice",
-      "role": "verdict",
-      "text": "the finer choice",
-      "grammar": "noun phrase",
-      "meaning": "An assured ranking of the choices by aesthetic merit.",
       "requires": [
         "replacement_verdict",
         "after_compliment",

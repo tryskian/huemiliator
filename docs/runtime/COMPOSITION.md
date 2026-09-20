@@ -2,7 +2,7 @@
 
 `huemiliator compose <hex>` uses the fixed colour result and local language bank
 to generate Hugh's visible response through the OpenAI Responses API. Composer
-version `0.4.0` uses instruction version `1.3.0` and bank `0.5.0`.
+version `0.4.0` uses instruction version `1.3.0` and bank `0.5.1`.
 The five directions implement D-046's academic character profile. Verdict
 entries supply short aesthetic cues; connector frames describe grammatical
 attachment. Hugh develops the argument and sentence in one model generation.
@@ -44,6 +44,8 @@ redirected output, `NO_COLOR`, and `TERM=dumb` use plain square markers and
 labels. JSON mode prints the full
 inspection record. Standard output can be redirected to a chosen local file.
 The command does not create files or modify the colour eval database.
+[Import saved minis into the behaviour database](BEHAVIOUR_RECORDS.md) for
+attributed judgment history and the read-only review notebook.
 
 The chosen swatch carries the family label; Hugh's swatch carries its supplied
 Pantone name. Those labels are derived from the fixed facts, with the chosen

@@ -62,5 +62,9 @@ judgment remains conditional.
 The local library and composer are implemented. Composition records preserve
 setup and actual output, including mechanical failures. The prepared bank
 snapshot is an input to composition, not a pulse verdict. Timing, observation
-unit, judgment record, pulse-wide verdict rule and the length of the shared
+unit, pulse-wide verdict rule and the length of the shared
 judgment phase remain open in the [boundary note](../research/030_PB_BEHAVIOUR.md).
+
+The [behaviour database and notebook](../runtime/BEHAVIOUR_RECORDS.md) now
+store original records and attributed judgment history. This supplies a review
+surface while the timed pulse protocol remains staged.

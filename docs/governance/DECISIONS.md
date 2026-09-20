@@ -964,3 +964,27 @@ into implementation authorship.
   [response-construction case](../research/220_RESPONSE_CONSTRUCTION.md), and
   [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md),
   [local-language note](../research/450_LOCAL_LANGUAGE.md).
+
+## D-055: Record behaviour outputs in a local notebook and SQLite surface
+
+- Date: `2026-09-19`
+- Category: `evidence_governance`
+- Provenance: Peanut requested removal of “a finer choice”, a notebook and
+  SQLite database, with Scorey as the schema reference.
+- Decision: Use Scorey's saved-output and judgment-history structure, adapted
+  for Hugh's original composition records and evaluator/source attribution.
+  The [behaviour records guide](../runtime/BEHAVIOUR_RECORDS.md) owns the schema
+  and commands; the notebook reads saved evidence and defaults to the latest mini.
+- Implementation: Bank `0.5.1` removes `verdict.finer_choice` (“the finer choice”)
+  and that phrase from another entry's meaning. The bank has 105 language
+  entries and 14 connector senses. `.local/behaviour.sqlite` holds six original
+  outputs and six historical judgments; the colour database remains unchanged.
+  `latest_judgments` resolves the latest appended judgment per evaluator.
+- Evidence boundary: The latest three outputs await Peanut first, then the
+  assistant. The wording removal supplies no new verdict. Original JSON and
+  judgment events retain their exact bytes; revisions append new judgments.
+- Validation: [receipt](../../.local/behaviour-db-20260919/validation.json).
+  Notebook reads preserve database bytes; SQLite integrity and foreign keys
+  pass; all six originals match their sources and 51 prior files are unchanged.
+  `make check` passes 231 tests, formatting, lint and type checks.
+- Method boundary: Timed behaviour pulses remain staged.

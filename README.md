@@ -163,7 +163,7 @@ huemiliator language-bank
 huemiliator language-bank --format json
 ```
 
-The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 106 language entries,
+The [bank guide](./docs/runtime/LANGUAGE_BANK.md) covers its 105 language entries,
 14 connector senses, provenance, usage conditions, and extension workflow.
 
 Compose Hugh's response with the model configured by `HUEMILIATOR_MODEL`:
@@ -175,6 +175,9 @@ huemiliator compose '#d9a6a1' --format json
 
 The [composer guide](./docs/runtime/COMPOSITION.md) covers configuration,
 request inspection, visible response, and recording of mechanical failures.
+The [behaviour review notebook](./output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
+shows saved swatches, responses and attributed judgments from the local
+[behaviour database](./docs/runtime/BEHAVIOUR_RECORDS.md).
 
 Closeout rule:
 
