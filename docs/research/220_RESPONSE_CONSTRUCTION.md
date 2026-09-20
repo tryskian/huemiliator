@@ -77,3 +77,17 @@ rows `1..3` preserve the historical judgments; rows `4..6` await Peanut first.
 [D-055](../governance/DECISIONS.md#d-055-record-behaviour-outputs-in-a-local-notebook-and-sqlite-surface)
 records the decision and [validation](../../.local/behaviour-db-20260919/validation.json).
 This wording removal supplies no new behavioural verdict.
+
+## Agreed Next Slice
+
+On September 19, Peanut reaffirmed following Probaboracle's method: concise
+positive directions and shared cues support the model's sentence construction.
+Hugh retains his local vocabulary and connector meanings. The primary's
+hypothesis is that remaining prepared openings and verdict phrases encourage
+repeated clause selection; the existing mini does not establish that cause.
+
+Resume with Peanut's judgments on outputs `4..6`, then the primary's separately
+attributed judgments. Follow with one focused bank simplification addressing
+those prepared phrases, holding the remaining setup steady. That change is
+pending; the current runtime and all saved evidence remain at the recorded
+versions above.
