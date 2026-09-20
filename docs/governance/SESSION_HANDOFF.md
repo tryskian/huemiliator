@@ -59,9 +59,16 @@ keeps pulse operation and canonical evidence with the primary.
 
 ## Next Step and Closeout
 
-Review the fresh responses against their facts and context through the
+Resume with the three saved responses, outputs `4..6`, through the
 [behaviour-records guide](../runtime/BEHAVIOUR_RECORDS.md). Peanut judges first;
-the assistant records separate judgments afterward. Agree the short pulse brief
-before activating the timed method.
+the assistant records separate judgments afterward.
+
+Peanut reaffirmed following Probaboracle's construction method: concise positive
+directions, vocabulary and connector cues, and model-owned sentences. After the
+judgments, make one focused bank simplification addressing the remaining prepared
+openings and verdict phrases while holding the rest of the setup steady. This
+[next slice](../research/220_RESPONSE_CONSTRUCTION.md#agreed-next-slice) is agreed
+direction, not yet implemented. Align the pulse brief before timed evaluation.
+
 Follow [RUNBOOK](../runtime/RUNBOOK.md) for Git and closeout: `make end` on clean,
 synced `main`, pending eval count zero.
