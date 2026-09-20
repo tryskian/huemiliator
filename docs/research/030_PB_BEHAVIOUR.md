@@ -25,8 +25,8 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language direction | [bank-free composition](460_BANK_FREE_FOUNDATION.md) under D-056; existing bank-based implementation awaits alignment |
-| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; accepted platform v9 refines the five directions with crisp, brief delivery under D-058 |
+| Language direction | [bank-free v10 benchmark](470_V10_BENCHMARK.md) under D-059; existing bank-based implementation awaits alignment |
+| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; platform v10 retains the five directions and crisp, brief delivery under D-059 |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
 | Current work | beta notes, diagrams, and staging alignment |
 
@@ -95,8 +95,8 @@ the [local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded desig
 
 ## Instructions and Judgment Lens
 
-The [accepted platform v9 prompt](460_BANK_FREE_FOUNDATION.md#accepted-base)
-under D-058 owns the next character base: crisp, brief delivery, graceful generic
+The [selected platform v10 prompt](470_V10_BENCHMARK.md#benchmark-prompt)
+under D-059 owns the next character benchmark: crisp, brief delivery, graceful generic
 compliments, meaningful colour rationale, and exacting statements or rhetorical
 questions. It refines D-046's earlier verbosity direction. The repo still runs
 instructions `1.3.0` and bank `0.5.1` under D-054; implementation alignment and
@@ -125,7 +125,7 @@ implementation history, with behavioural fidelity still to be demonstrated.
 | --- | --- |
 | Factual grounding | colour claims and replacement match the supplied facts |
 | Coherence | claims fit together and the connector expresses a supported relationship |
-| Behavioural fit | inspect against D-058's accepted academic base, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
+| Behavioural fit | inspect against D-059's selected benchmark, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
 | Context fit | the wording fits the actual input and interaction |
 
 Candidate judgment unit: one visible response with its facts and context.

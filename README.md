@@ -15,7 +15,7 @@
 >
 > Colour logic is the stable foundation. The planned agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
-> The agreed [bank-free foundation](./docs/research/460_BANK_FREE_FOUNDATION.md)
+> The selected [v10 benchmark](./docs/research/470_V10_BENCHMARK.md)
 > gives the model ownership of wording. The existing composer still uses the
 > earlier local bank and awaits alignment with Peanut's platform setup.
 > Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):

@@ -2,11 +2,14 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Peanut accepted saved platform prompt `huey` v9 as the base; repo alignment remains open |
+| Status | historical v8/v9 foundation and comparison; current benchmark is [v10](470_V10_BENCHMARK.md) |
 | Source | platform editor, green response log and Peanut's shared samples, September 20, 2026 |
 | Decisions | [D-056](../governance/DECISIONS.md#d-056-establish-a-bank-free-character-foundation), [D-057](../governance/DECISIONS.md#d-057-scope-punctuation-canaries-to-peanuts-writing), [D-058](../governance/DECISIONS.md#d-058-adopt-platform-v9-as-hughs-character-base) |
 
 ## Accepted Base
+
+This records the earlier selection under D-058. D-059 subsequently selected
+[v10 as the benchmark](470_V10_BENCHMARK.md); both variants below remain comparisons.
 
 Peanut: “i think we got our base!” Version choice was explicitly confirmed as
 “V9, the version that produced green”. This accepts the character foundation;
@@ -82,6 +85,7 @@ preserve later outputs and reported versions without per-row verdicts.
 Saved v8 and v9 have identical character directions but different response templates;
 both were inspected and retained before Peanut selected v9.
 
+Current alignment follows the [v10 benchmark](470_V10_BENCHMARK.md).
 The platform prompt asks Hugh to choose a same-family shade. The repo currently
 supplies a deterministic replacement and a word bank. Align that responsibility
 and the request contract before claiming the implementations match. Composer
