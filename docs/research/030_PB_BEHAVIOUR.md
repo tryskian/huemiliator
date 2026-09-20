@@ -6,7 +6,7 @@
 | Category | `boundary` |
 | Status | `staged` |
 | Direction recorded | `2026-09-18`; local library and initial shared judgment clarified `2026-09-19` |
-| Last evidence | `2026-08-03`, carried colour baseline |
+| Last evidence | `2026-09-20`, wording review of the carried colour rows; timed behaviour pulses remain staged |
 | Owns | the transition to assistant-run behaviour evaluation in 15-minute pulses |
 
 ## What This Boundary Asks
@@ -51,7 +51,8 @@ that phase and any transition to independent assistant judgment remain open.
 | Carried surface | Evidence | Role here |
 | --- | --- | --- |
 | Closed `Beta 1.0` | family sweep, neutral correction, warm-edge and boundary audits | stable colour-method baseline |
-| Latest colour pulse | `20163..20166`: four anchors, zero seams, zero excluded | preserved neutral / pink / brown / red comparison inputs |
+| Historical colour pulse | `20163..20166`: four anchors, zero seams, zero excluded | preserved colour labels, separate from wording judgments |
+| Carried wording review | `20163..20166`: four Peanut **FAILs**, September 20 | “the responses are too basic.”; [correction record](230_CARRIED_WORDING.md) |
 | Corrected red rerun | `18424..19691`: 1,268 judged rows | older row-level comparison baseline |
 | Behaviour pulses | first pulse awaits staging completion | new evidence to establish |
 

@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-09-19
+Last updated: 2026-09-20
 
 Huemiliator's research notes record method changes and what each evidence
 surface is allowed to mean. They are not release notes: `Beta 1.0`, pulse
@@ -17,6 +17,7 @@ package versions, or release readiness.
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
 | Next kernel | Peanut judges the fresh [construction mini](220_RESPONSE_CONSTRUCTION.md) in the [review notebook](../runtime/BEHAVIOUR_RECORDS.md) first; the primary records attributed judgments; pulse procedure remains staged |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
+| [Carried wording correction](230_CARRIED_WORDING.md) | `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
 
 The local-library direction followed the human lead's September 19
 clarification. The earlier colour method remains the carried comparison

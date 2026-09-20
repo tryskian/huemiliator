@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-09-19
+Last updated: 2026-09-20
 
 ## Start Here
 
@@ -20,6 +20,7 @@ about five positive directions and room to reason.
 | Character | Hue (Hugh); [D-046](DECISIONS.md#d-046-record-hughs-agreed-academic-configuration) is agreed and the D-054 instruction/library slice is implemented; behaviour remains unproven |
 | Runtime | `gpt-5.6-luna` / `medium`; bank `0.5.1`; composer `0.4.0`; instructions `1.3.0` under [D-054](DECISIONS.md#d-054-start-with-language-cues-and-model-owned-sentences) |
 | Evidence | prior [mini calibration](../research/220_RESPONSE_CONSTRUCTION.md) remains historical; the [fresh cue mini](../../.local/behaviour-mini-evals/20260920T012801Z-cues/README.md) is mechanical-only, with outputs `4..6` pending judgment in the imported record surface |
+| Carried wording correction | `.local/evals.sqlite` rows `20163..20166` are now four Peanut **FAILs**: “the responses are too basic.” Their historical colour-pulse anchors do not establish wording quality; [record](../research/230_CARRIED_WORDING.md) |
 
 Supporting detail: [behaviour boundary](../research/030_PB_BEHAVIOUR.md), [local
 language](../research/450_LOCAL_LANGUAGE.md), [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md),
