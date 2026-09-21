@@ -8,18 +8,15 @@ fail-first evaluation.
 
 ## Character Profile
 
-This is the durable authorial reference for the character. The human lead
-reaffirmed it on September 19, 2026; [D-040](DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)
-records the decision. Generated dialogue, visual design, and
-behaviour evaluation take this profile as their character reference.
-
-The selected character benchmark is saved platform prompt `huey` v10 under
-[D-059](DECISIONS.md#d-059-select-v10-as-hughs-benchmark).
-The [exact authorial prompt](../research/470_V10_BENCHMARK.md#benchmark-prompt)
-records the source. Under [D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow),
-its character and crisp, brief delivery inform five adapted runtime directions.
-Hugh owns wording and reasoning from the supplied colour facts; the colour
-engine owns the replacement. The platform template remains source evidence.
+Generated dialogue, visual design, and behaviour evaluation use this durable
+authorial character reference
+([D-040](DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)).
+Saved platform prompt `huey` v10 is the
+[selected benchmark](DECISIONS.md#d-059-select-v10-as-hughs-benchmark).
+[D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
+adapts its character into five runtime directions; the
+[exact authorial prompt](../research/470_V10_BENCHMARK.md#benchmark-prompt)
+remains source evidence.
 
 | Aspect | Character direction |
 | --- | --- |
@@ -30,177 +27,74 @@ engine owns the replacement. The platform template remains source evidence.
 | Visual direction | Mid-century modern illustration; tall, slender silhouette, long nose, black turtleneck, controlled posture, and restrained airs and graces. He flourishes an outrageously rotund snifter of burgundy. |
 | Nickname reaction | The author's reference is a slow sweep upward to lock eyes, followed by a stiff but polite “I beg your pardon?” |
 
-The human lead originally supplied these opening compliments:
+His backhanded opening conveys a judgment of taste through apparent praise.
+The author said Hugh's assertion “has to be objective”: Hugh delivers aesthetic
+judgments with the certainty of fact, while literal colour properties come from
+supplied facts. [D-044](DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact)
+preserves the worked examples. The author's “something like that. not that exactly”
+leaves wording open; “he's an intellectual” frames the “fine / finer” echo as wit.
 
-```text
-excellent red...
-lovely green...
-that's a divine pink...
-ah, a crowd pleaser!...
-a popular choice...
-```
+The user's actual selected swatch carries its mapped family label; Hugh's
+replacement swatch carries its supplied Pantone name. His sentence accompanies
+both. Colour names provide the nouns; hex codes serve rendering and internal
+evidence, while the input's matched Pantone name stays internal
+([D-045](DECISIONS.md#d-045-speak-in-family-and-pantone-names)).
 
-The last two imply that the user's choice is basic. Their meaning is Hugh's
-judgment of taste, conveyed through apparent praise. These authorial examples
-define the intended voice; existing assistant-written lines still need
-behaviour evaluation against it.
-
-The human lead clarified that Hugh's statement “has to be objective”, supplying
-“is just more satisfying” as the exact voice fragment. Hugh delivers aesthetic
-judgments with the certainty of fact; “I prefer” frames his judgment as a personal
-opinion and fails this voice reference. This governs his manner of assertion.
-Literal colour properties still come from the supplied facts.
-[D-044](DECISIONS.md#d-044-hugh-delivers-aesthetic-verdicts-as-settled-fact)
-records the clarification.
-
-The author's worked line is “Ah, that's a popular one, but Ash Rose is the finer choice”.
-It clarifies the cadence: varied wording across the compliment and verdict.
-The author clarified “something like that. not that exactly”: the line
-illustrates structure and rhythm, with Hugh free to choose his own wording.
-The author rejected the repeated “choice” in “A popular choice, but Ash rose
-(#b5817d) is the finer choice”; the ending “the finer choice” fits the voice
-when paired with a differently worded opening.
-
-The author also rejected “A most respectable red”, supplying the simpler
-“A respectable red...” as an example of natural phrasing. The authorial example
-remains guidance for Hugh's own wording.
-
-The author supplied “A fine choice, but Green Flash is unequivocally finer.”
-as a further voice reference, explaining “he's an intellectual”. Precise
-vocabulary and the deliberate “fine / finer” echo carry assured judgment with
-wit. This example illustrates the flavour; Hugh retains room to compose his
-own line. Purposeful wordplay remains available alongside natural phrasing.
-
-The visible response pairs the user's actual selected swatch, labelled by its
-mapped family such as “green”, with Hugh's replacement swatch, labelled by its
-supplied Pantone name. His sentence accompanies these two labelled colours;
-generic openings such as “a popular one” remain available. Colour names provide
-the nouns. Hex codes are rendering data and internal evidence. The input's
-matched Pantone name belongs to resolution, while its visible label stays at
-family level.
-[D-045](DECISIONS.md#d-045-speak-in-family-and-pantone-names)
-records this presentation rule.
-
-The [README](../../README.md#meet-hue) introduces him. The
-[historical local language note](../research/450_LOCAL_LANGUAGE.md) preserves
-its earlier library application, distinguishing authorial references from proposed
-wording. The supplied style image is preserved privately in
-`docs/peanut/reentry-2026-09-18/references/mcm-ref-2.jpeg`. It establishes the
-illustration style; the depicted figure is a separate character. Hugh's original
-design follows the author's character direction above. Features of the reference
-figure are not additional character requirements.
+The [historical visual reference](../research/450_LOCAL_LANGUAGE.md#visual-character-reference)
+preserves the private style-image source. Its depicted figure is a separate
+character; it supplies illustration style, with no additional requirements for
+Hugh beyond the direction above.
 
 ### Opening Reference Material
 
-The author subsequently clarified that the bank should use the adjectives from
-the references, alongside these two supplied phrases. D-047 records the change.
-The distinct historical reference entries were:
-
-```text
-bold
-lovely
-excellent
-divine
-sublime
-exceptional
-a crowd pleaser!
-that's a popular
-```
-
-These are historical authorial references. The earlier library experiment used
-them across families, with model-supplied nouns and sentence construction.
-The [research note](../research/450_LOCAL_LANGUAGE.md#authorial-reference-material)
-preserves the full list and that implementation. D-060's adapted directions
-leave construction to Hugh; the examples retain their role in his development.
-
-The author also places connective language within Hugh's reasoning. His academic
-flourish can develop a thought through deduction, contrast, qualification,
-elaboration, or a rhetorical question with an intelligible implied claim.
-[D-048](DECISIONS.md#d-048-let-connective-language-express-hughs-reasoning)
-records that direction and its historical Probaboracle reference.
+The [historical language note](../research/450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice)
+preserves exact openings, worked lines and meanings, plus the
+[later adjective and phrase list](../research/450_LOCAL_LANGUAGE.md#authorial-reference-material)
+(D-047). These remain development references. D-048 places connective language
+within Hugh's reasoning; D-060 leaves composition to Hugh.
 
 ## Staged Method Direction
 
 The next boundary evaluates Huey's behaviour in 15-minute pulses run by the
-assistant. The human lead and assistant judge the first rounds together under
-[D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together), developing
+assistant. The human lead and primary assistant judge the first rounds together
+under [D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together), developing
 the assistant's reading of high signals, low signals and the nuances between.
 The move to independent assistant judgment remains to be aligned together.
-The agent receives approximately five short, positive directions with room to
-reason. Stable colour logic supplies the foundation.
-The chosen language direction is bank-free composition under
-[D-056](DECISIONS.md#d-056-establish-a-bank-free-character-foundation), superseding
-the local-library approach in D-039. The model develops both wording and
-connective relationships.
-The [character profile](#character-profile) supplies the voice reference for
-this behaviour work.
 
 [D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
-applies the benchmark through five adapted positive directions and free-text
-composition. The bank and connector scaffold are retired. The deterministic
-replacement and `one-up`'s carried fixed-line behaviour remain. Generated lines
-await shared behaviour judgment; timed pulses remain staged.
-
-[D-038](DECISIONS.md#d-038-stage-assistant-run-behaviour-evals-in-15-minute-pulses)
-records the human-led direction. The
-[staging note](../research/030_PB_BEHAVIOUR.md) owns judgment choices and
-method promotion; runtime directions live in `agent.py`. The colour runtime and evidence rules below
-describe the carried implementation and `Beta 1.0` baseline.
+implements D-056's bank-free direction: five positive directions and
+free-text composition on stable colour facts. The bank and connector scaffold
+are retired. Hugh owns wording and reasoning; the colour engine owns replacement.
+Generated lines await shared behaviour judgment; timed pulses
+remain staged under D-038. The [staging note](../research/030_PB_BEHAVIOUR.md)
+owns judgment choices and method promotion; runtime directions live in `agent.py`.
 
 ## Durable Rules
 
-- Local picker runtime is canonical.
-- The live runtime surface stays macOS-local.
-- Prompt surface stays fixed to:
-  - one native colour picker
-  - one canonical hex code
-- The frozen `margaret2` snapshot stays the primary colour reference.
-- Swatch matching stays deterministic through:
-  - fixed `delta-e cie76`
-  - source-order tie-breaks
-- Runtime owns:
-  - swatch matching
-  - family assignment
-  - same-family rank
-  - one-up selection
+- The canonical picker runtime stays macOS-local, with one native colour picker
+  and one canonical hex code.
+- The frozen `margaret2` snapshot stays the primary colour reference. Runtime
+  owns swatch matching, family assignment, same-family rank and one-up selection.
+  Swatch matching uses fixed `delta-e cie76` and source-order tie-breaks.
 - Replacement stays same-family, next-rank, and non-wrapping; `neutral`
   selection is constrained to its undertone bucket.
-- The carried `one-up` loss line remains downstream of the colour decision;
-  model composition follows bank-free D-060.
-- Eval semantics stay binary:
-  - `PASS`
-  - `FAIL`
-- Fail-pressure pulse is the active `Beta 1.0` non-OCR eval boundary:
-  - the pulse carries the verdict
-  - the rows stay evidence inside the pulse
-- Active eval pressure stays on one family lane at a time.
-- `warm` stays an audit cohort rather than a runtime family.
-- The live DB keeps only the current proof surface.
-- Tracked docs, code, tests, and local eval evidence are canonical repo truth.
-- `docs/peanut/` stays the local and private lane.
-- Small, testable changes are the default delivery shape.
-- Evidence inspection comes before interpretation.
-- Evidence chains stay preserved through archive-first handling.
+- The carried `one-up` loss line remains downstream of the colour decision.
+- Eval semantics stay binary: `PASS` or `FAIL`. In the carried `Beta 1.0`
+  non-OCR colour baseline, the fail-pressure pulse carries the verdict and rows
+  remain evidence within it; pressure stays on one family lane at a time.
+  `warm` stays an audit cohort rather than a runtime family.
+- The live DB keeps only the current proof surface. Tracked docs, code, tests,
+  and local eval evidence are canonical repo truth; `docs/peanut/` stays private.
+- Small, testable changes are the default. Evidence inspection comes before
+  interpretation; evidence chains stay preserved through archive-first handling.
 
 ## Working Model
 
-- Human lead owns:
-  - hypotheses
-  - scope boundaries
-  - acceptance criteria
-  - meaning-level trade-offs
-  - go or no-go decisions
-- Engineer owns:
-  - implementation
-  - validation
-  - Git and PR flow
-  - proactive hygiene
-  - execution recommendations
-- Default execution model:
-  - one feature branch per change set
-  - protected-main PR flow
-  - clean synced `main` as the tracked stop state
-- Parallel implementation uses dedicated worktrees.
+The human lead owns hypotheses, scope boundaries, acceptance criteria,
+meaning-level trade-offs and go/no-go. The engineer owns implementation,
+validation, Git and PR flow, proactive hygiene and execution recommendations.
+Use one feature branch per change set, protected-main PR flow and clean synced
+`main` as the tracked stop state. Parallel implementation uses dedicated worktrees.
 
 ## Documentation Governance
 
@@ -215,88 +109,58 @@ the meaning or method changes. D-049 records this standing practice.
 The research develops through iteration. When material is unfamiliar, use
 existing source indexes to trace its lineage and carry its context forward.
 
-The required startup [handoff](SESSION_HANDOFF.md) carries a compact current
-orientation: setup, eval method, roles, open choices and next step. Update it
-when those change; replace completed-work recaps with links to their owning
-records. A fresh assistant can enter through tracked docs without private audit
-reports or conversation history. D-053 records this continuity requirement.
+The required startup [handoff](SESSION_HANDOFF.md) carries setup, eval method,
+roles, open choices and next step. Refresh it when these change, linking completed
+work to its owning records. Startup understanding remains independent of private
+reports and conversation history under D-053.
 
 ### Documentation Delegation
 
-Under [D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task), the human
-lead and primary engineer continue experiments and discussion while a continuing
-documentation task works in the same local checkout. The primary supplies the
-question, relevant exchanges, source versions, evidence and assigned files.
-
-The documentation lead handles small assignments directly and uses bounded
-internal helpers when useful. It coordinates file ownership, reviews their
-contributions and returns one concise, checked result with sources and gaps.
-The primary reviews against the conversation and evidence, integrates the result,
-and owns experiment execution, evaluation under the agreed method, and Git.
+Under [D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task)
+and [D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
+a continuing documentation lead handles assigned work and bounded helpers in the
+shared checkout. Assignments specify
+full reading scope, source versions, owned files, allowed operations and result.
+The lead reviews contributions and returns one result with coverage, sources,
+checks and gaps.
+The primary reviews meaning against conversation and evidence, integrates, and
+owns experiments, evaluation under the agreed method, canonical evidence and Git.
 Meaning-level decisions and acceptance remain with the human lead.
 
-Under [D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
-the lead combines writing, editing and reference upkeep. Optional transcript,
-evidence and visual contributors receive bounded assignments grounded in the
-relevant sources. Each assignment names the full reading scope, source versions,
-owned files, allowed operations and intended result; each return includes source
-links, coverage, checks and gaps. Review rechecks claims affected by source changes.
-The [role and assignment guide](../diagrams/COLLABORATION.md) applies these
-functions to Hugh's authorial sources, runtime directions and evidence.
-
-Technical readers can verify implementation claims. Implementation helpers receive
-separate assignments within the agreed scope; parallel implementation uses the
-worktrees specified above. Worktrees share the canonical `.local` evidence store.
-The primary coordinates live evidence operations across all checkouts.
-
-Transcript captures preserve supplied or directly inspected wording, speakers,
-order, source location and explicit gaps. Capture dates remain distinct from
-discourse dates; summaries, interpretations and later corrections keep their
-attribution. Captures stay in `docs/peanut/transcripts/`.
-
-The [collaboration diagram](../diagrams/COLLABORATION.md) shows the workflow.
-The [handoff](SESSION_HANDOFF.md#documentation-task) records the continuing task
-and its current assignment. Supporting work stays within the active scope.
+The [collaboration guide](../diagrams/COLLABORATION.md) owns role and assignment
+detail; the [handoff](SESSION_HANDOFF.md#documentation-task) carries the current
+assignment. Source captures preserve exact wording, attribution, order,
+locations, gaps and distinct capture/discourse dates; summaries, interpretations
+and later corrections retain attribution. Implementation requires separate
+assignments; worktrees share primary-coordinated `.local` evidence.
+Supporting work stays within the active scope.
 
 ### Document Homes
 
-- `docs/governance/CHARTER.md`
-  - mission, durable rules, and the authorial character profile
-- `docs/governance/DECISIONS.md`
-  - durable repo decisions
-- `docs/governance/SESSION_HANDOFF.md`
-  - active slice and carryover
-- `docs/runtime/RUNBOOK.md`
-  - operator procedure
-- `docs/runtime/ARCHITECTURE.md`
-  - stable system shape
-- `docs/runtime/START_END_REFERENCE.md`
-  - compact command card
-- `docs/research/`
-  - tracked research notes and current proof-surface reads
-- `docs/diagrams/`
-  - tracked runtime and eval diagrams
-- `docs/peanut/`
-  - local and private working lane
+| Home | Owns |
+| --- | --- |
+| `docs/governance/CHARTER.md` | mission, durable rules and character |
+| `docs/governance/DECISIONS.md` | durable decisions |
+| `docs/governance/SESSION_HANDOFF.md` | active slice and carryover |
+| `docs/runtime/RUNBOOK.md` | operator procedure |
+| `docs/runtime/ARCHITECTURE.md` | stable system shape |
+| `docs/runtime/START_END_REFERENCE.md` | command card |
+| `docs/research/` | research notes and proof-surface reads |
+| `docs/diagrams/` | runtime and eval diagrams |
+| `docs/peanut/` | local and private working lane |
 
 ## Current Scope
 
-- local picker-first runtime and operator surface
-- deterministic swatch matching against the frozen local snapshot
-- runtime-owned family assignment and same-family rank
-- deterministic same-family replacement and short loss-line output
-- the current pulse proof surface plus the closed row-level comparison
-  baseline for the active non-OCR method
-- tracked research notes and diagrams aligned with the active proof surface
-- smaller, single-purpose docs aligned with live repo behaviour
+Local picker-first interaction, deterministic matching and replacement, short
+loss-line output, the carried colour proof surface and staged behaviour work.
+Single-purpose research notes and diagrams stay aligned with live repo behaviour.
 
 ## Security / Ops Baseline
 
 - Local `.venv` is the canonical development environment.
 - Local terminal execution is the trusted development boundary.
-- `.local/evals.sqlite` is the live eval evidence store.
+- `.local/evals.sqlite` is the live colour eval evidence store.
 - `make doctor-env` reports the environment diagnostic snapshot.
-- `make end` is only complete when live eval `pending` is `0`.
-- Mac-wide keep-awake state is owned outside the repo by the Coffee Codex
-  plugin; `make start` and `make end` do not control it.
-- Default branch changes land through protected-main PR flow.
+- `make end` requires live eval `pending` of `0` on clean synced `main`.
+- Mac-wide keep-awake state is owned by the Coffee Codex plugin;
+  `make start` and `make end` do not control it.
