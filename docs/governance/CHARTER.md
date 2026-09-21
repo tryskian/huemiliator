@@ -212,6 +212,9 @@ Preserve source and chronology; distinguish direction, interpretation,
 hypothesis, implementation, and evidence. Keep notes and diagrams aligned as
 the meaning or method changes. D-049 records this standing practice.
 
+The research develops through iteration. When material is unfamiliar, use
+existing source indexes to trace its lineage and carry its context forward.
+
 The required startup [handoff](SESSION_HANDOFF.md) carries a compact current
 orientation: setup, eval method, roles, open choices and next step. Update it
 when those change; replace completed-work recaps with links to their owning
