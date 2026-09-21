@@ -10,7 +10,7 @@ from typing import Any
 from openai import APIError, OpenAI
 
 from huemiliator.agent import (
-    COMPOSITION_DIRECTIONS,
+    COMPOSITION_INSTRUCTIONS,
     COMPOSITION_INSTRUCTIONS_VERSION,
 )
 from huemiliator.config import (
@@ -19,7 +19,7 @@ from huemiliator.config import (
     DEFAULT_VERBOSITY,
 )
 
-COMPOSER_VERSION = "0.5.0"
+COMPOSER_VERSION = "0.5.1"
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_SECONDS = 60.0
 
@@ -79,9 +79,7 @@ def build_composition_request(
     api_request = {
         "model": model,
         "reasoning": {"effort": reasoning_effort},
-        "instructions": "\n".join(
-            f"{i}. {line}" for i, line in enumerate(COMPOSITION_DIRECTIONS, start=1)
-        ),
+        "instructions": COMPOSITION_INSTRUCTIONS,
         "input": json.dumps(material, ensure_ascii=False),
         "text": {"format": {"type": "text"}, "verbosity": verbosity},
         "top_p": sampling_probability,

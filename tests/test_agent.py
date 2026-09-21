@@ -1,6 +1,8 @@
 from huemiliator.agent import (
     BEHAVIOUR_CONTRACT_LINES,
     COMPOSITION_DIRECTIONS,
+    COMPOSITION_INSTRUCTIONS,
+    COMPOSITION_RESPONSE_TEMPLATE,
     RUNTIME_CONTRACT_LINES,
     TAGLINE,
 )
@@ -49,10 +51,12 @@ def test_behaviour_contract_separates_language_eval_from_colour_facts() -> None:
 def test_composition_directions_keep_character_and_colour_responsibilities() -> None:
     directions = "\n".join(COMPOSITION_DIRECTIONS)
     assert len(COMPOSITION_DIRECTIONS) == 5
-    assert "crisp, brief delivery" in directions
-    assert "supplied replacement" in directions
-    assert "Shape your own" in directions
+    assert COMPOSITION_INSTRUCTIONS.startswith("You are Hugh (Hue)\n")
+    assert "crisp and brief" in directions
+    assert "exacting statements or rhetorical questions" in directions
+    assert "user’s colour family" in COMPOSITION_RESPONSE_TEMPLATE
+    assert "supplied same-family replacement" in COMPOSITION_RESPONSE_TEMPLATE
+    assert "Pantone name alone" in COMPOSITION_RESPONSE_TEMPLATE
     assert "library" not in directions
-    assert "response template" not in directions
     for directive in PROHIBITION_DIRECTIVES:
-        assert directive not in directions.lower()
+        assert directive not in COMPOSITION_INSTRUCTIONS.lower()

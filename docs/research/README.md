@@ -1,6 +1,6 @@
 # Research
 
-Last updated: 2026-09-20
+Last updated: 2026-09-21
 
 Huemiliator's research notes record method changes and what each evidence
 surface is allowed to mean. They are not release notes: `Beta 1.0`, pulse
@@ -13,9 +13,9 @@ package versions, or release readiness.
 | --- | --- |
 | [Behaviour boundary](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour on stable colour facts |
 | Cadence and owner | 15-minute pulses are staged; the primary assistant operates them, and Peanut and the primary assistant judge initial rounds together under [D-052](../governance/DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) |
-| Language direction | [v10 benchmark](470_V10_BENCHMARK.md) adapted under D-060: five positive directions, model-owned wording and stable deterministic colour facts |
+| Language direction | [Supplied Hugh prompt](340_HUGH_PROMPT.md) under D-062: five authorial points, picker-adapted response frame and deterministic colour facts |
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
-| Current kernel | [bank-free integration](320_BANK_FREE_ALIGNMENT.md) checked: composer `0.5.0`, instructions `2.0.0`, Luna / medium / low verbosity / Top P `0.98`; fresh shared judgment is next |
+| Current kernel | [Prompt adaptation](340_HUGH_PROMPT.md): composer `0.5.1`, instructions `2.1.0`; Luna / medium / low verbosity / Top P `0.98`; behaviour judgment remains open |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
 | [Eval archive](330_EVAL_ARCHIVE.md) | Both live stores are empty; four colour rows, six behaviour outputs and six judgments are preserved locally. Behaviour outputs `4..6` remain unjudged in the archive. |
 | [Carried wording correction](230_CARRIED_WORDING.md) | Archived `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
@@ -105,9 +105,10 @@ it does not report live failures.
 | [240_YOUR_PINK](240_YOUR_PINK.md) | Peanut's high-signal assessment of “your” in context |
 | [320_BANK_FREE_ALIGNMENT](320_BANK_FREE_ALIGNMENT.md) | reader audit, runtime adaptation and integration validation |
 | [330_EVAL_ARCHIVE](330_EVAL_ARCHIVE.md) | preserved evals and judgments, empty live stores and verification |
+| [340_HUGH_PROMPT](340_HUGH_PROMPT.md) | exact supplied prompt, two runtime substitutions and mechanical checks |
 | [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | superseded library hypothesis, sources and historical observations |
 | [460_BANK_FREE_FOUNDATION](460_BANK_FREE_FOUNDATION.md) | historical v8/v9 foundation and inspected comparison sources |
-| [470_V10_BENCHMARK](470_V10_BENCHMARK.md) | current benchmark, exact prompt and three preserved responses |
+| [470_V10_BENCHMARK](470_V10_BENCHMARK.md) | earlier benchmark, exact prompt and preserved responses |
 | [020_B10](020_B10.md) | closed `Beta 1.0` colour method |
 | [410_N3](410_N3.md) | closed neutral split correction |
 | [420_RESIDUE](420_RESIDUE.md) | closed counted-seam source map |

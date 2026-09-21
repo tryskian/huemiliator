@@ -11,17 +11,15 @@ fail-first evaluation.
 Generated dialogue, visual design, and behaviour evaluation use this durable
 authorial character reference
 ([D-040](DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)).
-Saved platform prompt `huey` v10 is the
-[selected benchmark](DECISIONS.md#d-059-select-v10-as-hughs-benchmark).
-[D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
-adapts its character into five runtime directions; the
-[exact authorial prompt](../research/470_V10_BENCHMARK.md#benchmark-prompt)
-remains source evidence.
+The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) now provides the
+five character points and response progression under
+[D-062](DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
+The earlier [v10 benchmark](../research/470_V10_BENCHMARK.md) retains its source history.
 
 | Aspect | Character direction |
 | --- | --- |
-| Identity | His name is **Hue (Hugh)**. “Huey” is our affectionate nickname; he is unaware of it and would be infuriated to hear it. Character-facing instructions and self-reference use Hue. |
-| Disposition | **A snob but not snide.** A pretentious and celebrated colour theory academic who lacks awareness of his own pretension. |
+| Identity | His name is **Hugh (Hue)**. “Huey” is our affectionate nickname; he is unaware of it and would be infuriated to hear it. Character-facing instructions and self-reference use Hugh. |
+| Disposition | **A snob but not snide.** A pretentious and celebrated colour theory academic who just happens to lack awareness. |
 | Voice | Eloquent and matter-of-fact, with sharp taste, wit and immaculate coherence. Graceful, empty and generic compliments accompany meaningful colour rationale, expressed in crisp, brief exacting statements or rhetorical questions. |
 | Punctuation | Serves Hugh's character, grammar and meaning. Peanut's personal-writing canaries belong to Peanut's voice; an em dash alone is not a Hugh failure ([D-057](DECISIONS.md#d-057-scope-punctuation-canaries-to-peanuts-writing)). |
 | Visual direction | Mid-century modern illustration; tall, slender silhouette, long nose, black turtleneck, controlled posture, and restrained airs and graces. He flourishes an outrageously rotund snifter of burgundy. |
@@ -61,9 +59,9 @@ under [D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together), dev
 the assistant's reading of high signals, low signals and the nuances between.
 The move to independent assistant judgment remains to be aligned together.
 
-[D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
-implements D-056's bank-free direction: five positive directions and
-free-text composition on stable colour facts. The bank and connector scaffold
+[D-062](DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name)
+continues D-056's bank-free direction: five authorial points and an adapted
+response frame on stable colour facts. The bank and connector scaffold
 are retired. Hugh owns wording and reasoning; the colour engine owns replacement.
 Generated lines await shared behaviour judgment; timed pulses
 remain staged under D-038. The [staging note](../research/030_PB_BEHAVIOUR.md)

@@ -12,14 +12,14 @@ flowchart LR
   H["Peanut / human lead<br/>method and scope"]
   A["Primary assistant<br/>operate, preserve and integrate"]
   C["Deterministic colour engine<br/>facts"]
-  X["Hue (Hugh)<br/>free-text composition"]
+  X["Hugh (Hue)<br/>free-text composition"]
   J["Initial rounds<br/>Peanut + assistant judge together"]
   I["Later path<br/>assistant judges after alignment"]
   F["Attributed judgments<br/>responses, facts and reasons"]
 
   H -->|"scope + lens"| A
   A -->|"input"| C
-  A -->|"adapted directions + context"| X
+  A -->|"authorial points + adapted frame + context"| X
   C -->|"colour facts"| X
   X -->|"response + setup"| A
   A -->|"preserved response"| J
@@ -46,15 +46,15 @@ judgment is a later path only after alignment.
 | Initial joint judgment | Peanut and the assistant develop the assistant's reading of signal and nuance |
 | Pulse evidence | preserves actual setup, responses, attributed judgments and reasons |
 
-The [composer](../runtime/COMPOSITION.md) adapts the [v10 foundation](../research/470_V10_BENCHMARK.md)
-under D-060. The model owns wording and sentence construction; the deterministic
+The [composer](../runtime/COMPOSITION.md) adapts the [supplied prompt](../research/340_HUGH_PROMPT.md)
+under D-062. The model owns wording and sentence construction; the deterministic
 [pipeline](PIPELINE.md) supplies colour facts and the replacement. The primary
 operates the pulse, Peanut and the assistant share initial judgment, and any later
 independent judgment remains conditional.
 
 ## Implemented Starting Point
 
-The bank-free composer uses five adapted directions, Luna / medium reasoning,
+The bank-free composer uses five authorial points and an adapted frame, Luna / medium reasoning,
 low verbosity and Top P `0.98`. Its v2 local records preserve setup and actual
 free-text output, including mechanical failures. The [integration record](../research/320_BANK_FREE_ALIGNMENT.md)
 owns validation. Timing, observation unit, pulse-wide verdict rule and the length

@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-09-20
+Last updated: 2026-09-21
 
 ## Start Here
 
@@ -12,15 +12,16 @@ handoff if present. Report state, risks, next scope, workspace/host and branch.
 
 ## Current State
 
-[Runtime](../runtime/COMPOSITION.md) remains the bank-free **adapted v10**:
-composer `0.5.0`, instructions `2.0.0`, five positive directions and model-owned
-wording. The engine supplies deterministic same-family, next-rank,
-non-wrapping replacement and both swatches.
+[Runtime](../runtime/COMPOSITION.md) uses the
+[September 21 authorial prompt](../research/340_HUGH_PROMPT.md): **Hugh (Hue)**,
+five verbatim character points and a response frame adapted to the picker.
+Composer `0.5.1`, instructions `2.1.0`. The engine supplies the family,
+deterministic same-family replacement and both swatches; Hugh composes the words.
 
-**Platform v15 is the selected research reference.** Our intended settings are
+**Platform v15 remains the prior experiment reference.** Our intended settings are
 `gpt-5.6-luna` / `medium`, explicit low verbosity and Top P `0.98`.
-Peanut's settings record governs despite the UI/log discrepancy; preserve
-requested settings separately from returned metadata. The application sends
+Low versus medium verbosity is under review; preserve requested settings
+separately from returned metadata. The application sends
 `store=false` and omits reasoning summary; the source experiment enabled storage
 and requested `auto` summary. Source/settings record:
 `docs/peanut/research/2026-09-20-golden-smoke-audit/V15_REFERENCE.md`.
@@ -32,20 +33,18 @@ Mechanical integration and historical colour anchors establish no wording verdic
 
 ## Proposed Next Slice
 
-The smoke audit is complete; implementation is unstarted. Review:
-`docs/peanut/research/2026-09-20-golden-smoke-audit/REVIEW.md`.
+The direct-v15 verbosity mini completed six independent requests: pink, snow and
+olive at low and medium. All completed; returned verbosity matched each request.
+Peanut's judgments come first and remain pending. Exact receipts and paired answers:
+`docs/peanut/research/2026-09-21-verbosity-comparison/README.md`.
 
-The proposal is a bounded direct-v15 runner: six independent, fresh,
-non-streaming cases (chartreuse, pink, snow, lavender, coral, olive), explicit
-settings, and one immutable JSON receipt per attempt, including failures before
-an answer. Keep original text and assign no automatic behaviour verdict.
-The source export's six answered turns were conversational, not independent tests.
+Those responses used the earlier v15 reference, not today's app adaptation.
+The [prompt record](../research/340_HUGH_PROMPT.md) owns its source and mechanical
+checks; fresh app behaviour judgment remains open. The original six-colour smoke
+proposal, SQLite/notebook adaptation and vector retrieval remain separate work.
 
-Before implementation/live work, settle case purposes and SDK compatibility
-for recorded reasoning mode. The cases probe wording without establishing
-colour-boundary coverage. SQLite/notebook adaptation is later separate work;
-vector retrieval and Platform capture also remain proposals:
-`docs/peanut/research/2026-09-20-vector-store-report/README.md`.
+The documentation conventions audit is report-only:
+`docs/peanut/research/2026-09-21-documentation-conventions/README.md`.
 
 ## Method and Continuity
 

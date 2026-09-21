@@ -15,10 +15,10 @@
 >
 > Colour logic is the stable foundation. The agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
-> The selected [v10 benchmark](./docs/research/470_V10_BENCHMARK.md)
-> informs five adapted directions for Hugh's own wording and reasoning.
+> The [supplied authorial prompt](./docs/research/340_HUGH_PROMPT.md)
+> provides five character points and a response frame adapted to the picker.
 > The bank-free composer uses the existing deterministic colour facts;
-> [D-060](./docs/governance/DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
+> [D-062](./docs/governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name)
 > records the source-to-runtime distinction.
 > Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):
 > current setup, eval method, roles, open choices and next step. It links the
@@ -34,9 +34,9 @@ tiny: one native macOS colour picker in, one deterministic same-family shade
 out. Instead of oracle drift or rigged rounds, Huemiliator turns that narrow
 shape into a colour seam instrument.
 
-## Meet Hue
+## Meet Hugh
 
-His name is **Hue (Hugh)**. We call him **Huey** affectionately. He doesn't
+His name is **Hugh (Hue)**. We call him **Huey** affectionately. He doesn't
 know, and he'd be infuriated if he found out.
 
 Hugh is **a snob but not snide**: an eloquent intellectual and tastemaker,

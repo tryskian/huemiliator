@@ -582,7 +582,7 @@ into implementation authorship.
   distinguishes that direction from observations about the reference image.
 - Reference: The [charter's character profile](CHARTER.md#character-profile)
   owns the durable identity, voice, opening examples, and visual direction.
-  The [README](../../README.md#meet-hue) introduces the character;
+  The [README](../../README.md#meet-hugh) introduces the character;
   [LOCAL_LANGUAGE](../research/450_LOCAL_LANGUAGE.md#character-direction-write-hues-voice)
   applies the profile to library design and proposed continuations.
   Character-facing setup and self-reference use Hue; internal project
@@ -1103,3 +1103,21 @@ into implementation authorship.
 - Boundary: Archival supplies no new verdict, generation or pulse. The notebook
   reads either empty live state or archived evidence without database writes.
 - Reference: [Archive and verification](../research/330_EVAL_ARCHIVE.md).
+
+## D-062: Adapt the supplied prompt with Hugh as the primary name
+
+- Date: `2026-09-21`
+- Category: `runtime_engineering`
+- Provenance: Peanut supplied the exact prompt and requested adaptation to Hugh's
+  different runtime, retaining the wording that delivered the enjoyed responses.
+- Decision: Use **Hugh (Hue)**, the five authorial character points and the supplied
+  response progression. Adapt its input slot to the mapped colour family and its
+  recommendation slot to the engine's supplied same-family replacement.
+- Implementation: Instructions `2.1.0`, composer `0.5.1`. Identity and character
+  wording are preserved; the response frame uses the supplied Pantone name alone.
+  This replaces D-060's paraphrased directions, including “extravagant”. The engine
+  retains colour ownership and the model retains free-text composition.
+- Boundary: Settings and original evidence are preserved. No live generation,
+  behaviour verdict or timed pulse accompanies the adaptation. The earlier
+  benchmark and Platform records retain their source versions and wording.
+- Reference: [Exact source, adaptation and checks](../research/340_HUGH_PROMPT.md).

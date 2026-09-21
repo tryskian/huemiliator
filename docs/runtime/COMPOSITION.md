@@ -2,14 +2,15 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.5.0` uses instructions `2.0.0` under
-[D-060](../governance/DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow).
+Responses API. Composer `0.5.1` uses instructions `2.1.0` under
+[D-062](../governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
 
-The [v10 benchmark](../research/470_V10_BENCHMARK.md) is the behavioural foundation.
-The [runtime directions](../../src/huemiliator/agent.py) adapt it to Hugh's colour
-flow. His wording, connections and sentence construction belong to the model;
-the engine supplies his replacement. The platform template and examples remain
-source evidence. Behaviour judgment and timed pulses remain separate work.
+The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
+identity, five verbatim character points and response progression. The
+[runtime text](../../src/huemiliator/agent.py) adapts the opening to the user's
+colour family and the recommendation to the supplied replacement's Pantone name.
+Hugh owns wording and sentence construction; the engine supplies his colour.
+Behaviour judgment and timed pulses remain separate work.
 
 ## Setup and Use
 
@@ -100,7 +101,8 @@ output repair.
 
 ## Next Method Step
 
-[Integration validation](../research/320_BANK_FREE_ALIGNMENT.md) checks this
-runtime change. Fresh behavioural judgment follows the agreed Peanut-first
+[Prompt validation](../research/340_HUGH_PROMPT.md) covers this adaptation;
+[bank-free integration](../research/320_BANK_FREE_ALIGNMENT.md) records the earlier
+change. Fresh behavioural judgment follows the agreed Peanut-first
 method. Case selection, timing, in-flight handling and pulse-wide aggregation
 still need alignment before the first 15-minute behaviour pulse.

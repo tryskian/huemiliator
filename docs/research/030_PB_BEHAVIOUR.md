@@ -25,8 +25,8 @@ judgment lens, and execution shape for that focus.
 | Cadence | 15-minute eval pulses |
 | Instruction shape | approximately five short, positive directions at most |
 | Reasoning space | Huey has room to choose how it carries out those directions |
-| Language direction | five bank-free directions adapted from the [v10 benchmark](470_V10_BENCHMARK.md) under D-060, with existing colour responsibilities retained |
-| Character | Hue (Hugh), a pretentious and celebrated colour theory academic; crisp, brief delivery with model-owned wording and reasoning |
+| Language direction | five authorial points and a picker-adapted response frame from the [supplied prompt](340_HUGH_PROMPT.md) under D-062 |
+| Character | Hugh (Hue), a pretentious and celebrated colour theory academic; crisp, brief delivery with model-owned wording and reasoning |
 | Operator and evaluator | the assistant operates the planned pulses; the human lead and primary assistant judge the first rounds together |
 | Current work | [bank-free integration checked](320_BANK_FREE_ALIGNMENT.md); ready for shared response judgment, with pulse protocol staged |
 
@@ -79,8 +79,8 @@ flowchart TD
 ```
 
 The [staged execution diagram](../diagrams/BEHAVIOUR_PULSE.md) separates the
-adapted directions, supplied facts and evaluator's work under D-060. The
-[v10 benchmark](470_V10_BENCHMARK.md) owns the exact source setup; the
+authorial points, adapted frame, supplied facts and evaluator's work under D-062.
+The [prompt record](340_HUGH_PROMPT.md) owns the exact source; the
 [local language draft](450_LOCAL_LANGUAGE.md) preserves the superseded design.
 
 ## What This Would Change
@@ -95,14 +95,12 @@ adapted directions, supplied facts and evaluator's work under D-060. The
 
 ## Instructions and Judgment Lens
 
-The [runtime directions](../../src/huemiliator/agent.py) adapt v10's character
-and behavioural foundation under D-060. Five positive directions support Hugh's
-academic pretension, crisp delivery, backhanded courtesy and meaningful rationale
-for the supplied replacement. The model owns wording, connections and sentence
-construction. The [exact platform template](470_V10_BENCHMARK.md#benchmark-prompt)
-remains source evidence.
+The [runtime directions](../../src/huemiliator/agent.py) preserve the five points
+of Peanut's [supplied prompt](340_HUGH_PROMPT.md) under D-062. Its response frame
+uses the user's colour family and the engine's supplied replacement. Hugh owns
+wording, connections and sentence construction; the engine owns the colour facts.
 
-Composer `0.5.0` / instructions `2.0.0` use Luna, medium reasoning, low verbosity
+Composer `0.5.1` / instructions `2.1.0` use Luna, medium reasoning, low verbosity
 and Top P `0.98`. The [composer guide](../runtime/COMPOSITION.md) owns the request
 and record contract. Colour selection and labelled swatches remain deterministic;
 the legacy fixed family line stays outside the composition request.
@@ -111,7 +109,7 @@ the legacy fixed family line stays outside the composition request.
 | --- | --- |
 | Factual grounding | colour claims and replacement match the supplied facts |
 | Coherence | claims fit together and the connector expresses a supported relationship |
-| Behavioural fit | inspect against the v10 behavioural benchmark and D-060 adaptation, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
+| Behavioural fit | inspect against the supplied authorial prompt and D-062 adaptation, including generic courtesy, meaningful colour rationale, crisp delivery and coherent development |
 | Context fit | the wording fits the actual input and interaction |
 
 Candidate judgment unit: one visible response with its facts and context.

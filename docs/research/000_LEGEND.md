@@ -6,7 +6,7 @@
 | Category | `legend` |
 | Status | `active` |
 | Last evidence | `2026-08-03` |
-| Last updated | `2026-09-20` |
+| Last updated | `2026-09-21` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -25,13 +25,14 @@
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `320_BANK_FREE_ALIGNMENT` | `320_BANK_FREE_ALIGNMENT.md` | source audit, adaptation and integration checks | `validation` | `snapshot` |
 | `330_EVAL_ARCHIVE` | `330_EVAL_ARCHIVE.md` | verified archive and empty live eval stores | `validation` | `closed` |
+| `HUGH_PROMPT` | `340_HUGH_PROMPT.md` | supplied authorial prompt, runtime adaptation and checks | `validation` | `snapshot` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
 | `COLOUR_BOUNDARY_AUDIT` | `440_COLOUR_BOUNDARY_AUDIT.md` | colour-boundary report pulse proof | `validation` | `closed` |
 | `LOCAL_LANGUAGE` | `450_LOCAL_LANGUAGE.md` | superseded library hypothesis and source history | `hypothesis` | `archived` |
 | `BANK_FREE_FOUNDATION` | `460_BANK_FREE_FOUNDATION.md` | preserved v8/v9 platform comparisons | `hypothesis` | `snapshot` |
-| `V10_BENCHMARK` | `470_V10_BENCHMARK.md` | selected behavioural foundation and exact source evidence | `hypothesis` | `snapshot` |
+| `V10_BENCHMARK` | `470_V10_BENCHMARK.md` | earlier behavioural foundation and exact source evidence | `hypothesis` | `snapshot` |
 
 `RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
 surface promoted from that map. `COLOUR_BOUNDARY_AUDIT` is the report-derived
@@ -40,9 +41,9 @@ proof surface for mixed Lab bins.
 `PB_BEHAVIOUR` owns the next research direction and staged judgment mechanics.
 The runtime directions are implemented; the closed colour findings remain the
 carried baseline.
-`LOCAL_LANGUAGE` preserves the superseded experiment. `V10_BENCHMARK` owns the
-selected platform source; `320_BANK_FREE_ALIGNMENT` records its adaptation to Hugh's
-existing colour flow. Source templates remain distinct from runtime directions.
+`LOCAL_LANGUAGE` preserves the superseded experiment. `V10_BENCHMARK` and
+`320_BANK_FREE_ALIGNMENT` retain the earlier source and integration.
+`HUGH_PROMPT` owns the September 21 wording and its picker adaptation.
 
 ## Ordering
 
