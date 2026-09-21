@@ -54,6 +54,9 @@ timing and aggregation remain open.
 - The primary owns operation, canonical `.local` evidence, source preservation,
   review and Git/PR flow.
 
+For research context, read the local transcript index when needed:
+`docs/peanut/research/2026-09-20-transcript-context/README.md`.
+
 ### Documentation Task
 
 **Huey documentation**, `01a0bb88-752b-7762-88f7-8ad5c23a3ac9`, is the continuing
