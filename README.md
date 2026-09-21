@@ -16,10 +16,10 @@
 > Colour logic is the stable foundation. The agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
 > The [supplied authorial prompt](./docs/research/340_HUGH_PROMPT.md)
-> provides five character points and a response frame adapted to the picker.
+> provides five character points, with sentence construction left to Hugh.
 > The bank-free composer uses the existing deterministic colour facts;
-> [D-062](./docs/governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name)
-> records the source-to-runtime distinction.
+> [D-063](./docs/governance/DECISIONS.md#d-063-leave-response-construction-to-hugh)
+> records the template removal and golden cases' evaluation role.
 > Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):
 > current setup, eval method, roles, open choices and next step. It links the
 > [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and

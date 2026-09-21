@@ -14,9 +14,11 @@ handoff if present. Report state, risks, next scope, workspace/host and branch.
 
 [Runtime](../runtime/COMPOSITION.md) uses the
 [September 21 authorial prompt](../research/340_HUGH_PROMPT.md): **Hugh (Hue)**,
-five verbatim character points and a response frame adapted to the picker.
-Composer `0.5.1`, instructions `2.1.0`. The engine supplies the family,
-deterministic same-family replacement and both swatches; Hugh composes the words.
+five verbatim character points, with sentence construction left to Hugh under D-063.
+Composer `0.5.2`, instructions `2.2.0`. Picker context names the two colours.
+The engine supplies the family, deterministic same-family replacement and both
+swatches; Hugh composes the words.
+Golden cases guide evaluation; previous answers stay outside the runtime prompt.
 
 **Platform v15 remains the prior experiment reference.** Our intended settings are
 `gpt-5.6-luna` / `medium`, explicit low verbosity and Top P `0.98`.

@@ -2,14 +2,14 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.5.1` uses instructions `2.1.0` under
-[D-062](../governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
+Responses API. Composer `0.5.2` uses instructions `2.2.0` under
+[D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh).
 
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
-identity, five verbatim character points and response progression. The
-[runtime text](../../src/huemiliator/agent.py) adapts the opening to the user's
-colour family and the recommendation to the supplied replacement's Pantone name.
-Hugh owns wording and sentence construction; the engine supplies his colour.
+identity and five verbatim character points. The
+[runtime text](../../src/huemiliator/agent.py) leaves sentence construction to Hugh.
+Picker context names the user's colour by family and Hugh's supplied replacement
+by its Pantone name. The engine supplies his colour; golden cases guide evaluation.
 Behaviour judgment and timed pulses remain separate work.
 
 ## Setup and Use

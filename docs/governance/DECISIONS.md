@@ -1121,3 +1121,17 @@ into implementation authorship.
   behaviour verdict or timed pulse accompanies the adaptation. The earlier
   benchmark and Platform records retain their source versions and wording.
 - Reference: [Exact source, adaptation and checks](../research/340_HUGH_PROMPT.md).
+
+## D-063: Leave response construction to Hugh
+
+- Date: `2026-09-21`
+- Category: `runtime_engineering`
+- Provenance: Peanut clarified, “with the golden prompts, we don't need that template”.
+- Decision: Remove D-062's response template. Keep **Hugh (Hue)** and the five
+  authorial character points; golden cases guide evaluation of fresh responses.
+- Implementation: Instructions `2.2.0`, composer `0.5.2`. Picker context identifies
+  the user's family and Hugh's supplied Pantone name. Hugh owns sentence construction;
+  prior answers stay outside the runtime prompt.
+- Boundary: Colour selection and model settings are unchanged. Mechanical checks
+  supply no behaviour verdict; this change runs no live eval.
+- Reference: [Source, refinement and checks](../research/340_HUGH_PROMPT.md).

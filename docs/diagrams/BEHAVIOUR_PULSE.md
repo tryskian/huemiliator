@@ -19,7 +19,7 @@ flowchart LR
 
   H -->|"scope + lens"| A
   A -->|"input"| C
-  A -->|"authorial points + adapted frame + context"| X
+  A -->|"authorial points + context"| X
   C -->|"colour facts"| X
   X -->|"response + setup"| A
   A -->|"preserved response"| J
@@ -47,15 +47,15 @@ judgment is a later path only after alignment.
 | Pulse evidence | preserves actual setup, responses, attributed judgments and reasons |
 
 The [composer](../runtime/COMPOSITION.md) adapts the [supplied prompt](../research/340_HUGH_PROMPT.md)
-under D-062. The model owns wording and sentence construction; the deterministic
+under D-063. The model owns wording and sentence construction; the deterministic
 [pipeline](PIPELINE.md) supplies colour facts and the replacement. The primary
 operates the pulse, Peanut and the assistant share initial judgment, and any later
 independent judgment remains conditional.
 
 ## Implemented Starting Point
 
-The bank-free composer uses five authorial points and an adapted frame, Luna / medium reasoning,
-low verbosity and Top P `0.98`. Its v2 local records preserve setup and actual
+The bank-free composer uses five authorial points and picker context, Luna / medium
+reasoning, low verbosity and Top P `0.98`. Its v2 local records preserve setup and actual
 free-text output, including mechanical failures. The [integration record](../research/320_BANK_FREE_ALIGNMENT.md)
 owns validation. Timing, observation unit, pulse-wide verdict rule and the length
 of shared judgment remain open in the [boundary note](../research/030_PB_BEHAVIOUR.md).

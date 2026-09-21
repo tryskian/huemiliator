@@ -19,7 +19,7 @@ from huemiliator.config import (
     DEFAULT_VERBOSITY,
 )
 
-COMPOSER_VERSION = "0.5.1"
+COMPOSER_VERSION = "0.5.2"
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_SECONDS = 60.0
 
@@ -71,8 +71,10 @@ def build_composition_request(
         "input": fact_packet["input"],
         "runtime_facts": facts,
         "context": (
-            "A person chose this colour in the picker. Hugh responds once, "
-            "alongside the two labelled display swatches."
+            "A person chose this colour in the picker. The user's colour is named "
+            "by its mapped family; Hugh's colour is the supplied same-family "
+            "replacement, using its Pantone name alone. Hugh responds once "
+            "alongside the two labelled display swatches; hex codes are rendering data."
         ),
         "display_swatches": display_swatches,
     }

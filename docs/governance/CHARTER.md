@@ -12,8 +12,8 @@ Generated dialogue, visual design, and behaviour evaluation use this durable
 authorial character reference
 ([D-040](DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)).
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) now provides the
-five character points and response progression under
-[D-062](DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
+five character points, with sentence construction left to Hugh under
+[D-063](DECISIONS.md#d-063-leave-response-construction-to-hugh).
 The earlier [v10 benchmark](../research/470_V10_BENCHMARK.md) retains its source history.
 
 | Aspect | Character direction |
@@ -59,9 +59,9 @@ under [D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together), dev
 the assistant's reading of high signals, low signals and the nuances between.
 The move to independent assistant judgment remains to be aligned together.
 
-[D-062](DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name)
-continues D-056's bank-free direction: five authorial points and an adapted
-response frame on stable colour facts. The bank and connector scaffold
+[D-063](DECISIONS.md#d-063-leave-response-construction-to-hugh)
+continues D-056's bank-free direction: five authorial points on stable colour
+facts and picker context. The response template, bank and connector scaffold
 are retired. Hugh owns wording and reasoning; the colour engine owns replacement.
 Generated lines await shared behaviour judgment; timed pulses
 remain staged under D-038. The [staging note](../research/030_PB_BEHAVIOUR.md)

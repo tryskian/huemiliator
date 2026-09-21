@@ -74,7 +74,7 @@ The stable runtime path is:
 - language composition:
   - `huemiliator compose <hex> --dry-run` exposes the exact request
   - `huemiliator compose <hex> --format json` emits a composition record
-  - fixed colour facts plus five authorial points and an adapted response frame
+  - fixed colour facts, picker context and five authorial character points
   - one free-text OpenAI Responses API generation; local versioned JSON evidence
   - Luna / medium reasoning / low verbosity / Top P `0.98`, configurable through `.env`
   - [configuration, inspection, and failure handling](COMPOSITION.md)

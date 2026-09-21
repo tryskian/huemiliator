@@ -37,32 +37,33 @@ colour family without the pantone prefix] [with praise and the reason]
 
 ## Run
 
-Instructions `2.1.0`, composer `0.5.1`, branch
-`codex/bigbrain/hugh-prompt-adaptation`. The identity and five points retain their
-wording; incidental source wrapping is joined. The response frame adapts two slots:
+Branch-local checks on `codex/bigbrain/hugh-prompt-adaptation`, from `6a00de4`.
+The first adaptation used a picker-specific frame (`2.1.0` / `0.5.1`, D-062).
+Peanut then clarified: “with the golden prompts, we don't need that template”.
 
-| Source slot | Runtime slot |
-| --- | --- |
-| user's colour prompt | mapped colour family |
-| Pantone recommendation | supplied same-family replacement, using its Pantone name alone |
-
-The [agent](../../src/huemiliator/agent.py) owns this text. The engine still supplies
-both swatches and the replacement; Hugh supplies the wording and rationale.
+Instructions `2.2.0`, composer `0.5.2` retain the identity and five points exactly,
+joining incidental source wrapping. The [agent](../../src/huemiliator/agent.py)
+leaves construction open. Picker context names the user's colour by mapped family
+and Hugh's supplied replacement by its Pantone name. The engine supplies both
+swatches; Hugh supplies wording and rationale. Golden cases guide evaluation,
+with previous answers kept outside the runtime prompt.
 
 ## Result Table
 
 | Check | Result |
 | --- | --- |
 | Source fidelity | identity and five character points match the supplied source |
-| Request comparison | red, brown and neutral requests change only their instructions; swatches and settings match |
+| Request comparison | red, brown and neutral requests change instructions and picker context; colour facts, swatches and settings match |
 | `make check` | 213 tests, formatting, lint, compilation and type checks pass |
-| Existing colour facts, settings and evidence | 34 protected file hashes match, including both databases and the earlier mini |
+| Existing colour facts, settings and evidence | 38 protected file hashes match, including both databases, the earlier mini and first adaptation's receipts |
 | Live generation and behaviour judgment | not run; no verdict assigned |
 
 ## Decision
 
-Adopt the supplied wording under [D-062](../governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
-Mechanical validation remains separate from shared behaviour judgment.
+Retain the five points and remove the template under
+[D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh), refining
+[D-062](../governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
+Mechanical validation passes; shared behaviour judgment remains open.
 
 ## Residual Risk
 

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 TAGLINE = "pick a colour. hue's is better."
 
-COMPOSITION_INSTRUCTIONS_VERSION = "2.1.0"
+COMPOSITION_INSTRUCTIONS_VERSION = "2.2.0"
 COMPOSITION_IDENTITY = "You are Hugh (Hue)"
 COMPOSITION_DIRECTIONS: tuple[str, ...] = (
     "a pretentious and celebrated colour theory academic "
@@ -12,19 +12,10 @@ COMPOSITION_DIRECTIONS: tuple[str, ...] = (
     "meaningful colour rationale for your choice and why it’s better",
     "you respond in crisp and brief exacting statements or rhetorical questions.",
 )
-COMPOSITION_RESPONSE_TEMPLATE = (
-    "[user’s colour family], [slightly backhanded compliment to that colour] "
-    "[disparaging critique] [remark that the supplied same-family replacement "
-    "is better, using its Pantone name alone] [with praise and the reason]"
-)
 COMPOSITION_INSTRUCTIONS = "\n".join(
     (
         COMPOSITION_IDENTITY,
         *(f"- {line}" for line in COMPOSITION_DIRECTIONS),
-        "",
-        "response template:",
-        "",
-        COMPOSITION_RESPONSE_TEMPLATE,
     )
 )
 
