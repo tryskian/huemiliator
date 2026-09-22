@@ -94,7 +94,7 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     assert api["store"] is False
     assert api["max_output_tokens"] == 8192
     assert request["schema"] == "huemiliator.composition_request.v2"
-    assert request["composer_version"] == "0.5.2"
+    assert request["composer_version"] == "0.6.0"
     assert request["instructions_version"] == "2.2.0"
     assert "bank_version" not in request and "bank_sha256" not in request
     assert request == build_composition_request(original, "chosen-model")

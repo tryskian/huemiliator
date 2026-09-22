@@ -11,18 +11,20 @@ package versions, or release readiness.
 
 | Surface | Current read |
 | --- | --- |
-| [Behaviour boundary](030_PB_BEHAVIOUR.md) | `staged`: Huey's behaviour on stable colour facts |
-| Cadence and owner | 15-minute pulses are staged; the primary assistant operates them, and Peanut and the primary assistant judge initial rounds together under [D-052](../governance/DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) |
+| [Behaviour boundary](030_PB_BEHAVIOUR.md) | `active`: first current-app pulse completed on stable colour facts; per-response evidence is preserved |
+| Cadence and owner | 15-minute pulses; the primary assistant operates and judges each response under [D-064](../governance/DECISIONS.md#d-064-authorize-live-per-response-judging-for-the-first-current-app-pulse) |
 | Language direction | [Supplied Hugh prompt](340_HUGH_PROMPT.md) under D-063: five authorial points, picker context and deterministic colour facts |
 | Startup orientation | [Session handoff](../governance/SESSION_HANDOFF.md) carries the durable startup method, ownership and next step |
-| Current kernel | [Prompt adaptation](340_HUGH_PROMPT.md): composer `0.5.2`, instructions `2.2.0`; Luna / medium / low verbosity / Top P `0.98`; behaviour judgment remains open |
+| Current kernel | [Pulse feedback](350_PULSE_FEEDBACK.md): composer `0.6.0`, instructions `2.2.0`; connection checked offline, next live batch pending |
 | Closed colour method | `Beta 1.0` fail-pressure pulses, followed by closed warm-edge and colour-boundary audits |
-| [Eval archive](330_EVAL_ARCHIVE.md) | Both live stores are empty; four colour rows, six behaviour outputs and six judgments are preserved locally. Behaviour outputs `4..6` remain unjudged in the archive. |
+| [Eval archive](330_EVAL_ARCHIVE.md) | Owns the September 20 historical archive and carried store verification; it does not own the completed current-app pulse. |
+| Current behaviour records | [Behaviour Records and notebook](../runtime/BEHAVIOUR_RECORDS.md) owns the completed current-app outputs and judgments; [composer](../runtime/COMPOSITION.md) owns the generated-record contract. |
 | [Carried wording correction](230_CARRIED_WORDING.md) | Archived `20163..20166`: four Peanut **FAILs**, “the responses are too basic.” Historical colour labels retain their separate scope. |
 
 September 20's bank-free correction supersedes September 19's local-library
-direction. The earlier colour method remains the carried comparison baseline
-while behaviour staging is aligned.
+direction. The earlier colour method remains the carried comparison baseline;
+the completed first pulse is bounded current evidence. The feedback connection
+is checked offline; the next live batch still needs its bounded scope.
 
 ## Method Lineage
 
@@ -32,7 +34,7 @@ flowchart LR
   B --> C["neutral split correction"]
   C --> D["warm-edge residue audit"]
   D --> E["colour-boundary exact-input audit"]
-  E --> F["staged behaviour pulse"]
+  E --> F["completed behaviour pulse"]
 ```
 
 | Method surface | What it proves | Owning note |
@@ -42,7 +44,7 @@ flowchart LR
 | neutral split | three smaller exact-input corrections plus broader continuation | [N3](410_N3.md) |
 | warm-edge audit | five promoted residue groups, including warm-neutral `20151..20153` | [warm audit](430_WARM_EDGE_AUDIT.md) |
 | colour-boundary audit | three report-derived mixed-bin pulses before classifier edits | [boundary audit](440_COLOUR_BOUNDARY_AUDIT.md) |
-| behaviour pulse | proposed next object of judgment; not yet a completed evidence surface | [PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) |
+| behaviour pulse | completed first response-evidence surface; no beta promotion or aggregate verdict | [PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) |
 
 ## Closed Colour Read
 
@@ -100,12 +102,13 @@ it does not report live failures.
 | Note | Job |
 | --- | --- |
 | [000_LEGEND](000_LEGEND.md) | file map, categories, and status language |
-| [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | staged assistant-run behaviour boundary |
+| [030_PB_BEHAVIOUR](030_PB_BEHAVIOUR.md) | active assistant-run behaviour boundary and first pulse result |
 | [220_RESPONSE_CONSTRUCTION](220_RESPONSE_CONSTRUCTION.md) | construction failures, historical study, and archived unjudged cue mini |
 | [240_YOUR_PINK](240_YOUR_PINK.md) | Peanut's high-signal assessment of “your” in context |
 | [320_BANK_FREE_ALIGNMENT](320_BANK_FREE_ALIGNMENT.md) | reader audit, runtime adaptation and integration validation |
-| [330_EVAL_ARCHIVE](330_EVAL_ARCHIVE.md) | preserved evals and judgments, empty live stores and verification |
+| [330_EVAL_ARCHIVE](330_EVAL_ARCHIVE.md) | September 20 historical archive and carried store verification |
 | [340_HUGH_PROMPT](340_HUGH_PROMPT.md) | exact supplied prompt, template removal and mechanical checks |
+| [350_PULSE_FEEDBACK](350_PULSE_FEEDBACK.md) | source-linked feedback connection and offline validation |
 | [450_LOCAL_LANGUAGE](450_LOCAL_LANGUAGE.md) | superseded library hypothesis, sources and historical observations |
 | [460_BANK_FREE_FOUNDATION](460_BANK_FREE_FOUNDATION.md) | historical v8/v9 foundation and inspected comparison sources |
 | [470_V10_BENCHMARK](470_V10_BENCHMARK.md) | earlier benchmark, exact prompt and preserved responses |

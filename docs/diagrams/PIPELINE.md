@@ -1,36 +1,44 @@
 # Pipeline
 
-This is the implemented colour pipeline carried into behaviour-beta staging.
-The [staged behaviour pulse](BEHAVIOUR_PULSE.md) shows the next method's
-responsibilities and information flow.
-
-The picker kernel, the frozen swatch snapshot, nearest-swatch resolution,
-family assignment, same-family rank, neutral undertone constraint,
-deterministic replacement step, fixed loss-line layer, and first local evidence
-surface are implemented.
+The current [behaviour method](../research/030_PB_BEHAVIOUR.md) uses Hugh's
+[composer](../runtime/COMPOSITION.md) on deterministic colour facts.
 
 ```mermaid
 flowchart LR
-  I["local source-order or scoped cohort sampler"]
-  A["native macOS colour picker"]
-  B["hex code"]
-  S["frozen margaret2 snapshot"]
-  C["nearest swatch match from local snapshot"]
-  D["family assignment"]
-  E["same-family rank"]
-  U["neutral undertone bucket"]
-  F["deterministic one-up"]
-  G["replacement shade + short loss line"]
-  H["optional sqlite evidence row"]
-  J["recorded pass/fail judgment"]
-  K["follow-along notebook"]
+  P["native picker command"] -->|"operator supplies hex"| R["deterministic colour engine"]
+  R --> U["legacy one-up: fixed line"]
+  R --> F["fixed colour facts"]
+  F --> C["Hugh composer<br/>fixed line omitted from request"]
+  C --> S["composition record v2"]
+  S --> O["compose CLI: stdout"]
+  S --> W["pulse runner: saved originals"]
+  W --> J["primary reads response and facts<br/>appends PASS/FAIL and optional note"]
+  J --> I["import records and judgment ledger<br/>behaviour.sqlite"]
+  I --> N["read-only behaviour notebook"]
+  I --> B["primary selects observations<br/>freeze source-linked feedback"]
+  B -->|"next pulse context"| C
+  R -.->|"separate eval-log command"| E["evals.sqlite<br/>historical colour-evidence path"]
 
-  A --> B --> C --> D --> E --> U --> F --> G
-  I --> B
-  G --> H --> J --> K
-  S --> C
-
-  classDef implemented fill:#d8f3dc,stroke:#2d6a4f,color:#1b4332
-  classDef pending fill:#f3f4f6,stroke:#9ca3af,color:#374151
-  class A,B,S,C,D,E,U,F,G,H,I,J,K implemented
+  classDef runtime fill:#d8f3dc,stroke:#2d6a4f,color:#1b4332
+  classDef evidence fill:#dbeafe,stroke:#1d4ed8,color:#1e3a8a
+  classDef operator fill:#fef3c7,stroke:#b45309,color:#78350f
+  class P,J operator
+  class R,U,F,C runtime
+  class S,O,W,I,N,E,B evidence
 ```
+
+`pick` prints a hex for the operator to supply to another command. The engine
+owns frozen-swatch matching, family, rank and replacement. `behaviour-facts`
+exposes those facts with the legacy loss line; the composer removes that line
+from the model request.
+
+`compose --format json` prints a record without creating files or database rows.
+The first pulse's runner called the same composer functions directly and saved
+original evidence. Its judgment helper appended each verdict to the ledger,
+then imported records and judgments before the next dispatch. Manual saved-run
+imports and later appended judgments remain available through
+[Behaviour Records](../runtime/BEHAVIOUR_RECORDS.md).
+
+The [current pulse diagram](BEHAVIOUR_PULSE.md) owns timing and evaluator
+responsibility. The [review notebook](../../output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
+reads the behaviour store; the separate colour store retains its historical scope.

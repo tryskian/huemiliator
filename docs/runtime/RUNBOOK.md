@@ -43,6 +43,10 @@ Use this doc for operator procedure.
    substantive reading and a rehydrate response names one active kernel.
 7. Keep Mac-wide power control outside the repo lifecycle.
 
+Sequential behaviour pulses use the [feedback and runner commands](BEHAVIOUR_RECORDS.md#sequential-pulses).
+The primary selects and freezes observations between pulses, then judges each
+response live. Preparation is offline; `run` starts one explicitly scoped pulse.
+
 ## Shared Power Control
 
 1. The external Coffee Codex plugin owns the one shared Mac-wide keep-awake
@@ -169,7 +173,7 @@ Mechanical checks supply no behaviour verdict; the colour eval DB is untouched.
    - tracked and local path leak checks pass
    - docs lint, code checks, package build, editable package import, and
      dependency security pass
-   - live eval `pending` is `0`
+   - deterministic colour-eval `pending` is `0`
    - the repo ends on clean synced `main`
 4. Use `make end-preflight` only when an explicit branch-local preflight was
    requested.
@@ -208,7 +212,8 @@ Mechanical checks supply no behaviour verdict; the colour eval DB is untouched.
 - `make end-docs-check`
   - current-truth docs freshness gate
 - `make end-pending-check`
-  - fail closeout if eval `pending` is not `0`
+  - fail closeout if deterministic colour-eval `pending` is not `0`; it does not
+    judge or gate the current behaviour records
 - `make lint-docs`
   - tracked markdown validation
 - `make scripts-check`
@@ -251,10 +256,12 @@ Dependency maintenance:
 ## Behaviour Eval Commands
 
 These commands expose the implemented contract and fact fixtures. The
-[composer](COMPOSITION.md) is implemented and records model requests and
-responses. The [15-minute behaviour method](../research/030_PB_BEHAVIOUR.md)
-is still staged: its timed pulse procedure, observation unit, and pulse-wide
-verdict rule await alignment. These commands do not run that procedure.
+[composer](COMPOSITION.md) is implemented and emits model requests and
+responses as stdout records. The [15-minute behaviour method](../research/030_PB_BEHAVIOUR.md)
+has completed its first bounded current-app pulse: records `7..15`, four
+`PASS`, five `FAIL`, one mechanical failure, zero request errors and
+`857.587` seconds. These commands expose the contract and facts; they do not
+start another pulse or create behaviour database rows automatically.
 
 - `huemiliator behaviour-contract`
   - print the positive language and behaviour eval contract from
@@ -267,7 +274,18 @@ verdict rule await alignment. These commands do not run that procedure.
   - emit the same fact packet as machine-readable JSON for Polinko-facing eval
     fixtures
 
-## Colour Pulse Eval Commands
+For the current behaviour evidence, use the [manual read-only review notebook](../../output/jupyter-notebook/huemiliator-behaviour-review.ipynb).
+The first pulse recorded each primary verdict in its ledger, then imported
+records and judgments together before the next dispatch. Saved directories can
+also be imported explicitly and later judgments appended through
+[Behaviour Records](BEHAVIOUR_RECORDS.md#import-and-judge). The notebook reads
+`.local/behaviour.sqlite`; the old colour notebook is a historical surface.
+
+## Historical Deterministic Colour-Evidence Commands
+
+These commands operate on the separate deterministic colour store
+`.local/evals.sqlite`. They preserve the historical colour method and do not
+run the current behaviour pulse or write `.local/behaviour.sqlite`.
 
 - `huemiliator eval-pulse-start --count 15 --family red --quarantine-label "<label>"`
   - archive any current live proof surface into local `.local/parked/`

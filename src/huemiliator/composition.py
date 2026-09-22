@@ -18,8 +18,9 @@ from huemiliator.config import (
     DEFAULT_TOP_P,
     DEFAULT_VERBOSITY,
 )
+from huemiliator.feedback import feedback_context
 
-COMPOSER_VERSION = "0.5.2"
+COMPOSER_VERSION = "0.6.0"
 MAX_OUTPUT_TOKENS = 8192
 REQUEST_TIMEOUT_SECONDS = 60.0
 
@@ -39,6 +40,8 @@ def build_composition_request(
     reasoning_effort: str = DEFAULT_REASONING_EFFORT,
     verbosity: str = DEFAULT_VERBOSITY,
     top_p: float | str = DEFAULT_TOP_P,
+    *,
+    feedback: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Prepare a free-text request from Hugh's directions and fixed colour facts."""
     if reasoning_effort not in {"none", "low", "medium", "high", "xhigh", "max"}:
@@ -78,6 +81,8 @@ def build_composition_request(
         ),
         "display_swatches": display_swatches,
     }
+    if feedback is not None:
+        material["pulse_feedback"] = feedback_context(feedback)
     api_request = {
         "model": model,
         "reasoning": {"effort": reasoning_effort},
@@ -88,7 +93,7 @@ def build_composition_request(
         "max_output_tokens": MAX_OUTPUT_TOKENS,
         "store": False,
     }
-    return {
+    packet = {
         "schema": "huemiliator.composition_request.v2",
         "composer_version": COMPOSER_VERSION,
         "instructions_version": COMPOSITION_INSTRUCTIONS_VERSION,
@@ -96,6 +101,10 @@ def build_composition_request(
         "display_swatches": display_swatches,
         "api_request": api_request,
     }
+    if feedback is not None:
+        # Keep the full source-linked snapshot in the local receipt only.
+        packet["feedback_snapshot"] = json.loads(json.dumps(feedback))
+    return packet
 
 
 def check_composition(response: object, request: dict[str, Any]) -> list[str]:

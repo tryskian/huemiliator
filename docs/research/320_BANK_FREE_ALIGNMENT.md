@@ -49,6 +49,7 @@ after protected-main integration; the branch checks above are mechanical proof.
 
 ## Next Move
 
-Judge fresh responses together under the Peanut-first method. No live generation
-or timed pulse belongs to this change;
-mechanical success supplies no behavioural verdict.
+At this September 20 boundary, shared response judgment was next; no live
+generation or timed pulse belonged to this change. Mechanical success supplied
+no behavioural verdict. The later [authorial adaptation](340_HUGH_PROMPT.md)
+and [completed behaviour pulse](030_PB_BEHAVIOUR.md) now lead to the current work.

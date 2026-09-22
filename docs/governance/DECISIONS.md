@@ -1135,3 +1135,61 @@ into implementation authorship.
 - Boundary: Colour selection and model settings are unchanged. Mechanical checks
   supply no behaviour verdict; this change runs no live eval.
 - Reference: [Source, refinement and checks](../research/340_HUGH_PROMPT.md).
+
+## D-064: Authorize live per-response judging for the first current-app pulse
+
+- Date: `2026-09-21`
+- Category: `eval_quality`
+- Tags: `behaviour_eval`, `current_app`, `live_judgment`, `fifteen_minute_pulse`, `evidence_attribution`
+- Provenance: Peanut authorized one local pulse and clarified that the primary
+  assistant should give its verdict in real time as each evaluation runs.
+- Decision: The first current-app behaviour pulse uses the primary assistant as
+  the live evaluator. It reads each original response with its supplied colour
+  facts and records `PASS` or `FAIL` before the next dispatch. A concise note is
+  optional and is recorded only when it adds value; no Peanut-verdict column is
+  required.
+- Bounds: HUE-4 selected six fixed inputs in listed order, repeated twice, for a
+  maximum of 12 attempts within 900 seconds and a fresh request context per
+  response. The effective settings are `gpt-5.6-luna`, medium reasoning, low
+  verbosity and Top P `0.98`, with a 60-second request timeout and no retries.
+  The [pulse protocol](../../.local/behaviour-pulses/20260921T175241Z/protocol.json)
+  records the cases and the remaining dispatch controls.
+- Evidence boundary: This records the authorized method and selected operating
+  bounds, not any pulse outcome. Preserve exact requests, raw responses, v2
+  records, attempt receipts and append-only primary judgments. Mechanical
+  failures remain reported evidence; an API or configuration failure stops the
+  pulse without retry or repaired text.
+- Boundary: The pulse reports per-response judgments, useful observations and
+  mechanical failures. It creates no automatic aggregate behaviour verdict and
+  does not promote beta. Existing attributed judgment storage is sufficient;
+  historical Peanut judgments remain unchanged.
+- Validation: Run `20260921T175241Z` completed with 9 responses and 9 primary
+  judgments at behaviour IDs `7..15`: 4 `PASS`, 5 `FAIL`, 1 mechanical failure
+  and 0 request errors in `857.587` seconds. All six inputs ran once; the first
+  three repeated before the 60-second dispatch guard stopped the run. Original
+  records, raw responses, database records and verdicts were verified, with
+  runtime source and the colour database unchanged. [The validation receipt](../../.local/behaviour-pulses/20260921T175241Z/validation.json)
+  records the closeout evidence.
+
+## D-065: Connect sequential pulses through attributed feedback
+
+- Date: `2026-09-21`
+- Category: `runtime_engineering`
+- Provenance: Peanut described sequential pulses as the alternative to long
+  evaluation runs, with behaviour shaped as evidence emerges. After reviewing
+  Polinko's feedback path and Hugh's requirements, Peanut authorized the connection:
+  “Yes let’s do that!”
+- Decision: Carry useful recorded observations into subsequent pulse context.
+  Preserve Hugh's five authorial directions, deterministic colour facts and live
+  primary `PASS`/`FAIL` judgment, with observations only when valuable.
+- Implementation: Composer `0.6.0` accepts a frozen feedback snapshot. The primary
+  selects observations from completed, judged pulses; the snapshot preserves exact
+  sources and attribution. Requests receive those observations with their prior
+  colour context. Full historical answers remain local evidence. Each pulse fixes
+  its snapshot; selection can develop between pulses without adding character rules.
+- Boundary: This implements the connection and offline preparation. Further live
+  execution needs a bounded batch scope. D-064's nine responses remain the current
+  live evidence; behavioural benefit is unmeasured.
+- Reference: [Feedback validation](../research/350_PULSE_FEEDBACK.md),
+  [operator flow](../runtime/BEHAVIOUR_RECORDS.md#sequential-pulses) and
+  [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md).

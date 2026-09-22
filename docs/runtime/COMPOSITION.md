@@ -2,7 +2,7 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.5.2` uses instructions `2.2.0` under
+Responses API. Composer `0.6.0` uses instructions `2.2.0` under
 [D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh).
 
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
@@ -10,7 +10,10 @@ identity and five verbatim character points. The
 [runtime text](../../src/huemiliator/agent.py) leaves sentence construction to Hugh.
 Picker context names the user's colour by family and Hugh's supplied replacement
 by its Pantone name. The engine supplies his colour; golden cases guide evaluation.
-Behaviour judgment and timed pulses remain separate work.
+Behaviour judgment follows the current [15-minute behaviour method](../research/030_PB_BEHAVIOUR.md)
+and its [Behaviour Records and read-only notebook](BEHAVIOUR_RECORDS.md). Its
+first current-app pulse has completed with bounded coverage; a further pulse
+requires a separate choice.
 
 ## Setup and Use
 
@@ -32,6 +35,7 @@ show the actual values. The live request sends colour facts to OpenAI.
 huemiliator compose '#d9a6a1' --dry-run
 huemiliator compose '#d9a6a1'
 huemiliator compose '#d9a6a1' --format json
+huemiliator compose '#d9a6a1' --feedback .local/feedback.json --dry-run
 ```
 
 Dry-run prints the exact request packet without an API key or model call. Text
@@ -39,7 +43,9 @@ mode prints two labelled swatches and Hugh's response after mechanical checks.
 Colour-capable terminals show the actual colours; redirected output, `NO_COLOR`
 and `TERM=dumb` use plain square markers and labels. JSON mode prints the full
 local inspection record. Redirect stdout to preserve a candidate; the command
-creates no files or database rows itself.
+creates no files or database rows itself. Behaviour records reach
+`.local/behaviour.sqlite` only through the explicit saved pulse or mini
+record/import/judgment path documented in [Behaviour Records](BEHAVIOUR_RECORDS.md).
 
 ## Selection and Composition
 
@@ -50,6 +56,13 @@ creates no files or database rows itself.
    replacement's Pantone name.
 4. The CLI preserves that original text and renders the two swatches from the
    deterministic facts.
+
+Optional `--feedback` loads a hash-checked snapshot from completed pulses.
+The model receives selected, exact observations with evaluator, prior family,
+replacement and source IDs. Full prior responses stay in the local snapshot.
+Selection is the primary's review work, with no automatic pattern classifier or
+invented note. [Sequential pulse preparation](BEHAVIOUR_RECORDS.md#sequential-pulses)
+freezes this context for the whole pulse under D-065.
 
 The user's swatch retains the actual input hex and mapped family label; Hugh's
 swatch carries its supplied Pantone name. Hexes serve rendering and inspection
@@ -67,6 +80,8 @@ The `huemiliator.composition_record.v2` local JSON wrapper preserves:
 - request timestamps, response ID, returned model, status, usage and refusal or
   incomplete details
 - original output text, mechanical issues and a `behaviour_verdict` of `null`
+- the complete `feedback_snapshot`, when supplied; its selected context is also
+  inside the exact API request and therefore covered by the request hash
 
 The request uses text output; JSON is the local evidence format. Its input retains
 `input` and `runtime_facts` for inspection and import. Bank versions, bank hashes,
@@ -77,7 +92,9 @@ repeatable model output.
 
 [Behaviour records and the read-only notebook](BEHAVIOUR_RECORDS.md) accept both
 record versions, preserve original bytes and keep attributed judgments separate
-from mechanical checks.
+from mechanical checks. The CLI emits stdout for explicit capture; the pulse
+runner calls the same composer functions and saves original records. Its live
+judgment ledger and records are imported together for notebook review.
 
 ## Mechanical Checks and Failures
 
@@ -103,6 +120,8 @@ output repair.
 
 [Prompt validation](../research/340_HUGH_PROMPT.md) covers this adaptation;
 [bank-free integration](../research/320_BANK_FREE_ALIGNMENT.md) records the earlier
-change. Fresh behavioural judgment follows the agreed Peanut-first
-method. Case selection, timing, in-flight handling and pulse-wide aggregation
-still need alignment before the first 15-minute behaviour pulse.
+change. Fresh behavioural judgment follows the authorized current-app pulse method
+documented in [Behaviour Records and the read-only notebook](BEHAVIOUR_RECORDS.md).
+The first pulse and its current evidence are recorded there; its bounded result
+remains separate from this composer contract, and the next pulse remains a
+separate human choice.

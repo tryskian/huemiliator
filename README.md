@@ -1,6 +1,6 @@
 # Huemiliator
 
-[![Research Stage](https://img.shields.io/badge/research_stage-behaviour_beta_staging-E15759)](./docs/research/030_PB_BEHAVIOUR.md)
+[![Research Stage](https://img.shields.io/badge/research_stage-behaviour_pulses_active-E15759)](./docs/research/030_PB_BEHAVIOUR.md)
 [![Polinko Model](https://img.shields.io/badge/polinko_model-staged_next_beta-4C956C)](https://github.com/tryskian/polinko)
 [![Polinko toy factory](https://img.shields.io/badge/polinko_toy_factory-active-4C956C)](https://github.com/tryskian/polinko)
 ![Model Refactor](https://img.shields.io/badge/model_refactor-active-F28E2B)
@@ -8,10 +8,20 @@
 ## pick a colour. huey's is better
 
 > [!NOTE]
-> **Current status:** Huey is staging the next Polinko method boundary:
-> 15-minute behaviour eval pulses, operated by the assistant; the human lead
-> and assistant judge the first rounds together to develop the assistant's
-> reading of signal and nuance.
+> **Current status:** The first current-app behaviour pulse completed under
+> [D-064](./docs/governance/DECISIONS.md#d-064-authorize-live-per-response-judging-for-the-first-current-app-pulse):
+> HUE-4's primary assistant recorded 9 live judgements, 4 `PASS` and 5 `FAIL`,
+> with one mechanical failure on olive's printed hexes and no request errors.
+> It ran for 857.587 seconds; all six inputs ran once and the first three
+> repeated before the dispatch guard stopped the run. This is a bounded evidence
+> result, not a beta promotion or aggregate behaviour verdict.
+> The [sequential feedback connection](./docs/research/350_PULSE_FEEDBACK.md) is now
+> implemented and checked offline. Useful recorded observations can shape the
+> following pulse while Hugh's compact brief and colour foundation stay fixed.
+> Current reading path: [session handoff](./docs/governance/SESSION_HANDOFF.md)
+> → [current behaviour method](./docs/research/030_PB_BEHAVIOUR.md)
+> → [composer](./docs/runtime/COMPOSITION.md) → [behaviour records](./docs/runtime/BEHAVIOUR_RECORDS.md) / [review notebook](./output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
+> → [behaviour pulse diagram](./docs/diagrams/BEHAVIOUR_PULSE.md).
 >
 > Colour logic is the stable foundation. The agent setup uses
 > approximately five short, positive directions with room for Huey to reason.
@@ -23,7 +33,7 @@
 > Start each session with the [compact handoff](./docs/governance/SESSION_HANDOFF.md):
 > current setup, eval method, roles, open choices and next step. It links the
 > [beta notes](./docs/research/030_PB_BEHAVIOUR.md) and
-> [staged diagram](./docs/diagrams/BEHAVIOUR_PULSE.md) for supporting detail.
+> [current diagram](./docs/diagrams/BEHAVIOUR_PULSE.md) for supporting detail.
 
 Huemiliator is a small, local, agent-backed CLI mini chatbot using the
 **[Polinko research model](https://github.com/tryskian/polinko)**.
@@ -77,7 +87,7 @@ The surface stays narrow:
 - one native macOS colour picker
 - one canonical hex code
 - one deterministic same-family replacement shade
-- one short loss line
+- one response grounded in that replacement
 
 That narrow surface is the point. Huemiliator is not trying to be a general
 colour utility. It studies whether deterministic colour matching, family
@@ -85,14 +95,13 @@ routing, and one-up logic can stay legible under tight runtime rules.
 
 Current research direction:
 
-- staged 15-minute behaviour pulses, operated by the assistant; the human lead
-  and assistant judge initial rounds together, with later independent assistant
-  judgment conditional on alignment
+- review the completed bounded 15-minute pulse and its attributed primary
+  judgements; any further pulse or method promotion requires separate alignment
 - compact positive instructions with room for Huey to reason
 - bank-free composition from character direction and grounded colour facts
-- closed `Beta 1.0` colour evidence carried as the baseline
+- historical closed `Beta 1.0` colour evidence carried as the baseline
 
-Latest closed proof surface:
+Historical colour proof surface:
 
 - broader corrected `neutral` continuation at `20106..20120`
 - warm-edge `orange` yellow-gold audit pulse at `20121..20128`
@@ -104,7 +113,7 @@ Latest closed proof surface:
   `20163..20166`
 - pulse-level proof surface
 
-Current closed comparison surface:
+Historical row-level comparison surface:
 
 - closed third corrected `red` rerun
 - row-level family proof surface
@@ -122,8 +131,9 @@ version.
 - picker-first input instead of freeform text
 - deterministic swatch matching against a frozen local reference
 - runtime-owned family assignment, same-family rank, and one-up selection
-- the latest pulse proof surface plus the closed row-level comparison baseline
-- the closed fail-pressure pulse boundary for the current non-OCR eval unit
+- the current behaviour pulse records and its attributed primary judgments
+- historical colour proof surfaces and the closed row-level comparison baseline
+- the historical fail-pressure pulse boundary for the non-OCR colour eval unit
 - a small local evidence surface for following deterministic output and pulse
   evidence
 
@@ -137,7 +147,7 @@ huemiliator pick
 `huemiliator pick` opens the native macOS colour picker and prints the chosen
 hex.
 
-For the direct runtime path:
+Inspect the colour engine and its legacy fixed line:
 
 ```sh
 huemiliator resolve <hex>
@@ -171,8 +181,10 @@ remains historical evidence.
 The [behaviour review notebook](./output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
 shows saved swatches, responses and attributed judgments from the local
 [behaviour database](./docs/runtime/BEHAVIOUR_RECORDS.md).
-Both live eval stores are empty after the [verified archive](./docs/research/330_EVAL_ARCHIVE.md);
-earlier responses and judgments remain available for historical review.
+The live colour DB remains empty after the [verified archive](./docs/research/330_EVAL_ARCHIVE.md);
+preserved colour rows remain in the archived colour DB. The live behaviour DB
+contains current pulse outputs `7..15` and their attributed primary judgments;
+historical behaviour outputs `1..6` remain in the archived behaviour DB.
 
 Closeout rule:
 
@@ -182,7 +194,8 @@ Closeout rule:
 - `make end` only closes when:
   - current-truth docs are fresh
   - local validation passes
-  - eval `pending` is `0`
+  - colour eval `pending` is `0`; review current behaviour completion through
+    [Behaviour Records](./docs/runtime/BEHAVIOUR_RECORDS.md)
   - the repo is back on clean synced `main`
 - `make end-git-check` is the final gate inside `make end`, not the normal
   operator entrypoint
@@ -190,7 +203,7 @@ Closeout rule:
 ## Read Next
 
 - [Pre-Beta: 15-Minute Behaviour Pulses](./docs/research/030_PB_BEHAVIOUR.md)
-  - agreed direction, runtime adaptation, judgment lens, and staging choices
+  - current method, completed pulse, judgment lens and next research step
 - [docs/research/README.md](./docs/research/README.md)
   - proof surface and research notes
 - [docs/governance/DECISIONS.md](./docs/governance/DECISIONS.md)

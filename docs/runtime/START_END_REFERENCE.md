@@ -32,13 +32,17 @@ make end
 ```
 
 `make end` runs the docs freshness, environment snapshot, path-leak, docs,
-shell, code, package, security, pending-eval, and session checks, then enforces
+shell, code, package, security, deterministic colour-pending, and session checks, then enforces
 the final Git state with `make end-git-check`.
 
 Success requires current-truth docs updated today, all validation passing,
-`eval pending=0`, and clean local `main` synced with `origin/main`. Use
+deterministic colour-eval `pending=0`, and clean local `main` synced with `origin/main`. Use
 `make end-preflight` only for an explicitly requested branch-local preflight;
 it does not replace closeout or require clean synced `main`.
+
+Current behaviour evidence is reviewed manually in the [read-only behaviour
+notebook](../../output/jupyter-notebook/huemiliator-behaviour-review.ipynb). It
+is not a separate `make end` gate.
 
 `make end` leaves Coffee unchanged. Use `coffee stop` only as a separate,
 explicit operator action.

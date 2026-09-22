@@ -63,7 +63,8 @@ with previous answers kept outside the runtime prompt.
 Retain the five points and remove the template under
 [D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh), refining
 [D-062](../governance/DECISIONS.md#d-062-adapt-the-supplied-prompt-with-hugh-as-the-primary-name).
-Mechanical validation passes; shared behaviour judgment remains open.
+Mechanical validation passed at this snapshot; these checks assigned no
+behaviour verdict.
 
 ## Residual Risk
 
@@ -72,5 +73,7 @@ establish the quality of this adaptation. Low/medium verbosity remains under rev
 
 ## Next Move
 
-Review responses using the adapted instructions under the Peanut-first method.
-This change activates no timed pulse or settings revision.
+The later first pulse used these instructions under [D-064](../governance/DECISIONS.md#d-064-authorize-live-per-response-judging-for-the-first-current-app-pulse).
+Its current responses and primary judgments are in [Behaviour Records](../runtime/BEHAVIOUR_RECORDS.md);
+the [behaviour boundary](030_PB_BEHAVIOUR.md) owns the next research step.
+The mechanical validation above remains separate from that later evidence.

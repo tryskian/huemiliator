@@ -15,10 +15,15 @@ handoff if present. Report state, risks, next scope, workspace/host and branch.
 [Runtime](../runtime/COMPOSITION.md) uses the
 [September 21 authorial prompt](../research/340_HUGH_PROMPT.md): **Hugh (Hue)**,
 five verbatim character points, with sentence construction left to Hugh under D-063.
-Composer `0.5.2`, instructions `2.2.0`. Picker context names the two colours.
+Composer `0.6.0`, instructions `2.2.0`. Picker context names the two colours.
 The engine supplies the family, deterministic same-family replacement and both
 swatches; Hugh composes the words.
 Golden cases guide evaluation; previous answers stay outside the runtime prompt.
+Under [D-065](DECISIONS.md#d-065-connect-sequential-pulses-through-attributed-feedback),
+selected observations from completed pulses now enter an optional, frozen
+feedback context. Exact source responses and attributed judgments stay in the
+local snapshot. [The command flow](../runtime/BEHAVIOUR_RECORDS.md#sequential-pulses)
+keeps the primary's live verdict gate and records each pulse's exact context.
 
 **Platform v15 remains the prior experiment reference.** Our intended settings are
 `gpt-5.6-luna` / `medium`, explicit low verbosity and Top P `0.98`.
@@ -26,53 +31,87 @@ Low versus medium verbosity is under review; preserve requested settings
 separately from returned metadata. The application sends
 `store=false` and omits reasoning summary; the source experiment enabled storage
 and requested `auto` summary. Source/settings record:
-`docs/peanut/research/2026-09-20-golden-smoke-audit/V15_REFERENCE.md`.
+the historical `docs/peanut/research/2026-09-20-golden-smoke-audit/V15_REFERENCE.md`.
 
-The [verified archive](../research/330_EVAL_ARCHIVE.md) left both live eval
-stores empty. Archived colour rows `20163..20166` retain four Peanut **FAILs**;
-behaviour rows `1..3` retain both evaluators' FAILs; `4..6` remain unjudged.
+The live colour DB `.local/evals.sqlite` remains empty after the verified archive;
+preserved colour rows `20163..20166` remain in the archived colour DB. The live
+behaviour DB `.local/behaviour.sqlite` contains current pulse outputs `7..15`
+with primary judgments; historical behaviour outputs `1..6` remain in the
+archived behaviour DB. The dated September 20 records above and the private
+session findings below are historical context, not current pulse evidence.
 Mechanical integration and historical colour anchors establish no wording verdict.
 
-## Proposed Next Slice
+## Pulse Result and Next Slice
 
-The direct-v15 verbosity mini completed six independent requests: pink, snow and
-olive at low and medium. All completed; returned verbosity matched each request.
-Peanut's judgments come first and remain pending. Exact receipts and paired answers:
-`docs/peanut/research/2026-09-21-verbosity-comparison/README.md`.
+The first current-app pulse completed under
+`.local/behaviour-pulses/20260921T175241Z/` ([validation receipt](../../.local/behaviour-pulses/20260921T175241Z/validation.json)):
+9 responses, 4 `PASS` and 5 `FAIL`, one mechanical failure on olive's printed
+hexes, zero request errors, and 857.587 seconds elapsed before the runner
+stopped for an insufficient request window after the ninth gated review.
+Outputs `7..15` and their primary judgments are verified; all six inputs ran
+once and the first three repeated.
+Runtime source and the colour DB are unchanged. This is a bounded pulse result,
+not a beta promotion or aggregate behaviour verdict. Prior platform examples
+remain calibration and historical human feedback remains source evidence.
 
-Those responses used the earlier v15 reference, not today's app adaptation.
-The [prompt record](../research/340_HUGH_PROMPT.md) owns its source and mechanical
-checks; fresh app behaviour judgment remains open. The original six-colour smoke
-proposal, SQLite/notebook adaptation and vector retrieval remain separate work.
+Current connection: the [prompt record](../research/340_HUGH_PROMPT.md) feeds
+the [composer](../runtime/COMPOSITION.md); [behaviour records](../runtime/BEHAVIOUR_RECORDS.md)
+and the [review notebook](../../output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
+hold the current pulse; the [behaviour pulse diagram](../diagrams/BEHAVIOUR_PULSE.md)
+shows the method boundary. The [workflow audit packet](../peanut/research/2026-09-21-project-workflow-audit/README.md)
+keeps the seven reports and current-document alignment scope.
+
+The feedback connection is [offline-validated](../research/350_PULSE_FEEDBACK.md);
+the nine existing judgments remain the full current live evidence. Next: choose
+the bounded sequential batch, inspect its frozen observations and protocol, then
+run pulses with primary live judgments. Behavioural improvement remains unmeasured.
+
+Next-session discussion requested by Peanut: review the golden prompts prepared
+for Hugh. Start with the [golden smoke report](../peanut/research/2026-09-20-golden-smoke-audit/README.md)
+and the [case protocol](../../.local/behaviour-pulses/20260921T175241Z/protocol.json).
 
 The documentation conventions audit is report-only:
 `docs/peanut/research/2026-09-21-documentation-conventions/README.md`.
 
 ## Method and Continuity
 
-The primary's 15-minute behaviour pulses remain staged. Peanut judges first,
-then the same primary records a separate attributed `PASS` or `FAIL` with a
-short reason under [D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together).
-Shared-phase duration and transition to independent judgment remain open.
-Before timed activation, align cases, observation unit, clock/judgment timing,
-in-flight handling, aggregation and completion. Carry
-[“your pink”](../research/240_YOUR_PINK.md) as context; judge whole responses.
-
-Peanut owns scope, meaning, acceptance and go/no-go. The primary owns operation,
-canonical evidence, source preservation, review and Git/PR flow.
+This pulse used the bounded live-primary method under
+[D-064](DECISIONS.md#d-064-authorize-live-per-response-judging-for-the-first-current-app-pulse).
+[D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together) remains the
+separate broader shared-judgment reference; neither this pulse nor its result
+promotes the method. Peanut owns scope, meaning, acceptance and go/no-go. The
+primary owns operation, canonical evidence, source preservation, review and
+Git/PR flow.
 
 ### Documentation Task
 
-**Huey documentation**, `01a0bb88-752b-7762-88f7-8ad5c23a3ac9`, remains the
-continuing lead. Bounded briefs name sources, versions, evidence and owned files;
-the primary reviews and integrates under the
-[collaboration contract](../diagrams/COLLABORATION.md).
+The continuing-task registry below is the active checkpoint. All tasks receive
+explicit source packets, may delegate bounded readles inside their exact
+ownership, review those returns, and return one checked result to HUE-4. The
+primary personally reads sources and returns, resolves cross-owner gaps, and
+owns integration, runtime implementation, evaluation, canonical evidence and
+Git. The human lead retains scope, meaning, acceptance and go/no-go.
+
+| Task | ID | Sole write ownership | Return to HUE-4 |
+| --- | --- | --- | --- |
+| Huey documentation | `01a0bb88-752b-7762-88f7-8ad5c23a3ac9` | `README.md`, `docs/governance/CHARTER.md`, `docs/governance/SESSION_HANDOFF.md`, `docs/diagrams/COLLABORATION.md` | alignment edits, consistency and exact-ownership coordination, concise synthesis, cross-owner gaps |
+| Huey runtime records | `01a0c4f3-d508-77e2-993a-89b1602768e5` | `docs/governance/DECISIONS.md`, `docs/runtime/ARCHITECTURE.md`, `docs/runtime/RUNBOOK.md`, `docs/runtime/START_END_REFERENCE.md`, and assigned execution pipeline docs such as `docs/diagrams/PIPELINE.md` | runtime records, pipeline records and source-backed gaps |
+| Huey research records | `01a0c4fa-eb3e-7c22-9dc0-ec9a1e1e0a37` | assigned tracked and private research, including method, gate, condition and finding diagrams such as `docs/diagrams/BEHAVIOUR_PULSE.md` | research records, diagrams and unresolved evidence boundaries |
+| Huey transcript keeper | `01a0c4f3-d508-77e2-993a-899213bada59` | curated private transcripts and relevant source diagrams with excerpts under `docs/peanut/transcripts/` | exact sourced captures, diagram excerpts, separated interpretation and gaps |
+
+The [collaboration contract](../diagrams/COLLABORATION.md) shows the path
+`HUE-4 primary > focused task > bounded readles > task review > primary review`.
+Transcript captures use the private [transcript README](../peanut/transcripts/README.md)
+for format. The registry itself does not authorize runtime implementation, pulse
+operation, or independent assistant judgment beyond an explicit protocol.
+
 Private source-continuity context:
 `docs/peanut/research/2026-09-20-transcript-context/README.md`.
-Today's findings and open questions:
+Historical September 20 findings and open questions:
 `docs/peanut/research/2026-09-20-session-findings.md`.
 
 ## Closeout
 
 Follow [RUNBOOK](../runtime/RUNBOOK.md): recheck live evidence, then `make end` on clean,
-synced `main` with pending eval count zero.
+synced `main` with colour pending count zero. Review current behaviour completion
+through [Behaviour Records](../runtime/BEHAVIOUR_RECORDS.md).
