@@ -5,6 +5,7 @@ import json
 import os
 import sqlite3
 import sys
+from pathlib import Path
 from typing import Any
 
 from huemiliator.agent import (
@@ -40,6 +41,7 @@ from huemiliator.eval_sampling import (
     sample_local_eval_outputs,
 )
 from huemiliator.eval_scope import EVAL_SCOPE_NAMES, describe_eval_scope
+from huemiliator.feedback import load_feedback
 from huemiliator.picker import PickerError, pick_hex
 from huemiliator.pipeline import build_one_up_state
 from huemiliator.resolution import ResolutionError
@@ -62,6 +64,11 @@ def build_parser() -> argparse.ArgumentParser:
         "compose", help="Compose Hugh's own response from fixed colour facts."
     )
     compose_parser.add_argument("hex_value", help="The colour chosen in the picker.")
+    compose_parser.add_argument(
+        "--feedback",
+        type=Path,
+        help="Use a frozen, attributed pulse feedback snapshot.",
+    )
     compose_parser.add_argument(
         "--dry-run",
         action="store_true",
@@ -856,6 +863,7 @@ def main(argv: list[str] | None = None) -> int:
                 settings.reasoning_effort,
                 settings.verbosity,
                 settings.top_p,
+                feedback=load_feedback(args.feedback) if args.feedback else None,
             )
             if args.dry_run:
                 print(json.dumps(request, ensure_ascii=False, indent=2))
@@ -866,6 +874,7 @@ def main(argv: list[str] | None = None) -> int:
             ResolutionError,
             SwatchDatasetError,
             ValueError,
+            OSError,
         ) as exc:
             print(str(exc), file=sys.stderr)
             return 1

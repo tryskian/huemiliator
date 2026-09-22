@@ -8,7 +8,7 @@
 - `data/margaret2_swatches.json`
   - frozen local swatch reference
 - `.local/evals.sqlite`
-  - live eval evidence store
+  - deterministic colour-evidence store; separate from current behaviour records
 - `docs/governance/`
   - durable rules, decisions, and active carryover
 - `docs/runtime/`
@@ -16,7 +16,7 @@
 - `docs/research/`
   - tracked research notes and current proof-surface reads
 - `docs/diagrams/PIPELINE.md`
-  - canonical picker-to-eval flow
+  - canonical picker, composition, and evidence flow
 - `output/jupyter-notebook/`
   - follow-along notebook surface
 - `tests/`
@@ -26,40 +26,19 @@
 
 ```mermaid
 flowchart LR
-  A["native macOS colour picker"]
-  B["hex code"]
-  C["nearest swatch match"]
-  D["family assignment"]
-  E["same-family rank"]
-  F["deterministic one-up"]
-  G["replacement shade"]
-  H["short loss line"]
-
-  A --> B --> C --> D --> E --> F --> G --> H
+  A["native picker"] -->|"operator supplies hex"| B["deterministic colour engine"]
+  B --> C["legacy one-up: fixed line"]
+  B --> D["Hugh composer: free text"]
+  D --> E["CLI stdout or pulse recording"]
+  E --> F["saved evidence and attributed review"]
 ```
 
-The stable runtime path is:
-
-1. the user picks a colour through the native macOS picker
-2. the runtime captures one hex code as the canonical user state
-3. the runtime resolves the nearest swatch from the frozen local snapshot
-4. the runtime assigns a closed family
-5. the runtime reads the same-family rank
-6. the runtime selects the next same-family replacement, with `neutral`
-   constrained to its undertone bucket and clamped at the bucket top
-7. the runtime appends one short fixed loss line downstream of the colour
-   decision
-
-## System Shape
-
-- input stays picker-first and local
-- colour resolution stays deterministic
-- family assignment stays explicit and closed
-- same-family rank stays on one fixed ladder
-- one-up selection stays deterministic and non-wrapping, with `neutral`
-  constrained to coarse undertone buckets
-- the loss line stays downstream of the stable colour decision
-- the runtime owns the final colour output
+The [pipeline](../diagrams/PIPELINE.md) shows the command and recording boundaries.
+The engine matches the frozen snapshot with CIE76 and source-order tie breaks,
+assigns a family and rank, then selects the next same-family shade without
+wrapping. Neutral stays within its undertone bucket and clamps at the top.
+Hugh composes from those fixed facts and five character points. The legacy
+`one-up` command retains its fixed line.
 
 ## Operator Boundary
 
@@ -73,9 +52,10 @@ The stable runtime path is:
 
 - language composition:
   - `huemiliator compose <hex> --dry-run` exposes the exact request
-  - `huemiliator compose <hex> --format json` emits a composition record
-  - fixed colour facts plus five positive directions adapted from the v10 benchmark
-  - one free-text OpenAI Responses API generation; local versioned JSON evidence
+  - `huemiliator compose <hex> --format json` emits a composition record to stdout
+  - fixed colour facts, picker context and five authorial character points
+  - one free-text OpenAI Responses API generation; captured versioned JSON evidence
+  - the compose command creates no files or database rows by itself
   - Luna / medium reasoning / low verbosity / Top P `0.98`, configurable through `.env`
   - [configuration, inspection, and failure handling](COMPOSITION.md)
 - behaviour review:
@@ -92,8 +72,9 @@ The stable runtime path is:
   - schema `huemiliator.colour_boundaries.v1`
   - mixed-family Lab bins with capped row samples and family-balanced samples
     for candidate selection
-- live eval evidence:
-  - `.local/evals.sqlite`
+- deterministic colour evidence:
+  - `.local/evals.sqlite` via the separate `eval-log` and colour-pulse commands
+  - `end-pending-check` reads this colour store only
 - local quarantine artefacts for superseded runs:
   - `.local/parked/`
 - tracked research notes:
@@ -101,40 +82,27 @@ The stable runtime path is:
   - durable notes
   - next narrow correction
 
-## Eval Flow
+## Deterministic Colour Evidence Flow
 
 ```mermaid
 flowchart LR
-  A["deterministic output"]
-  B["local evidence row"]
-  C["bounded pulse read"]
-  D["pulse PASS / FAIL"]
-  E["retained confidence or next correction"]
+  A["deterministic colour output"]
+  B[".local/evals.sqlite colour row"]
+  C["historical colour-pulse read"]
+  D["colour label or report"]
+  E["retained colour evidence or next correction"]
 
   A --> B --> C
   C --> D
   D --> E
 ```
 
-The current method record is:
-
-- Current local CLI surfaces still log row evidence in `.local/evals.sqlite`.
-  The broader corrected `neutral` continuation at `20106..20120` is a carried
-  prior proof surface, the warm-edge audit stack through `20151..20153` is
-  carried as closed proof, the colour-boundary audit pulse at `20154..20158`
-  is carried as closed proof, the pulse at `20159..20162` is carried as closed
-  proof, and the pulse at `20163..20166` is the latest closed proof surface.
-  The corrected split stack at `20097..20105` stays carried as the neutral
-  correction. The full parked red, yellow, green, blue, purple, pink, orange,
-  brown, and neutral proof stacks stay as the current Beta 1.0 comparison
-  stack, and the closed third corrected `red` rerun stays as the closed
-  row-level comparison baseline.
-- one active family lane at a time when an eval pulse is queued
-- one active sampler at a time
-- bounded fail-pressure pulse as the current judgement unit
-- rows stay visible as evidence inside the pulse
-- `warm` as an audit cohort only
-- closed proof surfaces stay active until the next correction is explicit
+The [closed colour baseline](../research/020_B10.md) and
+[boundary audit](../research/440_COLOUR_BOUNDARY_AUDIT.md) retain their historical
+scope. The live colour store is empty after the [verified archive](../research/330_EVAL_ARCHIVE.md).
+Rows `20163..20166` retain historical colour labels alongside separate
+[Peanut wording FAILs](../research/230_CARRIED_WORDING.md). Current behaviour
+records use their own store and judgment history.
 
 ## Placement Rules
 
@@ -165,25 +133,27 @@ corrections, not through mixed historical queues or branch-local notes.
 ## Behaviour Eval Flow
 
 The implemented surface exports fixed colour facts and contract metadata. The
-flow below describes their intended use in response evaluation. The next
-[15-minute behaviour pulse](../diagrams/BEHAVIOUR_PULSE.md) is staged in
-[PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md), including assistant operation
-and verdict ownership. The composer uses five adapted directions and fixed colour
-facts; Hugh owns the wording, connections and sentence construction. The bank and
-connector annotation scaffold are retired. The exact request and free-text response
-remain inspectable in a local v2 record. The [behaviour database](BEHAVIOUR_RECORDS.md)
-imports v1 and v2 originals and preserves attributed judgments; the timed pulse
-procedure remains staging work.
+[PB_BEHAVIOUR](../research/030_PB_BEHAVIOUR.md) method is now active with its
+first current-app pulse completed: records `7..15`, four `PASS`, five `FAIL`, one
+mechanical failure, zero request errors, and `857.587` seconds. This is bounded
+response evidence, not a beta promotion or aggregate behaviour verdict. A next
+pulse is not automatic.
 
-```mermaid
-flowchart LR
-  A["hex input"]
-  B["fixed runtime facts"]
-  C["visible Huey response"]
-  D["language and behaviour read"]
+[D-065](../governance/DECISIONS.md#d-065-connect-sequential-pulses-through-attributed-feedback)
+connects sequential pulses through frozen, attributed observations.
+`feedback.py` reads completed evidence and the latest judgments for the named
+evaluator; `behaviour_pulse.py` freezes the selected context and each request,
+then waits for primary review between dispatches. Original records preserve the
+complete feedback snapshot. [Behaviour Records](BEHAVIOUR_RECORDS.md#sequential-pulses)
+owns operation; the connection is offline-validated, with live benefit unmeasured.
 
-  A --> B --> C --> D
-```
+The composer serves two entry paths: `compose --format json` prints a v2
+record; the first pulse's Python runner calls the same composer and saves
+original requests, responses and records. The primary records each live verdict
+in its ledger, then imports records and judgments into the behaviour database.
+The [read-only behaviour notebook](BEHAVIOUR_RECORDS.md) reviews that evidence.
+Hugh owns sentence construction; the [pipeline](../diagrams/PIPELINE.md) links
+these implemented boundaries.
 
 The colour substrate is measured before the response read starts:
 
@@ -196,6 +166,8 @@ The colour substrate is measured before the response read starts:
    - fixed family loss line
 2. `behaviour-facts --format json` emits the same packet as a machine-readable
    fixture
-3. response evaluation reads the visible language against that packet
-4. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
+3. `compose` uses the packet for one free-text response; its JSON record is
+   stdout evidence and is not automatically persisted
+4. response evaluation reads the visible language against that packet
+5. Polinko-facing checks can score language fidelity, tone fit, evidence fit,
    and consistency while treating the colour facts as fixed

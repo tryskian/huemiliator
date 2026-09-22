@@ -11,7 +11,7 @@ import pytest
 from openai import AuthenticationError, OpenAI
 from openai.types.responses import Response
 
-from huemiliator.agent import COMPOSITION_DIRECTIONS
+from huemiliator.agent import COMPOSITION_INSTRUCTIONS
 from huemiliator.composition import (
     CompositionError,
     build_composition_request,
@@ -83,9 +83,10 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     }
     assert material["input"] == original["input"]
     assert material["display_swatches"] == request["display_swatches"]
-    assert api["instructions"] == "\n".join(
-        f"{i}. {line}" for i, line in enumerate(COMPOSITION_DIRECTIONS, start=1)
-    )
+    assert "mapped family" in material["context"]
+    assert "supplied same-family replacement" in material["context"]
+    assert "Pantone name alone" in material["context"]
+    assert api["instructions"] == COMPOSITION_INSTRUCTIONS
     assert api["text"] == {"format": {"type": "text"}, "verbosity": "low"}
     assert api["reasoning"] == {"effort": "medium"}
     assert api["top_p"] == 0.98
@@ -93,8 +94,8 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     assert api["store"] is False
     assert api["max_output_tokens"] == 8192
     assert request["schema"] == "huemiliator.composition_request.v2"
-    assert request["composer_version"] == "0.5.0"
-    assert request["instructions_version"] == "2.0.0"
+    assert request["composer_version"] == "0.6.0"
+    assert request["instructions_version"] == "2.2.0"
     assert "bank_version" not in request and "bank_sha256" not in request
     assert request == build_composition_request(original, "chosen-model")
     variations: list[dict[str, Any]] = [

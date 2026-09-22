@@ -91,4 +91,6 @@ The source prompt asks the platform model to choose a shade; Hugh's runtime
 continues to supply the deterministic replacement. His adapted directions guide
 behaviour while leaving wording and sentence construction to the model. Earlier
 records and pending judgments remain unchanged. The [integration record](320_BANK_FREE_ALIGNMENT.md)
-and [staged diagram](../diagrams/BEHAVIOUR_PULSE.md) carry the current work.
+preserves that earlier adaptation. Current work follows the later
+[authorial prompt](340_HUGH_PROMPT.md), [behaviour boundary](030_PB_BEHAVIOUR.md)
+and [current pulse diagram](../diagrams/BEHAVIOUR_PULSE.md).

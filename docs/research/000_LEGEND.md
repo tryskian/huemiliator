@@ -5,8 +5,8 @@
 | Code | `000_LEGEND` |
 | Category | `legend` |
 | Status | `active` |
-| Last evidence | `2026-08-03` |
-| Last updated | `2026-09-20` |
+| Last evidence | `2026-09-21` |
+| Last updated | `2026-09-21` |
 | Owns | file map, code ranges, categories, and shared status language |
 
 ## File Map
@@ -16,7 +16,7 @@
 | `README` | `README.md` | research entry and current-state index | `legend` | `active` |
 | `PB10` | `010_PB10.md` | pre-Beta 1.0 fail-pressure pulse boundary | `boundary` | `closed` |
 | `B10` | `020_B10.md` | `Beta 1.0` fail-pressure pulse boundary | `boundary` | `closed` |
-| `PB_BEHAVIOUR` | `030_PB_BEHAVIOUR.md` | assistant-run 15-minute behaviour pulse staging | `boundary` | `staged` |
+| `PB_BEHAVIOUR` | `030_PB_BEHAVIOUR.md` | active assistant-run 15-minute behaviour boundary and first pulse | `boundary` | `active` |
 | `BROWN` | `120_BROWN.md` | brown context-dependence lane | `lane` | `snapshot` |
 | `RED_ORANGE` | `210_RED_ORANGE.md` | red-to-orange edge drift case | `case` | `representative` |
 | `RESPONSE_CONSTRUCTION` | `220_RESPONSE_CONSTRUCTION.md` | historical wording failures and pending cue mini | `case` | `snapshot` |
@@ -24,25 +24,31 @@
 | `YOUR_PINK` | `240_YOUR_PINK.md` | Peanut's contextual high-signal example for shared judgment | `case` | `representative` |
 | `RO_AUDIT` | `310_RED_ORANGE_AUDIT.md` | red-orange edge audit proof | `validation` | `closed` |
 | `320_BANK_FREE_ALIGNMENT` | `320_BANK_FREE_ALIGNMENT.md` | source audit, adaptation and integration checks | `validation` | `snapshot` |
-| `330_EVAL_ARCHIVE` | `330_EVAL_ARCHIVE.md` | verified archive and empty live eval stores | `validation` | `closed` |
+| `330_EVAL_ARCHIVE` | `330_EVAL_ARCHIVE.md` | verified historical archive and carried store checks | `validation` | `closed` |
+| `HUGH_PROMPT` | `340_HUGH_PROMPT.md` | supplied authorial prompt, runtime adaptation and checks | `validation` | `snapshot` |
+| `PULSE_FEEDBACK` | `350_PULSE_FEEDBACK.md` | sequential feedback connection and offline checks | `validation` | `snapshot` |
 | `N3` | `410_N3.md` | corrected neutral three-pulse split | `validation` | `closed` |
 | `RESIDUE` | `420_RESIDUE.md` | post-sweep counted-seam source map | `backlog` | `closed` |
 | `WARM_EDGE_AUDIT` | `430_WARM_EDGE_AUDIT.md` | warm-edge residue audit proof and closeout rule | `validation` | `closed` |
 | `COLOUR_BOUNDARY_AUDIT` | `440_COLOUR_BOUNDARY_AUDIT.md` | colour-boundary report pulse proof | `validation` | `closed` |
 | `LOCAL_LANGUAGE` | `450_LOCAL_LANGUAGE.md` | superseded library hypothesis and source history | `hypothesis` | `archived` |
 | `BANK_FREE_FOUNDATION` | `460_BANK_FREE_FOUNDATION.md` | preserved v8/v9 platform comparisons | `hypothesis` | `snapshot` |
-| `V10_BENCHMARK` | `470_V10_BENCHMARK.md` | selected behavioural foundation and exact source evidence | `hypothesis` | `snapshot` |
+| `V10_BENCHMARK` | `470_V10_BENCHMARK.md` | earlier behavioural foundation and exact source evidence | `hypothesis` | `snapshot` |
 
 `RESIDUE` is the closed source map; `WARM_EDGE_AUDIT` is the closed proof
 surface promoted from that map. `COLOUR_BOUNDARY_AUDIT` is the report-derived
 proof surface for mixed Lab bins.
 
-`PB_BEHAVIOUR` owns the next research direction and staged judgment mechanics.
-The runtime directions are implemented; the closed colour findings remain the
-carried baseline.
-`LOCAL_LANGUAGE` preserves the superseded experiment. `V10_BENCHMARK` owns the
-selected platform source; `320_BANK_FREE_ALIGNMENT` records its adaptation to Hugh's
-existing colour flow. Source templates remain distinct from runtime directions.
+`PB_BEHAVIOUR` owns the active behaviour boundary and its next bounded research
+step. The first current-app pulse is complete as per-response evidence; the
+runtime directions are implemented and the closed colour findings remain the
+carried baseline. The archive note retains historical store checks rather than
+the current pulse result. Current pulse review routes through [Behaviour
+Records and notebook](../runtime/BEHAVIOUR_RECORDS.md); the generated-record
+contract routes through [Composition](../runtime/COMPOSITION.md).
+`LOCAL_LANGUAGE` preserves the superseded experiment. `V10_BENCHMARK` and
+`320_BANK_FREE_ALIGNMENT` retain the earlier source and integration.
+`HUGH_PROMPT` owns the September 21 wording and its picker adaptation.
 
 ## Ordering
 

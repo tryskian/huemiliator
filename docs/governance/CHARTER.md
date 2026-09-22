@@ -11,17 +11,15 @@ fail-first evaluation.
 Generated dialogue, visual design, and behaviour evaluation use this durable
 authorial character reference
 ([D-040](DECISIONS.md#d-040-hue-is-a-courteous-snob-who-opens-with-a-backhanded-compliment)).
-Saved platform prompt `huey` v10 is the
-[selected benchmark](DECISIONS.md#d-059-select-v10-as-hughs-benchmark).
-[D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
-adapts its character into five runtime directions; the
-[exact authorial prompt](../research/470_V10_BENCHMARK.md#benchmark-prompt)
-remains source evidence.
+The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) now provides the
+five character points, with sentence construction left to Hugh under
+[D-063](DECISIONS.md#d-063-leave-response-construction-to-hugh).
+The earlier [v10 benchmark](../research/470_V10_BENCHMARK.md) retains its source history.
 
 | Aspect | Character direction |
 | --- | --- |
-| Identity | His name is **Hue (Hugh)**. “Huey” is our affectionate nickname; he is unaware of it and would be infuriated to hear it. Character-facing instructions and self-reference use Hue. |
-| Disposition | **A snob but not snide.** A pretentious and celebrated colour theory academic who lacks awareness of his own pretension. |
+| Identity | His name is **Hugh (Hue)**. “Huey” is our affectionate nickname; he is unaware of it and would be infuriated to hear it. Character-facing instructions and self-reference use Hugh. |
+| Disposition | **A snob but not snide.** A pretentious and celebrated colour theory academic who just happens to lack awareness. |
 | Voice | Eloquent and matter-of-fact, with sharp taste, wit and immaculate coherence. Graceful, empty and generic compliments accompany meaningful colour rationale, expressed in crisp, brief exacting statements or rhetorical questions. |
 | Punctuation | Serves Hugh's character, grammar and meaning. Peanut's personal-writing canaries belong to Peanut's voice; an em dash alone is not a Hugh failure ([D-057](DECISIONS.md#d-057-scope-punctuation-canaries-to-peanuts-writing)). |
 | Visual direction | Mid-century modern illustration; tall, slender silhouette, long nose, black turtleneck, controlled posture, and restrained airs and graces. He flourishes an outrageously rotund snifter of burgundy. |
@@ -53,20 +51,33 @@ preserves exact openings, worked lines and meanings, plus the
 (D-047). These remain development references. D-048 places connective language
 within Hugh's reasoning; D-060 leaves composition to Hugh.
 
-## Staged Method Direction
+## Behaviour Method
 
-The next boundary evaluates Huey's behaviour in 15-minute pulses run by the
-assistant. The human lead and primary assistant judge the first rounds together
-under [D-052](DECISIONS.md#d-052-judge-the-first-behaviour-rounds-together), developing
-the assistant's reading of high signals, low signals and the nuances between.
-The move to independent assistant judgment remains to be aligned together.
+Sequential 15-minute pulses carry useful, attributed observations forward under
+[D-065](DECISIONS.md#d-065-connect-sequential-pulses-through-attributed-feedback).
+The primary reviews patterns between pulses and freezes the selected feedback
+for the next pulse. Hugh's character brief and colour ownership stay intact;
+the exact context and source judgments remain inspectable.
 
-[D-060](DECISIONS.md#d-060-adapt-the-v10-foundation-to-hughs-colour-flow)
-implements D-056's bank-free direction: five positive directions and
-free-text composition on stable colour facts. The bank and connector scaffold
+The first authorized current-app behaviour pulse uses a 15-minute local/API
+window. Peanut authorized HUE-4's primary assistant to record an
+explicit `PASS` or `FAIL` for every response in real time. A concise observation
+is optional only when it adds value; there is no required Peanut-verdict column.
+The pulse uses six fixed hex inputs in listed order, repeated twice, with at
+most twelve attempts inside 900 seconds and the current frozen instructions and
+settings. The engine supplies replacements. This bounded delegation does not
+promote the method or change Huey's human ownership of scope, meaning,
+acceptance and go/no-go.
+
+[D-063](DECISIONS.md#d-063-leave-response-construction-to-hugh)
+continues D-056's bank-free direction: five authorial points on stable colour
+facts and picker context. The response template, bank and connector scaffold
 are retired. Hugh owns wording and reasoning; the colour engine owns replacement.
-Generated lines await shared behaviour judgment; timed pulses
-remain staged under D-038. The [staging note](../research/030_PB_BEHAVIOUR.md)
+Under [D-064](DECISIONS.md#d-064-authorize-live-per-response-judging-for-the-first-current-app-pulse),
+the first pulse completed with bounded live primary-assistant judging; broader
+pulse promotion remains separate. The completed pulse is carried by the
+[current handoff](SESSION_HANDOFF.md#pulse-result-and-next-slice) and
+[behaviour records](../runtime/BEHAVIOUR_RECORDS.md). The [behaviour boundary](../research/030_PB_BEHAVIOUR.md)
 owns judgment choices and method promotion; runtime directions live in `agent.py`.
 
 ## Durable Rules
@@ -118,22 +129,34 @@ reports and conversation history under D-053.
 
 Under [D-050](DECISIONS.md#d-050-use-a-continuing-documentation-task)
 and [D-051](DECISIONS.md#d-051-assign-documentation-roles-from-source-audits),
-a continuing documentation lead handles assigned work and bounded helpers in the
-shared checkout. Assignments specify
-full reading scope, source versions, owned files, allowed operations and result.
-The lead reviews contributions and returns one result with coverage, sources,
-checks and gaps.
-The primary reviews meaning against conversation and evidence, integrates, and
-owns experiments, evaluation under the agreed method, canonical evidence and Git.
-Meaning-level decisions and acceptance remain with the human lead.
+a four-role continuing-task method now handles assigned work in the shared
+checkout; the current registry and IDs live in the handoff.
+Assignments specify full reading scope, source versions, owned files, allowed
+operations and result.
+
+The four roles are documentation, runtime records, research records and
+transcript keeper. The collaboration guide owns their file mapping; the handoff
+owns their current IDs and status.
+
+Each task may delegate bounded readles inside its exact ownership, reviews their
+returns, and returns one checked result to HUE-4. The primary personally reads
+sources and returns, resolves cross-owner gaps, and owns meaning review,
+integration, runtime implementation, evaluation under Huey's agreed method,
+canonical evidence and Git.
+The human lead owns hypotheses, scope, acceptance, meaning-level trade-offs and
+go/no-go; broader shared-judgment rules remain under D-052.
+
+Checkpoints preserve sources, changes, checks and handoff as work progresses.
+The primary groups related edits into commits at meaningful boundaries rather
+than committing every edit.
 
 The [collaboration guide](../diagrams/COLLABORATION.md) owns role and assignment
 detail; the [handoff](SESSION_HANDOFF.md#documentation-task) carries the current
-assignment. Source captures preserve exact wording, attribution, order,
-locations, gaps and distinct capture/discourse dates; summaries, interpretations
-and later corrections retain attribution. Implementation requires separate
-assignments; worktrees share primary-coordinated `.local` evidence.
-Supporting work stays within the active scope.
+registry and assignment. Source captures preserve exact wording, attribution,
+order, locations, gaps and distinct capture/discourse dates; summaries,
+interpretations and later corrections retain attribution. Implementation
+requires separate assignment; worktrees share primary-coordinated `.local`
+evidence. Supporting work stays within the active scope.
 
 ### Document Homes
 
@@ -151,8 +174,8 @@ Supporting work stays within the active scope.
 
 ## Current Scope
 
-Local picker-first interaction, deterministic matching and replacement, short
-loss-line output, the carried colour proof surface and staged behaviour work.
+Local picker-first interaction, deterministic matching and replacement, Hugh’s
+free-text composition, and bounded behaviour review on the carried colour baseline.
 Single-purpose research notes and diagrams stay aligned with live repo behaviour.
 
 ## Security / Ops Baseline
