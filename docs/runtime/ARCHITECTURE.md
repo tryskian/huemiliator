@@ -55,6 +55,7 @@ Hugh composes from those fixed facts and five character points. The legacy
   - `huemiliator compose <hex> --format json` emits a composition record to stdout
   - fixed colour facts, picker context and five authorial character points
   - one free-text OpenAI Responses API generation; captured versioned JSON evidence
+  - optional streaming of actual reasoning-summary parts under D-067; final summary parts remain in records
   - the compose command creates no files or database rows by itself
   - Luna / medium reasoning / medium verbosity / Top P `0.98`, configurable through `.env`
   - detailed reasoning summaries and stored responses follow the selected Platform settings under D-066

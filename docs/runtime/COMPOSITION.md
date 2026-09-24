@@ -2,7 +2,7 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.6.1` uses instructions `2.2.0` under
+Responses API. Composer `0.7.0` uses instructions `2.2.0` under
 [D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh).
 
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
@@ -138,8 +138,9 @@ records the exact comparison values.
 There is no explicit application output-token cap; provider limits still apply.
 Responses are stored by the API. The CLI still writes no local database rows.
 The current inspection record retains the exact request and visible output;
-reasoning summaries are available in the stored API response, not displayed by
-the CLI renderer. Explicit summary selection follows the
+reasoning summaries are retained as indexed text parts in
+`api_response.reasoning_summaries`; the CLI speech renderer remains unchanged.
+Explicit summary selection follows the
 [Responses documentation](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries).
 
 The returned log also has reasoning mode `standard` and frequency/presence
@@ -152,6 +153,31 @@ supplied colour facts and display swatches remain the runtime adaptation.
 This supersedes the earlier runtime's low verbosity, omitted summaries,
 8,192-token cap and `store=false`. Historical requests and pulse evidence retain
 their original settings. Settings parity supplies no behavioural verdict.
+
+## Optional Reasoning Streaming
+
+[D-067](../governance/DECISIONS.md#d-067-stream-the-apis-reasoning-summary)
+adds an optional transport for callers that show the API's reasoning summary.
+`build_composition_request(..., stream=True)` adds the flag before hashing.
+`generate_composition(..., on_reasoning=callback)` forwards actual summary delta
+and done events, including item/part indices and sequence numbers. Done events
+contain the complete part; callers replace that part rather than append it twice.
+The callback never invents reasoning text.
+
+The source consumes the SDK's raw event stream and retains terminal responses
+for completed, incomplete and failed outcomes. Their visible output and
+mechanical checks follow the existing composition path. Final summary parts
+are retained in order in JSON records, including non-streaming records; an
+absent summary stays empty. API/SSE errors, interrupted reads and EOF without a
+terminal event fail explicitly. Already emitted parts remain with the caller
+as partial evidence, not a completed response. The stream closes on every exit.
+
+The configured 60-second network-operation timeout and zero retries remain.
+For streaming, the read timeout applies while waiting for a body read; it is
+not a new overall generation deadline. The portfolio's worker has its separate
+120-second elapsed-time limit. There is no artificial waiting time.
+Default CLI and pulse callers keep their existing complete-response transport.
+Streaming changes no prompt, colour fact, model setting, eval or stored verdict.
 
 ## Next Method Step
 

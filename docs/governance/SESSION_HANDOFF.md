@@ -15,7 +15,7 @@ handoff if present. Report state, risks, next scope, workspace/host and branch.
 [Runtime](../runtime/COMPOSITION.md) uses the
 [September 21 authorial prompt](../research/340_HUGH_PROMPT.md): **Hugh (Hue)**,
 five verbatim character points, with sentence construction left to Hugh under D-063.
-Composer `0.6.1`, instructions `2.2.0`. Picker context names the two colours.
+Composer `0.7.0`, instructions `2.2.0`. Picker context names the two colours.
 The engine supplies the family, deterministic same-family replacement and both
 swatches; Hugh composes the words.
 Golden cases guide evaluation; previous answers stay outside the runtime prompt.
@@ -47,6 +47,13 @@ with primary judgments; historical behaviour outputs `1..6` remain in the
 archived behaviour DB. The dated September 20 records above and the private
 session findings below are historical context, not current pulse evidence.
 Mechanical integration and historical colour anchors establish no wording verdict.
+
+The source now supports optional reasoning-summary streaming under
+[D-067](DECISIONS.md#d-067-stream-the-apis-reasoning-summary). Indexed API summary
+parts are preserved in JSON records, while ordinary CLI speech remains the
+final response. Streaming requests include `stream=true` in their request hash;
+completed, incomplete and failed terminal responses retain their source output.
+No prompt, colour setting, timeout or research verdict is changed.
 
 ## Pulse Result and Next Slice
 
