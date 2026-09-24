@@ -1256,6 +1256,7 @@ into implementation authorship.
 
 ## D-068: Use concise reasoning summaries
 
+- Status: Superseded by D-069 after the author reviewed the heading-only result.
 - Date: `2026-09-24`
 - Category: `runtime_engineering`
 - Provenance: The author required visible reasoning in the portfolio/workbench
@@ -1281,3 +1282,25 @@ into implementation authorship.
 - Validation: All 236 tests, formatting, lint, type checks and documentation lint
   pass. The request comparison verifies that every other selected setting stays
   identical for complete and streaming requests; original evidence is unchanged.
+
+## D-069: Require fuller reasoning summaries
+
+- Date: `2026-09-24`
+- Category: `runtime_engineering`
+- Provenance: After reviewing the concise preview, the author confirmed,
+  "Yes, I want the fuller reasoning", referencing the paragraph in the v13 log.
+- Decision: Restore `reasoning.summary: "detailed"` and the original selected
+  medium effort. A concise activity heading does not meet this requirement.
+  Transport and rendering checks alone do not establish successful delivery.
+- Implementation: Composer `0.7.2`, instructions `2.2.0`. D-066 settings parity
+  is restored for complete and streaming requests. Keep the actual returned
+  summary verbatim; missing text remains an explicit empty state.
+- Evidence: Detailed/medium brown, blue and explicit-message controls returned
+  empty summaries outside the SDK/bridge. A high-effort brown control returned
+  a paragraph, while streamed blue at high effort returned none. This is not a
+  verified general remedy, and it does not change the saved effort. Original
+  v13 detailed controls returned paragraphs with the same key.
+- Boundary: D-068 is retained as a historical implementation with a failed
+  acceptance assumption. Hugh's prompt, colour engine and response composition
+  remain intact. No fabricated explanation, automatic retry, eval judgment or
+  research-method change is introduced. Fuller-summary delivery remains open.
