@@ -15,7 +15,7 @@ handoff if present. Report state, risks, next scope, workspace/host and branch.
 [Runtime](../runtime/COMPOSITION.md) uses the
 [September 21 authorial prompt](../research/340_HUGH_PROMPT.md): **Hugh (Hue)**,
 five verbatim character points, with sentence construction left to Hugh under D-063.
-Composer `0.7.1`, instructions `2.2.0`. Picker context names the two colours.
+Composer `0.7.2`, instructions `2.2.0`. Picker context names the two colours.
 The engine supplies the family, deterministic same-family replacement and both
 swatches; Hugh composes the words.
 Golden cases guide evaluation; previous answers stay outside the runtime prompt.
@@ -30,9 +30,12 @@ keeps the primary's live verdict gate and records each pulse's exact context.
 medium reasoning and verbosity, Top P `0.98`, storage enabled
 and no explicit output-token cap. The [composer guide](../runtime/COMPOSITION.md#selected-platform-settings)
 owns the complete supported setting list and response-only metadata distinction.
-[D-068](DECISIONS.md#d-068-use-concise-reasoning-summaries) selects concise
-summary delivery after successful direct and streaming controls with the current
-Hugh payload. It is the sole exception to the selected log's detailed summaries.
+[D-069](DECISIONS.md#d-069-require-fuller-reasoning-summaries) restores detailed
+summaries and full D-066 settings parity. The author rejected D-068's headings as
+insufficient: the target is the fuller API paragraph in the original v13 log.
+This requirement is not yet fulfilled reliably. Detailed/medium controls returned
+empty; a temporary high-effort check succeeded for brown but not streamed blue.
+The prompt and medium effort remain unchanged; transport success is not acceptance.
 The five character points, colour selection and portfolio interaction are unchanged.
 The v15 experiments and their settings remain historical references in
 `docs/peanut/research/2026-09-20-golden-smoke-audit/V15_REFERENCE.md`.

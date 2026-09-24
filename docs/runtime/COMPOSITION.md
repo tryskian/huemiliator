@@ -2,7 +2,7 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.7.1` uses instructions `2.2.0` under
+Responses API. Composer `0.7.2` uses instructions `2.2.0` under
 [D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh).
 
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
@@ -121,14 +121,14 @@ applies the supported settings from the author's selected
 [v13 response log](https://platform.openai.com/logs/resp_00a745c9371f1130006ab077240b7887d2b97690604366bf48).
 The source is the returned response configuration, not a reconstructed original
 request. [The captured settings fixture](../../tests/fixtures/platform_v13_settings.json)
-records the exact comparison values. D-068 changes only summary delivery to
-`concise`, following direct and streamed controls with the current Hugh payload.
-The source fixture retains the original `detailed` value as historical evidence.
+records the exact comparison values. D-069 restores `detailed` after the author
+confirmed that the concise activity headings did not meet the requirement for
+the fuller summary shown in the selected log.
 
 | Request fields | Selected values |
 | --- | --- |
 | `model` | `gpt-5.6-luna` |
-| `reasoning` | effort `medium`, summary `concise` under D-068, context `all_turns` |
+| `reasoning` | effort `medium`, summary `detailed` under D-069, context `all_turns` |
 | `text` | format `text`, verbosity `medium` |
 | `top_p`, `temperature` | `0.98`, `1` |
 | `max_output_tokens`, `max_tool_calls` | `null`, `null` |
@@ -166,14 +166,16 @@ and done events, including item/part indices and sequence numbers. Done events
 contain the complete part; callers replace that part rather than append it twice.
 The callback never invents reasoning text.
 
-[D-068](../governance/DECISIONS.md#d-068-use-concise-reasoning-summaries)
-selects concise summaries: short API activity descriptions. With the current
-Hugh payload, detailed and auto controls returned empty summaries; concise
-controls returned actual text through both direct HTTP and source streaming.
-The original v13 prompt still returned detailed summaries, so this is an
-observed request-dependent difference, not a general lack of summary access.
-The provider's reason for omitting those detailed summaries remains unknown.
-An empty response still stays empty; there is no automatic retry or fallback.
+[D-069](../governance/DECISIONS.md#d-069-require-fuller-reasoning-summaries)
+requires fuller API summary text, with the original v13 paragraph as the reference.
+D-068's concise headings passed transport checks but did not satisfy that request.
+The current detailed/medium controls returned empty summaries outside the SDK and
+bridge. A temporary high-effort brown control returned a paragraph, but streamed
+blue did not; high effort is not adopted as a reliable remedy. The original v13
+prompt returned detailed summaries through the same key. The omission is therefore
+request-dependent in these observations; its provider-side cause remains unknown.
+The current prompt and medium effort are preserved. An empty response stays empty;
+there is no automatic retry, fallback summary or separate generated explanation.
 
 The source consumes the SDK's raw event stream and retains terminal responses
 for completed, incomplete and failed outcomes. Their visible output and

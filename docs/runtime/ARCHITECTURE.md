@@ -58,7 +58,7 @@ Hugh composes from those fixed facts and five character points. The legacy
   - optional streaming of actual reasoning-summary parts under D-067; final summary parts remain in records
   - the compose command creates no files or database rows by itself
   - Luna / medium reasoning / medium verbosity / Top P `0.98`, configurable through `.env`
-  - concise reasoning summaries follow D-068; other selected Platform settings and stored responses remain under D-066
+  - detailed reasoning summaries and stored responses follow D-066/D-069; delivery may be empty and remains inspectable
   - [configuration, inspection, and failure handling](COMPOSITION.md)
 - behaviour review:
   - `.local/behaviour.sqlite`: saved compositions and attributed judgment history
