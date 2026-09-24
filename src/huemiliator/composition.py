@@ -20,8 +20,7 @@ from huemiliator.config import (
 )
 from huemiliator.feedback import feedback_context
 
-COMPOSER_VERSION = "0.6.0"
-MAX_OUTPUT_TOKENS = 8192
+COMPOSER_VERSION = "0.6.1"
 REQUEST_TIMEOUT_SECONDS = 60.0
 
 
@@ -85,13 +84,29 @@ def build_composition_request(
         material["pulse_feedback"] = feedback_context(feedback)
     api_request = {
         "model": model,
-        "reasoning": {"effort": reasoning_effort},
+        "reasoning": {
+            "context": "all_turns",
+            "effort": reasoning_effort,
+            "summary": "detailed",
+        },
         "instructions": COMPOSITION_INSTRUCTIONS,
         "input": json.dumps(material, ensure_ascii=False),
         "text": {"format": {"type": "text"}, "verbosity": verbosity},
         "top_p": sampling_probability,
-        "max_output_tokens": MAX_OUTPUT_TOKENS,
-        "store": False,
+        # D-066 follows the supported settings in the selected Platform log.
+        "temperature": 1,
+        "max_output_tokens": None,
+        "max_tool_calls": None,
+        "store": True,
+        "prompt_cache_retention": "24h",
+        "background": False,
+        "service_tier": "default",
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": True,
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "previous_response_id": None,
     }
     packet = {
         "schema": "huemiliator.composition_request.v2",

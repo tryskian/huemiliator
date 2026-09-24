@@ -113,10 +113,14 @@ of Peanut's [supplied prompt](340_HUGH_PROMPT.md) under D-063. Picker context na
 the user's colour family and the engine's supplied replacement. Hugh owns
 wording, connections and sentence construction; the engine owns the colour facts.
 
-Composer `0.6.0` / instructions `2.2.0` use Luna, medium reasoning, low verbosity
-and Top P `0.98`. The [composer guide](../runtime/COMPOSITION.md) owns the request
-and record contract. Colour selection and labelled swatches remain deterministic;
-the legacy fixed family line stays outside the composition request.
+The completed pulse retains its original Luna / medium reasoning / low verbosity
+and Top P `0.98` setup. Composer `0.6.1` / instructions `2.2.0` now use the
+separately selected Platform settings under
+[D-066](../governance/DECISIONS.md#d-066-apply-the-selected-platform-log-settings).
+The [composer guide](../runtime/COMPOSITION.md#selected-platform-settings) owns
+the current request and record contract. This later configuration has no live
+behavioural result yet. Colour selection and labelled swatches remain
+deterministic; the legacy fixed family line stays outside the composition request.
 
 | Evaluation lens | What the assistant inspects |
 | --- | --- |

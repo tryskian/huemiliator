@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-09-21
+Last updated: 2026-09-24
 
 ## Start Here
 
@@ -15,7 +15,7 @@ handoff if present. Report state, risks, next scope, workspace/host and branch.
 [Runtime](../runtime/COMPOSITION.md) uses the
 [September 21 authorial prompt](../research/340_HUGH_PROMPT.md): **Hugh (Hue)**,
 five verbatim character points, with sentence construction left to Hugh under D-063.
-Composer `0.6.0`, instructions `2.2.0`. Picker context names the two colours.
+Composer `0.6.1`, instructions `2.2.0`. Picker context names the two colours.
 The engine supplies the family, deterministic same-family replacement and both
 swatches; Hugh composes the words.
 Golden cases guide evaluation; previous answers stay outside the runtime prompt.
@@ -25,13 +25,20 @@ feedback context. Exact source responses and attributed judgments stay in the
 local snapshot. [The command flow](../runtime/BEHAVIOUR_RECORDS.md#sequential-pulses)
 keeps the primary's live verdict gate and records each pulse's exact context.
 
-**Platform v15 remains the prior experiment reference.** Our intended settings are
-`gpt-5.6-luna` / `medium`, explicit low verbosity and Top P `0.98`.
-Low versus medium verbosity is under review; preserve requested settings
-separately from returned metadata. The application sends
-`store=false` and omits reasoning summary; the source experiment enabled storage
-and requested `auto` summary. Source/settings record:
-the historical `docs/peanut/research/2026-09-20-golden-smoke-audit/V15_REFERENCE.md`.
+**The September 24 settings selection follows the supplied Platform v13 log.**
+[D-066](DECISIONS.md#d-066-apply-the-selected-platform-log-settings) selects Luna,
+medium reasoning and verbosity, detailed summaries, Top P `0.98`, storage enabled
+and no explicit output-token cap. The [composer guide](../runtime/COMPOSITION.md#selected-platform-settings)
+owns the complete supported setting list and response-only metadata distinction.
+The five character points, colour selection and portfolio interaction are unchanged.
+The v15 experiments and their settings remain historical references in
+`docs/peanut/research/2026-09-20-golden-smoke-audit/V15_REFERENCE.md`.
+The selected v13 response is preserved privately in
+`docs/peanut/research/2026-09-24-platform-v13/source-response.json`.
+
+This settings change uses offline request construction and mocked SDK checks;
+it adds no live model call, eval or behavioural verdict. Portfolio wiring remains
+separate: its current Huey adapter still returns the legacy fixed line.
 
 The live colour DB `.local/evals.sqlite` remains empty after the verified archive;
 preserved colour rows `20163..20166` remain in the archived colour DB. The live

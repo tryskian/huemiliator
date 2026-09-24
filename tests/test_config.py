@@ -48,7 +48,7 @@ def test_verbosity_setting_respects_environment_and_blank_default(
     monkeypatch.setattr(config, "STATE_ROOT", tmp_path)
     monkeypatch.setattr(config, "SOURCE_ROOT", tmp_path)
     monkeypatch.setenv("HUEMILIATOR_VERBOSITY", verbosity)
-    assert load_settings().verbosity == (verbosity.strip() or "low")
+    assert load_settings().verbosity == (verbosity.strip() or "medium")
 
 
 @pytest.mark.parametrize("top_p", ["0", "1", "0.7", "", "  "])

@@ -1193,3 +1193,37 @@ into implementation authorship.
 - Reference: [Feedback validation](../research/350_PULSE_FEEDBACK.md),
   [operator flow](../runtime/BEHAVIOUR_RECORDS.md#sequential-pulses) and
   [pulse diagram](../diagrams/BEHAVIOUR_PULSE.md).
+
+## D-066: Apply the selected Platform log settings
+
+- Date: `2026-09-24`
+- Category: `runtime_engineering`
+- Provenance: The author requested, “let's apply the exact settings in the log”,
+  while retaining the existing portfolio interaction and the agreed Hugh adaptation.
+- Source: [Response v13](https://platform.openai.com/logs/resp_00a745c9371f1130006ab077240b7887d2b97690604366bf48),
+  retrieved from the authenticated Platform log. Its returned configuration is
+  the selected target; this does not reconstruct which defaults the original
+  request omitted. The complete response is preserved in the private source capture.
+- Decision: Use every applicable setting supported by the installed Responses
+  request schema: Luna, medium reasoning and verbosity, detailed summaries,
+  reasoning context `all_turns`, Top P `0.98`, temperature `1`, null output-token
+  and tool-call caps, `store=true`, `24h` prompt-cache retention, synchronous
+  execution, default service tier, no tools, automatic tool choice, parallel
+  tool calls enabled, zero top logprobs, disabled truncation and no previous
+  response. The [composer guide](../runtime/COMPOSITION.md#selected-platform-settings)
+  and [source fixture](../../tests/fixtures/platform_v13_settings.json) own the
+  field mapping. Returned reasoning mode and frequency/presence penalties stay
+  reference metadata because they are absent from the supported request schema.
+- Implementation: Composer `0.6.1` forms these settings before computing the
+  request hash. The verbosity default and example change to medium; existing
+  model, reasoning, verbosity and Top P environment overrides retain precedence.
+- Boundary: D-063's identity, five character points, template removal, colour
+  ownership and display pair remain intact. The 60-second client timeout and
+  zero retries remain transport controls. Previous settings and evidence are
+  historical; no live generation, eval, behavioural verdict, portfolio UI change
+  or publication is part of this settings update.
+- Validation: All 225 tests, formatting, lint, type checks and documentation lint
+  pass. The SDK wire-body test preserves the exact outgoing request. Dry requests
+  for all nine portfolio colours match the selected supported settings while
+  preserving prior instructions, input/context and both swatches. Independent
+  source review found no issue. No live provider call or eval was run.
