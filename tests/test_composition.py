@@ -87,14 +87,18 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     assert "supplied same-family replacement" in material["context"]
     assert "Pantone name alone" in material["context"]
     assert api["instructions"] == COMPOSITION_INSTRUCTIONS
-    assert api["text"] == {"format": {"type": "text"}, "verbosity": "low"}
-    assert api["reasoning"] == {"effort": "medium"}
+    assert api["text"] == {"format": {"type": "text"}, "verbosity": "medium"}
+    assert api["reasoning"] == {
+        "context": "all_turns",
+        "effort": "medium",
+        "summary": "detailed",
+    }
     assert api["top_p"] == 0.98
     assert api["model"] == "chosen-model"
-    assert api["store"] is False
-    assert api["max_output_tokens"] == 8192
+    assert api["store"] is True
+    assert api["max_output_tokens"] is None
     assert request["schema"] == "huemiliator.composition_request.v2"
-    assert request["composer_version"] == "0.6.0"
+    assert request["composer_version"] == "0.6.1"
     assert request["instructions_version"] == "2.2.0"
     assert "bank_version" not in request and "bank_sha256" not in request
     assert request == build_composition_request(original, "chosen-model")
@@ -157,6 +161,24 @@ def test_sdk_serializes_request_and_record_retains_exact_plain_text(
     assert record["started_at"] <= record["completed_at"]
     assert record["mechanical_checks"] == {"ok": True, "issues": []}
     assert record["behaviour_verdict"] is None
+
+
+def test_default_request_matches_selected_platform_log_settings() -> None:
+    reference = json.loads(
+        (Path(__file__).parent / "fixtures" / "platform_v13_settings.json").read_text()
+    )
+    request = build_composition_request(
+        build_behaviour_fact_packet("#a46f44"), reference["settings"]["model"]
+    )
+    actual = {
+        key: value
+        for key, value in request["api_request"].items()
+        if key not in {"instructions", "input"}
+    }
+    assert actual == reference["settings"]
+    assert "mode" not in actual["reasoning"]
+    assert "frequency_penalty" not in actual
+    assert "presence_penalty" not in actual
 
 
 def test_top_p_environment_text_becomes_a_numeric_api_setting() -> None:
@@ -306,7 +328,11 @@ def test_dry_run_works_without_credentials_or_state_writes(
         assert main(["compose", "#d9a6a1", "--dry-run"]) == 0
     request = json.loads(capsys.readouterr().out)
     assert request["api_request"]["model"] == "configured-model"
-    assert request["api_request"]["reasoning"] == {"effort": "high"}
+    assert request["api_request"]["reasoning"] == {
+        "context": "all_turns",
+        "effort": "high",
+        "summary": "detailed",
+    }
     assert request["api_request"]["text"]["verbosity"] == "medium"
     assert request["api_request"]["top_p"] == 0.7
     assert "OPENAI_API_KEY" not in json.dumps(request)

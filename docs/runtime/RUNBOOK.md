@@ -150,7 +150,7 @@ titles and the resulting squash commit subjects.
 
 Configure the ignored `.env` from [`.env.example`](../../.env.example).
 The [composer guide](COMPOSITION.md#setup-and-use) owns the settings: Luna,
-medium reasoning, low verbosity and Top P `0.98`.
+medium reasoning, medium verbosity and Top P `0.98` under D-066.
 `huemiliator compose <hex> --dry-run` prints the exact request without calling
 OpenAI. `huemiliator compose <hex> --format json` makes one live request and
 prints the complete local inspection record. Five adapted positive directions

@@ -2,7 +2,7 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.6.0` uses instructions `2.2.0` under
+Responses API. Composer `0.6.1` uses instructions `2.2.0` under
 [D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh).
 
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
@@ -23,12 +23,12 @@ Copy [`.env.example`](../../.env.example) to the ignored `.env` for a fresh setu
 OPENAI_API_KEY=your-key
 HUEMILIATOR_MODEL=gpt-5.6-luna
 HUEMILIATOR_REASONING_EFFORT=medium
-HUEMILIATOR_VERBOSITY=low
+HUEMILIATOR_VERBOSITY=medium
 HUEMILIATOR_TOP_P=0.98
 ```
 
 Exported settings take precedence over `.env`. The selected defaults are Luna,
-medium reasoning, low verbosity and Top P `0.98`; dry-run and saved requests
+medium reasoning, medium verbosity and Top P `0.98`; dry-run and saved requests
 show the actual values. The live request sends colour facts to OpenAI.
 
 ```sh
@@ -110,11 +110,48 @@ configuration, input or API failures return `1`. Neither status assigns a
 behavioural PASS or FAIL. API errors identify their type and HTTP status without
 echoing provider text.
 
-Each invocation makes one API attempt with a 60-second timeout and an 8,192-token
-output budget, including reasoning tokens. `store=false` is explicit. Reasoning
-summary is omitted from the request as an observability choice; reasoning effort
-defaults to medium. Failed candidates stay observable without automatic retries or
-output repair.
+Each invocation makes one API attempt with a 60-second client timeout and zero
+retries. Failed candidates stay observable without automatic retries or output
+repair. These transport controls are independent of the logged model settings.
+
+## Selected Platform Settings
+
+[D-066](../governance/DECISIONS.md#d-066-apply-the-selected-platform-log-settings)
+applies the supported settings from the author's selected
+[v13 response log](https://platform.openai.com/logs/resp_00a745c9371f1130006ab077240b7887d2b97690604366bf48).
+The source is the returned response configuration, not a reconstructed original
+request. [The captured settings fixture](../../tests/fixtures/platform_v13_settings.json)
+records the exact comparison values.
+
+| Request fields | Selected values |
+| --- | --- |
+| `model` | `gpt-5.6-luna` |
+| `reasoning` | effort `medium`, summary `detailed`, context `all_turns` |
+| `text` | format `text`, verbosity `medium` |
+| `top_p`, `temperature` | `0.98`, `1` |
+| `max_output_tokens`, `max_tool_calls` | `null`, `null` |
+| `store`, `prompt_cache_retention` | `true`, `24h` |
+| `background`, `service_tier` | `false`, `default` |
+| `tools`, `tool_choice`, `parallel_tool_calls` | `[]`, `auto`, `true` |
+| `top_logprobs`, `truncation`, `previous_response_id` | `0`, `disabled`, `null` |
+
+There is no explicit application output-token cap; provider limits still apply.
+Responses are stored by the API. The CLI still writes no local database rows.
+The current inspection record retains the exact request and visible output;
+reasoning summaries are available in the stored API response, not displayed by
+the CLI renderer. Explicit summary selection follows the
+[Responses documentation](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries).
+
+The returned log also has reasoning mode `standard` and frequency/presence
+penalties of `0`. Those fields are not declared in the installed Responses
+request schema and stay reference metadata. The original prompt ID, template
+and plain `brown` input are source evidence; D-063's five character points,
+supplied colour facts and display swatches remain the runtime adaptation.
+`all_turns` does not introduce conversation history into this single-turn call.
+
+This supersedes the earlier runtime's low verbosity, omitted summaries,
+8,192-token cap and `store=false`. Historical requests and pulse evidence retain
+their original settings. Settings parity supplies no behavioural verdict.
 
 ## Next Method Step
 

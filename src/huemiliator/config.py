@@ -58,7 +58,7 @@ SWATCH_SNAPSHOT_PATH = SOURCE_ROOT / "data" / "margaret2_swatches.json"
 EVAL_DB_PATH = STATE_ROOT / ".local" / "evals.sqlite"
 DEFAULT_MODEL = "gpt-5.6-luna"
 DEFAULT_REASONING_EFFORT = "medium"
-DEFAULT_VERBOSITY = "low"
+DEFAULT_VERBOSITY = "medium"
 DEFAULT_TOP_P = 0.98
 
 

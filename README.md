@@ -175,7 +175,7 @@ huemiliator compose '#d9a6a1' --format json
 ```
 
 The [composer guide](./docs/runtime/COMPOSITION.md) covers Luna with medium
-reasoning, low verbosity and Top P `0.98`, request inspection, visible response,
+reasoning, medium verbosity and Top P `0.98`, request inspection, visible response,
 and recording of mechanical failures. The [earlier bank](./docs/runtime/LANGUAGE_BANK.md)
 remains historical evidence.
 The [behaviour review notebook](./output/jupyter-notebook/huemiliator-behaviour-review.ipynb)
