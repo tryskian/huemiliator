@@ -23,7 +23,7 @@ from huemiliator.config import (
 )
 from huemiliator.feedback import feedback_context
 
-COMPOSER_VERSION = "0.7.0"
+COMPOSER_VERSION = "0.7.1"
 REQUEST_TIMEOUT_SECONDS = 60.0
 
 
@@ -91,7 +91,7 @@ def build_composition_request(
         "reasoning": {
             "context": "all_turns",
             "effort": reasoning_effort,
-            "summary": "detailed",
+            "summary": "concise",  # D-068: verified summary delivery for Hugh.
         },
         "instructions": COMPOSITION_INSTRUCTIONS,
         "input": json.dumps(material, ensure_ascii=False),

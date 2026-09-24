@@ -92,14 +92,14 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     assert api["reasoning"] == {
         "context": "all_turns",
         "effort": "medium",
-        "summary": "detailed",
+        "summary": "concise",
     }
     assert api["top_p"] == 0.98
     assert api["model"] == "chosen-model"
     assert api["store"] is True
     assert api["max_output_tokens"] is None
     assert request["schema"] == "huemiliator.composition_request.v2"
-    assert request["composer_version"] == "0.7.0"
+    assert request["composer_version"] == "0.7.1"
     assert request["instructions_version"] == "2.2.0"
     assert "bank_version" not in request and "bank_sha256" not in request
     assert request == build_composition_request(original, "chosen-model")
@@ -164,19 +164,27 @@ def test_sdk_serializes_request_and_record_retains_exact_plain_text(
     assert record["behaviour_verdict"] is None
 
 
-def test_default_request_matches_selected_platform_log_settings() -> None:
+@pytest.mark.parametrize("stream", [False, True])
+def test_platform_settings_change_only_summary_delivery(stream: bool) -> None:
     reference = json.loads(
         (Path(__file__).parent / "fixtures" / "platform_v13_settings.json").read_text()
     )
     request = build_composition_request(
-        build_behaviour_fact_packet("#a46f44"), reference["settings"]["model"]
+        build_behaviour_fact_packet("#a46f44"),
+        reference["settings"]["model"],
+        stream=stream,
     )
     actual = {
         key: value
         for key, value in request["api_request"].items()
         if key not in {"instructions", "input"}
     }
-    assert actual == reference["settings"]
+    expected = copy.deepcopy(reference["settings"])
+    assert expected["reasoning"]["summary"] == "detailed"
+    expected["reasoning"]["summary"] = "concise"
+    if stream:
+        expected["stream"] = True
+    assert actual == expected
     assert "mode" not in actual["reasoning"]
     assert "frequency_penalty" not in actual
     assert "presence_penalty" not in actual
@@ -332,7 +340,7 @@ def test_dry_run_works_without_credentials_or_state_writes(
     assert request["api_request"]["reasoning"] == {
         "context": "all_turns",
         "effort": "high",
-        "summary": "detailed",
+        "summary": "concise",
     }
     assert request["api_request"]["text"]["verbosity"] == "medium"
     assert request["api_request"]["top_p"] == 0.7

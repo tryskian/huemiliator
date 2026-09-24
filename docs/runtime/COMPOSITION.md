@@ -2,7 +2,7 @@
 
 `huemiliator compose <hex>` gives Hugh five positive directions and the existing
 deterministic colour facts. He composes one free-text response through the OpenAI
-Responses API. Composer `0.7.0` uses instructions `2.2.0` under
+Responses API. Composer `0.7.1` uses instructions `2.2.0` under
 [D-063](../governance/DECISIONS.md#d-063-leave-response-construction-to-hugh).
 
 The [supplied authorial prompt](../research/340_HUGH_PROMPT.md) provides Hugh (Hue)'s
@@ -121,12 +121,14 @@ applies the supported settings from the author's selected
 [v13 response log](https://platform.openai.com/logs/resp_00a745c9371f1130006ab077240b7887d2b97690604366bf48).
 The source is the returned response configuration, not a reconstructed original
 request. [The captured settings fixture](../../tests/fixtures/platform_v13_settings.json)
-records the exact comparison values.
+records the exact comparison values. D-068 changes only summary delivery to
+`concise`, following direct and streamed controls with the current Hugh payload.
+The source fixture retains the original `detailed` value as historical evidence.
 
 | Request fields | Selected values |
 | --- | --- |
 | `model` | `gpt-5.6-luna` |
-| `reasoning` | effort `medium`, summary `detailed`, context `all_turns` |
+| `reasoning` | effort `medium`, summary `concise` under D-068, context `all_turns` |
 | `text` | format `text`, verbosity `medium` |
 | `top_p`, `temperature` | `0.98`, `1` |
 | `max_output_tokens`, `max_tool_calls` | `null`, `null` |
@@ -163,6 +165,15 @@ adds an optional transport for callers that show the API's reasoning summary.
 and done events, including item/part indices and sequence numbers. Done events
 contain the complete part; callers replace that part rather than append it twice.
 The callback never invents reasoning text.
+
+[D-068](../governance/DECISIONS.md#d-068-use-concise-reasoning-summaries)
+selects concise summaries: short API activity descriptions. With the current
+Hugh payload, detailed and auto controls returned empty summaries; concise
+controls returned actual text through both direct HTTP and source streaming.
+The original v13 prompt still returned detailed summaries, so this is an
+observed request-dependent difference, not a general lack of summary access.
+The provider's reason for omitting those detailed summaries remains unknown.
+An empty response still stays empty; there is no automatic retry or fallback.
 
 The source consumes the SDK's raw event stream and retains terminal responses
 for completed, incomplete and failed outcomes. Their visible output and

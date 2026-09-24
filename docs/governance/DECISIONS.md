@@ -1253,3 +1253,31 @@ into implementation authorship.
   completed/incomplete/failed responses, missing summaries, EOF, HTTP read
   failure and both API error shapes. No provider call or eval was used for
   this source validation.
+
+## D-068: Use concise reasoning summaries
+
+- Date: `2026-09-24`
+- Category: `runtime_engineering`
+- Provenance: The author required visible reasoning in the portfolio/workbench
+  and asked the engineer to carry the resolution through after the API diagnosis.
+- Evidence: Direct current-payload requests with detailed summaries returned no
+  summary text outside the SDK and bridge. The original v13 prompt still returned
+  detailed text through the same key. Changing only the current request's summary
+  selection to concise returned two activity summaries in a direct HTTP control
+  and one in the current source streaming path, before its terminal response.
+- Decision: Select `reasoning.summary: "concise"` for composition. This is the
+  sole exception to D-066's selected log settings. Keep the current prompt,
+  deterministic colour facts, model, effort, verbosity and sampling intact.
+- Implementation: Composer `0.7.1`; instructions remain `2.2.0`. The fixture
+  keeps the original detailed setting, while the parity test permits exactly
+  this exception for complete and streaming requests. Request hashes cover it.
+- Boundary: These are short API activity summaries, not undisclosed reasoning
+  tokens or full explanatory paragraphs. Missing summaries remain observable;
+  no prompt workaround, retry, eval record or behavioural verdict is introduced.
+  Why the provider omitted the detailed summaries for these requests is unknown.
+- References: [Direct concise control](https://platform.openai.com/logs/resp_049899e91191b959006ab59266512487d2b99ac65164440ccf),
+  [streaming concise control](https://platform.openai.com/logs/resp_09e0c65ce1a64e85006ab592986d2487d18ea009cbf0960693),
+  and [composer contract](../runtime/COMPOSITION.md#optional-reasoning-streaming).
+- Validation: All 236 tests, formatting, lint, type checks and documentation lint
+  pass. The request comparison verifies that every other selected setting stays
+  identical for complete and streaming requests; original evidence is unchanged.
