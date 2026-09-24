@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+from collections.abc import Iterator
 from pathlib import Path
 from typing import Any
 from unittest.mock import MagicMock, patch
@@ -98,7 +99,7 @@ def test_request_keeps_colour_facts_and_frees_model_language(hex_value: str) -> 
     assert api["store"] is True
     assert api["max_output_tokens"] is None
     assert request["schema"] == "huemiliator.composition_request.v2"
-    assert request["composer_version"] == "0.6.1"
+    assert request["composer_version"] == "0.7.0"
     assert request["instructions_version"] == "2.2.0"
     assert "bank_version" not in request and "bank_sha256" not in request
     assert request == build_composition_request(original, "chosen-model")
@@ -394,3 +395,227 @@ def test_swatch_rendering_keeps_selection_separate_from_exact_speech(
         assert "\x1b[48;2;181;129;125m" in output
     else:
         assert "\x1b" not in output
+
+
+def _summary_event(
+    kind: str, sequence: int, text: str, part: int = 0
+) -> dict[str, Any]:
+    return {
+        "type": f"response.reasoning_summary_text.{kind}",
+        "item_id": "rs_test",
+        "output_index": 0,
+        "summary_index": part,
+        "sequence_number": sequence,
+        "delta" if kind == "delta" else "text": text,
+    }
+
+
+def _sse(event: dict[str, Any]) -> bytes:
+    return ("data: " + json.dumps(event) + "\n\n").encode()
+
+
+def _result_with_summaries(text: str, status: str = "completed") -> Response:
+    result = api_result(text, status).model_dump()
+    result["output"].insert(
+        0,
+        {
+            "id": "rs_test",
+            "type": "reasoning",
+            "summary": [
+                {"type": "summary_text", "text": "I compare the colours."},
+                {"type": "summary_text", "text": "Then I consider the replacement."},
+            ],
+        },
+    )
+    return Response.model_validate(result)
+
+
+def test_stream_flag_is_hashed_without_changing_model_or_input() -> None:
+    from huemiliator.composition import _digest
+
+    facts = build_behaviour_fact_packet("#a46f44")
+    ordinary = build_composition_request(facts, "test-model")
+    streaming = build_composition_request(facts, "test-model", stream=True)
+    assert streaming["api_request"] == {**ordinary["api_request"], "stream": True}
+    assert streaming["request_sha256"] == _digest(streaming["api_request"])
+    assert ordinary["request_sha256"] != streaming["request_sha256"]
+    assert ordinary["display_swatches"] == streaming["display_swatches"]
+
+
+@pytest.mark.parametrize("status", ["completed", "incomplete", "failed"])
+def test_stream_preserves_summaries_before_each_terminal_response(
+    candidate: str, status: str
+) -> None:
+    request = build_composition_request(
+        build_behaviour_fact_packet("#d9a6a1"), "test-model", stream=True
+    )
+    observed: list[dict[str, Any]] = []
+    terminal = _result_with_summaries(candidate, status)
+    events = [
+        _summary_event("delta", 1, "I compare "),
+        _summary_event("delta", 2, "the colours."),
+        _summary_event("done", 3, "I compare the colours."),
+        _summary_event("delta", 4, "Then I consider the replacement.", 1),
+        _summary_event("done", 5, "Then I consider the replacement.", 1),
+    ]
+
+    class Body(httpx.SyncByteStream):
+        closed = False
+
+        def __iter__(self) -> Iterator[bytes]:
+            for event in events:
+                yield _sse(event)
+            assert len(observed) == 5
+            yield _sse(
+                {
+                    "type": f"response.{status}",
+                    "sequence_number": 6,
+                    "response": terminal.model_dump(),
+                }
+            )
+
+        def close(self) -> None:
+            self.closed = True
+
+    body = Body()
+
+    def respond(http_request: httpx.Request) -> httpx.Response:
+        assert json.loads(http_request.content) == request["api_request"]
+        return httpx.Response(
+            200, headers={"Content-Type": "text/event-stream"}, stream=body
+        )
+
+    with OpenAI(
+        api_key="unit-test-key",
+        http_client=httpx.Client(transport=httpx.MockTransport(respond)),
+    ) as client:
+        record = generate_composition(
+            request, client=client, on_reasoning=observed.append
+        )
+    assert body.closed
+    assert observed[0]["delta"] == "I compare "
+    assert observed[2]["text"] == "I compare the colours."
+    assert observed[4]["summary_index"] == 1
+    assert record["api_response"]["status"] == status
+    assert record["api_response"]["reasoning_summaries"] == [
+        {
+            "item_id": "rs_test",
+            "output_index": 0,
+            "summary_index": 0,
+            "text": "I compare the colours.",
+        },
+        {
+            "item_id": "rs_test",
+            "output_index": 0,
+            "summary_index": 1,
+            "text": "Then I consider the replacement.",
+        },
+    ]
+    assert record["composition"]["response"] == candidate
+    assert record["mechanical_checks"]["ok"] is (status == "completed")
+    assert record["behaviour_verdict"] is None
+
+
+@pytest.mark.parametrize("failure", ["eof", "http", "sse", "typed"])
+def test_interrupted_stream_keeps_emitted_parts_and_never_fabricates_completion(
+    failure: str,
+) -> None:
+    request = build_composition_request(
+        build_behaviour_fact_packet("#d9a6a1"), "test-model", stream=True
+    )
+    observed: list[dict[str, Any]] = []
+
+    class Body(httpx.SyncByteStream):
+        closed = False
+
+        def __iter__(self) -> Iterator[bytes]:
+            yield _sse(_summary_event("delta", 1, "An observed partial summary."))
+            if failure == "http":
+                raise httpx.ReadTimeout("secret-marker")
+            if failure == "sse":
+                yield _sse({"error": {"message": "secret-marker"}})
+            if failure == "typed":
+                yield _sse(
+                    {
+                        "type": "error",
+                        "sequence_number": 2,
+                        "code": "server_error",
+                        "message": "secret-marker",
+                        "param": None,
+                    }
+                )
+                yield _sse(
+                    {
+                        "type": "response.completed",
+                        "sequence_number": 3,
+                        "response": api_result(
+                            "A later terminal must not be accepted."
+                        ).model_dump(),
+                    }
+                )
+
+        def close(self) -> None:
+            self.closed = True
+
+    body = Body()
+    with OpenAI(
+        api_key="unit-test-key",
+        max_retries=0,
+        http_client=httpx.Client(
+            transport=httpx.MockTransport(
+                lambda _: httpx.Response(
+                    200, headers={"Content-Type": "text/event-stream"}, stream=body
+                )
+            )
+        ),
+    ) as client:
+        with pytest.raises(CompositionError) as raised:
+            generate_composition(request, client=client, on_reasoning=observed.append)
+    assert "secret-marker" not in str(raised.value)
+    assert observed[0]["delta"] == "An observed partial summary."
+    assert body.closed
+
+
+def test_nonstream_record_captures_summaries_without_progress_callback(
+    request_packet: dict[str, Any], candidate: str
+) -> None:
+    client = MagicMock(spec=OpenAI)
+    client.responses.create.return_value = _result_with_summaries(candidate)
+    observed: list[dict[str, Any]] = []
+    record = generate_composition(
+        request_packet, client=client, on_reasoning=observed.append
+    )
+    assert observed == []
+    assert len(record["api_response"]["reasoning_summaries"]) == 2
+    assert record["composition"]["response"] == candidate
+    client.responses.create.assert_called_once_with(**request_packet["api_request"])
+
+
+def test_stream_with_no_summary_does_not_invent_progress(candidate: str) -> None:
+    request = build_composition_request(
+        build_behaviour_fact_packet("#d9a6a1"), "test-model", stream=True
+    )
+    terminal = {
+        "type": "response.completed",
+        "sequence_number": 1,
+        "response": api_result(candidate).model_dump(),
+    }
+    observed: list[dict[str, Any]] = []
+    with OpenAI(
+        api_key="unit-test-key",
+        http_client=httpx.Client(
+            transport=httpx.MockTransport(
+                lambda _: httpx.Response(
+                    200,
+                    headers={"Content-Type": "text/event-stream"},
+                    content=_sse(terminal),
+                )
+            )
+        ),
+    ) as client:
+        record = generate_composition(
+            request, client=client, on_reasoning=observed.append
+        )
+    assert observed == []
+    assert record["api_response"]["reasoning_summaries"] == []
+    assert record["composition"]["response"] == candidate

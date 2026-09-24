@@ -1227,3 +1227,29 @@ into implementation authorship.
   for all nine portfolio colours match the selected supported settings while
   preserving prior instructions, input/context and both swatches. Independent
   source review found no issue. No live provider call or eval was run.
+
+## D-067: Stream the API's reasoning summary
+
+- Date: `2026-09-24`
+- Category: `runtime_engineering`
+- Provenance: The author asked to show Hugh's reasoning during the portfolio turn.
+- Decision: Expose the reasoning summary actually supplied by the API through an
+  optional streaming callback, and retain its final indexed parts in composition
+  records. This is summary text, not access to undisclosed reasoning tokens.
+- Implementation: Composer `0.7.0` hashes `stream=true` when selected. It forwards
+  summary delta/done events and uses the Response carried by completed, incomplete
+  or failed terminal events. Done text replaces the corresponding partial part.
+  An empty summary remains empty. Interrupted streams fail without fabricating
+  completion; callers retain any already emitted fragments as partial evidence.
+  API and network errors stay sanitized, and stream resources close on all exits.
+- Boundary: The default complete-response path, D-063's prompt adaptation,
+  D-066's model settings, deterministic colours and existing timeout/retry
+  controls remain intact. No eval, research-method promotion or judgement is
+  introduced. The portfolio owns display, Reset and cancellation.
+- Reference: [Streaming contract](../runtime/COMPOSITION.md#optional-reasoning-streaming)
+  and [API event](https://developers.openai.com/api/reference/resources/responses/streaming-events#response.reasoning_summary_text.delta).
+- Validation: All 235 source tests, formatting, lint and type checks pass.
+  Mock SSE coverage verifies early callbacks, exact hashed wire settings,
+  completed/incomplete/failed responses, missing summaries, EOF, HTTP read
+  failure and both API error shapes. No provider call or eval was used for
+  this source validation.

@@ -4,10 +4,13 @@ import hashlib
 import json
 import os
 import re
+from collections.abc import Callable
 from datetime import datetime, timezone
-from typing import Any
+from typing import Any, cast
 
-from openai import APIError, OpenAI
+import httpx
+from openai import APIError, OpenAI, Stream
+from openai.types.responses import Response, ResponseStreamEvent
 
 from huemiliator.agent import (
     COMPOSITION_INSTRUCTIONS,
@@ -20,7 +23,7 @@ from huemiliator.config import (
 )
 from huemiliator.feedback import feedback_context
 
-COMPOSER_VERSION = "0.6.1"
+COMPOSER_VERSION = "0.7.0"
 REQUEST_TIMEOUT_SECONDS = 60.0
 
 
@@ -41,6 +44,7 @@ def build_composition_request(
     top_p: float | str = DEFAULT_TOP_P,
     *,
     feedback: dict[str, Any] | None = None,
+    stream: bool = False,
 ) -> dict[str, Any]:
     """Prepare a free-text request from Hugh's directions and fixed colour facts."""
     if reasoning_effort not in {"none", "low", "medium", "high", "xhigh", "max"}:
@@ -108,6 +112,8 @@ def build_composition_request(
         "truncation": "disabled",
         "previous_response_id": None,
     }
+    if stream:
+        api_request["stream"] = True
     packet = {
         "schema": "huemiliator.composition_request.v2",
         "composer_version": COMPOSER_VERSION,
@@ -157,19 +163,68 @@ def check_composition(response: object, request: dict[str, Any]) -> list[str]:
     return errors
 
 
+def _stream_response(
+    client: OpenAI,
+    api_request: dict[str, Any],
+    on_reasoning: Callable[[dict[str, Any]], None] | None,
+) -> Response:
+    """Forward actual summary parts and retain any terminal response state."""
+    response_stream = cast(
+        Stream[ResponseStreamEvent], client.responses.create(**api_request)
+    )
+    with response_stream:
+        for event in response_stream:
+            if event.type == "error":
+                raise CompositionError("OpenAI stream reported an error.")
+            if (
+                event.type == "response.reasoning_summary_text.delta"
+                or event.type == "response.reasoning_summary_text.done"
+            ):
+                if on_reasoning:
+                    field = (
+                        {"delta": event.delta}
+                        if event.type == "response.reasoning_summary_text.delta"
+                        else {"text": event.text}
+                    )
+                    on_reasoning(
+                        {
+                            "item_id": event.item_id,
+                            "output_index": event.output_index,
+                            "summary_index": event.summary_index,
+                            "sequence_number": event.sequence_number,
+                            **field,
+                        }
+                    )
+            elif (
+                event.type == "response.completed"
+                or event.type == "response.incomplete"
+                or event.type == "response.failed"
+            ):
+                return event.response
+    raise CompositionError("OpenAI stream ended before a terminal response.")
+
+
 def generate_composition(
-    request: dict[str, Any], *, client: OpenAI | None = None
+    request: dict[str, Any],
+    *,
+    client: OpenAI | None = None,
+    on_reasoning: Callable[[dict[str, Any]], None] | None = None,
 ) -> dict[str, Any]:
     """Make one request and retain its visible output, including mechanical failures."""
     if client is None:
         if not os.getenv("OPENAI_API_KEY", "").strip():
             raise CompositionError("OPENAI_API_KEY is required for live composition.")
         with OpenAI(timeout=REQUEST_TIMEOUT_SECONDS, max_retries=0) as owned_client:
-            return generate_composition(request, client=owned_client)
+            return generate_composition(
+                request, client=owned_client, on_reasoning=on_reasoning
+            )
     started_at = datetime.now(timezone.utc).isoformat()
     try:
-        result = client.responses.create(**request["api_request"])
-    except APIError as exc:
+        if request["api_request"].get("stream"):
+            result = _stream_response(client, request["api_request"], on_reasoning)
+        else:
+            result = client.responses.create(**request["api_request"])
+    except (APIError, httpx.HTTPError) as exc:
         # Provider messages can echo credentials or request data. Keep CLI errors safe.
         status = getattr(exc, "status_code", None)
         detail = f" (HTTP {status})" if status is not None else ""
@@ -209,6 +264,18 @@ def generate_composition(
             ),
             "refusals": refusals,
             "output_text": raw_text,
+            "reasoning_summaries": [
+                {
+                    "item_id": item.id,
+                    "output_index": output_index,
+                    "summary_index": summary_index,
+                    "text": part.text,
+                }
+                for output_index, item in enumerate(result.output)
+                if item.type == "reasoning"
+                for summary_index, part in enumerate(item.summary)
+                if part.type == "summary_text"
+            ],
         },
         "composition": composition,
         "mechanical_checks": {"ok": not errors, "issues": errors},
