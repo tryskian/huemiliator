@@ -1,6 +1,15 @@
 # Session Handoff
 
-Last updated: 2026-09-24
+Last updated: 2026-10-02
+
+## Dependency Maintenance
+
+[PR #180](https://github.com/tryskian/huemiliator/pull/180) updates the
+chart-tooling dependency Undici to `7.30.0` and the urllib3 pin to `2.8.0`.
+The npm and Python audits report no known vulnerabilities; all 236 tests,
+package build and an in-memory chart-rendering smoke check pass.
+This maintenance refresh leaves the September 24 research handoff below,
+the OpenAI SDK, prompts, model settings and recorded evidence unchanged.
 
 ## Start Here
 
