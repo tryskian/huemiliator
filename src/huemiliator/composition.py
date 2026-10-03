@@ -8,7 +8,7 @@ from collections.abc import Callable
 from datetime import datetime, timezone
 from typing import Any, cast
 
-import httpx
+import httpx2 as httpx
 from openai import APIError, OpenAI, Stream
 from openai.types.responses import Response, ResponseStreamEvent
 

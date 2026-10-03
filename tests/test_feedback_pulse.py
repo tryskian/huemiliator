@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 from unittest.mock import patch
 
-import httpx
+import httpx2 as httpx
 import pytest
 from openai import OpenAI
 
