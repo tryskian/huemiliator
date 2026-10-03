@@ -1,8 +1,15 @@
 # Session Handoff
 
-Last updated: 2026-10-02
+Last updated: 2026-10-03
 
 ## Dependency Maintenance
+
+PR #181 updates the dependency group, including OpenAI SDK `3.22.1`.
+Composition error handling and mocked SDK transports now use the SDK's
+`httpx2` client types, pinned to `2.13.1`. All 236 offline tests, Ruff, mypy
+and package checks pass with the upgraded dependencies. The tests retain
+request settings, streaming completion, timeout and feedback-capture checks.
+No live generations were run for this compatibility repair.
 
 [PR #180](https://github.com/tryskian/huemiliator/pull/180) updates the
 chart-tooling dependency Undici to `7.30.0` and the urllib3 pin to `2.8.0`.
